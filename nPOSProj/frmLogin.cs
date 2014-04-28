@@ -79,7 +79,7 @@ namespace nPOSProj
                         fm.Show();
                         if (login.hasSales())
                         {
-                            MessageBox.Show("Sales");
+                            fm.unlockSales();
                         }
                         //if (loginDAO.hasClient())
                         //{
@@ -132,7 +132,7 @@ namespace nPOSProj
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-
+            enterKey();
         }
 
         private void txtBoxUsername_KeyDown(object sender, KeyEventArgs e)

@@ -16,6 +16,11 @@ namespace nPOSProj
             InitializeComponent();
         }
 
+        public void unlockSales()
+        {
+            btnSales.Enabled = true;
+        }
+
         private void button11_Click(object sender, EventArgs e)
         {
 

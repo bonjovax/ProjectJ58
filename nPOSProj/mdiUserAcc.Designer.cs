@@ -52,16 +52,19 @@
             this.text_userid = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.btn_cancel = new System.Windows.Forms.Button();
+            this.btn_save = new System.Windows.Forms.Button();
+            this.chk_systemaccess = new System.Windows.Forms.CheckBox();
+            this.chk_useraccounts = new System.Windows.Forms.CheckBox();
+            this.chk_configuration = new System.Windows.Forms.CheckBox();
+            this.chk_giftcards = new System.Windows.Forms.CheckBox();
             this.chk_inventory = new System.Windows.Forms.CheckBox();
             this.chk_reports = new System.Windows.Forms.CheckBox();
             this.chk_customers = new System.Windows.Forms.CheckBox();
             this.chk_sales = new System.Windows.Forms.CheckBox();
             this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.chk_useraccounts = new System.Windows.Forms.CheckBox();
-            this.chk_configuration = new System.Windows.Forms.CheckBox();
-            this.chk_giftcards = new System.Windows.Forms.CheckBox();
-            this.chk_systemaccess = new System.Windows.Forms.CheckBox();
             this.btn_cancel2 = new System.Windows.Forms.Button();
+            this.btn_delete = new System.Windows.Forms.Button();
             this.btn_update = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
@@ -75,9 +78,6 @@
             this.label11 = new System.Windows.Forms.Label();
             this.textBox6 = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
-            this.btn_save = new System.Windows.Forms.Button();
-            this.btn_cancel = new System.Windows.Forms.Button();
-            this.btn_delete = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -196,7 +196,7 @@
             // 
             // text_lastname
             // 
-            this.text_lastname.Location = new System.Drawing.Point(312, 63);
+            this.text_lastname.Location = new System.Drawing.Point(320, 54);
             this.text_lastname.Name = "text_lastname";
             this.text_lastname.Size = new System.Drawing.Size(182, 21);
             this.text_lastname.TabIndex = 11;
@@ -204,7 +204,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(247, 67);
+            this.label4.Location = new System.Drawing.Point(248, 57);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(57, 13);
             this.label4.TabIndex = 10;
@@ -212,7 +212,7 @@
             // 
             // text_middlename
             // 
-            this.text_middlename.Location = new System.Drawing.Point(312, 36);
+            this.text_middlename.Location = new System.Drawing.Point(320, 32);
             this.text_middlename.Name = "text_middlename";
             this.text_middlename.Size = new System.Drawing.Size(182, 21);
             this.text_middlename.TabIndex = 9;
@@ -220,7 +220,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(247, 40);
+            this.label5.Location = new System.Drawing.Point(247, 35);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(67, 13);
             this.label5.TabIndex = 8;
@@ -228,7 +228,7 @@
             // 
             // text_firstname
             // 
-            this.text_firstname.Location = new System.Drawing.Point(312, 10);
+            this.text_firstname.Location = new System.Drawing.Point(320, 10);
             this.text_firstname.Name = "text_firstname";
             this.text_firstname.Size = new System.Drawing.Size(182, 21);
             this.text_firstname.TabIndex = 7;
@@ -244,15 +244,15 @@
             // 
             // text_password
             // 
-            this.text_password.Location = new System.Drawing.Point(71, 63);
+            this.text_password.Location = new System.Drawing.Point(71, 54);
             this.text_password.Name = "text_password";
-            this.text_password.Size = new System.Drawing.Size(146, 21);
+            this.text_password.Size = new System.Drawing.Size(162, 21);
             this.text_password.TabIndex = 5;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(6, 67);
+            this.label3.Location = new System.Drawing.Point(6, 57);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(53, 13);
             this.label3.TabIndex = 4;
@@ -260,15 +260,15 @@
             // 
             // text_username
             // 
-            this.text_username.Location = new System.Drawing.Point(71, 36);
+            this.text_username.Location = new System.Drawing.Point(71, 32);
             this.text_username.Name = "text_username";
-            this.text_username.Size = new System.Drawing.Size(146, 21);
+            this.text_username.Size = new System.Drawing.Size(162, 21);
             this.text_username.TabIndex = 3;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(6, 40);
+            this.label2.Location = new System.Drawing.Point(6, 35);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(59, 13);
             this.label2.TabIndex = 2;
@@ -278,7 +278,7 @@
             // 
             this.text_userid.Location = new System.Drawing.Point(71, 10);
             this.text_userid.Name = "text_userid";
-            this.text_userid.Size = new System.Drawing.Size(146, 21);
+            this.text_userid.Size = new System.Drawing.Size(162, 21);
             this.text_userid.TabIndex = 1;
             // 
             // label1
@@ -309,6 +309,64 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Restrictions";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // btn_cancel
+            // 
+            this.btn_cancel.Location = new System.Drawing.Point(291, 47);
+            this.btn_cancel.Name = "btn_cancel";
+            this.btn_cancel.Size = new System.Drawing.Size(75, 23);
+            this.btn_cancel.TabIndex = 13;
+            this.btn_cancel.Text = "Cancel";
+            this.btn_cancel.UseVisualStyleBackColor = true;
+            // 
+            // btn_save
+            // 
+            this.btn_save.Location = new System.Drawing.Point(291, 18);
+            this.btn_save.Name = "btn_save";
+            this.btn_save.Size = new System.Drawing.Size(75, 23);
+            this.btn_save.TabIndex = 13;
+            this.btn_save.Text = "Save";
+            this.btn_save.UseVisualStyleBackColor = true;
+            // 
+            // chk_systemaccess
+            // 
+            this.chk_systemaccess.AutoSize = true;
+            this.chk_systemaccess.Location = new System.Drawing.Point(19, 18);
+            this.chk_systemaccess.Name = "chk_systemaccess";
+            this.chk_systemaccess.Size = new System.Drawing.Size(127, 17);
+            this.chk_systemaccess.TabIndex = 7;
+            this.chk_systemaccess.Text = "** System Access **";
+            this.chk_systemaccess.UseVisualStyleBackColor = true;
+            // 
+            // chk_useraccounts
+            // 
+            this.chk_useraccounts.AutoSize = true;
+            this.chk_useraccounts.Location = new System.Drawing.Point(162, 64);
+            this.chk_useraccounts.Name = "chk_useraccounts";
+            this.chk_useraccounts.Size = new System.Drawing.Size(95, 17);
+            this.chk_useraccounts.TabIndex = 6;
+            this.chk_useraccounts.Text = "User Accounts";
+            this.chk_useraccounts.UseVisualStyleBackColor = true;
+            // 
+            // chk_configuration
+            // 
+            this.chk_configuration.AutoSize = true;
+            this.chk_configuration.Location = new System.Drawing.Point(162, 87);
+            this.chk_configuration.Name = "chk_configuration";
+            this.chk_configuration.Size = new System.Drawing.Size(91, 17);
+            this.chk_configuration.TabIndex = 5;
+            this.chk_configuration.Text = "Configuration";
+            this.chk_configuration.UseVisualStyleBackColor = true;
+            // 
+            // chk_giftcards
+            // 
+            this.chk_giftcards.AutoSize = true;
+            this.chk_giftcards.Location = new System.Drawing.Point(162, 41);
+            this.chk_giftcards.Name = "chk_giftcards";
+            this.chk_giftcards.Size = new System.Drawing.Size(74, 17);
+            this.chk_giftcards.TabIndex = 4;
+            this.chk_giftcards.Text = "Gift Cards";
+            this.chk_giftcards.UseVisualStyleBackColor = true;
             // 
             // chk_inventory
             // 
@@ -375,46 +433,6 @@
             this.tabPage3.Text = "Update & Delete";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
-            // chk_useraccounts
-            // 
-            this.chk_useraccounts.AutoSize = true;
-            this.chk_useraccounts.Location = new System.Drawing.Point(162, 64);
-            this.chk_useraccounts.Name = "chk_useraccounts";
-            this.chk_useraccounts.Size = new System.Drawing.Size(95, 17);
-            this.chk_useraccounts.TabIndex = 6;
-            this.chk_useraccounts.Text = "User Accounts";
-            this.chk_useraccounts.UseVisualStyleBackColor = true;
-            // 
-            // chk_configuration
-            // 
-            this.chk_configuration.AutoSize = true;
-            this.chk_configuration.Location = new System.Drawing.Point(162, 87);
-            this.chk_configuration.Name = "chk_configuration";
-            this.chk_configuration.Size = new System.Drawing.Size(91, 17);
-            this.chk_configuration.TabIndex = 5;
-            this.chk_configuration.Text = "Configuration";
-            this.chk_configuration.UseVisualStyleBackColor = true;
-            // 
-            // chk_giftcards
-            // 
-            this.chk_giftcards.AutoSize = true;
-            this.chk_giftcards.Location = new System.Drawing.Point(162, 41);
-            this.chk_giftcards.Name = "chk_giftcards";
-            this.chk_giftcards.Size = new System.Drawing.Size(74, 17);
-            this.chk_giftcards.TabIndex = 4;
-            this.chk_giftcards.Text = "Gift Cards";
-            this.chk_giftcards.UseVisualStyleBackColor = true;
-            // 
-            // chk_systemaccess
-            // 
-            this.chk_systemaccess.AutoSize = true;
-            this.chk_systemaccess.Location = new System.Drawing.Point(19, 18);
-            this.chk_systemaccess.Name = "chk_systemaccess";
-            this.chk_systemaccess.Size = new System.Drawing.Size(127, 17);
-            this.chk_systemaccess.TabIndex = 7;
-            this.chk_systemaccess.Text = "** System Access **";
-            this.chk_systemaccess.UseVisualStyleBackColor = true;
-            // 
             // btn_cancel2
             // 
             this.btn_cancel2.Location = new System.Drawing.Point(302, 121);
@@ -423,6 +441,15 @@
             this.btn_cancel2.TabIndex = 25;
             this.btn_cancel2.Text = "Cancel";
             this.btn_cancel2.UseVisualStyleBackColor = true;
+            // 
+            // btn_delete
+            // 
+            this.btn_delete.Location = new System.Drawing.Point(221, 121);
+            this.btn_delete.Name = "btn_delete";
+            this.btn_delete.Size = new System.Drawing.Size(75, 23);
+            this.btn_delete.TabIndex = 26;
+            this.btn_delete.Text = "Delete";
+            this.btn_delete.UseVisualStyleBackColor = true;
             // 
             // btn_update
             // 
@@ -528,33 +555,6 @@
             this.label12.Size = new System.Drawing.Size(43, 13);
             this.label12.TabIndex = 13;
             this.label12.Text = "User ID";
-            // 
-            // btn_save
-            // 
-            this.btn_save.Location = new System.Drawing.Point(291, 18);
-            this.btn_save.Name = "btn_save";
-            this.btn_save.Size = new System.Drawing.Size(75, 23);
-            this.btn_save.TabIndex = 13;
-            this.btn_save.Text = "Save";
-            this.btn_save.UseVisualStyleBackColor = true;
-            // 
-            // btn_cancel
-            // 
-            this.btn_cancel.Location = new System.Drawing.Point(291, 47);
-            this.btn_cancel.Name = "btn_cancel";
-            this.btn_cancel.Size = new System.Drawing.Size(75, 23);
-            this.btn_cancel.TabIndex = 13;
-            this.btn_cancel.Text = "Cancel";
-            this.btn_cancel.UseVisualStyleBackColor = true;
-            // 
-            // btn_delete
-            // 
-            this.btn_delete.Location = new System.Drawing.Point(221, 121);
-            this.btn_delete.Name = "btn_delete";
-            this.btn_delete.Size = new System.Drawing.Size(75, 23);
-            this.btn_delete.TabIndex = 26;
-            this.btn_delete.Text = "Delete";
-            this.btn_delete.UseVisualStyleBackColor = true;
             // 
             // mdiUserAcc
             // 

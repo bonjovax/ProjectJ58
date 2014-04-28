@@ -40,7 +40,7 @@ namespace nPOSProj.DAO
             bool isAuth = false;
             String crypt = "";
             con.ConnectionString = dbcon.getConnectionString();
-            String sql = "SELECT * FROM user_accounts ";
+            String sql = "SELECT * FROM user_account ";
             sql += "WHERE user_name = ?user_name AND user_password = ?user_password";
             try
             {
@@ -71,7 +71,7 @@ namespace nPOSProj.DAO
             con = new MySqlConnection();
             dbcon = new Conf.dbs();
             con.ConnectionString = dbcon.getConnectionString();
-            String sql = "SELECT user_id FROM holders WHERE user_name = ?user_name";
+            String sql = "SELECT user_id FROM user_account WHERE user_name = ?user_name";
             String UserID = "";
             try
             {
