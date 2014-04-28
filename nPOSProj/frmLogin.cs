@@ -172,5 +172,10 @@ namespace nPOSProj
             else
                 btnLogin.Enabled = false;
         }
+
+        private void frmLogin_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.ExitThread();
+        }
     }
 }

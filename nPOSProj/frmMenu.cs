@@ -44,5 +44,21 @@ namespace nPOSProj
         {
             btnConfig.Enabled = true;
         }
+        private void closingForm()
+        {
+            frmLogin fl = new frmLogin();
+            this.Hide();
+            fl.Show();
+        }
+
+        private void frmMenu_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            this.closingForm();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.closingForm();
+        }
     }
 }
