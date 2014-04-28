@@ -80,6 +80,7 @@
             this.txtPassword.Size = new System.Drawing.Size(261, 32);
             this.txtPassword.TabIndex = 3;
             this.txtPassword.UseSystemPasswordChar = true;
+            this.txtPassword.TextChanged += new System.EventHandler(this.txtPassword_TextChanged);
             // 
             // txtBoxUsername
             // 
@@ -90,6 +91,8 @@
             this.txtBoxUsername.Name = "txtBoxUsername";
             this.txtBoxUsername.Size = new System.Drawing.Size(261, 32);
             this.txtBoxUsername.TabIndex = 2;
+            this.txtBoxUsername.TextChanged += new System.EventHandler(this.txtBoxUsername_TextChanged);
+            this.txtBoxUsername.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtBoxUsername_KeyDown);
             // 
             // label2
             // 
