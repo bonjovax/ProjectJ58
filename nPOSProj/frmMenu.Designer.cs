@@ -145,7 +145,7 @@
             this.button9.Name = "button9";
             this.button9.Size = new System.Drawing.Size(164, 162);
             this.button9.TabIndex = 9;
-            this.button9.Text = "User Acounts";
+            this.button9.Text = "User Accounts";
             this.button9.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.button9.UseVisualStyleBackColor = true;
             // 
