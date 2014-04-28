@@ -30,7 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMenu));
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnLogout = new System.Windows.Forms.Button();
             this.btnSales = new System.Windows.Forms.Button();
             this.btnGenReports = new System.Windows.Forms.Button();
             this.btnCustomers = new System.Windows.Forms.Button();
@@ -38,7 +38,7 @@
             this.btnGC = new System.Windows.Forms.Button();
             this.btnUserAccounts = new System.Windows.Forms.Button();
             this.btnConfig = new System.Windows.Forms.Button();
-            this.button12 = new System.Windows.Forms.Button();
+            this.btnChangePassword = new System.Windows.Forms.Button();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -53,18 +53,18 @@
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
-            // button1
+            // btnLogout
             // 
-            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
-            this.button1.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.button1.Location = new System.Drawing.Point(640, 486);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(61, 74);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "&Log-out";
-            this.button1.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnLogout.Image = ((System.Drawing.Image)(resources.GetObject("btnLogout.Image")));
+            this.btnLogout.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnLogout.Location = new System.Drawing.Point(640, 486);
+            this.btnLogout.Name = "btnLogout";
+            this.btnLogout.Size = new System.Drawing.Size(61, 74);
+            this.btnLogout.TabIndex = 1;
+            this.btnLogout.Text = "&Log-out";
+            this.btnLogout.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnLogout.UseVisualStyleBackColor = true;
+            this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
             // 
             // btnSales
             // 
@@ -171,17 +171,18 @@
             this.btnConfig.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnConfig.UseVisualStyleBackColor = true;
             // 
-            // button12
+            // btnChangePassword
             // 
-            this.button12.Image = ((System.Drawing.Image)(resources.GetObject("button12.Image")));
-            this.button12.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.button12.Location = new System.Drawing.Point(579, 486);
-            this.button12.Name = "button12";
-            this.button12.Size = new System.Drawing.Size(61, 74);
-            this.button12.TabIndex = 12;
-            this.button12.Text = "Change Password";
-            this.button12.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.button12.UseVisualStyleBackColor = true;
+            this.btnChangePassword.Image = ((System.Drawing.Image)(resources.GetObject("btnChangePassword.Image")));
+            this.btnChangePassword.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnChangePassword.Location = new System.Drawing.Point(579, 486);
+            this.btnChangePassword.Name = "btnChangePassword";
+            this.btnChangePassword.Size = new System.Drawing.Size(61, 74);
+            this.btnChangePassword.TabIndex = 12;
+            this.btnChangePassword.Text = "Change &Password";
+            this.btnChangePassword.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnChangePassword.UseVisualStyleBackColor = true;
+            this.btnChangePassword.Click += new System.EventHandler(this.btnChangePassword_Click);
             // 
             // pictureBox2
             // 
@@ -200,7 +201,7 @@
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(701, 561);
             this.Controls.Add(this.pictureBox2);
-            this.Controls.Add(this.button12);
+            this.Controls.Add(this.btnChangePassword);
             this.Controls.Add(this.btnConfig);
             this.Controls.Add(this.btnUserAccounts);
             this.Controls.Add(this.btnGC);
@@ -208,7 +209,7 @@
             this.Controls.Add(this.btnCustomers);
             this.Controls.Add(this.btnGenReports);
             this.Controls.Add(this.btnSales);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnLogout);
             this.Controls.Add(this.pictureBox1);
             this.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -226,7 +227,7 @@
         #endregion
 
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnLogout;
         private System.Windows.Forms.Button btnSales;
         private System.Windows.Forms.Button btnGenReports;
         private System.Windows.Forms.Button btnCustomers;
@@ -234,7 +235,7 @@
         private System.Windows.Forms.Button btnGC;
         private System.Windows.Forms.Button btnUserAccounts;
         private System.Windows.Forms.Button btnConfig;
-        private System.Windows.Forms.Button button12;
+        private System.Windows.Forms.Button btnChangePassword;
         private System.Windows.Forms.PictureBox pictureBox2;
     }
 }

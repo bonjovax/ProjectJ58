@@ -58,6 +58,7 @@
   <ItemGroup>
     <Compile Include="Conf\Crypto.cs" />
     <Compile Include="Conf\dbs.cs" />
+    <Compile Include="DAO\ChangePasswordDAO.cs" />
     <Compile Include="DAO\LoginDAO.cs" />
     <Compile Include="DAO\UserAccountDAO.cs" />
     <Compile Include="frmChangePass.cs">
@@ -103,6 +104,7 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="VO\ChangePasswordVO.cs" />
     <Compile Include="VO\LoginVO.cs" />
     <Compile Include="VO\UserAccountVO.cs" />
     <EmbeddedResource Include="frmChangePass.resx">

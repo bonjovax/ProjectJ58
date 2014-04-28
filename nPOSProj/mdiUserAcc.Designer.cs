@@ -37,19 +37,19 @@
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.btn_clear = new System.Windows.Forms.Button();
-            this.btn_add = new System.Windows.Forms.Button();
-            this.text_lastname = new System.Windows.Forms.TextBox();
+            this.btnClear = new System.Windows.Forms.Button();
+            this.btnAdd = new System.Windows.Forms.Button();
+            this.txtBoxLastName = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.text_middlename = new System.Windows.Forms.TextBox();
+            this.txtBoxMiddleName = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.text_firstname = new System.Windows.Forms.TextBox();
+            this.txtBoxFirstName = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.text_password = new System.Windows.Forms.TextBox();
+            this.txtBoxPassword = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.text_username = new System.Windows.Forms.TextBox();
+            this.txtBoxUserName = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.text_userid = new System.Windows.Forms.TextBox();
+            this.txtBoxUserID = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.btn_cancel = new System.Windows.Forms.Button();
@@ -153,19 +153,19 @@
             // 
             // tabPage1
             // 
-            this.tabPage1.Controls.Add(this.btn_clear);
-            this.tabPage1.Controls.Add(this.btn_add);
-            this.tabPage1.Controls.Add(this.text_lastname);
+            this.tabPage1.Controls.Add(this.btnClear);
+            this.tabPage1.Controls.Add(this.btnAdd);
+            this.tabPage1.Controls.Add(this.txtBoxLastName);
             this.tabPage1.Controls.Add(this.label4);
-            this.tabPage1.Controls.Add(this.text_middlename);
+            this.tabPage1.Controls.Add(this.txtBoxMiddleName);
             this.tabPage1.Controls.Add(this.label5);
-            this.tabPage1.Controls.Add(this.text_firstname);
+            this.tabPage1.Controls.Add(this.txtBoxFirstName);
             this.tabPage1.Controls.Add(this.label6);
-            this.tabPage1.Controls.Add(this.text_password);
+            this.tabPage1.Controls.Add(this.txtBoxPassword);
             this.tabPage1.Controls.Add(this.label3);
-            this.tabPage1.Controls.Add(this.text_username);
+            this.tabPage1.Controls.Add(this.txtBoxUserName);
             this.tabPage1.Controls.Add(this.label2);
-            this.tabPage1.Controls.Add(this.text_userid);
+            this.tabPage1.Controls.Add(this.txtBoxUserID);
             this.tabPage1.Controls.Add(this.label1);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
@@ -175,31 +175,31 @@
             this.tabPage1.Text = "Create Account";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
-            // btn_clear
+            // btnClear
             // 
-            this.btn_clear.Location = new System.Drawing.Point(250, 115);
-            this.btn_clear.Name = "btn_clear";
-            this.btn_clear.Size = new System.Drawing.Size(75, 23);
-            this.btn_clear.TabIndex = 12;
-            this.btn_clear.Text = "Clear";
-            this.btn_clear.UseVisualStyleBackColor = true;
-            this.btn_clear.Click += new System.EventHandler(this.btn_clear_Click);
+            this.btnClear.Location = new System.Drawing.Point(250, 115);
+            this.btnClear.Name = "btnClear";
+            this.btnClear.Size = new System.Drawing.Size(75, 23);
+            this.btnClear.TabIndex = 12;
+            this.btnClear.Text = "Clear";
+            this.btnClear.UseVisualStyleBackColor = true;
+            this.btnClear.Click += new System.EventHandler(this.btn_clear_Click);
             // 
-            // btn_add
+            // btnAdd
             // 
-            this.btn_add.Location = new System.Drawing.Point(158, 115);
-            this.btn_add.Name = "btn_add";
-            this.btn_add.Size = new System.Drawing.Size(75, 23);
-            this.btn_add.TabIndex = 12;
-            this.btn_add.Text = "Add";
-            this.btn_add.UseVisualStyleBackColor = true;
+            this.btnAdd.Location = new System.Drawing.Point(158, 115);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(75, 23);
+            this.btnAdd.TabIndex = 12;
+            this.btnAdd.Text = "Add";
+            this.btnAdd.UseVisualStyleBackColor = true;
             // 
-            // text_lastname
+            // txtBoxLastName
             // 
-            this.text_lastname.Location = new System.Drawing.Point(320, 54);
-            this.text_lastname.Name = "text_lastname";
-            this.text_lastname.Size = new System.Drawing.Size(182, 21);
-            this.text_lastname.TabIndex = 11;
+            this.txtBoxLastName.Location = new System.Drawing.Point(320, 54);
+            this.txtBoxLastName.Name = "txtBoxLastName";
+            this.txtBoxLastName.Size = new System.Drawing.Size(182, 21);
+            this.txtBoxLastName.TabIndex = 11;
             // 
             // label4
             // 
@@ -210,12 +210,12 @@
             this.label4.TabIndex = 10;
             this.label4.Text = "Last Name";
             // 
-            // text_middlename
+            // txtBoxMiddleName
             // 
-            this.text_middlename.Location = new System.Drawing.Point(320, 32);
-            this.text_middlename.Name = "text_middlename";
-            this.text_middlename.Size = new System.Drawing.Size(182, 21);
-            this.text_middlename.TabIndex = 9;
+            this.txtBoxMiddleName.Location = new System.Drawing.Point(320, 32);
+            this.txtBoxMiddleName.Name = "txtBoxMiddleName";
+            this.txtBoxMiddleName.Size = new System.Drawing.Size(182, 21);
+            this.txtBoxMiddleName.TabIndex = 9;
             // 
             // label5
             // 
@@ -226,12 +226,12 @@
             this.label5.TabIndex = 8;
             this.label5.Text = "Middle Name";
             // 
-            // text_firstname
+            // txtBoxFirstName
             // 
-            this.text_firstname.Location = new System.Drawing.Point(320, 10);
-            this.text_firstname.Name = "text_firstname";
-            this.text_firstname.Size = new System.Drawing.Size(182, 21);
-            this.text_firstname.TabIndex = 7;
+            this.txtBoxFirstName.Location = new System.Drawing.Point(320, 10);
+            this.txtBoxFirstName.Name = "txtBoxFirstName";
+            this.txtBoxFirstName.Size = new System.Drawing.Size(182, 21);
+            this.txtBoxFirstName.TabIndex = 7;
             // 
             // label6
             // 
@@ -242,12 +242,12 @@
             this.label6.TabIndex = 6;
             this.label6.Text = "First Name";
             // 
-            // text_password
+            // txtBoxPassword
             // 
-            this.text_password.Location = new System.Drawing.Point(71, 54);
-            this.text_password.Name = "text_password";
-            this.text_password.Size = new System.Drawing.Size(162, 21);
-            this.text_password.TabIndex = 5;
+            this.txtBoxPassword.Location = new System.Drawing.Point(71, 54);
+            this.txtBoxPassword.Name = "txtBoxPassword";
+            this.txtBoxPassword.Size = new System.Drawing.Size(162, 21);
+            this.txtBoxPassword.TabIndex = 5;
             // 
             // label3
             // 
@@ -258,12 +258,12 @@
             this.label3.TabIndex = 4;
             this.label3.Text = "Password";
             // 
-            // text_username
+            // txtBoxUserName
             // 
-            this.text_username.Location = new System.Drawing.Point(71, 32);
-            this.text_username.Name = "text_username";
-            this.text_username.Size = new System.Drawing.Size(162, 21);
-            this.text_username.TabIndex = 3;
+            this.txtBoxUserName.Location = new System.Drawing.Point(71, 32);
+            this.txtBoxUserName.Name = "txtBoxUserName";
+            this.txtBoxUserName.Size = new System.Drawing.Size(162, 21);
+            this.txtBoxUserName.TabIndex = 3;
             // 
             // label2
             // 
@@ -274,12 +274,12 @@
             this.label2.TabIndex = 2;
             this.label2.Text = "User Name";
             // 
-            // text_userid
+            // txtBoxUserID
             // 
-            this.text_userid.Location = new System.Drawing.Point(71, 10);
-            this.text_userid.Name = "text_userid";
-            this.text_userid.Size = new System.Drawing.Size(162, 21);
-            this.text_userid.TabIndex = 1;
+            this.txtBoxUserID.Location = new System.Drawing.Point(71, 10);
+            this.txtBoxUserID.Name = "txtBoxUserID";
+            this.txtBoxUserID.Size = new System.Drawing.Size(162, 21);
+            this.txtBoxUserID.TabIndex = 1;
             // 
             // label1
             // 
@@ -591,19 +591,19 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;
-        private System.Windows.Forms.Button btn_clear;
-        private System.Windows.Forms.Button btn_add;
-        private System.Windows.Forms.TextBox text_lastname;
+        private System.Windows.Forms.Button btnClear;
+        private System.Windows.Forms.Button btnAdd;
+        private System.Windows.Forms.TextBox txtBoxLastName;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox text_middlename;
+        private System.Windows.Forms.TextBox txtBoxMiddleName;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox text_firstname;
+        private System.Windows.Forms.TextBox txtBoxFirstName;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox text_password;
+        private System.Windows.Forms.TextBox txtBoxPassword;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox text_username;
+        private System.Windows.Forms.TextBox txtBoxUserName;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox text_userid;
+        private System.Windows.Forms.TextBox txtBoxUserID;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.TabPage tabPage3;

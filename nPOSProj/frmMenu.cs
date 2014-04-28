@@ -56,9 +56,15 @@ namespace nPOSProj
             this.closingForm();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnLogout_Click(object sender, EventArgs e)
         {
             this.closingForm();
+        }
+
+        private void btnChangePassword_Click(object sender, EventArgs e)
+        {
+            frmChangePass fcp = new frmChangePass();
+            fcp.ShowDialog();
         }
     }
 }
