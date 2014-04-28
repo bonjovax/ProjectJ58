@@ -20,5 +20,10 @@ namespace nPOSProj
         {
             lblAdlib.Text = "© Copyright 2014";
         }
+
+        private void btnLogin_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
