@@ -1420,10 +1420,10 @@
         D4o9kFaYKc8FAAAAAElFTkSuQmCC
 </value>
   </data>
-  <metadata name="button7.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  <metadata name="btnGC.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
-  <data name="button7.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="btnGC.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAYAAADDPmHLAAAABGdBTUEAALGPC/xhBQAAO7JJREFUeF7t
         fQdUVde67tn33Hf2eScJiYXEGNSENIlt24gmEo3YsBJjsGHvvaCgINiVrmIBRdk06UgTRIoiiA1rsLfY
@@ -1683,10 +1683,10 @@
         qdm6VM+VuuAerjqEAcxpK838vgwyRdZmbdZmbX/a/vKX/wfwljQmmO4AOQAAAABJRU5ErkJggg==
 </value>
   </data>
-  <metadata name="button9.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  <metadata name="btnUserAccounts.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
-  <data name="button9.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="btnUserAccounts.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAYAAADDPmHLAAAABGdBTUEAALGPC/xhBQAAF6ZJREFUeF7t
         nAlUVFe2hm+M6fZ18rp9/Xyv7Y5jYhyigkYUZzFO2GpItB2J4hSNmmhHk+CMijgxC8hMMSkgoyCgIBQK
@@ -1793,10 +1793,10 @@
         RU5ErkJggg==
 </value>
   </data>
-  <metadata name="button11.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  <metadata name="btnConfig.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
-  <data name="button11.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="btnConfig.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAYAAADDPmHLAAAABGdBTUEAALGPC/xhBQAAW1dJREFUeF7t
         fQV4FFna9T87smM7suMM7i7Bg7u7OzHiHjwJBIJ7BE+Q4O4OQYKFhOAWAiHu7kn3+59TdLE9LMyOMLM7

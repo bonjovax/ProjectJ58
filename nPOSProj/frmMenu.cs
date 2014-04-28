@@ -20,10 +20,29 @@ namespace nPOSProj
         {
             btnSales.Enabled = true;
         }
-
-        private void button11_Click(object sender, EventArgs e)
+        public void unlockCustomers()
         {
-
+            btnCustomers.Enabled = true;
+        }
+        public void unlockInventory()
+        {
+            btnInventory.Enabled = true;
+        }
+        public void unlockGeneralReports()
+        {
+            btnGenReports.Enabled = true;
+        }
+        public void unlockGiftCards()
+        {
+            btnGC.Enabled = true;
+        }
+        public void unlockUserAccounts()
+        {
+            btnUserAccounts.Enabled = true;
+        }
+        public void unlockConfig()
+        {
+            btnConfig.Enabled = true;
         }
     }
 }

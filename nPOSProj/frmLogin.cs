@@ -81,22 +81,30 @@ namespace nPOSProj
                         {
                             fm.unlockSales();
                         }
-                        //if (loginDAO.hasClient())
-                        //{
-                        //    fm.enableClient();
-                        //}
-                        //if (loginDAO.hasGuards())
-                        //{
-                        //    fm.enableGuards();
-                        //}
-                        //if (loginDAO.hasPayroll())
-                        //{
-                        //    fm.enablePayroll();
-                        //}
-                        //if (loginDAO.hasSupervisor())
-                        //{
-                        //    fm.enableSupervisor();
-                        //}
+                        if (login.hasCustomers())
+                        {
+                            fm.unlockCustomers();
+                        }
+                        if (login.hasInventory())
+                        {
+                            fm.unlockInventory();
+                        }
+                        if (login.hasReports())
+                        {
+                            fm.unlockGeneralReports();
+                        }
+                        if (login.hasGC())
+                        {
+                            fm.unlockGiftCards();
+                        }
+                        if (login.hasUser_Accounts())
+                        {
+                            fm.unlockUserAccounts();
+                        }
+                        if (login.hasUserConf())
+                        {
+                            fm.unlockConfig();
+                        }
                     }
                     else
                     {

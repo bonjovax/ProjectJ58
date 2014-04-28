@@ -145,7 +145,7 @@ namespace nPOSProj.DAO
             }
             return hasSales;
         }
-        public bool hasCostumers()
+        public bool hasCustomers()
         {
             bool hasCustomers = true;
             String getUserID = getUserIDfromDB();

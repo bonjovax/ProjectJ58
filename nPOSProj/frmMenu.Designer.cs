@@ -35,9 +35,9 @@
             this.btnGenReports = new System.Windows.Forms.Button();
             this.btnCustomers = new System.Windows.Forms.Button();
             this.btnInventory = new System.Windows.Forms.Button();
-            this.button7 = new System.Windows.Forms.Button();
-            this.button9 = new System.Windows.Forms.Button();
-            this.button11 = new System.Windows.Forms.Button();
+            this.btnGC = new System.Windows.Forms.Button();
+            this.btnUserAccounts = new System.Windows.Forms.Button();
+            this.btnConfig = new System.Windows.Forms.Button();
             this.button12 = new System.Windows.Forms.Button();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -125,51 +125,50 @@
             this.btnInventory.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnInventory.UseVisualStyleBackColor = true;
             // 
-            // button7
+            // btnGC
             // 
-            this.button7.Enabled = false;
-            this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button7.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button7.Image = ((System.Drawing.Image)(resources.GetObject("button7.Image")));
-            this.button7.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.button7.Location = new System.Drawing.Point(96, 301);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(164, 162);
-            this.button7.TabIndex = 7;
-            this.button7.Text = "Gift Cards";
-            this.button7.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.button7.UseVisualStyleBackColor = true;
+            this.btnGC.Enabled = false;
+            this.btnGC.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnGC.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGC.Image = ((System.Drawing.Image)(resources.GetObject("btnGC.Image")));
+            this.btnGC.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnGC.Location = new System.Drawing.Point(96, 301);
+            this.btnGC.Name = "btnGC";
+            this.btnGC.Size = new System.Drawing.Size(164, 162);
+            this.btnGC.TabIndex = 7;
+            this.btnGC.Text = "Gift Cards";
+            this.btnGC.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnGC.UseVisualStyleBackColor = true;
             // 
-            // button9
+            // btnUserAccounts
             // 
-            this.button9.Enabled = false;
-            this.button9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button9.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button9.Image = ((System.Drawing.Image)(resources.GetObject("button9.Image")));
-            this.button9.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.button9.Location = new System.Drawing.Point(266, 301);
-            this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(164, 162);
-            this.button9.TabIndex = 9;
-            this.button9.Text = "User Accounts";
-            this.button9.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.button9.UseVisualStyleBackColor = true;
+            this.btnUserAccounts.Enabled = false;
+            this.btnUserAccounts.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnUserAccounts.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUserAccounts.Image = ((System.Drawing.Image)(resources.GetObject("btnUserAccounts.Image")));
+            this.btnUserAccounts.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnUserAccounts.Location = new System.Drawing.Point(266, 301);
+            this.btnUserAccounts.Name = "btnUserAccounts";
+            this.btnUserAccounts.Size = new System.Drawing.Size(164, 162);
+            this.btnUserAccounts.TabIndex = 9;
+            this.btnUserAccounts.Text = "User Accounts";
+            this.btnUserAccounts.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnUserAccounts.UseVisualStyleBackColor = true;
             // 
-            // button11
+            // btnConfig
             // 
-            this.button11.Enabled = false;
-            this.button11.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button11.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button11.Image = ((System.Drawing.Image)(resources.GetObject("button11.Image")));
-            this.button11.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.button11.Location = new System.Drawing.Point(436, 301);
-            this.button11.Name = "button11";
-            this.button11.Size = new System.Drawing.Size(164, 162);
-            this.button11.TabIndex = 11;
-            this.button11.Text = "Configuration";
-            this.button11.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.button11.UseVisualStyleBackColor = true;
-            this.button11.Click += new System.EventHandler(this.button11_Click);
+            this.btnConfig.Enabled = false;
+            this.btnConfig.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnConfig.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnConfig.Image = ((System.Drawing.Image)(resources.GetObject("btnConfig.Image")));
+            this.btnConfig.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnConfig.Location = new System.Drawing.Point(436, 301);
+            this.btnConfig.Name = "btnConfig";
+            this.btnConfig.Size = new System.Drawing.Size(164, 162);
+            this.btnConfig.TabIndex = 11;
+            this.btnConfig.Text = "Configuration";
+            this.btnConfig.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnConfig.UseVisualStyleBackColor = true;
             // 
             // button12
             // 
@@ -201,9 +200,9 @@
             this.ClientSize = new System.Drawing.Size(701, 561);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.button12);
-            this.Controls.Add(this.button11);
-            this.Controls.Add(this.button9);
-            this.Controls.Add(this.button7);
+            this.Controls.Add(this.btnConfig);
+            this.Controls.Add(this.btnUserAccounts);
+            this.Controls.Add(this.btnGC);
             this.Controls.Add(this.btnInventory);
             this.Controls.Add(this.btnCustomers);
             this.Controls.Add(this.btnGenReports);
@@ -230,9 +229,9 @@
         private System.Windows.Forms.Button btnGenReports;
         private System.Windows.Forms.Button btnCustomers;
         private System.Windows.Forms.Button btnInventory;
-        private System.Windows.Forms.Button button7;
-        private System.Windows.Forms.Button button9;
-        private System.Windows.Forms.Button button11;
+        private System.Windows.Forms.Button btnGC;
+        private System.Windows.Forms.Button btnUserAccounts;
+        private System.Windows.Forms.Button btnConfig;
         private System.Windows.Forms.Button button12;
         private System.Windows.Forms.PictureBox pictureBox2;
     }
