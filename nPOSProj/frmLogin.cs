@@ -16,7 +16,16 @@ namespace nPOSProj
         private Conf.dbs dbcon = new Conf.dbs();
         AutoCompleteStringCollection collect = new AutoCompleteStringCollection();
         private DAO.LoginDAO login = new DAO.LoginDAO();
-
+        private VO.UserAccountVO avo = new VO.UserAccountVO();
+        
+        public static VO.UserAccountVO currentUser;
+        public static VO.UserAccountVO User
+        {
+            get
+            {
+                return currentUser;
+            }
+        }
 
         public frmLogin()
         {
@@ -53,40 +62,41 @@ namespace nPOSProj
 
         private void enterKey()
         {
+            avo = new VO.UserAccountVO(txtBoxUsername.Text);
             try
             {
                 if (login.isAuth(txtBoxUsername.Text, txtPassword.Text.Trim()))
                 {
-                    currentUser = hvo;
-                    txtBoxUsername.Text = hvo.h_username;
-                    loginDAO.catchUsername(txtBoxUsername.Text);
-                    if (loginDAO.canAccess())
+                    currentUser = avo;
+                    txtBoxUsername.Text = avo.user_name;
+                    login.catchUsername(txtBoxUsername.Text);
+                    if (login.canAccess())
                     {
-                        hvo.h_username = txtBoxUsername.Text; //Addon
-                        hvo.PushLog(); //Addon
+                        avo.user_name = txtBoxUsername.Text;
+                        avo.PushLog();
                         this.Hide();
                         frmMenu fm = new frmMenu();
                         fm.Show();
-                        if (loginDAO.hasApplicants())
+                        if (login.hasSales())
                         {
-                            fm.enableApplicant();
+                            MessageBox.Show("Sales");
                         }
-                        if (loginDAO.hasClient())
-                        {
-                            fm.enableClient();
-                        }
-                        if (loginDAO.hasGuards())
-                        {
-                            fm.enableGuards();
-                        }
-                        if (loginDAO.hasPayroll())
-                        {
-                            fm.enablePayroll();
-                        }
-                        if (loginDAO.hasSupervisor())
-                        {
-                            fm.enableSupervisor();
-                        }
+                        //if (loginDAO.hasClient())
+                        //{
+                        //    fm.enableClient();
+                        //}
+                        //if (loginDAO.hasGuards())
+                        //{
+                        //    fm.enableGuards();
+                        //}
+                        //if (loginDAO.hasPayroll())
+                        //{
+                        //    fm.enablePayroll();
+                        //}
+                        //if (loginDAO.hasSupervisor())
+                        //{
+                        //    fm.enableSupervisor();
+                        //}
                     }
                     else
                     {

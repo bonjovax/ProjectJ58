@@ -27,6 +27,10 @@ namespace nPOSProj.DAO
             Regex r = new Regex("^[A-Za-z0-9]{5}$");
             return r.IsMatch(inString);
         }
+        public void catchUsername(String username)
+        {
+            this.user_name = username;
+        }
         #region Authenticate Part
         public bool isAuth(String user_name, String user_password)
         {

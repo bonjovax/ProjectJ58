@@ -11,6 +11,7 @@ namespace nPOSProj.VO
         private String _user_name;
         private String _user_password;
         private String _last_login;
+        private DAO.UserAccountDAO udao;
 
         public UserAccountVO()
         {
@@ -40,6 +41,12 @@ namespace nPOSProj.VO
         {
             get { return _last_login; }
             set { _last_login = value; }
+        }
+
+        public void PushLog()
+        {
+            udao = new DAO.UserAccountDAO();
+            udao.logs(user_name);
         }
     }
 }
