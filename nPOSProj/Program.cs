@@ -15,7 +15,7 @@ namespace nPOSProj
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new mdiFrmInv());
+            Application.Run(new frmLogin());
         }
     }
 }

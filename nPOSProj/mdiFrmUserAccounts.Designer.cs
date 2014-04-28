@@ -1,0 +1,165 @@
+﻿namespace nPOSProj
+{
+    partial class mdiFrmUserAccounts
+    {
+        /// <summary>
+        /// Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        /// <summary>
+        /// Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region Windows Form Designer generated code
+
+        /// <summary>
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(mdiFrmUserAccounts));
+            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
+            this.tsAccount = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
+            this.tsExit = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator8 = new System.Windows.Forms.ToolStripSeparator();
+            this.tsAbout = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator9 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.tsReset = new System.Windows.Forms.ToolStripButton();
+            this.toolStrip1.SuspendLayout();
+            this.SuspendLayout();
+            // 
+            // toolStrip1
+            // 
+            this.toolStrip1.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toolStrip1.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
+            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripSeparator3,
+            this.tsAccount,
+            this.toolStripSeparator7,
+            this.tsReset,
+            this.toolStripSeparator1,
+            this.tsExit,
+            this.toolStripSeparator8,
+            this.tsAbout,
+            this.toolStripSeparator9});
+            this.toolStrip1.Location = new System.Drawing.Point(0, 0);
+            this.toolStrip1.Name = "toolStrip1";
+            this.toolStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
+            this.toolStrip1.Size = new System.Drawing.Size(908, 72);
+            this.toolStrip1.TabIndex = 3;
+            this.toolStrip1.Text = "toolStrip1";
+            // 
+            // toolStripSeparator3
+            // 
+            this.toolStripSeparator3.Name = "toolStripSeparator3";
+            this.toolStripSeparator3.Size = new System.Drawing.Size(6, 72);
+            // 
+            // tsAccount
+            // 
+            this.tsAccount.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tsAccount.Image = ((System.Drawing.Image)(resources.GetObject("tsAccount.Image")));
+            this.tsAccount.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.tsAccount.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsAccount.Name = "tsAccount";
+            this.tsAccount.Size = new System.Drawing.Size(68, 69);
+            this.tsAccount.Text = "&Accounts";
+            this.tsAccount.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            // 
+            // toolStripSeparator7
+            // 
+            this.toolStripSeparator7.Name = "toolStripSeparator7";
+            this.toolStripSeparator7.Size = new System.Drawing.Size(6, 72);
+            // 
+            // tsExit
+            // 
+            this.tsExit.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tsExit.Image = ((System.Drawing.Image)(resources.GetObject("tsExit.Image")));
+            this.tsExit.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.tsExit.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsExit.Name = "tsExit";
+            this.tsExit.Size = new System.Drawing.Size(52, 69);
+            this.tsExit.Text = "Exit";
+            this.tsExit.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            // 
+            // toolStripSeparator8
+            // 
+            this.toolStripSeparator8.Name = "toolStripSeparator8";
+            this.toolStripSeparator8.Size = new System.Drawing.Size(6, 72);
+            // 
+            // tsAbout
+            // 
+            this.tsAbout.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tsAbout.Image = ((System.Drawing.Image)(resources.GetObject("tsAbout.Image")));
+            this.tsAbout.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.tsAbout.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsAbout.Name = "tsAbout";
+            this.tsAbout.Size = new System.Drawing.Size(52, 69);
+            this.tsAbout.Text = "&About";
+            this.tsAbout.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            // 
+            // toolStripSeparator9
+            // 
+            this.toolStripSeparator9.Name = "toolStripSeparator9";
+            this.toolStripSeparator9.Size = new System.Drawing.Size(6, 72);
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 72);
+            // 
+            // tsReset
+            // 
+            this.tsReset.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tsReset.Image = ((System.Drawing.Image)(resources.GetObject("tsReset.Image")));
+            this.tsReset.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.tsReset.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsReset.Name = "tsReset";
+            this.tsReset.Size = new System.Drawing.Size(107, 69);
+            this.tsReset.Text = "&Reset Password";
+            this.tsReset.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            // 
+            // mdiFrmUserAccounts
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(908, 461);
+            this.Controls.Add(this.toolStrip1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.IsMdiContainer = true;
+            this.Name = "mdiFrmUserAccounts";
+            this.Text = "User Accounts";
+            this.toolStrip1.ResumeLayout(false);
+            this.toolStrip1.PerformLayout();
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
+        }
+
+        #endregion
+
+        private System.Windows.Forms.ToolStrip toolStrip1;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
+        private System.Windows.Forms.ToolStripButton tsAccount;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator7;
+        private System.Windows.Forms.ToolStripButton tsExit;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator8;
+        private System.Windows.Forms.ToolStripButton tsAbout;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator9;
+        private System.Windows.Forms.ToolStripButton tsReset;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+    }
+}
