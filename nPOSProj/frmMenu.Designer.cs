@@ -152,9 +152,10 @@
             this.btnUserAccounts.Name = "btnUserAccounts";
             this.btnUserAccounts.Size = new System.Drawing.Size(164, 162);
             this.btnUserAccounts.TabIndex = 9;
-            this.btnUserAccounts.Text = "User Accounts";
+            this.btnUserAccounts.Text = "&User Accounts";
             this.btnUserAccounts.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnUserAccounts.UseVisualStyleBackColor = true;
+            this.btnUserAccounts.Click += new System.EventHandler(this.btnUserAccounts_Click);
             // 
             // btnConfig
             // 
@@ -218,6 +219,7 @@
             this.Name = "frmMenu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmMenu_FormClosing);
+            this.Load += new System.EventHandler(this.frmMenu_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);

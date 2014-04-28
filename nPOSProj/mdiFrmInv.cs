@@ -20,6 +20,8 @@ namespace nPOSProj
 
         private void mdiFrmInv_Load(object sender, EventArgs e)
         {
+            String userName = frmLogin.User.user_name;
+            tsUser.Text = userName.ToString();
             timer1.Start();
         }
 

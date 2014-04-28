@@ -11,6 +11,7 @@ namespace nPOSProj
 {
     public partial class frmMenu : Form
     {
+        private mdiFrmUserAccounts mdiUA = new mdiFrmUserAccounts();
         public frmMenu()
         {
             InitializeComponent();
@@ -65,6 +66,17 @@ namespace nPOSProj
         {
             frmChangePass fcp = new frmChangePass();
             fcp.ShowDialog();
+        }
+
+        private void btnUserAccounts_Click(object sender, EventArgs e)
+        {
+            mdiUA.Show();
+            this.Hide();
+        }
+
+        private void frmMenu_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

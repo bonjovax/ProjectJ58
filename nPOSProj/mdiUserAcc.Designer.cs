@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(mdiUserAcc));
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -148,7 +149,7 @@
             this.tabControl1.Location = new System.Drawing.Point(4, 207);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(536, 187);
+            this.tabControl1.Size = new System.Drawing.Size(514, 174);
             this.tabControl1.TabIndex = 1;
             // 
             // tabPage1
@@ -170,28 +171,33 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(528, 161);
+            this.tabPage1.Size = new System.Drawing.Size(506, 148);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Create Account";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
             // btnClear
             // 
-            this.btnClear.Location = new System.Drawing.Point(250, 115);
+            this.btnClear.Image = ((System.Drawing.Image)(resources.GetObject("btnClear.Image")));
+            this.btnClear.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnClear.Location = new System.Drawing.Point(408, 76);
             this.btnClear.Name = "btnClear";
-            this.btnClear.Size = new System.Drawing.Size(75, 23);
+            this.btnClear.Size = new System.Drawing.Size(47, 71);
             this.btnClear.TabIndex = 12;
             this.btnClear.Text = "Clear";
+            this.btnClear.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnClear.UseVisualStyleBackColor = true;
             this.btnClear.Click += new System.EventHandler(this.btn_clear_Click);
             // 
             // btnAdd
             // 
-            this.btnAdd.Location = new System.Drawing.Point(158, 115);
+            this.btnAdd.Image = ((System.Drawing.Image)(resources.GetObject("btnAdd.Image")));
+            this.btnAdd.Location = new System.Drawing.Point(455, 76);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(75, 23);
+            this.btnAdd.Size = new System.Drawing.Size(47, 71);
             this.btnAdd.TabIndex = 12;
             this.btnAdd.Text = "Add";
+            this.btnAdd.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnAdd.UseVisualStyleBackColor = true;
             // 
             // txtBoxLastName
@@ -204,7 +210,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(248, 57);
+            this.label4.Location = new System.Drawing.Point(247, 57);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(57, 13);
             this.label4.TabIndex = 10;
@@ -305,7 +311,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(528, 161);
+            this.tabPage2.Size = new System.Drawing.Size(506, 148);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Restrictions";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -341,7 +347,7 @@
             // chk_useraccounts
             // 
             this.chk_useraccounts.AutoSize = true;
-            this.chk_useraccounts.Location = new System.Drawing.Point(162, 64);
+            this.chk_useraccounts.Location = new System.Drawing.Point(152, 50);
             this.chk_useraccounts.Name = "chk_useraccounts";
             this.chk_useraccounts.Size = new System.Drawing.Size(95, 17);
             this.chk_useraccounts.TabIndex = 6;
@@ -351,7 +357,7 @@
             // chk_configuration
             // 
             this.chk_configuration.AutoSize = true;
-            this.chk_configuration.Location = new System.Drawing.Point(162, 87);
+            this.chk_configuration.Location = new System.Drawing.Point(152, 66);
             this.chk_configuration.Name = "chk_configuration";
             this.chk_configuration.Size = new System.Drawing.Size(91, 17);
             this.chk_configuration.TabIndex = 5;
@@ -361,7 +367,7 @@
             // chk_giftcards
             // 
             this.chk_giftcards.AutoSize = true;
-            this.chk_giftcards.Location = new System.Drawing.Point(162, 41);
+            this.chk_giftcards.Location = new System.Drawing.Point(152, 34);
             this.chk_giftcards.Name = "chk_giftcards";
             this.chk_giftcards.Size = new System.Drawing.Size(74, 17);
             this.chk_giftcards.TabIndex = 4;
@@ -371,7 +377,7 @@
             // chk_inventory
             // 
             this.chk_inventory.AutoSize = true;
-            this.chk_inventory.Location = new System.Drawing.Point(19, 87);
+            this.chk_inventory.Location = new System.Drawing.Point(19, 66);
             this.chk_inventory.Name = "chk_inventory";
             this.chk_inventory.Size = new System.Drawing.Size(74, 17);
             this.chk_inventory.TabIndex = 3;
@@ -381,7 +387,7 @@
             // chk_reports
             // 
             this.chk_reports.AutoSize = true;
-            this.chk_reports.Location = new System.Drawing.Point(162, 18);
+            this.chk_reports.Location = new System.Drawing.Point(152, 18);
             this.chk_reports.Name = "chk_reports";
             this.chk_reports.Size = new System.Drawing.Size(64, 17);
             this.chk_reports.TabIndex = 2;
@@ -391,7 +397,7 @@
             // chk_customers
             // 
             this.chk_customers.AutoSize = true;
-            this.chk_customers.Location = new System.Drawing.Point(19, 64);
+            this.chk_customers.Location = new System.Drawing.Point(19, 50);
             this.chk_customers.Name = "chk_customers";
             this.chk_customers.Size = new System.Drawing.Size(77, 17);
             this.chk_customers.TabIndex = 1;
@@ -401,7 +407,7 @@
             // chk_sales
             // 
             this.chk_sales.AutoSize = true;
-            this.chk_sales.Location = new System.Drawing.Point(19, 41);
+            this.chk_sales.Location = new System.Drawing.Point(19, 34);
             this.chk_sales.Name = "chk_sales";
             this.chk_sales.Size = new System.Drawing.Size(51, 17);
             this.chk_sales.TabIndex = 0;
@@ -428,7 +434,7 @@
             this.tabPage3.Controls.Add(this.label12);
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(528, 161);
+            this.tabPage3.Size = new System.Drawing.Size(506, 148);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Update & Delete";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -565,6 +571,7 @@
             this.Controls.Add(this.dataGridView1);
             this.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "mdiUserAcc";
             this.Text = "User Accounts";
