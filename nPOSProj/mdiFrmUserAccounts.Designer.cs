@@ -86,6 +86,7 @@
             this.tsAccount.Size = new System.Drawing.Size(68, 69);
             this.tsAccount.Text = "&Accounts";
             this.tsAccount.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.tsAccount.Click += new System.EventHandler(this.tsAccount_Click);
             // 
             // toolStripSeparator7
             // 

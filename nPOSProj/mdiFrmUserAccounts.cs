@@ -12,6 +12,7 @@ namespace nPOSProj
     public partial class mdiFrmUserAccounts : Form
     {
         private DAO.LoginDAO login;
+        private mdiUserAcc uacc = new mdiUserAcc();
         public mdiFrmUserAccounts()
         {
             InitializeComponent();
@@ -55,6 +56,40 @@ namespace nPOSProj
             this.Hide();
         }
 
+        private Boolean ActivateThisChild(String formName)
+        {
+            int i;
+            Boolean formSetToMdi = false;
+            for (i = 0; i < this.MdiChildren.Length; i++)
+            // loop for all the mdi children
+            {
+                if (this.MdiChildren[i].Name == formName)
+                // find the Mdi child with the same name as your form
+                {
+                    // if found just activate it
+                    this.MdiChildren[i].Activate();
+                    formSetToMdi = true;
+                }
+            }
+
+            if (i == 0 || formSetToMdi == false)
+                // if the given form not found as mdi child return false.
+                return false;
+
+            else
+                return true;
+        }
+
+        private void gotoUserAccount()
+        {
+            if (ActivateThisChild("mdiUserAcc") == false)
+            {
+                uacc = new mdiUserAcc();
+                uacc.MdiParent = this;
+                uacc.Show();
+            }
+        }
+
         private void mdiFrmUserAccounts_FormClosing(object sender, FormClosingEventArgs e)
         {
             onFormClose();
@@ -77,6 +112,11 @@ namespace nPOSProj
             String userName = frmLogin.User.user_name;
             tsUser.Text = userName.ToString();
             timer1.Start();
+        }
+
+        private void tsAccount_Click(object sender, EventArgs e)
+        {
+            gotoUserAccount();
         }
     }
 }

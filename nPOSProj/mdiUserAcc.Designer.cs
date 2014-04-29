@@ -53,32 +53,28 @@
             this.txtBoxUserID = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.btn_cancel = new System.Windows.Forms.Button();
-            this.btn_save = new System.Windows.Forms.Button();
-            this.chk_systemaccess = new System.Windows.Forms.CheckBox();
-            this.chk_useraccounts = new System.Windows.Forms.CheckBox();
-            this.chk_configuration = new System.Windows.Forms.CheckBox();
-            this.chk_giftcards = new System.Windows.Forms.CheckBox();
-            this.chk_inventory = new System.Windows.Forms.CheckBox();
-            this.chk_reports = new System.Windows.Forms.CheckBox();
-            this.chk_customers = new System.Windows.Forms.CheckBox();
+            this.chkSystemAccess = new System.Windows.Forms.CheckBox();
+            this.chkUserAccounts = new System.Windows.Forms.CheckBox();
+            this.chkConfiguration = new System.Windows.Forms.CheckBox();
+            this.chkGiftCards = new System.Windows.Forms.CheckBox();
+            this.chkInventory = new System.Windows.Forms.CheckBox();
+            this.chkReports = new System.Windows.Forms.CheckBox();
+            this.chkCustomers = new System.Windows.Forms.CheckBox();
             this.chk_sales = new System.Windows.Forms.CheckBox();
             this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.btn_cancel2 = new System.Windows.Forms.Button();
-            this.btn_delete = new System.Windows.Forms.Button();
-            this.btn_update = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtBoxULastName = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtBoxUMiddleName = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.txtBoxUFirstName = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.label10 = new System.Windows.Forms.Label();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.txtBoxUUserName = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
-            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.txtBoxUUserID = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
+            this.btnUClear = new System.Windows.Forms.Button();
+            this.btnUpdate = new System.Windows.Forms.Button();
+            this.btnSave = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -183,7 +179,7 @@
             this.btnClear.Location = new System.Drawing.Point(408, 76);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(47, 71);
-            this.btnClear.TabIndex = 12;
+            this.btnClear.TabIndex = 6;
             this.btnClear.Text = "Clear";
             this.btnClear.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnClear.UseVisualStyleBackColor = true;
@@ -195,7 +191,7 @@
             this.btnAdd.Location = new System.Drawing.Point(455, 76);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(47, 71);
-            this.btnAdd.TabIndex = 12;
+            this.btnAdd.TabIndex = 7;
             this.btnAdd.Text = "Add";
             this.btnAdd.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnAdd.UseVisualStyleBackColor = true;
@@ -205,7 +201,7 @@
             this.txtBoxLastName.Location = new System.Drawing.Point(320, 54);
             this.txtBoxLastName.Name = "txtBoxLastName";
             this.txtBoxLastName.Size = new System.Drawing.Size(182, 21);
-            this.txtBoxLastName.TabIndex = 11;
+            this.txtBoxLastName.TabIndex = 5;
             // 
             // label4
             // 
@@ -221,7 +217,7 @@
             this.txtBoxMiddleName.Location = new System.Drawing.Point(320, 32);
             this.txtBoxMiddleName.Name = "txtBoxMiddleName";
             this.txtBoxMiddleName.Size = new System.Drawing.Size(182, 21);
-            this.txtBoxMiddleName.TabIndex = 9;
+            this.txtBoxMiddleName.TabIndex = 4;
             // 
             // label5
             // 
@@ -237,7 +233,7 @@
             this.txtBoxFirstName.Location = new System.Drawing.Point(320, 10);
             this.txtBoxFirstName.Name = "txtBoxFirstName";
             this.txtBoxFirstName.Size = new System.Drawing.Size(182, 21);
-            this.txtBoxFirstName.TabIndex = 7;
+            this.txtBoxFirstName.TabIndex = 3;
             // 
             // label6
             // 
@@ -253,7 +249,7 @@
             this.txtBoxPassword.Location = new System.Drawing.Point(71, 54);
             this.txtBoxPassword.Name = "txtBoxPassword";
             this.txtBoxPassword.Size = new System.Drawing.Size(162, 21);
-            this.txtBoxPassword.TabIndex = 5;
+            this.txtBoxPassword.TabIndex = 2;
             // 
             // label3
             // 
@@ -269,7 +265,7 @@
             this.txtBoxUserName.Location = new System.Drawing.Point(71, 32);
             this.txtBoxUserName.Name = "txtBoxUserName";
             this.txtBoxUserName.Size = new System.Drawing.Size(162, 21);
-            this.txtBoxUserName.TabIndex = 3;
+            this.txtBoxUserName.TabIndex = 1;
             // 
             // label2
             // 
@@ -284,8 +280,9 @@
             // 
             this.txtBoxUserID.Location = new System.Drawing.Point(71, 10);
             this.txtBoxUserID.Name = "txtBoxUserID";
-            this.txtBoxUserID.Size = new System.Drawing.Size(162, 21);
-            this.txtBoxUserID.TabIndex = 1;
+            this.txtBoxUserID.ReadOnly = true;
+            this.txtBoxUserID.Size = new System.Drawing.Size(52, 21);
+            this.txtBoxUserID.TabIndex = 0;
             // 
             // label1
             // 
@@ -298,15 +295,14 @@
             // 
             // tabPage2
             // 
-            this.tabPage2.Controls.Add(this.btn_cancel);
-            this.tabPage2.Controls.Add(this.btn_save);
-            this.tabPage2.Controls.Add(this.chk_systemaccess);
-            this.tabPage2.Controls.Add(this.chk_useraccounts);
-            this.tabPage2.Controls.Add(this.chk_configuration);
-            this.tabPage2.Controls.Add(this.chk_giftcards);
-            this.tabPage2.Controls.Add(this.chk_inventory);
-            this.tabPage2.Controls.Add(this.chk_reports);
-            this.tabPage2.Controls.Add(this.chk_customers);
+            this.tabPage2.Controls.Add(this.btnSave);
+            this.tabPage2.Controls.Add(this.chkSystemAccess);
+            this.tabPage2.Controls.Add(this.chkUserAccounts);
+            this.tabPage2.Controls.Add(this.chkConfiguration);
+            this.tabPage2.Controls.Add(this.chkGiftCards);
+            this.tabPage2.Controls.Add(this.chkInventory);
+            this.tabPage2.Controls.Add(this.chkReports);
+            this.tabPage2.Controls.Add(this.chkCustomers);
             this.tabPage2.Controls.Add(this.chk_sales);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
@@ -316,93 +312,75 @@
             this.tabPage2.Text = "Restrictions";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // btn_cancel
+            // chkSystemAccess
             // 
-            this.btn_cancel.Location = new System.Drawing.Point(291, 47);
-            this.btn_cancel.Name = "btn_cancel";
-            this.btn_cancel.Size = new System.Drawing.Size(75, 23);
-            this.btn_cancel.TabIndex = 13;
-            this.btn_cancel.Text = "Cancel";
-            this.btn_cancel.UseVisualStyleBackColor = true;
+            this.chkSystemAccess.AutoSize = true;
+            this.chkSystemAccess.Location = new System.Drawing.Point(19, 18);
+            this.chkSystemAccess.Name = "chkSystemAccess";
+            this.chkSystemAccess.Size = new System.Drawing.Size(127, 17);
+            this.chkSystemAccess.TabIndex = 8;
+            this.chkSystemAccess.Text = "** System Access **";
+            this.chkSystemAccess.UseVisualStyleBackColor = true;
             // 
-            // btn_save
+            // chkUserAccounts
             // 
-            this.btn_save.Location = new System.Drawing.Point(291, 18);
-            this.btn_save.Name = "btn_save";
-            this.btn_save.Size = new System.Drawing.Size(75, 23);
-            this.btn_save.TabIndex = 13;
-            this.btn_save.Text = "Save";
-            this.btn_save.UseVisualStyleBackColor = true;
+            this.chkUserAccounts.AutoSize = true;
+            this.chkUserAccounts.Location = new System.Drawing.Point(152, 50);
+            this.chkUserAccounts.Name = "chkUserAccounts";
+            this.chkUserAccounts.Size = new System.Drawing.Size(95, 17);
+            this.chkUserAccounts.TabIndex = 14;
+            this.chkUserAccounts.Text = "User Accounts";
+            this.chkUserAccounts.UseVisualStyleBackColor = true;
             // 
-            // chk_systemaccess
+            // chkConfiguration
             // 
-            this.chk_systemaccess.AutoSize = true;
-            this.chk_systemaccess.Location = new System.Drawing.Point(19, 18);
-            this.chk_systemaccess.Name = "chk_systemaccess";
-            this.chk_systemaccess.Size = new System.Drawing.Size(127, 17);
-            this.chk_systemaccess.TabIndex = 7;
-            this.chk_systemaccess.Text = "** System Access **";
-            this.chk_systemaccess.UseVisualStyleBackColor = true;
+            this.chkConfiguration.AutoSize = true;
+            this.chkConfiguration.Location = new System.Drawing.Point(152, 66);
+            this.chkConfiguration.Name = "chkConfiguration";
+            this.chkConfiguration.Size = new System.Drawing.Size(91, 17);
+            this.chkConfiguration.TabIndex = 15;
+            this.chkConfiguration.Text = "Configuration";
+            this.chkConfiguration.UseVisualStyleBackColor = true;
             // 
-            // chk_useraccounts
+            // chkGiftCards
             // 
-            this.chk_useraccounts.AutoSize = true;
-            this.chk_useraccounts.Location = new System.Drawing.Point(152, 50);
-            this.chk_useraccounts.Name = "chk_useraccounts";
-            this.chk_useraccounts.Size = new System.Drawing.Size(95, 17);
-            this.chk_useraccounts.TabIndex = 6;
-            this.chk_useraccounts.Text = "User Accounts";
-            this.chk_useraccounts.UseVisualStyleBackColor = true;
+            this.chkGiftCards.AutoSize = true;
+            this.chkGiftCards.Location = new System.Drawing.Point(152, 34);
+            this.chkGiftCards.Name = "chkGiftCards";
+            this.chkGiftCards.Size = new System.Drawing.Size(74, 17);
+            this.chkGiftCards.TabIndex = 13;
+            this.chkGiftCards.Text = "Gift Cards";
+            this.chkGiftCards.UseVisualStyleBackColor = true;
             // 
-            // chk_configuration
+            // chkInventory
             // 
-            this.chk_configuration.AutoSize = true;
-            this.chk_configuration.Location = new System.Drawing.Point(152, 66);
-            this.chk_configuration.Name = "chk_configuration";
-            this.chk_configuration.Size = new System.Drawing.Size(91, 17);
-            this.chk_configuration.TabIndex = 5;
-            this.chk_configuration.Text = "Configuration";
-            this.chk_configuration.UseVisualStyleBackColor = true;
+            this.chkInventory.AutoSize = true;
+            this.chkInventory.Location = new System.Drawing.Point(19, 66);
+            this.chkInventory.Name = "chkInventory";
+            this.chkInventory.Size = new System.Drawing.Size(74, 17);
+            this.chkInventory.TabIndex = 11;
+            this.chkInventory.Text = "Inventory";
+            this.chkInventory.UseVisualStyleBackColor = true;
             // 
-            // chk_giftcards
+            // chkReports
             // 
-            this.chk_giftcards.AutoSize = true;
-            this.chk_giftcards.Location = new System.Drawing.Point(152, 34);
-            this.chk_giftcards.Name = "chk_giftcards";
-            this.chk_giftcards.Size = new System.Drawing.Size(74, 17);
-            this.chk_giftcards.TabIndex = 4;
-            this.chk_giftcards.Text = "Gift Cards";
-            this.chk_giftcards.UseVisualStyleBackColor = true;
+            this.chkReports.AutoSize = true;
+            this.chkReports.Location = new System.Drawing.Point(152, 18);
+            this.chkReports.Name = "chkReports";
+            this.chkReports.Size = new System.Drawing.Size(64, 17);
+            this.chkReports.TabIndex = 12;
+            this.chkReports.Text = "Reports";
+            this.chkReports.UseVisualStyleBackColor = true;
             // 
-            // chk_inventory
+            // chkCustomers
             // 
-            this.chk_inventory.AutoSize = true;
-            this.chk_inventory.Location = new System.Drawing.Point(19, 66);
-            this.chk_inventory.Name = "chk_inventory";
-            this.chk_inventory.Size = new System.Drawing.Size(74, 17);
-            this.chk_inventory.TabIndex = 3;
-            this.chk_inventory.Text = "Inventory";
-            this.chk_inventory.UseVisualStyleBackColor = true;
-            // 
-            // chk_reports
-            // 
-            this.chk_reports.AutoSize = true;
-            this.chk_reports.Location = new System.Drawing.Point(152, 18);
-            this.chk_reports.Name = "chk_reports";
-            this.chk_reports.Size = new System.Drawing.Size(64, 17);
-            this.chk_reports.TabIndex = 2;
-            this.chk_reports.Text = "Reports";
-            this.chk_reports.UseVisualStyleBackColor = true;
-            // 
-            // chk_customers
-            // 
-            this.chk_customers.AutoSize = true;
-            this.chk_customers.Location = new System.Drawing.Point(19, 50);
-            this.chk_customers.Name = "chk_customers";
-            this.chk_customers.Size = new System.Drawing.Size(77, 17);
-            this.chk_customers.TabIndex = 1;
-            this.chk_customers.Text = "Customers";
-            this.chk_customers.UseVisualStyleBackColor = true;
+            this.chkCustomers.AutoSize = true;
+            this.chkCustomers.Location = new System.Drawing.Point(19, 50);
+            this.chkCustomers.Name = "chkCustomers";
+            this.chkCustomers.Size = new System.Drawing.Size(77, 17);
+            this.chkCustomers.TabIndex = 10;
+            this.chkCustomers.Text = "Customers";
+            this.chkCustomers.UseVisualStyleBackColor = true;
             // 
             // chk_sales
             // 
@@ -410,27 +388,24 @@
             this.chk_sales.Location = new System.Drawing.Point(19, 34);
             this.chk_sales.Name = "chk_sales";
             this.chk_sales.Size = new System.Drawing.Size(51, 17);
-            this.chk_sales.TabIndex = 0;
+            this.chk_sales.TabIndex = 9;
             this.chk_sales.Text = "Sales";
             this.chk_sales.UseVisualStyleBackColor = true;
             this.chk_sales.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
             // 
             // tabPage3
             // 
-            this.tabPage3.Controls.Add(this.btn_cancel2);
-            this.tabPage3.Controls.Add(this.btn_delete);
-            this.tabPage3.Controls.Add(this.btn_update);
-            this.tabPage3.Controls.Add(this.textBox1);
+            this.tabPage3.Controls.Add(this.btnUClear);
+            this.tabPage3.Controls.Add(this.btnUpdate);
+            this.tabPage3.Controls.Add(this.txtBoxULastName);
             this.tabPage3.Controls.Add(this.label7);
-            this.tabPage3.Controls.Add(this.textBox2);
+            this.tabPage3.Controls.Add(this.txtBoxUMiddleName);
             this.tabPage3.Controls.Add(this.label8);
-            this.tabPage3.Controls.Add(this.textBox3);
+            this.tabPage3.Controls.Add(this.txtBoxUFirstName);
             this.tabPage3.Controls.Add(this.label9);
-            this.tabPage3.Controls.Add(this.textBox4);
-            this.tabPage3.Controls.Add(this.label10);
-            this.tabPage3.Controls.Add(this.textBox5);
+            this.tabPage3.Controls.Add(this.txtBoxUUserName);
             this.tabPage3.Controls.Add(this.label11);
-            this.tabPage3.Controls.Add(this.textBox6);
+            this.tabPage3.Controls.Add(this.txtBoxUUserID);
             this.tabPage3.Controls.Add(this.label12);
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
@@ -439,128 +414,120 @@
             this.tabPage3.Text = "Update & Delete";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
-            // btn_cancel2
+            // txtBoxULastName
             // 
-            this.btn_cancel2.Location = new System.Drawing.Point(302, 121);
-            this.btn_cancel2.Name = "btn_cancel2";
-            this.btn_cancel2.Size = new System.Drawing.Size(75, 23);
-            this.btn_cancel2.TabIndex = 25;
-            this.btn_cancel2.Text = "Cancel";
-            this.btn_cancel2.UseVisualStyleBackColor = true;
-            // 
-            // btn_delete
-            // 
-            this.btn_delete.Location = new System.Drawing.Point(221, 121);
-            this.btn_delete.Name = "btn_delete";
-            this.btn_delete.Size = new System.Drawing.Size(75, 23);
-            this.btn_delete.TabIndex = 26;
-            this.btn_delete.Text = "Delete";
-            this.btn_delete.UseVisualStyleBackColor = true;
-            // 
-            // btn_update
-            // 
-            this.btn_update.Location = new System.Drawing.Point(140, 121);
-            this.btn_update.Name = "btn_update";
-            this.btn_update.Size = new System.Drawing.Size(75, 23);
-            this.btn_update.TabIndex = 26;
-            this.btn_update.Text = "Update";
-            this.btn_update.UseVisualStyleBackColor = true;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(326, 69);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(182, 21);
-            this.textBox1.TabIndex = 24;
+            this.txtBoxULastName.Location = new System.Drawing.Point(320, 54);
+            this.txtBoxULastName.Name = "txtBoxULastName";
+            this.txtBoxULastName.Size = new System.Drawing.Size(182, 21);
+            this.txtBoxULastName.TabIndex = 21;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(261, 73);
+            this.label7.Location = new System.Drawing.Point(247, 57);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(57, 13);
-            this.label7.TabIndex = 23;
+            this.label7.TabIndex = 37;
             this.label7.Text = "Last Name";
             // 
-            // textBox2
+            // txtBoxUMiddleName
             // 
-            this.textBox2.Location = new System.Drawing.Point(326, 42);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(182, 21);
-            this.textBox2.TabIndex = 22;
+            this.txtBoxUMiddleName.Location = new System.Drawing.Point(320, 32);
+            this.txtBoxUMiddleName.Name = "txtBoxUMiddleName";
+            this.txtBoxUMiddleName.Size = new System.Drawing.Size(182, 21);
+            this.txtBoxUMiddleName.TabIndex = 20;
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(261, 46);
+            this.label8.Location = new System.Drawing.Point(247, 35);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(67, 13);
-            this.label8.TabIndex = 21;
+            this.label8.TabIndex = 35;
             this.label8.Text = "Middle Name";
             // 
-            // textBox3
+            // txtBoxUFirstName
             // 
-            this.textBox3.Location = new System.Drawing.Point(326, 16);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(182, 21);
-            this.textBox3.TabIndex = 20;
+            this.txtBoxUFirstName.Location = new System.Drawing.Point(320, 10);
+            this.txtBoxUFirstName.Name = "txtBoxUFirstName";
+            this.txtBoxUFirstName.Size = new System.Drawing.Size(182, 21);
+            this.txtBoxUFirstName.TabIndex = 19;
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(261, 19);
+            this.label9.Location = new System.Drawing.Point(247, 13);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(58, 13);
-            this.label9.TabIndex = 19;
+            this.label9.TabIndex = 33;
             this.label9.Text = "First Name";
             // 
-            // textBox4
+            // txtBoxUUserName
             // 
-            this.textBox4.Location = new System.Drawing.Point(85, 69);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(146, 21);
-            this.textBox4.TabIndex = 18;
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(20, 73);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(53, 13);
-            this.label10.TabIndex = 17;
-            this.label10.Text = "Password";
-            // 
-            // textBox5
-            // 
-            this.textBox5.Location = new System.Drawing.Point(85, 42);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(146, 21);
-            this.textBox5.TabIndex = 16;
+            this.txtBoxUUserName.Location = new System.Drawing.Point(71, 32);
+            this.txtBoxUUserName.Name = "txtBoxUUserName";
+            this.txtBoxUUserName.Size = new System.Drawing.Size(162, 21);
+            this.txtBoxUUserName.TabIndex = 18;
             // 
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(20, 46);
+            this.label11.Location = new System.Drawing.Point(6, 35);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(59, 13);
-            this.label11.TabIndex = 15;
+            this.label11.TabIndex = 29;
             this.label11.Text = "User Name";
             // 
-            // textBox6
+            // txtBoxUUserID
             // 
-            this.textBox6.Location = new System.Drawing.Point(85, 16);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(146, 21);
-            this.textBox6.TabIndex = 14;
+            this.txtBoxUUserID.Location = new System.Drawing.Point(71, 10);
+            this.txtBoxUUserID.Name = "txtBoxUUserID";
+            this.txtBoxUUserID.ReadOnly = true;
+            this.txtBoxUUserID.Size = new System.Drawing.Size(52, 21);
+            this.txtBoxUUserID.TabIndex = 17;
             // 
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(20, 19);
+            this.label12.Location = new System.Drawing.Point(6, 13);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(43, 13);
-            this.label12.TabIndex = 13;
+            this.label12.TabIndex = 27;
             this.label12.Text = "User ID";
+            // 
+            // btnUClear
+            // 
+            this.btnUClear.Image = ((System.Drawing.Image)(resources.GetObject("btnUClear.Image")));
+            this.btnUClear.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnUClear.Location = new System.Drawing.Point(406, 76);
+            this.btnUClear.Name = "btnUClear";
+            this.btnUClear.Size = new System.Drawing.Size(47, 71);
+            this.btnUClear.TabIndex = 22;
+            this.btnUClear.Text = "Clear";
+            this.btnUClear.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnUClear.UseVisualStyleBackColor = true;
+            // 
+            // btnUpdate
+            // 
+            this.btnUpdate.Image = ((System.Drawing.Image)(resources.GetObject("btnUpdate.Image")));
+            this.btnUpdate.Location = new System.Drawing.Point(453, 76);
+            this.btnUpdate.Name = "btnUpdate";
+            this.btnUpdate.Size = new System.Drawing.Size(50, 71);
+            this.btnUpdate.TabIndex = 23;
+            this.btnUpdate.Text = "Update";
+            this.btnUpdate.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnUpdate.UseVisualStyleBackColor = true;
+            // 
+            // btnSave
+            // 
+            this.btnSave.Image = ((System.Drawing.Image)(resources.GetObject("btnSave.Image")));
+            this.btnSave.Location = new System.Drawing.Point(455, 76);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(47, 71);
+            this.btnSave.TabIndex = 16;
+            this.btnSave.Text = "Save";
+            this.btnSave.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnSave.UseVisualStyleBackColor = true;
             // 
             // mdiUserAcc
             // 
@@ -615,30 +582,26 @@
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.TabPage tabPage3;
         private System.Windows.Forms.CheckBox chk_sales;
-        private System.Windows.Forms.CheckBox chk_inventory;
-        private System.Windows.Forms.CheckBox chk_reports;
-        private System.Windows.Forms.CheckBox chk_customers;
-        private System.Windows.Forms.CheckBox chk_useraccounts;
-        private System.Windows.Forms.CheckBox chk_configuration;
-        private System.Windows.Forms.CheckBox chk_giftcards;
-        private System.Windows.Forms.CheckBox chk_systemaccess;
-        private System.Windows.Forms.Button btn_cancel;
-        private System.Windows.Forms.Button btn_save;
-        private System.Windows.Forms.Button btn_cancel2;
-        private System.Windows.Forms.Button btn_delete;
-        private System.Windows.Forms.Button btn_update;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.CheckBox chkInventory;
+        private System.Windows.Forms.CheckBox chkReports;
+        private System.Windows.Forms.CheckBox chkCustomers;
+        private System.Windows.Forms.CheckBox chkUserAccounts;
+        private System.Windows.Forms.CheckBox chkConfiguration;
+        private System.Windows.Forms.CheckBox chkGiftCards;
+        private System.Windows.Forms.CheckBox chkSystemAccess;
+        private System.Windows.Forms.Button btnUClear;
+        private System.Windows.Forms.Button btnUpdate;
+        private System.Windows.Forms.TextBox txtBoxULastName;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtBoxUMiddleName;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox txtBoxUFirstName;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox txtBoxUUserName;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.TextBox txtBoxUUserID;
         private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Button btnSave;
 
     }
 }
