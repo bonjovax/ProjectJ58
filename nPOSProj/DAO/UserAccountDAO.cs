@@ -17,6 +17,7 @@ namespace nPOSProj.DAO
         private String passcrypt = "";
         private static String defaultPassword = "12345654321";
         private Int32 UserID = 0;
+        private Int32 catchUserID = 0;
 
         public UserAccountDAO()
         {
@@ -71,6 +72,43 @@ namespace nPOSProj.DAO
             {
                 con.Close();
             }
+        }
+
+        public Int32 catchUserIDFromUserName(String user_name)
+        {
+            con = new MySqlConnection();
+            dbcon = new Conf.dbs();
+            con.ConnectionString = dbcon.getConnectionString();
+            String query = "SELECT user_id FROM user_account ";
+            query += "WHERE user_name = ?user_name";
+            try
+            {
+                con.Open();
+                MySqlCommand cmd = new MySqlCommand(query, con);
+                cmd.Parameters.AddWithValue("?user_name", user_name);
+                cmd.ExecuteScalar();
+                MySqlDataReader rdr = cmd.ExecuteReader();
+                if (rdr.Read())
+                {
+                    catchUserID = Convert.ToInt32(rdr["user_id"]);
+                    sendCatchUserID();
+                }
+                else
+                {
+                    catchUserID = 0;
+                    sendCatchUserID();
+                }
+            }
+            finally
+            {
+                con.Close();
+            }
+            return catchUserID;
+        }
+
+        public Int32 sendCatchUserID()
+        {
+            return catchUserID;
         }
 
         public Int32 postUserID()

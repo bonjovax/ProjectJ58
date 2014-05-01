@@ -17,6 +17,7 @@ namespace nPOSProj
         private Conf.dbs dbcon;
         private VO.UserAccountVO uavo;
         private String grabID;
+        private String username;
         public mdiUserAcc()
         {
             InitializeComponent();
@@ -73,6 +74,7 @@ namespace nPOSProj
             getDataTable();
             txtBoxUserID.Text = uavo.askUserID().ToString();
             txtBoxFirstName.Focus();
+            username = frmLogin.User.user_name;
         }
 
         private void txtBoxUserID_TextChanged(object sender, EventArgs e)
@@ -174,6 +176,8 @@ namespace nPOSProj
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            Int32 catchID = 0;
+            uavo = new VO.UserAccountVO();
             txtBoxUUserID.Text = dataGridView1.SelectedRows[0].Cells[0].Value.ToString();
             grabID = dataGridView1.SelectedRows[0].Cells[0].Value.ToString();
             txtBoxUUserName.Text = dataGridView1.SelectedRows[0].Cells[1].Value.ToString();
@@ -183,6 +187,18 @@ namespace nPOSProj
             getSecurityFlags();
             unlockCheckBox();
             btnSave.Enabled = true;
+            uavo.user_name = username;
+            uavo.askCatchUserID();
+            catchID = uavo.askCatchUserID();
+            uavo.user_id = catchID;
+            if (catchID == Convert.ToInt32(txtBoxUUserID.Text))
+            {
+                chkSystemAccess.Enabled = false;
+            }
+            else
+            {
+                chkSystemAccess.Enabled = true;
+            }
         }
 
         private void txtBoxUUserID_TextChanged(object sender, EventArgs e)
@@ -533,7 +549,6 @@ namespace nPOSProj
 
         private void unlockCheckBox() 
         {
-            chkSystemAccess.Enabled = true;
             chkSales.Enabled = true;
             chkCustomers.Enabled = true;
             chkInventory.Enabled = true;

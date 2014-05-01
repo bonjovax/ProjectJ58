@@ -150,6 +150,15 @@ namespace nPOSProj.VO
             return UserID + 1;
         }
 
+        public Int32 askCatchUserID()
+        {
+            Int32 catchedUserID;
+            udao = new DAO.UserAccountDAO();
+            udao.catchUserIDFromUserName(user_name);
+            catchedUserID = udao.catchUserIDFromUserName(user_name);
+            return catchedUserID;
+        }
+
         public void SaveRestriction()
         {
             udao = new DAO.UserAccountDAO();
