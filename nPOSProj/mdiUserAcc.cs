@@ -181,6 +181,7 @@ namespace nPOSProj
             txtBoxUMiddleName.Text = dataGridView1.SelectedRows[0].Cells[3].Value.ToString();
             txtBoxULastName.Text = dataGridView1.SelectedRows[0].Cells[4].Value.ToString();
             getSecurityFlags();
+            unlockCheckBox();
             btnSave.Enabled = true;
         }
 
@@ -528,6 +529,18 @@ namespace nPOSProj
         private void chkConfiguration_CheckedChanged(object sender, EventArgs e)
         {
             btnSave.Enabled = true;
+        }
+
+        private void unlockCheckBox() 
+        {
+            chkSystemAccess.Enabled = true;
+            chkSales.Enabled = true;
+            chkCustomers.Enabled = true;
+            chkInventory.Enabled = true;
+            chkReports.Enabled = true;
+            chkGiftCards.Enabled = true;
+            chkUserAccounts.Enabled = true;
+            chkConfiguration.Enabled = true;
         }
     }
 }

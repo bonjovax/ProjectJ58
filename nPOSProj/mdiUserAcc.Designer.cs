@@ -356,6 +356,7 @@
             // chkSystemAccess
             // 
             this.chkSystemAccess.AutoSize = true;
+            this.chkSystemAccess.Enabled = false;
             this.chkSystemAccess.Location = new System.Drawing.Point(19, 18);
             this.chkSystemAccess.Name = "chkSystemAccess";
             this.chkSystemAccess.Size = new System.Drawing.Size(127, 17);
@@ -367,6 +368,7 @@
             // chkUserAccounts
             // 
             this.chkUserAccounts.AutoSize = true;
+            this.chkUserAccounts.Enabled = false;
             this.chkUserAccounts.Location = new System.Drawing.Point(152, 50);
             this.chkUserAccounts.Name = "chkUserAccounts";
             this.chkUserAccounts.Size = new System.Drawing.Size(95, 17);
@@ -378,6 +380,7 @@
             // chkConfiguration
             // 
             this.chkConfiguration.AutoSize = true;
+            this.chkConfiguration.Enabled = false;
             this.chkConfiguration.Location = new System.Drawing.Point(152, 66);
             this.chkConfiguration.Name = "chkConfiguration";
             this.chkConfiguration.Size = new System.Drawing.Size(91, 17);
@@ -389,6 +392,7 @@
             // chkGiftCards
             // 
             this.chkGiftCards.AutoSize = true;
+            this.chkGiftCards.Enabled = false;
             this.chkGiftCards.Location = new System.Drawing.Point(152, 34);
             this.chkGiftCards.Name = "chkGiftCards";
             this.chkGiftCards.Size = new System.Drawing.Size(74, 17);
@@ -400,6 +404,7 @@
             // chkInventory
             // 
             this.chkInventory.AutoSize = true;
+            this.chkInventory.Enabled = false;
             this.chkInventory.Location = new System.Drawing.Point(19, 66);
             this.chkInventory.Name = "chkInventory";
             this.chkInventory.Size = new System.Drawing.Size(74, 17);
@@ -411,6 +416,7 @@
             // chkReports
             // 
             this.chkReports.AutoSize = true;
+            this.chkReports.Enabled = false;
             this.chkReports.Location = new System.Drawing.Point(152, 18);
             this.chkReports.Name = "chkReports";
             this.chkReports.Size = new System.Drawing.Size(64, 17);
@@ -422,6 +428,7 @@
             // chkCustomers
             // 
             this.chkCustomers.AutoSize = true;
+            this.chkCustomers.Enabled = false;
             this.chkCustomers.Location = new System.Drawing.Point(19, 50);
             this.chkCustomers.Name = "chkCustomers";
             this.chkCustomers.Size = new System.Drawing.Size(77, 17);
@@ -433,6 +440,7 @@
             // chkSales
             // 
             this.chkSales.AutoSize = true;
+            this.chkSales.Enabled = false;
             this.chkSales.Location = new System.Drawing.Point(19, 34);
             this.chkSales.Name = "chkSales";
             this.chkSales.Size = new System.Drawing.Size(51, 17);
