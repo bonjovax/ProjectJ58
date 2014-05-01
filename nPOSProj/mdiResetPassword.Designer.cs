@@ -53,9 +53,9 @@
             this.label2.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(3, 43);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(194, 13);
+            this.label2.Size = new System.Drawing.Size(229, 13);
             this.label2.TabIndex = 7;
-            this.label2.Text = "Note: Default Password is 123456";
+            this.label2.Text = "Note: Default Password is 12345654321";
             // 
             // btnReset
             // 
@@ -93,10 +93,12 @@
             this.Controls.Add(this.label1);
             this.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "mdiResetPassword";
-            this.Text = "mdiResetPassword";
+            this.Text = "Reset Password";
+            this.Load += new System.EventHandler(this.mdiResetPassword_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

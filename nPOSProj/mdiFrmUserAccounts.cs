@@ -13,6 +13,7 @@ namespace nPOSProj
     {
         private DAO.LoginDAO login;
         private mdiUserAcc uacc = new mdiUserAcc();
+        private mdiResetPassword resetpas = new mdiResetPassword();
         public mdiFrmUserAccounts()
         {
             InitializeComponent();
@@ -90,6 +91,16 @@ namespace nPOSProj
             }
         }
 
+        private void gotoResetPassword()
+        {
+            if (ActivateThisChild("mdiResetPassword") == false)
+            {
+                resetpas = new mdiResetPassword();
+                resetpas.MdiParent = this;
+                resetpas.Show();
+            }
+        }
+
         private void mdiFrmUserAccounts_FormClosing(object sender, FormClosingEventArgs e)
         {
             onFormClose();
@@ -117,6 +128,11 @@ namespace nPOSProj
         private void tsAccount_Click(object sender, EventArgs e)
         {
             gotoUserAccount();
+        }
+
+        private void tsReset_Click(object sender, EventArgs e)
+        {
+            gotoResetPassword();
         }
     }
 }

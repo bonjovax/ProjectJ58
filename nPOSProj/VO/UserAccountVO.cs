@@ -164,5 +164,11 @@ namespace nPOSProj.VO
             udao = new DAO.UserAccountDAO();
             udao.UpdateRestrictions(can_access, has_sales, has_customers, has_inventory, has_reports, has_gc, has_user_accounts, has_conf, user_id);
         }
+
+        public void Reset()
+        {
+            udao = new DAO.UserAccountDAO();
+            udao.resetPassword(user_name);
+        }
     }
 }

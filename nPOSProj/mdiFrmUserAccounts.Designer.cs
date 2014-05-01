@@ -103,6 +103,7 @@
             this.tsReset.Size = new System.Drawing.Size(107, 69);
             this.tsReset.Text = "&Reset Password";
             this.tsReset.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.tsReset.Click += new System.EventHandler(this.tsReset_Click);
             // 
             // toolStripSeparator1
             // 
