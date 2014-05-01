@@ -67,11 +67,6 @@ namespace nPOSProj
             } // end using
         }
 
-        private void checkBox1_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void mdiUserAcc_Load(object sender, EventArgs e)
         {
             uavo = new VO.UserAccountVO();
@@ -186,6 +181,7 @@ namespace nPOSProj
             txtBoxUMiddleName.Text = dataGridView1.SelectedRows[0].Cells[3].Value.ToString();
             txtBoxULastName.Text = dataGridView1.SelectedRows[0].Cells[4].Value.ToString();
             getSecurityFlags();
+            btnSave.Enabled = true;
         }
 
         private void txtBoxUUserID_TextChanged(object sender, EventArgs e)
@@ -396,6 +392,142 @@ namespace nPOSProj
                 MessageBox.Show("Please Check your Database Server Connection", "Database Server Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 Application.ExitThread();
             }
+        }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            Int32 can_access = 0;
+            Int32 has_sales = 0;
+            Int32 has_customers = 0;
+            Int32 has_inventory = 0;
+            Int32 has_reports= 0;
+            Int32 has_gc = 0;
+            Int32 has_user_accounts = 0;
+            Int32 has_conf = 0;
+            uavo = new VO.UserAccountVO();
+            try
+            {
+                if (chkSystemAccess.Checked)
+                {
+                    can_access = 1;
+                }
+                else
+                {
+                    can_access = 0;
+                }
+                if (chkSales.Checked)
+                {
+                    has_sales = 1;
+                }
+                else
+                {
+                    has_sales = 0;
+                }
+                if (chkCustomers.Checked)
+                {
+                    has_customers = 1;
+                }
+                else
+                {
+                    has_customers = 0;
+                }
+                if (chkInventory.Checked)
+                {
+                    has_inventory = 1;
+                }
+                else
+                {
+                    has_inventory = 0;
+                }
+                if (chkReports.Checked)
+                {
+                    has_reports = 1;
+                }
+                else
+                {
+                    has_reports = 0;
+                }
+                if (chkGiftCards.Checked)
+                {
+                    has_gc = 1;
+                }
+                else
+                {
+                    has_gc = 0;
+                }
+                if (chkUserAccounts.Checked)
+                {
+                    has_user_accounts = 1;
+                }
+                else
+                {
+                    has_user_accounts = 0;
+                }
+                if (chkConfiguration.Checked)
+                {
+                    has_conf = 1;
+                }
+                else
+                {
+                    has_conf = 0;
+                }
+                uavo.can_access = can_access;
+                uavo.has_sales = has_sales;
+                uavo.has_customers = has_customers;
+                uavo.has_inventory = has_inventory;
+                uavo.has_reports = has_reports;
+                uavo.has_gc = has_gc;
+                uavo.has_user_accounts = has_user_accounts;
+                uavo.has_conf = has_conf;
+                uavo.user_id = Convert.ToInt32(txtBoxUUserID.Text);
+                uavo.SaveRestriction();
+                btnSave.Enabled = false;
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Please Check your Database Server Connection", "Database Server Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Application.ExitThread();
+            }
+        }
+
+        private void chkSystemAccess_CheckedChanged(object sender, EventArgs e)
+        {
+            btnSave.Enabled = true;
+        }
+
+        private void chkSales_CheckedChanged(object sender, EventArgs e)
+        {
+            btnSave.Enabled = true;
+        }
+
+        private void chkCustomers_CheckedChanged(object sender, EventArgs e)
+        {
+            btnSave.Enabled = true;
+        }
+
+        private void chkInventory_CheckedChanged(object sender, EventArgs e)
+        {
+            btnSave.Enabled = true;
+        }
+
+        private void chkReports_CheckedChanged(object sender, EventArgs e)
+        {
+            btnSave.Enabled = true;
+        }
+
+        private void chkGiftCards_CheckedChanged(object sender, EventArgs e)
+        {
+            btnSave.Enabled = true;
+        }
+
+        private void chkUserAccounts_CheckedChanged(object sender, EventArgs e)
+        {
+            btnSave.Enabled = true;
+        }
+
+        private void chkConfiguration_CheckedChanged(object sender, EventArgs e)
+        {
+            btnSave.Enabled = true;
         }
     }
 }

@@ -30,6 +30,13 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(mdiUserAcc));
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.btnClear = new System.Windows.Forms.Button();
@@ -57,6 +64,7 @@
             this.chkCustomers = new System.Windows.Forms.CheckBox();
             this.chkSales = new System.Windows.Forms.CheckBox();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.btnDelete = new System.Windows.Forms.Button();
             this.btnUClear = new System.Windows.Forms.Button();
             this.btnUpdate = new System.Windows.Forms.Button();
             this.txtBoxULastName = new System.Windows.Forms.TextBox();
@@ -69,14 +77,6 @@
             this.label11 = new System.Windows.Forms.Label();
             this.txtBoxUUserID = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnDelete = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -104,6 +104,50 @@
             this.dataGridView1.Size = new System.Drawing.Size(794, 198);
             this.dataGridView1.TabIndex = 55;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
+            // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "User ID";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "User Name";
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            // 
+            // Column3
+            // 
+            this.Column3.HeaderText = "First Name";
+            this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
+            // 
+            // Column5
+            // 
+            this.Column5.HeaderText = "Middle Name";
+            this.Column5.Name = "Column5";
+            this.Column5.ReadOnly = true;
+            // 
+            // Column6
+            // 
+            this.Column6.HeaderText = "Last Name";
+            this.Column6.Name = "Column6";
+            this.Column6.ReadOnly = true;
+            // 
+            // Column4
+            // 
+            this.Column4.HeaderText = "Last Login";
+            this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
+            this.Column4.Width = 250;
+            // 
+            // Column7
+            // 
+            this.Column7.HeaderText = "Date and Time Created";
+            this.Column7.Name = "Column7";
+            this.Column7.ReadOnly = true;
+            this.Column7.Width = 300;
             // 
             // tabControl1
             // 
@@ -298,6 +342,7 @@
             // 
             // btnSave
             // 
+            this.btnSave.Enabled = false;
             this.btnSave.Image = ((System.Drawing.Image)(resources.GetObject("btnSave.Image")));
             this.btnSave.Location = new System.Drawing.Point(455, 76);
             this.btnSave.Name = "btnSave";
@@ -306,6 +351,7 @@
             this.btnSave.Text = "Save";
             this.btnSave.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // chkSystemAccess
             // 
@@ -316,6 +362,7 @@
             this.chkSystemAccess.TabIndex = 7;
             this.chkSystemAccess.Text = "** System Access **";
             this.chkSystemAccess.UseVisualStyleBackColor = true;
+            this.chkSystemAccess.CheckedChanged += new System.EventHandler(this.chkSystemAccess_CheckedChanged);
             // 
             // chkUserAccounts
             // 
@@ -326,6 +373,7 @@
             this.chkUserAccounts.TabIndex = 13;
             this.chkUserAccounts.Text = "User Accounts";
             this.chkUserAccounts.UseVisualStyleBackColor = true;
+            this.chkUserAccounts.CheckedChanged += new System.EventHandler(this.chkUserAccounts_CheckedChanged);
             // 
             // chkConfiguration
             // 
@@ -336,6 +384,7 @@
             this.chkConfiguration.TabIndex = 14;
             this.chkConfiguration.Text = "Configuration";
             this.chkConfiguration.UseVisualStyleBackColor = true;
+            this.chkConfiguration.CheckedChanged += new System.EventHandler(this.chkConfiguration_CheckedChanged);
             // 
             // chkGiftCards
             // 
@@ -346,6 +395,7 @@
             this.chkGiftCards.TabIndex = 12;
             this.chkGiftCards.Text = "Gift Cards";
             this.chkGiftCards.UseVisualStyleBackColor = true;
+            this.chkGiftCards.CheckedChanged += new System.EventHandler(this.chkGiftCards_CheckedChanged);
             // 
             // chkInventory
             // 
@@ -356,6 +406,7 @@
             this.chkInventory.TabIndex = 10;
             this.chkInventory.Text = "Inventory";
             this.chkInventory.UseVisualStyleBackColor = true;
+            this.chkInventory.CheckedChanged += new System.EventHandler(this.chkInventory_CheckedChanged);
             // 
             // chkReports
             // 
@@ -366,6 +417,7 @@
             this.chkReports.TabIndex = 11;
             this.chkReports.Text = "Reports";
             this.chkReports.UseVisualStyleBackColor = true;
+            this.chkReports.CheckedChanged += new System.EventHandler(this.chkReports_CheckedChanged);
             // 
             // chkCustomers
             // 
@@ -376,6 +428,7 @@
             this.chkCustomers.TabIndex = 9;
             this.chkCustomers.Text = "Customers";
             this.chkCustomers.UseVisualStyleBackColor = true;
+            this.chkCustomers.CheckedChanged += new System.EventHandler(this.chkCustomers_CheckedChanged);
             // 
             // chkSales
             // 
@@ -386,7 +439,7 @@
             this.chkSales.TabIndex = 8;
             this.chkSales.Text = "Sales";
             this.chkSales.UseVisualStyleBackColor = true;
-            this.chkSales.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
+            this.chkSales.CheckedChanged += new System.EventHandler(this.chkSales_CheckedChanged);
             // 
             // tabPage3
             // 
@@ -409,6 +462,19 @@
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Update & Delete";
             this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // btnDelete
+            // 
+            this.btnDelete.Enabled = false;
+            this.btnDelete.Image = ((System.Drawing.Image)(resources.GetObject("btnDelete.Image")));
+            this.btnDelete.Location = new System.Drawing.Point(356, 76);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(50, 71);
+            this.btnDelete.TabIndex = 61;
+            this.btnDelete.Text = "Delete";
+            this.btnDelete.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // btnUClear
             // 
@@ -527,63 +593,6 @@
             this.label12.Size = new System.Drawing.Size(43, 13);
             this.label12.TabIndex = 27;
             this.label12.Text = "User ID";
-            // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "User ID";
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            // 
-            // Column2
-            // 
-            this.Column2.HeaderText = "User Name";
-            this.Column2.Name = "Column2";
-            this.Column2.ReadOnly = true;
-            // 
-            // Column3
-            // 
-            this.Column3.HeaderText = "First Name";
-            this.Column3.Name = "Column3";
-            this.Column3.ReadOnly = true;
-            // 
-            // Column5
-            // 
-            this.Column5.HeaderText = "Middle Name";
-            this.Column5.Name = "Column5";
-            this.Column5.ReadOnly = true;
-            // 
-            // Column6
-            // 
-            this.Column6.HeaderText = "Last Name";
-            this.Column6.Name = "Column6";
-            this.Column6.ReadOnly = true;
-            // 
-            // Column4
-            // 
-            this.Column4.HeaderText = "Last Login";
-            this.Column4.Name = "Column4";
-            this.Column4.ReadOnly = true;
-            this.Column4.Width = 250;
-            // 
-            // Column7
-            // 
-            this.Column7.HeaderText = "Date and Time Created";
-            this.Column7.Name = "Column7";
-            this.Column7.ReadOnly = true;
-            this.Column7.Width = 300;
-            // 
-            // btnDelete
-            // 
-            this.btnDelete.Enabled = false;
-            this.btnDelete.Image = ((System.Drawing.Image)(resources.GetObject("btnDelete.Image")));
-            this.btnDelete.Location = new System.Drawing.Point(356, 76);
-            this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(50, 71);
-            this.btnDelete.TabIndex = 61;
-            this.btnDelete.Text = "Delete";
-            this.btnDelete.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnDelete.UseVisualStyleBackColor = true;
-            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // mdiUserAcc
             // 

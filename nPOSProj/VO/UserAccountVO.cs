@@ -15,13 +15,22 @@ namespace nPOSProj.VO
         private String _middle_name;
         private String _last_name;
         private String _last_login;
+        //Restrictions
+        private Int32 _can_access;
+        private Int32 _has_sales;
+        private Int32 _has_customers;
+        private Int32 _has_inventory;
+        private Int32 _has_reports;
+        private Int32 _has_gc;
+        private Int32 _has_user_accounts;
+        private Int32 _has_conf;
         private DAO.UserAccountDAO udao;
 
         public UserAccountVO()
         {
 
         }
-
+        #region Main GETSET
         public UserAccountVO(String _user_name)
         {
             this._user_name = _user_name;
@@ -66,6 +75,49 @@ namespace nPOSProj.VO
             get { return _last_login; }
             set { _last_login = value; }
         }
+        #endregion
+        #region Restrictions GETSET
+        public Int32 can_access
+        {
+            get { return _can_access; }
+            set { _can_access = value; }
+        }
+        public Int32 has_sales
+        {
+            get { return _has_sales; }
+            set { _has_sales = value; }
+        }
+        public Int32 has_customers
+        {
+            get { return _has_customers; }
+            set { _has_customers = value; }
+        }
+        public Int32 has_inventory
+        {
+            get { return _has_inventory; }
+            set { _has_inventory = value; }
+        }
+        public Int32 has_reports
+        {
+            get { return _has_reports; }
+            set { _has_reports = value; }
+        }
+        public Int32 has_gc
+        {
+            get { return _has_gc; }
+            set { _has_gc = value; }
+        }
+        public Int32 has_user_accounts
+        {
+            get { return _has_user_accounts; }
+            set { _has_user_accounts = value; }
+        }
+        public Int32 has_conf
+        {
+            get { return _has_conf; }
+            set { _has_conf = value; }
+        }
+        #endregion
 
         public void AddUser()
         {
@@ -96,6 +148,12 @@ namespace nPOSProj.VO
             udao.postUserID();
             UserID = udao.postUserID();
             return UserID + 1;
+        }
+
+        public void SaveRestriction()
+        {
+            udao = new DAO.UserAccountDAO();
+            udao.UpdateRestrictions(can_access, has_sales, has_customers, has_inventory, has_reports, has_gc, has_user_accounts, has_conf, user_id);
         }
     }
 }
