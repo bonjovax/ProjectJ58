@@ -12,6 +12,7 @@ namespace nPOSProj
     public partial class frmMenu : Form
     {
         private mdiFrmUserAccounts mdiUA = new mdiFrmUserAccounts();
+        private mdiConfiguration mdiConfig = new mdiConfiguration();
         public frmMenu()
         {
             InitializeComponent();
@@ -76,7 +77,13 @@ namespace nPOSProj
 
         private void frmMenu_Load(object sender, EventArgs e)
         {
+            
+        }
 
+        private void btnConfig_Click(object sender, EventArgs e)
+        {
+            mdiConfig = new mdiConfiguration();
+            mdiConfig.ShowDialog();
         }
     }
 }

@@ -194,10 +194,12 @@ namespace nPOSProj
             if (catchID == Convert.ToInt32(txtBoxUUserID.Text))
             {
                 chkSystemAccess.Enabled = false;
+                chkUserAccounts.Enabled = false;
             }
             else
             {
                 chkSystemAccess.Enabled = true;
+                chkUserAccounts.Enabled = true;
             }
         }
 
