@@ -46,6 +46,7 @@
             this.cBoxUserName.Name = "cBoxUserName";
             this.cBoxUserName.Size = new System.Drawing.Size(252, 33);
             this.cBoxUserName.TabIndex = 8;
+            this.cBoxUserName.SelectedIndexChanged += new System.EventHandler(this.cBoxUserName_SelectedIndexChanged);
             // 
             // label2
             // 
@@ -70,6 +71,7 @@
             this.btnReset.Text = "&Reset";
             this.btnReset.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnReset.UseVisualStyleBackColor = true;
+            this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
             // 
             // label1
             // 

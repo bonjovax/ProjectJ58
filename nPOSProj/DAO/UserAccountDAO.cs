@@ -56,8 +56,8 @@ namespace nPOSProj.DAO
             con = new MySqlConnection();
             dbcon = new Conf.dbs();
             con.ConnectionString = dbcon.getConnectionString();
-            String query = "UPDATE user_accounts SET user_password = ?user_password";
-            query += " WHERE user_accounts = ?user_accounts";
+            String query = "UPDATE user_account SET user_password = ?user_password";
+            query += " WHERE user_name = ?user_name";
             try
             {
                 con.Open();
@@ -65,7 +65,7 @@ namespace nPOSProj.DAO
                 passcrypt = crypts.retreiveHash();
                 MySqlCommand cmd = new MySqlCommand(query, con);
                 cmd.Parameters.AddWithValue("?user_password", passcrypt);
-                cmd.Parameters.AddWithValue("?user_accounts", user_name);
+                cmd.Parameters.AddWithValue("?user_name", user_name);
                 cmd.ExecuteNonQuery();
             }
             finally

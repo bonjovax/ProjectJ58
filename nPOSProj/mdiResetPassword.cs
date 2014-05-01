@@ -15,6 +15,8 @@ namespace nPOSProj
         private MySqlConnection con;
         private Conf.dbs dbcon;
         AutoCompleteStringCollection collect = new AutoCompleteStringCollection();
+        private VO.UserAccountVO uavo;
+        private String username;
         public mdiResetPassword()
         {
             InitializeComponent();
@@ -50,7 +52,41 @@ namespace nPOSProj
 
         private void mdiResetPassword_Load(object sender, EventArgs e)
         {
+            username = frmLogin.User.user_name;
             loadUsername();
+        }
+
+        private void cBoxUserName_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (username == cBoxUserName.Text)
+            {
+                btnReset.Enabled = false;
+            }
+            if (cBoxUserName.Text != "" && cBoxUserName.Text != username)
+            {
+                btnReset.Enabled = true;
+            }
+            else
+                btnReset.Enabled = false;
+        }
+
+        private void btnReset_Click(object sender, EventArgs e)
+        {
+            uavo = new VO.UserAccountVO();
+            DialogResult dlgResult = MessageBox.Show("Do You Wish To Reset this Account?", "Question", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (dlgResult == DialogResult.Yes)
+            {
+                try
+                {
+                    uavo.user_name = cBoxUserName.Text;
+                    uavo.Reset();
+                    btnReset.Enabled = false;
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Please Check your Database Server Connection", "Database Server Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
         }
     }
 }
