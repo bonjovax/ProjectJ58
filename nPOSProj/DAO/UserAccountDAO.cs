@@ -184,7 +184,7 @@ namespace nPOSProj.DAO
             dbcon = new Conf.dbs();
             con.ConnectionString = dbcon.getConnectionString();
             String query = "UPDATE user_access_restrictions SET ";
-            query += "can_access = ?can_access, has_sales = ?has_sales, has_customers = ?has_customers, has_inventory = ?has_inventory, has_gc = ?has_gc, has_user_accounts = ?has_user_accounts, has_conf = ?has_conf ";
+            query += "can_access = ?can_access, has_sales = ?has_sales, has_customers = ?has_customers, has_inventory = ?has_inventory, has_reports = ?has_reports, has_gc = ?has_gc, has_user_accounts = ?has_user_accounts, has_conf = ?has_conf ";
             query += "WHERE user_id = ?user_id";
             try
             {
