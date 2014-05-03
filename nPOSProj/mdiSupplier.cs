@@ -18,6 +18,7 @@ namespace nPOSProj
 
         private void mdiSupplier_Load(object sender, EventArgs e)
         {
+            rdSC.Text = DateTime.Now.Year.ToString();
             // TODO: This line of code loads data into the 'npos_dbDataSet.inventory_supplier' table. You can move, or remove it, as needed.
             this.inventory_supplierTableAdapter.Fill(this.npos_dbDataSet.inventory_supplier);
         }
