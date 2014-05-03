@@ -30,7 +30,7 @@ namespace nPOSProj
 
         private void txtBoxWCode_TextChanged(object sender, EventArgs e)
         {
-            if (txtBoxWCode.Text != null && txtBoxWName.Text != null)
+            if (txtBoxWCode.Text != "" && txtBoxWName.Text != "")
             {
                 btnAdd.Enabled = true;
             }
@@ -40,7 +40,7 @@ namespace nPOSProj
 
         private void txtBoxWName_TextChanged(object sender, EventArgs e)
         {
-            if (txtBoxWCode.Text != null && txtBoxWName.Text != null)
+            if (txtBoxWCode.Text != "" && txtBoxWName.Text != "")
             {
                 btnAdd.Enabled = true;
             }
