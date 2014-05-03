@@ -32,5 +32,16 @@ namespace nPOSProj.Properties {
                 return ((string)(this["npos_dbConnectionString"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("server=localhost;user id=root;database=npos_db;persistsecurityinfo=True;password=" +
+            "root")]
+        public string npos_dbConnectionString1 {
+            get {
+                return ((string)(this["npos_dbConnectionString1"]));
+            }
+        }
     }
 }

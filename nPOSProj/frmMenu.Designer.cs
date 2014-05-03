@@ -125,6 +125,7 @@
             this.btnInventory.Text = "Inventory";
             this.btnInventory.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnInventory.UseVisualStyleBackColor = true;
+            this.btnInventory.Click += new System.EventHandler(this.btnInventory_Click);
             // 
             // btnGC
             // 

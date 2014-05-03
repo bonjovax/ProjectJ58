@@ -38,6 +38,8 @@
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.tsItemKits = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.tsStocks = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator12 = new System.Windows.Forms.ToolStripSeparator();
             this.tsSupplier = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
             this.tsPO = new System.Windows.Forms.ToolStripButton();
@@ -74,6 +76,8 @@
             this.toolStripSeparator4,
             this.tsItemKits,
             this.toolStripSeparator2,
+            this.tsStocks,
+            this.toolStripSeparator12,
             this.tsSupplier,
             this.toolStripSeparator5,
             this.tsPO,
@@ -148,6 +152,22 @@
             this.toolStripSeparator2.Name = "toolStripSeparator2";
             this.toolStripSeparator2.Size = new System.Drawing.Size(6, 72);
             // 
+            // tsStocks
+            // 
+            this.tsStocks.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tsStocks.Image = ((System.Drawing.Image)(resources.GetObject("tsStocks.Image")));
+            this.tsStocks.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.tsStocks.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsStocks.Name = "tsStocks";
+            this.tsStocks.Size = new System.Drawing.Size(52, 69);
+            this.tsStocks.Text = "&Stocks";
+            this.tsStocks.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            // 
+            // toolStripSeparator12
+            // 
+            this.toolStripSeparator12.Name = "toolStripSeparator12";
+            this.toolStripSeparator12.Size = new System.Drawing.Size(6, 72);
+            // 
             // tsSupplier
             // 
             this.tsSupplier.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -158,6 +178,7 @@
             this.tsSupplier.Size = new System.Drawing.Size(61, 69);
             this.tsSupplier.Text = "&Supplier";
             this.tsSupplier.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.tsSupplier.Click += new System.EventHandler(this.tsSupplier_Click);
             // 
             // toolStripSeparator5
             // 
@@ -239,6 +260,7 @@
             this.tsExit.Size = new System.Drawing.Size(52, 69);
             this.tsExit.Text = "Exit";
             this.tsExit.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.tsExit.Click += new System.EventHandler(this.tsExit_Click);
             // 
             // toolStripSeparator8
             // 
@@ -326,6 +348,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Inventory";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.mdiFrmInv_FormClosing);
             this.Load += new System.EventHandler(this.mdiFrmInv_Load);
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
@@ -366,6 +389,8 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator10;
         private System.Windows.Forms.ToolStripButton tsPO;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator11;
+        private System.Windows.Forms.ToolStripButton tsStocks;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator12;
 
     }
 }

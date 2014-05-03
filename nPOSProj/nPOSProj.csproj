@@ -80,6 +80,12 @@
     <Compile Include="mdiResetPassword.Designer.cs">
       <DependentUpon>mdiResetPassword.cs</DependentUpon>
     </Compile>
+    <Compile Include="mdiSupplier.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="mdiSupplier.Designer.cs">
+      <DependentUpon>mdiSupplier.cs</DependentUpon>
+    </Compile>
     <Compile Include="mdiUserAcc.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -110,6 +116,10 @@
     <Compile Include="mdiFrmUserAccounts.Designer.cs">
       <DependentUpon>mdiFrmUserAccounts.cs</DependentUpon>
     </Compile>
+    <Compile Include="npos_dbDataSet.cs">
+      <DependentUpon>npos_dbDataSet.xsd</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="npos_dbDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -128,6 +138,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="mdiResetPassword.resx">
       <DependentUpon>mdiResetPassword.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="mdiSupplier.resx">
+      <DependentUpon>mdiSupplier.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="mdiUserAcc.resx">
       <DependentUpon>mdiUserAcc.cs</DependentUpon>

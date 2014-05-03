@@ -13,6 +13,7 @@ namespace nPOSProj
     {
         private mdiFrmUserAccounts mdiUA = new mdiFrmUserAccounts();
         private mdiConfiguration mdiConfig = new mdiConfiguration();
+        private mdiFrmInv mdiInv = new mdiFrmInv();
         public frmMenu()
         {
             InitializeComponent();
@@ -84,6 +85,12 @@ namespace nPOSProj
         {
             mdiConfig = new mdiConfiguration();
             mdiConfig.ShowDialog();
+        }
+
+        private void btnInventory_Click(object sender, EventArgs e)
+        {
+            mdiInv.Show();
+            this.Hide();
         }
     }
 }

@@ -12,7 +12,7 @@ namespace nPOSProj.Conf
 
         public String getConnectionString()
         {
-            connectionString = ConfigurationManager.ConnectionStrings["nPOSProj.Properties.Settings.npos_dbConnectionString"].ConnectionString;
+            connectionString = ConfigurationManager.ConnectionStrings["nPOSProj.Properties.Settings.npos_dbConnectionString1"].ConnectionString;
             return connectionString;
         }
     }
