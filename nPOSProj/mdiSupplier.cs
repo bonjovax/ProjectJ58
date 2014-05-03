@@ -39,22 +39,26 @@ namespace nPOSProj
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            try
+            DialogResult dlgResult = MessageBox.Show("Do You Wish To Continue?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if (dlgResult == DialogResult.Yes)
             {
-                foreach (DataGridViewCell oneCell in dataGridView1.SelectedCells)
+                try
                 {
-                    if (oneCell.Selected)
+                    foreach (DataGridViewCell oneCell in dataGridView1.SelectedCells)
                     {
-                        this.inventory_supplierTableAdapter.DeleteSupplier(dataGridView1.SelectedRows[0].Cells[0].Value.ToString());
-                        dataGridView1.Rows.RemoveAt(oneCell.RowIndex);
-                        btnDelete.Enabled = false;
+                        if (oneCell.Selected)
+                        {
+                            this.inventory_supplierTableAdapter.DeleteSupplier(dataGridView1.SelectedRows[0].Cells[0].Value.ToString());
+                            dataGridView1.Rows.RemoveAt(oneCell.RowIndex);
+                            btnDelete.Enabled = false;
+                        }
                     }
                 }
-            }
-            catch (Exception)
-            {
-                MessageBox.Show("Please Check your Database Server Connection", "Database Server Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                Application.ExitThread();
+                catch (Exception)
+                {
+                    MessageBox.Show("Please Check your Database Server Connection", "Database Server Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    Application.ExitThread();
+                }
             }
         }
 

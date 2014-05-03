@@ -6,6 +6,9 @@
 }
 
 namespace nPOSProj.npos_dbDataSetTableAdapters {
+    partial class inventory_warehouseTableAdapter
+    {
+    }
     
     
     public partial class inventory_supplierTableAdapter {

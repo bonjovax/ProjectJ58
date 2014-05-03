@@ -162,6 +162,7 @@
             this.tsStocks.Size = new System.Drawing.Size(52, 69);
             this.tsStocks.Text = "&Stocks";
             this.tsStocks.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.tsStocks.Click += new System.EventHandler(this.tsStocks_Click);
             // 
             // toolStripSeparator12
             // 

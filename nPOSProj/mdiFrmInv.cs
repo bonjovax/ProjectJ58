@@ -15,6 +15,7 @@ namespace nPOSProj
         private static String cmd = "mailto:DLG.alfel@gmail.com?subject=Inventory Module Support&cc=jarmonilla892@gmail.com";
         private DAO.LoginDAO login;
         private mdiSupplier msupplier = new mdiSupplier();
+        private mdiStocks mstocks = new mdiStocks();
         public mdiFrmInv()
         {
             InitializeComponent();
@@ -118,6 +119,16 @@ namespace nPOSProj
                 msupplier = new mdiSupplier();
                 msupplier.MdiParent = this;
                 msupplier.Show();
+            }
+        }
+
+        private void tsStocks_Click(object sender, EventArgs e)
+        {
+            if (ActivateThisChild("mdiStocks") == false)
+            {
+                mstocks = new mdiStocks();
+                mstocks.MdiParent = this;
+                mstocks.Show();
             }
         }
     }
