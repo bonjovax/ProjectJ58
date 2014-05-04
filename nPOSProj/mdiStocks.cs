@@ -18,6 +18,14 @@ namespace nPOSProj
 
         private void mdiStocks_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'npos_dbDataSet1.inventory_warehouse' table. You can move, or remove it, as needed.
+            this.inventory_warehouseTableAdapter.Fill(this.npos_dbDataSet1.inventory_warehouse);
+            // TODO: This line of code loads data into the 'npos_dbDataSet1.inventory_category' table. You can move, or remove it, as needed.
+            this.inventory_categoryTableAdapter.Fill(this.npos_dbDataSet1.inventory_category);
+            // TODO: This line of code loads data into the 'npos_dbDataSet1.inventory_supplier' table. You can move, or remove it, as needed.
+            this.inventory_supplierTableAdapter.Fill(this.npos_dbDataSet1.inventory_supplier);
+            // TODO: This line of code loads data into the 'npos_dbDataSet1.inventory_stocks' table. You can move, or remove it, as needed.
+            this.inventory_stocksTableAdapter.Fill(this.npos_dbDataSet1.inventory_stocks);
             // TODO: This line of code loads data into the 'npos_dbDataSet.inventory_warehouse' table. You can move, or remove it, as needed.
             this.inventory_warehouseTableAdapter.Fill(this.npos_dbDataSet.inventory_warehouse);
         }
@@ -77,6 +85,8 @@ namespace nPOSProj
             {
                 this.inventory_warehouseTableAdapter.UpdateWarehouse(dataGridView1.SelectedRows[0].Cells[1].Value.ToString(), dataGridView1.SelectedRows[0].Cells[0].Value.ToString());
                 btnUpdate.Enabled = false;
+                this.inventory_warehouseTableAdapter.Fill(this.npos_dbDataSet1.inventory_warehouse);
+                cBoxWarehouse.Invalidate();
             }
             catch (Exception)
             {

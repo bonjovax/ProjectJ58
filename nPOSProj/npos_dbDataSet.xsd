@@ -108,7 +108,7 @@ FROM            inventory_supplier</CommandText>
               <Mapping SourceColumn="supplier_cperson_position" DataSetColumn="supplier_cperson_position" />
             </Mappings>
             <Sources>
-              <DbSource ConnectionRef="npos_dbConnectionString1 (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="DeleteSupplier" Modifier="Public" Name="DeleteSupplier" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="DeleteSupplier">
+              <DbSource ConnectionRef="npos_dbConnectionString1 (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="DeleteSupplier" Modifier="Public" Name="DeleteSupplier" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="DeleteSupplier">
                 <DeleteCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>DELETE FROM inventory_supplier
@@ -119,7 +119,16 @@ WHERE        (supplier_code = @supplier_code)</CommandText>
                   </DbCommand>
                 </DeleteCommand>
               </DbSource>
-              <DbSource ConnectionRef="npos_dbConnectionString1 (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="InsertSupplier" Modifier="Public" Name="InsertSupplier" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy2" UserSourceName="InsertSupplier">
+              <DbSource ConnectionRef="npos_dbConnectionString1 (Settings)" DbObjectName="npos_db.inventory_supplier" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillBy" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetSupplierName" GeneratorSourceName="FillBy" GetMethodModifier="Public" GetMethodName="GetSupplierName" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetSupplierName" UserSourceName="FillBy">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        supplier_name
+FROM            inventory_supplier</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="npos_dbConnectionString1 (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="InsertSupplier" Modifier="Public" Name="InsertSupplier" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="InsertSupplier">
                 <InsertCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>INSERT INTO inventory_supplier
@@ -142,7 +151,7 @@ VALUES        (@supplier_code, @supplier_name, @supplier_address, @supplier_city
                   </DbCommand>
                 </InsertCommand>
               </DbSource>
-              <DbSource ConnectionRef="npos_dbConnectionString1 (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="UpdateSupplier" Modifier="Public" Name="UpdateSupplier" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="UpdateSupplier">
+              <DbSource ConnectionRef="npos_dbConnectionString1 (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="UpdateSupplier" Modifier="Public" Name="UpdateSupplier" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy2" UserSourceName="UpdateSupplier">
                 <UpdateCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>UPDATE       inventory_supplier
@@ -213,7 +222,7 @@ FROM            inventory_warehouse</CommandText>
               <Mapping SourceColumn="warehouse_name" DataSetColumn="warehouse_name" />
             </Mappings>
             <Sources>
-              <DbSource ConnectionRef="npos_dbConnectionString1 (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="DeleteWarehouse" Modifier="Public" Name="DeleteWarehouse" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy2" UserSourceName="DeleteWarehouse">
+              <DbSource ConnectionRef="npos_dbConnectionString1 (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="DeleteWarehouse" Modifier="Public" Name="DeleteWarehouse" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="DeleteWarehouse">
                 <DeleteCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>DELETE FROM inventory_warehouse
@@ -224,7 +233,16 @@ WHERE        (warehouse_code = @warehouse_code)</CommandText>
                   </DbCommand>
                 </DeleteCommand>
               </DbSource>
-              <DbSource ConnectionRef="npos_dbConnectionString1 (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="InsertWarehouse" Modifier="Public" Name="InsertWarehouse" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="InsertWarehouse">
+              <DbSource ConnectionRef="npos_dbConnectionString1 (Settings)" DbObjectName="npos_db.inventory_warehouse" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillBy" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetWarehouseName" GeneratorSourceName="FillBy" GetMethodModifier="Public" GetMethodName="GetWarehouseName" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetWarehouseName" UserSourceName="FillBy">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        warehouse_name
+FROM            inventory_warehouse</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="npos_dbConnectionString1 (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="InsertWarehouse" Modifier="Public" Name="InsertWarehouse" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="InsertWarehouse">
                 <InsertCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>INSERT INTO inventory_warehouse
@@ -237,7 +255,7 @@ VALUES        (@warehouse_code, @warehouse_name)</CommandText>
                   </DbCommand>
                 </InsertCommand>
               </DbSource>
-              <DbSource ConnectionRef="npos_dbConnectionString1 (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="UpdateWarehouse" Modifier="Public" Name="UpdateWarehouse" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="UpdateWarehouse">
+              <DbSource ConnectionRef="npos_dbConnectionString1 (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="UpdateWarehouse" Modifier="Public" Name="UpdateWarehouse" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy2" UserSourceName="UpdateWarehouse">
                 <UpdateCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>UPDATE       inventory_warehouse
@@ -252,6 +270,139 @@ WHERE        (warehouse_code = @warehouse_code)</CommandText>
               </DbSource>
             </Sources>
           </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="inventory_categoryTableAdapter" GeneratorDataComponentClassName="inventory_categoryTableAdapter" Name="inventory_category" UserDataComponentName="inventory_categoryTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="npos_dbConnectionString1 (Settings)" DbObjectName="npos_db.inventory_category" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <DeleteCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>DELETE FROM `inventory_category` WHERE ((`cat_id` = @p1) AND ((@p2 = 1 AND `cat_code` IS NULL) OR (`cat_code` = @p3)) AND ((@p4 = 1 AND `cat_description` IS NULL) OR (`cat_description` = @p5)))</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@p1" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="cat_id" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@p2" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="cat_code" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@p3" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="cat_code" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@p4" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="cat_description" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@p5" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="cat_description" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </DeleteCommand>
+                <InsertCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>INSERT INTO `inventory_category` (`cat_code`, `cat_description`) VALUES (@p1, @p2)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@p1" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="cat_code" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@p2" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="cat_description" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </InsertCommand>
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT `cat_id`, `cat_code`, `cat_description` FROM `inventory_category`</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>UPDATE `inventory_category` SET `cat_code` = @p1, `cat_description` = @p2 WHERE ((`cat_id` = @p3) AND ((@p4 = 1 AND `cat_code` IS NULL) OR (`cat_code` = @p5)) AND ((@p6 = 1 AND `cat_description` IS NULL) OR (`cat_description` = @p7)))</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@p1" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="cat_code" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@p2" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="cat_description" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@p3" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="cat_id" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@p4" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="cat_code" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@p5" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="cat_code" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@p6" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="cat_description" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@p7" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="cat_description" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="cat_id" DataSetColumn="cat_id" />
+              <Mapping SourceColumn="cat_code" DataSetColumn="cat_code" />
+              <Mapping SourceColumn="cat_description" DataSetColumn="cat_description" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="npos_dbConnectionString1 (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="DeleteCategory" Modifier="Public" Name="DeleteCategory" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy2" UserSourceName="DeleteCategory">
+                <DeleteCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>DELETE FROM inventory_category
+WHERE        (cat_code = @cat_code) AND (cat_id = @cat_id)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="cat_code" ColumnName="cat_code" DataSourceName="npos_db.inventory_category" DataTypeServer="varchar(9)(9)" DbType="String" Direction="Input" ParameterName="@cat_code" Precision="0" ProviderType="VarChar" Scale="0" Size="9" SourceColumn="cat_code" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="cat_id" ColumnName="cat_id" DataSourceName="npos_db.inventory_category" DataTypeServer="int(11)" DbType="Int32" Direction="Input" ParameterName="@cat_id" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="cat_id" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </DeleteCommand>
+              </DbSource>
+              <DbSource ConnectionRef="npos_dbConnectionString1 (Settings)" DbObjectName="npos_db.inventory_category" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillBy" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetCategoryDesc" GeneratorSourceName="FillBy" GetMethodModifier="Public" GetMethodName="GetCategoryDesc" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetCategoryDesc" UserSourceName="FillBy">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        cat_description
+FROM            inventory_category</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="npos_dbConnectionString1 (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="InsertCategory" Modifier="Public" Name="InsertCategory" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="InsertCategory">
+                <InsertCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>INSERT INTO inventory_category
+                         (cat_code, cat_description)
+VALUES        (@cat_code, @cat_description)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="cat_code" ColumnName="cat_code" DataSourceName="npos_db.inventory_category" DataTypeServer="varchar(9)(9)" DbType="String" Direction="Input" ParameterName="@cat_code" Precision="0" ProviderType="VarChar" Scale="0" Size="9" SourceColumn="cat_code" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="cat_description" ColumnName="cat_description" DataSourceName="npos_db.inventory_category" DataTypeServer="varchar(20)(20)" DbType="String" Direction="Input" ParameterName="@cat_description" Precision="0" ProviderType="VarChar" Scale="0" Size="20" SourceColumn="cat_description" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </InsertCommand>
+              </DbSource>
+              <DbSource ConnectionRef="npos_dbConnectionString1 (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="UpdateCategory" Modifier="Public" Name="UpdateCategory" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="UpdateCategory">
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>UPDATE       inventory_category
+SET                cat_description = @cat_description
+WHERE        (cat_id = @cat_id) AND (cat_code = @cat_code)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="cat_description" ColumnName="cat_description" DataSourceName="npos_db.inventory_category" DataTypeServer="varchar(20)(20)" DbType="String" Direction="Input" ParameterName="@cat_description" Precision="0" ProviderType="VarChar" Scale="0" Size="20" SourceColumn="cat_description" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="cat_id" ColumnName="cat_id" DataSourceName="npos_db.inventory_category" DataTypeServer="int(11)" DbType="Int32" Direction="Input" ParameterName="@cat_id" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="cat_id" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="cat_code" ColumnName="cat_code" DataSourceName="npos_db.inventory_category" DataTypeServer="varchar(9)(9)" DbType="String" Direction="Input" ParameterName="@cat_code" Precision="0" ProviderType="VarChar" Scale="0" Size="9" SourceColumn="cat_code" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="inventory_stocksTableAdapter" GeneratorDataComponentClassName="inventory_stocksTableAdapter" Name="inventory_stocks" UserDataComponentName="inventory_stocksTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="npos_dbConnectionString1 (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        inventory_stocks.stock_id, inventory_stocks.stock_code, inventory_stocks.stock_name, inventory_supplier.supplier_name, inventory_category.cat_description, inventory_warehouse.warehouse_name, 
+                         inventory_stocks.stock_quantity, inventory_stocks.stock_uom, inventory_stocks.stock_cost_price, inventory_stocks.stock_selling_price, inventory_stocks.stock_total_price
+FROM            inventory_stocks INNER JOIN
+                         inventory_warehouse ON inventory_stocks.warehouse_code = inventory_warehouse.warehouse_code INNER JOIN
+                         inventory_supplier ON inventory_stocks.supplier_code = inventory_supplier.supplier_code INNER JOIN
+                         inventory_category ON inventory_stocks.stock_cat_code = inventory_category.cat_code</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="stock_id" DataSetColumn="stock_id" />
+              <Mapping SourceColumn="stock_code" DataSetColumn="stock_code" />
+              <Mapping SourceColumn="stock_name" DataSetColumn="stock_name" />
+              <Mapping SourceColumn="stock_quantity" DataSetColumn="stock_quantity" />
+              <Mapping SourceColumn="stock_uom" DataSetColumn="stock_uom" />
+              <Mapping SourceColumn="stock_cost_price" DataSetColumn="stock_cost_price" />
+              <Mapping SourceColumn="stock_selling_price" DataSetColumn="stock_selling_price" />
+              <Mapping SourceColumn="stock_total_price" DataSetColumn="stock_total_price" />
+              <Mapping SourceColumn="supplier_name" DataSetColumn="supplier_name" />
+              <Mapping SourceColumn="cat_description" DataSetColumn="cat_description" />
+              <Mapping SourceColumn="warehouse_name" DataSetColumn="warehouse_name" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
         </Tables>
         <Sources />
       </DataSource>
@@ -260,7 +411,7 @@ WHERE        (warehouse_code = @warehouse_code)</CommandText>
   <xs:element name="npos_dbDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="npos_dbDataSet" msprop:Generator_UserDSName="npos_dbDataSet">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="inventory_supplier" msprop:Generator_TableClassName="inventory_supplierDataTable" msprop:Generator_TableVarName="tableinventory_supplier" msprop:Generator_RowChangedName="inventory_supplierRowChanged" msprop:Generator_TablePropName="inventory_supplier" msprop:Generator_RowDeletingName="inventory_supplierRowDeleting" msprop:Generator_RowChangingName="inventory_supplierRowChanging" msprop:Generator_RowEvHandlerName="inventory_supplierRowChangeEventHandler" msprop:Generator_RowDeletedName="inventory_supplierRowDeleted" msprop:Generator_RowClassName="inventory_supplierRow" msprop:Generator_UserTableName="inventory_supplier" msprop:Generator_RowEvArgName="inventory_supplierRowChangeEvent">
+        <xs:element name="inventory_supplier" msprop:Generator_TableClassName="inventory_supplierDataTable" msprop:Generator_TableVarName="tableinventory_supplier" msprop:Generator_TablePropName="inventory_supplier" msprop:Generator_RowDeletingName="inventory_supplierRowDeleting" msprop:Generator_RowChangingName="inventory_supplierRowChanging" msprop:Generator_RowEvHandlerName="inventory_supplierRowChangeEventHandler" msprop:Generator_RowDeletedName="inventory_supplierRowDeleted" msprop:Generator_UserTableName="inventory_supplier" msprop:Generator_RowChangedName="inventory_supplierRowChanged" msprop:Generator_RowEvArgName="inventory_supplierRowChangeEvent" msprop:Generator_RowClassName="inventory_supplierRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="supplier_id" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnsupplier_id" msprop:Generator_ColumnPropNameInRow="supplier_id" msprop:Generator_ColumnPropNameInTable="supplier_idColumn" msprop:Generator_UserColumnName="supplier_id" type="xs:int" />
@@ -324,13 +475,87 @@ WHERE        (warehouse_code = @warehouse_code)</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="inventory_warehouse" msprop:Generator_TableClassName="inventory_warehouseDataTable" msprop:Generator_TableVarName="tableinventory_warehouse" msprop:Generator_TablePropName="inventory_warehouse" msprop:Generator_RowDeletingName="inventory_warehouseRowDeleting" msprop:Generator_RowChangingName="inventory_warehouseRowChanging" msprop:Generator_RowEvHandlerName="inventory_warehouseRowChangeEventHandler" msprop:Generator_RowDeletedName="inventory_warehouseRowDeleted" msprop:Generator_UserTableName="inventory_warehouse" msprop:Generator_RowChangedName="inventory_warehouseRowChanged" msprop:Generator_RowEvArgName="inventory_warehouseRowChangeEvent" msprop:Generator_RowClassName="inventory_warehouseRow">
+        <xs:element name="inventory_warehouse" msprop:Generator_TableClassName="inventory_warehouseDataTable" msprop:Generator_TableVarName="tableinventory_warehouse" msprop:Generator_RowChangedName="inventory_warehouseRowChanged" msprop:Generator_TablePropName="inventory_warehouse" msprop:Generator_RowDeletingName="inventory_warehouseRowDeleting" msprop:Generator_RowChangingName="inventory_warehouseRowChanging" msprop:Generator_RowEvHandlerName="inventory_warehouseRowChangeEventHandler" msprop:Generator_RowDeletedName="inventory_warehouseRowDeleted" msprop:Generator_RowClassName="inventory_warehouseRow" msprop:Generator_UserTableName="inventory_warehouse" msprop:Generator_RowEvArgName="inventory_warehouseRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="warehouse_code" msprop:Generator_ColumnVarNameInTable="columnwarehouse_code" msprop:Generator_ColumnPropNameInRow="warehouse_code" msprop:Generator_ColumnPropNameInTable="warehouse_codeColumn" msprop:Generator_UserColumnName="warehouse_code">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="9" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="warehouse_name" msprop:Generator_ColumnVarNameInTable="columnwarehouse_name" msprop:Generator_ColumnPropNameInRow="warehouse_name" msprop:Generator_ColumnPropNameInTable="warehouse_nameColumn" msprop:Generator_UserColumnName="warehouse_name" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="75" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="inventory_category" msprop:Generator_TableClassName="inventory_categoryDataTable" msprop:Generator_TableVarName="tableinventory_category" msprop:Generator_TablePropName="inventory_category" msprop:Generator_RowDeletingName="inventory_categoryRowDeleting" msprop:Generator_RowChangingName="inventory_categoryRowChanging" msprop:Generator_RowEvHandlerName="inventory_categoryRowChangeEventHandler" msprop:Generator_RowDeletedName="inventory_categoryRowDeleted" msprop:Generator_UserTableName="inventory_category" msprop:Generator_RowChangedName="inventory_categoryRowChanged" msprop:Generator_RowEvArgName="inventory_categoryRowChangeEvent" msprop:Generator_RowClassName="inventory_categoryRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="cat_id" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columncat_id" msprop:Generator_ColumnPropNameInRow="cat_id" msprop:Generator_ColumnPropNameInTable="cat_idColumn" msprop:Generator_UserColumnName="cat_id" type="xs:int" />
+              <xs:element name="cat_code" msprop:Generator_ColumnVarNameInTable="columncat_code" msprop:Generator_ColumnPropNameInRow="cat_code" msprop:Generator_ColumnPropNameInTable="cat_codeColumn" msprop:Generator_UserColumnName="cat_code" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="9" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="cat_description" msprop:Generator_ColumnVarNameInTable="columncat_description" msprop:Generator_ColumnPropNameInRow="cat_description" msprop:Generator_ColumnPropNameInTable="cat_descriptionColumn" msprop:Generator_UserColumnName="cat_description" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="inventory_stocks" msprop:Generator_TableClassName="inventory_stocksDataTable" msprop:Generator_TableVarName="tableinventory_stocks" msprop:Generator_TablePropName="inventory_stocks" msprop:Generator_RowDeletingName="inventory_stocksRowDeleting" msprop:Generator_RowChangingName="inventory_stocksRowChanging" msprop:Generator_RowEvHandlerName="inventory_stocksRowChangeEventHandler" msprop:Generator_RowDeletedName="inventory_stocksRowDeleted" msprop:Generator_UserTableName="inventory_stocks" msprop:Generator_RowChangedName="inventory_stocksRowChanged" msprop:Generator_RowEvArgName="inventory_stocksRowChangeEvent" msprop:Generator_RowClassName="inventory_stocksRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="stock_id" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnstock_id" msprop:Generator_ColumnPropNameInRow="stock_id" msprop:Generator_ColumnPropNameInTable="stock_idColumn" msprop:Generator_UserColumnName="stock_id" type="xs:int" />
+              <xs:element name="stock_code" msprop:Generator_ColumnVarNameInTable="columnstock_code" msprop:Generator_ColumnPropNameInRow="stock_code" msprop:Generator_ColumnPropNameInTable="stock_codeColumn" msprop:Generator_UserColumnName="stock_code" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="9" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="stock_name" msprop:Generator_ColumnVarNameInTable="columnstock_name" msprop:Generator_ColumnPropNameInRow="stock_name" msprop:Generator_ColumnPropNameInTable="stock_nameColumn" msprop:Generator_UserColumnName="stock_name" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="75" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="stock_quantity" msprop:Generator_ColumnVarNameInTable="columnstock_quantity" msprop:Generator_ColumnPropNameInRow="stock_quantity" msprop:Generator_ColumnPropNameInTable="stock_quantityColumn" msprop:Generator_UserColumnName="stock_quantity" type="xs:int" minOccurs="0" />
+              <xs:element name="stock_uom" msprop:Generator_ColumnVarNameInTable="columnstock_uom" msprop:Generator_ColumnPropNameInRow="stock_uom" msprop:Generator_ColumnPropNameInTable="stock_uomColumn" msprop:Generator_UserColumnName="stock_uom" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="stock_cost_price" msprop:Generator_ColumnVarNameInTable="columnstock_cost_price" msprop:Generator_ColumnPropNameInRow="stock_cost_price" msprop:Generator_ColumnPropNameInTable="stock_cost_priceColumn" msprop:Generator_UserColumnName="stock_cost_price" type="xs:double" minOccurs="0" />
+              <xs:element name="stock_selling_price" msprop:Generator_ColumnVarNameInTable="columnstock_selling_price" msprop:Generator_ColumnPropNameInRow="stock_selling_price" msprop:Generator_ColumnPropNameInTable="stock_selling_priceColumn" msprop:Generator_UserColumnName="stock_selling_price" type="xs:double" minOccurs="0" />
+              <xs:element name="stock_total_price" msprop:Generator_ColumnVarNameInTable="columnstock_total_price" msprop:Generator_ColumnPropNameInRow="stock_total_price" msprop:Generator_ColumnPropNameInTable="stock_total_priceColumn" msprop:Generator_UserColumnName="stock_total_price" type="xs:double" minOccurs="0" />
+              <xs:element name="supplier_name" msprop:Generator_ColumnVarNameInTable="columnsupplier_name" msprop:Generator_ColumnPropNameInRow="supplier_name" msprop:Generator_ColumnPropNameInTable="supplier_nameColumn" msprop:Generator_UserColumnName="supplier_name" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="cat_description" msprop:Generator_ColumnVarNameInTable="columncat_description" msprop:Generator_ColumnPropNameInRow="cat_description" msprop:Generator_ColumnPropNameInTable="cat_descriptionColumn" msprop:Generator_UserColumnName="cat_description" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
@@ -353,6 +578,14 @@ WHERE        (warehouse_code = @warehouse_code)</CommandText>
     <xs:unique name="inventory_warehouse_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
       <xs:selector xpath=".//mstns:inventory_warehouse" />
       <xs:field xpath="mstns:warehouse_code" />
+    </xs:unique>
+    <xs:unique name="inventory_category_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:inventory_category" />
+      <xs:field xpath="mstns:cat_id" />
+    </xs:unique>
+    <xs:unique name="inventory_stocks_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:inventory_stocks" />
+      <xs:field xpath="mstns:stock_id" />
     </xs:unique>
   </xs:element>
 </xs:schema>

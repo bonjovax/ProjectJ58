@@ -16,6 +16,7 @@ namespace nPOSProj
         private DAO.LoginDAO login;
         private mdiSupplier msupplier = new mdiSupplier();
         private mdiStocks mstocks = new mdiStocks();
+        private mdiCategory mcat = new mdiCategory();
         public mdiFrmInv()
         {
             InitializeComponent();
@@ -129,6 +130,16 @@ namespace nPOSProj
                 mstocks = new mdiStocks();
                 mstocks.MdiParent = this;
                 mstocks.Show();
+            }
+        }
+
+        private void tsCatSetup_Click(object sender, EventArgs e)
+        {
+            if (ActivateThisChild("mdiCategory") == false)
+            {
+                mcat = new mdiCategory();
+                mcat.MdiParent = this;
+                mcat.Show();
             }
         }
     }

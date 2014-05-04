@@ -114,6 +114,7 @@
             this.tsCatSetup.Size = new System.Drawing.Size(107, 69);
             this.tsCatSetup.Text = "&Category Setup";
             this.tsCatSetup.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.tsCatSetup.Click += new System.EventHandler(this.tsCatSetup_Click);
             // 
             // toolStripSeparator7
             // 

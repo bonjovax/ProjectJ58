@@ -31,6 +31,8 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(mdiSupplier));
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.inventorysupplierBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.npos_dbDataSet = new nPOSProj.npos_dbDataSet();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label11 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -60,8 +62,6 @@
             this.btnUpdate = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.btnDelete = new System.Windows.Forms.Button();
-            this.inventorysupplierBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.npos_dbDataSet = new nPOSProj.npos_dbDataSet();
             this.inventory_supplierTableAdapter = new nPOSProj.npos_dbDataSetTableAdapters.inventory_supplierTableAdapter();
             this.supplier_code = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.supplier_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -73,11 +73,11 @@
             this.supplier_contact_person = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.supplier_position = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.inventorysupplierBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.npos_dbDataSet)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.inventorysupplierBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.npos_dbDataSet)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridView1
@@ -110,6 +110,16 @@
             this.dataGridView1.Size = new System.Drawing.Size(883, 248);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
+            // 
+            // inventorysupplierBindingSource
+            // 
+            this.inventorysupplierBindingSource.DataMember = "inventory_supplier";
+            this.inventorysupplierBindingSource.DataSource = this.npos_dbDataSet;
+            // 
+            // npos_dbDataSet
+            // 
+            this.npos_dbDataSet.DataSetName = "npos_dbDataSet";
+            this.npos_dbDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // groupBox1
             // 
@@ -448,16 +458,6 @@
             this.btnDelete.UseVisualStyleBackColor = true;
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
-            // inventorysupplierBindingSource
-            // 
-            this.inventorysupplierBindingSource.DataMember = "inventory_supplier";
-            this.inventorysupplierBindingSource.DataSource = this.npos_dbDataSet;
-            // 
-            // npos_dbDataSet
-            // 
-            this.npos_dbDataSet.DataSetName = "npos_dbDataSet";
-            this.npos_dbDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
             // inventory_supplierTableAdapter
             // 
             this.inventory_supplierTableAdapter.ClearBeforeFill = true;
@@ -541,12 +541,12 @@
             this.Text = "Supplier";
             this.Load += new System.EventHandler(this.mdiSupplier_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.inventorysupplierBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.npos_dbDataSet)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.inventorysupplierBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.npos_dbDataSet)).EndInit();
             this.ResumeLayout(false);
 
         }
