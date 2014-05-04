@@ -11,6 +11,7 @@ namespace nPOSProj
 {
     public partial class mdiStocks : Form
     {
+        private VO.InventoryVO ivo;
         public mdiStocks()
         {
             InitializeComponent();
@@ -124,6 +125,138 @@ namespace nPOSProj
         {
             btnUpdate.Enabled = true;
             btnDelete.Enabled = true;
+        }
+
+        private void clearStockSection()
+        {
+            txtBoxStockCode.Clear();
+            txtBoxStockName.Clear();
+            txtBoxQty.Clear();
+            txtBoxUOM.Clear();
+            l1.Text = "_";
+            l2.Text = "_";
+            l3.Text = "_";
+            txtBoxCPrice.Text = "0.00";
+            txtBoxSPrice.Text = "0.00";
+            txtBoxTPrice.Text = "0.00";
+            txtBoxStockCode.Focus();
+        }
+
+        private void btnSClear_Click(object sender, EventArgs e)
+        {
+            clearStockSection();
+        }
+
+        private void btnSAdd_Click(object sender, EventArgs e)
+        {
+            DialogResult dlgResult = MessageBox.Show("Do You Wish To Add Stocks?", "Question", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (dlgResult == DialogResult.Yes)
+            {
+                try
+                {
+                    this.inventory_stocksTableAdapter.InsertStocks(txtBoxStockCode.Text, txtBoxStockName.Text, l1.Text, l2.Text, l3.Text, Convert.ToInt32(txtBoxQty.Text), txtBoxUOM.Text, Convert.ToDecimal(txtBoxCPrice.Text), Convert.ToDecimal(txtBoxSPrice.Text), Convert.ToDecimal(txtBoxTPrice.Text));
+                    clearStockSection();
+                    this.inventory_stocksTableAdapter.Fill(this.npos_dbDataSet1.inventory_stocks);
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Stock Code Existed! or Check Database Server!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
+        private void cBoxSupplier_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ivo = new VO.InventoryVO();
+            ivo.supplier_name = cBoxSupplier.Text;
+            ivo.patchSupplierCode();
+            l1.Text = ivo.patchSupplierCode();
+        }
+
+        private void cBoxCategory_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ivo = new VO.InventoryVO();
+            ivo.cat_description = cBoxCategory.Text;
+            ivo.patchCategoryCode();
+            l2.Text = ivo.patchCategoryCode();
+        }
+
+        private void cBoxWarehouse_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ivo = new VO.InventoryVO();
+            ivo.warehouse_name = cBoxWarehouse.Text;
+            ivo.patchWarehouseCode();
+            l3.Text = ivo.patchWarehouseCode();
+        }
+
+        private void txtBoxStockCode_TextChanged(object sender, EventArgs e)
+        {
+            if (txtBoxStockCode.Text != "" && txtBoxStockName.Text != "" && l1.Text != "_" && l2.Text != "_" && l3.Text != "_" && txtBoxQty.Text != "" && txtBoxUOM.Text != "" && txtBoxCPrice.Text != "0.00" && txtBoxCPrice.Text != "" && txtBoxSPrice.Text != "0.00" && txtBoxSPrice.Text != "" && txtBoxTPrice.Text != "0.00" && txtBoxTPrice.Text != "")
+            {
+                btnSAdd.Enabled = true;
+            }
+            else
+                btnSAdd.Enabled = false;
+        }
+
+        private void txtBoxStockName_TextChanged(object sender, EventArgs e)
+        {
+            if (txtBoxStockCode.Text != "" && txtBoxStockName.Text != "" && l1.Text != "_" && l2.Text != "_" && l3.Text != "_" && txtBoxQty.Text != "" && txtBoxUOM.Text != "" && txtBoxCPrice.Text != "0.00" && txtBoxCPrice.Text != "" && txtBoxSPrice.Text != "0.00" && txtBoxSPrice.Text != "" && txtBoxTPrice.Text != "0.00" && txtBoxTPrice.Text != "")
+            {
+                btnSAdd.Enabled = true;
+            }
+            else
+                btnSAdd.Enabled = false;
+        }
+
+        private void txtBoxQty_TextChanged(object sender, EventArgs e)
+        {
+            if (txtBoxStockCode.Text != "" && txtBoxStockName.Text != "" && l1.Text != "_" && l2.Text != "_" && l3.Text != "_" && txtBoxQty.Text != "" && txtBoxUOM.Text != "" && txtBoxCPrice.Text != "0.00" && txtBoxCPrice.Text != "" && txtBoxSPrice.Text != "0.00" && txtBoxSPrice.Text != "" && txtBoxTPrice.Text != "0.00" && txtBoxTPrice.Text != "")
+            {
+                btnSAdd.Enabled = true;
+            }
+            else
+                btnSAdd.Enabled = false;
+        }
+
+        private void txtBoxUOM_TextChanged(object sender, EventArgs e)
+        {
+            if (txtBoxStockCode.Text != "" && txtBoxStockName.Text != "" && l1.Text != "_" && l2.Text != "_" && l3.Text != "_" && txtBoxQty.Text != "" && txtBoxUOM.Text != "" && txtBoxCPrice.Text != "0.00" && txtBoxCPrice.Text != "" && txtBoxSPrice.Text != "0.00" && txtBoxSPrice.Text != "" && txtBoxTPrice.Text != "0.00" && txtBoxTPrice.Text != "")
+            {
+                btnSAdd.Enabled = true;
+            }
+            else
+                btnSAdd.Enabled = false;
+        }
+
+        private void txtBoxCPrice_TextChanged(object sender, EventArgs e)
+        {
+            if (txtBoxStockCode.Text != "" && txtBoxStockName.Text != "" && l1.Text != "_" && l2.Text != "_" && l3.Text != "_" && txtBoxQty.Text != "" && txtBoxUOM.Text != "" && txtBoxCPrice.Text != "0.00" && txtBoxCPrice.Text != "" && txtBoxSPrice.Text != "0.00" && txtBoxSPrice.Text != "" && txtBoxTPrice.Text != "0.00" && txtBoxTPrice.Text != "")
+            {
+                btnSAdd.Enabled = true;
+            }
+            else
+                btnSAdd.Enabled = false;
+        }
+
+        private void txtBoxSPrice_TextChanged(object sender, EventArgs e)
+        {
+            if (txtBoxStockCode.Text != "" && txtBoxStockName.Text != "" && l1.Text != "_" && l2.Text != "_" && l3.Text != "_" && txtBoxQty.Text != "" && txtBoxUOM.Text != "" && txtBoxCPrice.Text != "0.00" && txtBoxCPrice.Text != "" && txtBoxSPrice.Text != "0.00" && txtBoxSPrice.Text != "" && txtBoxTPrice.Text != "0.00" && txtBoxTPrice.Text != "")
+            {
+                btnSAdd.Enabled = true;
+            }
+            else
+                btnSAdd.Enabled = false;
+        }
+
+        private void txtBoxTPrice_TextChanged(object sender, EventArgs e)
+        {
+            if (txtBoxStockCode.Text != "" && txtBoxStockName.Text != "" && l1.Text != "_" && l2.Text != "_" && l3.Text != "_" && txtBoxQty.Text != "" && txtBoxUOM.Text != "" && txtBoxCPrice.Text != "0.00" && txtBoxCPrice.Text != "" && txtBoxSPrice.Text != "0.00" && txtBoxSPrice.Text != "" && txtBoxTPrice.Text != "0.00" && txtBoxTPrice.Text != "")
+            {
+                btnSAdd.Enabled = true;
+            }
+            else
+                btnSAdd.Enabled = false;
         }
     }
 }

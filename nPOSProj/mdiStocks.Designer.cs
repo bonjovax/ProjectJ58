@@ -30,15 +30,61 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(mdiStocks));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.btnSDelete = new System.Windows.Forms.Button();
+            this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this.btnSUpdate = new System.Windows.Forms.Button();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.l3 = new System.Windows.Forms.Label();
+            this.l2 = new System.Windows.Forms.Label();
+            this.l1 = new System.Windows.Forms.Label();
+            this.btnSClear = new System.Windows.Forms.Button();
+            this.btnSAdd = new System.Windows.Forms.Button();
+            this.txtBoxTPrice = new System.Windows.Forms.TextBox();
+            this.txtBoxSPrice = new System.Windows.Forms.TextBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.txtBoxCPrice = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.txtBoxUOM = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.txtBoxQty = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.cBoxWarehouse = new System.Windows.Forms.ComboBox();
+            this.inventorywarehouseBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.npos_dbDataSet1 = new nPOSProj.npos_dbDataSet();
+            this.label6 = new System.Windows.Forms.Label();
+            this.cBoxCategory = new System.Windows.Forms.ComboBox();
+            this.inventorycategoryBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.label5 = new System.Windows.Forms.Label();
+            this.cBoxSupplier = new System.Windows.Forms.ComboBox();
+            this.inventorysupplierBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.txtBoxStockName = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.txtBoxStockCode = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.stockidDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.stockcodeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.stocknameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cbSupplier = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.cbCategory = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.cbWarehouse = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.stockquantityDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.stockuomDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.stockcostpriceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.stocksellingpriceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.stocktotalpriceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.inventorystocksBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.btnDelete = new System.Windows.Forms.Button();
@@ -57,49 +103,20 @@
             this.inventorywarehouseBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.npos_dbDataSet = new nPOSProj.npos_dbDataSet();
             this.inventory_warehouseTableAdapter = new nPOSProj.npos_dbDataSetTableAdapters.inventory_warehouseTableAdapter();
-            this.npos_dbDataSet1 = new nPOSProj.npos_dbDataSet();
-            this.inventorystocksBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.inventory_stocksTableAdapter = new nPOSProj.npos_dbDataSetTableAdapters.inventory_stocksTableAdapter();
-            this.inventorysupplierBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.inventory_supplierTableAdapter = new nPOSProj.npos_dbDataSetTableAdapters.inventory_supplierTableAdapter();
-            this.inventorycategoryBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.inventory_categoryTableAdapter = new nPOSProj.npos_dbDataSetTableAdapters.inventory_categoryTableAdapter();
-            this.inventorywarehouseBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.stockidDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.stockcodeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.stocknameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cbSupplier = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.cbCategory = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.cbWarehouse = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.stockquantityDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.stockuomDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.stockcostpriceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.stocksellingpriceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.stocktotalpriceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.cBoxSupplier = new System.Windows.Forms.ComboBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.cBoxCategory = new System.Windows.Forms.ComboBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.cBoxWarehouse = new System.Windows.Forms.ComboBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.label9 = new System.Windows.Forms.Label();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.label10 = new System.Windows.Forms.Label();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.label11 = new System.Windows.Forms.Label();
-            this.textBox7 = new System.Windows.Forms.TextBox();
-            this.label12 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
+            this.groupBox5.SuspendLayout();
+            this.groupBox6.SuspendLayout();
+            this.groupBox4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.inventorywarehouseBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.npos_dbDataSet1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.inventorycategoryBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.inventorysupplierBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.inventorystocksBindingSource)).BeginInit();
             this.tabPage2.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -107,12 +124,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.inventorywarehouseBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.npos_dbDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.npos_dbDataSet1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.inventorystocksBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.inventorysupplierBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.inventorycategoryBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.inventorywarehouseBindingSource1)).BeginInit();
-            this.groupBox4.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -124,21 +135,410 @@
             this.tabControl1.Location = new System.Drawing.Point(1, 3);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(832, 470);
+            this.tabControl1.Size = new System.Drawing.Size(832, 409);
             this.tabControl1.TabIndex = 0;
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.groupBox5);
+            this.tabPage1.Controls.Add(this.groupBox6);
             this.tabPage1.Controls.Add(this.groupBox4);
             this.tabPage1.Controls.Add(this.dataGridView2);
             this.tabPage1.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabPage1.Location = new System.Drawing.Point(4, 30);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(824, 436);
+            this.tabPage1.Size = new System.Drawing.Size(824, 375);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Stocks";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // groupBox5
+            // 
+            this.groupBox5.Controls.Add(this.btnSDelete);
+            this.groupBox5.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox5.Location = new System.Drawing.Point(589, 296);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Size = new System.Drawing.Size(57, 76);
+            this.groupBox5.TabIndex = 69;
+            this.groupBox5.TabStop = false;
+            this.groupBox5.Text = "Delete";
+            // 
+            // btnSDelete
+            // 
+            this.btnSDelete.Enabled = false;
+            this.btnSDelete.Image = ((System.Drawing.Image)(resources.GetObject("btnSDelete.Image")));
+            this.btnSDelete.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnSDelete.Location = new System.Drawing.Point(3, 15);
+            this.btnSDelete.Name = "btnSDelete";
+            this.btnSDelete.Size = new System.Drawing.Size(50, 57);
+            this.btnSDelete.TabIndex = 62;
+            this.btnSDelete.Text = "Delete";
+            this.btnSDelete.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnSDelete.UseVisualStyleBackColor = true;
+            // 
+            // groupBox6
+            // 
+            this.groupBox6.Controls.Add(this.btnSUpdate);
+            this.groupBox6.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox6.Location = new System.Drawing.Point(589, 219);
+            this.groupBox6.Name = "groupBox6";
+            this.groupBox6.Size = new System.Drawing.Size(57, 76);
+            this.groupBox6.TabIndex = 68;
+            this.groupBox6.TabStop = false;
+            this.groupBox6.Text = "Update";
+            // 
+            // btnSUpdate
+            // 
+            this.btnSUpdate.Enabled = false;
+            this.btnSUpdate.Image = ((System.Drawing.Image)(resources.GetObject("btnSUpdate.Image")));
+            this.btnSUpdate.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnSUpdate.Location = new System.Drawing.Point(3, 15);
+            this.btnSUpdate.Name = "btnSUpdate";
+            this.btnSUpdate.Size = new System.Drawing.Size(50, 57);
+            this.btnSUpdate.TabIndex = 62;
+            this.btnSUpdate.Text = "Update";
+            this.btnSUpdate.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnSUpdate.UseVisualStyleBackColor = true;
+            // 
+            // groupBox4
+            // 
+            this.groupBox4.Controls.Add(this.l3);
+            this.groupBox4.Controls.Add(this.l2);
+            this.groupBox4.Controls.Add(this.l1);
+            this.groupBox4.Controls.Add(this.btnSClear);
+            this.groupBox4.Controls.Add(this.btnSAdd);
+            this.groupBox4.Controls.Add(this.txtBoxTPrice);
+            this.groupBox4.Controls.Add(this.txtBoxSPrice);
+            this.groupBox4.Controls.Add(this.label12);
+            this.groupBox4.Controls.Add(this.label11);
+            this.groupBox4.Controls.Add(this.txtBoxCPrice);
+            this.groupBox4.Controls.Add(this.label10);
+            this.groupBox4.Controls.Add(this.txtBoxUOM);
+            this.groupBox4.Controls.Add(this.label9);
+            this.groupBox4.Controls.Add(this.txtBoxQty);
+            this.groupBox4.Controls.Add(this.label8);
+            this.groupBox4.Controls.Add(this.label7);
+            this.groupBox4.Controls.Add(this.cBoxWarehouse);
+            this.groupBox4.Controls.Add(this.label6);
+            this.groupBox4.Controls.Add(this.cBoxCategory);
+            this.groupBox4.Controls.Add(this.label5);
+            this.groupBox4.Controls.Add(this.cBoxSupplier);
+            this.groupBox4.Controls.Add(this.txtBoxStockName);
+            this.groupBox4.Controls.Add(this.label4);
+            this.groupBox4.Controls.Add(this.txtBoxStockCode);
+            this.groupBox4.Controls.Add(this.label3);
+            this.groupBox4.Location = new System.Drawing.Point(5, 183);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(581, 189);
+            this.groupBox4.TabIndex = 3;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "Add Stocks";
+            // 
+            // l3
+            // 
+            this.l3.AutoSize = true;
+            this.l3.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.l3.Location = new System.Drawing.Point(304, 117);
+            this.l3.Name = "l3";
+            this.l3.Size = new System.Drawing.Size(15, 14);
+            this.l3.TabIndex = 28;
+            this.l3.Text = "_";
+            // 
+            // l2
+            // 
+            this.l2.AutoSize = true;
+            this.l2.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.l2.Location = new System.Drawing.Point(239, 94);
+            this.l2.Name = "l2";
+            this.l2.Size = new System.Drawing.Size(15, 14);
+            this.l2.TabIndex = 27;
+            this.l2.Text = "_";
+            // 
+            // l1
+            // 
+            this.l1.AutoSize = true;
+            this.l1.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.l1.Location = new System.Drawing.Point(283, 71);
+            this.l1.Name = "l1";
+            this.l1.Size = new System.Drawing.Size(15, 14);
+            this.l1.TabIndex = 26;
+            this.l1.Text = "_";
+            // 
+            // btnSClear
+            // 
+            this.btnSClear.Image = ((System.Drawing.Image)(resources.GetObject("btnSClear.Image")));
+            this.btnSClear.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnSClear.Location = new System.Drawing.Point(483, 116);
+            this.btnSClear.Name = "btnSClear";
+            this.btnSClear.Size = new System.Drawing.Size(48, 71);
+            this.btnSClear.TabIndex = 24;
+            this.btnSClear.Text = "Clear";
+            this.btnSClear.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnSClear.UseVisualStyleBackColor = true;
+            this.btnSClear.Click += new System.EventHandler(this.btnSClear_Click);
+            // 
+            // btnSAdd
+            // 
+            this.btnSAdd.Enabled = false;
+            this.btnSAdd.Image = ((System.Drawing.Image)(resources.GetObject("btnSAdd.Image")));
+            this.btnSAdd.Location = new System.Drawing.Point(531, 116);
+            this.btnSAdd.Name = "btnSAdd";
+            this.btnSAdd.Size = new System.Drawing.Size(47, 71);
+            this.btnSAdd.TabIndex = 25;
+            this.btnSAdd.Text = "Add";
+            this.btnSAdd.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnSAdd.UseVisualStyleBackColor = true;
+            this.btnSAdd.Click += new System.EventHandler(this.btnSAdd_Click);
+            // 
+            // txtBoxTPrice
+            // 
+            this.txtBoxTPrice.BackColor = System.Drawing.Color.Khaki;
+            this.txtBoxTPrice.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBoxTPrice.Location = new System.Drawing.Point(472, 67);
+            this.txtBoxTPrice.MaxLength = 15;
+            this.txtBoxTPrice.Name = "txtBoxTPrice";
+            this.txtBoxTPrice.Size = new System.Drawing.Size(96, 22);
+            this.txtBoxTPrice.TabIndex = 19;
+            this.txtBoxTPrice.Text = "0.00";
+            this.txtBoxTPrice.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtBoxTPrice.TextChanged += new System.EventHandler(this.txtBoxTPrice_TextChanged);
+            // 
+            // txtBoxSPrice
+            // 
+            this.txtBoxSPrice.BackColor = System.Drawing.Color.Khaki;
+            this.txtBoxSPrice.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBoxSPrice.Location = new System.Drawing.Point(472, 44);
+            this.txtBoxSPrice.MaxLength = 15;
+            this.txtBoxSPrice.Name = "txtBoxSPrice";
+            this.txtBoxSPrice.Size = new System.Drawing.Size(96, 22);
+            this.txtBoxSPrice.TabIndex = 17;
+            this.txtBoxSPrice.Text = "0.00";
+            this.txtBoxSPrice.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtBoxSPrice.TextChanged += new System.EventHandler(this.txtBoxSPrice_TextChanged);
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Location = new System.Drawing.Point(370, 70);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(65, 14);
+            this.label12.TabIndex = 18;
+            this.label12.Text = "Total Price";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(370, 47);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(71, 14);
+            this.label11.TabIndex = 16;
+            this.label11.Text = "Selling Price";
+            // 
+            // txtBoxCPrice
+            // 
+            this.txtBoxCPrice.BackColor = System.Drawing.Color.Khaki;
+            this.txtBoxCPrice.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBoxCPrice.Location = new System.Drawing.Point(472, 21);
+            this.txtBoxCPrice.MaxLength = 15;
+            this.txtBoxCPrice.Name = "txtBoxCPrice";
+            this.txtBoxCPrice.Size = new System.Drawing.Size(96, 22);
+            this.txtBoxCPrice.TabIndex = 15;
+            this.txtBoxCPrice.Text = "0.00";
+            this.txtBoxCPrice.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtBoxCPrice.TextChanged += new System.EventHandler(this.txtBoxCPrice_TextChanged);
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(370, 24);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(61, 14);
+            this.label10.TabIndex = 14;
+            this.label10.Text = "Cost Price";
+            // 
+            // txtBoxUOM
+            // 
+            this.txtBoxUOM.BackColor = System.Drawing.Color.Khaki;
+            this.txtBoxUOM.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBoxUOM.Location = new System.Drawing.Point(109, 159);
+            this.txtBoxUOM.MaxLength = 50;
+            this.txtBoxUOM.Name = "txtBoxUOM";
+            this.txtBoxUOM.Size = new System.Drawing.Size(124, 22);
+            this.txtBoxUOM.TabIndex = 13;
+            this.txtBoxUOM.TextChanged += new System.EventHandler(this.txtBoxUOM_TextChanged);
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(7, 162);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(93, 14);
+            this.label9.TabIndex = 12;
+            this.label9.Text = "Unit of Measure";
+            // 
+            // txtBoxQty
+            // 
+            this.txtBoxQty.BackColor = System.Drawing.Color.Red;
+            this.txtBoxQty.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBoxQty.ForeColor = System.Drawing.Color.White;
+            this.txtBoxQty.Location = new System.Drawing.Point(109, 136);
+            this.txtBoxQty.MaxLength = 3;
+            this.txtBoxQty.Name = "txtBoxQty";
+            this.txtBoxQty.Size = new System.Drawing.Size(40, 22);
+            this.txtBoxQty.TabIndex = 11;
+            this.txtBoxQty.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtBoxQty.TextChanged += new System.EventHandler(this.txtBoxQty_TextChanged);
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(7, 139);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(27, 14);
+            this.label8.TabIndex = 10;
+            this.label8.Text = "Qty";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(7, 116);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(69, 14);
+            this.label7.TabIndex = 9;
+            this.label7.Text = "Warehouse";
+            // 
+            // cBoxWarehouse
+            // 
+            this.cBoxWarehouse.BackColor = System.Drawing.Color.Khaki;
+            this.cBoxWarehouse.DataSource = this.inventorywarehouseBindingSource1;
+            this.cBoxWarehouse.DisplayMember = "warehouse_name";
+            this.cBoxWarehouse.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cBoxWarehouse.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cBoxWarehouse.FormattingEnabled = true;
+            this.cBoxWarehouse.Location = new System.Drawing.Point(109, 113);
+            this.cBoxWarehouse.Name = "cBoxWarehouse";
+            this.cBoxWarehouse.Size = new System.Drawing.Size(189, 22);
+            this.cBoxWarehouse.TabIndex = 8;
+            this.cBoxWarehouse.SelectedIndexChanged += new System.EventHandler(this.cBoxWarehouse_SelectedIndexChanged);
+            // 
+            // inventorywarehouseBindingSource1
+            // 
+            this.inventorywarehouseBindingSource1.DataMember = "inventory_warehouse";
+            this.inventorywarehouseBindingSource1.DataSource = this.npos_dbDataSet1;
+            // 
+            // npos_dbDataSet1
+            // 
+            this.npos_dbDataSet1.DataSetName = "npos_dbDataSet";
+            this.npos_dbDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(7, 93);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(56, 14);
+            this.label6.TabIndex = 7;
+            this.label6.Text = "Category";
+            // 
+            // cBoxCategory
+            // 
+            this.cBoxCategory.BackColor = System.Drawing.Color.Khaki;
+            this.cBoxCategory.DataSource = this.inventorycategoryBindingSource;
+            this.cBoxCategory.DisplayMember = "cat_description";
+            this.cBoxCategory.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cBoxCategory.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cBoxCategory.FormattingEnabled = true;
+            this.cBoxCategory.Location = new System.Drawing.Point(109, 90);
+            this.cBoxCategory.Name = "cBoxCategory";
+            this.cBoxCategory.Size = new System.Drawing.Size(124, 22);
+            this.cBoxCategory.TabIndex = 6;
+            this.cBoxCategory.SelectedIndexChanged += new System.EventHandler(this.cBoxCategory_SelectedIndexChanged);
+            // 
+            // inventorycategoryBindingSource
+            // 
+            this.inventorycategoryBindingSource.DataMember = "inventory_category";
+            this.inventorycategoryBindingSource.DataSource = this.npos_dbDataSet1;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(7, 70);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(50, 14);
+            this.label5.TabIndex = 5;
+            this.label5.Text = "Supplier";
+            // 
+            // cBoxSupplier
+            // 
+            this.cBoxSupplier.BackColor = System.Drawing.Color.Khaki;
+            this.cBoxSupplier.DataSource = this.inventorysupplierBindingSource;
+            this.cBoxSupplier.DisplayMember = "supplier_name";
+            this.cBoxSupplier.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cBoxSupplier.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cBoxSupplier.FormattingEnabled = true;
+            this.cBoxSupplier.Location = new System.Drawing.Point(109, 67);
+            this.cBoxSupplier.Name = "cBoxSupplier";
+            this.cBoxSupplier.Size = new System.Drawing.Size(168, 22);
+            this.cBoxSupplier.TabIndex = 4;
+            this.cBoxSupplier.SelectedIndexChanged += new System.EventHandler(this.cBoxSupplier_SelectedIndexChanged);
+            // 
+            // inventorysupplierBindingSource
+            // 
+            this.inventorysupplierBindingSource.DataMember = "inventory_supplier";
+            this.inventorysupplierBindingSource.DataSource = this.npos_dbDataSet1;
+            // 
+            // txtBoxStockName
+            // 
+            this.txtBoxStockName.BackColor = System.Drawing.Color.Khaki;
+            this.txtBoxStockName.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBoxStockName.Location = new System.Drawing.Point(109, 44);
+            this.txtBoxStockName.MaxLength = 75;
+            this.txtBoxStockName.Name = "txtBoxStockName";
+            this.txtBoxStockName.Size = new System.Drawing.Size(253, 22);
+            this.txtBoxStockName.TabIndex = 3;
+            this.txtBoxStockName.TextChanged += new System.EventHandler(this.txtBoxStockName_TextChanged);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(7, 47);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(73, 14);
+            this.label4.TabIndex = 2;
+            this.label4.Text = "Stock Name";
+            // 
+            // txtBoxStockCode
+            // 
+            this.txtBoxStockCode.BackColor = System.Drawing.Color.Khaki;
+            this.txtBoxStockCode.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtBoxStockCode.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBoxStockCode.Location = new System.Drawing.Point(109, 21);
+            this.txtBoxStockCode.MaxLength = 9;
+            this.txtBoxStockCode.Name = "txtBoxStockCode";
+            this.txtBoxStockCode.Size = new System.Drawing.Size(96, 22);
+            this.txtBoxStockCode.TabIndex = 1;
+            this.txtBoxStockCode.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtBoxStockCode.TextChanged += new System.EventHandler(this.txtBoxStockCode_TextChanged);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(7, 24);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(70, 14);
+            this.label3.TabIndex = 0;
+            this.label3.Text = "Stock Code";
             // 
             // dataGridView2
             // 
@@ -173,6 +573,117 @@
             this.dataGridView2.Size = new System.Drawing.Size(816, 173);
             this.dataGridView2.TabIndex = 2;
             // 
+            // stockidDataGridViewTextBoxColumn
+            // 
+            this.stockidDataGridViewTextBoxColumn.DataPropertyName = "stock_id";
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.stockidDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle1;
+            this.stockidDataGridViewTextBoxColumn.HeaderText = "No";
+            this.stockidDataGridViewTextBoxColumn.Name = "stockidDataGridViewTextBoxColumn";
+            this.stockidDataGridViewTextBoxColumn.ReadOnly = true;
+            this.stockidDataGridViewTextBoxColumn.Width = 50;
+            // 
+            // stockcodeDataGridViewTextBoxColumn
+            // 
+            this.stockcodeDataGridViewTextBoxColumn.DataPropertyName = "stock_code";
+            this.stockcodeDataGridViewTextBoxColumn.HeaderText = "Stock Code";
+            this.stockcodeDataGridViewTextBoxColumn.Name = "stockcodeDataGridViewTextBoxColumn";
+            this.stockcodeDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // stocknameDataGridViewTextBoxColumn
+            // 
+            this.stocknameDataGridViewTextBoxColumn.DataPropertyName = "stock_name";
+            this.stocknameDataGridViewTextBoxColumn.HeaderText = "Stock Name";
+            this.stocknameDataGridViewTextBoxColumn.Name = "stocknameDataGridViewTextBoxColumn";
+            this.stocknameDataGridViewTextBoxColumn.Width = 250;
+            // 
+            // cbSupplier
+            // 
+            this.cbSupplier.DataPropertyName = "supplier_name";
+            this.cbSupplier.DataSource = this.inventorysupplierBindingSource;
+            this.cbSupplier.DisplayMember = "supplier_name";
+            this.cbSupplier.HeaderText = "Supplier";
+            this.cbSupplier.Name = "cbSupplier";
+            this.cbSupplier.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.cbSupplier.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.cbSupplier.Width = 250;
+            // 
+            // cbCategory
+            // 
+            this.cbCategory.DataPropertyName = "cat_description";
+            this.cbCategory.DataSource = this.inventorycategoryBindingSource;
+            this.cbCategory.DisplayMember = "cat_description";
+            this.cbCategory.HeaderText = "Category";
+            this.cbCategory.Name = "cbCategory";
+            this.cbCategory.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.cbCategory.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.cbCategory.Width = 175;
+            // 
+            // cbWarehouse
+            // 
+            this.cbWarehouse.DataPropertyName = "warehouse_name";
+            this.cbWarehouse.DataSource = this.inventorywarehouseBindingSource1;
+            this.cbWarehouse.DisplayMember = "warehouse_name";
+            this.cbWarehouse.HeaderText = "Warehouse";
+            this.cbWarehouse.Name = "cbWarehouse";
+            this.cbWarehouse.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.cbWarehouse.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.cbWarehouse.Width = 250;
+            // 
+            // stockquantityDataGridViewTextBoxColumn
+            // 
+            this.stockquantityDataGridViewTextBoxColumn.DataPropertyName = "stock_quantity";
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.stockquantityDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle2;
+            this.stockquantityDataGridViewTextBoxColumn.HeaderText = "Qty";
+            this.stockquantityDataGridViewTextBoxColumn.Name = "stockquantityDataGridViewTextBoxColumn";
+            this.stockquantityDataGridViewTextBoxColumn.Width = 50;
+            // 
+            // stockuomDataGridViewTextBoxColumn
+            // 
+            this.stockuomDataGridViewTextBoxColumn.DataPropertyName = "stock_uom";
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.stockuomDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle3;
+            this.stockuomDataGridViewTextBoxColumn.HeaderText = "Unit";
+            this.stockuomDataGridViewTextBoxColumn.Name = "stockuomDataGridViewTextBoxColumn";
+            this.stockuomDataGridViewTextBoxColumn.Width = 75;
+            // 
+            // stockcostpriceDataGridViewTextBoxColumn
+            // 
+            this.stockcostpriceDataGridViewTextBoxColumn.DataPropertyName = "stock_cost_price";
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.Format = "N2";
+            dataGridViewCellStyle4.NullValue = null;
+            this.stockcostpriceDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle4;
+            this.stockcostpriceDataGridViewTextBoxColumn.HeaderText = "Cost Price";
+            this.stockcostpriceDataGridViewTextBoxColumn.Name = "stockcostpriceDataGridViewTextBoxColumn";
+            // 
+            // stocksellingpriceDataGridViewTextBoxColumn
+            // 
+            this.stocksellingpriceDataGridViewTextBoxColumn.DataPropertyName = "stock_selling_price";
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.Format = "N2";
+            dataGridViewCellStyle5.NullValue = null;
+            this.stocksellingpriceDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle5;
+            this.stocksellingpriceDataGridViewTextBoxColumn.HeaderText = "Selling Price";
+            this.stocksellingpriceDataGridViewTextBoxColumn.Name = "stocksellingpriceDataGridViewTextBoxColumn";
+            this.stocksellingpriceDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // stocktotalpriceDataGridViewTextBoxColumn
+            // 
+            this.stocktotalpriceDataGridViewTextBoxColumn.DataPropertyName = "stock_total_price";
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle6.Format = "N2";
+            dataGridViewCellStyle6.NullValue = null;
+            this.stocktotalpriceDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle6;
+            this.stocktotalpriceDataGridViewTextBoxColumn.HeaderText = "Total Price";
+            this.stocktotalpriceDataGridViewTextBoxColumn.Name = "stocktotalpriceDataGridViewTextBoxColumn";
+            // 
+            // inventorystocksBindingSource
+            // 
+            this.inventorystocksBindingSource.DataMember = "inventory_stocks";
+            this.inventorystocksBindingSource.DataSource = this.npos_dbDataSet1;
+            // 
             // tabPage2
             // 
             this.tabPage2.Controls.Add(this.groupBox2);
@@ -183,7 +694,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 30);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(824, 436);
+            this.tabPage2.Size = new System.Drawing.Size(824, 375);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Warehouse";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -371,402 +882,23 @@
             // 
             this.inventory_warehouseTableAdapter.ClearBeforeFill = true;
             // 
-            // npos_dbDataSet1
-            // 
-            this.npos_dbDataSet1.DataSetName = "npos_dbDataSet";
-            this.npos_dbDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // inventorystocksBindingSource
-            // 
-            this.inventorystocksBindingSource.DataMember = "inventory_stocks";
-            this.inventorystocksBindingSource.DataSource = this.npos_dbDataSet1;
-            // 
             // inventory_stocksTableAdapter
             // 
             this.inventory_stocksTableAdapter.ClearBeforeFill = true;
-            // 
-            // inventorysupplierBindingSource
-            // 
-            this.inventorysupplierBindingSource.DataMember = "inventory_supplier";
-            this.inventorysupplierBindingSource.DataSource = this.npos_dbDataSet1;
             // 
             // inventory_supplierTableAdapter
             // 
             this.inventory_supplierTableAdapter.ClearBeforeFill = true;
             // 
-            // inventorycategoryBindingSource
-            // 
-            this.inventorycategoryBindingSource.DataMember = "inventory_category";
-            this.inventorycategoryBindingSource.DataSource = this.npos_dbDataSet1;
-            // 
             // inventory_categoryTableAdapter
             // 
             this.inventory_categoryTableAdapter.ClearBeforeFill = true;
-            // 
-            // inventorywarehouseBindingSource1
-            // 
-            this.inventorywarehouseBindingSource1.DataMember = "inventory_warehouse";
-            this.inventorywarehouseBindingSource1.DataSource = this.npos_dbDataSet1;
-            // 
-            // stockidDataGridViewTextBoxColumn
-            // 
-            this.stockidDataGridViewTextBoxColumn.DataPropertyName = "stock_id";
-            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.stockidDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle13;
-            this.stockidDataGridViewTextBoxColumn.HeaderText = "No";
-            this.stockidDataGridViewTextBoxColumn.Name = "stockidDataGridViewTextBoxColumn";
-            this.stockidDataGridViewTextBoxColumn.ReadOnly = true;
-            this.stockidDataGridViewTextBoxColumn.Width = 50;
-            // 
-            // stockcodeDataGridViewTextBoxColumn
-            // 
-            this.stockcodeDataGridViewTextBoxColumn.DataPropertyName = "stock_code";
-            this.stockcodeDataGridViewTextBoxColumn.HeaderText = "Stock Code";
-            this.stockcodeDataGridViewTextBoxColumn.Name = "stockcodeDataGridViewTextBoxColumn";
-            this.stockcodeDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // stocknameDataGridViewTextBoxColumn
-            // 
-            this.stocknameDataGridViewTextBoxColumn.DataPropertyName = "stock_name";
-            this.stocknameDataGridViewTextBoxColumn.HeaderText = "Stock Name";
-            this.stocknameDataGridViewTextBoxColumn.Name = "stocknameDataGridViewTextBoxColumn";
-            this.stocknameDataGridViewTextBoxColumn.Width = 250;
-            // 
-            // cbSupplier
-            // 
-            this.cbSupplier.DataPropertyName = "supplier_name";
-            this.cbSupplier.DataSource = this.inventorysupplierBindingSource;
-            this.cbSupplier.DisplayMember = "supplier_name";
-            this.cbSupplier.HeaderText = "Supplier";
-            this.cbSupplier.Name = "cbSupplier";
-            this.cbSupplier.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.cbSupplier.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.cbSupplier.Width = 250;
-            // 
-            // cbCategory
-            // 
-            this.cbCategory.DataPropertyName = "cat_description";
-            this.cbCategory.DataSource = this.inventorycategoryBindingSource;
-            this.cbCategory.DisplayMember = "cat_description";
-            this.cbCategory.HeaderText = "Category";
-            this.cbCategory.Name = "cbCategory";
-            this.cbCategory.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.cbCategory.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.cbCategory.Width = 175;
-            // 
-            // cbWarehouse
-            // 
-            this.cbWarehouse.DataPropertyName = "warehouse_name";
-            this.cbWarehouse.DataSource = this.inventorywarehouseBindingSource1;
-            this.cbWarehouse.DisplayMember = "warehouse_name";
-            this.cbWarehouse.HeaderText = "Warehouse";
-            this.cbWarehouse.Name = "cbWarehouse";
-            this.cbWarehouse.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.cbWarehouse.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.cbWarehouse.Width = 250;
-            // 
-            // stockquantityDataGridViewTextBoxColumn
-            // 
-            this.stockquantityDataGridViewTextBoxColumn.DataPropertyName = "stock_quantity";
-            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.stockquantityDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle14;
-            this.stockquantityDataGridViewTextBoxColumn.HeaderText = "Qty";
-            this.stockquantityDataGridViewTextBoxColumn.Name = "stockquantityDataGridViewTextBoxColumn";
-            this.stockquantityDataGridViewTextBoxColumn.Width = 50;
-            // 
-            // stockuomDataGridViewTextBoxColumn
-            // 
-            this.stockuomDataGridViewTextBoxColumn.DataPropertyName = "stock_uom";
-            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.stockuomDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle15;
-            this.stockuomDataGridViewTextBoxColumn.HeaderText = "Unit";
-            this.stockuomDataGridViewTextBoxColumn.Name = "stockuomDataGridViewTextBoxColumn";
-            this.stockuomDataGridViewTextBoxColumn.Width = 75;
-            // 
-            // stockcostpriceDataGridViewTextBoxColumn
-            // 
-            this.stockcostpriceDataGridViewTextBoxColumn.DataPropertyName = "stock_cost_price";
-            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle16.Format = "N2";
-            dataGridViewCellStyle16.NullValue = null;
-            this.stockcostpriceDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle16;
-            this.stockcostpriceDataGridViewTextBoxColumn.HeaderText = "Cost Price";
-            this.stockcostpriceDataGridViewTextBoxColumn.Name = "stockcostpriceDataGridViewTextBoxColumn";
-            // 
-            // stocksellingpriceDataGridViewTextBoxColumn
-            // 
-            this.stocksellingpriceDataGridViewTextBoxColumn.DataPropertyName = "stock_selling_price";
-            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle17.Format = "N2";
-            dataGridViewCellStyle17.NullValue = null;
-            this.stocksellingpriceDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle17;
-            this.stocksellingpriceDataGridViewTextBoxColumn.HeaderText = "Selling Price";
-            this.stocksellingpriceDataGridViewTextBoxColumn.Name = "stocksellingpriceDataGridViewTextBoxColumn";
-            this.stocksellingpriceDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // stocktotalpriceDataGridViewTextBoxColumn
-            // 
-            this.stocktotalpriceDataGridViewTextBoxColumn.DataPropertyName = "stock_total_price";
-            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle18.Format = "N2";
-            dataGridViewCellStyle18.NullValue = null;
-            this.stocktotalpriceDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle18;
-            this.stocktotalpriceDataGridViewTextBoxColumn.HeaderText = "Total Price";
-            this.stocktotalpriceDataGridViewTextBoxColumn.Name = "stocktotalpriceDataGridViewTextBoxColumn";
-            // 
-            // groupBox4
-            // 
-            this.groupBox4.Controls.Add(this.textBox7);
-            this.groupBox4.Controls.Add(this.textBox6);
-            this.groupBox4.Controls.Add(this.label12);
-            this.groupBox4.Controls.Add(this.label11);
-            this.groupBox4.Controls.Add(this.textBox5);
-            this.groupBox4.Controls.Add(this.label10);
-            this.groupBox4.Controls.Add(this.textBox4);
-            this.groupBox4.Controls.Add(this.label9);
-            this.groupBox4.Controls.Add(this.textBox3);
-            this.groupBox4.Controls.Add(this.label8);
-            this.groupBox4.Controls.Add(this.label7);
-            this.groupBox4.Controls.Add(this.cBoxWarehouse);
-            this.groupBox4.Controls.Add(this.label6);
-            this.groupBox4.Controls.Add(this.cBoxCategory);
-            this.groupBox4.Controls.Add(this.label5);
-            this.groupBox4.Controls.Add(this.cBoxSupplier);
-            this.groupBox4.Controls.Add(this.textBox2);
-            this.groupBox4.Controls.Add(this.label4);
-            this.groupBox4.Controls.Add(this.textBox1);
-            this.groupBox4.Controls.Add(this.label3);
-            this.groupBox4.Location = new System.Drawing.Point(5, 183);
-            this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(581, 189);
-            this.groupBox4.TabIndex = 3;
-            this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "Add Stocks";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(7, 24);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(70, 14);
-            this.label3.TabIndex = 0;
-            this.label3.Text = "Stock Code";
-            // 
-            // textBox1
-            // 
-            this.textBox1.BackColor = System.Drawing.Color.Khaki;
-            this.textBox1.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(109, 21);
-            this.textBox1.MaxLength = 9;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(96, 22);
-            this.textBox1.TabIndex = 1;
-            this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // textBox2
-            // 
-            this.textBox2.BackColor = System.Drawing.Color.Khaki;
-            this.textBox2.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(109, 44);
-            this.textBox2.MaxLength = 75;
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(253, 22);
-            this.textBox2.TabIndex = 3;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(7, 47);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(73, 14);
-            this.label4.TabIndex = 2;
-            this.label4.Text = "Stock Name";
-            // 
-            // cBoxSupplier
-            // 
-            this.cBoxSupplier.BackColor = System.Drawing.Color.Khaki;
-            this.cBoxSupplier.DataSource = this.inventorysupplierBindingSource;
-            this.cBoxSupplier.DisplayMember = "supplier_name";
-            this.cBoxSupplier.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cBoxSupplier.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cBoxSupplier.FormattingEnabled = true;
-            this.cBoxSupplier.Location = new System.Drawing.Point(109, 67);
-            this.cBoxSupplier.Name = "cBoxSupplier";
-            this.cBoxSupplier.Size = new System.Drawing.Size(253, 22);
-            this.cBoxSupplier.TabIndex = 4;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(7, 70);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(50, 14);
-            this.label5.TabIndex = 5;
-            this.label5.Text = "Supplier";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(7, 93);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(56, 14);
-            this.label6.TabIndex = 7;
-            this.label6.Text = "Category";
-            // 
-            // cBoxCategory
-            // 
-            this.cBoxCategory.BackColor = System.Drawing.Color.Khaki;
-            this.cBoxCategory.DataSource = this.inventorycategoryBindingSource;
-            this.cBoxCategory.DisplayMember = "cat_description";
-            this.cBoxCategory.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cBoxCategory.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cBoxCategory.FormattingEnabled = true;
-            this.cBoxCategory.Location = new System.Drawing.Point(109, 90);
-            this.cBoxCategory.Name = "cBoxCategory";
-            this.cBoxCategory.Size = new System.Drawing.Size(124, 22);
-            this.cBoxCategory.TabIndex = 6;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(7, 116);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(69, 14);
-            this.label7.TabIndex = 9;
-            this.label7.Text = "Warehouse";
-            // 
-            // cBoxWarehouse
-            // 
-            this.cBoxWarehouse.BackColor = System.Drawing.Color.Khaki;
-            this.cBoxWarehouse.DataSource = this.inventorywarehouseBindingSource1;
-            this.cBoxWarehouse.DisplayMember = "warehouse_name";
-            this.cBoxWarehouse.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cBoxWarehouse.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cBoxWarehouse.FormattingEnabled = true;
-            this.cBoxWarehouse.Location = new System.Drawing.Point(109, 113);
-            this.cBoxWarehouse.Name = "cBoxWarehouse";
-            this.cBoxWarehouse.Size = new System.Drawing.Size(253, 22);
-            this.cBoxWarehouse.TabIndex = 8;
-            // 
-            // textBox3
-            // 
-            this.textBox3.BackColor = System.Drawing.Color.Red;
-            this.textBox3.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox3.ForeColor = System.Drawing.Color.White;
-            this.textBox3.Location = new System.Drawing.Point(109, 136);
-            this.textBox3.MaxLength = 3;
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(40, 22);
-            this.textBox3.TabIndex = 11;
-            this.textBox3.Text = "2";
-            this.textBox3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(7, 139);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(27, 14);
-            this.label8.TabIndex = 10;
-            this.label8.Text = "Qty";
-            // 
-            // textBox4
-            // 
-            this.textBox4.BackColor = System.Drawing.Color.Khaki;
-            this.textBox4.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox4.Location = new System.Drawing.Point(109, 159);
-            this.textBox4.MaxLength = 50;
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(124, 22);
-            this.textBox4.TabIndex = 13;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(7, 162);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(93, 14);
-            this.label9.TabIndex = 12;
-            this.label9.Text = "Unit of Measure";
-            // 
-            // textBox5
-            // 
-            this.textBox5.BackColor = System.Drawing.Color.Khaki;
-            this.textBox5.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox5.Location = new System.Drawing.Point(472, 21);
-            this.textBox5.MaxLength = 15;
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(96, 22);
-            this.textBox5.TabIndex = 15;
-            this.textBox5.Text = "0.00";
-            this.textBox5.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(370, 24);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(61, 14);
-            this.label10.TabIndex = 14;
-            this.label10.Text = "Cost Price";
-            // 
-            // textBox6
-            // 
-            this.textBox6.BackColor = System.Drawing.Color.Khaki;
-            this.textBox6.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox6.Location = new System.Drawing.Point(472, 44);
-            this.textBox6.MaxLength = 15;
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(96, 22);
-            this.textBox6.TabIndex = 17;
-            this.textBox6.Text = "0.00";
-            this.textBox6.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(370, 47);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(71, 14);
-            this.label11.TabIndex = 16;
-            this.label11.Text = "Selling Price";
-            // 
-            // textBox7
-            // 
-            this.textBox7.BackColor = System.Drawing.Color.Khaki;
-            this.textBox7.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox7.Location = new System.Drawing.Point(472, 67);
-            this.textBox7.MaxLength = 15;
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(96, 22);
-            this.textBox7.TabIndex = 19;
-            this.textBox7.Text = "0.00";
-            this.textBox7.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(370, 70);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(65, 14);
-            this.label12.TabIndex = 18;
-            this.label12.Text = "Total Price";
             // 
             // mdiStocks
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(831, 472);
+            this.ClientSize = new System.Drawing.Size(831, 410);
             this.Controls.Add(this.tabControl1);
             this.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -777,7 +909,16 @@
             this.Load += new System.EventHandler(this.mdiStocks_Load);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
+            this.groupBox5.ResumeLayout(false);
+            this.groupBox6.ResumeLayout(false);
+            this.groupBox4.ResumeLayout(false);
+            this.groupBox4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.inventorywarehouseBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.npos_dbDataSet1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.inventorycategoryBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.inventorysupplierBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.inventorystocksBindingSource)).EndInit();
             this.tabPage2.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
@@ -786,13 +927,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.inventorywarehouseBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.npos_dbDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.npos_dbDataSet1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.inventorystocksBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.inventorysupplierBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.inventorycategoryBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.inventorywarehouseBindingSource1)).EndInit();
-            this.groupBox4.ResumeLayout(false);
-            this.groupBox4.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -840,15 +974,15 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn stocksellingpriceDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn stocktotalpriceDataGridViewTextBoxColumn;
         private System.Windows.Forms.GroupBox groupBox4;
-        private System.Windows.Forms.TextBox textBox7;
-        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.TextBox txtBoxTPrice;
+        private System.Windows.Forms.TextBox txtBoxSPrice;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox txtBoxCPrice;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox txtBoxUOM;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox txtBoxQty;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.ComboBox cBoxWarehouse;
@@ -856,9 +990,18 @@
         private System.Windows.Forms.ComboBox cBoxCategory;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.ComboBox cBoxSupplier;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtBoxStockName;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtBoxStockCode;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button btnSClear;
+        private System.Windows.Forms.Button btnSAdd;
+        private System.Windows.Forms.GroupBox groupBox5;
+        private System.Windows.Forms.Button btnSDelete;
+        private System.Windows.Forms.GroupBox groupBox6;
+        private System.Windows.Forms.Button btnSUpdate;
+        private System.Windows.Forms.Label l3;
+        private System.Windows.Forms.Label l2;
+        private System.Windows.Forms.Label l1;
     }
 }

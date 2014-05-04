@@ -60,6 +60,7 @@
     <Compile Include="Conf\dbs.cs" />
     <Compile Include="DAO\ChangePasswordDAO.cs" />
     <Compile Include="DAO\ConfigDAO.cs" />
+    <Compile Include="DAO\InventoryDAO.cs" />
     <Compile Include="DAO\LoginDAO.cs" />
     <Compile Include="DAO\UserAccountDAO.cs" />
     <Compile Include="frmChangePass.cs">
@@ -141,6 +142,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="VO\ChangePasswordVO.cs" />
     <Compile Include="VO\ConfigVO.cs" />
+    <Compile Include="VO\InventoryVO.cs" />
     <Compile Include="VO\UserAccountVO.cs" />
     <EmbeddedResource Include="frmChangePass.resx">
       <DependentUpon>frmChangePass.cs</DependentUpon>
