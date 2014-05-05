@@ -261,13 +261,25 @@ namespace nPOSProj
 
         private void btnSUpdate_Click(object sender, EventArgs e)
         {
+            ivo = new VO.InventoryVO();
+            String S;
+            String C;
+            String W;
             try
             {
-                //Implement
-                //dataGridView2.SelectedRows[0].Cells[3].Value.ToString();
+                ivo.supplier_name = dataGridView2.SelectedRows[0].Cells[3].Value.ToString();
+                ivo.cat_description = dataGridView2.SelectedRows[0].Cells[4].Value.ToString();
+                ivo.warehouse_name = dataGridView2.SelectedRows[0].Cells[5].Value.ToString();
+                S = ivo.patchSupplierCode();
+                C = ivo.patchCategoryCode();
+                W = ivo.patchWarehouseCode();
+                this.inventory_stocksTableAdapter.UpdateStocks(dataGridView2.SelectedRows[0].Cells[2].Value.ToString(), S, C, W, Convert.ToInt32(dataGridView2.SelectedRows[0].Cells[6].Value.ToString()), dataGridView2.SelectedRows[0].Cells[7].Value.ToString(), Convert.ToDecimal(dataGridView2.SelectedRows[0].Cells[8].Value.ToString()), Convert.ToDecimal(dataGridView2.SelectedRows[0].Cells[9].Value.ToString()), Convert.ToInt32(dataGridView2.SelectedRows[0].Cells[10].Value.ToString()), Convert.ToInt32(dataGridView2.SelectedRows[0].Cells[0].Value.ToString()), dataGridView2.SelectedRows[0].Cells[1].Value.ToString());
+                btnSUpdate.Enabled = false;
             }
             catch (Exception)
             {
+                MessageBox.Show("Please Check Your Encoded Data or Check Database Server is Active!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+   
             }
         }
     }

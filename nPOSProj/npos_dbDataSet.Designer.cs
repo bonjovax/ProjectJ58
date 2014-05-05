@@ -5492,8 +5492,8 @@ VALUES        (@stock_code, @stock_name, @supplier_code, @stock_cat_Code, @wareh
             this._commandCollection[3] = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._commandCollection[3].Connection = this.Connection;
             this._commandCollection[3].CommandText = @"UPDATE       inventory_stocks
-SET                stock_name = @stock_name, stock_cat_code = @stock_cat_code, warehouse_code = @warehouse_code, stock_quantity = @stock_quantity, stock_uom = @stock_uom, stock_cost_price = @stock_cost_price, 
-                         stock_selling_price = @stock_selling_price, stock_total_price = @stock_total_price
+SET                stock_name = @stock_name, supplier_code = @supplier_code, stock_cat_code = @stock_cat_code, warehouse_code = @warehouse_code, stock_quantity = @stock_quantity, stock_uom = @stock_uom, 
+                         stock_cost_price = @stock_cost_price, stock_selling_price = @stock_selling_price, stock_total_price = @stock_total_price
 WHERE        (stock_id = @stock_id) AND (stock_code = @stock_code)";
             this._commandCollection[3].CommandType = global::System.Data.CommandType.Text;
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
@@ -5503,6 +5503,14 @@ WHERE        (stock_id = @stock_id) AND (stock_code = @stock_code)";
             param.Size = 75;
             param.IsNullable = true;
             param.SourceColumn = "stock_name";
+            this._commandCollection[3].Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@supplier_code";
+            param.DbType = global::System.Data.DbType.String;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
+            param.Size = 9;
+            param.IsNullable = true;
+            param.SourceColumn = "supplier_code";
             this._commandCollection[3].Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@stock_cat_code";
@@ -5716,7 +5724,7 @@ WHERE        (stock_id = @stock_id) AND (stock_code = @stock_code)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, false)]
-        public virtual int UpdateStocks(string stock_name, string stock_cat_code, string warehouse_code, global::System.Nullable<int> stock_quantity, string stock_uom, global::System.Nullable<decimal> stock_cost_price, global::System.Nullable<decimal> stock_selling_price, global::System.Nullable<decimal> stock_total_price, int stock_id, string stock_code) {
+        public virtual int UpdateStocks(string stock_name, string supplier_code, string stock_cat_code, string warehouse_code, global::System.Nullable<int> stock_quantity, string stock_uom, global::System.Nullable<decimal> stock_cost_price, global::System.Nullable<decimal> stock_selling_price, global::System.Nullable<decimal> stock_total_price, int stock_id, string stock_code) {
             global::MySql.Data.MySqlClient.MySqlCommand command = this.CommandCollection[3];
             if ((stock_name == null)) {
                 command.Parameters[0].Value = global::System.DBNull.Value;
@@ -5724,54 +5732,60 @@ WHERE        (stock_id = @stock_id) AND (stock_code = @stock_code)";
             else {
                 command.Parameters[0].Value = ((string)(stock_name));
             }
+            if ((supplier_code == null)) {
+                throw new global::System.ArgumentNullException("supplier_code");
+            }
+            else {
+                command.Parameters[1].Value = ((string)(supplier_code));
+            }
             if ((stock_cat_code == null)) {
                 throw new global::System.ArgumentNullException("stock_cat_code");
             }
             else {
-                command.Parameters[1].Value = ((string)(stock_cat_code));
+                command.Parameters[2].Value = ((string)(stock_cat_code));
             }
             if ((warehouse_code == null)) {
                 throw new global::System.ArgumentNullException("warehouse_code");
             }
             else {
-                command.Parameters[2].Value = ((string)(warehouse_code));
+                command.Parameters[3].Value = ((string)(warehouse_code));
             }
             if ((stock_quantity.HasValue == true)) {
-                command.Parameters[3].Value = ((int)(stock_quantity.Value));
+                command.Parameters[4].Value = ((int)(stock_quantity.Value));
             }
             else {
-                command.Parameters[3].Value = global::System.DBNull.Value;
-            }
-            if ((stock_uom == null)) {
                 command.Parameters[4].Value = global::System.DBNull.Value;
             }
-            else {
-                command.Parameters[4].Value = ((string)(stock_uom));
-            }
-            if ((stock_cost_price.HasValue == true)) {
-                command.Parameters[5].Value = ((decimal)(stock_cost_price.Value));
-            }
-            else {
+            if ((stock_uom == null)) {
                 command.Parameters[5].Value = global::System.DBNull.Value;
             }
-            if ((stock_selling_price.HasValue == true)) {
-                command.Parameters[6].Value = ((decimal)(stock_selling_price.Value));
+            else {
+                command.Parameters[5].Value = ((string)(stock_uom));
+            }
+            if ((stock_cost_price.HasValue == true)) {
+                command.Parameters[6].Value = ((decimal)(stock_cost_price.Value));
             }
             else {
                 command.Parameters[6].Value = global::System.DBNull.Value;
             }
-            if ((stock_total_price.HasValue == true)) {
-                command.Parameters[7].Value = ((decimal)(stock_total_price.Value));
+            if ((stock_selling_price.HasValue == true)) {
+                command.Parameters[7].Value = ((decimal)(stock_selling_price.Value));
             }
             else {
                 command.Parameters[7].Value = global::System.DBNull.Value;
             }
-            command.Parameters[8].Value = ((int)(stock_id));
-            if ((stock_code == null)) {
-                command.Parameters[9].Value = global::System.DBNull.Value;
+            if ((stock_total_price.HasValue == true)) {
+                command.Parameters[8].Value = ((decimal)(stock_total_price.Value));
             }
             else {
-                command.Parameters[9].Value = ((string)(stock_code));
+                command.Parameters[8].Value = global::System.DBNull.Value;
+            }
+            command.Parameters[9].Value = ((int)(stock_id));
+            if ((stock_code == null)) {
+                command.Parameters[10].Value = global::System.DBNull.Value;
+            }
+            else {
+                command.Parameters[10].Value = ((string)(stock_code));
             }
             global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
             if (((command.Connection.State & global::System.Data.ConnectionState.Open) 

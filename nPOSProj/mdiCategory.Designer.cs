@@ -29,11 +29,14 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(mdiCategory));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(mdiCategory));
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.npos_dbDataSet = new nPOSProj.npos_dbDataSet();
+            this.catidDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.catcodeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.catdescriptionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.inventorycategoryBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.npos_dbDataSet = new nPOSProj.npos_dbDataSet();
             this.inventory_categoryTableAdapter = new nPOSProj.npos_dbDataSetTableAdapters.inventory_categoryTableAdapter();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.btnDelete = new System.Windows.Forms.Button();
@@ -46,12 +49,9 @@
             this.label2 = new System.Windows.Forms.Label();
             this.txtBoxCatCode = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.catidDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.catcodeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.catdescriptionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.npos_dbDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.inventorycategoryBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.npos_dbDataSet)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -82,15 +82,41 @@
             this.dataGridView1.TabIndex = 3;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             // 
-            // npos_dbDataSet
+            // catidDataGridViewTextBoxColumn
             // 
-            this.npos_dbDataSet.DataSetName = "npos_dbDataSet";
-            this.npos_dbDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            this.catidDataGridViewTextBoxColumn.DataPropertyName = "cat_id";
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.catidDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle1;
+            this.catidDataGridViewTextBoxColumn.HeaderText = "ID";
+            this.catidDataGridViewTextBoxColumn.Name = "catidDataGridViewTextBoxColumn";
+            this.catidDataGridViewTextBoxColumn.ReadOnly = true;
+            this.catidDataGridViewTextBoxColumn.Width = 50;
+            // 
+            // catcodeDataGridViewTextBoxColumn
+            // 
+            this.catcodeDataGridViewTextBoxColumn.DataPropertyName = "cat_code";
+            this.catcodeDataGridViewTextBoxColumn.HeaderText = "Category Code";
+            this.catcodeDataGridViewTextBoxColumn.Name = "catcodeDataGridViewTextBoxColumn";
+            this.catcodeDataGridViewTextBoxColumn.ReadOnly = true;
+            this.catcodeDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // catdescriptionDataGridViewTextBoxColumn
+            // 
+            this.catdescriptionDataGridViewTextBoxColumn.DataPropertyName = "cat_description";
+            this.catdescriptionDataGridViewTextBoxColumn.FillWeight = 275F;
+            this.catdescriptionDataGridViewTextBoxColumn.HeaderText = "Description";
+            this.catdescriptionDataGridViewTextBoxColumn.Name = "catdescriptionDataGridViewTextBoxColumn";
+            this.catdescriptionDataGridViewTextBoxColumn.Width = 250;
             // 
             // inventorycategoryBindingSource
             // 
             this.inventorycategoryBindingSource.DataMember = "inventory_category";
             this.inventorycategoryBindingSource.DataSource = this.npos_dbDataSet;
+            // 
+            // npos_dbDataSet
+            // 
+            this.npos_dbDataSet.DataSetName = "npos_dbDataSet";
+            this.npos_dbDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // inventory_categoryTableAdapter
             // 
@@ -227,32 +253,6 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Category Code";
             // 
-            // catidDataGridViewTextBoxColumn
-            // 
-            this.catidDataGridViewTextBoxColumn.DataPropertyName = "cat_id";
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.catidDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle1;
-            this.catidDataGridViewTextBoxColumn.HeaderText = "ID";
-            this.catidDataGridViewTextBoxColumn.Name = "catidDataGridViewTextBoxColumn";
-            this.catidDataGridViewTextBoxColumn.ReadOnly = true;
-            this.catidDataGridViewTextBoxColumn.Width = 50;
-            // 
-            // catcodeDataGridViewTextBoxColumn
-            // 
-            this.catcodeDataGridViewTextBoxColumn.DataPropertyName = "cat_code";
-            this.catcodeDataGridViewTextBoxColumn.HeaderText = "Category Code";
-            this.catcodeDataGridViewTextBoxColumn.Name = "catcodeDataGridViewTextBoxColumn";
-            this.catcodeDataGridViewTextBoxColumn.ReadOnly = true;
-            this.catcodeDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // catdescriptionDataGridViewTextBoxColumn
-            // 
-            this.catdescriptionDataGridViewTextBoxColumn.DataPropertyName = "cat_description";
-            this.catdescriptionDataGridViewTextBoxColumn.FillWeight = 275F;
-            this.catdescriptionDataGridViewTextBoxColumn.HeaderText = "Description";
-            this.catdescriptionDataGridViewTextBoxColumn.Name = "catdescriptionDataGridViewTextBoxColumn";
-            this.catdescriptionDataGridViewTextBoxColumn.Width = 250;
-            // 
             // mdiCategory
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
@@ -272,8 +272,8 @@
             this.Text = "Category Setup";
             this.Load += new System.EventHandler(this.mdiCategory_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.npos_dbDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.inventorycategoryBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.npos_dbDataSet)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
