@@ -26,6 +26,7 @@ namespace nPOSProj
         {
             txtBoxCatCode.Clear();
             txtBoxDescription.Clear();
+            btnAdd.Enabled = false;
         }
 
         private void txtBoxCatCode_TextChanged(object sender, EventArgs e)
@@ -60,6 +61,9 @@ namespace nPOSProj
             {
                 try
                 {
+                    this.inventory_categoryTableAdapter.InsertCategory(txtBoxCatCode.Text, txtBoxDescription.Text);
+                    this.inventory_categoryTableAdapter.Fill(this.npos_dbDataSet.inventory_category);
+                    clear();
                 }
                 catch (Exception)
                 {
