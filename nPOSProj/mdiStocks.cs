@@ -258,5 +258,17 @@ namespace nPOSProj
             else
                 btnSAdd.Enabled = false;
         }
+
+        private void btnSUpdate_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                //Implement
+                //dataGridView2.SelectedRows[0].Cells[3].Value.ToString();
+            }
+            catch (Exception)
+            {
+            }
+        }
     }
 }

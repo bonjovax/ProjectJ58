@@ -73,6 +73,17 @@
             this.txtBoxStockCode = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.stockidDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.stockcodeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.stocknameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cbSupplier = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.cbCategory = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.cbWarehouse = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.gvTxtBoxQty = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.stockuomDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.stockcostpriceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.stocksellingpriceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.stocktotalpriceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.inventorystocksBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -95,17 +106,6 @@
             this.inventory_stocksTableAdapter = new nPOSProj.npos_dbDataSetTableAdapters.inventory_stocksTableAdapter();
             this.inventory_supplierTableAdapter = new nPOSProj.npos_dbDataSetTableAdapters.inventory_supplierTableAdapter();
             this.inventory_categoryTableAdapter = new nPOSProj.npos_dbDataSetTableAdapters.inventory_categoryTableAdapter();
-            this.stockidDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.stockcodeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.stocknameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cbSupplier = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.cbCategory = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.cbWarehouse = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.gvTxtBoxQty = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.stockuomDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.stockcostpriceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.stocksellingpriceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.stocktotalpriceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox5.SuspendLayout();
@@ -190,7 +190,6 @@
             // 
             // btnSUpdate
             // 
-            this.btnSUpdate.Enabled = false;
             this.btnSUpdate.Image = ((System.Drawing.Image)(resources.GetObject("btnSUpdate.Image")));
             this.btnSUpdate.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btnSUpdate.Location = new System.Drawing.Point(3, 15);
@@ -200,6 +199,7 @@
             this.btnSUpdate.Text = "Update";
             this.btnSUpdate.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnSUpdate.UseVisualStyleBackColor = true;
+            this.btnSUpdate.Click += new System.EventHandler(this.btnSUpdate_Click);
             // 
             // groupBox4
             // 
@@ -239,6 +239,7 @@
             // 
             this.l3.AutoSize = true;
             this.l3.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.l3.ForeColor = System.Drawing.SystemColors.Control;
             this.l3.Location = new System.Drawing.Point(304, 117);
             this.l3.Name = "l3";
             this.l3.Size = new System.Drawing.Size(15, 14);
@@ -249,6 +250,7 @@
             // 
             this.l2.AutoSize = true;
             this.l2.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.l2.ForeColor = System.Drawing.SystemColors.Control;
             this.l2.Location = new System.Drawing.Point(239, 94);
             this.l2.Name = "l2";
             this.l2.Size = new System.Drawing.Size(15, 14);
@@ -259,6 +261,7 @@
             // 
             this.l1.AutoSize = true;
             this.l1.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.l1.ForeColor = System.Drawing.SystemColors.Control;
             this.l1.Location = new System.Drawing.Point(283, 71);
             this.l1.Name = "l1";
             this.l1.Size = new System.Drawing.Size(15, 14);
@@ -573,6 +576,112 @@
             this.dataGridView2.Size = new System.Drawing.Size(816, 173);
             this.dataGridView2.TabIndex = 2;
             // 
+            // stockidDataGridViewTextBoxColumn
+            // 
+            this.stockidDataGridViewTextBoxColumn.DataPropertyName = "stock_id";
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.stockidDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle1;
+            this.stockidDataGridViewTextBoxColumn.HeaderText = "No";
+            this.stockidDataGridViewTextBoxColumn.Name = "stockidDataGridViewTextBoxColumn";
+            this.stockidDataGridViewTextBoxColumn.ReadOnly = true;
+            this.stockidDataGridViewTextBoxColumn.Width = 50;
+            // 
+            // stockcodeDataGridViewTextBoxColumn
+            // 
+            this.stockcodeDataGridViewTextBoxColumn.DataPropertyName = "stock_code";
+            this.stockcodeDataGridViewTextBoxColumn.HeaderText = "Stock Code";
+            this.stockcodeDataGridViewTextBoxColumn.Name = "stockcodeDataGridViewTextBoxColumn";
+            this.stockcodeDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // stocknameDataGridViewTextBoxColumn
+            // 
+            this.stocknameDataGridViewTextBoxColumn.DataPropertyName = "stock_name";
+            this.stocknameDataGridViewTextBoxColumn.HeaderText = "Stock Name";
+            this.stocknameDataGridViewTextBoxColumn.Name = "stocknameDataGridViewTextBoxColumn";
+            this.stocknameDataGridViewTextBoxColumn.Width = 250;
+            // 
+            // cbSupplier
+            // 
+            this.cbSupplier.DataPropertyName = "supplier_name";
+            this.cbSupplier.DataSource = this.inventorysupplierBindingSource;
+            this.cbSupplier.DisplayMember = "supplier_name";
+            this.cbSupplier.HeaderText = "Supplier";
+            this.cbSupplier.Name = "cbSupplier";
+            this.cbSupplier.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.cbSupplier.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.cbSupplier.Width = 250;
+            // 
+            // cbCategory
+            // 
+            this.cbCategory.DataPropertyName = "cat_description";
+            this.cbCategory.DataSource = this.inventorycategoryBindingSource;
+            this.cbCategory.DisplayMember = "cat_description";
+            this.cbCategory.HeaderText = "Category";
+            this.cbCategory.Name = "cbCategory";
+            this.cbCategory.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.cbCategory.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.cbCategory.Width = 175;
+            // 
+            // cbWarehouse
+            // 
+            this.cbWarehouse.DataPropertyName = "warehouse_name";
+            this.cbWarehouse.DataSource = this.inventorywarehouseBindingSource1;
+            this.cbWarehouse.DisplayMember = "warehouse_name";
+            this.cbWarehouse.HeaderText = "Warehouse";
+            this.cbWarehouse.Name = "cbWarehouse";
+            this.cbWarehouse.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.cbWarehouse.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.cbWarehouse.Width = 250;
+            // 
+            // gvTxtBoxQty
+            // 
+            this.gvTxtBoxQty.DataPropertyName = "stock_quantity";
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.gvTxtBoxQty.DefaultCellStyle = dataGridViewCellStyle2;
+            this.gvTxtBoxQty.HeaderText = "Qty";
+            this.gvTxtBoxQty.Name = "gvTxtBoxQty";
+            this.gvTxtBoxQty.Width = 50;
+            // 
+            // stockuomDataGridViewTextBoxColumn
+            // 
+            this.stockuomDataGridViewTextBoxColumn.DataPropertyName = "stock_uom";
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.stockuomDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle3;
+            this.stockuomDataGridViewTextBoxColumn.HeaderText = "Unit";
+            this.stockuomDataGridViewTextBoxColumn.Name = "stockuomDataGridViewTextBoxColumn";
+            this.stockuomDataGridViewTextBoxColumn.Width = 75;
+            // 
+            // stockcostpriceDataGridViewTextBoxColumn
+            // 
+            this.stockcostpriceDataGridViewTextBoxColumn.DataPropertyName = "stock_cost_price";
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.Format = "N2";
+            dataGridViewCellStyle4.NullValue = null;
+            this.stockcostpriceDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle4;
+            this.stockcostpriceDataGridViewTextBoxColumn.HeaderText = "Cost Price";
+            this.stockcostpriceDataGridViewTextBoxColumn.Name = "stockcostpriceDataGridViewTextBoxColumn";
+            // 
+            // stocksellingpriceDataGridViewTextBoxColumn
+            // 
+            this.stocksellingpriceDataGridViewTextBoxColumn.DataPropertyName = "stock_selling_price";
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.Format = "N2";
+            dataGridViewCellStyle5.NullValue = null;
+            this.stocksellingpriceDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle5;
+            this.stocksellingpriceDataGridViewTextBoxColumn.HeaderText = "Selling Price";
+            this.stocksellingpriceDataGridViewTextBoxColumn.Name = "stocksellingpriceDataGridViewTextBoxColumn";
+            this.stocksellingpriceDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // stocktotalpriceDataGridViewTextBoxColumn
+            // 
+            this.stocktotalpriceDataGridViewTextBoxColumn.DataPropertyName = "stock_total_price";
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle6.Format = "N2";
+            dataGridViewCellStyle6.NullValue = null;
+            this.stocktotalpriceDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle6;
+            this.stocktotalpriceDataGridViewTextBoxColumn.HeaderText = "Total Price";
+            this.stocktotalpriceDataGridViewTextBoxColumn.Name = "stocktotalpriceDataGridViewTextBoxColumn";
+            // 
             // inventorystocksBindingSource
             // 
             this.inventorystocksBindingSource.DataMember = "inventory_stocks";
@@ -787,112 +896,6 @@
             // inventory_categoryTableAdapter
             // 
             this.inventory_categoryTableAdapter.ClearBeforeFill = true;
-            // 
-            // stockidDataGridViewTextBoxColumn
-            // 
-            this.stockidDataGridViewTextBoxColumn.DataPropertyName = "stock_id";
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.stockidDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle1;
-            this.stockidDataGridViewTextBoxColumn.HeaderText = "No";
-            this.stockidDataGridViewTextBoxColumn.Name = "stockidDataGridViewTextBoxColumn";
-            this.stockidDataGridViewTextBoxColumn.ReadOnly = true;
-            this.stockidDataGridViewTextBoxColumn.Width = 50;
-            // 
-            // stockcodeDataGridViewTextBoxColumn
-            // 
-            this.stockcodeDataGridViewTextBoxColumn.DataPropertyName = "stock_code";
-            this.stockcodeDataGridViewTextBoxColumn.HeaderText = "Stock Code";
-            this.stockcodeDataGridViewTextBoxColumn.Name = "stockcodeDataGridViewTextBoxColumn";
-            this.stockcodeDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // stocknameDataGridViewTextBoxColumn
-            // 
-            this.stocknameDataGridViewTextBoxColumn.DataPropertyName = "stock_name";
-            this.stocknameDataGridViewTextBoxColumn.HeaderText = "Stock Name";
-            this.stocknameDataGridViewTextBoxColumn.Name = "stocknameDataGridViewTextBoxColumn";
-            this.stocknameDataGridViewTextBoxColumn.Width = 250;
-            // 
-            // cbSupplier
-            // 
-            this.cbSupplier.DataPropertyName = "supplier_name";
-            this.cbSupplier.DataSource = this.inventorysupplierBindingSource;
-            this.cbSupplier.DisplayMember = "supplier_name";
-            this.cbSupplier.HeaderText = "Supplier";
-            this.cbSupplier.Name = "cbSupplier";
-            this.cbSupplier.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.cbSupplier.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.cbSupplier.Width = 250;
-            // 
-            // cbCategory
-            // 
-            this.cbCategory.DataPropertyName = "cat_description";
-            this.cbCategory.DataSource = this.inventorycategoryBindingSource;
-            this.cbCategory.DisplayMember = "cat_description";
-            this.cbCategory.HeaderText = "Category";
-            this.cbCategory.Name = "cbCategory";
-            this.cbCategory.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.cbCategory.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.cbCategory.Width = 175;
-            // 
-            // cbWarehouse
-            // 
-            this.cbWarehouse.DataPropertyName = "warehouse_name";
-            this.cbWarehouse.DataSource = this.inventorywarehouseBindingSource1;
-            this.cbWarehouse.DisplayMember = "warehouse_name";
-            this.cbWarehouse.HeaderText = "Warehouse";
-            this.cbWarehouse.Name = "cbWarehouse";
-            this.cbWarehouse.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.cbWarehouse.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.cbWarehouse.Width = 250;
-            // 
-            // gvTxtBoxQty
-            // 
-            this.gvTxtBoxQty.DataPropertyName = "stock_quantity";
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.gvTxtBoxQty.DefaultCellStyle = dataGridViewCellStyle2;
-            this.gvTxtBoxQty.HeaderText = "Qty";
-            this.gvTxtBoxQty.Name = "gvTxtBoxQty";
-            this.gvTxtBoxQty.Width = 50;
-            // 
-            // stockuomDataGridViewTextBoxColumn
-            // 
-            this.stockuomDataGridViewTextBoxColumn.DataPropertyName = "stock_uom";
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.stockuomDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle3;
-            this.stockuomDataGridViewTextBoxColumn.HeaderText = "Unit";
-            this.stockuomDataGridViewTextBoxColumn.Name = "stockuomDataGridViewTextBoxColumn";
-            this.stockuomDataGridViewTextBoxColumn.Width = 75;
-            // 
-            // stockcostpriceDataGridViewTextBoxColumn
-            // 
-            this.stockcostpriceDataGridViewTextBoxColumn.DataPropertyName = "stock_cost_price";
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.Format = "N2";
-            dataGridViewCellStyle4.NullValue = null;
-            this.stockcostpriceDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle4;
-            this.stockcostpriceDataGridViewTextBoxColumn.HeaderText = "Cost Price";
-            this.stockcostpriceDataGridViewTextBoxColumn.Name = "stockcostpriceDataGridViewTextBoxColumn";
-            // 
-            // stocksellingpriceDataGridViewTextBoxColumn
-            // 
-            this.stocksellingpriceDataGridViewTextBoxColumn.DataPropertyName = "stock_selling_price";
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle5.Format = "N2";
-            dataGridViewCellStyle5.NullValue = null;
-            this.stocksellingpriceDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle5;
-            this.stocksellingpriceDataGridViewTextBoxColumn.HeaderText = "Selling Price";
-            this.stocksellingpriceDataGridViewTextBoxColumn.Name = "stocksellingpriceDataGridViewTextBoxColumn";
-            this.stocksellingpriceDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // stocktotalpriceDataGridViewTextBoxColumn
-            // 
-            this.stocktotalpriceDataGridViewTextBoxColumn.DataPropertyName = "stock_total_price";
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle6.Format = "N2";
-            dataGridViewCellStyle6.NullValue = null;
-            this.stocktotalpriceDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle6;
-            this.stocktotalpriceDataGridViewTextBoxColumn.HeaderText = "Total Price";
-            this.stocktotalpriceDataGridViewTextBoxColumn.Name = "stocktotalpriceDataGridViewTextBoxColumn";
             // 
             // mdiStocks
             // 
