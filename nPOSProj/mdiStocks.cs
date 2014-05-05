@@ -143,7 +143,7 @@ namespace nPOSProj
         }
 
         private void btnSClear_Click(object sender, EventArgs e)
-        {
+        {   
             clearStockSection();
         }
 
@@ -265,22 +265,26 @@ namespace nPOSProj
             String S;
             String C;
             String W;
-            try
+            if (Convert.ToInt32(dataGridView2.SelectedRows[0].Cells[6].Value.ToString()) >= 0 && Convert.ToDecimal(dataGridView2.SelectedRows[0].Cells[8].Value.ToString()) >= 0 && Convert.ToDecimal(dataGridView2.SelectedRows[0].Cells[9].Value.ToString()) >= 0 && Convert.ToDecimal(dataGridView2.SelectedRows[0].Cells[10].Value.ToString()) >= 0)
             {
-                ivo.supplier_name = dataGridView2.SelectedRows[0].Cells[3].Value.ToString();
-                ivo.cat_description = dataGridView2.SelectedRows[0].Cells[4].Value.ToString();
-                ivo.warehouse_name = dataGridView2.SelectedRows[0].Cells[5].Value.ToString();
-                S = ivo.patchSupplierCode();
-                C = ivo.patchCategoryCode();
-                W = ivo.patchWarehouseCode();
-                this.inventory_stocksTableAdapter.UpdateStocks(dataGridView2.SelectedRows[0].Cells[2].Value.ToString(), S, C, W, Convert.ToInt32(dataGridView2.SelectedRows[0].Cells[6].Value.ToString()), dataGridView2.SelectedRows[0].Cells[7].Value.ToString(), Convert.ToDecimal(dataGridView2.SelectedRows[0].Cells[8].Value.ToString()), Convert.ToDecimal(dataGridView2.SelectedRows[0].Cells[9].Value.ToString()), Convert.ToInt32(dataGridView2.SelectedRows[0].Cells[10].Value.ToString()), Convert.ToInt32(dataGridView2.SelectedRows[0].Cells[0].Value.ToString()), dataGridView2.SelectedRows[0].Cells[1].Value.ToString());
-                btnSUpdate.Enabled = false;
+                try
+                {
+                    ivo.supplier_name = dataGridView2.SelectedRows[0].Cells[3].Value.ToString();
+                    ivo.cat_description = dataGridView2.SelectedRows[0].Cells[4].Value.ToString();
+                    ivo.warehouse_name = dataGridView2.SelectedRows[0].Cells[5].Value.ToString();
+                    S = ivo.patchSupplierCode();
+                    C = ivo.patchCategoryCode();
+                    W = ivo.patchWarehouseCode();
+                    this.inventory_stocksTableAdapter.UpdateStocks(dataGridView2.SelectedRows[0].Cells[2].Value.ToString(), S, C, W, Convert.ToInt32(dataGridView2.SelectedRows[0].Cells[6].Value.ToString()), dataGridView2.SelectedRows[0].Cells[7].Value.ToString(), Convert.ToDecimal(dataGridView2.SelectedRows[0].Cells[8].Value.ToString()), Convert.ToDecimal(dataGridView2.SelectedRows[0].Cells[9].Value.ToString()), Convert.ToInt32(dataGridView2.SelectedRows[0].Cells[10].Value.ToString()), Convert.ToInt32(dataGridView2.SelectedRows[0].Cells[0].Value.ToString()), dataGridView2.SelectedRows[0].Cells[1].Value.ToString());
+                    btnSUpdate.Enabled = false;
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Please Check Your Encoded Data or Check Database Server is Active!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
-            catch (Exception)
-            {
-                MessageBox.Show("Please Check Your Encoded Data or Check Database Server is Active!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-   
-            }
+            else
+                MessageBox.Show("Negative Value is not allowed", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
     }
 }
