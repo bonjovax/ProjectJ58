@@ -896,6 +896,7 @@
             // 
             this.totalprice.DataPropertyName = "stock_total_price";
             dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle6.Format = "N2";
             dataGridViewCellStyle6.NullValue = null;
             this.totalprice.DefaultCellStyle = dataGridViewCellStyle6;
