@@ -190,6 +190,7 @@
             // 
             // btnSUpdate
             // 
+            this.btnSUpdate.Enabled = false;
             this.btnSUpdate.Image = ((System.Drawing.Image)(resources.GetObject("btnSUpdate.Image")));
             this.btnSUpdate.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btnSUpdate.Location = new System.Drawing.Point(3, 15);
