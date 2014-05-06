@@ -17,6 +17,7 @@ namespace nPOSProj
         private mdiSupplier msupplier = new mdiSupplier();
         private mdiStocks mstocks = new mdiStocks();
         private mdiCategory mcat = new mdiCategory();
+        private mdiPO po = new mdiPO();
         public mdiFrmInv()
         {
             InitializeComponent();
@@ -140,6 +141,16 @@ namespace nPOSProj
                 mcat = new mdiCategory();
                 mcat.MdiParent = this;
                 mcat.Show();
+            }
+        }
+
+        private void tsPO_Click(object sender, EventArgs e)
+        {
+            if (ActivateThisChild("mdiPO") == false)
+            {
+                po = new mdiPO();
+                po.MdiParent = this;
+                po.Show();
             }
         }
     }

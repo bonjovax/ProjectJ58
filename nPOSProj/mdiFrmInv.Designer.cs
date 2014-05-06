@@ -197,6 +197,7 @@
             this.tsPO.Size = new System.Drawing.Size(106, 69);
             this.tsPO.Text = "Purchase &Order";
             this.tsPO.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.tsPO.Click += new System.EventHandler(this.tsPO_Click);
             // 
             // toolStripSeparator11
             // 
