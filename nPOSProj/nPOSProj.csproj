@@ -81,6 +81,12 @@
     <Compile Include="mdiConfiguration.Designer.cs">
       <DependentUpon>mdiConfiguration.cs</DependentUpon>
     </Compile>
+    <Compile Include="mdiPO.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="mdiPO.Designer.cs">
+      <DependentUpon>mdiPO.cs</DependentUpon>
+    </Compile>
     <Compile Include="mdiResetPassword.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -152,6 +158,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="mdiConfiguration.resx">
       <DependentUpon>mdiConfiguration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="mdiPO.resx">
+      <DependentUpon>mdiPO.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="mdiResetPassword.resx">
       <DependentUpon>mdiResetPassword.cs</DependentUpon>
