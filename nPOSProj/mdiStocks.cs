@@ -410,5 +410,10 @@ namespace nPOSProj
                 }
             }
         }
+
+        private void dataGridView2_DataError(object sender, DataGridViewDataErrorEventArgs e)
+        {
+            MessageBox.Show("Alphanumeric Values will not be consider!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
     }
 }
