@@ -217,7 +217,9 @@ namespace nPOSProj
                 btnSAdd.Enabled = true;
             }
             else
+            {
                 btnSAdd.Enabled = false;
+            }
             if (txtBoxQty.Text != null && txtBoxQty.Text != "" && txtBoxQty.Text != "0")
             {
                 ComputeQtyAndSelling();
@@ -246,7 +248,9 @@ namespace nPOSProj
                 btnSAdd.Enabled = true;
             }
             else
+            {
                 btnSAdd.Enabled = false;
+            }
             if (txtBoxCPrice.Text != null && txtBoxCPrice.Text != "" && txtBoxCPrice.Text != "0.00" && txtBoxCPrice.Text != "0")
             {
 
@@ -262,7 +266,9 @@ namespace nPOSProj
                 btnSAdd.Enabled = true;
             }
             else
+            {
                 btnSAdd.Enabled = false;
+            }
             if (txtBoxSPrice.Text != "0.00" && txtBoxSPrice.Text != "0" && txtBoxSPrice.Text != "" && txtBoxSPrice.Text != null)
             {
                 ComputerSellingQty();
@@ -284,7 +290,9 @@ namespace nPOSProj
                 btnSAdd.Enabled = true;
             }
             else
+            {
                 btnSAdd.Enabled = false;
+            }
         }
 
         private void btnSUpdate_Click(object sender, EventArgs e)
