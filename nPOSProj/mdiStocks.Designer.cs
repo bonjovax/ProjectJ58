@@ -393,8 +393,10 @@
             this.txtBoxQty.Location = new System.Drawing.Point(109, 136);
             this.txtBoxQty.MaxLength = 3;
             this.txtBoxQty.Name = "txtBoxQty";
+            this.txtBoxQty.ReadOnly = true;
             this.txtBoxQty.Size = new System.Drawing.Size(40, 22);
             this.txtBoxQty.TabIndex = 11;
+            this.txtBoxQty.Text = "0";
             this.txtBoxQty.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtBoxQty.TextChanged += new System.EventHandler(this.txtBoxQty_TextChanged);
             // 
@@ -576,6 +578,7 @@
             this.dataGridView2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView2.Size = new System.Drawing.Size(816, 173);
             this.dataGridView2.TabIndex = 2;
+            this.dataGridView2.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellClick);
             // 
             // inventorystocksBindingSource
             // 
@@ -897,6 +900,7 @@
             this.totalprice.DefaultCellStyle = dataGridViewCellStyle6;
             this.totalprice.HeaderText = "Total Price";
             this.totalprice.Name = "totalprice";
+            this.totalprice.ReadOnly = true;
             // 
             // mdiStocks
             // 

@@ -136,6 +136,7 @@ namespace nPOSProj
             l1.Text = "_";
             l2.Text = "_";
             l3.Text = "_";
+            txtBoxQty.Text = "0";
             txtBoxCPrice.Text = "0.00";
             txtBoxSPrice.Text = "0.00";
             txtBoxTPrice.Text = "0.00";
@@ -217,6 +218,15 @@ namespace nPOSProj
             }
             else
                 btnSAdd.Enabled = false;
+            if (txtBoxQty.Text != null && txtBoxQty.Text != "" && txtBoxQty.Text != "0")
+            {
+                ComputeQtyAndSelling();
+            }
+            else
+            {
+                txtBoxTPrice.Text = "0.00";
+                txtBoxQty.Text = "0";
+            }
         }
 
         private void txtBoxUOM_TextChanged(object sender, EventArgs e)
@@ -237,6 +247,12 @@ namespace nPOSProj
             }
             else
                 btnSAdd.Enabled = false;
+            if (txtBoxCPrice.Text != null && txtBoxCPrice.Text != "" && txtBoxCPrice.Text != "0.00" && txtBoxCPrice.Text != "0")
+            {
+
+            }
+            else
+                txtBoxCPrice.Text = "0.00";
         }
 
         private void txtBoxSPrice_TextChanged(object sender, EventArgs e)
@@ -247,6 +263,18 @@ namespace nPOSProj
             }
             else
                 btnSAdd.Enabled = false;
+            if (txtBoxSPrice.Text != "0.00" && txtBoxSPrice.Text != "0" && txtBoxSPrice.Text != "" && txtBoxSPrice.Text != null)
+            {
+                ComputerSellingQty();
+                txtBoxQty.ReadOnly = false;
+            }
+            else
+            {
+                txtBoxQty.ReadOnly = true;
+                txtBoxQty.Text = "0";
+                txtBoxSPrice.Text = "0.00";
+                txtBoxTPrice.Text = "0.00";
+            }
         }
 
         private void txtBoxTPrice_TextChanged(object sender, EventArgs e)
@@ -285,6 +313,47 @@ namespace nPOSProj
             }
             else
                 MessageBox.Show("Negative Value is not allowed", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+
+        private void dataGridView2_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            btnSUpdate.Enabled = true;
+            btnSDelete.Enabled = true;
+        }
+
+        private void ComputeQtyAndSelling()
+        {
+            try
+            {
+                Decimal qty = 0.0M;
+                Decimal sprice = 0.0M;
+                qty = Convert.ToDecimal(txtBoxQty.Text);
+                sprice = Convert.ToDecimal(txtBoxSPrice.Text);
+                Decimal Total = qty * sprice;
+                txtBoxTPrice.Text = Total.ToString("#,###,##0.00");
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Alphanumericals is not allowed", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtBoxQty.Text = "0";
+            }
+        }
+        private void ComputerSellingQty()
+        {
+            try
+            {
+                Decimal qty;
+                Decimal sprice;
+                qty = Convert.ToDecimal(txtBoxQty.Text);
+                sprice = Convert.ToDecimal(txtBoxSPrice.Text);
+                Decimal Total = sprice * qty;
+                txtBoxTPrice.Text = Total.ToString("#,###,##0.00");
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Alphanumericals is not allowed", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtBoxSPrice.Text = "0.00";
+            }
         }
     }
 }
