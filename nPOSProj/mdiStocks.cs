@@ -12,6 +12,7 @@ namespace nPOSProj
     public partial class mdiStocks : Form
     {
         private VO.InventoryVO ivo;
+        private Decimal total = 0.0M;
         public mdiStocks()
         {
             InitializeComponent();
@@ -311,8 +312,10 @@ namespace nPOSProj
                     S = ivo.patchSupplierCode();
                     C = ivo.patchCategoryCode();
                     W = ivo.patchWarehouseCode();
-                    this.inventory_stocksTableAdapter.UpdateStocks(dataGridView2.SelectedRows[0].Cells[2].Value.ToString(), S, C, W, Convert.ToInt32(dataGridView2.SelectedRows[0].Cells[6].Value.ToString()), dataGridView2.SelectedRows[0].Cells[7].Value.ToString(), Convert.ToDecimal(dataGridView2.SelectedRows[0].Cells[8].Value.ToString()), Convert.ToDecimal(dataGridView2.SelectedRows[0].Cells[9].Value.ToString()), Convert.ToInt32(dataGridView2.SelectedRows[0].Cells[10].Value.ToString()), Convert.ToInt32(dataGridView2.SelectedRows[0].Cells[0].Value.ToString()), dataGridView2.SelectedRows[0].Cells[1].Value.ToString());
+                    updateCompute();
+                    this.inventory_stocksTableAdapter.UpdateStocks(dataGridView2.SelectedRows[0].Cells[2].Value.ToString(), S, C, W, Convert.ToInt32(dataGridView2.SelectedRows[0].Cells[6].Value.ToString()), dataGridView2.SelectedRows[0].Cells[7].Value.ToString(), Convert.ToDecimal(dataGridView2.SelectedRows[0].Cells[8].Value.ToString()), Convert.ToDecimal(dataGridView2.SelectedRows[0].Cells[9].Value.ToString()), total, Convert.ToInt32(dataGridView2.SelectedRows[0].Cells[0].Value.ToString()), dataGridView2.SelectedRows[0].Cells[1].Value.ToString());
                     btnSUpdate.Enabled = false;
+                    this.inventory_stocksTableAdapter.Fill(this.npos_dbDataSet1.inventory_stocks);
                 }
                 catch (Exception)
                 {
@@ -321,6 +324,25 @@ namespace nPOSProj
             }
             else
                 MessageBox.Show("Negative Value is not allowed", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+
+        private void updateCompute()
+        {
+            if (Convert.ToInt32(dataGridView2.SelectedRows[0].Cells[6].Value.ToString()) >= 0 && Convert.ToDecimal(dataGridView2.SelectedRows[0].Cells[9].Value.ToString()) >= 0)
+            {
+                try
+                {
+                    Decimal qty = 0.0M;
+                    Decimal selling = 0.0M;
+                    qty = Convert.ToDecimal(dataGridView2.SelectedRows[0].Cells[6].Value.ToString());
+                    selling = Convert.ToDecimal(dataGridView2.SelectedRows[0].Cells[9].Value.ToString());
+                    total = qty * selling;
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Alphanumericals is not allowed", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
         }
 
         private void dataGridView2_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -361,6 +383,31 @@ namespace nPOSProj
             {
                 MessageBox.Show("Alphanumericals is not allowed", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txtBoxSPrice.Text = "0.00";
+            }
+        }
+
+        private void btnSDelete_Click(object sender, EventArgs e)
+        {
+            DialogResult dlgResult = MessageBox.Show("Do You Wish To Continue?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if (dlgResult == DialogResult.Yes)
+            {
+                try
+                {
+                    foreach (DataGridViewCell oneCell in dataGridView2.SelectedCells)
+                    {
+                        if (oneCell.Selected)
+                        {
+                            this.inventory_stocksTableAdapter.DeleteStocks(dataGridView2.SelectedRows[0].Cells[1].Value.ToString(), Convert.ToInt32(dataGridView2.SelectedRows[0].Cells[0].Value.ToString()));
+                            dataGridView2.Rows.RemoveAt(oneCell.RowIndex);
+                            btnSDelete.Enabled = false;
+                        }
+                    }
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Please Check your Database Server Connection", "Database Server Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    Application.ExitThread();
+                }
             }
         }
     }

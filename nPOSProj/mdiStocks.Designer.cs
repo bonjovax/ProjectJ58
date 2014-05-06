@@ -176,6 +176,7 @@
             this.btnSDelete.Text = "Delete";
             this.btnSDelete.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnSDelete.UseVisualStyleBackColor = true;
+            this.btnSDelete.Click += new System.EventHandler(this.btnSDelete_Click);
             // 
             // groupBox6
             // 
@@ -299,7 +300,7 @@
             // 
             this.txtBoxTPrice.BackColor = System.Drawing.Color.Khaki;
             this.txtBoxTPrice.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBoxTPrice.Location = new System.Drawing.Point(472, 67);
+            this.txtBoxTPrice.Location = new System.Drawing.Point(472, 90);
             this.txtBoxTPrice.MaxLength = 15;
             this.txtBoxTPrice.Name = "txtBoxTPrice";
             this.txtBoxTPrice.Size = new System.Drawing.Size(96, 22);
@@ -325,7 +326,7 @@
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(370, 70);
+            this.label12.Location = new System.Drawing.Point(368, 93);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(65, 14);
             this.label12.TabIndex = 18;
@@ -368,7 +369,7 @@
             // 
             this.txtBoxUOM.BackColor = System.Drawing.Color.Khaki;
             this.txtBoxUOM.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBoxUOM.Location = new System.Drawing.Point(109, 159);
+            this.txtBoxUOM.Location = new System.Drawing.Point(109, 136);
             this.txtBoxUOM.MaxLength = 50;
             this.txtBoxUOM.Name = "txtBoxUOM";
             this.txtBoxUOM.Size = new System.Drawing.Size(124, 22);
@@ -379,7 +380,7 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(7, 162);
+            this.label9.Location = new System.Drawing.Point(7, 139);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(93, 14);
             this.label9.TabIndex = 12;
@@ -390,7 +391,7 @@
             this.txtBoxQty.BackColor = System.Drawing.Color.Red;
             this.txtBoxQty.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtBoxQty.ForeColor = System.Drawing.Color.White;
-            this.txtBoxQty.Location = new System.Drawing.Point(109, 136);
+            this.txtBoxQty.Location = new System.Drawing.Point(472, 67);
             this.txtBoxQty.MaxLength = 3;
             this.txtBoxQty.Name = "txtBoxQty";
             this.txtBoxQty.ReadOnly = true;
@@ -404,7 +405,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(7, 139);
+            this.label8.Location = new System.Drawing.Point(369, 70);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(27, 14);
             this.label8.TabIndex = 10;
