@@ -72,16 +72,6 @@
             this.supplier_contactno = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.supplier_contact_person = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.supplier_position = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.supplieridDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.suppliercodeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.suppliernameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.supplieraddressDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.suppliercitymunicipalityDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.suppliercountryDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.supplierzipcodeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.suppliercontactDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.suppliercontactpersonDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.suppliercpersonpositionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.inventorysupplierBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.npos_dbDataSet)).BeginInit();
@@ -108,17 +98,7 @@
             this.supplier_postalcode,
             this.supplier_contactno,
             this.supplier_contact_person,
-            this.supplier_position,
-            this.supplieridDataGridViewTextBoxColumn,
-            this.suppliercodeDataGridViewTextBoxColumn,
-            this.suppliernameDataGridViewTextBoxColumn,
-            this.supplieraddressDataGridViewTextBoxColumn,
-            this.suppliercitymunicipalityDataGridViewTextBoxColumn,
-            this.suppliercountryDataGridViewTextBoxColumn,
-            this.supplierzipcodeDataGridViewTextBoxColumn,
-            this.suppliercontactDataGridViewTextBoxColumn,
-            this.suppliercontactpersonDataGridViewTextBoxColumn,
-            this.suppliercpersonpositionDataGridViewTextBoxColumn});
+            this.supplier_position});
             this.dataGridView1.DataSource = this.inventorysupplierBindingSource;
             this.dataGridView1.GridColor = System.Drawing.Color.Black;
             this.dataGridView1.Location = new System.Drawing.Point(2, 2);
@@ -546,66 +526,6 @@
             this.supplier_position.Name = "supplier_position";
             this.supplier_position.Width = 250;
             // 
-            // supplieridDataGridViewTextBoxColumn
-            // 
-            this.supplieridDataGridViewTextBoxColumn.DataPropertyName = "supplier_id";
-            this.supplieridDataGridViewTextBoxColumn.HeaderText = "supplier_id";
-            this.supplieridDataGridViewTextBoxColumn.Name = "supplieridDataGridViewTextBoxColumn";
-            // 
-            // suppliercodeDataGridViewTextBoxColumn
-            // 
-            this.suppliercodeDataGridViewTextBoxColumn.DataPropertyName = "supplier_code";
-            this.suppliercodeDataGridViewTextBoxColumn.HeaderText = "supplier_code";
-            this.suppliercodeDataGridViewTextBoxColumn.Name = "suppliercodeDataGridViewTextBoxColumn";
-            // 
-            // suppliernameDataGridViewTextBoxColumn
-            // 
-            this.suppliernameDataGridViewTextBoxColumn.DataPropertyName = "supplier_name";
-            this.suppliernameDataGridViewTextBoxColumn.HeaderText = "supplier_name";
-            this.suppliernameDataGridViewTextBoxColumn.Name = "suppliernameDataGridViewTextBoxColumn";
-            // 
-            // supplieraddressDataGridViewTextBoxColumn
-            // 
-            this.supplieraddressDataGridViewTextBoxColumn.DataPropertyName = "supplier_address";
-            this.supplieraddressDataGridViewTextBoxColumn.HeaderText = "supplier_address";
-            this.supplieraddressDataGridViewTextBoxColumn.Name = "supplieraddressDataGridViewTextBoxColumn";
-            // 
-            // suppliercitymunicipalityDataGridViewTextBoxColumn
-            // 
-            this.suppliercitymunicipalityDataGridViewTextBoxColumn.DataPropertyName = "supplier_city_municipality";
-            this.suppliercitymunicipalityDataGridViewTextBoxColumn.HeaderText = "supplier_city_municipality";
-            this.suppliercitymunicipalityDataGridViewTextBoxColumn.Name = "suppliercitymunicipalityDataGridViewTextBoxColumn";
-            // 
-            // suppliercountryDataGridViewTextBoxColumn
-            // 
-            this.suppliercountryDataGridViewTextBoxColumn.DataPropertyName = "supplier_country";
-            this.suppliercountryDataGridViewTextBoxColumn.HeaderText = "supplier_country";
-            this.suppliercountryDataGridViewTextBoxColumn.Name = "suppliercountryDataGridViewTextBoxColumn";
-            // 
-            // supplierzipcodeDataGridViewTextBoxColumn
-            // 
-            this.supplierzipcodeDataGridViewTextBoxColumn.DataPropertyName = "supplier_zipcode";
-            this.supplierzipcodeDataGridViewTextBoxColumn.HeaderText = "supplier_zipcode";
-            this.supplierzipcodeDataGridViewTextBoxColumn.Name = "supplierzipcodeDataGridViewTextBoxColumn";
-            // 
-            // suppliercontactDataGridViewTextBoxColumn
-            // 
-            this.suppliercontactDataGridViewTextBoxColumn.DataPropertyName = "supplier_contact";
-            this.suppliercontactDataGridViewTextBoxColumn.HeaderText = "supplier_contact";
-            this.suppliercontactDataGridViewTextBoxColumn.Name = "suppliercontactDataGridViewTextBoxColumn";
-            // 
-            // suppliercontactpersonDataGridViewTextBoxColumn
-            // 
-            this.suppliercontactpersonDataGridViewTextBoxColumn.DataPropertyName = "supplier_contact_person";
-            this.suppliercontactpersonDataGridViewTextBoxColumn.HeaderText = "supplier_contact_person";
-            this.suppliercontactpersonDataGridViewTextBoxColumn.Name = "suppliercontactpersonDataGridViewTextBoxColumn";
-            // 
-            // suppliercpersonpositionDataGridViewTextBoxColumn
-            // 
-            this.suppliercpersonpositionDataGridViewTextBoxColumn.DataPropertyName = "supplier_cperson_position";
-            this.suppliercpersonpositionDataGridViewTextBoxColumn.HeaderText = "supplier_cperson_position";
-            this.suppliercpersonpositionDataGridViewTextBoxColumn.Name = "suppliercpersonpositionDataGridViewTextBoxColumn";
-            // 
             // mdiSupplier
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -677,15 +597,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn supplier_contactno;
         private System.Windows.Forms.DataGridViewTextBoxColumn supplier_contact_person;
         private System.Windows.Forms.DataGridViewTextBoxColumn supplier_position;
-        private System.Windows.Forms.DataGridViewTextBoxColumn supplieridDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn suppliercodeDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn suppliernameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn supplieraddressDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn suppliercitymunicipalityDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn suppliercountryDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn supplierzipcodeDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn suppliercontactDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn suppliercontactpersonDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn suppliercpersonpositionDataGridViewTextBoxColumn;
     }
 }
