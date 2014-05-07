@@ -30,20 +30,17 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(mdiPO));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btnNew = new System.Windows.Forms.Button();
             this.btnDuplicate = new System.Windows.Forms.Button();
             this.btnFilter = new System.Windows.Forms.Button();
             this.btnSearch = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.npos_dbDataSet = new nPOSProj.npos_dbDataSet();
-            this.poorderBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.po_orderTableAdapter = new nPOSProj.npos_dbDataSetTableAdapters.po_orderTableAdapter();
             this.ponoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.podateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.potimeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -55,9 +52,13 @@
             this.postatusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.podaterDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.potimerDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.poorderBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.npos_dbDataSet = new nPOSProj.npos_dbDataSet();
+            this.po_orderTableAdapter = new nPOSProj.npos_dbDataSetTableAdapters.po_orderTableAdapter();
+            this.btnReprintPO = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.npos_dbDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.poorderBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.npos_dbDataSet)).BeginInit();
             this.SuspendLayout();
             // 
             // btnNew
@@ -68,7 +69,7 @@
             this.btnNew.Location = new System.Drawing.Point(0, 1);
             this.btnNew.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnNew.Name = "btnNew";
-            this.btnNew.Size = new System.Drawing.Size(69, 38);
+            this.btnNew.Size = new System.Drawing.Size(69, 32);
             this.btnNew.TabIndex = 0;
             this.btnNew.Text = "&New";
             this.btnNew.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -83,7 +84,7 @@
             this.btnDuplicate.Location = new System.Drawing.Point(69, 1);
             this.btnDuplicate.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnDuplicate.Name = "btnDuplicate";
-            this.btnDuplicate.Size = new System.Drawing.Size(90, 38);
+            this.btnDuplicate.Size = new System.Drawing.Size(90, 32);
             this.btnDuplicate.TabIndex = 1;
             this.btnDuplicate.Text = "&Duplicate";
             this.btnDuplicate.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -97,7 +98,7 @@
             this.btnFilter.Location = new System.Drawing.Point(159, 1);
             this.btnFilter.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnFilter.Name = "btnFilter";
-            this.btnFilter.Size = new System.Drawing.Size(62, 38);
+            this.btnFilter.Size = new System.Drawing.Size(62, 32);
             this.btnFilter.TabIndex = 2;
             this.btnFilter.Text = "&Filter";
             this.btnFilter.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -111,7 +112,7 @@
             this.btnSearch.Location = new System.Drawing.Point(221, 1);
             this.btnSearch.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(80, 38);
+            this.btnSearch.Size = new System.Drawing.Size(80, 32);
             this.btnSearch.TabIndex = 3;
             this.btnSearch.Text = "&Search";
             this.btnSearch.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -126,7 +127,7 @@
             this.btnDelete.Location = new System.Drawing.Point(301, 1);
             this.btnDelete.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(80, 38);
+            this.btnDelete.Size = new System.Drawing.Size(80, 32);
             this.btnDelete.TabIndex = 4;
             this.btnDelete.Text = "&Delete";
             this.btnDelete.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -153,40 +154,26 @@
             this.potimerDataGridViewTextBoxColumn});
             this.dataGridView1.DataSource = this.poorderBindingSource;
             this.dataGridView1.GridColor = System.Drawing.Color.Black;
-            this.dataGridView1.Location = new System.Drawing.Point(2, 41);
+            this.dataGridView1.Location = new System.Drawing.Point(2, 35);
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.Gainsboro;
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.White;
-            this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle15.BackColor = System.Drawing.Color.Gainsboro;
+            dataGridViewCellStyle15.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.Color.White;
+            this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle15;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(815, 489);
+            this.dataGridView1.Size = new System.Drawing.Size(815, 496);
             this.dataGridView1.TabIndex = 5;
-            // 
-            // npos_dbDataSet
-            // 
-            this.npos_dbDataSet.DataSetName = "npos_dbDataSet";
-            this.npos_dbDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // poorderBindingSource
-            // 
-            this.poorderBindingSource.DataMember = "po_order";
-            this.poorderBindingSource.DataSource = this.npos_dbDataSet;
-            // 
-            // po_orderTableAdapter
-            // 
-            this.po_orderTableAdapter.ClearBeforeFill = true;
             // 
             // ponoDataGridViewTextBoxColumn
             // 
             this.ponoDataGridViewTextBoxColumn.DataPropertyName = "po_no";
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Gainsboro;
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.Black;
-            this.ponoDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle11.BackColor = System.Drawing.Color.Gainsboro;
+            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.Color.Black;
+            this.ponoDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle11;
             this.ponoDataGridViewTextBoxColumn.HeaderText = "PO No";
             this.ponoDataGridViewTextBoxColumn.Name = "ponoDataGridViewTextBoxColumn";
             this.ponoDataGridViewTextBoxColumn.ReadOnly = true;
@@ -226,10 +213,10 @@
             // pototalamtDataGridViewTextBoxColumn
             // 
             this.pototalamtDataGridViewTextBoxColumn.DataPropertyName = "po_total_amt";
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.Format = "N2";
-            dataGridViewCellStyle2.NullValue = null;
-            this.pototalamtDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle12.Format = "N2";
+            dataGridViewCellStyle12.NullValue = null;
+            this.pototalamtDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle12;
             this.pototalamtDataGridViewTextBoxColumn.HeaderText = "Total Amount";
             this.pototalamtDataGridViewTextBoxColumn.Name = "pototalamtDataGridViewTextBoxColumn";
             this.pototalamtDataGridViewTextBoxColumn.ReadOnly = true;
@@ -238,8 +225,8 @@
             // poprintedDataGridViewTextBoxColumn
             // 
             this.poprintedDataGridViewTextBoxColumn.DataPropertyName = "po_printed";
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.poprintedDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.poprintedDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle13;
             this.poprintedDataGridViewTextBoxColumn.HeaderText = "Printed";
             this.poprintedDataGridViewTextBoxColumn.Name = "poprintedDataGridViewTextBoxColumn";
             this.poprintedDataGridViewTextBoxColumn.ReadOnly = true;
@@ -255,8 +242,8 @@
             // postatusDataGridViewTextBoxColumn
             // 
             this.postatusDataGridViewTextBoxColumn.DataPropertyName = "po_status";
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.postatusDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.postatusDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle14;
             this.postatusDataGridViewTextBoxColumn.HeaderText = "Status";
             this.postatusDataGridViewTextBoxColumn.Name = "postatusDataGridViewTextBoxColumn";
             this.postatusDataGridViewTextBoxColumn.ReadOnly = true;
@@ -277,11 +264,40 @@
             this.potimerDataGridViewTextBoxColumn.Name = "potimerDataGridViewTextBoxColumn";
             this.potimerDataGridViewTextBoxColumn.Width = 200;
             // 
+            // poorderBindingSource
+            // 
+            this.poorderBindingSource.DataMember = "po_order";
+            this.poorderBindingSource.DataSource = this.npos_dbDataSet;
+            // 
+            // npos_dbDataSet
+            // 
+            this.npos_dbDataSet.DataSetName = "npos_dbDataSet";
+            this.npos_dbDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // po_orderTableAdapter
+            // 
+            this.po_orderTableAdapter.ClearBeforeFill = true;
+            // 
+            // btnReprintPO
+            // 
+            this.btnReprintPO.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReprintPO.Image = ((System.Drawing.Image)(resources.GetObject("btnReprintPO.Image")));
+            this.btnReprintPO.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnReprintPO.Location = new System.Drawing.Point(381, 1);
+            this.btnReprintPO.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnReprintPO.Name = "btnReprintPO";
+            this.btnReprintPO.Size = new System.Drawing.Size(103, 32);
+            this.btnReprintPO.TabIndex = 6;
+            this.btnReprintPO.Text = "&Reprint P.O";
+            this.btnReprintPO.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnReprintPO.UseVisualStyleBackColor = true;
+            // 
             // mdiPO
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(820, 532);
+            this.Controls.Add(this.btnReprintPO);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnSearch);
@@ -297,8 +313,8 @@
             this.Text = "Purchase Order";
             this.Load += new System.EventHandler(this.mdiPO_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.npos_dbDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.poorderBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.npos_dbDataSet)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -325,5 +341,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn postatusDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn podaterDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn potimerDataGridViewTextBoxColumn;
+        private System.Windows.Forms.Button btnReprintPO;
     }
 }
