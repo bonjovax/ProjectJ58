@@ -44,7 +44,6 @@ namespace nPOSProj
                 {
                     while (rdr.Read())
                         str.Add(rdr["stock_code"].ToString());
-                        //collect.Add(rdr["user_name"].ToString());
                 }
                 con.Close();
             }
@@ -70,7 +69,6 @@ namespace nPOSProj
                 {
                     while (rdr.Read())
                         str.Add(rdr["stock_name"].ToString());
-                    //collect.Add(rdr["user_name"].ToString());
                 }
                 con.Close();
             }
@@ -129,6 +127,11 @@ namespace nPOSProj
                 resetRow = false;
                 dataGridView1.CurrentCell = dataGridView1.Rows[currentRow].Cells[currentColumn];
             }
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

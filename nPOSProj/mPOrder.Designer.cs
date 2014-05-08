@@ -51,8 +51,8 @@
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnOk = new System.Windows.Forms.Button();
+            this.btnCancel = new System.Windows.Forms.Button();
             this.dgQTY = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.stock_code = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Unit = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -237,29 +237,30 @@
             this.dataGridView1.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.dataGridView1_EditingControlShowing);
             this.dataGridView1.SelectionChanged += new System.EventHandler(this.dataGridView1_SelectionChanged);
             // 
-            // button1
+            // btnOk
             // 
-            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
-            this.button1.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.button1.Location = new System.Drawing.Point(524, 169);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(38, 48);
-            this.button1.TabIndex = 17;
-            this.button1.Text = "&OK";
-            this.button1.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnOk.Image = ((System.Drawing.Image)(resources.GetObject("btnOk.Image")));
+            this.btnOk.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnOk.Location = new System.Drawing.Point(524, 169);
+            this.btnOk.Name = "btnOk";
+            this.btnOk.Size = new System.Drawing.Size(38, 48);
+            this.btnOk.TabIndex = 17;
+            this.btnOk.Text = "&OK";
+            this.btnOk.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnOk.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // btnCancel
             // 
-            this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
-            this.button2.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.button2.Location = new System.Drawing.Point(562, 169);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(54, 48);
-            this.button2.TabIndex = 18;
-            this.button2.Text = "&Cancel";
-            this.button2.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnCancel.Image = ((System.Drawing.Image)(resources.GetObject("btnCancel.Image")));
+            this.btnCancel.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnCancel.Location = new System.Drawing.Point(562, 169);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(54, 48);
+            this.btnCancel.TabIndex = 18;
+            this.btnCancel.Text = "&Cancel";
+            this.btnCancel.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // dgQTY
             // 
@@ -314,8 +315,8 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(634, 436);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnCancel);
+            this.Controls.Add(this.btnOk);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.comboBox2);
             this.Controls.Add(this.label8);
@@ -368,13 +369,13 @@
         private System.Windows.Forms.ComboBox comboBox2;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnOk;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgQTY;
         private System.Windows.Forms.DataGridViewTextBoxColumn stock_code;
         private System.Windows.Forms.DataGridViewTextBoxColumn Unit;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
+        private System.Windows.Forms.Button btnCancel;
     }
 }

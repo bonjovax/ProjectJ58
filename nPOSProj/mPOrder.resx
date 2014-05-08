@@ -136,7 +136,7 @@
     <value>True</value>
   </metadata>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="button1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="btnOk.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAABnxJREFUSEuV
         k39Q02Ucx58FTBwlIWKEgRp5nQjMP5B5kAMiKA6ElFCcjUDAOZnIImGTYgP8wZQxERnsh4yNbSAgE3Qi
@@ -169,7 +169,7 @@
         H7kjsiZ4W/BB/lb+oaXSpbVPlz39YmJZ4mP+sv8QY78DcYC5ZycaGNsAAAAASUVORK5CYII=
 </value>
   </data>
-  <data name="button2.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="btnCancel.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAABZFJREFUSEud
         VgtM1lUU//FQMae2NMHHlPJZTUnRlGVOQvMRznzMmWBMQXysfKAuFahM06gpLdGGKPlGBBGVQECQGW+V
