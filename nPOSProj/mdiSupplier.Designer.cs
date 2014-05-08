@@ -31,8 +31,6 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(mdiSupplier));
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.inventorysupplierBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.npos_dbDataSet = new nPOSProj.npos_dbDataSet();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label11 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -62,22 +60,24 @@
             this.btnUpdate = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.btnDelete = new System.Windows.Forms.Button();
+            this.npos_dbDataSet = new nPOSProj.npos_dbDataSet();
+            this.inventorysupplierBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.inventory_supplierTableAdapter = new nPOSProj.npos_dbDataSetTableAdapters.inventory_supplierTableAdapter();
-            this.supplier_code = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.supplier_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.supplier_address = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.supplier_city_mun = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.supplier_country = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.supplier_postalcode = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.supplier_contactno = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.supplier_contact_person = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.supplier_position = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.suppliercodeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.suppliernameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.supplieraddressDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.suppliercitymunicipalityDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.suppliercountryDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.supplierzipcodeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.suppliercontactDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.suppliercontactpersonDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.suppliercpersonpositionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.inventorysupplierBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.npos_dbDataSet)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.npos_dbDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.inventorysupplierBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridView1
@@ -90,15 +90,15 @@
             this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.supplier_code,
-            this.supplier_name,
-            this.supplier_address,
-            this.supplier_city_mun,
-            this.supplier_country,
-            this.supplier_postalcode,
-            this.supplier_contactno,
-            this.supplier_contact_person,
-            this.supplier_position});
+            this.suppliercodeDataGridViewTextBoxColumn,
+            this.suppliernameDataGridViewTextBoxColumn,
+            this.supplieraddressDataGridViewTextBoxColumn,
+            this.suppliercitymunicipalityDataGridViewTextBoxColumn,
+            this.suppliercountryDataGridViewTextBoxColumn,
+            this.supplierzipcodeDataGridViewTextBoxColumn,
+            this.suppliercontactDataGridViewTextBoxColumn,
+            this.suppliercontactpersonDataGridViewTextBoxColumn,
+            this.suppliercpersonpositionDataGridViewTextBoxColumn});
             this.dataGridView1.DataSource = this.inventorysupplierBindingSource;
             this.dataGridView1.GridColor = System.Drawing.Color.Black;
             this.dataGridView1.Location = new System.Drawing.Point(2, 2);
@@ -110,16 +110,6 @@
             this.dataGridView1.Size = new System.Drawing.Size(883, 248);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
-            // 
-            // inventorysupplierBindingSource
-            // 
-            this.inventorysupplierBindingSource.DataMember = "inventory_supplier";
-            this.inventorysupplierBindingSource.DataSource = this.npos_dbDataSet;
-            // 
-            // npos_dbDataSet
-            // 
-            this.npos_dbDataSet.DataSetName = "npos_dbDataSet";
-            this.npos_dbDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // groupBox1
             // 
@@ -458,73 +448,80 @@
             this.btnDelete.UseVisualStyleBackColor = true;
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
+            // npos_dbDataSet
+            // 
+            this.npos_dbDataSet.DataSetName = "npos_dbDataSet";
+            this.npos_dbDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // inventorysupplierBindingSource
+            // 
+            this.inventorysupplierBindingSource.DataMember = "inventory_supplier";
+            this.inventorysupplierBindingSource.DataSource = this.npos_dbDataSet;
+            // 
             // inventory_supplierTableAdapter
             // 
             this.inventory_supplierTableAdapter.ClearBeforeFill = true;
             // 
-            // supplier_code
+            // suppliercodeDataGridViewTextBoxColumn
             // 
-            this.supplier_code.DataPropertyName = "supplier_code";
-            this.supplier_code.HeaderText = "Supplier Code";
-            this.supplier_code.Name = "supplier_code";
-            this.supplier_code.ReadOnly = true;
+            this.suppliercodeDataGridViewTextBoxColumn.DataPropertyName = "supplier_code";
+            this.suppliercodeDataGridViewTextBoxColumn.HeaderText = "Supplier Code";
+            this.suppliercodeDataGridViewTextBoxColumn.Name = "suppliercodeDataGridViewTextBoxColumn";
+            this.suppliercodeDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // supplier_name
+            // suppliernameDataGridViewTextBoxColumn
             // 
-            this.supplier_name.DataPropertyName = "supplier_name";
-            this.supplier_name.HeaderText = "Name/Company";
-            this.supplier_name.MaxInputLength = 100;
-            this.supplier_name.Name = "supplier_name";
-            this.supplier_name.Width = 250;
+            this.suppliernameDataGridViewTextBoxColumn.DataPropertyName = "supplier_name";
+            this.suppliernameDataGridViewTextBoxColumn.HeaderText = "Name/Company";
+            this.suppliernameDataGridViewTextBoxColumn.Name = "suppliernameDataGridViewTextBoxColumn";
+            this.suppliernameDataGridViewTextBoxColumn.Width = 200;
             // 
-            // supplier_address
+            // supplieraddressDataGridViewTextBoxColumn
             // 
-            this.supplier_address.DataPropertyName = "supplier_address";
-            this.supplier_address.HeaderText = "Address";
-            this.supplier_address.MaxInputLength = 100;
-            this.supplier_address.Name = "supplier_address";
-            this.supplier_address.Width = 350;
+            this.supplieraddressDataGridViewTextBoxColumn.DataPropertyName = "supplier_address";
+            this.supplieraddressDataGridViewTextBoxColumn.HeaderText = "Address";
+            this.supplieraddressDataGridViewTextBoxColumn.Name = "supplieraddressDataGridViewTextBoxColumn";
+            this.supplieraddressDataGridViewTextBoxColumn.Width = 250;
             // 
-            // supplier_city_mun
+            // suppliercitymunicipalityDataGridViewTextBoxColumn
             // 
-            this.supplier_city_mun.DataPropertyName = "supplier_city_municipality";
-            this.supplier_city_mun.HeaderText = "City/Municipality";
-            this.supplier_city_mun.Name = "supplier_city_mun";
-            this.supplier_city_mun.Width = 130;
+            this.suppliercitymunicipalityDataGridViewTextBoxColumn.DataPropertyName = "supplier_city_municipality";
+            this.suppliercitymunicipalityDataGridViewTextBoxColumn.HeaderText = "City/Municipality";
+            this.suppliercitymunicipalityDataGridViewTextBoxColumn.Name = "suppliercitymunicipalityDataGridViewTextBoxColumn";
             // 
-            // supplier_country
+            // suppliercountryDataGridViewTextBoxColumn
             // 
-            this.supplier_country.DataPropertyName = "supplier_country";
-            this.supplier_country.HeaderText = "Country";
-            this.supplier_country.Name = "supplier_country";
-            this.supplier_country.Width = 130;
+            this.suppliercountryDataGridViewTextBoxColumn.DataPropertyName = "supplier_country";
+            this.suppliercountryDataGridViewTextBoxColumn.HeaderText = "Country";
+            this.suppliercountryDataGridViewTextBoxColumn.Name = "suppliercountryDataGridViewTextBoxColumn";
+            this.suppliercountryDataGridViewTextBoxColumn.Width = 150;
             // 
-            // supplier_postalcode
+            // supplierzipcodeDataGridViewTextBoxColumn
             // 
-            this.supplier_postalcode.DataPropertyName = "supplier_zipcode";
-            this.supplier_postalcode.HeaderText = "Postal Code";
-            this.supplier_postalcode.Name = "supplier_postalcode";
+            this.supplierzipcodeDataGridViewTextBoxColumn.DataPropertyName = "supplier_zipcode";
+            this.supplierzipcodeDataGridViewTextBoxColumn.HeaderText = "Zip Code";
+            this.supplierzipcodeDataGridViewTextBoxColumn.Name = "supplierzipcodeDataGridViewTextBoxColumn";
             // 
-            // supplier_contactno
+            // suppliercontactDataGridViewTextBoxColumn
             // 
-            this.supplier_contactno.DataPropertyName = "supplier_contact";
-            this.supplier_contactno.HeaderText = "Contact No";
-            this.supplier_contactno.Name = "supplier_contactno";
-            this.supplier_contactno.Width = 250;
+            this.suppliercontactDataGridViewTextBoxColumn.DataPropertyName = "supplier_contact";
+            this.suppliercontactDataGridViewTextBoxColumn.HeaderText = "Contact No";
+            this.suppliercontactDataGridViewTextBoxColumn.Name = "suppliercontactDataGridViewTextBoxColumn";
+            this.suppliercontactDataGridViewTextBoxColumn.Width = 175;
             // 
-            // supplier_contact_person
+            // suppliercontactpersonDataGridViewTextBoxColumn
             // 
-            this.supplier_contact_person.DataPropertyName = "supplier_contact_person";
-            this.supplier_contact_person.HeaderText = "Contact Person";
-            this.supplier_contact_person.Name = "supplier_contact_person";
-            this.supplier_contact_person.Width = 300;
+            this.suppliercontactpersonDataGridViewTextBoxColumn.DataPropertyName = "supplier_contact_person";
+            this.suppliercontactpersonDataGridViewTextBoxColumn.HeaderText = "Contact Person";
+            this.suppliercontactpersonDataGridViewTextBoxColumn.Name = "suppliercontactpersonDataGridViewTextBoxColumn";
+            this.suppliercontactpersonDataGridViewTextBoxColumn.Width = 250;
             // 
-            // supplier_position
+            // suppliercpersonpositionDataGridViewTextBoxColumn
             // 
-            this.supplier_position.DataPropertyName = "supplier_cperson_position";
-            this.supplier_position.HeaderText = "Position";
-            this.supplier_position.Name = "supplier_position";
-            this.supplier_position.Width = 250;
+            this.suppliercpersonpositionDataGridViewTextBoxColumn.DataPropertyName = "supplier_cperson_position";
+            this.suppliercpersonpositionDataGridViewTextBoxColumn.HeaderText = "Position";
+            this.suppliercpersonpositionDataGridViewTextBoxColumn.Name = "suppliercpersonpositionDataGridViewTextBoxColumn";
+            this.suppliercpersonpositionDataGridViewTextBoxColumn.Width = 200;
             // 
             // mdiSupplier
             // 
@@ -543,12 +540,12 @@
             this.Text = "Supplier";
             this.Load += new System.EventHandler(this.mdiSupplier_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.inventorysupplierBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.npos_dbDataSet)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.npos_dbDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.inventorysupplierBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -581,21 +578,21 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button btnClear;
         private System.Windows.Forms.Button btnAdd;
-        private npos_dbDataSet npos_dbDataSet;
-        private System.Windows.Forms.BindingSource inventorysupplierBindingSource;
-        private npos_dbDataSetTableAdapters.inventory_supplierTableAdapter inventory_supplierTableAdapter;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Button btnUpdate;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Button btnDelete;
-        private System.Windows.Forms.DataGridViewTextBoxColumn supplier_code;
-        private System.Windows.Forms.DataGridViewTextBoxColumn supplier_name;
-        private System.Windows.Forms.DataGridViewTextBoxColumn supplier_address;
-        private System.Windows.Forms.DataGridViewTextBoxColumn supplier_city_mun;
-        private System.Windows.Forms.DataGridViewTextBoxColumn supplier_country;
-        private System.Windows.Forms.DataGridViewTextBoxColumn supplier_postalcode;
-        private System.Windows.Forms.DataGridViewTextBoxColumn supplier_contactno;
-        private System.Windows.Forms.DataGridViewTextBoxColumn supplier_contact_person;
-        private System.Windows.Forms.DataGridViewTextBoxColumn supplier_position;
+        private npos_dbDataSet npos_dbDataSet;
+        private System.Windows.Forms.BindingSource inventorysupplierBindingSource;
+        private npos_dbDataSetTableAdapters.inventory_supplierTableAdapter inventory_supplierTableAdapter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn suppliercodeDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn suppliernameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn supplieraddressDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn suppliercitymunicipalityDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn suppliercountryDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn supplierzipcodeDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn suppliercontactDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn suppliercontactpersonDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn suppliercpersonpositionDataGridViewTextBoxColumn;
     }
 }

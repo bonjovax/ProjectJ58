@@ -25,16 +25,16 @@ namespace nPOSProj
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            try
-            {
+            //try
+            //{
                 this.inventory_supplierTableAdapter.UpdateSupplier(dataGridView1.SelectedRows[0].Cells[1].Value.ToString(), dataGridView1.SelectedRows[0].Cells[2].Value.ToString(), dataGridView1.SelectedRows[0].Cells[3].Value.ToString(), dataGridView1.SelectedRows[0].Cells[4].Value.ToString(), Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[5].Value), dataGridView1.SelectedRows[0].Cells[6].Value.ToString(), dataGridView1.SelectedRows[0].Cells[7].Value.ToString(), dataGridView1.SelectedRows[0].Cells[8].Value.ToString(), dataGridView1.SelectedRows[0].Cells[0].Value.ToString());
                 btnUpdate.Enabled = false;
-            }
-            catch (Exception)
-            {
-                MessageBox.Show("Please Check your Database Server Connection", "Database Server Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                Application.ExitThread();
-            }
+            //}
+            //catch (Exception)
+            //{
+            //    MessageBox.Show("Please Check your Database Server Connection", "Database Server Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //    Application.ExitThread();
+            //}
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
@@ -175,6 +175,11 @@ namespace nPOSProj
                     MessageBox.Show("Supplier Code Existed! or Check Database Server!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
+        }
+
+        private void inventorysupplierBindingSource_CurrentChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
