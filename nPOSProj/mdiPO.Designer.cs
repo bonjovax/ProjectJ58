@@ -30,11 +30,11 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(mdiPO));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btnNew = new System.Windows.Forms.Button();
             this.btnDuplicate = new System.Windows.Forms.Button();
             this.btnFilter = new System.Windows.Forms.Button();
@@ -74,6 +74,7 @@
             this.btnNew.Text = "&New";
             this.btnNew.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnNew.UseVisualStyleBackColor = true;
+            this.btnNew.Click += new System.EventHandler(this.btnNew_Click);
             // 
             // btnDuplicate
             // 
@@ -158,11 +159,11 @@
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
-            dataGridViewCellStyle15.BackColor = System.Drawing.Color.Gainsboro;
-            dataGridViewCellStyle15.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.Color.White;
-            this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle15;
+            dataGridViewCellStyle10.BackColor = System.Drawing.Color.Gainsboro;
+            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.Color.White;
+            this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle10;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(815, 496);
             this.dataGridView1.TabIndex = 5;
@@ -170,10 +171,10 @@
             // ponoDataGridViewTextBoxColumn
             // 
             this.ponoDataGridViewTextBoxColumn.DataPropertyName = "po_no";
-            dataGridViewCellStyle11.BackColor = System.Drawing.Color.Gainsboro;
-            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.Color.Black;
-            this.ponoDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.Gainsboro;
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.Black;
+            this.ponoDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle6;
             this.ponoDataGridViewTextBoxColumn.HeaderText = "PO No";
             this.ponoDataGridViewTextBoxColumn.Name = "ponoDataGridViewTextBoxColumn";
             this.ponoDataGridViewTextBoxColumn.ReadOnly = true;
@@ -213,10 +214,10 @@
             // pototalamtDataGridViewTextBoxColumn
             // 
             this.pototalamtDataGridViewTextBoxColumn.DataPropertyName = "po_total_amt";
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle12.Format = "N2";
-            dataGridViewCellStyle12.NullValue = null;
-            this.pototalamtDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle7.Format = "N2";
+            dataGridViewCellStyle7.NullValue = null;
+            this.pototalamtDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle7;
             this.pototalamtDataGridViewTextBoxColumn.HeaderText = "Total Amount";
             this.pototalamtDataGridViewTextBoxColumn.Name = "pototalamtDataGridViewTextBoxColumn";
             this.pototalamtDataGridViewTextBoxColumn.ReadOnly = true;
@@ -225,8 +226,8 @@
             // poprintedDataGridViewTextBoxColumn
             // 
             this.poprintedDataGridViewTextBoxColumn.DataPropertyName = "po_printed";
-            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.poprintedDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle13;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.poprintedDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle8;
             this.poprintedDataGridViewTextBoxColumn.HeaderText = "Printed";
             this.poprintedDataGridViewTextBoxColumn.Name = "poprintedDataGridViewTextBoxColumn";
             this.poprintedDataGridViewTextBoxColumn.ReadOnly = true;
@@ -242,8 +243,8 @@
             // postatusDataGridViewTextBoxColumn
             // 
             this.postatusDataGridViewTextBoxColumn.DataPropertyName = "po_status";
-            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.postatusDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle14;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.postatusDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle9;
             this.postatusDataGridViewTextBoxColumn.HeaderText = "Status";
             this.postatusDataGridViewTextBoxColumn.Name = "postatusDataGridViewTextBoxColumn";
             this.postatusDataGridViewTextBoxColumn.ReadOnly = true;
@@ -271,7 +272,6 @@
             // 
             // npos_dbDataSet
             // 
-            this.npos_dbDataSet.DataSetName = "npos_dbDataSet";
             this.npos_dbDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // po_orderTableAdapter

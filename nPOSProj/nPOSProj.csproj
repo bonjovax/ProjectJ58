@@ -135,6 +135,12 @@
     <Compile Include="mdiFrmUserAccounts.Designer.cs">
       <DependentUpon>mdiFrmUserAccounts.cs</DependentUpon>
     </Compile>
+    <Compile Include="mPOrder.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="mPOrder.Designer.cs">
+      <DependentUpon>mPOrder.cs</DependentUpon>
+    </Compile>
     <Compile Include="npos_dbDataSet.cs">
       <DependentUpon>npos_dbDataSet.xsd</DependentUpon>
       <SubType>Component</SubType>
@@ -185,6 +191,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="mdiFrmUserAccounts.resx">
       <DependentUpon>mdiFrmUserAccounts.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="mPOrder.resx">
+      <DependentUpon>mPOrder.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

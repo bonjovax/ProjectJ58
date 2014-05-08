@@ -11,6 +11,7 @@ namespace nPOSProj
 {
     public partial class mdiPO : Form
     {
+        
         public mdiPO()
         {
             InitializeComponent();
@@ -21,6 +22,12 @@ namespace nPOSProj
             // TODO: This line of code loads data into the 'npos_dbDataSet.po_order' table. You can move, or remove it, as needed.
             this.po_orderTableAdapter.Fill(this.npos_dbDataSet.po_order);
 
+        }
+
+        private void btnNew_Click(object sender, EventArgs e)
+        {
+            mPOrder newPO = new mPOrder();
+            newPO.ShowDialog();
         }
     }
 }
