@@ -28,12 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle30 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle26 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle27 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle28 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle29 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(mPOrder));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.rdPOno = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -51,6 +51,12 @@
             this.cBoxCarrier = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgQTY = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.stock_code = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Unit = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnOk = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -65,12 +71,6 @@
             this.label10 = new System.Windows.Forms.Label();
             this.txtBoxStockCode = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.dgQTY = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.stock_code = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Unit = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnProceed = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -94,7 +94,7 @@
             this.rdPOno.Name = "rdPOno";
             this.rdPOno.ReadOnly = true;
             this.rdPOno.Size = new System.Drawing.Size(86, 23);
-            this.rdPOno.TabIndex = 1;
+            this.rdPOno.TabIndex = 20;
             // 
             // label2
             // 
@@ -111,15 +111,17 @@
             this.txtBoxSupplierCode.MaxLength = 9;
             this.txtBoxSupplierCode.Name = "txtBoxSupplierCode";
             this.txtBoxSupplierCode.Size = new System.Drawing.Size(100, 23);
-            this.txtBoxSupplierCode.TabIndex = 3;
+            this.txtBoxSupplierCode.TabIndex = 0;
+            this.txtBoxSupplierCode.TextChanged += new System.EventHandler(this.txtBoxSupplierCode_TextChanged);
             // 
             // txtBoxSupplierName
             // 
             this.txtBoxSupplierName.Location = new System.Drawing.Point(174, 37);
             this.txtBoxSupplierName.MaxLength = 100;
             this.txtBoxSupplierName.Name = "txtBoxSupplierName";
-            this.txtBoxSupplierName.Size = new System.Drawing.Size(184, 23);
-            this.txtBoxSupplierName.TabIndex = 4;
+            this.txtBoxSupplierName.Size = new System.Drawing.Size(278, 23);
+            this.txtBoxSupplierName.TabIndex = 1;
+            this.txtBoxSupplierName.TextChanged += new System.EventHandler(this.txtBoxSupplierName_TextChanged);
             // 
             // label3
             // 
@@ -146,7 +148,7 @@
             this.dt.Location = new System.Drawing.Point(70, 90);
             this.dt.Name = "dt";
             this.dt.Size = new System.Drawing.Size(100, 23);
-            this.dt.TabIndex = 7;
+            this.dt.TabIndex = 3;
             // 
             // label5
             // 
@@ -165,7 +167,7 @@
             this.txtBoxRemarks.ReadOnly = true;
             this.txtBoxRemarks.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.txtBoxRemarks.Size = new System.Drawing.Size(337, 64);
-            this.txtBoxRemarks.TabIndex = 9;
+            this.txtBoxRemarks.TabIndex = 7;
             // 
             // label6
             // 
@@ -185,7 +187,7 @@
             this.rdOrderedBy.Name = "rdOrderedBy";
             this.rdOrderedBy.ReadOnly = true;
             this.rdOrderedBy.Size = new System.Drawing.Size(133, 23);
-            this.rdOrderedBy.TabIndex = 11;
+            this.rdOrderedBy.TabIndex = 4;
             // 
             // label7
             // 
@@ -204,7 +206,7 @@
             this.cBoxWarehouse.Location = new System.Drawing.Point(483, 115);
             this.cBoxWarehouse.Name = "cBoxWarehouse";
             this.cBoxWarehouse.Size = new System.Drawing.Size(133, 24);
-            this.cBoxWarehouse.TabIndex = 13;
+            this.cBoxWarehouse.TabIndex = 5;
             // 
             // cBoxCarrier
             // 
@@ -214,7 +216,7 @@
             this.cBoxCarrier.Location = new System.Drawing.Point(483, 141);
             this.cBoxCarrier.Name = "cBoxCarrier";
             this.cBoxCarrier.Size = new System.Drawing.Size(133, 24);
-            this.cBoxCarrier.TabIndex = 15;
+            this.cBoxCarrier.TabIndex = 6;
             // 
             // label8
             // 
@@ -237,14 +239,14 @@
             this.Column3,
             this.Column4,
             this.Column5});
-            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle15.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle15.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle15.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle15;
+            dataGridViewCellStyle30.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle30.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle30.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle30.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle30.SelectionBackColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle30.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle30.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle30;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.dataGridView1.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter;
             this.dataGridView1.Location = new System.Drawing.Point(0, 295);
@@ -255,6 +257,57 @@
             this.dataGridView1.Size = new System.Drawing.Size(634, 215);
             this.dataGridView1.TabIndex = 16;
             // 
+            // dgQTY
+            // 
+            dataGridViewCellStyle26.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dgQTY.DefaultCellStyle = dataGridViewCellStyle26;
+            this.dgQTY.HeaderText = "Qty";
+            this.dgQTY.Name = "dgQTY";
+            this.dgQTY.ReadOnly = true;
+            this.dgQTY.Width = 40;
+            // 
+            // stock_code
+            // 
+            this.stock_code.HeaderText = "Stock Code";
+            this.stock_code.Name = "stock_code";
+            this.stock_code.ReadOnly = true;
+            this.stock_code.Width = 95;
+            // 
+            // Unit
+            // 
+            dataGridViewCellStyle27.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.Unit.DefaultCellStyle = dataGridViewCellStyle27;
+            this.Unit.HeaderText = "UOM";
+            this.Unit.Name = "Unit";
+            this.Unit.ReadOnly = true;
+            // 
+            // Column3
+            // 
+            this.Column3.HeaderText = "Particulars";
+            this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
+            this.Column3.Width = 300;
+            // 
+            // Column4
+            // 
+            dataGridViewCellStyle28.Format = "N2";
+            dataGridViewCellStyle28.NullValue = null;
+            this.Column4.DefaultCellStyle = dataGridViewCellStyle28;
+            this.Column4.HeaderText = "Unit Price";
+            this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
+            this.Column4.Width = 90;
+            // 
+            // Column5
+            // 
+            dataGridViewCellStyle29.Format = "N2";
+            dataGridViewCellStyle29.NullValue = null;
+            this.Column5.DefaultCellStyle = dataGridViewCellStyle29;
+            this.Column5.HeaderText = "Amount";
+            this.Column5.Name = "Column5";
+            this.Column5.ReadOnly = true;
+            this.Column5.Width = 90;
+            // 
             // btnOk
             // 
             this.btnOk.Enabled = false;
@@ -263,7 +316,7 @@
             this.btnOk.Location = new System.Drawing.Point(524, 169);
             this.btnOk.Name = "btnOk";
             this.btnOk.Size = new System.Drawing.Size(38, 48);
-            this.btnOk.TabIndex = 17;
+            this.btnOk.TabIndex = 8;
             this.btnOk.Text = "&OK";
             this.btnOk.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnOk.UseVisualStyleBackColor = true;
@@ -276,7 +329,7 @@
             this.btnCancel.Location = new System.Drawing.Point(562, 169);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(54, 48);
-            this.btnCancel.TabIndex = 18;
+            this.btnCancel.TabIndex = 9;
             this.btnCancel.Text = "&Cancel";
             this.btnCancel.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnCancel.UseVisualStyleBackColor = true;
@@ -312,7 +365,7 @@
             this.btnDelete.Location = new System.Drawing.Point(548, 17);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(57, 50);
-            this.btnDelete.TabIndex = 10;
+            this.btnDelete.TabIndex = 15;
             this.btnDelete.Text = "Delete";
             this.btnDelete.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnDelete.UseVisualStyleBackColor = true;
@@ -324,7 +377,7 @@
             this.txtBoxUnitPrice.Name = "txtBoxUnitPrice";
             this.txtBoxUnitPrice.ReadOnly = true;
             this.txtBoxUnitPrice.Size = new System.Drawing.Size(99, 23);
-            this.txtBoxUnitPrice.TabIndex = 9;
+            this.txtBoxUnitPrice.TabIndex = 14;
             this.txtBoxUnitPrice.Text = "0.00";
             this.txtBoxUnitPrice.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -345,7 +398,7 @@
             this.txtBoxUOM.Name = "txtBoxUOM";
             this.txtBoxUOM.ReadOnly = true;
             this.txtBoxUOM.Size = new System.Drawing.Size(133, 23);
-            this.txtBoxUOM.TabIndex = 7;
+            this.txtBoxUOM.TabIndex = 12;
             // 
             // label12
             // 
@@ -364,7 +417,7 @@
             this.txtBoxQty.Name = "txtBoxQty";
             this.txtBoxQty.ReadOnly = true;
             this.txtBoxQty.Size = new System.Drawing.Size(43, 23);
-            this.txtBoxQty.TabIndex = 5;
+            this.txtBoxQty.TabIndex = 11;
             // 
             // label11
             // 
@@ -383,7 +436,7 @@
             this.txtBoxParticulars.Name = "txtBoxParticulars";
             this.txtBoxParticulars.ReadOnly = true;
             this.txtBoxParticulars.Size = new System.Drawing.Size(263, 23);
-            this.txtBoxParticulars.TabIndex = 3;
+            this.txtBoxParticulars.TabIndex = 13;
             // 
             // label10
             // 
@@ -402,7 +455,7 @@
             this.txtBoxStockCode.Name = "txtBoxStockCode";
             this.txtBoxStockCode.ReadOnly = true;
             this.txtBoxStockCode.Size = new System.Drawing.Size(117, 23);
-            this.txtBoxStockCode.TabIndex = 1;
+            this.txtBoxStockCode.TabIndex = 10;
             // 
             // label9
             // 
@@ -414,64 +467,14 @@
             this.label9.TabIndex = 0;
             this.label9.Text = "Stock Code";
             // 
-            // dgQTY
-            // 
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dgQTY.DefaultCellStyle = dataGridViewCellStyle11;
-            this.dgQTY.HeaderText = "Qty";
-            this.dgQTY.Name = "dgQTY";
-            this.dgQTY.ReadOnly = true;
-            this.dgQTY.Width = 40;
-            // 
-            // stock_code
-            // 
-            this.stock_code.HeaderText = "Stock Code";
-            this.stock_code.Name = "stock_code";
-            this.stock_code.ReadOnly = true;
-            this.stock_code.Width = 95;
-            // 
-            // Unit
-            // 
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.Unit.DefaultCellStyle = dataGridViewCellStyle12;
-            this.Unit.HeaderText = "UOM";
-            this.Unit.Name = "Unit";
-            this.Unit.ReadOnly = true;
-            // 
-            // Column3
-            // 
-            this.Column3.HeaderText = "Particulars";
-            this.Column3.Name = "Column3";
-            this.Column3.ReadOnly = true;
-            this.Column3.Width = 300;
-            // 
-            // Column4
-            // 
-            dataGridViewCellStyle13.Format = "N2";
-            dataGridViewCellStyle13.NullValue = null;
-            this.Column4.DefaultCellStyle = dataGridViewCellStyle13;
-            this.Column4.HeaderText = "Unit Price";
-            this.Column4.Name = "Column4";
-            this.Column4.ReadOnly = true;
-            this.Column4.Width = 90;
-            // 
-            // Column5
-            // 
-            dataGridViewCellStyle14.Format = "N2";
-            dataGridViewCellStyle14.NullValue = null;
-            this.Column5.DefaultCellStyle = dataGridViewCellStyle14;
-            this.Column5.HeaderText = "Amount";
-            this.Column5.Name = "Column5";
-            this.Column5.ReadOnly = true;
-            this.Column5.Width = 90;
-            // 
             // btnProceed
             // 
+            this.btnProceed.Enabled = false;
             this.btnProceed.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnProceed.Location = new System.Drawing.Point(364, 37);
+            this.btnProceed.Location = new System.Drawing.Point(456, 37);
             this.btnProceed.Name = "btnProceed";
             this.btnProceed.Size = new System.Drawing.Size(75, 23);
-            this.btnProceed.TabIndex = 20;
+            this.btnProceed.TabIndex = 2;
             this.btnProceed.Text = "&Proceed";
             this.btnProceed.UseVisualStyleBackColor = true;
             // 
