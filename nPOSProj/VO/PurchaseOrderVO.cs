@@ -8,12 +8,31 @@ namespace nPOSProj.VO
     class PurchaseOrderVO
     {
         private DAO.PurchaseOrderDAO podao;
+        private Int32 _po_no;
+        private String _po_date;
+        private String _po_time;
         private String _supplier_code;
         private String _supplier_name;
+        private String _user_name;
         public PurchaseOrderVO()
         {
         }
 
+        public Int32 po_no
+        {
+            get { return _po_no; }
+            set { _po_no = value; }
+        }
+        public String po_date
+        {
+            get { return _po_date; }
+            set { _po_date = value; }
+        }
+        public String po_time
+        {
+            get { return _po_time; }
+            set { _po_time = value; }
+        }
         public String supplier_code
         {
             get { return _supplier_code; }
@@ -23,6 +42,11 @@ namespace nPOSProj.VO
         {
             get { return _supplier_name; }
             set { _supplier_name = value; }
+        }
+        public String user_name
+        {
+            get { return _user_name; }
+            set { _user_name = value; }
         }
 
         public Int32 askPOno()
@@ -49,6 +73,11 @@ namespace nPOSProj.VO
             podao.katsSupplierCode(supplier_name);
             supplier_code = podao.katsSupplierCode(supplier_name);
             return supplier_code;
+        }
+        public void PO_Issue()
+        {
+            podao = new DAO.PurchaseOrderDAO();
+            podao.IssuePO(po_no, po_date, po_time, supplier_code, user_name);
         }
     }
 }

@@ -6691,16 +6691,30 @@ WHERE        (stock_id = @stock_id) AND (stock_code = @stock_code)";
             this._commandCollection[0].CommandText = @"SELECT        po_order.po_no, po_order.po_date, po_order.po_time, inventory_supplier.supplier_code, inventory_supplier.supplier_name, po_order.po_total_amt, po_order.po_printed, po_order.po_carrier, po_order.po_status, 
                          po_order.po_date_r, po_order.po_time_r
 FROM            po_order INNER JOIN
-                         inventory_supplier ON po_order.supplier_code = inventory_supplier.supplier_code";
+                         inventory_supplier ON po_order.supplier_code = inventory_supplier.supplier_code
+WHERE        (po_order.po_date = @po_date)";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+            global::MySql.Data.MySqlClient.MySqlParameter param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@po_date";
+            param.DbType = global::System.Data.DbType.DateTime;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Date;
+            param.IsNullable = true;
+            param.SourceColumn = "po_date";
+            this._commandCollection[0].Parameters.Add(param);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(npos_dbDataSet.po_orderDataTable dataTable) {
+        public virtual int Fill(npos_dbDataSet.po_orderDataTable dataTable, global::System.Nullable<global::System.DateTime> po_date) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
+            if ((po_date.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((System.DateTime)(po_date.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
+            }
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
             }
@@ -6712,8 +6726,14 @@ FROM            po_order INNER JOIN
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual npos_dbDataSet.po_orderDataTable GetData() {
+        public virtual npos_dbDataSet.po_orderDataTable GetData(global::System.Nullable<global::System.DateTime> po_date) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
+            if ((po_date.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((System.DateTime)(po_date.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
+            }
             npos_dbDataSet.po_orderDataTable dataTable = new npos_dbDataSet.po_orderDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;

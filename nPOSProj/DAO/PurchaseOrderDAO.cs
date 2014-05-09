@@ -116,5 +116,29 @@ namespace nPOSProj.DAO
         {
             return supplier_code;
         }
+        public void IssuePO(Int32 po_no, String po_date, String po_time, String supplier_code, String user_name)
+        {
+            con = new MySqlConnection();
+            dbcon = new Conf.dbs();
+            con.ConnectionString = dbcon.getConnectionString();
+            String query = "INSERT INTO po_order (po_no, po_date, po_time, supplier_code, user_name) VALUES";
+            query += "(?po_no, ?po_date, ?po_time, ?supplier_code, ?user_name)";
+            try
+            {
+                con.Open();
+                MySqlCommand cmd = new MySqlCommand(query, con);
+                cmd.Parameters.AddWithValue("?po_no", po_no);
+                cmd.Parameters.AddWithValue("?po_date", po_date);
+                cmd.Parameters.AddWithValue("?po_time", po_time);
+                cmd.Parameters.AddWithValue("?user_name", user_name);
+                cmd.Parameters.AddWithValue("?supplier_code", supplier_code);
+                cmd.ExecuteNonQuery();
+                cmd.Dispose();
+            }
+            finally
+            {
+                con.Close();
+            }
+        }
     }
 }

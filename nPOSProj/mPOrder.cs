@@ -78,6 +78,8 @@ namespace nPOSProj
 
         private void mPOrder_Load(object sender, EventArgs e)
         {
+            String userName = frmLogin.User.user_name;
+            rdOrderedBy.Text = userName;
             rdPOno.Text = po.askPOno().ToString();
             txtBoxSupplierCode.Focus();
             autoCompleteSupplierCode();
@@ -152,6 +154,21 @@ namespace nPOSProj
                 po.supplier_name = txtBoxSupplierName.Text;
                 txtBoxSupplierCode.Text = po.askSupplierCode();
                 checkifTheSame();
+            }
+        }
+
+        private void btnProceed_Click(object sender, EventArgs e)
+        {
+            DialogResult dlgResult = MessageBox.Show("Do You Wish To Proceed?", "Question", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (dlgResult == DialogResult.Yes)
+            {
+                po.po_no = Convert.ToInt32(rdPOno.Text);
+                po.po_date = Convert.ToDateTime(dt.Text).ToString("yyyy-MM-dd");
+                po.po_time = DateTime.Now.ToLongTimeString();
+                po.supplier_code = txtBoxSupplierCode.Text;
+                po.user_name = rdOrderedBy.Text;
+                po.PO_Issue();
+                btnProceed.Visible = false;
             }
         }
     }
