@@ -86,26 +86,25 @@ namespace nPOSProj
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void txtBoxSupplierCode_KeyDown(object sender, KeyEventArgs e)
-        {
-
+            
         }
 
         private void txtBoxSupplierCode_TextChanged(object sender, EventArgs e)
         {
-            po.supplier_code = txtBoxSupplierCode.Text;
-            txtBoxSupplierName.Text = po.askSupplierName();
-            checkifTheSame();
+            if (txtBoxSupplierCode.Text == "")
+            {
+                txtBoxSupplierName.Clear();
+                btnProceed.Enabled = false;
+            }
         }
 
         private void txtBoxSupplierName_TextChanged(object sender, EventArgs e)
         {
-            po.supplier_name = txtBoxSupplierName.Text;
-            txtBoxSupplierCode.Text = po.askSupplierCode();
-            checkifTheSame();
+            if (txtBoxSupplierName.Text == "")
+            {
+                txtBoxSupplierCode.Clear();
+                btnProceed.Enabled = false;
+            }
         }
 
         public void checkifTheSame()
@@ -133,6 +132,26 @@ namespace nPOSProj
             catch (Exception)
             {
                 btnProceed.Enabled = false;
+            }
+        }
+
+        private void txtBoxSupplierCode_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                po.supplier_code = txtBoxSupplierCode.Text;
+                txtBoxSupplierName.Text = po.askSupplierName();
+                checkifTheSame();
+            }
+        }
+
+        private void txtBoxSupplierName_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                po.supplier_name = txtBoxSupplierName.Text;
+                txtBoxSupplierCode.Text = po.askSupplierCode();
+                checkifTheSame();
             }
         }
     }

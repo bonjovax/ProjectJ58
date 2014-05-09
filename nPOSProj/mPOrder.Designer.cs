@@ -28,11 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle30 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle26 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle27 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle28 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle29 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle50 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle46 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle47 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle48 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle49 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(mPOrder));
             this.label1 = new System.Windows.Forms.Label();
             this.rdPOno = new System.Windows.Forms.TextBox();
@@ -113,6 +113,7 @@
             this.txtBoxSupplierCode.Size = new System.Drawing.Size(100, 23);
             this.txtBoxSupplierCode.TabIndex = 0;
             this.txtBoxSupplierCode.TextChanged += new System.EventHandler(this.txtBoxSupplierCode_TextChanged);
+            this.txtBoxSupplierCode.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtBoxSupplierCode_KeyDown);
             // 
             // txtBoxSupplierName
             // 
@@ -122,6 +123,7 @@
             this.txtBoxSupplierName.Size = new System.Drawing.Size(278, 23);
             this.txtBoxSupplierName.TabIndex = 1;
             this.txtBoxSupplierName.TextChanged += new System.EventHandler(this.txtBoxSupplierName_TextChanged);
+            this.txtBoxSupplierName.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtBoxSupplierName_KeyDown);
             // 
             // label3
             // 
@@ -239,14 +241,14 @@
             this.Column3,
             this.Column4,
             this.Column5});
-            dataGridViewCellStyle30.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle30.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle30.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle30.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle30.SelectionBackColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle30.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle30.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle30;
+            dataGridViewCellStyle50.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle50.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle50.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle50.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle50.SelectionBackColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle50.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle50.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle50;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.dataGridView1.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter;
             this.dataGridView1.Location = new System.Drawing.Point(0, 295);
@@ -259,8 +261,8 @@
             // 
             // dgQTY
             // 
-            dataGridViewCellStyle26.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dgQTY.DefaultCellStyle = dataGridViewCellStyle26;
+            dataGridViewCellStyle46.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dgQTY.DefaultCellStyle = dataGridViewCellStyle46;
             this.dgQTY.HeaderText = "Qty";
             this.dgQTY.Name = "dgQTY";
             this.dgQTY.ReadOnly = true;
@@ -275,8 +277,8 @@
             // 
             // Unit
             // 
-            dataGridViewCellStyle27.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.Unit.DefaultCellStyle = dataGridViewCellStyle27;
+            dataGridViewCellStyle47.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.Unit.DefaultCellStyle = dataGridViewCellStyle47;
             this.Unit.HeaderText = "UOM";
             this.Unit.Name = "Unit";
             this.Unit.ReadOnly = true;
@@ -290,9 +292,9 @@
             // 
             // Column4
             // 
-            dataGridViewCellStyle28.Format = "N2";
-            dataGridViewCellStyle28.NullValue = null;
-            this.Column4.DefaultCellStyle = dataGridViewCellStyle28;
+            dataGridViewCellStyle48.Format = "N2";
+            dataGridViewCellStyle48.NullValue = null;
+            this.Column4.DefaultCellStyle = dataGridViewCellStyle48;
             this.Column4.HeaderText = "Unit Price";
             this.Column4.Name = "Column4";
             this.Column4.ReadOnly = true;
@@ -300,9 +302,9 @@
             // 
             // Column5
             // 
-            dataGridViewCellStyle29.Format = "N2";
-            dataGridViewCellStyle29.NullValue = null;
-            this.Column5.DefaultCellStyle = dataGridViewCellStyle29;
+            dataGridViewCellStyle49.Format = "N2";
+            dataGridViewCellStyle49.NullValue = null;
+            this.Column5.DefaultCellStyle = dataGridViewCellStyle49;
             this.Column5.HeaderText = "Amount";
             this.Column5.Name = "Column5";
             this.Column5.ReadOnly = true;
