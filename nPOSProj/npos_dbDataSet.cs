@@ -2,6 +2,9 @@
     
     
     public partial class npos_dbDataSet {
+        partial class po_orderDataTable
+        {
+        }
     }
 }
 

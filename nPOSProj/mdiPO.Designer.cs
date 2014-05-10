@@ -41,6 +41,11 @@
             this.btnSearch = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.btnReprintPO = new System.Windows.Forms.Button();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.poorderBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.npos_dbDataSet = new nPOSProj.npos_dbDataSet();
+            this.po_orderTableAdapter = new nPOSProj.npos_dbDataSetTableAdapters.po_orderTableAdapter();
             this.ponoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.podateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.potimeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -52,11 +57,7 @@
             this.postatusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.podaterDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.potimerDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.poorderBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.npos_dbDataSet = new nPOSProj.npos_dbDataSet();
-            this.btnReprintPO = new System.Windows.Forms.Button();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.po_orderTableAdapter = new nPOSProj.npos_dbDataSetTableAdapters.po_orderTableAdapter();
+            this.user_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.poorderBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.npos_dbDataSet)).BeginInit();
@@ -153,7 +154,8 @@
             this.pocarrierDataGridViewTextBoxColumn,
             this.postatusDataGridViewTextBoxColumn,
             this.podaterDataGridViewTextBoxColumn,
-            this.potimerDataGridViewTextBoxColumn});
+            this.potimerDataGridViewTextBoxColumn,
+            this.user_name});
             this.dataGridView1.DataSource = this.poorderBindingSource;
             this.dataGridView1.GridColor = System.Drawing.Color.Black;
             this.dataGridView1.Location = new System.Drawing.Point(2, 35);
@@ -168,6 +170,44 @@
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(815, 496);
             this.dataGridView1.TabIndex = 5;
+            // 
+            // btnReprintPO
+            // 
+            this.btnReprintPO.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReprintPO.Image = ((System.Drawing.Image)(resources.GetObject("btnReprintPO.Image")));
+            this.btnReprintPO.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnReprintPO.Location = new System.Drawing.Point(381, 1);
+            this.btnReprintPO.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnReprintPO.Name = "btnReprintPO";
+            this.btnReprintPO.Size = new System.Drawing.Size(103, 32);
+            this.btnReprintPO.TabIndex = 6;
+            this.btnReprintPO.Text = "&Reprint P.O";
+            this.btnReprintPO.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnReprintPO.UseVisualStyleBackColor = true;
+            // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.CustomFormat = "MM/dd/yyyy";
+            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateTimePicker1.Location = new System.Drawing.Point(715, 10);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(102, 23);
+            this.dateTimePicker1.TabIndex = 7;
+            this.dateTimePicker1.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
+            // 
+            // poorderBindingSource
+            // 
+            this.poorderBindingSource.DataMember = "po_order";
+            this.poorderBindingSource.DataSource = this.npos_dbDataSet;
+            // 
+            // npos_dbDataSet
+            // 
+            this.npos_dbDataSet.DataSetName = "npos_dbDataSet";
+            this.npos_dbDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // po_orderTableAdapter
+            // 
+            this.po_orderTableAdapter.ClearBeforeFill = true;
             // 
             // ponoDataGridViewTextBoxColumn
             // 
@@ -266,43 +306,12 @@
             this.potimerDataGridViewTextBoxColumn.Name = "potimerDataGridViewTextBoxColumn";
             this.potimerDataGridViewTextBoxColumn.Width = 200;
             // 
-            // poorderBindingSource
+            // user_name
             // 
-            this.poorderBindingSource.DataMember = "po_order";
-            this.poorderBindingSource.DataSource = this.npos_dbDataSet;
-            // 
-            // npos_dbDataSet
-            // 
-            this.npos_dbDataSet.DataSetName = "npos_dbDataSet";
-            this.npos_dbDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // btnReprintPO
-            // 
-            this.btnReprintPO.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnReprintPO.Image = ((System.Drawing.Image)(resources.GetObject("btnReprintPO.Image")));
-            this.btnReprintPO.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnReprintPO.Location = new System.Drawing.Point(381, 1);
-            this.btnReprintPO.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.btnReprintPO.Name = "btnReprintPO";
-            this.btnReprintPO.Size = new System.Drawing.Size(103, 32);
-            this.btnReprintPO.TabIndex = 6;
-            this.btnReprintPO.Text = "&Reprint P.O";
-            this.btnReprintPO.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnReprintPO.UseVisualStyleBackColor = true;
-            // 
-            // dateTimePicker1
-            // 
-            this.dateTimePicker1.CustomFormat = "MM/dd/yyyy";
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePicker1.Location = new System.Drawing.Point(715, 10);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(102, 23);
-            this.dateTimePicker1.TabIndex = 7;
-            this.dateTimePicker1.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
-            // 
-            // po_orderTableAdapter
-            // 
-            this.po_orderTableAdapter.ClearBeforeFill = true;
+            this.user_name.DataPropertyName = "user_name";
+            this.user_name.HeaderText = "Encoder";
+            this.user_name.Name = "user_name";
+            this.user_name.ReadOnly = true;
             // 
             // mdiPO
             // 
@@ -343,6 +352,8 @@
         private npos_dbDataSet npos_dbDataSet;
         private System.Windows.Forms.BindingSource poorderBindingSource;
         private npos_dbDataSetTableAdapters.po_orderTableAdapter po_orderTableAdapter;
+        private System.Windows.Forms.Button btnReprintPO;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.DataGridViewTextBoxColumn ponoDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn podateDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn potimeDataGridViewTextBoxColumn;
@@ -354,7 +365,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn postatusDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn podaterDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn potimerDataGridViewTextBoxColumn;
-        private System.Windows.Forms.Button btnReprintPO;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn user_name;
     }
 }
