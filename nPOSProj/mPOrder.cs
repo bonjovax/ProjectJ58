@@ -102,6 +102,7 @@ namespace nPOSProj
                 txtBoxSupplierName.Clear();
                 btnProceed.Enabled = false;
             }
+            checkifTheSame();
         }
 
         private void txtBoxSupplierName_TextChanged(object sender, EventArgs e)
@@ -111,6 +112,7 @@ namespace nPOSProj
                 txtBoxSupplierCode.Clear();
                 btnProceed.Enabled = false;
             }
+            checkifTheSame();
         }
 
         public void checkifTheSame()
