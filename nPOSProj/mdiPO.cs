@@ -40,10 +40,5 @@ namespace nPOSProj
         {
             this.po_orderTableAdapter.Fill(this.npos_dbDataSet.po_order, Convert.ToDateTime(dateTimePicker1.Text));
         }
-
-        public void testinglang(String s)
-        {
-            this.Text = s.ToString();
-        }
     }
 }
