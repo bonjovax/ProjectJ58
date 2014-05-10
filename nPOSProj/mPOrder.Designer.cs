@@ -60,6 +60,7 @@
             this.btnOk = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.rdTotal = new System.Windows.Forms.TextBox();
             this.btnDelete = new System.Windows.Forms.Button();
             this.txtBoxUnitPrice = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
@@ -72,7 +73,6 @@
             this.txtBoxStockCode = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.btnProceed = new System.Windows.Forms.Button();
-            this.rdTotal = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -361,6 +361,19 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Input Controller";
             // 
+            // rdTotal
+            // 
+            this.rdTotal.BackColor = System.Drawing.Color.Black;
+            this.rdTotal.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rdTotal.ForeColor = System.Drawing.Color.Lime;
+            this.rdTotal.Location = new System.Drawing.Point(442, 16);
+            this.rdTotal.Name = "rdTotal";
+            this.rdTotal.ReadOnly = true;
+            this.rdTotal.Size = new System.Drawing.Size(99, 23);
+            this.rdTotal.TabIndex = 16;
+            this.rdTotal.Text = "0.00";
+            this.rdTotal.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
             // btnDelete
             // 
             this.btnDelete.Enabled = false;
@@ -420,6 +433,7 @@
             // 
             this.txtBoxQty.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtBoxQty.Location = new System.Drawing.Point(232, 16);
+            this.txtBoxQty.MaxLength = 8;
             this.txtBoxQty.Name = "txtBoxQty";
             this.txtBoxQty.ReadOnly = true;
             this.txtBoxQty.Size = new System.Drawing.Size(43, 23);
@@ -491,19 +505,6 @@
             this.btnProceed.Text = "&Proceed";
             this.btnProceed.UseVisualStyleBackColor = true;
             this.btnProceed.Click += new System.EventHandler(this.btnProceed_Click);
-            // 
-            // rdTotal
-            // 
-            this.rdTotal.BackColor = System.Drawing.Color.Black;
-            this.rdTotal.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rdTotal.ForeColor = System.Drawing.Color.Lime;
-            this.rdTotal.Location = new System.Drawing.Point(442, 16);
-            this.rdTotal.Name = "rdTotal";
-            this.rdTotal.ReadOnly = true;
-            this.rdTotal.Size = new System.Drawing.Size(99, 23);
-            this.rdTotal.TabIndex = 16;
-            this.rdTotal.Text = "0.00";
-            this.rdTotal.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // mPOrder
             // 
