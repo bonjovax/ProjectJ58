@@ -90,6 +90,25 @@ namespace nPOSProj
             autoCompleteSupplierName();
         }
 
+        private void unlockBox()
+        {
+            txtBoxRemarks.ReadOnly = false;
+            cBoxWarehouse.Enabled = true;
+            cBoxCarrier.Enabled = true;
+            //
+            txtBoxStockCode.ReadOnly = false;
+            txtBoxParticulars.ReadOnly = false;
+        }
+        private void lockBox()
+        {
+            txtBoxRemarks.ReadOnly = true;
+            cBoxWarehouse.Enabled = false;
+            cBoxCarrier.Enabled = false;
+            //
+            txtBoxStockCode.ReadOnly = true;
+            txtBoxParticulars.ReadOnly = true;
+        }
+
         private void btnCancel_Click(object sender, EventArgs e)
         {
             
@@ -101,6 +120,7 @@ namespace nPOSProj
             {
                 txtBoxSupplierName.Clear();
                 btnProceed.Enabled = false;
+                lAddress.Text = "";
             }
             checkifTheSame();
         }
@@ -142,6 +162,32 @@ namespace nPOSProj
                 btnProceed.Enabled = false;
             }
         }
+        public void toAddress()
+        {
+            con = new MySqlConnection();
+            dbcon = new Conf.dbs();
+            con.ConnectionString = dbcon.getConnectionString();
+            String query = "SELECT supplier_address FROM inventory_supplier ";
+            query += "WHERE supplier_code = ?supplier_code";
+            try
+            {
+                con.Open();
+                MySqlCommand cmd = new MySqlCommand(query, con);
+                cmd.Parameters.AddWithValue("?supplier_code", txtBoxSupplierCode.Text);
+                cmd.ExecuteScalar();
+                MySqlDataReader rdr = cmd.ExecuteReader();
+                if (rdr.Read())
+                {
+                    lAddress.Text = rdr["supplier_address"].ToString();
+                }
+                else
+                    lAddress.Text = "";
+            }
+            catch (Exception)
+            {
+                btnProceed.Enabled = false;
+            }
+        }
 
         private void txtBoxSupplierCode_KeyDown(object sender, KeyEventArgs e)
         {
@@ -150,6 +196,7 @@ namespace nPOSProj
                 po.supplier_code = txtBoxSupplierCode.Text;
                 txtBoxSupplierName.Text = po.askSupplierName();
                 checkifTheSame();
+                toAddress();
             }
         }
 
@@ -175,6 +222,12 @@ namespace nPOSProj
                 po.user_name = rdOrderedBy.Text;
                 po.PO_Issue();
                 btnProceed.Visible = false;
+                unlockBox();
+                btnCancel.Enabled = true;
+                btnOk.Enabled = true;
+                txtBoxStockCode.Focus();
+                txtBoxSupplierCode.ReadOnly = true;
+                txtBoxSupplierName.ReadOnly = true;
             }
         }
 
