@@ -102,6 +102,38 @@ namespace nPOSProj.VO
             stock_name = podao.katsStockName(stock_code, supplier_code);
             return stock_name;
         }
+        public Double askStockPriceStockCode()
+        {
+            Double price;
+            podao = new DAO.PurchaseOrderDAO();
+            podao.katsStockPrice(stock_code, supplier_code);
+            price = podao.katsStockPrice(stock_code, supplier_code);
+            return price;
+        }
+        public Double askStockPriceStockName()
+        {
+            Double price;
+            podao = new DAO.PurchaseOrderDAO();
+            podao.katsStockPrice(stock_code, supplier_code);
+            price = podao.katsStockPriceN(stock_name, supplier_code);
+            return price;
+        }
+        public String askUOM()
+        {
+            String UOM;
+            podao = new DAO.PurchaseOrderDAO();
+            podao.katsUOM(stock_code, supplier_code);
+            UOM = podao.katsUOM(stock_code, supplier_code);
+            return UOM;
+        }
+        public String askUOM_N()
+        {
+            String UOM;
+            podao = new DAO.PurchaseOrderDAO();
+            podao.katsUOM(stock_code, supplier_code);
+            UOM = podao.katsUOM_N(stock_name, supplier_code);
+            return UOM;
+        }
         public void PO_Issue()
         {
             podao = new DAO.PurchaseOrderDAO();

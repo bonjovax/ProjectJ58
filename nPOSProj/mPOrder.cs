@@ -217,15 +217,21 @@ namespace nPOSProj
                     btnProceed.Enabled = true;
                 }
                 else
+                {
                     btnProceed.Enabled = false;
+                    txtBoxQty.Clear();
+                }
             }
             catch (Exception)
             {
                 btnProceed.Enabled = false;
+                txtBoxQty.Clear();
             }
         }
         public void checkifTheSameStockToQty()
         {
+            Double stock_cost_price;
+            String UOM;
             con = new MySqlConnection();
             dbcon = new Conf.dbs();
             con.ConnectionString = dbcon.getConnectionString();
@@ -241,14 +247,26 @@ namespace nPOSProj
                 MySqlDataReader rdr = cmd.ExecuteReader();
                 if (rdr.Read())
                 {
+                    stock_cost_price = Convert.ToDouble(rdr["stock_cost_price"]);
+                    UOM = rdr["stock_uom"].ToString();
+                    txtBoxUnitPrice.Text = stock_cost_price.ToString("#,###,###.00");
+                    txtBoxUOM.Text = UOM;
                     txtBoxQty.ReadOnly = false;
                 }
                 else
+                {
                     txtBoxQty.ReadOnly = true;
+                    txtBoxQty.Text = "0";
+                    txtBoxUnitPrice.Text = "0.00";
+                    txtBoxUOM.Clear();
+                }
             }
             catch (Exception)
             {
                 txtBoxQty.ReadOnly = true;
+                txtBoxQty.Text = "0";
+                txtBoxUnitPrice.Text = "0.00";
+                txtBoxUOM.Clear();
             }
         }
         public void toAddress()
@@ -340,12 +358,66 @@ namespace nPOSProj
                 po.stock_code = txtBoxStockCode.Text;
                 po.supplier_code = txtBoxSupplierCode.Text;
                 txtBoxParticulars.Text = po.askStockName();
+                txtBoxUnitPrice.Text = po.askStockPriceStockCode().ToString("#,###,###.00");
+                txtBoxUOM.Text = po.askUOM();
+                txtBoxQty.Focus();
             }
         }
 
         private void txtBoxParticulars_KeyDown(object sender, KeyEventArgs e)
         {
+            if (e.KeyCode == Keys.Enter)
+            {
+                po.stock_name = txtBoxParticulars.Text;
+                po.supplier_code = txtBoxSupplierCode.Text;
+                txtBoxStockCode.Text = po.askStockCode();
+                txtBoxUnitPrice.Text = po.askStockPriceStockName().ToString("#,###,###.00");
+                txtBoxUOM.Text = po.askUOM_N();
+                txtBoxQty.Focus();
+            }
+        }
 
+        private void txtBoxStockCode_TextChanged(object sender, EventArgs e)
+        {
+            checkifTheSameStockToQty();
+            if (txtBoxStockCode.Text == "")
+            {
+                txtBoxQty.Text = "0";
+                txtBoxUnitPrice.Text = "0.00";
+                txtBoxUOM.Clear();
+            }
+        }
+
+        private void txtBoxParticulars_TextChanged(object sender, EventArgs e)
+        {
+            checkifTheSameStockToQty();
+            if (txtBoxParticulars.Text == "")
+            {
+                txtBoxQty.Text = "0";
+                txtBoxUnitPrice.Text = "0.00";
+                txtBoxUOM.Clear();
+            }
+        }
+
+        private void txtBoxQty_TextChanged(object sender, EventArgs e)
+        {
+            Double totalPrice;
+            try
+            {
+                totalPrice = Convert.ToDouble(txtBoxUnitPrice.Text) * Convert.ToDouble(txtBoxQty.Text);
+                rdTotal.Text = totalPrice.ToString("#,###,###.00");
+            }
+            catch (Exception)
+            {
+                txtBoxQty.Text = "0";
+                rdTotal.Text = "0.00";
+            }
+        }
+
+        private void txtBoxUnitPrice_TextChanged(object sender, EventArgs e)
+        {
+            if (txtBoxUnitPrice.Text == "0.00")
+                rdTotal.Text = "0.00";
         }
     }
 }
