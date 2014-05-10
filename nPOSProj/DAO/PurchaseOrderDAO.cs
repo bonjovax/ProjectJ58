@@ -15,6 +15,8 @@ namespace nPOSProj.DAO
         private Int32 PONumber = 0;
         private String supplier_name;
         private String supplier_code;
+        private String stock_name;
+        private String stock_code;
 
         public PurchaseOrderDAO()
         {
@@ -115,6 +117,68 @@ namespace nPOSProj.DAO
         public String sendSupplierCode()
         {
             return supplier_code;
+        }
+        public String katsStockName(String stock_code, String supplier_code)
+        {
+            con = new MySqlConnection();
+            dbcon = new Conf.dbs();
+            con.ConnectionString = dbcon.getConnectionString();
+            String query = "SELECT stock_name AS glennisgay FROM inventory_stocks ";
+            query += "WHERE stock_code = ?stock_code AND supplier_code = ?supplier_code";
+            try
+            {
+                con.Open();
+                MySqlCommand cmd = new MySqlCommand(query, con);
+                cmd.Parameters.AddWithValue("?stock_code", stock_code);
+                cmd.Parameters.AddWithValue("?supplier_code", supplier_code);
+                cmd.ExecuteScalar();
+                MySqlDataReader rdr = cmd.ExecuteReader();
+                if (rdr.Read())
+                {
+                    stock_name = rdr["glennisgay"].ToString();
+                    sendStockName();
+                }
+            }
+            finally
+            {
+                con.Close();
+            }
+            return stock_name;
+        }
+        public String sendStockName()
+        {
+            return stock_name;
+        }
+        public String katsStockCode(String stock_name, String supplier_code)
+        {
+            con = new MySqlConnection();
+            dbcon = new Conf.dbs();
+            con.ConnectionString = dbcon.getConnectionString();
+            String query = "SELECT stock_code AS glennisgay FROM inventory_stocks ";
+            query += "WHERE stock_name = ?stock_name AND supplier_code = ?supplier_code";
+            try
+            {
+                con.Open();
+                MySqlCommand cmd = new MySqlCommand(query, con);
+                cmd.Parameters.AddWithValue("?stock_name", stock_name);
+                cmd.Parameters.AddWithValue("?supplier_code", supplier_code);
+                cmd.ExecuteScalar();
+                MySqlDataReader rdr = cmd.ExecuteReader();
+                if (rdr.Read())
+                {
+                    stock_code = rdr["glennisgay"].ToString();
+                    sendStockCode();
+                }
+            }
+            finally
+            {
+                con.Close();
+            }
+            return stock_code;
+        }
+        public String sendStockCode()
+        {
+            return stock_code;
         }
         public void IssuePO(Int32 po_no, String po_date, String po_time, String supplier_code, String user_name)
         {

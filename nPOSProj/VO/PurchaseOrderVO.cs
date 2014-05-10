@@ -14,6 +14,8 @@ namespace nPOSProj.VO
         private String _supplier_code;
         private String _supplier_name;
         private String _user_name;
+        private String _stock_name;
+        private String _stock_code;
         public PurchaseOrderVO()
         {
         }
@@ -48,6 +50,16 @@ namespace nPOSProj.VO
             get { return _user_name; }
             set { _user_name = value; }
         }
+        public String stock_code
+        {
+            get { return _stock_code; }
+            set { _stock_code = value; }
+        }
+        public String stock_name
+        {
+            get { return _stock_name; }
+            set { _stock_name = value; }
+        }
 
         public Int32 askPOno()
         {
@@ -73,6 +85,22 @@ namespace nPOSProj.VO
             podao.katsSupplierCode(supplier_name);
             supplier_code = podao.katsSupplierCode(supplier_name);
             return supplier_code;
+        }
+        public String askStockCode()
+        {
+            String stock_code;
+            podao = new DAO.PurchaseOrderDAO();
+            podao.katsStockCode(stock_name, supplier_code);
+            stock_code = podao.katsStockCode(stock_name, supplier_code);
+            return stock_code;
+        }
+        public String askStockName()
+        {
+            String stock_name;
+            podao = new DAO.PurchaseOrderDAO();
+            podao.katsStockName(stock_code, supplier_code);
+            stock_name = podao.katsStockName(stock_code, supplier_code);
+            return stock_name;
         }
         public void PO_Issue()
         {

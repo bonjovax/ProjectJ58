@@ -17,6 +17,9 @@ namespace nPOSProj
         private VO.PurchaseOrderVO po = new VO.PurchaseOrderVO();
         AutoCompleteStringCollection collect = new AutoCompleteStringCollection();
         AutoCompleteStringCollection collect1 = new AutoCompleteStringCollection();
+        //
+        AutoCompleteStringCollection collect2 = new AutoCompleteStringCollection();
+        AutoCompleteStringCollection collect3 = new AutoCompleteStringCollection();
         public mPOrder()
         {
             InitializeComponent();
@@ -71,6 +74,65 @@ namespace nPOSProj
                 txtBoxSupplierName.AutoCompleteMode = AutoCompleteMode.Suggest;
                 txtBoxSupplierName.AutoCompleteSource = AutoCompleteSource.CustomSource;
                 txtBoxSupplierName.AutoCompleteCustomSource = collect1;
+                con.Close();
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Please Check your Database Server Connection", "Database Server Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Application.ExitThread();
+            }
+        }
+        //
+        private void autoCompleteStockCode()
+        {
+            con = new MySqlConnection();
+            dbcon = new Conf.dbs();
+            con.ConnectionString = dbcon.getConnectionString();
+            String sql = "SELECT stock_code FROM inventory_stocks WHERE supplier_code = ?supplier_code ORDER BY stock_code ASC";
+            try
+            {
+                con.Open();
+                MySqlCommand cmd = new MySqlCommand(sql, con);
+                cmd.Parameters.AddWithValue("?supplier_code", txtBoxSupplierCode.Text);
+                cmd.CommandType = CommandType.Text;
+                MySqlDataReader rdr = cmd.ExecuteReader();
+                if (rdr.HasRows == true)
+                {
+                    while (rdr.Read())
+                        collect2.Add(rdr["stock_code"].ToString());
+                }
+                rdr.Close();
+                txtBoxStockCode.AutoCompleteMode = AutoCompleteMode.Suggest;
+                txtBoxStockCode.AutoCompleteSource = AutoCompleteSource.CustomSource;
+                txtBoxStockCode.AutoCompleteCustomSource = collect2;
+                con.Close();
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Please Check your Database Server Connection", "Database Server Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Application.ExitThread();
+            }
+        }
+        private void autoCompleteStockName()
+        {
+            con.ConnectionString = dbcon.getConnectionString();
+            String sql = "SELECT stock_name FROM inventory_stocks WHERE supplier_code = ?supplier_code ORDER BY stock_code ASC";
+            try
+            {
+                con.Open();
+                MySqlCommand cmd = new MySqlCommand(sql, con);
+                cmd.Parameters.AddWithValue("?supplier_code", txtBoxSupplierCode.Text);
+                cmd.CommandType = CommandType.Text;
+                MySqlDataReader rdr = cmd.ExecuteReader();
+                if (rdr.HasRows == true)
+                {
+                    while (rdr.Read())
+                        collect3.Add(rdr["stock_name"].ToString());
+                }
+                rdr.Close();
+                txtBoxParticulars.AutoCompleteMode = AutoCompleteMode.Suggest;
+                txtBoxParticulars.AutoCompleteSource = AutoCompleteSource.CustomSource;
+                txtBoxParticulars.AutoCompleteCustomSource = collect3;
                 con.Close();
             }
             catch (Exception)
@@ -162,6 +224,33 @@ namespace nPOSProj
                 btnProceed.Enabled = false;
             }
         }
+        public void checkifTheSameStockToQty()
+        {
+            con = new MySqlConnection();
+            dbcon = new Conf.dbs();
+            con.ConnectionString = dbcon.getConnectionString();
+            String query = "SELECT * FROM inventory_stocks ";
+            query += "WHERE stock_code = ?stock_code AND stock_name = ?stock_name";
+            try
+            {
+                con.Open();
+                MySqlCommand cmd = new MySqlCommand(query, con);
+                cmd.Parameters.AddWithValue("?stock_code", txtBoxStockCode.Text);
+                cmd.Parameters.AddWithValue("?stock_name", txtBoxParticulars.Text);
+                cmd.ExecuteScalar();
+                MySqlDataReader rdr = cmd.ExecuteReader();
+                if (rdr.Read())
+                {
+                    txtBoxQty.ReadOnly = false;
+                }
+                else
+                    txtBoxQty.ReadOnly = true;
+            }
+            catch (Exception)
+            {
+                txtBoxQty.ReadOnly = true;
+            }
+        }
         public void toAddress()
         {
             con = new MySqlConnection();
@@ -228,6 +317,9 @@ namespace nPOSProj
                 txtBoxStockCode.Focus();
                 txtBoxSupplierCode.ReadOnly = true;
                 txtBoxSupplierName.ReadOnly = true;
+                //
+                autoCompleteStockCode();
+                autoCompleteStockName();
             }
         }
 
@@ -237,6 +329,21 @@ namespace nPOSProj
         }
 
         private void btnOk_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtBoxStockCode_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                po.stock_code = txtBoxStockCode.Text;
+                po.supplier_code = txtBoxSupplierCode.Text;
+                txtBoxParticulars.Text = po.askStockName();
+            }
+        }
+
+        private void txtBoxParticulars_KeyDown(object sender, KeyEventArgs e)
         {
 
         }
