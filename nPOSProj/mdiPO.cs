@@ -11,6 +11,7 @@ namespace nPOSProj
 {
     public partial class mdiPO : Form
     {
+        public String DatePass { get; set; }
         
         public mdiPO()
         {
@@ -25,13 +26,24 @@ namespace nPOSProj
 
         private void btnNew_Click(object sender, EventArgs e)
         {
-            mPOrder newPO = new mPOrder();
-            newPO.ShowDialog();
+            using (mPOrder newPO = new mPOrder())
+            {
+                newPO.ShowDialog();
+
+                var poDate = newPO.PurchaseOrderDate;
+
+                this.po_orderTableAdapter.Fill(this.npos_dbDataSet.po_order, Convert.ToDateTime(poDate));
+            }
         }
 
         private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
         {
             this.po_orderTableAdapter.Fill(this.npos_dbDataSet.po_order, Convert.ToDateTime(dateTimePicker1.Text));
+        }
+
+        public void testinglang(String s)
+        {
+            this.Text = s.ToString();
         }
     }
 }

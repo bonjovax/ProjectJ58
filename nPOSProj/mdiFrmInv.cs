@@ -22,7 +22,7 @@ namespace nPOSProj
         {
             InitializeComponent();
         }
-
+   
         private Boolean ActivateThisChild(String formName)
         {
             int i;

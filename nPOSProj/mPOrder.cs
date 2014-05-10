@@ -21,6 +21,10 @@ namespace nPOSProj
         {
             InitializeComponent();
         }
+        public DateTime PurchaseOrderDate
+        {
+            get { return dt.Value; }  // your PO date picker control
+        }
         private void autoCompleteSupplierCode()
         {
             con.ConnectionString = dbcon.getConnectionString();
@@ -170,6 +174,16 @@ namespace nPOSProj
                 po.PO_Issue();
                 btnProceed.Visible = false;
             }
+        }
+
+        private void mPOrder_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            
+        }
+
+        private void btnOk_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
