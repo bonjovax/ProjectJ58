@@ -16,6 +16,11 @@ namespace nPOSProj.VO
         private String _user_name;
         private String _stock_name;
         private String _stock_code;
+        private Int32 _order_quantity; 
+        private String _order_uom;
+        private Double _order_unitcost;
+        private Double _order_amount;
+
         public PurchaseOrderVO()
         {
         }
@@ -60,7 +65,27 @@ namespace nPOSProj.VO
             get { return _stock_name; }
             set { _stock_name = value; }
         }
-
+        public Int32 order_quantity
+        {
+            get { return _order_quantity; }
+            set { _order_quantity = value; }
+        }
+        public String order_uom
+        {
+            get { return _order_uom; }
+            set { _order_uom = value; }
+        }
+        public Double order_unitcost
+        {
+            get { return _order_unitcost; }
+            set { _order_unitcost = value; }
+        }
+        public Double order_amount
+        {
+            get { return _order_amount; }
+            set { _order_amount = value; }
+        }
+        
         public Int32 askPOno()
         {
             Int32 POno;
@@ -138,6 +163,21 @@ namespace nPOSProj.VO
         {
             podao = new DAO.PurchaseOrderDAO();
             podao.IssuePO(po_no, po_date, po_time, supplier_code, user_name);
+        }
+        public void OrderItemsToPO()
+        {
+            podao = new DAO.PurchaseOrderDAO();
+            podao.OrderPO(po_no, order_quantity, order_uom, stock_code, stock_name, order_unitcost, order_amount);
+        }
+        public void UpdateOrderItemsToPO()
+        {
+            podao = new DAO.PurchaseOrderDAO();
+            podao.UpdateOrderPO(po_no, order_quantity, order_uom, stock_code, stock_name, order_unitcost, order_amount);
+        }
+        public void RemoveOrderItemsInPO()
+        {
+            podao = new DAO.PurchaseOrderDAO();
+            podao.DeleteOrderPO(po_no, stock_code);
         }
     }
 }

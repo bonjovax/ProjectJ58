@@ -63,6 +63,7 @@
     <Compile Include="DAO\InventoryDAO.cs" />
     <Compile Include="DAO\LoginDAO.cs" />
     <Compile Include="DAO\PurchaseOrderDAO.cs" />
+    <Compile Include="DAO\ReceivingDAO.cs" />
     <Compile Include="DAO\UserAccountDAO.cs" />
     <Compile Include="frmChangePass.cs">
       <SubType>Form</SubType>
@@ -157,6 +158,7 @@
     <Compile Include="VO\ConfigVO.cs" />
     <Compile Include="VO\InventoryVO.cs" />
     <Compile Include="VO\PurchaseOrderVO.cs" />
+    <Compile Include="VO\ReceivingVO.cs" />
     <Compile Include="VO\UserAccountVO.cs" />
     <EmbeddedResource Include="frmChangePass.resx">
       <DependentUpon>frmChangePass.cs</DependentUpon>

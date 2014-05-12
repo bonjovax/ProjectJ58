@@ -332,5 +332,81 @@ namespace nPOSProj.DAO
                 con.Close();
             }
         }
+        public void OrderPO(Int32 po_no, Int32 order_quantity, String order_uom, String order_suppliers_itemno, String order_description, Double order_unitcost, Double order_amount)
+        {
+            con = new MySqlConnection();
+            dbcon = new Conf.dbs();
+            con.ConnectionString = dbcon.getConnectionString();
+            String query = "INSERT INTO po_order_list VALUES";
+            query += "(?po_no, ?order_quantity, ?order_uom, ?order_suppliers_itemno, ?order_description, ?order_unitcost, ?order_amount)";
+            try
+            {
+                con.Open();
+                MySqlCommand cmd = new MySqlCommand(query, con);
+                cmd.Parameters.AddWithValue("?po_no", po_no);
+                cmd.Parameters.AddWithValue("?order_quantity", order_quantity);
+                cmd.Parameters.AddWithValue("?order_uom", order_uom);
+                cmd.Parameters.AddWithValue("?order_suppliers_itemno", order_suppliers_itemno);
+                cmd.Parameters.AddWithValue("?order_description", order_description);
+                cmd.Parameters.AddWithValue("?order_unitcost", order_unitcost);
+                cmd.Parameters.AddWithValue("?order_amount", order_amount);
+                cmd.ExecuteNonQuery();
+                cmd.Dispose();
+            }
+            finally
+            {
+                con.Close();
+            }
+        }
+        //
+        public void UpdateOrderPO(Int32 po_no, Int32 order_quantity, String order_uom, String order_suppliers_itemno, String order_description, Double order_unitcost, Double order_amount)
+        {
+            con = new MySqlConnection();
+            dbcon = new Conf.dbs();
+            con.ConnectionString = dbcon.getConnectionString();
+            String query = "UPDATE po_order_list SET ";
+            query += "order_quantity = ?order_quantity, order_uom = ?order_uom, order_suppliers_itemno = ?order_suppliers_itemno, order_description = ?order_description, order_unitcost = ?order_unitcost, order_amount = ?order_amount ";
+            query += "WHERE po_no = ?po_no";
+            try
+            {
+                con.Open();
+                MySqlCommand cmd = new MySqlCommand(query, con);
+                cmd.Parameters.AddWithValue("?po_no", po_no);
+                cmd.Parameters.AddWithValue("?order_quantity", order_quantity);
+                cmd.Parameters.AddWithValue("?order_uom", order_uom);
+                cmd.Parameters.AddWithValue("?order_suppliers_itemno", order_suppliers_itemno);
+                cmd.Parameters.AddWithValue("?order_description", order_description);
+                cmd.Parameters.AddWithValue("?order_unitcost", order_unitcost);
+                cmd.Parameters.AddWithValue("?order_amount", order_amount);
+                cmd.ExecuteNonQuery();
+                cmd.Dispose();
+            }
+            finally
+            {
+                con.Close();
+            }
+        }
+        //
+        public void DeleteOrderPO(Int32 po_no, String order_suppliers_itemno)
+        {
+            con = new MySqlConnection();
+            dbcon = new Conf.dbs();
+            con.ConnectionString = dbcon.getConnectionString();
+            String query = "DELETE FROM po_order_list ";
+            query += "WHERE po_no = ?po_no AND order_suppliers_itemno = ?order_suppliers_itemno";
+            try
+            {
+                con.Open();
+                MySqlCommand cmd = new MySqlCommand(query, con);
+                cmd.Parameters.AddWithValue("?po_no", po_no);
+                cmd.Parameters.AddWithValue("?order_suppliers_itemno", order_suppliers_itemno);
+                cmd.ExecuteNonQuery();
+                cmd.Dispose();
+            }
+            finally
+            {
+                con.Close();
+            }
+        }
     }
 }

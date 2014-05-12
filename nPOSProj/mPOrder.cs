@@ -156,7 +156,7 @@ namespace nPOSProj
         {
             txtBoxRemarks.ReadOnly = false;
             cBoxWarehouse.Enabled = true;
-            cBoxCarrier.Enabled = true;
+            cBoxCourier.Enabled = true;
             //
             txtBoxStockCode.ReadOnly = false;
             txtBoxParticulars.ReadOnly = false;
@@ -165,7 +165,7 @@ namespace nPOSProj
         {
             txtBoxRemarks.ReadOnly = true;
             cBoxWarehouse.Enabled = false;
-            cBoxCarrier.Enabled = false;
+            cBoxCourier.Enabled = false;
             //
             txtBoxStockCode.ReadOnly = true;
             txtBoxParticulars.ReadOnly = true;
@@ -331,10 +331,10 @@ namespace nPOSProj
                 btnProceed.Visible = false;
                 unlockBox();
                 btnCancel.Enabled = true;
-                btnOk.Enabled = true;
                 txtBoxStockCode.Focus();
                 txtBoxSupplierCode.ReadOnly = true;
                 txtBoxSupplierName.ReadOnly = true;
+                dt.Enabled = false;
                 //
                 autoCompleteStockCode();
                 autoCompleteStockName();
@@ -406,11 +406,13 @@ namespace nPOSProj
             {
                 totalPrice = Convert.ToDouble(txtBoxUnitPrice.Text) * Convert.ToDouble(txtBoxQty.Text);
                 rdTotal.Text = totalPrice.ToString("#,###,###.00");
+                btnAdd.Enabled = true;
             }
             catch (Exception)
             {
                 txtBoxQty.Text = "0";
                 rdTotal.Text = "0.00";
+                btnAdd.Enabled = false;
             }
         }
 
@@ -418,6 +420,49 @@ namespace nPOSProj
         {
             if (txtBoxUnitPrice.Text == "0.00")
                 rdTotal.Text = "0.00";
+        }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                po.order_quantity = Convert.ToInt32(txtBoxQty.Text);
+                po.stock_code = txtBoxStockCode.Text;
+                po.order_uom = txtBoxUOM.Text;
+                po.stock_name = txtBoxParticulars.Text;
+                po.order_unitcost = Convert.ToDouble(txtBoxUnitPrice.Text);
+                po.order_amount = Convert.ToDouble(rdTotal.Text);
+                po.OrderItemsToPO();
+                dataGridView1.Rows.Add(txtBoxQty.Text, txtBoxStockCode.Text, txtBoxUOM.Text, txtBoxParticulars.Text, txtBoxUnitPrice.Text, rdTotal.Text);
+                txtBoxParticulars.Clear();
+                txtBoxStockCode.Clear();
+                txtBoxStockCode.Focus();
+                btnAdd.Enabled = false;
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Check Server If Active", "Alert", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+        }
+
+        private void cBoxWarehouse_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cBoxWarehouse.Text != "" && cBoxCourier.Text != "")
+            {
+                btnOk.Enabled = true;
+            }
+            else
+                btnOk.Enabled = false;
+        }
+
+        private void cBoxCourier_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cBoxWarehouse.Text != "" && cBoxCourier.Text != "")
+            {
+                btnOk.Enabled = true;
+            }
+            else
+                btnOk.Enabled = false;
         }
     }
 }
