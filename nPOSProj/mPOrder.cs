@@ -199,11 +199,6 @@ namespace nPOSProj
             txtBoxParticulars.ReadOnly = true;
         }
 
-        private void btnCancel_Click(object sender, EventArgs e)
-        {
-            
-        }
-
         private void txtBoxSupplierCode_TextChanged(object sender, EventArgs e)
         {
             if (txtBoxSupplierCode.Text == "")
@@ -373,11 +368,6 @@ namespace nPOSProj
 
         private void mPOrder_FormClosing(object sender, FormClosingEventArgs e)
         {
-            
-        }
-
-        private void btnOk_Click(object sender, EventArgs e)
-        {
 
         }
 
@@ -496,20 +486,20 @@ namespace nPOSProj
         {
             if (cBoxWarehouse.Text != "" && cBoxCourier.Text != "")
             {
-                btnOk.Enabled = true;
+                btnSave.Enabled = true;
             }
             else
-                btnOk.Enabled = false;
+                btnSave.Enabled = false;
         }
 
         private void cBoxCourier_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (cBoxWarehouse.Text != "" && cBoxCourier.Text != "")
             {
-                btnOk.Enabled = true;
+                btnSave.Enabled = true;
             }
             else
-                btnOk.Enabled = false;
+                btnSave.Enabled = false;
         }
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -520,6 +510,7 @@ namespace nPOSProj
             txtBoxUOM.Text = dataGridView1.SelectedRows[0].Cells[2].Value.ToString();
             txtBoxParticulars.Text = dataGridView1.SelectedRows[0].Cells[3].Value.ToString();
             txtBoxQty.Text = dataGridView1.SelectedRows[0].Cells[0].Value.ToString();
+            btnAdd.Enabled = false;
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)
