@@ -144,6 +144,8 @@ namespace nPOSProj
 
         private void mPOrder_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'npos_dbDataSet.inventory_warehouse' table. You can move, or remove it, as needed.
+            this.inventory_warehouseTableAdapter.Fill(this.npos_dbDataSet.inventory_warehouse);
             String userName = frmLogin.User.user_name;
             rdOrderedBy.Text = userName;
             rdPOno.Text = po.askPOno().ToString();
@@ -463,6 +465,12 @@ namespace nPOSProj
             }
             else
                 btnOk.Enabled = false;
+        }
+
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            btnUpdate.Enabled = true;
+            btnDelete.Enabled = true;
         }
     }
 }
