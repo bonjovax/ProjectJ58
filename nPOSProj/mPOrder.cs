@@ -423,12 +423,17 @@ namespace nPOSProj
 
         private void txtBoxQty_TextChanged(object sender, EventArgs e)
         {
+            if (txtBoxStockCode.Text == supplier_code && txtBoxStockCode.Text == dataGridView1.SelectedRows[0].Cells[1].Value.ToString())
+            {
+                btnAdd.Enabled = false;
+            }
+            else
+                btnAdd.Enabled = true;
             Double totalPrice;
             try
             {
                 totalPrice = Convert.ToDouble(txtBoxUnitPrice.Text) * Convert.ToDouble(txtBoxQty.Text);
                 rdTotal.Text = totalPrice.ToString("#,###,##0.00");
-                btnAdd.Enabled = true;
             }
             catch (Exception)
             {
@@ -449,7 +454,7 @@ namespace nPOSProj
             try
             {
                 CheckIfStockCodePrevent();
-                if (txtBoxStockCode.Text == supplier_code)
+                if (txtBoxStockCode.Text == supplier_code && txtBoxStockCode.Text == dataGridView1.SelectedRows[0].Cells[1].Value.ToString())
                 {
                     MessageBox.Show("Stock is already Existed in the List!", "Exclamation", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 }
@@ -504,6 +509,7 @@ namespace nPOSProj
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            CheckIfStockCodePrevent();
             btnUpdate.Enabled = true;
             btnDelete.Enabled = true;
             txtBoxStockCode.Text = dataGridView1.SelectedRows[0].Cells[1].Value.ToString();
@@ -539,6 +545,10 @@ namespace nPOSProj
             po.po_total_amt = sum;
             po.updateTotalAmountMain();
             btnUpdate.Enabled = false;
+            btnAdd.Enabled = false;
+            txtBoxParticulars.Clear();
+            txtBoxStockCode.Clear();
+            txtBoxStockCode.Focus();
         }
 
         private void btnDelete_Click(object sender, EventArgs e)

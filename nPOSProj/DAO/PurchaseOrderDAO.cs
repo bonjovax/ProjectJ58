@@ -19,7 +19,7 @@ namespace nPOSProj.DAO
         private String stock_code;
         private Double stock_cost_price;
         private String stock_uom;
-        private Double order_amount;
+        private Double order_amount = 0;
 
         public PurchaseOrderDAO()
         {
