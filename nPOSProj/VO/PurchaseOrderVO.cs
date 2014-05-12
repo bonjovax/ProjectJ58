@@ -185,14 +185,7 @@ namespace nPOSProj.VO
             podao = new DAO.PurchaseOrderDAO();
             podao.DeleteOrderPO(po_no, stock_code);
         }
-        public Double askTotalAmountPO()
-        {
-            Double fin_amount;
-            podao = new DAO.PurchaseOrderDAO();
-            podao.katsTotalAmount(po_no);
-            fin_amount = podao.katsTotalAmount(po_no);
-            return fin_amount;
-        }
+
         public void updateTotalAmountMain()
         {
             podao = new DAO.PurchaseOrderDAO();

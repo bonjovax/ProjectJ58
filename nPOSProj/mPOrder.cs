@@ -416,6 +416,7 @@ namespace nPOSProj
                 txtBoxUnitPrice.Text = "0.00";
                 txtBoxUOM.Clear();
             }
+            btnAdd.Enabled = false;
         }
 
         private void txtBoxParticulars_TextChanged(object sender, EventArgs e)
@@ -427,6 +428,7 @@ namespace nPOSProj
                 txtBoxUnitPrice.Text = "0.00";
                 txtBoxUOM.Clear();
             }
+            btnAdd.Enabled = false;
         }
 
         private void txtBoxQty_TextChanged(object sender, EventArgs e)
@@ -475,8 +477,12 @@ namespace nPOSProj
                     txtBoxStockCode.Clear();
                     txtBoxStockCode.Focus();
                     btnAdd.Enabled = false;
-                    po.askTotalAmountPO();
-                    po.po_total_amt = po.askTotalAmountPO();
+                    Double sum = 0;
+                    for (int i = 0; i < dataGridView1.Rows.Count; ++i)
+                    {
+                        sum += Convert.ToDouble(dataGridView1.Rows[i].Cells[5].Value);
+                    }
+                    po.po_total_amt = sum;
                     po.updateTotalAmountMain();
                 }
             }
@@ -508,12 +514,58 @@ namespace nPOSProj
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-
+            btnUpdate.Enabled = true;
+            btnDelete.Enabled = true;
+            txtBoxStockCode.Text = dataGridView1.SelectedRows[0].Cells[1].Value.ToString();
+            txtBoxUOM.Text = dataGridView1.SelectedRows[0].Cells[2].Value.ToString();
+            txtBoxParticulars.Text = dataGridView1.SelectedRows[0].Cells[3].Value.ToString();
+            txtBoxQty.Text = dataGridView1.SelectedRows[0].Cells[0].Value.ToString();
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
+            CheckIfStockCodePrevent();
+            dataGridView1.SelectedRows[0].Cells[0].Value = txtBoxQty.Text;
+            dataGridView1.SelectedRows[0].Cells[1].Value = txtBoxStockCode.Text;
+            dataGridView1.SelectedRows[0].Cells[2].Value = txtBoxUOM.Text;
+            dataGridView1.SelectedRows[0].Cells[3].Value = txtBoxParticulars.Text;
+            dataGridView1.SelectedRows[0].Cells[4].Value = txtBoxUnitPrice.Text;
+            dataGridView1.SelectedRows[0].Cells[5].Value = rdTotal.Text;
+            po.po_no = Convert.ToInt32(rdPOno.Text);
+            po.order_quantity = Convert.ToInt32(txtBoxQty.Text);
+            po.order_uom = txtBoxUOM.Text;
+            po.stock_code = txtBoxStockCode.Text;
+            po.stock_name = txtBoxParticulars.Text;
+            po.order_unitcost = Convert.ToDouble(txtBoxUnitPrice.Text);
+            po.order_amount = Convert.ToDouble(rdTotal.Text);
+            po.supplier_code = txtBoxSupplierCode.Text;
+            po.UpdateOrderItemsToPO();
+            Double sum = 0;
+            for (int i = 0; i < dataGridView1.Rows.Count; ++i)
+            {
+                sum += Convert.ToDouble(dataGridView1.Rows[i].Cells[5].Value);
+            }
+            po.po_total_amt = sum;
+            po.updateTotalAmountMain();
+            btnUpdate.Enabled = false;
+        }
 
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            po.po_no = Convert.ToInt32(rdPOno.Text);
+            po.supplier_code = txtBoxSupplierCode.Text;
+            po.stock_code = txtBoxStockCode.Text;
+            po.RemoveOrderItemsInPO();
+            po.updateTotalAmountMain();
+            dataGridView1.Rows.RemoveAt(dataGridView1.SelectedRows[0].Index);
+            Double sum = 0;
+            for (int i = 0; i < dataGridView1.Rows.Count; ++i)
+            {
+                sum += Convert.ToDouble(dataGridView1.Rows[i].Cells[5].Value);
+            }
+            po.po_total_amt = sum;
+            po.updateTotalAmountMain();
+            btnDelete.Enabled = false;
         }
     }
 }
