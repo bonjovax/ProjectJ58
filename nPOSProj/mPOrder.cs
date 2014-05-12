@@ -20,6 +20,7 @@ namespace nPOSProj
         //
         AutoCompleteStringCollection collect2 = new AutoCompleteStringCollection();
         AutoCompleteStringCollection collect3 = new AutoCompleteStringCollection();
+        private String supplier_code;
         public mPOrder()
         {
             InitializeComponent();
@@ -141,7 +142,34 @@ namespace nPOSProj
                 Application.ExitThread();
             }
         }
-
+        private void CheckIfStockCodePrevent()
+        {
+            con = new MySqlConnection();
+            dbcon = new Conf.dbs();
+            con.ConnectionString = dbcon.getConnectionString();
+            String query = "SELECT DISTINCT order_suppliers_itemno FROM po_order_list WHERE order_suppliers_itemno = ?a AND po_no = ?b";
+            try
+            {
+                con.Open();
+                MySqlCommand cmd = new MySqlCommand(query, con);
+                cmd.Parameters.AddWithValue("?a", txtBoxStockCode.Text);
+                cmd.Parameters.AddWithValue("?b", rdPOno.Text);
+                cmd.ExecuteScalar();
+                MySqlDataReader rdr = cmd.ExecuteReader();
+                if (rdr.Read())
+                {
+                    supplier_code = rdr["order_suppliers_itemno"].ToString();
+                }
+                else
+                {
+                    supplier_code = "";
+                }
+            }
+            catch (Exception)
+            {
+            }
+        }
+        
         private void mPOrder_Load(object sender, EventArgs e)
         {
             String userName = frmLogin.User.user_name;
@@ -426,28 +454,36 @@ namespace nPOSProj
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            //try
-            //{
-                po.order_quantity = Convert.ToInt32(txtBoxQty.Text);
-                po.stock_code = txtBoxStockCode.Text;
-                po.order_uom = txtBoxUOM.Text;
-                po.stock_name = txtBoxParticulars.Text;
-                po.order_unitcost = Convert.ToDouble(txtBoxUnitPrice.Text);
-                po.order_amount = Convert.ToDouble(rdTotal.Text);
-                po.OrderItemsToPO();
-                dataGridView1.Rows.Add(txtBoxQty.Text, txtBoxStockCode.Text, txtBoxUOM.Text, txtBoxParticulars.Text, txtBoxUnitPrice.Text, rdTotal.Text);
-                txtBoxParticulars.Clear();
-                txtBoxStockCode.Clear();
-                txtBoxStockCode.Focus();
-                btnAdd.Enabled = false;
-                po.askTotalAmountPO();
-                po.po_total_amt = po.askTotalAmountPO();
-                po.updateTotalAmountMain();
-            //}
-            //catch (Exception)
-            //{
-            //    MessageBox.Show("Check Server If Active", "Alert", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-            //}
+            try
+            {
+                CheckIfStockCodePrevent();
+                if (txtBoxStockCode.Text == supplier_code)
+                {
+                    MessageBox.Show("Stock is already Existed in the List!", "Exclamation", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+                else
+                {
+                    po.order_quantity = Convert.ToInt32(txtBoxQty.Text);
+                    po.stock_code = txtBoxStockCode.Text;
+                    po.order_uom = txtBoxUOM.Text;
+                    po.stock_name = txtBoxParticulars.Text;
+                    po.order_unitcost = Convert.ToDouble(txtBoxUnitPrice.Text);
+                    po.order_amount = Convert.ToDouble(rdTotal.Text);
+                    po.OrderItemsToPO();
+                    dataGridView1.Rows.Add(txtBoxQty.Text, txtBoxStockCode.Text, txtBoxUOM.Text, txtBoxParticulars.Text, txtBoxUnitPrice.Text, rdTotal.Text);
+                    txtBoxParticulars.Clear();
+                    txtBoxStockCode.Clear();
+                    txtBoxStockCode.Focus();
+                    btnAdd.Enabled = false;
+                    po.askTotalAmountPO();
+                    po.po_total_amt = po.askTotalAmountPO();
+                    po.updateTotalAmountMain();
+                }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Check Server If Active", "Alert", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
         }
 
         private void cBoxWarehouse_SelectedIndexChanged(object sender, EventArgs e)
@@ -472,12 +508,12 @@ namespace nPOSProj
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            btnUpdate.Enabled = true;
-            btnDelete.Enabled = true;
-            txtBoxStockCode.Text = dataGridView1.SelectedRows[0].Cells[1].Value.ToString();
-            txtBoxUOM.Text = dataGridView1.SelectedRows[0].Cells[2].Value.ToString();
-            txtBoxParticulars.Text = dataGridView1.SelectedRows[0].Cells[3].Value.ToString();
-            txtBoxQty.Text = dataGridView1.SelectedRows[0].Cells[0].Value.ToString();
+
+        }
+
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
