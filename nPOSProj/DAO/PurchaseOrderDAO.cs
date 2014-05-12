@@ -19,6 +19,7 @@ namespace nPOSProj.DAO
         private String stock_code;
         private Double stock_cost_price;
         private String stock_uom;
+        private Double order_amount;
 
         public PurchaseOrderDAO()
         {
@@ -357,6 +358,64 @@ namespace nPOSProj.DAO
             {
                 con.Close();
             }
+        }
+        public Double katsTotalAmount(Int32 po_no)
+        {
+            con = new MySqlConnection();
+            dbcon = new Conf.dbs();
+            con.ConnectionString = dbcon.getConnectionString();
+            String query = "SELECT SUM(order_amount) AS talib FROM po_order_list ";
+            query += "WHERE po_no = ?po_no";
+            try
+            {
+                con.Open();
+                MySqlCommand cmd = new MySqlCommand(query, con);
+                cmd.Parameters.AddWithValue("?po_no", po_no);
+                cmd.ExecuteScalar();
+                MySqlDataReader rdr = cmd.ExecuteReader();
+                if (rdr.Read())
+                {
+                    order_amount = Convert.ToDouble(rdr["talib"]);
+                    sendAmount();
+                }
+                else
+                {
+                    order_amount = 0;
+                    sendAmount();
+                }
+            }
+            finally
+            {
+                con.Close();
+            }
+            return order_amount;
+        }
+        //Update Amount to Main Table
+        public void UpdateAmountToMainTable(Int32 po_no, String supplier_code, Double po_total_amt)
+        {
+            con = new MySqlConnection();
+            dbcon = new Conf.dbs();
+            con.ConnectionString = dbcon.getConnectionString();
+            String query = "UPDATE po_order SET po_total_amt = ?po_total_amt ";
+            query += "WHERE po_no = ?po_no AND supplier_code = ?supplier_code";
+            try
+            {
+                con.Open();
+                MySqlCommand cmd = new MySqlCommand(query, con);
+                cmd.Parameters.AddWithValue("?po_total_amt", po_total_amt);
+                cmd.Parameters.AddWithValue("?po_no", po_no);
+                cmd.Parameters.AddWithValue("?supplier_code", supplier_code);
+                cmd.ExecuteNonQuery();
+                cmd.Dispose();
+            }
+            finally
+            {
+                con.Close();
+            }
+        }
+        public Double sendAmount()
+        {
+            return order_amount;
         }
         //
         public void UpdateOrderPO(Int32 po_no, Int32 order_quantity, String order_uom, String order_suppliers_itemno, String order_description, Double order_unitcost, Double order_amount)

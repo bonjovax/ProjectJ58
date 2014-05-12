@@ -407,7 +407,7 @@ namespace nPOSProj
             try
             {
                 totalPrice = Convert.ToDouble(txtBoxUnitPrice.Text) * Convert.ToDouble(txtBoxQty.Text);
-                rdTotal.Text = totalPrice.ToString("#,###,###.00");
+                rdTotal.Text = totalPrice.ToString("#,###,##0.00");
                 btnAdd.Enabled = true;
             }
             catch (Exception)
@@ -426,8 +426,8 @@ namespace nPOSProj
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            try
-            {
+            //try
+            //{
                 po.order_quantity = Convert.ToInt32(txtBoxQty.Text);
                 po.stock_code = txtBoxStockCode.Text;
                 po.order_uom = txtBoxUOM.Text;
@@ -440,11 +440,14 @@ namespace nPOSProj
                 txtBoxStockCode.Clear();
                 txtBoxStockCode.Focus();
                 btnAdd.Enabled = false;
-            }
-            catch (Exception)
-            {
-                MessageBox.Show("Check Server If Active", "Alert", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-            }
+                po.askTotalAmountPO();
+                po.po_total_amt = po.askTotalAmountPO();
+                po.updateTotalAmountMain();
+            //}
+            //catch (Exception)
+            //{
+            //    MessageBox.Show("Check Server If Active", "Alert", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            //}
         }
 
         private void cBoxWarehouse_SelectedIndexChanged(object sender, EventArgs e)
@@ -471,6 +474,10 @@ namespace nPOSProj
         {
             btnUpdate.Enabled = true;
             btnDelete.Enabled = true;
+            txtBoxStockCode.Text = dataGridView1.SelectedRows[0].Cells[1].Value.ToString();
+            txtBoxUOM.Text = dataGridView1.SelectedRows[0].Cells[2].Value.ToString();
+            txtBoxParticulars.Text = dataGridView1.SelectedRows[0].Cells[3].Value.ToString();
+            txtBoxQty.Text = dataGridView1.SelectedRows[0].Cells[0].Value.ToString();
         }
     }
 }

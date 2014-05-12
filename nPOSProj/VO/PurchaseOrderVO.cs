@@ -20,6 +20,7 @@ namespace nPOSProj.VO
         private String _order_uom;
         private Double _order_unitcost;
         private Double _order_amount;
+        private Double _po_total_amt;
 
         public PurchaseOrderVO()
         {
@@ -84,6 +85,11 @@ namespace nPOSProj.VO
         {
             get { return _order_amount; }
             set { _order_amount = value; }
+        }
+        public Double po_total_amt
+        {
+            get { return _po_total_amt; }
+            set { _po_total_amt = value; }
         }
         
         public Int32 askPOno()
@@ -178,6 +184,19 @@ namespace nPOSProj.VO
         {
             podao = new DAO.PurchaseOrderDAO();
             podao.DeleteOrderPO(po_no, stock_code);
+        }
+        public Double askTotalAmountPO()
+        {
+            Double fin_amount;
+            podao = new DAO.PurchaseOrderDAO();
+            podao.katsTotalAmount(po_no);
+            fin_amount = podao.katsTotalAmount(po_no);
+            return fin_amount;
+        }
+        public void updateTotalAmountMain()
+        {
+            podao = new DAO.PurchaseOrderDAO();
+            podao.UpdateAmountToMainTable(po_no, supplier_code, po_total_amt);
         }
     }
 }
