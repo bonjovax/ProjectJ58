@@ -381,6 +381,8 @@ namespace nPOSProj
                 txtBoxUnitPrice.Text = po.askStockPriceStockCode().ToString("#,###,###.00");
                 txtBoxUOM.Text = po.askUOM();
                 txtBoxQty.Focus();
+                txtBoxUQTY.ReadOnly = false;
+                txtBoxUQTY.Focus();
             }
         }
 
@@ -394,17 +396,26 @@ namespace nPOSProj
                 txtBoxUnitPrice.Text = po.askStockPriceStockName().ToString("#,###,###.00");
                 txtBoxUOM.Text = po.askUOM_N();
                 txtBoxQty.Focus();
+                txtBoxUQTY.ReadOnly = false;
+                txtBoxUQTY.Focus();
             }
         }
 
         private void txtBoxStockCode_TextChanged(object sender, EventArgs e)
         {
             checkifTheSameStockToQty();
+            CheckIfStockCodePrevent();
+            if (txtBoxStockCode.Text == supplier_code && txtBoxStockCode.Text == dataGridView1.SelectedRows[0].Cells[1].Value.ToString())
+            {
+                btnAdd.Enabled = false;
+            }
             if (txtBoxStockCode.Text == "")
             {
                 txtBoxQty.Text = "0";
                 txtBoxUnitPrice.Text = "0.00";
+                txtBoxParticulars.Clear();
                 txtBoxUOM.Clear();
+                txtBoxStockCode.Focus();
             }
             btnAdd.Enabled = false;
         }
@@ -417,13 +428,15 @@ namespace nPOSProj
                 txtBoxQty.Text = "0";
                 txtBoxUnitPrice.Text = "0.00";
                 txtBoxUOM.Clear();
+                txtBoxStockCode.Clear();
+                txtBoxStockCode.Focus();
             }
             btnAdd.Enabled = false;
         }
 
         private void txtBoxQty_TextChanged(object sender, EventArgs e)
         {
-            if (txtBoxStockCode.Text == supplier_code && txtBoxStockCode.Text == dataGridView1.SelectedRows[0].Cells[1].Value.ToString())
+            if (txtBoxStockCode.Text == supplier_code && txtBoxStockCode.Text == dataGridView1.Rows[0].Cells[1].Value.ToString())
             {
                 btnAdd.Enabled = false;
             }
@@ -454,6 +467,18 @@ namespace nPOSProj
             try
             {
                 CheckIfStockCodePrevent();
+                for (int row = 0; row < dataGridView1.Rows.Count; row++)
+                {
+                    for (int col = 0; col < dataGridView1.Columns.Count; col++)
+                    {
+                        if (dataGridView1.Rows[row].Cells[col].Value != null &&
+                          dataGridView1.Rows[row].Cells[col].Value.Equals(txtBoxStockCode.Text))
+                        {
+                            MessageBox.Show("Stock is already Existed in the List!", "Exclamation", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                            return;
+                        }
+                    }
+                }
                 if (txtBoxStockCode.Text == supplier_code && txtBoxStockCode.Text == dataGridView1.SelectedRows[0].Cells[1].Value.ToString())
                 {
                     MessageBox.Show("Stock is already Existed in the List!", "Exclamation", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
@@ -515,21 +540,24 @@ namespace nPOSProj
             txtBoxStockCode.Text = dataGridView1.SelectedRows[0].Cells[1].Value.ToString();
             txtBoxUOM.Text = dataGridView1.SelectedRows[0].Cells[2].Value.ToString();
             txtBoxParticulars.Text = dataGridView1.SelectedRows[0].Cells[3].Value.ToString();
-            txtBoxQty.Text = dataGridView1.SelectedRows[0].Cells[0].Value.ToString();
+            txtBoxUQTY.Text = dataGridView1.SelectedRows[0].Cells[0].Value.ToString();
             btnAdd.Enabled = false;
+            txtBoxQty.Visible = false;
+            txtBoxUQTY.Visible = true;
+            txtBoxUQTY.ReadOnly = false;
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
             CheckIfStockCodePrevent();
-            dataGridView1.SelectedRows[0].Cells[0].Value = txtBoxQty.Text;
+            dataGridView1.SelectedRows[0].Cells[0].Value = txtBoxUQTY.Text;
             dataGridView1.SelectedRows[0].Cells[1].Value = txtBoxStockCode.Text;
             dataGridView1.SelectedRows[0].Cells[2].Value = txtBoxUOM.Text;
             dataGridView1.SelectedRows[0].Cells[3].Value = txtBoxParticulars.Text;
             dataGridView1.SelectedRows[0].Cells[4].Value = txtBoxUnitPrice.Text;
             dataGridView1.SelectedRows[0].Cells[5].Value = rdTotal.Text;
             po.po_no = Convert.ToInt32(rdPOno.Text);
-            po.order_quantity = Convert.ToInt32(txtBoxQty.Text);
+            po.order_quantity = Convert.ToInt32(txtBoxUQTY.Text);
             po.order_uom = txtBoxUOM.Text;
             po.stock_code = txtBoxStockCode.Text;
             po.stock_name = txtBoxParticulars.Text;
@@ -544,11 +572,15 @@ namespace nPOSProj
             }
             po.po_total_amt = sum;
             po.updateTotalAmountMain();
-            btnUpdate.Enabled = false;
             btnAdd.Enabled = false;
             txtBoxParticulars.Clear();
             txtBoxStockCode.Clear();
             txtBoxStockCode.Focus();
+            txtBoxUQTY.Visible = false;
+            txtBoxQty.Visible = true;
+            txtBoxUQTY.Text = "0";
+            txtBoxUQTY.ReadOnly = true;
+            btnUpdate.Enabled = false;
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
@@ -567,6 +599,31 @@ namespace nPOSProj
             po.po_total_amt = sum;
             po.updateTotalAmountMain();
             btnDelete.Enabled = false;
+        }
+
+        private void txtBoxUQTY_TextChanged(object sender, EventArgs e)
+        {
+            Double totalPrice;
+            try
+            {
+                if (txtBoxUQTY.Text != "")
+                {
+                    btnUpdate.Enabled = true;
+                    totalPrice = Convert.ToDouble(txtBoxUnitPrice.Text) * Convert.ToDouble(txtBoxUQTY.Text);
+                    rdTotal.Text = totalPrice.ToString("#,###,##0.00");
+                }
+                else
+                {
+                    btnUpdate.Enabled = false;
+                    txtBoxUQTY.Text = "0";
+                }
+            }
+            catch (Exception)
+            {
+                txtBoxUQTY.Text = "0";
+                rdTotal.Text = "0.00";
+                btnUpdate.Enabled = false;
+            }
         }
     }
 }
