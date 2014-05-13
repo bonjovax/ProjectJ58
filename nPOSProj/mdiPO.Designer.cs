@@ -41,10 +41,10 @@
             this.btnSearch = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.btnReprintPO = new System.Windows.Forms.Button();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.poorderBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.npos_dbDataSet = new nPOSProj.npos_dbDataSet();
+            this.btnReprintPO = new System.Windows.Forms.Button();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.po_orderTableAdapter = new nPOSProj.npos_dbDataSetTableAdapters.po_orderTableAdapter();
             this.ponoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.podateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -53,6 +53,7 @@
             this.suppliernameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pototalamtDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.poprintedDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.po_warehouse = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pocarrierDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.postatusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.podaterDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -151,6 +152,7 @@
             this.suppliernameDataGridViewTextBoxColumn,
             this.pototalamtDataGridViewTextBoxColumn,
             this.poprintedDataGridViewTextBoxColumn,
+            this.po_warehouse,
             this.pocarrierDataGridViewTextBoxColumn,
             this.postatusDataGridViewTextBoxColumn,
             this.podaterDataGridViewTextBoxColumn,
@@ -170,6 +172,16 @@
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(815, 496);
             this.dataGridView1.TabIndex = 5;
+            // 
+            // poorderBindingSource
+            // 
+            this.poorderBindingSource.DataMember = "po_order";
+            this.poorderBindingSource.DataSource = this.npos_dbDataSet;
+            // 
+            // npos_dbDataSet
+            // 
+            this.npos_dbDataSet.DataSetName = "npos_dbDataSet";
+            this.npos_dbDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // btnReprintPO
             // 
@@ -194,16 +206,6 @@
             this.dateTimePicker1.Size = new System.Drawing.Size(102, 23);
             this.dateTimePicker1.TabIndex = 7;
             this.dateTimePicker1.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
-            // 
-            // poorderBindingSource
-            // 
-            this.poorderBindingSource.DataMember = "po_order";
-            this.poorderBindingSource.DataSource = this.npos_dbDataSet;
-            // 
-            // npos_dbDataSet
-            // 
-            this.npos_dbDataSet.DataSetName = "npos_dbDataSet";
-            this.npos_dbDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // po_orderTableAdapter
             // 
@@ -273,6 +275,14 @@
             this.poprintedDataGridViewTextBoxColumn.Name = "poprintedDataGridViewTextBoxColumn";
             this.poprintedDataGridViewTextBoxColumn.ReadOnly = true;
             this.poprintedDataGridViewTextBoxColumn.Width = 50;
+            // 
+            // po_warehouse
+            // 
+            this.po_warehouse.DataPropertyName = "po_warehouse";
+            this.po_warehouse.HeaderText = "Designated Warehouse";
+            this.po_warehouse.Name = "po_warehouse";
+            this.po_warehouse.ReadOnly = true;
+            this.po_warehouse.Width = 250;
             // 
             // pocarrierDataGridViewTextBoxColumn
             // 
@@ -361,6 +371,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn suppliernameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn pototalamtDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn poprintedDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn po_warehouse;
         private System.Windows.Forms.DataGridViewTextBoxColumn pocarrierDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn postatusDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn podaterDataGridViewTextBoxColumn;

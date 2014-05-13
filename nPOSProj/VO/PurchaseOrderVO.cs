@@ -21,6 +21,9 @@ namespace nPOSProj.VO
         private Double _order_unitcost;
         private Double _order_amount;
         private Double _po_total_amt;
+        private String _po_warehouse;
+        private String _po_carrier;
+        private String _po_remarks;
 
         public PurchaseOrderVO()
         {
@@ -90,6 +93,21 @@ namespace nPOSProj.VO
         {
             get { return _po_total_amt; }
             set { _po_total_amt = value; }
+        }
+        public String po_warehouse
+        {
+            get { return _po_warehouse; }
+            set { _po_warehouse = value; }
+        }
+        public String po_carrier
+        {
+            get { return _po_carrier; }
+            set { _po_carrier = value; }
+        }
+        public String po_remarks
+        {
+            get { return _po_remarks; }
+            set { _po_remarks = value; }
         }
         
         public Int32 askPOno()
@@ -168,7 +186,17 @@ namespace nPOSProj.VO
         public void PO_Issue()
         {
             podao = new DAO.PurchaseOrderDAO();
-            podao.IssuePO(po_no, po_date, po_time, supplier_code, user_name);
+            podao.IssuePO(po_no, po_date, po_time, supplier_code, po_remarks, user_name);
+        }
+        public void PO_Update()
+        {
+            podao = new DAO.PurchaseOrderDAO();
+            podao.UpdatePO(po_no, supplier_code, po_warehouse, po_carrier, po_remarks, user_name);
+        }
+        public void PO_Delete()
+        {
+            podao = new DAO.PurchaseOrderDAO();
+            podao.DeletePO(po_no, supplier_code);
         }
         public void OrderItemsToPO()
         {

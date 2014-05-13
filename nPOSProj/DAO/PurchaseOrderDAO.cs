@@ -309,13 +309,13 @@ namespace nPOSProj.DAO
         {
             return stock_uom;
         }
-        public void IssuePO(Int32 po_no, String po_date, String po_time, String supplier_code, String user_name)
+        public void IssuePO(Int32 po_no, String po_date, String po_time, String supplier_code, String po_remarks, String user_name)
         {
             con = new MySqlConnection();
             dbcon = new Conf.dbs();
             con.ConnectionString = dbcon.getConnectionString();
-            String query = "INSERT INTO po_order (po_no, po_date, po_time, supplier_code, user_name) VALUES";
-            query += "(?po_no, ?po_date, ?po_time, ?supplier_code, ?user_name)";
+            String query = "INSERT INTO po_order (po_no, po_date, po_time, supplier_code, po_remarks, user_name) VALUES";
+            query += "(?po_no, ?po_date, ?po_time, ?supplier_code, ?po_remarks, ?user_name)";
             try
             {
                 con.Open();
@@ -323,10 +323,61 @@ namespace nPOSProj.DAO
                 cmd.Parameters.AddWithValue("?po_no", po_no);
                 cmd.Parameters.AddWithValue("?po_date", po_date);
                 cmd.Parameters.AddWithValue("?po_time", po_time);
+                cmd.Parameters.AddWithValue("?po_remarks", po_remarks);
                 cmd.Parameters.AddWithValue("?user_name", user_name);
                 cmd.Parameters.AddWithValue("?supplier_code", supplier_code);
                 cmd.ExecuteNonQuery();
                 cmd.Dispose();
+            }
+            finally
+            {
+                con.Close();
+            }
+        }
+        public void UpdatePO(Int32 po_no, String supplier_code, String po_warehouse, String po_carrier, String po_remarks, String user_name)
+        {
+            con = new MySqlConnection();
+            dbcon = new Conf.dbs();
+            con.ConnectionString = dbcon.getConnectionString();
+            String query = "UPDATE po_order SET po_warehouse = ?po_warehouse, po_carrier = ?po_carrier, po_remarks = ?po_remarks, user_name = ?user_name ";
+            query += "WHERE po_no = ?po_no AND supplier_code = ?supplier_code";
+            try
+            {
+                con.Open();
+                MySqlCommand cmd = new MySqlCommand(query, con);
+                cmd.Parameters.AddWithValue("?po_warehouse", po_warehouse);
+                cmd.Parameters.AddWithValue("?po_carrier", po_carrier);
+                cmd.Parameters.AddWithValue("?po_remarks", po_remarks);
+                cmd.Parameters.AddWithValue("?user_name", user_name);
+                cmd.Parameters.AddWithValue("?po_no", po_no);
+                cmd.Parameters.AddWithValue("?supplier_code", supplier_code);
+                cmd.ExecuteNonQuery();
+                cmd.Dispose();
+            }
+            finally
+            {
+                con.Close();
+            }
+        }
+        public void DeletePO(Int32 po_no, String supplier_code)
+        {
+            con = new MySqlConnection();
+            dbcon = new Conf.dbs();
+            con.ConnectionString = dbcon.getConnectionString();
+            String query = "DELETE FROM po_order WHERE po_no = ?po_no AND supplier_code = ?supplier_code";
+            String query1 = "DELETE FROM po_order_list WHERE po_no = ?po_no";
+            try
+            {
+                con.Open();
+                MySqlCommand cmd = new MySqlCommand(query, con);
+                MySqlCommand cmd1 = new MySqlCommand(query1, con);
+                cmd.Parameters.AddWithValue("?po_no", po_no);
+                cmd.Parameters.AddWithValue("?supplier_code", supplier_code);
+                cmd1.Parameters.AddWithValue("?po_no", po_no);
+                cmd.ExecuteNonQuery();
+                cmd1.ExecuteNonQuery();
+                cmd.Dispose();
+                cmd1.Dispose();
             }
             finally
             {

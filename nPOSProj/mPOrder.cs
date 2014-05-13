@@ -625,5 +625,34 @@ namespace nPOSProj
                 btnUpdate.Enabled = false;
             }
         }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                po.po_no = Convert.ToInt32(rdPOno.Text);
+                po.supplier_code = txtBoxSupplierCode.Text;
+                po.po_warehouse = cBoxWarehouse.Text;
+                po.po_carrier = cBoxCourier.Text;
+                po.po_remarks = txtBoxRemarks.Text;
+                po.user_name = rdOrderedBy.Text;
+                po.PO_Update();
+                btnSave.Enabled = false;
+                //Controls
+                groupBox1.Enabled = false;
+                txtBoxRemarks.ReadOnly = true;
+                cBoxWarehouse.Enabled = false;
+                cBoxCourier.Enabled = false;
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Check Server If Active", "Alert", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+        }
     }
 }

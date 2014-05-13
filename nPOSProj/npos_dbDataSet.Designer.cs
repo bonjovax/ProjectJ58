@@ -1811,6 +1811,8 @@ namespace nPOSProj {
             
             private global::System.Data.DataColumn columnuser_name;
             
+            private global::System.Data.DataColumn columnpo_warehouse;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public po_orderDataTable() {
@@ -1942,6 +1944,14 @@ namespace nPOSProj {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn po_warehouseColumn {
+                get {
+                    return this.columnpo_warehouse;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -1977,7 +1987,7 @@ namespace nPOSProj {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public po_orderRow Addpo_orderRow(int po_no, System.DateTime po_date, string po_time, string supplier_code, double po_total_amt, string po_printed, string po_carrier, string po_status, System.DateTime po_date_r, string po_time_r, string supplier_name, string user_name) {
+            public po_orderRow Addpo_orderRow(int po_no, System.DateTime po_date, string po_time, string supplier_code, double po_total_amt, string po_printed, string po_carrier, string po_status, System.DateTime po_date_r, string po_time_r, string supplier_name, string user_name, string po_warehouse) {
                 po_orderRow rowpo_orderRow = ((po_orderRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         po_no,
@@ -1991,7 +2001,8 @@ namespace nPOSProj {
                         po_date_r,
                         po_time_r,
                         supplier_name,
-                        user_name};
+                        user_name,
+                        po_warehouse};
                 rowpo_orderRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowpo_orderRow);
                 return rowpo_orderRow;
@@ -2033,6 +2044,7 @@ namespace nPOSProj {
                 this.columnpo_time_r = base.Columns["po_time_r"];
                 this.columnsupplier_name = base.Columns["supplier_name"];
                 this.columnuser_name = base.Columns["user_name"];
+                this.columnpo_warehouse = base.Columns["po_warehouse"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2062,6 +2074,8 @@ namespace nPOSProj {
                 base.Columns.Add(this.columnsupplier_name);
                 this.columnuser_name = new global::System.Data.DataColumn("user_name", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnuser_name);
+                this.columnpo_warehouse = new global::System.Data.DataColumn("po_warehouse", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnpo_warehouse);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnpo_no}, true));
                 this.columnpo_no.AllowDBNull = false;
@@ -3106,6 +3120,22 @@ namespace nPOSProj {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string po_warehouse {
+                get {
+                    try {
+                        return ((string)(this[this.tablepo_order.po_warehouseColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'po_warehouse\' in table \'po_order\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablepo_order.po_warehouseColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool Ispo_dateNull() {
                 return this.IsNull(this.tablepo_order.po_dateColumn);
             }
@@ -3222,6 +3252,18 @@ namespace nPOSProj {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void Setuser_nameNull() {
                 this[this.tablepo_order.user_nameColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool Ispo_warehouseNull() {
+                return this.IsNull(this.tablepo_order.po_warehouseColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void Setpo_warehouseNull() {
+                this[this.tablepo_order.po_warehouseColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -6716,6 +6758,7 @@ WHERE        (stock_id = @stock_id) AND (stock_code = @stock_code)";
             tableMapping.ColumnMappings.Add("po_time_r", "po_time_r");
             tableMapping.ColumnMappings.Add("supplier_name", "supplier_name");
             tableMapping.ColumnMappings.Add("user_name", "user_name");
+            tableMapping.ColumnMappings.Add("po_warehouse", "po_warehouse");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -6733,7 +6776,7 @@ WHERE        (stock_id = @stock_id) AND (stock_code = @stock_code)";
             this._commandCollection[0] = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = @"SELECT        po_order.po_no, po_order.po_date, po_order.po_time, inventory_supplier.supplier_code, inventory_supplier.supplier_name, po_order.po_total_amt, po_order.po_printed, po_order.po_carrier, po_order.po_status, 
-                         po_order.po_date_r, po_order.po_time_r, po_order.user_name
+                         po_order.po_date_r, po_order.po_time_r, po_order.user_name, po_order.po_warehouse
 FROM            po_order INNER JOIN
                          inventory_supplier ON po_order.supplier_code = inventory_supplier.supplier_code
 WHERE        (po_order.po_date = @po_date)";
