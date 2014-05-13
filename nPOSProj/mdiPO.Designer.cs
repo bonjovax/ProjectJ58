@@ -59,6 +59,7 @@
             this.podaterDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.potimerDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.user_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnPrint = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.poorderBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.npos_dbDataSet)).BeginInit();
@@ -172,6 +173,7 @@
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(815, 496);
             this.dataGridView1.TabIndex = 5;
+            this.dataGridView1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellDoubleClick);
             // 
             // poorderBindingSource
             // 
@@ -188,7 +190,7 @@
             this.btnReprintPO.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnReprintPO.Image = ((System.Drawing.Image)(resources.GetObject("btnReprintPO.Image")));
             this.btnReprintPO.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnReprintPO.Location = new System.Drawing.Point(381, 1);
+            this.btnReprintPO.Location = new System.Drawing.Point(469, 1);
             this.btnReprintPO.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnReprintPO.Name = "btnReprintPO";
             this.btnReprintPO.Size = new System.Drawing.Size(103, 32);
@@ -196,6 +198,7 @@
             this.btnReprintPO.Text = "&Reprint P.O";
             this.btnReprintPO.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnReprintPO.UseVisualStyleBackColor = true;
+            this.btnReprintPO.Visible = false;
             // 
             // dateTimePicker1
             // 
@@ -323,11 +326,26 @@
             this.user_name.Name = "user_name";
             this.user_name.ReadOnly = true;
             // 
+            // btnPrint
+            // 
+            this.btnPrint.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPrint.Image = ((System.Drawing.Image)(resources.GetObject("btnPrint.Image")));
+            this.btnPrint.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnPrint.Location = new System.Drawing.Point(381, 1);
+            this.btnPrint.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnPrint.Name = "btnPrint";
+            this.btnPrint.Size = new System.Drawing.Size(88, 32);
+            this.btnPrint.TabIndex = 8;
+            this.btnPrint.Text = "&Print P.O";
+            this.btnPrint.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnPrint.UseVisualStyleBackColor = true;
+            // 
             // mdiPO
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(820, 532);
+            this.Controls.Add(this.btnPrint);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.btnReprintPO);
@@ -377,5 +395,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn podaterDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn potimerDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn user_name;
+        private System.Windows.Forms.Button btnPrint;
     }
 }

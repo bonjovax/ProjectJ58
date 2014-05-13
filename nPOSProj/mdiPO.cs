@@ -40,5 +40,11 @@ namespace nPOSProj
         {
             this.po_orderTableAdapter.Fill(this.npos_dbDataSet.po_order, Convert.ToDateTime(dateTimePicker1.Text));
         }
+
+        private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            mEditPO edit = new mEditPO();
+            edit.ShowDialog();
+        }
     }
 }
