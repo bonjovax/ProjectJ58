@@ -405,10 +405,6 @@ namespace nPOSProj
         {
             checkifTheSameStockToQty();
             CheckIfStockCodePrevent();
-            if (txtBoxStockCode.Text == supplier_code && txtBoxStockCode.Text == dataGridView1.SelectedRows[0].Cells[1].Value.ToString())
-            {
-                btnAdd.Enabled = false;
-            }
             if (txtBoxStockCode.Text == "")
             {
                 txtBoxQty.Text = "0";
