@@ -6779,7 +6779,8 @@ WHERE        (stock_id = @stock_id) AND (stock_code = @stock_code)";
                          po_order.po_date_r, po_order.po_time_r, po_order.user_name, po_order.po_warehouse
 FROM            po_order INNER JOIN
                          inventory_supplier ON po_order.supplier_code = inventory_supplier.supplier_code
-WHERE        (po_order.po_date = @po_date)";
+WHERE        (po_order.po_date = @po_date) AND (po_order.po_printed = 'No') AND (po_order.po_status = 'Unfinish')
+ORDER BY po_order.po_no";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             global::MySql.Data.MySqlClient.MySqlParameter param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@po_date";
