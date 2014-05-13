@@ -29,11 +29,11 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(mEditPO));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -47,8 +47,6 @@
             this.rdPOno = new System.Windows.Forms.TextBox();
             this.dt = new System.Windows.Forms.DateTimePicker();
             this.txtBoxRemarks = new System.Windows.Forms.TextBox();
-            this.cBoxCourier = new System.Windows.Forms.ComboBox();
-            this.cBoxWarehouse = new System.Windows.Forms.ComboBox();
             this.rdOrderedBy = new System.Windows.Forms.TextBox();
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
@@ -76,6 +74,8 @@
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.rdWarehouse = new System.Windows.Forms.TextBox();
+            this.rdCarrier = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -154,17 +154,21 @@
             // 
             // txtBoxSupplierName
             // 
+            this.txtBoxSupplierName.BackColor = System.Drawing.Color.White;
             this.txtBoxSupplierName.Location = new System.Drawing.Point(174, 37);
             this.txtBoxSupplierName.MaxLength = 100;
             this.txtBoxSupplierName.Name = "txtBoxSupplierName";
+            this.txtBoxSupplierName.ReadOnly = true;
             this.txtBoxSupplierName.Size = new System.Drawing.Size(278, 23);
             this.txtBoxSupplierName.TabIndex = 23;
             // 
             // txtBoxSupplierCode
             // 
+            this.txtBoxSupplierCode.BackColor = System.Drawing.Color.White;
             this.txtBoxSupplierCode.Location = new System.Drawing.Point(70, 37);
             this.txtBoxSupplierCode.MaxLength = 9;
             this.txtBoxSupplierCode.Name = "txtBoxSupplierCode";
+            this.txtBoxSupplierCode.ReadOnly = true;
             this.txtBoxSupplierCode.Size = new System.Drawing.Size(100, 23);
             this.txtBoxSupplierCode.TabIndex = 22;
             // 
@@ -197,40 +201,6 @@
             this.txtBoxRemarks.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.txtBoxRemarks.Size = new System.Drawing.Size(337, 64);
             this.txtBoxRemarks.TabIndex = 28;
-            // 
-            // cBoxCourier
-            // 
-            this.cBoxCourier.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cBoxCourier.Enabled = false;
-            this.cBoxCourier.FormattingEnabled = true;
-            this.cBoxCourier.Items.AddRange(new object[] {
-            "LBC",
-            "JRS Express",
-            "2GO",
-            "Lite Ferries",
-            "DHL",
-            "FedEx",
-            "Mersk",
-            "FJP Shipping",
-            "Oceanjet",
-            "Cokaliong Shipping Lines",
-            "Trans-Asia Shipping Lines",
-            "Philippine Span Asia Carrier Corp"});
-            this.cBoxCourier.Location = new System.Drawing.Point(483, 141);
-            this.cBoxCourier.Name = "cBoxCourier";
-            this.cBoxCourier.Size = new System.Drawing.Size(133, 24);
-            this.cBoxCourier.TabIndex = 31;
-            // 
-            // cBoxWarehouse
-            // 
-            this.cBoxWarehouse.DisplayMember = "warehouse_name";
-            this.cBoxWarehouse.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cBoxWarehouse.Enabled = false;
-            this.cBoxWarehouse.FormattingEnabled = true;
-            this.cBoxWarehouse.Location = new System.Drawing.Point(483, 115);
-            this.cBoxWarehouse.Name = "cBoxWarehouse";
-            this.cBoxWarehouse.Size = new System.Drawing.Size(133, 24);
-            this.cBoxWarehouse.TabIndex = 30;
             // 
             // rdOrderedBy
             // 
@@ -485,14 +455,14 @@
             this.Column3,
             this.Column4,
             this.Column5});
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle5;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.dataGridView1.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter;
             this.dataGridView1.Location = new System.Drawing.Point(0, 295);
@@ -505,8 +475,8 @@
             // 
             // dgQTY
             // 
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dgQTY.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dgQTY.DefaultCellStyle = dataGridViewCellStyle1;
             this.dgQTY.HeaderText = "Qty";
             this.dgQTY.Name = "dgQTY";
             this.dgQTY.ReadOnly = true;
@@ -521,8 +491,8 @@
             // 
             // Unit
             // 
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.Unit.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.Unit.DefaultCellStyle = dataGridViewCellStyle2;
             this.Unit.HeaderText = "UOM";
             this.Unit.Name = "Unit";
             this.Unit.ReadOnly = true;
@@ -536,10 +506,10 @@
             // 
             // Column4
             // 
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle8.Format = "N2";
-            dataGridViewCellStyle8.NullValue = null;
-            this.Column4.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.Format = "N2";
+            dataGridViewCellStyle3.NullValue = null;
+            this.Column4.DefaultCellStyle = dataGridViewCellStyle3;
             this.Column4.HeaderText = "Unit Price";
             this.Column4.Name = "Column4";
             this.Column4.ReadOnly = true;
@@ -547,26 +517,44 @@
             // 
             // Column5
             // 
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle9.Format = "N2";
-            dataGridViewCellStyle9.NullValue = null;
-            this.Column5.DefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.Format = "N2";
+            dataGridViewCellStyle4.NullValue = null;
+            this.Column5.DefaultCellStyle = dataGridViewCellStyle4;
             this.Column5.HeaderText = "Amount";
             this.Column5.Name = "Column5";
             this.Column5.ReadOnly = true;
             this.Column5.Width = 90;
+            // 
+            // rdWarehouse
+            // 
+            this.rdWarehouse.BackColor = System.Drawing.Color.White;
+            this.rdWarehouse.Location = new System.Drawing.Point(483, 115);
+            this.rdWarehouse.Name = "rdWarehouse";
+            this.rdWarehouse.ReadOnly = true;
+            this.rdWarehouse.Size = new System.Drawing.Size(133, 23);
+            this.rdWarehouse.TabIndex = 36;
+            // 
+            // rdCarrier
+            // 
+            this.rdCarrier.BackColor = System.Drawing.Color.White;
+            this.rdCarrier.Location = new System.Drawing.Point(483, 141);
+            this.rdCarrier.Name = "rdCarrier";
+            this.rdCarrier.ReadOnly = true;
+            this.rdCarrier.Size = new System.Drawing.Size(133, 23);
+            this.rdCarrier.TabIndex = 37;
             // 
             // mEditPO
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(634, 510);
+            this.Controls.Add(this.rdCarrier);
+            this.Controls.Add(this.rdWarehouse);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnSave);
-            this.Controls.Add(this.cBoxCourier);
-            this.Controls.Add(this.cBoxWarehouse);
             this.Controls.Add(this.rdOrderedBy);
             this.Controls.Add(this.txtBoxRemarks);
             this.Controls.Add(this.dt);
@@ -611,8 +599,6 @@
         private System.Windows.Forms.TextBox rdPOno;
         private System.Windows.Forms.DateTimePicker dt;
         private System.Windows.Forms.TextBox txtBoxRemarks;
-        private System.Windows.Forms.ComboBox cBoxCourier;
-        private System.Windows.Forms.ComboBox cBoxWarehouse;
         private System.Windows.Forms.TextBox rdOrderedBy;
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Button btnSave;
@@ -640,5 +626,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
+        private System.Windows.Forms.TextBox rdWarehouse;
+        private System.Windows.Forms.TextBox rdCarrier;
     }
 }
