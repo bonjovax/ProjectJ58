@@ -28,12 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(mEditPO));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -74,10 +75,15 @@
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.rdWarehouse = new System.Windows.Forms.TextBox();
-            this.rdCarrier = new System.Windows.Forms.TextBox();
+            this.cBoxCourier = new System.Windows.Forms.ComboBox();
+            this.cBoxWarehouse = new System.Windows.Forms.ComboBox();
+            this.inventorywarehouseBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.npos_dbDataSet = new nPOSProj.npos_dbDataSet();
+            this.inventory_warehouseTableAdapter = new nPOSProj.npos_dbDataSetTableAdapters.inventory_warehouseTableAdapter();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.inventorywarehouseBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.npos_dbDataSet)).BeginInit();
             this.SuspendLayout();
             // 
             // label8
@@ -217,7 +223,6 @@
             // 
             // btnCancel
             // 
-            this.btnCancel.Enabled = false;
             this.btnCancel.Image = ((System.Drawing.Image)(resources.GetObject("btnCancel.Image")));
             this.btnCancel.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btnCancel.Location = new System.Drawing.Point(562, 169);
@@ -227,6 +232,7 @@
             this.btnCancel.Text = "&Exit";
             this.btnCancel.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // btnSave
             // 
@@ -239,6 +245,7 @@
             this.btnSave.Text = "&Save";
             this.btnSave.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // groupBox1
             // 
@@ -291,6 +298,7 @@
             this.txtBoxUQTY.Text = "0";
             this.txtBoxUQTY.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtBoxUQTY.Visible = false;
+            this.txtBoxUQTY.TextChanged += new System.EventHandler(this.txtBoxUQTY_TextChanged);
             // 
             // btnUpdate
             // 
@@ -304,6 +312,7 @@
             this.btnUpdate.TabIndex = 18;
             this.btnUpdate.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnUpdate.UseVisualStyleBackColor = true;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
             // btnAdd
             // 
@@ -317,6 +326,7 @@
             this.btnAdd.TabIndex = 17;
             this.btnAdd.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // rdTotal
             // 
@@ -343,6 +353,7 @@
             this.btnDelete.TabIndex = 15;
             this.btnDelete.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // txtBoxUnitPrice
             // 
@@ -395,6 +406,7 @@
             this.txtBoxQty.TabIndex = 11;
             this.txtBoxQty.Text = "0";
             this.txtBoxQty.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtBoxQty.TextChanged += new System.EventHandler(this.txtBoxQty_TextChanged);
             // 
             // label11
             // 
@@ -414,6 +426,8 @@
             this.txtBoxParticulars.ReadOnly = true;
             this.txtBoxParticulars.Size = new System.Drawing.Size(263, 23);
             this.txtBoxParticulars.TabIndex = 13;
+            this.txtBoxParticulars.TextChanged += new System.EventHandler(this.txtBoxParticulars_TextChanged);
+            this.txtBoxParticulars.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtBoxParticulars_KeyDown);
             // 
             // label10
             // 
@@ -434,6 +448,7 @@
             this.txtBoxStockCode.Size = new System.Drawing.Size(117, 23);
             this.txtBoxStockCode.TabIndex = 10;
             this.txtBoxStockCode.TextChanged += new System.EventHandler(this.txtBoxStockCode_TextChanged);
+            this.txtBoxStockCode.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtBoxStockCode_KeyDown);
             // 
             // label9
             // 
@@ -457,14 +472,14 @@
             this.Column3,
             this.Column4,
             this.Column5});
-            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle15.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle15.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle15.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle15;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle10;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.dataGridView1.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter;
             this.dataGridView1.Location = new System.Drawing.Point(0, 295);
@@ -474,11 +489,12 @@
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(634, 215);
             this.dataGridView1.TabIndex = 35;
+            this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             // 
             // dgQTY
             // 
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dgQTY.DefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dgQTY.DefaultCellStyle = dataGridViewCellStyle6;
             this.dgQTY.HeaderText = "Qty";
             this.dgQTY.Name = "dgQTY";
             this.dgQTY.ReadOnly = true;
@@ -493,8 +509,8 @@
             // 
             // Unit
             // 
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.Unit.DefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.Unit.DefaultCellStyle = dataGridViewCellStyle7;
             this.Unit.HeaderText = "UOM";
             this.Unit.Name = "Unit";
             this.Unit.ReadOnly = true;
@@ -508,10 +524,10 @@
             // 
             // Column4
             // 
-            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle13.Format = "N2";
-            dataGridViewCellStyle13.NullValue = null;
-            this.Column4.DefaultCellStyle = dataGridViewCellStyle13;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle8.Format = "N2";
+            dataGridViewCellStyle8.NullValue = null;
+            this.Column4.DefaultCellStyle = dataGridViewCellStyle8;
             this.Column4.HeaderText = "Unit Price";
             this.Column4.Name = "Column4";
             this.Column4.ReadOnly = true;
@@ -519,40 +535,69 @@
             // 
             // Column5
             // 
-            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle14.Format = "N2";
-            dataGridViewCellStyle14.NullValue = null;
-            this.Column5.DefaultCellStyle = dataGridViewCellStyle14;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle9.Format = "N2";
+            dataGridViewCellStyle9.NullValue = null;
+            this.Column5.DefaultCellStyle = dataGridViewCellStyle9;
             this.Column5.HeaderText = "Amount";
             this.Column5.Name = "Column5";
             this.Column5.ReadOnly = true;
             this.Column5.Width = 90;
             // 
-            // rdWarehouse
+            // cBoxCourier
             // 
-            this.rdWarehouse.BackColor = System.Drawing.Color.White;
-            this.rdWarehouse.Location = new System.Drawing.Point(483, 115);
-            this.rdWarehouse.Name = "rdWarehouse";
-            this.rdWarehouse.ReadOnly = true;
-            this.rdWarehouse.Size = new System.Drawing.Size(133, 23);
-            this.rdWarehouse.TabIndex = 36;
+            this.cBoxCourier.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cBoxCourier.FormattingEnabled = true;
+            this.cBoxCourier.Items.AddRange(new object[] {
+            "LBC",
+            "JRS Express",
+            "2GO",
+            "Lite Ferries",
+            "DHL",
+            "FedEx",
+            "Mersk",
+            "FJP Shipping",
+            "Oceanjet",
+            "Cokaliong Shipping Lines",
+            "Trans-Asia Shipping Lines",
+            "Philippine Span Asia Carrier Corp"});
+            this.cBoxCourier.Location = new System.Drawing.Point(483, 141);
+            this.cBoxCourier.Name = "cBoxCourier";
+            this.cBoxCourier.Size = new System.Drawing.Size(133, 24);
+            this.cBoxCourier.TabIndex = 37;
             // 
-            // rdCarrier
+            // cBoxWarehouse
             // 
-            this.rdCarrier.BackColor = System.Drawing.Color.White;
-            this.rdCarrier.Location = new System.Drawing.Point(483, 141);
-            this.rdCarrier.Name = "rdCarrier";
-            this.rdCarrier.ReadOnly = true;
-            this.rdCarrier.Size = new System.Drawing.Size(133, 23);
-            this.rdCarrier.TabIndex = 37;
+            this.cBoxWarehouse.DataSource = this.inventorywarehouseBindingSource;
+            this.cBoxWarehouse.DisplayMember = "warehouse_name";
+            this.cBoxWarehouse.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cBoxWarehouse.FormattingEnabled = true;
+            this.cBoxWarehouse.Location = new System.Drawing.Point(483, 115);
+            this.cBoxWarehouse.Name = "cBoxWarehouse";
+            this.cBoxWarehouse.Size = new System.Drawing.Size(133, 24);
+            this.cBoxWarehouse.TabIndex = 36;
+            // 
+            // inventorywarehouseBindingSource
+            // 
+            this.inventorywarehouseBindingSource.DataMember = "inventory_warehouse";
+            this.inventorywarehouseBindingSource.DataSource = this.npos_dbDataSet;
+            // 
+            // npos_dbDataSet
+            // 
+            this.npos_dbDataSet.DataSetName = "npos_dbDataSet";
+            this.npos_dbDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // inventory_warehouseTableAdapter
+            // 
+            this.inventory_warehouseTableAdapter.ClearBeforeFill = true;
             // 
             // mEditPO
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(634, 510);
-            this.Controls.Add(this.rdCarrier);
-            this.Controls.Add(this.rdWarehouse);
+            this.Controls.Add(this.cBoxCourier);
+            this.Controls.Add(this.cBoxWarehouse);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnCancel);
@@ -584,6 +629,8 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.inventorywarehouseBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.npos_dbDataSet)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -631,7 +678,10 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
-        private System.Windows.Forms.TextBox rdWarehouse;
-        private System.Windows.Forms.TextBox rdCarrier;
+        private System.Windows.Forms.ComboBox cBoxCourier;
+        private System.Windows.Forms.ComboBox cBoxWarehouse;
+        private npos_dbDataSet npos_dbDataSet;
+        private System.Windows.Forms.BindingSource inventorywarehouseBindingSource;
+        private npos_dbDataSetTableAdapters.inventory_warehouseTableAdapter inventory_warehouseTableAdapter;
     }
 }

@@ -118,6 +118,7 @@
             // 
             // txtBoxSupplierCode
             // 
+            this.txtBoxSupplierCode.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtBoxSupplierCode.Location = new System.Drawing.Point(70, 37);
             this.txtBoxSupplierCode.MaxLength = 9;
             this.txtBoxSupplierCode.Name = "txtBoxSupplierCode";

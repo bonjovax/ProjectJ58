@@ -167,6 +167,8 @@ namespace nPOSProj
             }
             catch (Exception)
             {
+                MessageBox.Show("Please Check your Database Server Connection", "Database Server Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Application.ExitThread();
             }
         }
         
@@ -207,7 +209,10 @@ namespace nPOSProj
                 btnProceed.Enabled = false;
                 lAddress.Text = "";
             }
-            checkifTheSame();
+            else
+            {
+                btnProceed.Enabled = false;
+            }
         }
 
         private void txtBoxSupplierName_TextChanged(object sender, EventArgs e)
@@ -217,7 +222,10 @@ namespace nPOSProj
                 txtBoxSupplierCode.Clear();
                 btnProceed.Enabled = false;
             }
-            checkifTheSame();
+            else
+            {
+                btnProceed.Enabled = false;
+            }
         }
 
         public void checkifTheSame()
