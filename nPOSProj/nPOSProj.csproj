@@ -89,6 +89,12 @@
     <Compile Include="mdiPO.Designer.cs">
       <DependentUpon>mdiPO.cs</DependentUpon>
     </Compile>
+    <Compile Include="mdiReceiving.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="mdiReceiving.Designer.cs">
+      <DependentUpon>mdiReceiving.cs</DependentUpon>
+    </Compile>
     <Compile Include="mdiResetPassword.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -137,6 +143,12 @@
     <Compile Include="mdiFrmUserAccounts.Designer.cs">
       <DependentUpon>mdiFrmUserAccounts.cs</DependentUpon>
     </Compile>
+    <Compile Include="mDuplicatePO.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="mDuplicatePO.Designer.cs">
+      <DependentUpon>mDuplicatePO.cs</DependentUpon>
+    </Compile>
     <Compile Include="mEditPO.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -178,6 +190,9 @@
     <EmbeddedResource Include="mdiPO.resx">
       <DependentUpon>mdiPO.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="mdiReceiving.resx">
+      <DependentUpon>mdiReceiving.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="mdiResetPassword.resx">
       <DependentUpon>mdiResetPassword.cs</DependentUpon>
     </EmbeddedResource>
@@ -201,6 +216,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="mdiFrmUserAccounts.resx">
       <DependentUpon>mdiFrmUserAccounts.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="mDuplicatePO.resx">
+      <DependentUpon>mDuplicatePO.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="mEditPO.resx">
       <DependentUpon>mEditPO.cs</DependentUpon>
