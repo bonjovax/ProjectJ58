@@ -24,6 +24,8 @@ namespace nPOSProj.VO
         private String _po_warehouse;
         private String _po_carrier;
         private String _po_remarks;
+        //
+        private String _old_stock_code; //for item replacement
 
         public PurchaseOrderVO()
         {
@@ -108,6 +110,11 @@ namespace nPOSProj.VO
         {
             get { return _po_remarks; }
             set { _po_remarks = value; }
+        }
+        public String old_stock_code
+        {
+            get { return _old_stock_code; }
+            set { _old_stock_code = value; }
         }
         
         public Int32 askPOno()
@@ -206,7 +213,7 @@ namespace nPOSProj.VO
         public void UpdateOrderItemsToPO()
         {
             podao = new DAO.PurchaseOrderDAO();
-            podao.UpdateOrderPO(po_no, order_quantity, order_uom, stock_code, stock_name, order_unitcost, order_amount);
+            podao.UpdateOrderPO(po_no, order_quantity, order_uom, stock_code, old_stock_code, stock_name, order_unitcost, order_amount);
         }
         public void RemoveOrderItemsInPO()
         {

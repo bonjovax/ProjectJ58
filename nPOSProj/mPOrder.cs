@@ -21,6 +21,7 @@ namespace nPOSProj
         AutoCompleteStringCollection collect2 = new AutoCompleteStringCollection();
         AutoCompleteStringCollection collect3 = new AutoCompleteStringCollection();
         private String supplier_code;
+        private String old_stock_code;
         public mPOrder()
         {
             InitializeComponent();
@@ -542,6 +543,7 @@ namespace nPOSProj
             btnUpdate.Enabled = true;
             btnDelete.Enabled = true;
             txtBoxStockCode.Text = dataGridView1.SelectedRows[0].Cells[1].Value.ToString();
+            old_stock_code = dataGridView1.SelectedRows[0].Cells[1].Value.ToString();
             txtBoxUOM.Text = dataGridView1.SelectedRows[0].Cells[2].Value.ToString();
             txtBoxParticulars.Text = dataGridView1.SelectedRows[0].Cells[3].Value.ToString();
             txtBoxUQTY.Text = dataGridView1.SelectedRows[0].Cells[0].Value.ToString();
@@ -553,38 +555,46 @@ namespace nPOSProj
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            CheckIfStockCodePrevent();
-            dataGridView1.SelectedRows[0].Cells[0].Value = txtBoxUQTY.Text;
-            dataGridView1.SelectedRows[0].Cells[1].Value = txtBoxStockCode.Text;
-            dataGridView1.SelectedRows[0].Cells[2].Value = txtBoxUOM.Text;
-            dataGridView1.SelectedRows[0].Cells[3].Value = txtBoxParticulars.Text;
-            dataGridView1.SelectedRows[0].Cells[4].Value = txtBoxUnitPrice.Text;
-            dataGridView1.SelectedRows[0].Cells[5].Value = rdTotal.Text;
-            po.po_no = Convert.ToInt32(rdPOno.Text);
-            po.order_quantity = Convert.ToInt32(txtBoxUQTY.Text);
-            po.order_uom = txtBoxUOM.Text;
-            po.stock_code = txtBoxStockCode.Text;
-            po.stock_name = txtBoxParticulars.Text;
-            po.order_unitcost = Convert.ToDouble(txtBoxUnitPrice.Text);
-            po.order_amount = Convert.ToDouble(rdTotal.Text);
-            po.supplier_code = txtBoxSupplierCode.Text;
-            po.UpdateOrderItemsToPO();
-            Double sum = 0;
-            for (int i = 0; i < dataGridView1.Rows.Count; ++i)
+            try
             {
-                sum += Convert.ToDouble(dataGridView1.Rows[i].Cells[5].Value);
+                CheckIfStockCodePrevent();
+                dataGridView1.SelectedRows[0].Cells[0].Value = txtBoxUQTY.Text;
+                dataGridView1.SelectedRows[0].Cells[1].Value = txtBoxStockCode.Text;
+                dataGridView1.SelectedRows[0].Cells[2].Value = txtBoxUOM.Text;
+                dataGridView1.SelectedRows[0].Cells[3].Value = txtBoxParticulars.Text;
+                dataGridView1.SelectedRows[0].Cells[4].Value = txtBoxUnitPrice.Text;
+                dataGridView1.SelectedRows[0].Cells[5].Value = rdTotal.Text;
+                po.po_no = Convert.ToInt32(rdPOno.Text);
+                po.order_quantity = Convert.ToInt32(txtBoxUQTY.Text);
+                po.order_uom = txtBoxUOM.Text;
+                po.stock_code = txtBoxStockCode.Text;
+                po.old_stock_code = old_stock_code;
+                po.stock_name = txtBoxParticulars.Text;
+                po.order_unitcost = Convert.ToDouble(txtBoxUnitPrice.Text);
+                po.order_amount = Convert.ToDouble(rdTotal.Text);
+                po.supplier_code = txtBoxSupplierCode.Text;
+                po.UpdateOrderItemsToPO();
+                Double sum = 0;
+                for (int i = 0; i < dataGridView1.Rows.Count; ++i)
+                {
+                    sum += Convert.ToDouble(dataGridView1.Rows[i].Cells[5].Value);
+                }
+                po.po_total_amt = sum;
+                po.updateTotalAmountMain();
+                btnAdd.Enabled = false;
+                txtBoxParticulars.Clear();
+                txtBoxStockCode.Clear();
+                txtBoxStockCode.Focus();
+                txtBoxUQTY.Visible = false;
+                txtBoxQty.Visible = true;
+                txtBoxUQTY.Text = "0";
+                txtBoxUQTY.ReadOnly = true;
+                btnUpdate.Enabled = false;
             }
-            po.po_total_amt = sum;
-            po.updateTotalAmountMain();
-            btnAdd.Enabled = false;
-            txtBoxParticulars.Clear();
-            txtBoxStockCode.Clear();
-            txtBoxStockCode.Focus();
-            txtBoxUQTY.Visible = false;
-            txtBoxQty.Visible = true;
-            txtBoxUQTY.Text = "0";
-            txtBoxUQTY.ReadOnly = true;
-            btnUpdate.Enabled = false;
+            catch (Exception)
+            {
+                MessageBox.Show("You have no available Data on the DataView for update. Or Check Server If Active", "Alert", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
         }
 
         private void btnDelete_Click(object sender, EventArgs e)

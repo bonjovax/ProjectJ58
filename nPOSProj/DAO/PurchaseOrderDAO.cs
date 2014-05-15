@@ -439,14 +439,14 @@ namespace nPOSProj.DAO
             return order_amount;
         }
         //
-        public void UpdateOrderPO(Int32 po_no, Int32 order_quantity, String order_uom, String order_suppliers_itemno, String order_description, Double order_unitcost, Double order_amount)
+        public void UpdateOrderPO(Int32 po_no, Int32 order_quantity, String order_uom, String order_suppliers_itemno, String old_stock_code, String order_description, Double order_unitcost, Double order_amount)
         {
             con = new MySqlConnection();
             dbcon = new Conf.dbs();
             con.ConnectionString = dbcon.getConnectionString();
             String query = "UPDATE po_order_list SET ";
             query += "order_quantity = ?order_quantity, order_uom = ?order_uom, order_suppliers_itemno = ?order_suppliers_itemno, order_description = ?order_description, order_unitcost = ?order_unitcost, order_amount = ?order_amount ";
-            query += "WHERE po_no = ?po_no";
+            query += "WHERE po_no = ?po_no AND order_suppliers_itemno = ?old_stock_code";
             try
             {
                 con.Open();
@@ -458,6 +458,7 @@ namespace nPOSProj.DAO
                 cmd.Parameters.AddWithValue("?order_description", order_description);
                 cmd.Parameters.AddWithValue("?order_unitcost", order_unitcost);
                 cmd.Parameters.AddWithValue("?order_amount", order_amount);
+                cmd.Parameters.AddWithValue("?old_stock_code", old_stock_code);
                 cmd.ExecuteNonQuery();
                 cmd.Dispose();
             }
