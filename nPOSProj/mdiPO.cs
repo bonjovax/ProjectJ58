@@ -54,7 +54,7 @@ namespace nPOSProj
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            btnDuplicate.Enabled = true;
+            
         }
     }
 }
