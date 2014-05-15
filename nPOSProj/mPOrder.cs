@@ -165,6 +165,7 @@ namespace nPOSProj
                 {
                     supplier_code = "";
                 }
+                con.Close();
             }
             catch (Exception)
             {
@@ -292,6 +293,7 @@ namespace nPOSProj
                     txtBoxUnitPrice.Text = "0.00";
                     txtBoxUOM.Clear();
                 }
+                con.Close();
             }
             catch (Exception)
             {
@@ -551,12 +553,18 @@ namespace nPOSProj
             txtBoxQty.Visible = false;
             txtBoxUQTY.Visible = true;
             txtBoxUQTY.ReadOnly = false;
+            //New
+            txtBoxStockCode.ReadOnly = true;
+            txtBoxParticulars.ReadOnly = true;
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
             try
             {
+                //New
+                txtBoxStockCode.ReadOnly = false;
+                txtBoxParticulars.ReadOnly = false;
                 CheckIfStockCodePrevent();
                 dataGridView1.SelectedRows[0].Cells[0].Value = txtBoxUQTY.Text;
                 dataGridView1.SelectedRows[0].Cells[1].Value = txtBoxStockCode.Text;
