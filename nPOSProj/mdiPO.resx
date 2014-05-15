@@ -147,20 +147,6 @@
         UjxKMYdi9v8EP39G3DW+UkycVismTK0Ro7Nfp7HJFLfBhfgX0lYbhY2FJWkAAAAASUVORK5CYII=
 </value>
   </data>
-  <data name="btnDuplicate.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAftJREFUSEud
-        VUluAjEQJBFM5pZ/cEBRrjkg8RNOKJ+AU76RPyTiiriAWP6QC4h9BwFikZ2uwR61wWOWlkrTPb1Ut6et
-        id0pCYIfAfgeF8/zkrlc7rtQKPzaAJ/v+0kVfrckUGA+n8tutyt6vV741Dp8iEHsKcUUj2AbW+MVXaLQ
-        brezAj7EqHhDvHQ6/cXHtaFcLv+hWxTb7/fhU+vwIY7qXRD4cEwmE9Hv96WCVW+1WpEE8DsJBoOBdXQN
-        KuQE8p0Ew+EQgUFHKsnQD4dDANj8qfXRaOSeYDweGwk2XdvL5VI2m01B30UqiGKxKLPZbIXqZQhv8Xg8
-        JAq/AZKvAcdVKpUE4jebjRXtdnuZSqU+n0hCgtlsxjuN0uVqtRKNRgP7L2hqqWDo2Kh8Pv9DtV8MAnRX
-        r9cxeiTQfbVaDfaeLwHH+Z0ICOgmCupOojsEbbdbqcD10O50OjgyfJOLlT2/EwHBYrEIxqzVasHu0xlL
-        Ba5zO5KAVvaSAGeN7cAEjpXldlSMoHyD4JnwTvggZMhRoZ1GwsNAPifgEkyDTdBbgwStc5u/P9dxhE6C
-        6XTKixoEzI6KEZTvJlB34mEg30mAlT0ejxJAgta5zd+f6/j5OAmwsrZkbrsIKN9NsF6vEYS1fQjIjyK4
-        6e92C1AH9U5lTbn2f74VVCcW+wdHxpwopFEvcgAAAABJRU5ErkJggg==
-</value>
-  </data>
   <data name="btnFilter.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAA11JREFUSEut
@@ -234,6 +220,9 @@
   </metadata>
   <metadata name="poorderBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>158, 17</value>
+  </metadata>
+  <metadata name="npos_dbDataSet.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
   </metadata>
   <metadata name="npos_dbDataSet.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>

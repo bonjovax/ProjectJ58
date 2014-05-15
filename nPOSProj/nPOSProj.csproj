@@ -143,12 +143,6 @@
     <Compile Include="mdiFrmUserAccounts.Designer.cs">
       <DependentUpon>mdiFrmUserAccounts.cs</DependentUpon>
     </Compile>
-    <Compile Include="mDuplicatePO.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="mDuplicatePO.Designer.cs">
-      <DependentUpon>mDuplicatePO.cs</DependentUpon>
-    </Compile>
     <Compile Include="mEditPO.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -216,9 +210,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="mdiFrmUserAccounts.resx">
       <DependentUpon>mdiFrmUserAccounts.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="mDuplicatePO.resx">
-      <DependentUpon>mDuplicatePO.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="mEditPO.resx">
       <DependentUpon>mEditPO.cs</DependentUpon>

@@ -52,17 +52,6 @@ namespace nPOSProj
             }
         }
 
-        private void btnDuplicate_Click(object sender, EventArgs e)
-        {
-            using (mDuplicatePO copy = new mDuplicatePO())
-            {
-                copy.orderPO(Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[0].Value.ToString()));
-                copy.ShowDialog();
-                var poDate = copy.PurchaseOrderDate;
-                this.po_orderTableAdapter.Fill(this.npos_dbDataSet.po_order, Convert.ToDateTime(poDate));
-            }
-        }
-
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             btnDuplicate.Enabled = true;
