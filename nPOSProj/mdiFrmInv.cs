@@ -17,6 +17,7 @@ namespace nPOSProj
         private mdiSupplier msupplier = new mdiSupplier();
         private mdiStocks mstocks = new mdiStocks();
         private mdiCategory mcat = new mdiCategory();
+        private mdiReceiving receive = new mdiReceiving();
         private mdiPO po = new mdiPO();
         public mdiFrmInv()
         {
@@ -151,6 +152,16 @@ namespace nPOSProj
                 po = new mdiPO();
                 po.MdiParent = this;
                 po.Show();
+            }
+        }
+
+        private void tsReceiving_Click(object sender, EventArgs e)
+        {
+            if (ActivateThisChild("mdiReceiving") == false)
+            {
+                receive = new mdiReceiving();
+                receive.MdiParent = this;
+                receive.Show();
             }
         }
     }

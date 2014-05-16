@@ -214,6 +214,7 @@
             this.tsReceiving.Size = new System.Drawing.Size(69, 69);
             this.tsReceiving.Text = "&Receiving";
             this.tsReceiving.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.tsReceiving.Click += new System.EventHandler(this.tsReceiving_Click);
             // 
             // toolStripSeparator1
             // 
