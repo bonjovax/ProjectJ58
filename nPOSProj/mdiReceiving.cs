@@ -59,25 +59,47 @@ namespace nPOSProj
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            getDataTable();
-            rdPONo.Text = dataGridView1.SelectedRows[0].Cells[0].Value.ToString();
-            dateTimePicker2.Text = dataGridView1.SelectedRows[0].Cells[1].Value.ToString();
-            rdSupplierCode.Text = dataGridView1.SelectedRows[0].Cells[3].Value.ToString();
-            rdSupplierName.Text = dataGridView1.SelectedRows[0].Cells[4].Value.ToString();
+            try
+            {
+                getDataTable();
+                rdPONo.Text = dataGridView1.SelectedRows[0].Cells[0].Value.ToString();
+                dateTimePicker2.Text = dataGridView1.SelectedRows[0].Cells[1].Value.ToString();
+                rdSupplierCode.Text = dataGridView1.SelectedRows[0].Cells[3].Value.ToString();
+                rdSupplierName.Text = dataGridView1.SelectedRows[0].Cells[4].Value.ToString();
+            }
+            catch (Exception)
+            {
+
+            }
         }
 
         private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
         {
+            dataGridView2.Rows.Clear();
+            rdPONo.Clear();
+            rdSupplierCode.Clear();
+            rdSupplierName.Clear();
+            rdStockCode.Clear();
+            rdParticulars.Clear();
+            txtBoxQty.Clear();
+            txtBoxQty.ReadOnly = true;
             // TODO: This line of code loads data into the 'npos_dbDataSet.po_order' table. You can move, or remove it, as needed.
             this.po_orderTableAdapter.FillByPending(this.npos_dbDataSet.po_order, Convert.ToDateTime(dateTimePicker1.Text));
         }
 
         private void dataGridView2_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            txtBoxQty.Text = dataGridView2.SelectedRows[0].Cells[0].Value.ToString();
-            rdStockCode.Text = dataGridView2.SelectedRows[0].Cells[1].Value.ToString();
-            rdParticulars.Text = dataGridView2.SelectedRows[0].Cells[3].Value.ToString();
-            txtBoxQty.ReadOnly = false;
+            try
+            {
+                txtBoxQty.Text = dataGridView2.SelectedRows[0].Cells[0].Value.ToString();
+                rdStockCode.Text = dataGridView2.SelectedRows[0].Cells[1].Value.ToString();
+                rdParticulars.Text = dataGridView2.SelectedRows[0].Cells[3].Value.ToString();
+                txtBoxQty.ReadOnly = false;
+            }
+            catch (Exception)
+            {
+
+            }
         }
 
         private void rdPONo_TextChanged(object sender, EventArgs e)
