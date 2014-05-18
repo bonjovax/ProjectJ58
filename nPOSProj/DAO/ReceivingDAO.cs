@@ -30,6 +30,10 @@ namespace nPOSProj.DAO
             try
             {
                 con.Open();
+                MySqlCommand cmd = new MySqlCommand(query, con);
+                cmd.Parameters.AddWithValue("?order_quantity", quantity);
+                cmd.Parameters.AddWithValue("?po_no", po_no);
+                cmd.Parameters.AddWithValue("?order_suppliers_itemno", order_suppliers_itemno);
             }
             finally
             {
