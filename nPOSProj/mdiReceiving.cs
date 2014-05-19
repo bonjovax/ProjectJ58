@@ -14,6 +14,7 @@ namespace nPOSProj
     {
         private Conf.dbs dbcon = new Conf.dbs();
         private MySqlConnection con = new MySqlConnection();
+        private VO.ReceivingVO rvo = new VO.ReceivingVO();
         public mdiReceiving()
         {
             InitializeComponent();
@@ -28,7 +29,7 @@ namespace nPOSProj
             String connectionString = dbcon.getConnectionString();
             String query = "SELECT order_quantity AS a, order_suppliers_itemno AS b, order_uom AS c, order_description AS d, ";
             query += "order_unitcost AS e, order_amount AS f FROM po_order_list ";
-            query += "WHERE po_no = ?po_no";
+            query += "WHERE po_no = ?po_no AND order_quantity != 0";
             using (MySqlConnection con = new MySqlConnection(connectionString))
             {
                 using (MySqlDataAdapter adapter = new MySqlDataAdapter(query, con))
@@ -134,7 +135,16 @@ namespace nPOSProj
 
         private void btnImport_Click(object sender, EventArgs e)
         {
-            txtBoxQty.ReadOnly = true;
+            rvo.po_no = Convert.ToInt32(rdPONo.Text);
+            rvo.stock_code = rdStockCode.Text;
+            rvo.quantity = Convert.ToInt32(txtBoxQty.Text);
+            rvo.ReceiveStocks();
+            rvo.askQty();
+            dataGridView2.SelectedRows[0].Cells[0].Value = rvo.askQty();
+            if (dataGridView2.SelectedRows[0].Cells[0].Value.ToString() == "0")
+            {
+                dataGridView2.Rows.RemoveAt(dataGridView2.SelectedRows[0].Index);
+            }
         }
     }
 }
