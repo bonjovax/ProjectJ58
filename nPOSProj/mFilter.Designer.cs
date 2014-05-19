@@ -67,7 +67,6 @@
             this.cBoxWarehouse.BackColor = System.Drawing.Color.White;
             this.cBoxWarehouse.DataSource = this.inventorywarehouseBindingSource;
             this.cBoxWarehouse.DisplayMember = "warehouse_name";
-            this.cBoxWarehouse.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cBoxWarehouse.FormattingEnabled = true;
             this.cBoxWarehouse.Location = new System.Drawing.Point(83, 41);
             this.cBoxWarehouse.Name = "cBoxWarehouse";
@@ -89,7 +88,6 @@
             this.cBoxSupplier.BackColor = System.Drawing.Color.White;
             this.cBoxSupplier.DataSource = this.inventorysupplierBindingSource;
             this.cBoxSupplier.DisplayMember = "supplier_name";
-            this.cBoxSupplier.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cBoxSupplier.FormattingEnabled = true;
             this.cBoxSupplier.Location = new System.Drawing.Point(83, 13);
             this.cBoxSupplier.Name = "cBoxSupplier";
