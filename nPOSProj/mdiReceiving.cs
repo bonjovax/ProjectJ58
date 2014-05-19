@@ -135,15 +135,45 @@ namespace nPOSProj
 
         private void btnImport_Click(object sender, EventArgs e)
         {
-            rvo.po_no = Convert.ToInt32(rdPONo.Text);
-            rvo.stock_code = rdStockCode.Text;
-            rvo.quantity = Convert.ToInt32(txtBoxQty.Text);
-            rvo.ReceiveStocks();
-            rvo.askQty();
-            dataGridView2.SelectedRows[0].Cells[0].Value = rvo.askQty();
-            if (dataGridView2.SelectedRows[0].Cells[0].Value.ToString() == "0")
+            try
             {
-                dataGridView2.Rows.RemoveAt(dataGridView2.SelectedRows[0].Index);
+                if (Convert.ToInt32(dataGridView2.SelectedRows[0].Cells[0].Value.ToString()) >= Convert.ToInt32(txtBoxQty.Text))
+                {
+                    if (Convert.ToInt32(txtBoxQty.Text) >= 0)
+                    {
+                        rvo.po_no = Convert.ToInt32(rdPONo.Text);
+                        rvo.stock_code = rdStockCode.Text;
+                        rvo.quantity = Convert.ToInt32(txtBoxQty.Text);
+                        rvo.ReceiveStocks();
+                        rvo.askQty();
+                        dataGridView2.SelectedRows[0].Cells[0].Value = rvo.askQty();
+                        if (dataGridView2.SelectedRows[0].Cells[0].Value.ToString() == "0")
+                        {
+                            dataGridView2.Rows.RemoveAt(dataGridView2.SelectedRows[0].Index);
+                            rdPONo.Clear();
+                            rdSupplierCode.Clear();
+                            rdSupplierName.Clear();
+                            rdStockCode.Clear();
+                            rdParticulars.Clear();
+                            txtBoxQty.Clear();
+                        }
+                        txtBoxQty.Clear();
+                        if (dataGridView2.Rows.Count == 0)
+                        {
+                            rvo.TriggerStatus();
+                            this.po_orderTableAdapter.FillByPending(this.npos_dbDataSet.po_order, Convert.ToDateTime(dateTimePicker1.Text));
+                        }
+
+                    }
+                    else
+                        MessageBox.Show("Negative Value Will Not Be Considered!", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                    MessageBox.Show("Your Input Quantity must be equal or less than your Available Ordered Quantity!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Check Server!", "Database Server", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

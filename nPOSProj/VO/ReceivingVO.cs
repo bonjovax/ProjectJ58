@@ -46,5 +46,10 @@ namespace nPOSProj.VO
             qty = rdao.aQuantity(stock_code);
             return qty;
         }
+        public void TriggerStatus()
+        {
+            rdao = new DAO.ReceivingDAO();
+            rdao.Trigger(po_no);
+        }
     }
 }
