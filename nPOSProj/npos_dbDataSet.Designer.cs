@@ -6772,7 +6772,7 @@ WHERE        (stock_id = @stock_id) AND (stock_code = @stock_code)";
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::MySql.Data.MySqlClient.MySqlCommand[2];
+            this._commandCollection = new global::MySql.Data.MySqlClient.MySqlCommand[4];
             this._commandCollection[0] = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = @"SELECT        po_order.po_no, po_order.po_date, po_order.po_time, inventory_supplier.supplier_code, inventory_supplier.supplier_name, po_order.po_total_amt, po_order.po_printed, po_order.po_carrier, po_order.po_status, 
@@ -6805,6 +6805,40 @@ ORDER BY po_order.po_no";
             param.IsNullable = true;
             param.SourceColumn = "po_date";
             this._commandCollection[1].Parameters.Add(param);
+            this._commandCollection[2] = new global::MySql.Data.MySqlClient.MySqlCommand();
+            this._commandCollection[2].Connection = this.Connection;
+            this._commandCollection[2].CommandText = @"SELECT        po_order.po_no, po_order.po_date, po_order.po_time, inventory_supplier.supplier_code, inventory_supplier.supplier_name, po_order.po_total_amt, po_order.po_printed, po_order.po_carrier, po_order.po_status, 
+                         po_order.po_date_r, po_order.po_time_r, po_order.user_name, po_order.po_warehouse
+FROM            po_order INNER JOIN
+                         inventory_supplier ON po_order.supplier_code = inventory_supplier.supplier_code
+WHERE        (po_order.po_printed = 'No') AND (po_order.po_status = 'Unfinish') AND (po_order.po_warehouse = @ware)
+ORDER BY po_order.po_no";
+            this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@ware";
+            param.DbType = global::System.Data.DbType.String;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
+            param.Size = 75;
+            param.IsNullable = true;
+            param.SourceColumn = "po_warehouse";
+            this._commandCollection[2].Parameters.Add(param);
+            this._commandCollection[3] = new global::MySql.Data.MySqlClient.MySqlCommand();
+            this._commandCollection[3].Connection = this.Connection;
+            this._commandCollection[3].CommandText = @"SELECT        po_order.po_no, po_order.po_date, po_order.po_time, inventory_supplier.supplier_code, inventory_supplier.supplier_name, po_order.po_total_amt, po_order.po_printed, po_order.po_carrier, po_order.po_status, 
+                         po_order.po_date_r, po_order.po_time_r, po_order.user_name, po_order.po_warehouse
+FROM            po_order INNER JOIN
+                         inventory_supplier ON po_order.supplier_code = inventory_supplier.supplier_code
+WHERE        (po_order.po_printed = 'No') AND (po_order.po_status = 'Unfinish') AND (po_order.supplier_code = @sup)
+ORDER BY po_order.po_no";
+            this._commandCollection[3].CommandType = global::System.Data.CommandType.Text;
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@sup";
+            param.DbType = global::System.Data.DbType.String;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
+            param.Size = 9;
+            param.IsNullable = true;
+            param.SourceColumn = "supplier_code";
+            this._commandCollection[3].Parameters.Add(param);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -6873,6 +6907,78 @@ ORDER BY po_order.po_no";
             }
             else {
                 this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
+            }
+            npos_dbDataSet.po_orderDataTable dataTable = new npos_dbDataSet.po_orderDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillByWarehouse(npos_dbDataSet.po_orderDataTable dataTable, string ware) {
+            this.Adapter.SelectCommand = this.CommandCollection[2];
+            if ((ware == null)) {
+                this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(ware));
+            }
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual npos_dbDataSet.po_orderDataTable GetWarehouseDataBy(string ware) {
+            this.Adapter.SelectCommand = this.CommandCollection[2];
+            if ((ware == null)) {
+                this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(ware));
+            }
+            npos_dbDataSet.po_orderDataTable dataTable = new npos_dbDataSet.po_orderDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillSupplierBy(npos_dbDataSet.po_orderDataTable dataTable, string sup) {
+            this.Adapter.SelectCommand = this.CommandCollection[3];
+            if ((sup == null)) {
+                this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(sup));
+            }
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual npos_dbDataSet.po_orderDataTable GetSupplierDataBy(string sup) {
+            this.Adapter.SelectCommand = this.CommandCollection[3];
+            if ((sup == null)) {
+                this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(sup));
             }
             npos_dbDataSet.po_orderDataTable dataTable = new npos_dbDataSet.po_orderDataTable();
             this.Adapter.Fill(dataTable);

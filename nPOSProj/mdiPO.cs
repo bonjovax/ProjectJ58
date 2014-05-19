@@ -29,9 +29,7 @@ namespace nPOSProj
             using (mPOrder newPO = new mPOrder())
             {
                 newPO.ShowDialog();
-
                 var poDate = newPO.PurchaseOrderDate;
-
                 this.po_orderTableAdapter.Fill(this.npos_dbDataSet.po_order, Convert.ToDateTime(poDate));
             }
         }
@@ -55,6 +53,24 @@ namespace nPOSProj
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             
+        }
+
+        private void btnFilter_Click(object sender, EventArgs e)
+        {
+            using (mFilter filter = new mFilter())
+            {
+                filter.ShowDialog();
+                var Warehouse = filter.Warehouse;
+                var Supplier = filter.Supplier;
+                if (Warehouse != "")
+                {
+                    this.po_orderTableAdapter.FillByWarehouse(this.npos_dbDataSet.po_order, Warehouse);
+                }
+                if (Supplier != "")
+                {
+                    this.po_orderTableAdapter.FillSupplierBy(this.npos_dbDataSet.po_order, Supplier);
+                }
+            }
         }
     }
 }
