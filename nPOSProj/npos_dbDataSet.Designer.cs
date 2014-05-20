@@ -6772,7 +6772,7 @@ WHERE        (stock_id = @stock_id) AND (stock_code = @stock_code)";
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::MySql.Data.MySqlClient.MySqlCommand[4];
+            this._commandCollection = new global::MySql.Data.MySqlClient.MySqlCommand[6];
             this._commandCollection[0] = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = @"SELECT        po_order.po_no, po_order.po_date, po_order.po_time, inventory_supplier.supplier_code, inventory_supplier.supplier_name, po_order.po_total_amt, po_order.po_printed, po_order.po_carrier, po_order.po_status, 
@@ -6791,44 +6791,37 @@ ORDER BY po_order.po_no";
             this._commandCollection[0].Parameters.Add(param);
             this._commandCollection[1] = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = @"SELECT        po_order.po_no, po_order.po_date, po_order.po_time, inventory_supplier.supplier_code, inventory_supplier.supplier_name, po_order.po_total_amt, po_order.po_printed, po_order.po_carrier, po_order.po_status, 
-                         po_order.po_date_r, po_order.po_time_r, po_order.user_name, po_order.po_warehouse
-FROM            po_order INNER JOIN
-                         inventory_supplier ON po_order.supplier_code = inventory_supplier.supplier_code
-WHERE        (po_order.po_printed = 'No') AND (po_order.po_status = 'Unfinish') AND (inventory_supplier.supplier_code = @supcode) AND (po_order.po_warehouse = @ware)
-ORDER BY po_order.po_no";
+            this._commandCollection[1].CommandText = "DELETE FROM po_order_list\r\nWHERE        (po_no = @po_no)";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@supcode";
+            param.ParameterName = "@po_no";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "po_no";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._commandCollection[1].Parameters.Add(param);
+            this._commandCollection[2] = new global::MySql.Data.MySqlClient.MySqlCommand();
+            this._commandCollection[2].Connection = this.Connection;
+            this._commandCollection[2].CommandText = "DELETE FROM po_order\r\nWHERE        (po_no = @po_no) AND (supplier_code = @supplie" +
+                "r_code)";
+            this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@po_no";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "po_no";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._commandCollection[2].Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@supplier_code";
             param.DbType = global::System.Data.DbType.String;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
             param.Size = 9;
             param.IsNullable = true;
             param.SourceColumn = "supplier_code";
-            this._commandCollection[1].Parameters.Add(param);
-            param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@ware";
-            param.DbType = global::System.Data.DbType.String;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
-            param.Size = 75;
-            param.IsNullable = true;
-            param.SourceColumn = "po_warehouse";
-            this._commandCollection[1].Parameters.Add(param);
-            this._commandCollection[2] = new global::MySql.Data.MySqlClient.MySqlCommand();
-            this._commandCollection[2].Connection = this.Connection;
-            this._commandCollection[2].CommandText = @"SELECT        po_order.po_no, po_order.po_date, po_order.po_time, inventory_supplier.supplier_code, inventory_supplier.supplier_name, po_order.po_total_amt, po_order.po_printed, po_order.po_carrier, po_order.po_status, 
-                         po_order.po_date_r, po_order.po_time_r, po_order.user_name, po_order.po_warehouse, po_order.po_receive_by
-FROM            po_order INNER JOIN
-                         inventory_supplier ON po_order.supplier_code = inventory_supplier.supplier_code
-WHERE        (po_order.po_date = @po_date) AND (po_order.po_printed = 'Yes') AND (po_order.po_status = 'Pending')
-ORDER BY po_order.po_no";
-            this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
-            param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@po_date";
-            param.DbType = global::System.Data.DbType.DateTime;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Date;
-            param.IsNullable = true;
-            param.SourceColumn = "po_date";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._commandCollection[2].Parameters.Add(param);
             this._commandCollection[3] = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._commandCollection[3].Connection = this.Connection;
@@ -6836,7 +6829,7 @@ ORDER BY po_order.po_no";
                          po_order.po_date_r, po_order.po_time_r, po_order.user_name, po_order.po_warehouse
 FROM            po_order INNER JOIN
                          inventory_supplier ON po_order.supplier_code = inventory_supplier.supplier_code
-WHERE        (po_order.po_printed = 'No') AND (po_order.po_status = 'Unfinish') AND (inventory_supplier.supplier_code = @supcode)
+WHERE        (po_order.po_printed = 'No') AND (po_order.po_status = 'Unfinish') AND (inventory_supplier.supplier_code = @supcode) AND (po_order.po_warehouse = @ware)
 ORDER BY po_order.po_no";
             this._commandCollection[3].CommandType = global::System.Data.CommandType.Text;
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
@@ -6847,6 +6840,47 @@ ORDER BY po_order.po_no";
             param.IsNullable = true;
             param.SourceColumn = "supplier_code";
             this._commandCollection[3].Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@ware";
+            param.DbType = global::System.Data.DbType.String;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
+            param.Size = 75;
+            param.IsNullable = true;
+            param.SourceColumn = "po_warehouse";
+            this._commandCollection[3].Parameters.Add(param);
+            this._commandCollection[4] = new global::MySql.Data.MySqlClient.MySqlCommand();
+            this._commandCollection[4].Connection = this.Connection;
+            this._commandCollection[4].CommandText = @"SELECT        po_order.po_no, po_order.po_date, po_order.po_time, inventory_supplier.supplier_code, inventory_supplier.supplier_name, po_order.po_total_amt, po_order.po_printed, po_order.po_carrier, po_order.po_status, 
+                         po_order.po_date_r, po_order.po_time_r, po_order.user_name, po_order.po_warehouse, po_order.po_receive_by
+FROM            po_order INNER JOIN
+                         inventory_supplier ON po_order.supplier_code = inventory_supplier.supplier_code
+WHERE        (po_order.po_date = @po_date) AND (po_order.po_printed = 'Yes') AND (po_order.po_status = 'Pending')
+ORDER BY po_order.po_no";
+            this._commandCollection[4].CommandType = global::System.Data.CommandType.Text;
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@po_date";
+            param.DbType = global::System.Data.DbType.DateTime;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Date;
+            param.IsNullable = true;
+            param.SourceColumn = "po_date";
+            this._commandCollection[4].Parameters.Add(param);
+            this._commandCollection[5] = new global::MySql.Data.MySqlClient.MySqlCommand();
+            this._commandCollection[5].Connection = this.Connection;
+            this._commandCollection[5].CommandText = @"SELECT        po_order.po_no, po_order.po_date, po_order.po_time, inventory_supplier.supplier_code, inventory_supplier.supplier_name, po_order.po_total_amt, po_order.po_printed, po_order.po_carrier, po_order.po_status, 
+                         po_order.po_date_r, po_order.po_time_r, po_order.user_name, po_order.po_warehouse
+FROM            po_order INNER JOIN
+                         inventory_supplier ON po_order.supplier_code = inventory_supplier.supplier_code
+WHERE        (po_order.po_printed = 'No') AND (po_order.po_status = 'Unfinish') AND (inventory_supplier.supplier_code = @supcode)
+ORDER BY po_order.po_no";
+            this._commandCollection[5].CommandType = global::System.Data.CommandType.Text;
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@supcode";
+            param.DbType = global::System.Data.DbType.String;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
+            param.Size = 9;
+            param.IsNullable = true;
+            param.SourceColumn = "supplier_code";
+            this._commandCollection[5].Parameters.Add(param);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -6890,7 +6924,7 @@ ORDER BY po_order.po_no";
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
         public virtual int FillByFilter(npos_dbDataSet.po_orderDataTable dataTable, string supcode, string ware) {
-            this.Adapter.SelectCommand = this.CommandCollection[1];
+            this.Adapter.SelectCommand = this.CommandCollection[3];
             if ((supcode == null)) {
                 throw new global::System.ArgumentNullException("supcode");
             }
@@ -6915,7 +6949,7 @@ ORDER BY po_order.po_no";
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
         public virtual npos_dbDataSet.po_orderDataTable GetDataBy1(string supcode, string ware) {
-            this.Adapter.SelectCommand = this.CommandCollection[1];
+            this.Adapter.SelectCommand = this.CommandCollection[3];
             if ((supcode == null)) {
                 throw new global::System.ArgumentNullException("supcode");
             }
@@ -6938,7 +6972,7 @@ ORDER BY po_order.po_no";
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
         public virtual int FillByPending(npos_dbDataSet.po_orderDataTable dataTable, global::System.Nullable<global::System.DateTime> po_date) {
-            this.Adapter.SelectCommand = this.CommandCollection[2];
+            this.Adapter.SelectCommand = this.CommandCollection[4];
             if ((po_date.HasValue == true)) {
                 this.Adapter.SelectCommand.Parameters[0].Value = ((System.DateTime)(po_date.Value));
             }
@@ -6957,7 +6991,7 @@ ORDER BY po_order.po_no";
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
         public virtual npos_dbDataSet.po_orderDataTable GetDataBy(global::System.Nullable<global::System.DateTime> po_date) {
-            this.Adapter.SelectCommand = this.CommandCollection[2];
+            this.Adapter.SelectCommand = this.CommandCollection[4];
             if ((po_date.HasValue == true)) {
                 this.Adapter.SelectCommand.Parameters[0].Value = ((System.DateTime)(po_date.Value));
             }
@@ -6974,7 +7008,7 @@ ORDER BY po_order.po_no";
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
         public virtual int FillBySupplier(npos_dbDataSet.po_orderDataTable dataTable, string supcode) {
-            this.Adapter.SelectCommand = this.CommandCollection[3];
+            this.Adapter.SelectCommand = this.CommandCollection[5];
             if ((supcode == null)) {
                 throw new global::System.ArgumentNullException("supcode");
             }
@@ -6993,7 +7027,7 @@ ORDER BY po_order.po_no";
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
         public virtual npos_dbDataSet.po_orderDataTable GetDataBy2(string supcode) {
-            this.Adapter.SelectCommand = this.CommandCollection[3];
+            this.Adapter.SelectCommand = this.CommandCollection[5];
             if ((supcode == null)) {
                 throw new global::System.ArgumentNullException("supcode");
             }
@@ -7003,6 +7037,60 @@ ORDER BY po_order.po_no";
             npos_dbDataSet.po_orderDataTable dataTable = new npos_dbDataSet.po_orderDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, false)]
+        public virtual int DeleteQueryFromPOList(int po_no) {
+            global::MySql.Data.MySqlClient.MySqlCommand command = this.CommandCollection[1];
+            command.Parameters[0].Value = ((int)(po_no));
+            global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
+            if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                command.Connection.Open();
+            }
+            int returnValue;
+            try {
+                returnValue = command.ExecuteNonQuery();
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    command.Connection.Close();
+                }
+            }
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, false)]
+        public virtual int DeleteQueryMainPO(int po_no, string supplier_code) {
+            global::MySql.Data.MySqlClient.MySqlCommand command = this.CommandCollection[2];
+            command.Parameters[0].Value = ((int)(po_no));
+            if ((supplier_code == null)) {
+                command.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            else {
+                command.Parameters[1].Value = ((string)(supplier_code));
+            }
+            global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
+            if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                command.Connection.Open();
+            }
+            int returnValue;
+            try {
+                returnValue = command.ExecuteNonQuery();
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    command.Connection.Close();
+                }
+            }
+            return returnValue;
         }
     }
     

@@ -95,5 +95,17 @@ namespace nPOSProj
             btnDelete.Enabled = true;
             btnPrint.Enabled = true;
         }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            DialogResult dlgResult = MessageBox.Show("Do You Want to Delete This P.O?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if (dlgResult == DialogResult.Yes)
+            {
+                this.po_orderTableAdapter.DeleteQueryMainPO(Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[0].Value), dataGridView1.SelectedRows[0].Cells[3].Value.ToString());
+                this.po_orderTableAdapter.DeleteQueryFromPOList(Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[0].Value));
+                dataGridView1.Rows.RemoveAt(dataGridView1.SelectedRows[0].Index);
+                btnDelete.Enabled = false;
+            }
+        }
     }
 }
