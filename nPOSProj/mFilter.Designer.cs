@@ -40,8 +40,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.inventory_supplierTableAdapter = new nPOSProj.npos_dbDataSetTableAdapters.inventory_supplierTableAdapter();
             this.inventory_warehouseTableAdapter = new nPOSProj.npos_dbDataSetTableAdapters.inventory_warehouseTableAdapter();
-            this.btn1 = new System.Windows.Forms.Button();
-            this.btn2 = new System.Windows.Forms.Button();
+            this.btnGo = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.inventorywarehouseBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.npos_dbDataSet)).BeginInit();
@@ -50,15 +49,13 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.btn2);
-            this.groupBox1.Controls.Add(this.btn1);
             this.groupBox1.Controls.Add(this.cBoxWarehouse);
             this.groupBox1.Controls.Add(this.cBoxSupplier);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Location = new System.Drawing.Point(4, 2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(297, 68);
+            this.groupBox1.Size = new System.Drawing.Size(278, 68);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             // 
@@ -67,11 +64,13 @@
             this.cBoxWarehouse.BackColor = System.Drawing.Color.White;
             this.cBoxWarehouse.DataSource = this.inventorywarehouseBindingSource;
             this.cBoxWarehouse.DisplayMember = "warehouse_name";
+            this.cBoxWarehouse.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cBoxWarehouse.FormattingEnabled = true;
-            this.cBoxWarehouse.Location = new System.Drawing.Point(83, 41);
+            this.cBoxWarehouse.Location = new System.Drawing.Point(83, 40);
             this.cBoxWarehouse.Name = "cBoxWarehouse";
             this.cBoxWarehouse.Size = new System.Drawing.Size(190, 24);
             this.cBoxWarehouse.TabIndex = 3;
+            this.cBoxWarehouse.SelectedIndexChanged += new System.EventHandler(this.cBoxWarehouse_SelectedIndexChanged);
             // 
             // inventorywarehouseBindingSource
             // 
@@ -88,11 +87,13 @@
             this.cBoxSupplier.BackColor = System.Drawing.Color.White;
             this.cBoxSupplier.DataSource = this.inventorysupplierBindingSource;
             this.cBoxSupplier.DisplayMember = "supplier_name";
+            this.cBoxSupplier.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cBoxSupplier.FormattingEnabled = true;
-            this.cBoxSupplier.Location = new System.Drawing.Point(83, 13);
+            this.cBoxSupplier.Location = new System.Drawing.Point(83, 12);
             this.cBoxSupplier.Name = "cBoxSupplier";
             this.cBoxSupplier.Size = new System.Drawing.Size(190, 24);
             this.cBoxSupplier.TabIndex = 2;
+            this.cBoxSupplier.SelectedIndexChanged += new System.EventHandler(this.cBoxSupplier_SelectedIndexChanged);
             // 
             // inventorysupplierBindingSource
             // 
@@ -102,7 +103,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(4, 44);
+            this.label2.Location = new System.Drawing.Point(4, 43);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(73, 16);
             this.label2.TabIndex = 1;
@@ -111,7 +112,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(4, 16);
+            this.label1.Location = new System.Drawing.Point(4, 15);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(55, 16);
             this.label1.TabIndex = 0;
@@ -125,31 +126,23 @@
             // 
             this.inventory_warehouseTableAdapter.ClearBeforeFill = true;
             // 
-            // btn1
+            // btnGo
             // 
-            this.btn1.BackColor = System.Drawing.Color.Red;
-            this.btn1.Location = new System.Drawing.Point(274, 13);
-            this.btn1.Name = "btn1";
-            this.btn1.Size = new System.Drawing.Size(20, 24);
-            this.btn1.TabIndex = 4;
-            this.btn1.UseVisualStyleBackColor = false;
-            this.btn1.Click += new System.EventHandler(this.btn1_Click);
-            // 
-            // btn2
-            // 
-            this.btn2.BackColor = System.Drawing.Color.Green;
-            this.btn2.Location = new System.Drawing.Point(274, 40);
-            this.btn2.Name = "btn2";
-            this.btn2.Size = new System.Drawing.Size(20, 24);
-            this.btn2.TabIndex = 5;
-            this.btn2.UseVisualStyleBackColor = false;
-            this.btn2.Click += new System.EventHandler(this.btn2_Click);
+            this.btnGo.Enabled = false;
+            this.btnGo.Image = ((System.Drawing.Image)(resources.GetObject("btnGo.Image")));
+            this.btnGo.Location = new System.Drawing.Point(236, 72);
+            this.btnGo.Name = "btnGo";
+            this.btnGo.Size = new System.Drawing.Size(46, 55);
+            this.btnGo.TabIndex = 1;
+            this.btnGo.UseVisualStyleBackColor = true;
+            this.btnGo.Click += new System.EventHandler(this.btnGo_Click);
             // 
             // mFilter
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(303, 75);
+            this.ClientSize = new System.Drawing.Size(286, 126);
+            this.Controls.Add(this.btnGo);
             this.Controls.Add(this.groupBox1);
             this.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -183,7 +176,6 @@
         private npos_dbDataSetTableAdapters.inventory_supplierTableAdapter inventory_supplierTableAdapter;
         private System.Windows.Forms.BindingSource inventorywarehouseBindingSource;
         private npos_dbDataSetTableAdapters.inventory_warehouseTableAdapter inventory_warehouseTableAdapter;
-        private System.Windows.Forms.Button btn2;
-        private System.Windows.Forms.Button btn1;
+        private System.Windows.Forms.Button btnGo;
     }
 }

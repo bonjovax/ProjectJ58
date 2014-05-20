@@ -43,34 +43,57 @@ namespace nPOSProj
         {
             using (mEditPO edit = new mEditPO())
             {
-                edit.orderPO(Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[0].Value.ToString()));
-                edit.ShowDialog();
-                var poDate = edit.PurchaseOrderDate;
-                this.po_orderTableAdapter.Fill(this.npos_dbDataSet.po_order, Convert.ToDateTime(poDate));
+                try
+                {
+                    edit.orderPO(Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[0].Value.ToString()));
+                    edit.ShowDialog();
+                    var poDate = edit.PurchaseOrderDate;
+                    this.po_orderTableAdapter.Fill(this.npos_dbDataSet.po_order, Convert.ToDateTime(poDate));
+                }
+                catch (Exception)
+                {
+                }
             }
-        }
-
-        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            
         }
 
         private void btnFilter_Click(object sender, EventArgs e)
         {
             using (mFilter filter = new mFilter())
             {
-                filter.ShowDialog();
-                var Warehouse = filter.Warehouse;
-                var Supplier = filter.Supplier;
-                if (Warehouse != "")
+                try
                 {
-                    this.po_orderTableAdapter.FillByWarehouse(this.npos_dbDataSet.po_order, Warehouse);
+                    filter.ShowDialog();
+                    var Warehouse = filter.Warehouse;
+                    var Supplier = filter.Supplier;
+                    this.po_orderTableAdapter.FillByFilter(this.npos_dbDataSet.po_order, Supplier, Warehouse);
                 }
-                if (Supplier != "")
+                catch (Exception)
                 {
-                    this.po_orderTableAdapter.FillSupplierBy(this.npos_dbDataSet.po_order, Supplier);
                 }
             }
+        }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            using (mSearch search = new mSearch())
+            {
+                try
+                {
+                    search.ShowDialog();
+                    var supcode = search.supcode;
+                    this.po_orderTableAdapter.FillBySupplier(this.npos_dbDataSet.po_order, supcode);
+                }
+                catch (Exception)
+                {
+
+                }
+            }
+        }
+
+        private void dataGridView1_CellClick_1(object sender, DataGridViewCellEventArgs e)
+        {
+            btnDelete.Enabled = true;
+            btnPrint.Enabled = true;
         }
     }
 }
