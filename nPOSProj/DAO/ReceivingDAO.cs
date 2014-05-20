@@ -138,13 +138,20 @@ namespace nPOSProj.DAO
         {
             con = new MySqlConnection();
             dbcon = new Conf.dbs();
+            DateTime dateNow = DateTime.Now.Date;
+            String final = dateNow.ToString("yyyy-MM-dd");
+            String time = DateTime.Now.ToLongTimeString();
+            String userName = frmLogin.User.user_name;
             con.ConnectionString = dbcon.getConnectionString();
-            String query = "UPDATE po_order SET po_status = 'Received' ";
+            String query = "UPDATE po_order SET po_date_r = ?po_date_r, po_time_r = ?po_time_r, po_status = 'Received', po_receive_by = ?po_receive_by ";
             query += "WHERE po_no = ?po_no";
             try
             {
                 con.Open();
                 MySqlCommand cmd = new MySqlCommand(query, con);
+                cmd.Parameters.AddWithValue("?po_date_r", final);
+                cmd.Parameters.AddWithValue("?po_time_r", time);
+                cmd.Parameters.AddWithValue("?po_receive_by", userName);
                 cmd.Parameters.AddWithValue("?po_no", po_no);
                 cmd.ExecuteNonQuery();
                 cmd.Dispose();
