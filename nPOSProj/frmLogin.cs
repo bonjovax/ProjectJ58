@@ -134,8 +134,15 @@ namespace nPOSProj
 
         private void frmLogin_Load(object sender, EventArgs e)
         {
+            String nows;
             this.autoComplete();
-            lblAdlib.Text = "© Copyright 2014";
+            if (DateTime.Now.Year.ToString() == "2014")
+            {
+                nows = "";
+            }
+            else
+                nows = DateTime.Now.Year.ToString();
+            lblAdlib.Text = "© Copyright 2014 - " + nows;
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
