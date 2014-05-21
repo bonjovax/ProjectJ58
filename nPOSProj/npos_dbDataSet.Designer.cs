@@ -1848,6 +1848,16 @@ namespace nPOSProj {
             
             private global::System.Data.DataColumn columnpo_warehouse;
             
+            private global::System.Data.DataColumn columnsupplier_address;
+            
+            private global::System.Data.DataColumn columnsupplier_city_municipality;
+            
+            private global::System.Data.DataColumn columnsupplier_zipcode;
+            
+            private global::System.Data.DataColumn columnsupplier_contact;
+            
+            private global::System.Data.DataColumn columnpo_remarks;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public po_orderDataTable() {
@@ -1987,6 +1997,46 @@ namespace nPOSProj {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn supplier_addressColumn {
+                get {
+                    return this.columnsupplier_address;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn supplier_city_municipalityColumn {
+                get {
+                    return this.columnsupplier_city_municipality;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn supplier_zipcodeColumn {
+                get {
+                    return this.columnsupplier_zipcode;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn supplier_contactColumn {
+                get {
+                    return this.columnsupplier_contact;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn po_remarksColumn {
+                get {
+                    return this.columnpo_remarks;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -2022,7 +2072,25 @@ namespace nPOSProj {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public po_orderRow Addpo_orderRow(int po_no, System.DateTime po_date, string po_time, string supplier_code, double po_total_amt, string po_printed, string po_carrier, string po_status, System.DateTime po_date_r, string po_time_r, string supplier_name, string user_name, string po_warehouse) {
+            public po_orderRow Addpo_orderRow(
+                        int po_no, 
+                        System.DateTime po_date, 
+                        string po_time, 
+                        string supplier_code, 
+                        double po_total_amt, 
+                        string po_printed, 
+                        string po_carrier, 
+                        string po_status, 
+                        System.DateTime po_date_r, 
+                        string po_time_r, 
+                        string supplier_name, 
+                        string user_name, 
+                        string po_warehouse, 
+                        string supplier_address, 
+                        string supplier_city_municipality, 
+                        int supplier_zipcode, 
+                        string supplier_contact, 
+                        string po_remarks) {
                 po_orderRow rowpo_orderRow = ((po_orderRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         po_no,
@@ -2037,7 +2105,12 @@ namespace nPOSProj {
                         po_time_r,
                         supplier_name,
                         user_name,
-                        po_warehouse};
+                        po_warehouse,
+                        supplier_address,
+                        supplier_city_municipality,
+                        supplier_zipcode,
+                        supplier_contact,
+                        po_remarks};
                 rowpo_orderRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowpo_orderRow);
                 return rowpo_orderRow;
@@ -2080,6 +2153,11 @@ namespace nPOSProj {
                 this.columnsupplier_name = base.Columns["supplier_name"];
                 this.columnuser_name = base.Columns["user_name"];
                 this.columnpo_warehouse = base.Columns["po_warehouse"];
+                this.columnsupplier_address = base.Columns["supplier_address"];
+                this.columnsupplier_city_municipality = base.Columns["supplier_city_municipality"];
+                this.columnsupplier_zipcode = base.Columns["supplier_zipcode"];
+                this.columnsupplier_contact = base.Columns["supplier_contact"];
+                this.columnpo_remarks = base.Columns["po_remarks"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2111,6 +2189,16 @@ namespace nPOSProj {
                 base.Columns.Add(this.columnuser_name);
                 this.columnpo_warehouse = new global::System.Data.DataColumn("po_warehouse", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnpo_warehouse);
+                this.columnsupplier_address = new global::System.Data.DataColumn("supplier_address", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnsupplier_address);
+                this.columnsupplier_city_municipality = new global::System.Data.DataColumn("supplier_city_municipality", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnsupplier_city_municipality);
+                this.columnsupplier_zipcode = new global::System.Data.DataColumn("supplier_zipcode", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnsupplier_zipcode);
+                this.columnsupplier_contact = new global::System.Data.DataColumn("supplier_contact", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnsupplier_contact);
+                this.columnpo_remarks = new global::System.Data.DataColumn("po_remarks", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnpo_remarks);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnpo_no}, true));
                 this.columnpo_no.AllowDBNull = false;
@@ -2124,6 +2212,10 @@ namespace nPOSProj {
                 this.columnpo_time_r.MaxLength = 20;
                 this.columnsupplier_name.MaxLength = 100;
                 this.columnuser_name.MaxLength = 20;
+                this.columnsupplier_address.MaxLength = 100;
+                this.columnsupplier_city_municipality.MaxLength = 50;
+                this.columnsupplier_contact.MaxLength = 50;
+                this.columnpo_remarks.MaxLength = 100;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3506,6 +3598,86 @@ namespace nPOSProj {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string supplier_address {
+                get {
+                    try {
+                        return ((string)(this[this.tablepo_order.supplier_addressColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'supplier_address\' in table \'po_order\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablepo_order.supplier_addressColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string supplier_city_municipality {
+                get {
+                    try {
+                        return ((string)(this[this.tablepo_order.supplier_city_municipalityColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'supplier_city_municipality\' in table \'po_order\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablepo_order.supplier_city_municipalityColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int supplier_zipcode {
+                get {
+                    try {
+                        return ((int)(this[this.tablepo_order.supplier_zipcodeColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'supplier_zipcode\' in table \'po_order\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablepo_order.supplier_zipcodeColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string supplier_contact {
+                get {
+                    try {
+                        return ((string)(this[this.tablepo_order.supplier_contactColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'supplier_contact\' in table \'po_order\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablepo_order.supplier_contactColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string po_remarks {
+                get {
+                    try {
+                        return ((string)(this[this.tablepo_order.po_remarksColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'po_remarks\' in table \'po_order\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablepo_order.po_remarksColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool Ispo_dateNull() {
                 return this.IsNull(this.tablepo_order.po_dateColumn);
             }
@@ -3634,6 +3806,66 @@ namespace nPOSProj {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void Setpo_warehouseNull() {
                 this[this.tablepo_order.po_warehouseColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool Issupplier_addressNull() {
+                return this.IsNull(this.tablepo_order.supplier_addressColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void Setsupplier_addressNull() {
+                this[this.tablepo_order.supplier_addressColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool Issupplier_city_municipalityNull() {
+                return this.IsNull(this.tablepo_order.supplier_city_municipalityColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void Setsupplier_city_municipalityNull() {
+                this[this.tablepo_order.supplier_city_municipalityColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool Issupplier_zipcodeNull() {
+                return this.IsNull(this.tablepo_order.supplier_zipcodeColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void Setsupplier_zipcodeNull() {
+                this[this.tablepo_order.supplier_zipcodeColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool Issupplier_contactNull() {
+                return this.IsNull(this.tablepo_order.supplier_contactColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void Setsupplier_contactNull() {
+                this[this.tablepo_order.supplier_contactColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool Ispo_remarksNull() {
+                return this.IsNull(this.tablepo_order.po_remarksColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void Setpo_remarksNull() {
+                this[this.tablepo_order.po_remarksColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -7358,6 +7590,11 @@ WHERE        (stock_id = @stock_id) AND (stock_code = @stock_code)";
             tableMapping.ColumnMappings.Add("supplier_name", "supplier_name");
             tableMapping.ColumnMappings.Add("user_name", "user_name");
             tableMapping.ColumnMappings.Add("po_warehouse", "po_warehouse");
+            tableMapping.ColumnMappings.Add("supplier_address", "supplier_address");
+            tableMapping.ColumnMappings.Add("supplier_city_municipality", "supplier_city_municipality");
+            tableMapping.ColumnMappings.Add("supplier_zipcode", "supplier_zipcode");
+            tableMapping.ColumnMappings.Add("supplier_contact", "supplier_contact");
+            tableMapping.ColumnMappings.Add("po_remarks", "po_remarks");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -7371,11 +7608,12 @@ WHERE        (stock_id = @stock_id) AND (stock_code = @stock_code)";
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::MySql.Data.MySqlClient.MySqlCommand[6];
+            this._commandCollection = new global::MySql.Data.MySqlClient.MySqlCommand[7];
             this._commandCollection[0] = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = @"SELECT        po_order.po_no, po_order.po_date, po_order.po_time, inventory_supplier.supplier_code, inventory_supplier.supplier_name, po_order.po_total_amt, po_order.po_printed, po_order.po_carrier, po_order.po_status, 
-                         po_order.po_date_r, po_order.po_time_r, po_order.user_name, po_order.po_warehouse
+                         po_order.po_date_r, po_order.po_time_r, po_order.user_name, po_order.po_warehouse, inventory_supplier.supplier_address, inventory_supplier.supplier_city_municipality, 
+                         inventory_supplier.supplier_zipcode, inventory_supplier.supplier_contact, po_order.po_remarks
 FROM            po_order INNER JOIN
                          inventory_supplier ON po_order.supplier_code = inventory_supplier.supplier_code
 WHERE        (po_order.po_date = @po_date) AND (po_order.po_printed = 'No') AND (po_order.po_status = 'Unfinish')
@@ -7466,12 +7704,36 @@ ORDER BY po_order.po_no";
             this._commandCollection[5] = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._commandCollection[5].Connection = this.Connection;
             this._commandCollection[5].CommandText = @"SELECT        po_order.po_no, po_order.po_date, po_order.po_time, inventory_supplier.supplier_code, inventory_supplier.supplier_name, po_order.po_total_amt, po_order.po_printed, po_order.po_carrier, po_order.po_status, 
+                         po_order.po_date_r, po_order.po_time_r, po_order.user_name, po_order.po_warehouse, inventory_supplier.supplier_address, inventory_supplier.supplier_city_municipality, 
+                         inventory_supplier.supplier_zipcode, inventory_supplier.supplier_contact, po_order.po_remarks
+FROM            po_order INNER JOIN
+                         inventory_supplier ON po_order.supplier_code = inventory_supplier.supplier_code
+WHERE        (po_order.po_date = @po_date) AND (po_order.po_printed = 'No') AND (po_order.po_no = @po_no)
+ORDER BY po_order.po_no";
+            this._commandCollection[5].CommandType = global::System.Data.CommandType.Text;
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@po_date";
+            param.DbType = global::System.Data.DbType.DateTime;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Date;
+            param.IsNullable = true;
+            param.SourceColumn = "po_date";
+            this._commandCollection[5].Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@po_no";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "po_no";
+            this._commandCollection[5].Parameters.Add(param);
+            this._commandCollection[6] = new global::MySql.Data.MySqlClient.MySqlCommand();
+            this._commandCollection[6].Connection = this.Connection;
+            this._commandCollection[6].CommandText = @"SELECT        po_order.po_no, po_order.po_date, po_order.po_time, inventory_supplier.supplier_code, inventory_supplier.supplier_name, po_order.po_total_amt, po_order.po_printed, po_order.po_carrier, po_order.po_status, 
                          po_order.po_date_r, po_order.po_time_r, po_order.user_name, po_order.po_warehouse
 FROM            po_order INNER JOIN
                          inventory_supplier ON po_order.supplier_code = inventory_supplier.supplier_code
 WHERE        (po_order.po_printed = 'No') AND (po_order.po_status = 'Unfinish') AND (inventory_supplier.supplier_code = @supcode)
 ORDER BY po_order.po_no";
-            this._commandCollection[5].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[6].CommandType = global::System.Data.CommandType.Text;
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@supcode";
             param.DbType = global::System.Data.DbType.String;
@@ -7479,7 +7741,7 @@ ORDER BY po_order.po_no";
             param.Size = 9;
             param.IsNullable = true;
             param.SourceColumn = "supplier_code";
-            this._commandCollection[5].Parameters.Add(param);
+            this._commandCollection[6].Parameters.Add(param);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -7547,7 +7809,7 @@ ORDER BY po_order.po_no";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
-        public virtual npos_dbDataSet.po_orderDataTable GetDataBy1(string supcode, string ware) {
+        public virtual npos_dbDataSet.po_orderDataTable GetDataBy11(string supcode, string ware) {
             this.Adapter.SelectCommand = this.CommandCollection[3];
             if ((supcode == null)) {
                 throw new global::System.ArgumentNullException("supcode");
@@ -7589,7 +7851,7 @@ ORDER BY po_order.po_no";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
-        public virtual npos_dbDataSet.po_orderDataTable GetDataBy(global::System.Nullable<global::System.DateTime> po_date) {
+        public virtual npos_dbDataSet.po_orderDataTable GetDataBy2(global::System.Nullable<global::System.DateTime> po_date) {
             this.Adapter.SelectCommand = this.CommandCollection[4];
             if ((po_date.HasValue == true)) {
                 this.Adapter.SelectCommand.Parameters[0].Value = ((System.DateTime)(po_date.Value));
@@ -7606,8 +7868,46 @@ ORDER BY po_order.po_no";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
-        public virtual int FillBySupplier(npos_dbDataSet.po_orderDataTable dataTable, string supcode) {
+        public virtual int FillByPO(npos_dbDataSet.po_orderDataTable dataTable, global::System.Nullable<global::System.DateTime> po_date, int po_no) {
             this.Adapter.SelectCommand = this.CommandCollection[5];
+            if ((po_date.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((System.DateTime)(po_date.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
+            }
+            this.Adapter.SelectCommand.Parameters[1].Value = ((int)(po_no));
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual npos_dbDataSet.po_orderDataTable GetDataBy3(global::System.Nullable<global::System.DateTime> po_date, int po_no) {
+            this.Adapter.SelectCommand = this.CommandCollection[5];
+            if ((po_date.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((System.DateTime)(po_date.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
+            }
+            this.Adapter.SelectCommand.Parameters[1].Value = ((int)(po_no));
+            npos_dbDataSet.po_orderDataTable dataTable = new npos_dbDataSet.po_orderDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillBySupplier(npos_dbDataSet.po_orderDataTable dataTable, string supcode) {
+            this.Adapter.SelectCommand = this.CommandCollection[6];
             if ((supcode == null)) {
                 throw new global::System.ArgumentNullException("supcode");
             }
@@ -7625,8 +7925,8 @@ ORDER BY po_order.po_no";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
-        public virtual npos_dbDataSet.po_orderDataTable GetDataBy2(string supcode) {
-            this.Adapter.SelectCommand = this.CommandCollection[5];
+        public virtual npos_dbDataSet.po_orderDataTable GetDataBy21(string supcode) {
+            this.Adapter.SelectCommand = this.CommandCollection[6];
             if ((supcode == null)) {
                 throw new global::System.ArgumentNullException("supcode");
             }
@@ -7670,7 +7970,7 @@ ORDER BY po_order.po_no";
             global::MySql.Data.MySqlClient.MySqlCommand command = this.CommandCollection[2];
             command.Parameters[0].Value = ((int)(po_no));
             if ((supplier_code == null)) {
-                command.Parameters[1].Value = global::System.DBNull.Value;
+                throw new global::System.ArgumentNullException("supplier_code");
             }
             else {
                 command.Parameters[1].Value = ((string)(supplier_code));

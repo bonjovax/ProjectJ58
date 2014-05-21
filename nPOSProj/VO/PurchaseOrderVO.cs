@@ -226,5 +226,10 @@ namespace nPOSProj.VO
             podao = new DAO.PurchaseOrderDAO();
             podao.UpdateAmountToMainTable(po_no, supplier_code, po_total_amt);
         }
+        public void TogglePrint()
+        {
+            podao = new DAO.PurchaseOrderDAO();
+            podao.TriggerPrint(po_no, po_date);
+        }
     }
 }

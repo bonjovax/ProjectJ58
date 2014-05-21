@@ -9,6 +9,14 @@
 }
 
 namespace nPOSProj.npos_dbDataSetTableAdapters {
+    partial class po_orderTableAdapter
+    {
+    }
+
+    partial class po_order_listTableAdapter
+    {
+    }
+
     partial class inventory_stocksTableAdapter
     {
     }

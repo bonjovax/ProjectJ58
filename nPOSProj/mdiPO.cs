@@ -107,5 +107,29 @@ namespace nPOSProj
                 btnDelete.Enabled = false;
             }
         }
+
+        private void btnPrint_Click(object sender, EventArgs e)
+        {
+            using (frmRptPO PO = new frmRptPO())
+            {
+                VO.PurchaseOrderVO pov = new VO.PurchaseOrderVO();
+                try
+                {
+                    DateTime raw = Convert.ToDateTime(dataGridView1.SelectedRows[0].Cells[1].Value);
+                    Int32 po_no = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[0].Value);
+                    PO.Dates = raw.ToString("yyyy-MM-dd");
+                    PO.po_no = po_no;
+                    PO.ShowDialog();
+                    pov.po_no = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[0].Value);
+                    pov.po_date = raw.ToString("yyyy-MM-dd");
+                    pov.TogglePrint();
+                    dataGridView1.Rows.RemoveAt(dataGridView1.SelectedRows[0].Index);
+                    btnPrint.Enabled = false;
+                }
+                catch (Exception)
+                {
+                }
+            }
+        }
     }
 }

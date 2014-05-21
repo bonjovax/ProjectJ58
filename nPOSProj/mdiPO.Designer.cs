@@ -30,20 +30,16 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(mdiPO));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btnNew = new System.Windows.Forms.Button();
             this.btnFilter = new System.Windows.Forms.Button();
             this.btnSearch = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.po_warehouse = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.user_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.btnPrint = new System.Windows.Forms.Button();
             this.ponoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.podateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.potimeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -51,10 +47,14 @@
             this.suppliernameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pototalamtDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.poprintedDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.po_warehouse = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pocarrierDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.postatusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.user_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.poorderBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.npos_dbDataSet = new nPOSProj.npos_dbDataSet();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.btnPrint = new System.Windows.Forms.Button();
             this.po_orderTableAdapter = new nPOSProj.npos_dbDataSetTableAdapters.po_orderTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.poorderBindingSource)).BeginInit();
@@ -147,64 +147,24 @@
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.Gainsboro;
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.White;
-            this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle10.BackColor = System.Drawing.Color.Gainsboro;
+            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.Color.White;
+            this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle10;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(815, 496);
             this.dataGridView1.TabIndex = 5;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick_1);
             this.dataGridView1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellDoubleClick);
             // 
-            // po_warehouse
-            // 
-            this.po_warehouse.DataPropertyName = "po_warehouse";
-            this.po_warehouse.HeaderText = "Designated Warehouse";
-            this.po_warehouse.Name = "po_warehouse";
-            this.po_warehouse.ReadOnly = true;
-            this.po_warehouse.Width = 250;
-            // 
-            // user_name
-            // 
-            this.user_name.DataPropertyName = "user_name";
-            this.user_name.HeaderText = "Encoder";
-            this.user_name.Name = "user_name";
-            this.user_name.ReadOnly = true;
-            // 
-            // dateTimePicker1
-            // 
-            this.dateTimePicker1.CustomFormat = "MM/dd/yyyy";
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePicker1.Location = new System.Drawing.Point(715, 10);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(102, 23);
-            this.dateTimePicker1.TabIndex = 7;
-            this.dateTimePicker1.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
-            // 
-            // btnPrint
-            // 
-            this.btnPrint.Enabled = false;
-            this.btnPrint.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPrint.Image = ((System.Drawing.Image)(resources.GetObject("btnPrint.Image")));
-            this.btnPrint.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnPrint.Location = new System.Drawing.Point(291, 1);
-            this.btnPrint.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.btnPrint.Name = "btnPrint";
-            this.btnPrint.Size = new System.Drawing.Size(88, 32);
-            this.btnPrint.TabIndex = 8;
-            this.btnPrint.Text = "&Print P.O";
-            this.btnPrint.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnPrint.UseVisualStyleBackColor = true;
-            // 
             // ponoDataGridViewTextBoxColumn
             // 
             this.ponoDataGridViewTextBoxColumn.DataPropertyName = "po_no";
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Gainsboro;
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.Black;
-            this.ponoDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.Gainsboro;
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.Black;
+            this.ponoDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle6;
             this.ponoDataGridViewTextBoxColumn.HeaderText = "PO No";
             this.ponoDataGridViewTextBoxColumn.Name = "ponoDataGridViewTextBoxColumn";
             this.ponoDataGridViewTextBoxColumn.ReadOnly = true;
@@ -244,10 +204,10 @@
             // pototalamtDataGridViewTextBoxColumn
             // 
             this.pototalamtDataGridViewTextBoxColumn.DataPropertyName = "po_total_amt";
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.Format = "N2";
-            dataGridViewCellStyle2.NullValue = null;
-            this.pototalamtDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle7.Format = "N2";
+            dataGridViewCellStyle7.NullValue = null;
+            this.pototalamtDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle7;
             this.pototalamtDataGridViewTextBoxColumn.HeaderText = "Total Amount";
             this.pototalamtDataGridViewTextBoxColumn.Name = "pototalamtDataGridViewTextBoxColumn";
             this.pototalamtDataGridViewTextBoxColumn.ReadOnly = true;
@@ -256,12 +216,20 @@
             // poprintedDataGridViewTextBoxColumn
             // 
             this.poprintedDataGridViewTextBoxColumn.DataPropertyName = "po_printed";
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.poprintedDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.poprintedDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle8;
             this.poprintedDataGridViewTextBoxColumn.HeaderText = "Printed";
             this.poprintedDataGridViewTextBoxColumn.Name = "poprintedDataGridViewTextBoxColumn";
             this.poprintedDataGridViewTextBoxColumn.ReadOnly = true;
             this.poprintedDataGridViewTextBoxColumn.Width = 50;
+            // 
+            // po_warehouse
+            // 
+            this.po_warehouse.DataPropertyName = "po_warehouse";
+            this.po_warehouse.HeaderText = "Designated Warehouse";
+            this.po_warehouse.Name = "po_warehouse";
+            this.po_warehouse.ReadOnly = true;
+            this.po_warehouse.Width = 250;
             // 
             // pocarrierDataGridViewTextBoxColumn
             // 
@@ -273,12 +241,19 @@
             // postatusDataGridViewTextBoxColumn
             // 
             this.postatusDataGridViewTextBoxColumn.DataPropertyName = "po_status";
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.postatusDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.postatusDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle9;
             this.postatusDataGridViewTextBoxColumn.HeaderText = "Status";
             this.postatusDataGridViewTextBoxColumn.Name = "postatusDataGridViewTextBoxColumn";
             this.postatusDataGridViewTextBoxColumn.ReadOnly = true;
             this.postatusDataGridViewTextBoxColumn.Width = 65;
+            // 
+            // user_name
+            // 
+            this.user_name.DataPropertyName = "user_name";
+            this.user_name.HeaderText = "Encoder";
+            this.user_name.Name = "user_name";
+            this.user_name.ReadOnly = true;
             // 
             // poorderBindingSource
             // 
@@ -289,6 +264,32 @@
             // 
             this.npos_dbDataSet.DataSetName = "npos_dbDataSet";
             this.npos_dbDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.CustomFormat = "MM/dd/yyyy";
+            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateTimePicker1.Location = new System.Drawing.Point(715, 10);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(102, 23);
+            this.dateTimePicker1.TabIndex = 7;
+            this.dateTimePicker1.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
+            // 
+            // btnPrint
+            // 
+            this.btnPrint.Enabled = false;
+            this.btnPrint.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPrint.Image = ((System.Drawing.Image)(resources.GetObject("btnPrint.Image")));
+            this.btnPrint.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnPrint.Location = new System.Drawing.Point(291, 1);
+            this.btnPrint.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnPrint.Name = "btnPrint";
+            this.btnPrint.Size = new System.Drawing.Size(88, 32);
+            this.btnPrint.TabIndex = 8;
+            this.btnPrint.Text = "&Print P.O";
+            this.btnPrint.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnPrint.UseVisualStyleBackColor = true;
+            this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
             // 
             // po_orderTableAdapter
             // 
