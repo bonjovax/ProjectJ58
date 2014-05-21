@@ -142,6 +142,7 @@ namespace nPOSProj
             }
             else
                 nows = DateTime.Now.Year.ToString();
+            lblProgversion.Text = "nPOS System v" + ProductVersion.ToString();
             lblAdlib.Text = "© Copyright 2014 - " + nows;
         }
 
