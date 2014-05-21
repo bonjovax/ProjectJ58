@@ -40,6 +40,9 @@
             this.btnConfig = new System.Windows.Forms.Button();
             this.btnChangePassword = new System.Windows.Forms.Button();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.lblAdlib = new System.Windows.Forms.Label();
+            this.lblProgversion = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
@@ -190,12 +193,45 @@
             // pictureBox2
             // 
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(2, 518);
+            this.pictureBox2.Location = new System.Drawing.Point(7, 477);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(150, 42);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox2.TabIndex = 13;
             this.pictureBox2.TabStop = false;
+            // 
+            // lblAdlib
+            // 
+            this.lblAdlib.AutoSize = true;
+            this.lblAdlib.Font = new System.Drawing.Font("Arial Narrow", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAdlib.ForeColor = System.Drawing.Color.Black;
+            this.lblAdlib.Location = new System.Drawing.Point(4, 543);
+            this.lblAdlib.Name = "lblAdlib";
+            this.lblAdlib.Size = new System.Drawing.Size(17, 15);
+            this.lblAdlib.TabIndex = 16;
+            this.lblAdlib.Text = "__";
+            // 
+            // lblProgversion
+            // 
+            this.lblProgversion.AutoSize = true;
+            this.lblProgversion.Font = new System.Drawing.Font("Arial Narrow", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblProgversion.ForeColor = System.Drawing.Color.Black;
+            this.lblProgversion.Location = new System.Drawing.Point(5, 531);
+            this.lblProgversion.Name = "lblProgversion";
+            this.lblProgversion.Size = new System.Drawing.Size(108, 15);
+            this.lblProgversion.TabIndex = 15;
+            this.lblProgversion.Text = "nPOS System vX.x.x.x";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Arial Narrow", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.Black;
+            this.label3.Location = new System.Drawing.Point(5, 519);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(121, 15);
+            this.label3.TabIndex = 14;
+            this.label3.Text = "Creative Software Solutions";
             // 
             // frmMenu
             // 
@@ -203,6 +239,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(701, 561);
+            this.Controls.Add(this.lblAdlib);
+            this.Controls.Add(this.lblProgversion);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.btnChangePassword);
             this.Controls.Add(this.btnConfig);
@@ -221,9 +260,11 @@
             this.Name = "frmMenu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmMenu_FormClosing);
+            this.Load += new System.EventHandler(this.frmMenu_Load_1);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -240,6 +281,9 @@
         private System.Windows.Forms.Button btnConfig;
         private System.Windows.Forms.Button btnChangePassword;
         private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.Label lblAdlib;
+        private System.Windows.Forms.Label lblProgversion;
+        private System.Windows.Forms.Label label3;
     }
 }
 

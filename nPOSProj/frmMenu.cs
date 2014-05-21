@@ -92,5 +92,18 @@ namespace nPOSProj
             mdiInv.Show();
             this.Hide();
         }
+
+        private void frmMenu_Load_1(object sender, EventArgs e)
+        {
+            String nows;
+            if (DateTime.Now.Year.ToString() == "2014")
+            {
+                nows = "";
+            }
+            else
+                nows = DateTime.Now.Year.ToString();
+            lblProgversion.Text = "nPOS System v" + ProductVersion.ToString();
+            lblAdlib.Text = "© Copyright 2014 - " + nows;
+        }
     }
 }
