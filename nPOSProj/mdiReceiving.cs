@@ -14,7 +14,9 @@ namespace nPOSProj
     {
         private Conf.dbs dbcon = new Conf.dbs();
         private MySqlConnection con = new MySqlConnection();
+        private DAO.LoginDAO login = new DAO.LoginDAO();
         private VO.ReceivingVO rvo = new VO.ReceivingVO();
+        private VO.PurchaseOrderVO povo = new VO.PurchaseOrderVO();
         public mdiReceiving()
         {
             InitializeComponent();
@@ -82,6 +84,12 @@ namespace nPOSProj
         {
             // TODO: This line of code loads data into the 'npos_dbDataSet.po_order' table. You can move, or remove it, as needed.
             this.po_orderTableAdapter.FillByPending(this.npos_dbDataSet.po_order, Convert.ToDateTime(dateTimePicker1.Text));
+            String userName = frmLogin.User.user_name;
+            login.catchUsername(userName);
+            if (login.hasUser_Accounts())
+            {
+                btnR.Visible = true;
+            }
         }
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -95,6 +103,7 @@ namespace nPOSProj
                 rdSupplierName.Text = dataGridView1.SelectedRows[0].Cells[4].Value.ToString();
                 getRefNo();
                 txtBoxRef.ReadOnly = false;
+                btnR.Enabled = true;
             }
             catch (Exception)
             {
@@ -214,6 +223,20 @@ namespace nPOSProj
                 rvo.po_no = Convert.ToInt32(rdPONo.Text);
                 rvo.UpdateReferenceNo();
                 txtBoxRef.ReadOnly = true;
+            }
+        }
+
+        private void btnR_Click(object sender, EventArgs e)
+        {
+            DialogResult dlgResult = MessageBox.Show("Do You Wish To Redo Your Purchase Order?", "Administration", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (dlgResult == DialogResult.Yes)
+            {
+                DateTime raw = Convert.ToDateTime(dataGridView1.SelectedRows[0].Cells[1].Value);
+                povo.po_no = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[0].Value);
+                povo.po_date = raw.ToString("yyyy-MM-dd");
+                povo.ReversePrint();
+                dataGridView1.Rows.RemoveAt(dataGridView1.SelectedRows[0].Index);
+                btnR.Enabled = false;
             }
         }
     }

@@ -231,5 +231,10 @@ namespace nPOSProj.VO
             podao = new DAO.PurchaseOrderDAO();
             podao.TriggerPrint(po_no, po_date);
         }
+        public void ReversePrint()
+        {
+            podao = new DAO.PurchaseOrderDAO();
+            podao.UndoPrint(po_no, po_date);
+        }
     }
 }

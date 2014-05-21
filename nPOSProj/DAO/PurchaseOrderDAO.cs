@@ -510,5 +510,26 @@ namespace nPOSProj.DAO
                 con.Close();
             }
         }
+        public void UndoPrint(Int32 po_no, String po_date)
+        {
+            con = new MySqlConnection();
+            dbcon = new Conf.dbs();
+            con.ConnectionString = dbcon.getConnectionString();
+            String query = "UPDATE po_order SET po_printed = 'No', po_status = 'Unfinish' ";
+            query += "WHERE po_no = ?po_no AND po_date = ?po_date";
+            try
+            {
+                con.Open();
+                MySqlCommand cmd = new MySqlCommand(query, con);
+                cmd.Parameters.AddWithValue("?po_no", po_no);
+                cmd.Parameters.AddWithValue("?po_date", po_date);
+                cmd.ExecuteNonQuery();
+                cmd.Dispose();
+            }
+            finally
+            {
+                con.Close();
+            }
+        }
     }
 }
