@@ -19,6 +19,32 @@ namespace nPOSProj
         {
             InitializeComponent();
         }
+        private void getRefNo()
+        {
+            con.ConnectionString = dbcon.getConnectionString();
+            String query = "SELECT po_ref FROM po_order ";
+            query += "WHERE po_no = ?po_no";
+            try
+            {
+                con.Open();
+                MySqlCommand cmd = new MySqlCommand(query, con);
+                cmd.Parameters.AddWithValue("?po_no", rdPONo.Text);
+                cmd.ExecuteScalar();
+                MySqlDataReader rdr = cmd.ExecuteReader();
+                if (rdr.Read())
+                {
+                    txtBoxRef.Text = rdr["po_ref"].ToString();
+                }
+            }
+            catch (Exception)
+            {
+                txtBoxRef.Text = "Error 22";
+            }
+            finally
+            {
+                con.Close();
+            }
+        }
 
         private void getDataTable()
         {
@@ -67,6 +93,8 @@ namespace nPOSProj
                 dateTimePicker2.Text = dataGridView1.SelectedRows[0].Cells[1].Value.ToString();
                 rdSupplierCode.Text = dataGridView1.SelectedRows[0].Cells[3].Value.ToString();
                 rdSupplierName.Text = dataGridView1.SelectedRows[0].Cells[4].Value.ToString();
+                getRefNo();
+                txtBoxRef.ReadOnly = false;
             }
             catch (Exception)
             {
@@ -161,6 +189,7 @@ namespace nPOSProj
                         if (dataGridView2.Rows.Count == 0)
                         {
                             rvo.TriggerStatus();
+                            txtBoxRef.ReadOnly = true;
                             this.po_orderTableAdapter.FillByPending(this.npos_dbDataSet.po_order, Convert.ToDateTime(dateTimePicker1.Text));
                         }
 
@@ -174,6 +203,17 @@ namespace nPOSProj
             catch (Exception)
             {
                 MessageBox.Show("Check Server!", "Database Server", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void txtBoxRef_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                rvo.po_ref = txtBoxRef.Text;
+                rvo.po_no = Convert.ToInt32(rdPONo.Text);
+                rvo.UpdateReferenceNo();
+                txtBoxRef.ReadOnly = true;
             }
         }
     }

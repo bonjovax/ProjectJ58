@@ -76,18 +76,19 @@ namespace nPOSProj.DAO
                 con.Close();
             }
         }
-        public Int32 aQuantity(String stock_code)
+        public Int32 aQuantity(String stock_code, Int32 po_no)
         {
             con = new MySqlConnection();
             dbcon = new Conf.dbs();
             con.ConnectionString = dbcon.getConnectionString();
             String query = "SELECT order_quantity AS a FROM po_order_list ";
-            query += "WHERE order_suppliers_itemno = ?order_suppliers_itemno";
+            query += "WHERE order_suppliers_itemno = ?order_suppliers_itemno AND po_no = ?po_no";
             try
             {
                 con.Open();
                 MySqlCommand cmd = new MySqlCommand(query, con);
                 cmd.Parameters.AddWithValue("?order_suppliers_itemno", stock_code);
+                cmd.Parameters.AddWithValue("?po_no", po_no);
                 cmd.ExecuteScalar();
                 MySqlDataReader rdr = cmd.ExecuteReader();
                 if (rdr.Read())
@@ -152,6 +153,27 @@ namespace nPOSProj.DAO
                 cmd.Parameters.AddWithValue("?po_date_r", final);
                 cmd.Parameters.AddWithValue("?po_time_r", time);
                 cmd.Parameters.AddWithValue("?po_receive_by", userName);
+                cmd.Parameters.AddWithValue("?po_no", po_no);
+                cmd.ExecuteNonQuery();
+                cmd.Dispose();
+            }
+            finally
+            {
+                con.Close();
+            }
+        }
+        public void UpdateR(String po_ref, Int32 po_no)
+        {
+            con = new MySqlConnection();
+            dbcon = new Conf.dbs();
+            con.ConnectionString = dbcon.getConnectionString();
+            String query = "UPDATE po_order SET po_ref = ?po_ref ";
+            query += "WHERE po_no = ?po_no";
+            try
+            {
+                con.Open();
+                MySqlCommand cmd = new MySqlCommand(query, con);
+                cmd.Parameters.AddWithValue("?po_ref", po_ref);
                 cmd.Parameters.AddWithValue("?po_no", po_no);
                 cmd.ExecuteNonQuery();
                 cmd.Dispose();
