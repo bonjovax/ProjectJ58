@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMenu));
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnLogout = new System.Windows.Forms.Button();
@@ -43,6 +44,9 @@
             this.lblAdlib = new System.Windows.Forms.Label();
             this.lblProgversion = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.greetings = new System.Windows.Forms.Label();
+            this.lblTime = new System.Windows.Forms.Label();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
@@ -233,12 +237,40 @@
             this.label3.TabIndex = 14;
             this.label3.Text = "Creative Software Solutions";
             // 
+            // greetings
+            // 
+            this.greetings.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.greetings.ForeColor = System.Drawing.Color.Black;
+            this.greetings.Location = new System.Drawing.Point(327, 523);
+            this.greetings.Name = "greetings";
+            this.greetings.Size = new System.Drawing.Size(249, 21);
+            this.greetings.TabIndex = 17;
+            this.greetings.Text = "Good ___________";
+            this.greetings.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // lblTime
+            // 
+            this.lblTime.AutoSize = true;
+            this.lblTime.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTime.ForeColor = System.Drawing.Color.Black;
+            this.lblTime.Location = new System.Drawing.Point(324, 541);
+            this.lblTime.Name = "lblTime";
+            this.lblTime.Size = new System.Drawing.Size(15, 16);
+            this.lblTime.TabIndex = 18;
+            this.lblTime.Text = "_";
+            // 
+            // timer1
+            // 
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
             // frmMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(701, 561);
+            this.Controls.Add(this.lblTime);
+            this.Controls.Add(this.greetings);
             this.Controls.Add(this.lblAdlib);
             this.Controls.Add(this.lblProgversion);
             this.Controls.Add(this.label3);
@@ -260,7 +292,7 @@
             this.Name = "frmMenu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmMenu_FormClosing);
-            this.Load += new System.EventHandler(this.frmMenu_Load_1);
+            this.Load += new System.EventHandler(this.frmMenu_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
@@ -284,6 +316,9 @@
         private System.Windows.Forms.Label lblAdlib;
         private System.Windows.Forms.Label lblProgversion;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label greetings;
+        private System.Windows.Forms.Label lblTime;
+        private System.Windows.Forms.Timer timer1;
     }
 }
 

@@ -14,6 +14,7 @@ namespace nPOSProj
         private mdiFrmUserAccounts mdiUA = new mdiFrmUserAccounts();
         private mdiConfiguration mdiConfig = new mdiConfiguration();
         private mdiFrmInv mdiInv = new mdiFrmInv();
+        private String userName = frmLogin.User.user_name;
         public frmMenu()
         {
             InitializeComponent();
@@ -76,11 +77,6 @@ namespace nPOSProj
             this.Hide();
         }
 
-        private void frmMenu_Load(object sender, EventArgs e)
-        {
-            
-        }
-
         private void btnConfig_Click(object sender, EventArgs e)
         {
             mdiConfig = new mdiConfiguration();
@@ -93,7 +89,24 @@ namespace nPOSProj
             this.Hide();
         }
 
-        private void frmMenu_Load_1(object sender, EventArgs e)
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            lblTime.Text = DateTime.Now.ToLongDateString() + " at " + DateTime.Now.ToLongTimeString();
+            if (DateTime.Now.ToString("tt") == "AM")
+            {
+                greetings.Text = "Good Morning, " + userName;
+            }
+            if (DateTime.Now.ToString("tt") == "PM" && Convert.ToInt32(DateTime.Now.Hour) <= 17)
+            {
+                greetings.Text = "Good Afternoon, " + userName;
+            }
+            if (DateTime.Now.ToString("tt") == "PM" && Convert.ToInt32(DateTime.Now.Hour)  >= 17)
+            {
+                greetings.Text = "Good Evening, " + userName;
+            }
+        }
+
+        private void frmMenu_Load(object sender, EventArgs e)
         {
             String nows;
             if (DateTime.Now.Year.ToString() == "2014")
@@ -104,6 +117,7 @@ namespace nPOSProj
                 nows = DateTime.Now.Year.ToString();
             lblProgversion.Text = "nPOS System v" + ProductVersion.ToString();
             lblAdlib.Text = "© Copyright 2014 - " + nows;
+            timer1.Start();
         }
     }
 }
