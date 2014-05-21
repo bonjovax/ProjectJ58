@@ -187,9 +187,6 @@ namespace nPOSProj
                         if (dataGridView2.SelectedRows[0].Cells[0].Value.ToString() == "0")
                         {
                             dataGridView2.Rows.RemoveAt(dataGridView2.SelectedRows[0].Index);
-                            rdPONo.Clear();
-                            rdSupplierCode.Clear();
-                            rdSupplierName.Clear();
                             rdStockCode.Clear();
                             rdParticulars.Clear();
                             txtBoxQty.Clear();
@@ -197,11 +194,14 @@ namespace nPOSProj
                         txtBoxQty.Clear();
                         if (dataGridView2.Rows.Count == 0)
                         {
+                            rdPONo.Clear();
+                            rdSupplierCode.Clear();
+                            rdSupplierName.Clear();
                             rvo.TriggerStatus();
                             txtBoxRef.ReadOnly = true;
                             this.po_orderTableAdapter.FillByPending(this.npos_dbDataSet.po_order, Convert.ToDateTime(dateTimePicker1.Text));
+                            btnR.Enabled = false;
                         }
-
                     }
                     else
                         MessageBox.Show("Negative Value Will Not Be Considered!", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -237,6 +237,13 @@ namespace nPOSProj
                 povo.ReversePrint();
                 dataGridView1.Rows.RemoveAt(dataGridView1.SelectedRows[0].Index);
                 btnR.Enabled = false;
+                dataGridView2.Rows.Clear();
+                rdPONo.Clear();
+                rdSupplierCode.Clear();
+                rdSupplierName.Clear();
+                rdStockCode.Clear();
+                rdParticulars.Clear();
+                txtBoxQty.Clear();
             }
         }
     }
