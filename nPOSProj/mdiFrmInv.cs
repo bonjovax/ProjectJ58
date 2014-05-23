@@ -19,6 +19,7 @@ namespace nPOSProj
         private mdiCategory mcat = new mdiCategory();
         private mdiReceiving receive = new mdiReceiving();
         private mdiPO po = new mdiPO();
+        private mdiItems items = new mdiItems();
         public mdiFrmInv()
         {
             InitializeComponent();
@@ -162,6 +163,16 @@ namespace nPOSProj
                 receive = new mdiReceiving();
                 receive.MdiParent = this;
                 receive.Show();
+            }
+        }
+
+        private void tsItems_Click(object sender, EventArgs e)
+        {
+            if (ActivateThisChild("mdiItems") == false)
+            {
+                items = new mdiItems();
+                items.MdiParent = this;
+                items.Show();
             }
         }
     }

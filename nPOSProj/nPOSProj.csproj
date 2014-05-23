@@ -38,6 +38,9 @@
     <ApplicationIcon>nPOS.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="BarcodeLib">
+      <HintPath>..\..\lib\BarcodeLib.dll</HintPath>
+    </Reference>
     <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="CrystalDecisions.ReportSource, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="CrystalDecisions.Shared, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
@@ -72,6 +75,7 @@
     <Compile Include="DAO\ChangePasswordDAO.cs" />
     <Compile Include="DAO\ConfigDAO.cs" />
     <Compile Include="DAO\InventoryDAO.cs" />
+    <Compile Include="DAO\ItemsDAO.cs" />
     <Compile Include="DAO\LoginDAO.cs" />
     <Compile Include="DAO\PurchaseOrderDAO.cs" />
     <Compile Include="DAO\ReceivingDAO.cs" />
@@ -99,6 +103,12 @@
     </Compile>
     <Compile Include="mdiConfiguration.Designer.cs">
       <DependentUpon>mdiConfiguration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="mdiItems.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="mdiItems.Designer.cs">
+      <DependentUpon>mdiItems.cs</DependentUpon>
     </Compile>
     <Compile Include="mdiPO.cs">
       <SubType>Form</SubType>
@@ -204,6 +214,7 @@
     <Compile Include="VO\ChangePasswordVO.cs" />
     <Compile Include="VO\ConfigVO.cs" />
     <Compile Include="VO\InventoryVO.cs" />
+    <Compile Include="VO\ItemVO.cs" />
     <Compile Include="VO\PurchaseOrderVO.cs" />
     <Compile Include="VO\ReceivingVO.cs" />
     <Compile Include="VO\UserAccountVO.cs" />
@@ -218,6 +229,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="mdiConfiguration.resx">
       <DependentUpon>mdiConfiguration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="mdiItems.resx">
+      <DependentUpon>mdiItems.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="mdiPO.resx">
       <DependentUpon>mdiPO.cs</DependentUpon>
