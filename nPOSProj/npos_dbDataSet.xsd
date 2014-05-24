@@ -665,6 +665,29 @@ FROM            inventory_items INNER JOIN
             </Mappings>
             <Sources />
           </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="inventory_items_kitTableAdapter" GeneratorDataComponentClassName="inventory_items_kitTableAdapter" Name="inventory_items_kit" UserDataComponentName="inventory_items_kitTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="npos_dbConnectionString1 (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        inventory_items_kit.kit_id, inventory_items_kit.kit_qty, inventory_items.item_ean, inventory_stocks.stock_code, inventory_stocks.stock_name
+FROM            inventory_items_kit INNER JOIN
+                         inventory_items ON inventory_items_kit.item_ean = inventory_items.item_ean INNER JOIN
+                         inventory_stocks ON inventory_items_kit.stock_code = inventory_stocks.stock_code</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="kit_id" DataSetColumn="kit_id" />
+              <Mapping SourceColumn="kit_qty" DataSetColumn="kit_qty" />
+              <Mapping SourceColumn="stock_code" DataSetColumn="stock_code" />
+              <Mapping SourceColumn="item_ean" DataSetColumn="item_ean" />
+              <Mapping SourceColumn="stock_name" DataSetColumn="stock_name" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
         </Tables>
         <Sources />
       </DataSource>
@@ -996,6 +1019,35 @@ FROM            inventory_items INNER JOIN
             </xs:sequence>
           </xs:complexType>
         </xs:element>
+        <xs:element name="inventory_items_kit" msprop:Generator_TableClassName="inventory_items_kitDataTable" msprop:Generator_TableVarName="tableinventory_items_kit" msprop:Generator_TablePropName="inventory_items_kit" msprop:Generator_RowDeletingName="inventory_items_kitRowDeleting" msprop:Generator_RowChangingName="inventory_items_kitRowChanging" msprop:Generator_RowEvHandlerName="inventory_items_kitRowChangeEventHandler" msprop:Generator_RowDeletedName="inventory_items_kitRowDeleted" msprop:Generator_UserTableName="inventory_items_kit" msprop:Generator_RowChangedName="inventory_items_kitRowChanged" msprop:Generator_RowEvArgName="inventory_items_kitRowChangeEvent" msprop:Generator_RowClassName="inventory_items_kitRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="kit_id" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnkit_id" msprop:Generator_ColumnPropNameInRow="kit_id" msprop:Generator_ColumnPropNameInTable="kit_idColumn" msprop:Generator_UserColumnName="kit_id" type="xs:int" />
+              <xs:element name="kit_qty" msprop:Generator_ColumnVarNameInTable="columnkit_qty" msprop:Generator_ColumnPropNameInRow="kit_qty" msprop:Generator_ColumnPropNameInTable="kit_qtyColumn" msprop:Generator_UserColumnName="kit_qty" type="xs:int" minOccurs="0" />
+              <xs:element name="stock_code" msprop:Generator_ColumnVarNameInTable="columnstock_code" msprop:Generator_ColumnPropNameInRow="stock_code" msprop:Generator_ColumnPropNameInTable="stock_codeColumn" msprop:Generator_UserColumnName="stock_code">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="9" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="item_ean" msprop:Generator_ColumnVarNameInTable="columnitem_ean" msprop:Generator_ColumnPropNameInRow="item_ean" msprop:Generator_ColumnPropNameInTable="item_eanColumn" msprop:Generator_UserColumnName="item_ean" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="13" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="stock_name" msprop:Generator_ColumnVarNameInTable="columnstock_name" msprop:Generator_ColumnPropNameInRow="stock_name" msprop:Generator_ColumnPropNameInTable="stock_nameColumn" msprop:Generator_UserColumnName="stock_name" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="75" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
       </xs:choice>
     </xs:complexType>
     <xs:unique name="Constraint1" msdata:PrimaryKey="true">
@@ -1021,6 +1073,10 @@ FROM            inventory_items INNER JOIN
     <xs:unique name="inventory_items_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
       <xs:selector xpath=".//mstns:inventory_items" />
       <xs:field xpath="mstns:item_id" />
+    </xs:unique>
+    <xs:unique name="inventory_items_kit_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:inventory_items_kit" />
+      <xs:field xpath="mstns:kit_id" />
     </xs:unique>
   </xs:element>
 </xs:schema>
