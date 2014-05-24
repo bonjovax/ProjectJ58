@@ -13,6 +13,7 @@ namespace nPOSProj
     {
         private VO.InventoryVO ivo;
         private Decimal total = 0.0M;
+        private VO.ItemVO items = new VO.ItemVO();
         public mdiStocks()
         {
             InitializeComponent();
@@ -157,6 +158,7 @@ namespace nPOSProj
                 try
                 {
                     this.inventory_stocksTableAdapter.InsertStocks(txtBoxStockCode.Text, txtBoxStockName.Text, l1.Text, l2.Text, l3.Text, Convert.ToInt32(txtBoxQty.Text), txtBoxUOM.Text, Convert.ToDecimal(txtBoxCPrice.Text), Convert.ToDecimal(txtBoxSPrice.Text), Convert.ToDecimal(txtBoxTPrice.Text));
+                    this.inventory_stocksTableAdapter.InsertAlsoItem(txtBoxStockCode.Text, Convert.ToDecimal(txtBoxSPrice.Text));
                     clearStockSection();
                     this.inventory_stocksTableAdapter.Fill(this.npos_dbDataSet1.inventory_stocks);
                 }
@@ -398,6 +400,7 @@ namespace nPOSProj
                         if (oneCell.Selected)
                         {
                             this.inventory_stocksTableAdapter.DeleteStocks(dataGridView2.SelectedRows[0].Cells[1].Value.ToString(), Convert.ToInt32(dataGridView2.SelectedRows[0].Cells[0].Value.ToString()));
+                            this.inventory_stocksTableAdapter.DeleteAlsoItemQuery(dataGridView2.SelectedRows[0].Cells[1].Value.ToString());
                             dataGridView2.Rows.RemoveAt(oneCell.RowIndex);
                             btnSDelete.Enabled = false;
                         }
@@ -414,6 +417,48 @@ namespace nPOSProj
         private void dataGridView2_DataError(object sender, DataGridViewDataErrorEventArgs e)
         {
             MessageBox.Show("Alphanumeric Values will not be consider!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+
+        private void txtBoxTransferQty_TextChanged(object sender, EventArgs e)
+        {
+            if (txtBoxTransferQty.Text != "")
+            {
+                btnTransfer.Enabled = true;
+            }
+            else
+                btnTransfer.Enabled = false;
+        }
+
+        private void btnTransfer_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (Convert.ToInt32(txtBoxTransferQty.Text) >= 0)
+                {
+                    
+                    Int32 finale = Convert.ToInt32(dataGridView2.SelectedRows[0].Cells[6].Value) - Convert.ToInt32(txtBoxTransferQty.Text);
+                    dataGridView2.SelectedRows[0].Cells[6].Value = finale;
+                    Double recal = finale * Convert.ToDouble(dataGridView2.SelectedRows[0].Cells[9].Value);
+                    dataGridView2.SelectedRows[0].Cells[10].Value = recal;
+                    txtBoxTransferQty.ReadOnly = true;
+                    btnTransfer.Enabled = false;
+                    items.item_quantity = Convert.ToInt32(txtBoxTransferQty.Text);
+                    items.stock_code = dataGridView2.SelectedRows[0].Cells[1].Value.ToString();
+                    items.TrasferStockToItem();
+                }
+                else
+                    MessageBox.Show("Negative Value will not be consider!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Check your Input!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void dataGridView2_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            txtBoxTransferQty.ReadOnly = false;
+            btnTransfer.Enabled = true;
         }
     }
 }

@@ -63,5 +63,10 @@ namespace nPOSProj.VO
             items = new DAO.ItemsDAO();
             items.ReturnToStocks(item_quantity, stock_code);
         }
+        public void TrasferStockToItem()
+        {
+            items = new DAO.ItemsDAO();
+            items.SendToItem(item_quantity, stock_code);
+        }
     }
 }

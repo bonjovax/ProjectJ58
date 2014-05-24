@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(mdiItems));
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.itemquantityDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -45,6 +45,7 @@
             this.npos_dbDataSet = new nPOSProj.npos_dbDataSet();
             this.inventory_itemsTableAdapter = new nPOSProj.npos_dbDataSetTableAdapters.inventory_itemsTableAdapter();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnReturn = new System.Windows.Forms.Button();
             this.btnUp = new System.Windows.Forms.Button();
             this.txtBoxWholesalePrice = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -57,7 +58,6 @@
             this.barcode = new System.Windows.Forms.PictureBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.bcSave = new System.Windows.Forms.Button();
-            this.btnReturn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.inventoryitemsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.npos_dbDataSet)).BeginInit();
@@ -101,8 +101,8 @@
             // itemquantityDataGridViewTextBoxColumn
             // 
             this.itemquantityDataGridViewTextBoxColumn.DataPropertyName = "item_quantity";
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.itemquantityDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.itemquantityDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle1;
             this.itemquantityDataGridViewTextBoxColumn.HeaderText = "Qty";
             this.itemquantityDataGridViewTextBoxColumn.Name = "itemquantityDataGridViewTextBoxColumn";
             this.itemquantityDataGridViewTextBoxColumn.ReadOnly = true;
@@ -135,10 +135,10 @@
             // itemretailpriceDataGridViewTextBoxColumn
             // 
             this.itemretailpriceDataGridViewTextBoxColumn.DataPropertyName = "item_retail_price";
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle8.Format = "N2";
-            dataGridViewCellStyle8.NullValue = null;
-            this.itemretailpriceDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.Format = "N2";
+            dataGridViewCellStyle2.NullValue = null;
+            this.itemretailpriceDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle2;
             this.itemretailpriceDataGridViewTextBoxColumn.HeaderText = "Retail Price";
             this.itemretailpriceDataGridViewTextBoxColumn.Name = "itemretailpriceDataGridViewTextBoxColumn";
             this.itemretailpriceDataGridViewTextBoxColumn.ReadOnly = true;
@@ -147,10 +147,10 @@
             // itemwholepriceDataGridViewTextBoxColumn
             // 
             this.itemwholepriceDataGridViewTextBoxColumn.DataPropertyName = "item_whole_price";
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle9.Format = "N2";
-            dataGridViewCellStyle9.NullValue = null;
-            this.itemwholepriceDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.Format = "N2";
+            dataGridViewCellStyle3.NullValue = null;
+            this.itemwholepriceDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle3;
             this.itemwholepriceDataGridViewTextBoxColumn.HeaderText = "Wholesale Price";
             this.itemwholepriceDataGridViewTextBoxColumn.Name = "itemwholepriceDataGridViewTextBoxColumn";
             this.itemwholepriceDataGridViewTextBoxColumn.ReadOnly = true;
@@ -196,6 +196,17 @@
             this.groupBox1.TabIndex = 4;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Item Information";
+            // 
+            // btnReturn
+            // 
+            this.btnReturn.Enabled = false;
+            this.btnReturn.Image = ((System.Drawing.Image)(resources.GetObject("btnReturn.Image")));
+            this.btnReturn.Location = new System.Drawing.Point(374, 69);
+            this.btnReturn.Name = "btnReturn";
+            this.btnReturn.Size = new System.Drawing.Size(62, 58);
+            this.btnReturn.TabIndex = 9;
+            this.btnReturn.UseVisualStyleBackColor = true;
+            this.btnReturn.Click += new System.EventHandler(this.btnReturn_Click);
             // 
             // btnUp
             // 
@@ -318,17 +329,6 @@
             this.bcSave.TabIndex = 15;
             this.bcSave.UseVisualStyleBackColor = true;
             this.bcSave.Click += new System.EventHandler(this.bcSave_Click);
-            // 
-            // btnReturn
-            // 
-            this.btnReturn.Enabled = false;
-            this.btnReturn.Image = ((System.Drawing.Image)(resources.GetObject("btnReturn.Image")));
-            this.btnReturn.Location = new System.Drawing.Point(374, 69);
-            this.btnReturn.Name = "btnReturn";
-            this.btnReturn.Size = new System.Drawing.Size(62, 58);
-            this.btnReturn.TabIndex = 9;
-            this.btnReturn.UseVisualStyleBackColor = true;
-            this.btnReturn.Click += new System.EventHandler(this.btnReturn_Click);
             // 
             // mdiItems
             // 
