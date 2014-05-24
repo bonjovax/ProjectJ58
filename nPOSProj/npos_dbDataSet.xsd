@@ -392,7 +392,7 @@ FROM            inventory_stocks INNER JOIN
               <Mapping SourceColumn="warehouse_name" DataSetColumn="warehouse_name" />
             </Mappings>
             <Sources>
-              <DbSource ConnectionRef="npos_dbConnectionString1 (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="DeleteAlsoItemQuery" Modifier="Public" Name="DeleteAlsoItemQuery" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy4" UserSourceName="DeleteAlsoItemQuery">
+              <DbSource ConnectionRef="npos_dbConnectionString1 (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="DeleteAlsoItemQuery" Modifier="Public" Name="DeleteAlsoItemQuery" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="DeleteAlsoItemQuery">
                 <DeleteCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>DELETE FROM inventory_items
@@ -403,7 +403,7 @@ WHERE        (stock_code = @stock_code)</CommandText>
                   </DbCommand>
                 </DeleteCommand>
               </DbSource>
-              <DbSource ConnectionRef="npos_dbConnectionString1 (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="DeleteStocks" Modifier="Public" Name="DeleteStocks" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="DeleteStocks">
+              <DbSource ConnectionRef="npos_dbConnectionString1 (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="DeleteStocks" Modifier="Public" Name="DeleteStocks" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="DeleteStocks">
                 <DeleteCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>DELETE FROM inventory_stocks
@@ -415,7 +415,7 @@ WHERE        (stock_code = @stock_code) AND (stock_id = @stock_id)</CommandText>
                   </DbCommand>
                 </DeleteCommand>
               </DbSource>
-              <DbSource ConnectionRef="npos_dbConnectionString1 (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="InsertAlsoItem" Modifier="Public" Name="InsertAlsoItem" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy3" UserSourceName="InsertAlsoItem">
+              <DbSource ConnectionRef="npos_dbConnectionString1 (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="InsertAlsoItem" Modifier="Public" Name="InsertAlsoItem" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy2" UserSourceName="InsertAlsoItem">
                 <InsertCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>INSERT INTO inventory_items
@@ -428,7 +428,7 @@ VALUES        (@stock_code, @item_retail_price)</CommandText>
                   </DbCommand>
                 </InsertCommand>
               </DbSource>
-              <DbSource ConnectionRef="npos_dbConnectionString1 (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="InsertStocks" Modifier="Public" Name="InsertStocks" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="InsertStocks">
+              <DbSource ConnectionRef="npos_dbConnectionString1 (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="InsertStocks" Modifier="Public" Name="InsertStocks" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy3" UserSourceName="InsertStocks">
                 <InsertCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>INSERT INTO inventory_stocks
@@ -449,7 +449,7 @@ VALUES        (@stock_code, @stock_name, @supplier_code, @stock_cat_Code, @wareh
                   </DbCommand>
                 </InsertCommand>
               </DbSource>
-              <DbSource ConnectionRef="npos_dbConnectionString1 (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="UpdateStocks" Modifier="Public" Name="UpdateStocks" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy2" UserSourceName="UpdateStocks">
+              <DbSource ConnectionRef="npos_dbConnectionString1 (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="UpdateStocks" Modifier="Public" Name="UpdateStocks" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy4" UserSourceName="UpdateStocks">
                 <UpdateCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>UPDATE       inventory_stocks
@@ -673,7 +673,7 @@ FROM            inventory_items INNER JOIN
   <xs:element name="npos_dbDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="npos_dbDataSet" msprop:Generator_UserDSName="npos_dbDataSet">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="inventory_supplier" msprop:Generator_TableClassName="inventory_supplierDataTable" msprop:Generator_TableVarName="tableinventory_supplier" msprop:Generator_RowChangedName="inventory_supplierRowChanged" msprop:Generator_TablePropName="inventory_supplier" msprop:Generator_RowDeletingName="inventory_supplierRowDeleting" msprop:Generator_RowChangingName="inventory_supplierRowChanging" msprop:Generator_RowEvHandlerName="inventory_supplierRowChangeEventHandler" msprop:Generator_RowDeletedName="inventory_supplierRowDeleted" msprop:Generator_RowClassName="inventory_supplierRow" msprop:Generator_UserTableName="inventory_supplier" msprop:Generator_RowEvArgName="inventory_supplierRowChangeEvent">
+        <xs:element name="inventory_supplier" msprop:Generator_TableClassName="inventory_supplierDataTable" msprop:Generator_TableVarName="tableinventory_supplier" msprop:Generator_TablePropName="inventory_supplier" msprop:Generator_RowDeletingName="inventory_supplierRowDeleting" msprop:Generator_RowChangingName="inventory_supplierRowChanging" msprop:Generator_RowEvHandlerName="inventory_supplierRowChangeEventHandler" msprop:Generator_RowDeletedName="inventory_supplierRowDeleted" msprop:Generator_UserTableName="inventory_supplier" msprop:Generator_RowChangedName="inventory_supplierRowChanged" msprop:Generator_RowEvArgName="inventory_supplierRowChangeEvent" msprop:Generator_RowClassName="inventory_supplierRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="supplier_id" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnsupplier_id" msprop:Generator_ColumnPropNameInRow="supplier_id" msprop:Generator_ColumnPropNameInTable="supplier_idColumn" msprop:Generator_UserColumnName="supplier_id" type="xs:int" />
@@ -737,7 +737,7 @@ FROM            inventory_items INNER JOIN
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="inventory_warehouse" msprop:Generator_TableClassName="inventory_warehouseDataTable" msprop:Generator_TableVarName="tableinventory_warehouse" msprop:Generator_TablePropName="inventory_warehouse" msprop:Generator_RowDeletingName="inventory_warehouseRowDeleting" msprop:Generator_RowChangingName="inventory_warehouseRowChanging" msprop:Generator_RowEvHandlerName="inventory_warehouseRowChangeEventHandler" msprop:Generator_RowDeletedName="inventory_warehouseRowDeleted" msprop:Generator_UserTableName="inventory_warehouse" msprop:Generator_RowChangedName="inventory_warehouseRowChanged" msprop:Generator_RowEvArgName="inventory_warehouseRowChangeEvent" msprop:Generator_RowClassName="inventory_warehouseRow">
+        <xs:element name="inventory_warehouse" msprop:Generator_TableClassName="inventory_warehouseDataTable" msprop:Generator_TableVarName="tableinventory_warehouse" msprop:Generator_RowChangedName="inventory_warehouseRowChanged" msprop:Generator_TablePropName="inventory_warehouse" msprop:Generator_RowDeletingName="inventory_warehouseRowDeleting" msprop:Generator_RowChangingName="inventory_warehouseRowChanging" msprop:Generator_RowEvHandlerName="inventory_warehouseRowChangeEventHandler" msprop:Generator_RowDeletedName="inventory_warehouseRowDeleted" msprop:Generator_RowClassName="inventory_warehouseRow" msprop:Generator_UserTableName="inventory_warehouse" msprop:Generator_RowEvArgName="inventory_warehouseRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="warehouse_code" msprop:Generator_ColumnVarNameInTable="columnwarehouse_code" msprop:Generator_ColumnPropNameInRow="warehouse_code" msprop:Generator_ColumnPropNameInTable="warehouse_codeColumn" msprop:Generator_UserColumnName="warehouse_code">
@@ -757,7 +757,7 @@ FROM            inventory_items INNER JOIN
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="inventory_category" msprop:Generator_TableClassName="inventory_categoryDataTable" msprop:Generator_TableVarName="tableinventory_category" msprop:Generator_RowChangedName="inventory_categoryRowChanged" msprop:Generator_TablePropName="inventory_category" msprop:Generator_RowDeletingName="inventory_categoryRowDeleting" msprop:Generator_RowChangingName="inventory_categoryRowChanging" msprop:Generator_RowEvHandlerName="inventory_categoryRowChangeEventHandler" msprop:Generator_RowDeletedName="inventory_categoryRowDeleted" msprop:Generator_RowClassName="inventory_categoryRow" msprop:Generator_UserTableName="inventory_category" msprop:Generator_RowEvArgName="inventory_categoryRowChangeEvent">
+        <xs:element name="inventory_category" msprop:Generator_TableClassName="inventory_categoryDataTable" msprop:Generator_TableVarName="tableinventory_category" msprop:Generator_TablePropName="inventory_category" msprop:Generator_RowDeletingName="inventory_categoryRowDeleting" msprop:Generator_RowChangingName="inventory_categoryRowChanging" msprop:Generator_RowEvHandlerName="inventory_categoryRowChangeEventHandler" msprop:Generator_RowDeletedName="inventory_categoryRowDeleted" msprop:Generator_UserTableName="inventory_category" msprop:Generator_RowChangedName="inventory_categoryRowChanged" msprop:Generator_RowEvArgName="inventory_categoryRowChangeEvent" msprop:Generator_RowClassName="inventory_categoryRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="cat_id" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columncat_id" msprop:Generator_ColumnPropNameInRow="cat_id" msprop:Generator_ColumnPropNameInTable="cat_idColumn" msprop:Generator_UserColumnName="cat_id" type="xs:int" />
@@ -778,7 +778,7 @@ FROM            inventory_items INNER JOIN
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="inventory_stocks" msprop:Generator_TableClassName="inventory_stocksDataTable" msprop:Generator_TableVarName="tableinventory_stocks" msprop:Generator_RowChangedName="inventory_stocksRowChanged" msprop:Generator_TablePropName="inventory_stocks" msprop:Generator_RowDeletingName="inventory_stocksRowDeleting" msprop:Generator_RowChangingName="inventory_stocksRowChanging" msprop:Generator_RowEvHandlerName="inventory_stocksRowChangeEventHandler" msprop:Generator_RowDeletedName="inventory_stocksRowDeleted" msprop:Generator_RowClassName="inventory_stocksRow" msprop:Generator_UserTableName="inventory_stocks" msprop:Generator_RowEvArgName="inventory_stocksRowChangeEvent">
+        <xs:element name="inventory_stocks" msprop:Generator_TableClassName="inventory_stocksDataTable" msprop:Generator_TableVarName="tableinventory_stocks" msprop:Generator_TablePropName="inventory_stocks" msprop:Generator_RowDeletingName="inventory_stocksRowDeleting" msprop:Generator_RowChangingName="inventory_stocksRowChanging" msprop:Generator_RowEvHandlerName="inventory_stocksRowChangeEventHandler" msprop:Generator_RowDeletedName="inventory_stocksRowDeleted" msprop:Generator_UserTableName="inventory_stocks" msprop:Generator_RowChangedName="inventory_stocksRowChanged" msprop:Generator_RowEvArgName="inventory_stocksRowChangeEvent" msprop:Generator_RowClassName="inventory_stocksRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="stock_id" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnstock_id" msprop:Generator_ColumnPropNameInRow="stock_id" msprop:Generator_ColumnPropNameInTable="stock_idColumn" msprop:Generator_UserColumnName="stock_id" type="xs:int" />
@@ -831,7 +831,7 @@ FROM            inventory_items INNER JOIN
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="po_order" msprop:Generator_TableClassName="po_orderDataTable" msprop:Generator_TableVarName="tablepo_order" msprop:Generator_RowChangedName="po_orderRowChanged" msprop:Generator_TablePropName="po_order" msprop:Generator_RowDeletingName="po_orderRowDeleting" msprop:Generator_RowChangingName="po_orderRowChanging" msprop:Generator_RowEvHandlerName="po_orderRowChangeEventHandler" msprop:Generator_RowDeletedName="po_orderRowDeleted" msprop:Generator_RowClassName="po_orderRow" msprop:Generator_UserTableName="po_order" msprop:Generator_RowEvArgName="po_orderRowChangeEvent">
+        <xs:element name="po_order" msprop:Generator_TableClassName="po_orderDataTable" msprop:Generator_TableVarName="tablepo_order" msprop:Generator_TablePropName="po_order" msprop:Generator_RowDeletingName="po_orderRowDeleting" msprop:Generator_RowChangingName="po_orderRowChanging" msprop:Generator_RowEvHandlerName="po_orderRowChangeEventHandler" msprop:Generator_RowDeletedName="po_orderRowDeleted" msprop:Generator_UserTableName="po_order" msprop:Generator_RowChangedName="po_orderRowChanged" msprop:Generator_RowEvArgName="po_orderRowChangeEvent" msprop:Generator_RowClassName="po_orderRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="po_no" msprop:Generator_ColumnVarNameInTable="columnpo_no" msprop:Generator_ColumnPropNameInRow="po_no" msprop:Generator_ColumnPropNameInTable="po_noColumn" msprop:Generator_UserColumnName="po_no" type="xs:int" />
@@ -927,7 +927,7 @@ FROM            inventory_items INNER JOIN
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="po_order_list" msprop:Generator_TableClassName="po_order_listDataTable" msprop:Generator_TableVarName="tablepo_order_list" msprop:Generator_RowChangedName="po_order_listRowChanged" msprop:Generator_TablePropName="po_order_list" msprop:Generator_RowDeletingName="po_order_listRowDeleting" msprop:Generator_RowChangingName="po_order_listRowChanging" msprop:Generator_RowEvHandlerName="po_order_listRowChangeEventHandler" msprop:Generator_RowDeletedName="po_order_listRowDeleted" msprop:Generator_RowClassName="po_order_listRow" msprop:Generator_UserTableName="po_order_list" msprop:Generator_RowEvArgName="po_order_listRowChangeEvent">
+        <xs:element name="po_order_list" msprop:Generator_TableClassName="po_order_listDataTable" msprop:Generator_TableVarName="tablepo_order_list" msprop:Generator_TablePropName="po_order_list" msprop:Generator_RowDeletingName="po_order_listRowDeleting" msprop:Generator_RowChangingName="po_order_listRowChanging" msprop:Generator_RowEvHandlerName="po_order_listRowChangeEventHandler" msprop:Generator_RowDeletedName="po_order_listRowDeleted" msprop:Generator_UserTableName="po_order_list" msprop:Generator_RowChangedName="po_order_listRowChanged" msprop:Generator_RowEvArgName="po_order_listRowChangeEvent" msprop:Generator_RowClassName="po_order_listRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="po_no" msprop:Generator_ColumnVarNameInTable="columnpo_no" msprop:Generator_ColumnPropNameInRow="po_no" msprop:Generator_ColumnPropNameInTable="po_noColumn" msprop:Generator_UserColumnName="po_no" type="xs:int" />
@@ -958,7 +958,7 @@ FROM            inventory_items INNER JOIN
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="inventory_items" msprop:Generator_TableClassName="inventory_itemsDataTable" msprop:Generator_TableVarName="tableinventory_items" msprop:Generator_RowChangedName="inventory_itemsRowChanged" msprop:Generator_TablePropName="inventory_items" msprop:Generator_RowDeletingName="inventory_itemsRowDeleting" msprop:Generator_RowChangingName="inventory_itemsRowChanging" msprop:Generator_RowEvHandlerName="inventory_itemsRowChangeEventHandler" msprop:Generator_RowDeletedName="inventory_itemsRowDeleted" msprop:Generator_RowClassName="inventory_itemsRow" msprop:Generator_UserTableName="inventory_items" msprop:Generator_RowEvArgName="inventory_itemsRowChangeEvent">
+        <xs:element name="inventory_items" msprop:Generator_TableClassName="inventory_itemsDataTable" msprop:Generator_TableVarName="tableinventory_items" msprop:Generator_TablePropName="inventory_items" msprop:Generator_RowDeletingName="inventory_itemsRowDeleting" msprop:Generator_RowChangingName="inventory_itemsRowChanging" msprop:Generator_RowEvHandlerName="inventory_itemsRowChangeEventHandler" msprop:Generator_RowDeletedName="inventory_itemsRowDeleted" msprop:Generator_UserTableName="inventory_items" msprop:Generator_RowChangedName="inventory_itemsRowChanged" msprop:Generator_RowEvArgName="inventory_itemsRowChangeEvent" msprop:Generator_RowClassName="inventory_itemsRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="item_id" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnitem_id" msprop:Generator_ColumnPropNameInRow="item_id" msprop:Generator_ColumnPropNameInTable="item_idColumn" msprop:Generator_UserColumnName="item_id" type="xs:int" />
