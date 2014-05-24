@@ -104,6 +104,12 @@
     <Compile Include="mdiConfiguration.Designer.cs">
       <DependentUpon>mdiConfiguration.cs</DependentUpon>
     </Compile>
+    <Compile Include="mdiItemKits.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="mdiItemKits.Designer.cs">
+      <DependentUpon>mdiItemKits.cs</DependentUpon>
+    </Compile>
     <Compile Include="mdiItems.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -229,6 +235,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="mdiConfiguration.resx">
       <DependentUpon>mdiConfiguration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="mdiItemKits.resx">
+      <DependentUpon>mdiItemKits.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="mdiItems.resx">
       <DependentUpon>mdiItems.cs</DependentUpon>
