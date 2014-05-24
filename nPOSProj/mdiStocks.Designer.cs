@@ -1072,8 +1072,15 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn stockcostpriceDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn stocksellingpriceDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn totalprice;
+<<<<<<< HEAD
         private System.Windows.Forms.DataGridViewComboBoxColumn cbSupplier;
         private System.Windows.Forms.DataGridViewComboBoxColumn cbCategory;
         private System.Windows.Forms.DataGridViewComboBoxColumn cbWarehouse;
+=======
+        private System.Windows.Forms.GroupBox groupBox7;
+        private System.Windows.Forms.Button btnTransfer;
+        private System.Windows.Forms.TextBox txtBoxTransferQty;
+        private System.Windows.Forms.Label label13;
+>>>>>>> b160cec1ad9130300e0113afc7c8bb8f952cc749
     }
 }

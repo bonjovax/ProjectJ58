@@ -403,8 +403,13 @@ namespace nPOSProj
                     {
                         if (oneCell.Selected)
                         {
+<<<<<<< HEAD
                             this.inventory_stocksTableAdapter.DeleteStocks(dataGridView2.SelectedRows[0].Cells[2].Value.ToString(), Convert.ToInt32(dataGridView2.SelectedRows[0].Cells[0].Value));
                             this.inventory_stocksTableAdapter.DeleteAlsoItemQuery(dataGridView2.SelectedRows[0].Cells[2].Value.ToString());
+=======
+                            this.inventory_stocksTableAdapter.DeleteStocks(dataGridView2.SelectedRows[0].Cells[1].Value.ToString(), Convert.ToInt32(dataGridView2.SelectedRows[0].Cells[0].Value.ToString()));
+                            this.inventory_stocksTableAdapter.DeleteAlsoItemQuery(dataGridView2.SelectedRows[0].Cells[1].Value.ToString());
+>>>>>>> b160cec1ad9130300e0113afc7c8bb8f952cc749
                             dataGridView2.Rows.RemoveAt(oneCell.RowIndex);
                             btnSDelete.Enabled = false;
                             txtBoxTransferQty.ReadOnly = true;
