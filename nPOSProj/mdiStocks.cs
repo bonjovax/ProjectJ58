@@ -13,6 +13,7 @@ namespace nPOSProj
     {
         private VO.InventoryVO ivo;
         private Decimal total = 0.0M;
+        private VO.ItemVO items = new VO.ItemVO();
         public mdiStocks()
         {
             InitializeComponent();
@@ -157,8 +158,11 @@ namespace nPOSProj
                 try
                 {
                     this.inventory_stocksTableAdapter.InsertStocks(txtBoxStockCode.Text, txtBoxStockName.Text, l1.Text, l2.Text, l3.Text, Convert.ToInt32(txtBoxQty.Text), txtBoxUOM.Text, Convert.ToDecimal(txtBoxCPrice.Text), Convert.ToDecimal(txtBoxSPrice.Text), Convert.ToDecimal(txtBoxTPrice.Text));
+                    this.inventory_stocksTableAdapter.InsertAlsoItem(txtBoxStockCode.Text, Convert.ToDecimal(txtBoxSPrice.Text));
                     clearStockSection();
                     this.inventory_stocksTableAdapter.Fill(this.npos_dbDataSet1.inventory_stocks);
+                    txtBoxTransferQty.ReadOnly = true;
+                    btnTransfer.Enabled = false;
                 }
                 catch (Exception)
                 {
@@ -302,20 +306,22 @@ namespace nPOSProj
             String S;
             String C;
             String W;
-            if (Convert.ToInt32(dataGridView2.SelectedRows[0].Cells[6].Value.ToString()) >= 0 && Convert.ToDecimal(dataGridView2.SelectedRows[0].Cells[8].Value.ToString()) >= 0 && Convert.ToDecimal(dataGridView2.SelectedRows[0].Cells[9].Value.ToString()) >= 0 && Convert.ToDecimal(dataGridView2.SelectedRows[0].Cells[10].Value.ToString()) >= 0)
+            if (Convert.ToInt32(dataGridView2.SelectedRows[0].Cells[1].Value.ToString()) >= 0 && Convert.ToDecimal(dataGridView2.SelectedRows[0].Cells[5].Value.ToString()) >= 0 && Convert.ToDecimal(dataGridView2.SelectedRows[0].Cells[6].Value.ToString()) >= 0 && Convert.ToDecimal(dataGridView2.SelectedRows[0].Cells[7].Value.ToString()) >= 0)
             {
                 try
                 {
-                    ivo.supplier_name = dataGridView2.SelectedRows[0].Cells[3].Value.ToString();
-                    ivo.cat_description = dataGridView2.SelectedRows[0].Cells[4].Value.ToString();
-                    ivo.warehouse_name = dataGridView2.SelectedRows[0].Cells[5].Value.ToString();
+                    ivo.supplier_name = dataGridView2.SelectedRows[0].Cells[8].Value.ToString();
+                    ivo.cat_description = dataGridView2.SelectedRows[0].Cells[9].Value.ToString();
+                    ivo.warehouse_name = dataGridView2.SelectedRows[0].Cells[10].Value.ToString();
                     S = ivo.patchSupplierCode();
                     C = ivo.patchCategoryCode();
                     W = ivo.patchWarehouseCode();
                     updateCompute();
-                    this.inventory_stocksTableAdapter.UpdateStocks(dataGridView2.SelectedRows[0].Cells[2].Value.ToString(), S, C, W, Convert.ToInt32(dataGridView2.SelectedRows[0].Cells[6].Value.ToString()), dataGridView2.SelectedRows[0].Cells[7].Value.ToString(), Convert.ToDecimal(dataGridView2.SelectedRows[0].Cells[8].Value.ToString()), Convert.ToDecimal(dataGridView2.SelectedRows[0].Cells[9].Value.ToString()), total, Convert.ToInt32(dataGridView2.SelectedRows[0].Cells[0].Value.ToString()), dataGridView2.SelectedRows[0].Cells[1].Value.ToString());
+                    this.inventory_stocksTableAdapter.UpdateStocks(dataGridView2.SelectedRows[0].Cells[3].Value.ToString(), S, C, W, Convert.ToInt32(dataGridView2.SelectedRows[0].Cells[1].Value), dataGridView2.SelectedRows[0].Cells[4].Value.ToString(), Convert.ToDecimal(dataGridView2.SelectedRows[0].Cells[5].Value), Convert.ToDecimal(dataGridView2.SelectedRows[0].Cells[6].Value), Convert.ToDecimal(dataGridView2.SelectedRows[0].Cells[7].Value), Convert.ToInt32(dataGridView2.SelectedRows[0].Cells[0].Value), dataGridView2.SelectedRows[0].Cells[2].Value.ToString());
                     btnSUpdate.Enabled = false;
                     this.inventory_stocksTableAdapter.Fill(this.npos_dbDataSet1.inventory_stocks);
+                    txtBoxTransferQty.ReadOnly = true;
+                    btnTransfer.Enabled = false;
                 }
                 catch (Exception)
                 {
@@ -328,14 +334,14 @@ namespace nPOSProj
 
         private void updateCompute()
         {
-            if (Convert.ToInt32(dataGridView2.SelectedRows[0].Cells[6].Value.ToString()) >= 0 && Convert.ToDecimal(dataGridView2.SelectedRows[0].Cells[9].Value.ToString()) >= 0)
+            if (Convert.ToInt32(dataGridView2.SelectedRows[0].Cells[1].Value.ToString()) >= 0 && Convert.ToDecimal(dataGridView2.SelectedRows[0].Cells[6].Value.ToString()) >= 0)
             {
                 try
                 {
                     Decimal qty = 0.0M;
                     Decimal selling = 0.0M;
-                    qty = Convert.ToDecimal(dataGridView2.SelectedRows[0].Cells[6].Value.ToString());
-                    selling = Convert.ToDecimal(dataGridView2.SelectedRows[0].Cells[9].Value.ToString());
+                    qty = Convert.ToDecimal(dataGridView2.SelectedRows[0].Cells[1].Value.ToString());
+                    selling = Convert.ToDecimal(dataGridView2.SelectedRows[0].Cells[6].Value.ToString());
                     total = qty * selling;
                 }
                 catch (Exception)
@@ -397,9 +403,12 @@ namespace nPOSProj
                     {
                         if (oneCell.Selected)
                         {
-                            this.inventory_stocksTableAdapter.DeleteStocks(dataGridView2.SelectedRows[0].Cells[1].Value.ToString(), Convert.ToInt32(dataGridView2.SelectedRows[0].Cells[0].Value.ToString()));
+                            this.inventory_stocksTableAdapter.DeleteStocks(dataGridView2.SelectedRows[0].Cells[2].Value.ToString(), Convert.ToInt32(dataGridView2.SelectedRows[0].Cells[0].Value));
+                            this.inventory_stocksTableAdapter.DeleteAlsoItemQuery(dataGridView2.SelectedRows[0].Cells[2].Value.ToString());
                             dataGridView2.Rows.RemoveAt(oneCell.RowIndex);
                             btnSDelete.Enabled = false;
+                            txtBoxTransferQty.ReadOnly = true;
+                            btnTransfer.Enabled = false;
                         }
                     }
                 }
@@ -414,6 +423,48 @@ namespace nPOSProj
         private void dataGridView2_DataError(object sender, DataGridViewDataErrorEventArgs e)
         {
             MessageBox.Show("Alphanumeric Values will not be consider!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+
+        private void txtBoxTransferQty_TextChanged(object sender, EventArgs e)
+        {
+            if (txtBoxTransferQty.Text != "")
+            {
+                btnTransfer.Enabled = true;
+            }
+            else
+                btnTransfer.Enabled = false;
+        }
+
+        private void btnTransfer_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (Convert.ToInt32(txtBoxTransferQty.Text) >= 0)
+                {
+                    
+                    Int32 finale = Convert.ToInt32(dataGridView2.SelectedRows[0].Cells[6].Value) - Convert.ToInt32(txtBoxTransferQty.Text);
+                    dataGridView2.SelectedRows[0].Cells[6].Value = finale;
+                    Double recal = finale * Convert.ToDouble(dataGridView2.SelectedRows[0].Cells[9].Value);
+                    dataGridView2.SelectedRows[0].Cells[10].Value = recal;
+                    txtBoxTransferQty.ReadOnly = true;
+                    btnTransfer.Enabled = false;
+                    items.item_quantity = Convert.ToInt32(txtBoxTransferQty.Text);
+                    items.stock_code = dataGridView2.SelectedRows[0].Cells[1].Value.ToString();
+                    items.TrasferStockToItem();
+                }
+                else
+                    MessageBox.Show("Negative Value will not be consider!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Check your Input!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void dataGridView2_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            txtBoxTransferQty.ReadOnly = false;
+            btnTransfer.Enabled = true;
         }
     }
 }

@@ -155,7 +155,7 @@ namespace nPOSProj
             }
             catch (Exception)
             {
-                MessageBox.Show("Please Check Databse Server!", "Alert", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Please Check Databse Server! or Check your Input!", "Alert", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
 
