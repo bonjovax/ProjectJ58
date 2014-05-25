@@ -148,6 +148,7 @@
             this.tsItemKits.Size = new System.Drawing.Size(66, 69);
             this.tsItemKits.Text = "Item &Kits";
             this.tsItemKits.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.tsItemKits.Click += new System.EventHandler(this.tsItemKits_Click);
             // 
             // toolStripSeparator2
             // 

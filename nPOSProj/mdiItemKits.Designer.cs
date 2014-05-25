@@ -1,6 +1,6 @@
 ﻿namespace nPOSProj
 {
-    partial class mditemKits
+    partial class mdiItemKits
     {
         /// <summary>
         /// Required designer variable.
@@ -29,42 +29,53 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(mditemKits));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(mdiItemKits));
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.npos_dbDataSet = new nPOSProj.npos_dbDataSet();
-            this.nposdbDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.inventoryitemskitBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.inventory_items_kitTableAdapter = new nPOSProj.npos_dbDataSetTableAdapters.inventory_items_kitTableAdapter();
-            this.kitidDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.kitqtyDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.stockcodeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.inventoryitems1BindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.inventory_items1TableAdapter = new nPOSProj.npos_dbDataSetTableAdapters.inventory_items1TableAdapter();
+            this.itemquantityDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.itemeanDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.stocknameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.kitnameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.itemretailpriceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.itemwholepriceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.npos_dbDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nposdbDataSetBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.inventoryitemskitBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.inventoryitems1BindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridView1
             // 
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AllowUserToDeleteRows = false;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView1.AutoGenerateColumns = false;
             this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.Control;
+            this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.kitidDataGridViewTextBoxColumn,
-            this.kitqtyDataGridViewTextBoxColumn,
-            this.stockcodeDataGridViewTextBoxColumn,
+            this.itemquantityDataGridViewTextBoxColumn,
             this.itemeanDataGridViewTextBoxColumn,
-            this.stocknameDataGridViewTextBoxColumn});
-            this.dataGridView1.DataSource = this.inventoryitemskitBindingSource;
-            this.dataGridView1.Location = new System.Drawing.Point(6, 5);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.kitnameDataGridViewTextBoxColumn,
+            this.itemretailpriceDataGridViewTextBoxColumn,
+            this.itemwholepriceDataGridViewTextBoxColumn});
+            this.dataGridView1.DataSource = this.inventoryitems1BindingSource;
+            this.dataGridView1.GridColor = System.Drawing.Color.Black;
+            this.dataGridView1.Location = new System.Drawing.Point(4, 1);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(703, 234);
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.Silver;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.Black;
+            this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle5;
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridView1.Size = new System.Drawing.Size(708, 175);
             this.dataGridView1.TabIndex = 0;
             // 
             // npos_dbDataSet
@@ -72,56 +83,65 @@
             this.npos_dbDataSet.DataSetName = "npos_dbDataSet";
             this.npos_dbDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // nposdbDataSetBindingSource
+            // inventoryitems1BindingSource
             // 
-            this.nposdbDataSetBindingSource.DataSource = this.npos_dbDataSet;
-            this.nposdbDataSetBindingSource.Position = 0;
+            this.inventoryitems1BindingSource.DataMember = "inventory_items1";
+            this.inventoryitems1BindingSource.DataSource = this.npos_dbDataSet;
             // 
-            // inventoryitemskitBindingSource
+            // inventory_items1TableAdapter
             // 
-            this.inventoryitemskitBindingSource.DataMember = "inventory_items_kit";
-            this.inventoryitemskitBindingSource.DataSource = this.nposdbDataSetBindingSource;
+            this.inventory_items1TableAdapter.ClearBeforeFill = true;
             // 
-            // inventory_items_kitTableAdapter
+            // itemquantityDataGridViewTextBoxColumn
             // 
-            this.inventory_items_kitTableAdapter.ClearBeforeFill = true;
-            // 
-            // kitidDataGridViewTextBoxColumn
-            // 
-            this.kitidDataGridViewTextBoxColumn.DataPropertyName = "kit_id";
-            this.kitidDataGridViewTextBoxColumn.HeaderText = "kit_id";
-            this.kitidDataGridViewTextBoxColumn.Name = "kitidDataGridViewTextBoxColumn";
-            this.kitidDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // kitqtyDataGridViewTextBoxColumn
-            // 
-            this.kitqtyDataGridViewTextBoxColumn.DataPropertyName = "kit_qty";
-            this.kitqtyDataGridViewTextBoxColumn.HeaderText = "kit_qty";
-            this.kitqtyDataGridViewTextBoxColumn.Name = "kitqtyDataGridViewTextBoxColumn";
-            this.kitqtyDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // stockcodeDataGridViewTextBoxColumn
-            // 
-            this.stockcodeDataGridViewTextBoxColumn.DataPropertyName = "stock_code";
-            this.stockcodeDataGridViewTextBoxColumn.HeaderText = "stock_code";
-            this.stockcodeDataGridViewTextBoxColumn.Name = "stockcodeDataGridViewTextBoxColumn";
-            this.stockcodeDataGridViewTextBoxColumn.ReadOnly = true;
+            this.itemquantityDataGridViewTextBoxColumn.DataPropertyName = "item_quantity";
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.itemquantityDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle2;
+            this.itemquantityDataGridViewTextBoxColumn.HeaderText = "Qty";
+            this.itemquantityDataGridViewTextBoxColumn.Name = "itemquantityDataGridViewTextBoxColumn";
+            this.itemquantityDataGridViewTextBoxColumn.ReadOnly = true;
+            this.itemquantityDataGridViewTextBoxColumn.Width = 50;
             // 
             // itemeanDataGridViewTextBoxColumn
             // 
             this.itemeanDataGridViewTextBoxColumn.DataPropertyName = "item_ean";
-            this.itemeanDataGridViewTextBoxColumn.HeaderText = "item_ean";
+            this.itemeanDataGridViewTextBoxColumn.HeaderText = "EAN";
             this.itemeanDataGridViewTextBoxColumn.Name = "itemeanDataGridViewTextBoxColumn";
             this.itemeanDataGridViewTextBoxColumn.ReadOnly = true;
+            this.itemeanDataGridViewTextBoxColumn.Width = 130;
             // 
-            // stocknameDataGridViewTextBoxColumn
+            // kitnameDataGridViewTextBoxColumn
             // 
-            this.stocknameDataGridViewTextBoxColumn.DataPropertyName = "stock_name";
-            this.stocknameDataGridViewTextBoxColumn.HeaderText = "stock_name";
-            this.stocknameDataGridViewTextBoxColumn.Name = "stocknameDataGridViewTextBoxColumn";
-            this.stocknameDataGridViewTextBoxColumn.ReadOnly = true;
+            this.kitnameDataGridViewTextBoxColumn.DataPropertyName = "kit_name";
+            this.kitnameDataGridViewTextBoxColumn.HeaderText = "Description";
+            this.kitnameDataGridViewTextBoxColumn.Name = "kitnameDataGridViewTextBoxColumn";
+            this.kitnameDataGridViewTextBoxColumn.ReadOnly = true;
+            this.kitnameDataGridViewTextBoxColumn.Width = 260;
             // 
-            // mditemKits
+            // itemretailpriceDataGridViewTextBoxColumn
+            // 
+            this.itemretailpriceDataGridViewTextBoxColumn.DataPropertyName = "item_retail_price";
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.Format = "N2";
+            dataGridViewCellStyle3.NullValue = null;
+            this.itemretailpriceDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle3;
+            this.itemretailpriceDataGridViewTextBoxColumn.HeaderText = "Retail Price";
+            this.itemretailpriceDataGridViewTextBoxColumn.Name = "itemretailpriceDataGridViewTextBoxColumn";
+            this.itemretailpriceDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // itemwholepriceDataGridViewTextBoxColumn
+            // 
+            this.itemwholepriceDataGridViewTextBoxColumn.DataPropertyName = "item_whole_price";
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.Format = "N2";
+            dataGridViewCellStyle4.NullValue = null;
+            this.itemwholepriceDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle4;
+            this.itemwholepriceDataGridViewTextBoxColumn.HeaderText = "Wholesale Price";
+            this.itemwholepriceDataGridViewTextBoxColumn.Name = "itemwholepriceDataGridViewTextBoxColumn";
+            this.itemwholepriceDataGridViewTextBoxColumn.ReadOnly = true;
+            this.itemwholepriceDataGridViewTextBoxColumn.Width = 122;
+            // 
+            // mdiItemKits
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -132,13 +152,12 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.MaximizeBox = false;
-            this.Name = "mditemKits";
+            this.Name = "mdiItemKits";
             this.Text = "Item Kits";
             this.Load += new System.EventHandler(this.mditemKits_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.npos_dbDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nposdbDataSetBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.inventoryitemskitBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.inventoryitems1BindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -146,14 +165,14 @@
         #endregion
 
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.BindingSource nposdbDataSetBindingSource;
         private npos_dbDataSet npos_dbDataSet;
-        private System.Windows.Forms.BindingSource inventoryitemskitBindingSource;
-        private npos_dbDataSetTableAdapters.inventory_items_kitTableAdapter inventory_items_kitTableAdapter;
-        private System.Windows.Forms.DataGridViewTextBoxColumn kitidDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn kitqtyDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn stockcodeDataGridViewTextBoxColumn;
+        private System.Windows.Forms.BindingSource inventoryitems1BindingSource;
+        private npos_dbDataSetTableAdapters.inventory_items1TableAdapter inventory_items1TableAdapter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn itemquantityDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn itemeanDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn stocknameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn kitnameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn itemretailpriceDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn itemwholepriceDataGridViewTextBoxColumn;
+
     }
 }
