@@ -58,21 +58,12 @@
             this.barcode = new System.Windows.Forms.PictureBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.bcSave = new System.Windows.Forms.Button();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.txtBoxTEAN = new System.Windows.Forms.TextBox();
-            this.txtBoxTDesc = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.txtBoxTQTY = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.inventoryitemsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.npos_dbDataSet)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.barcode)).BeginInit();
             this.groupBox2.SuspendLayout();
-            this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
             // dataGridView1
@@ -189,7 +180,6 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.groupBox3);
             this.groupBox1.Controls.Add(this.btnReturn);
             this.groupBox1.Controls.Add(this.btnUp);
             this.groupBox1.Controls.Add(this.txtBoxWholesalePrice);
@@ -340,93 +330,6 @@
             this.bcSave.UseVisualStyleBackColor = true;
             this.bcSave.Click += new System.EventHandler(this.bcSave_Click);
             // 
-            // groupBox3
-            // 
-            this.groupBox3.Controls.Add(this.label8);
-            this.groupBox3.Controls.Add(this.txtBoxTQTY);
-            this.groupBox3.Controls.Add(this.label7);
-            this.groupBox3.Controls.Add(this.txtBoxTDesc);
-            this.groupBox3.Controls.Add(this.label6);
-            this.groupBox3.Controls.Add(this.txtBoxTEAN);
-            this.groupBox3.Controls.Add(this.label5);
-            this.groupBox3.Location = new System.Drawing.Point(221, 69);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(147, 84);
-            this.groupBox3.TabIndex = 10;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Transfer to Kits";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(6, 19);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(27, 13);
-            this.label5.TabIndex = 0;
-            this.label5.Text = "EAN";
-            // 
-            // txtBoxTEAN
-            // 
-            this.txtBoxTEAN.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBoxTEAN.Location = new System.Drawing.Point(37, 15);
-            this.txtBoxTEAN.MaxLength = 13;
-            this.txtBoxTEAN.Name = "txtBoxTEAN";
-            this.txtBoxTEAN.ReadOnly = true;
-            this.txtBoxTEAN.Size = new System.Drawing.Size(105, 21);
-            this.txtBoxTEAN.TabIndex = 1;
-            // 
-            // txtBoxTDesc
-            // 
-            this.txtBoxTDesc.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBoxTDesc.Location = new System.Drawing.Point(37, 37);
-            this.txtBoxTDesc.MaxLength = 50;
-            this.txtBoxTDesc.Name = "txtBoxTDesc";
-            this.txtBoxTDesc.ReadOnly = true;
-            this.txtBoxTDesc.Size = new System.Drawing.Size(105, 21);
-            this.txtBoxTDesc.TabIndex = 3;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(6, 40);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(34, 13);
-            this.label6.TabIndex = 2;
-            this.label6.Text = "Desc.";
-            // 
-            // txtBoxTQTY
-            // 
-            this.txtBoxTQTY.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBoxTQTY.Location = new System.Drawing.Point(37, 59);
-            this.txtBoxTQTY.MaxLength = 6;
-            this.txtBoxTQTY.Name = "txtBoxTQTY";
-            this.txtBoxTQTY.ReadOnly = true;
-            this.txtBoxTQTY.Size = new System.Drawing.Size(50, 21);
-            this.txtBoxTQTY.TabIndex = 5;
-            this.txtBoxTQTY.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(6, 63);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(25, 13);
-            this.label7.TabIndex = 4;
-            this.label7.Text = "Qty";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Tahoma", 6.75F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(89, 65);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(52, 11);
-            this.label8.TabIndex = 6;
-            this.label8.Text = "Press Enter";
-            // 
             // mdiItems
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
@@ -450,8 +353,6 @@
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.barcode)).EndInit();
             this.groupBox2.ResumeLayout(false);
-            this.groupBox3.ResumeLayout(false);
-            this.groupBox3.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -483,13 +384,5 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button bcSave;
         private System.Windows.Forms.Button btnReturn;
-        private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox txtBoxTQTY;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox txtBoxTDesc;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox txtBoxTEAN;
-        private System.Windows.Forms.Label label5;
     }
 }

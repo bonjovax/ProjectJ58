@@ -10367,16 +10367,31 @@ FROM            inventory_items INNER JOIN
             this._commandCollection[0].CommandText = @"SELECT        inventory_items_kit.kit_qty, inventory_stocks.stock_code, inventory_stocks.stock_name
 FROM            inventory_items_kit INNER JOIN
                          inventory_stocks ON inventory_items_kit.stock_code = inventory_stocks.stock_code INNER JOIN
-                         inventory_items ON inventory_items_kit.item_ean = inventory_items.item_ean";
+                         inventory_items ON inventory_items_kit.item_ean = inventory_items.item_ean
+WHERE        (inventory_items_kit.item_ean = @ean)";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+            global::MySql.Data.MySqlClient.MySqlParameter param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@ean";
+            param.DbType = global::System.Data.DbType.String;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
+            param.Size = 13;
+            param.IsNullable = true;
+            param.SourceColumn = "item_ean";
+            this._commandCollection[0].Parameters.Add(param);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(npos_dbDataSet.inventory_items_kitDataTable dataTable) {
+        public virtual int Fill(npos_dbDataSet.inventory_items_kitDataTable dataTable, string ean) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
+            if ((ean == null)) {
+                this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(ean));
+            }
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
             }
@@ -10388,8 +10403,14 @@ FROM            inventory_items_kit INNER JOIN
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual npos_dbDataSet.inventory_items_kitDataTable GetData() {
+        public virtual npos_dbDataSet.inventory_items_kitDataTable GetData(string ean) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
+            if ((ean == null)) {
+                this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(ean));
+            }
             npos_dbDataSet.inventory_items_kitDataTable dataTable = new npos_dbDataSet.inventory_items_kitDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;

@@ -14,13 +14,9 @@ namespace nPOSProj
 {
     public partial class mdiItems : Form
     {
-        private MySqlConnection con = new MySqlConnection();
-        private Conf.dbs dbcon = new Conf.dbs();
         private Barcode b = new Barcode();
         private VO.ItemVO item = new VO.ItemVO();
         private DAO.LoginDAO login = new DAO.LoginDAO();
-        AutoCompleteStringCollection collect = new AutoCompleteStringCollection();
-        AutoCompleteStringCollection collect1 = new AutoCompleteStringCollection();
         public mdiItems()
         {
             InitializeComponent();
@@ -55,6 +51,10 @@ namespace nPOSProj
             txtBoxRPrice.ReadOnly = false;
             txtBoxWholesalePrice.ReadOnly = false;
             bcSave.Enabled = true;
+            txtBoxTEAN.ReadOnly = true;
+            txtBoxTDesc.ReadOnly = true;
+            txtBoxTQTY.ReadOnly = true;
+            btnReturn.Enabled = false;
         }
 
         private void btnUp_Click(object sender, EventArgs e)
@@ -81,6 +81,10 @@ namespace nPOSProj
                     btnUp.Enabled = false;
                     btnReturn.Enabled = false;
                     bcSave.Enabled = false;
+                    //
+                    txtBoxTEAN.ReadOnly = true;
+                    txtBoxTDesc.ReadOnly = true;
+                    txtBoxTQTY.ReadOnly = true;
                 }
                 else
                     MessageBox.Show("Negative Value Will Not Be Considered!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -152,6 +156,10 @@ namespace nPOSProj
                         item.TrasferItemToStock();
                         dataGridView1.SelectedRows[0].Cells[0].Value = final.ToString();
                         btnReturn.Enabled = false;
+                        //
+                        txtBoxTEAN.ReadOnly = true;
+                        txtBoxTDesc.ReadOnly = true;
+                        txtBoxTQTY.ReadOnly = true;
                     }
                     else
                         MessageBox.Show("You Have Not Enough Quantity to Transfer Back to Stocks", "Alert", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
@@ -168,59 +176,35 @@ namespace nPOSProj
         private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             btnReturn.Enabled = true;
+            //
+            txtBoxTEAN.ReadOnly = false;
+            txtBoxTDesc.ReadOnly = false;
         }
-        private void autoComplete_EANKIT()
+        
+        private void txtBoxTEAN_KeyDown(object sender, KeyEventArgs e)
         {
-            con.ConnectionString = dbcon.getConnectionString();
-            String sql = "SELECT DISTINCT item_ean FROM inventory_items WHERE is_kit = 1 ORDER BY item_ean ASC";
-            try
+            if (e.KeyCode == Keys.Enter)
             {
-                con.Open();
-                MySqlCommand cmd = new MySqlCommand(sql, con);
-                cmd.CommandType = CommandType.Text;
-                MySqlDataReader rdr = cmd.ExecuteReader();
-                if (rdr.HasRows == true)
+                try
                 {
-                    while (rdr.Read())
-                        collect.Add(rdr["item_ean"].ToString());
+                    item.item_ean = txtBoxTEAN.Text;
+                    item.askKitName();
+                    txtBoxTDesc.Text = item.askKitName();
                 }
-                rdr.Close();
-                txtBoxTEAN.AutoCompleteMode = AutoCompleteMode.Suggest;
-                txtBoxTEAN.AutoCompleteSource = AutoCompleteSource.CustomSource;
-                txtBoxTEAN.AutoCompleteCustomSource = collect;
-                con.Close();
-            }
-            catch (Exception)
-            {
-                MessageBox.Show("Please Check your Database Server Connection", "Database Server Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                Application.ExitThread();
+                catch (Exception)
+                {
+                    MessageBox.Show("Check Input", "Reminder", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
             }
         }
-        private void autoComplete_KITNAME()
+
+        private void txtBoxTEAN_TextChanged(object sender, EventArgs e)
         {
-            con.ConnectionString = dbcon.getConnectionString();
-            String sql = "SELECT DISTINCT kit_name FROM inventory_items WHERE is_kit = 1 ORDER BY kit_name ASC";
-            try
+            if (txtBonxEAN.Text != "")
             {
-                con.Open();
-                MySqlCommand cmd = new MySqlCommand(sql, con);
-                cmd.CommandType = CommandType.Text;
-                MySqlDataReader rdr = cmd.ExecuteReader();
-                if (rdr.HasRows == true)
-                {
-                    while (rdr.Read())
-                        collect1.Add(rdr["kit_name"].ToString());
-                }
-                rdr.Close();
-                txtBoxTDesc.AutoCompleteMode = AutoCompleteMode.Suggest;
-                txtBoxTDesc.AutoCompleteSource = AutoCompleteSource.CustomSource;
-                txtBoxTDesc.AutoCompleteCustomSource = collect1;
-                con.Close();
-            }
-            catch (Exception)
-            {
-                MessageBox.Show("Please Check your Database Server Connection", "Database Server Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                Application.ExitThread();
+                txtBoxTDesc.Clear();
+                txtBoxTQTY.Clear();
+                txtBoxTQTY.ReadOnly = true;
             }
         }
     }

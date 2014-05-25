@@ -14,6 +14,7 @@ namespace nPOSProj.VO
         private Double _item_retail_price;
         private Double _item_whole_price;
         private Int32 _is_kit;
+        private String _kit_name;
         private DAO.ItemsDAO items;
 
         public ItemVO() { }
@@ -53,6 +54,12 @@ namespace nPOSProj.VO
             get { return _is_kit; }
             set { _is_kit = value; }
         }
+        public String kit_name
+        {
+            get { return _kit_name; }
+            set { _kit_name = value; }
+        }
+
         public void UpdateItem()
         {
             items = new DAO.ItemsDAO();
@@ -67,6 +74,22 @@ namespace nPOSProj.VO
         {
             items = new DAO.ItemsDAO();
             items.SendToItem(item_quantity, stock_code);
+        }
+        public String askKitName()
+        {
+            String Kit;
+            items = new DAO.ItemsDAO();
+            items.pushKitName(item_ean);
+            Kit = items.pushKitName(item_ean);
+            return Kit;
+        }
+        public String askEAN()
+        {
+            String EAN;
+            items = new DAO.ItemsDAO();
+            items.pushEan(kit_name);
+            EAN = items.pushEan(kit_name);
+            return EAN;
         }
     }
 }

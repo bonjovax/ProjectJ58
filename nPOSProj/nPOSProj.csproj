@@ -188,6 +188,12 @@
     <Compile Include="mFilter.Designer.cs">
       <DependentUpon>mFilter.cs</DependentUpon>
     </Compile>
+    <Compile Include="mKits.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="mKits.Designer.cs">
+      <DependentUpon>mKits.cs</DependentUpon>
+    </Compile>
     <Compile Include="mPOrder.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -277,6 +283,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="mFilter.resx">
       <DependentUpon>mFilter.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="mKits.resx">
+      <DependentUpon>mKits.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="mPOrder.resx">
       <DependentUpon>mPOrder.cs</DependentUpon>

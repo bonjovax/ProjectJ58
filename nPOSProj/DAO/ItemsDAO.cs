@@ -17,6 +17,8 @@ namespace nPOSProj.DAO
         private Int32 qty;
         private Double price;
         private Double finale;
+        private String kitName;
+        private String itemEAN;
         public ItemsDAO() { }
 
         public void Update(Int32 qty, String ean, Double r_price, Double w_price, String stock_code)
@@ -176,6 +178,56 @@ namespace nPOSProj.DAO
             {
                 con.Close();
             }
+        }
+        public String pushKitName(String item_ean)
+        {
+            con = new MySqlConnection();
+            dbcon = new Conf.dbs();
+            con.ConnectionString = dbcon.getConnectionString();
+            String query = "SELECT kit_name AS a FROM inventory_items ";
+            query += "WHERE item_ean = ?item_ean";
+            try
+            {
+                con.Open();
+                MySqlCommand cmd = new MySqlCommand(query, con);
+                cmd.Parameters.AddWithValue("?item_ean", item_ean);
+                cmd.ExecuteScalar();
+                MySqlDataReader rdr = cmd.ExecuteReader();
+                if (rdr.Read())
+                {
+                    kitName = rdr["a"].ToString();
+                }
+            }
+            finally
+            {
+                con.Close();
+            }
+            return kitName;
+        }
+        public String pushEan(String kit_name)
+        {
+            con = new MySqlConnection();
+            dbcon = new Conf.dbs();
+            con.ConnectionString = dbcon.getConnectionString();
+            String query = "SELECT item_ean AS ean FROM inventory_items ";
+            query += "WHERE kit_name = ?kit_name";
+            try
+            {
+                con.Open();
+                MySqlCommand cmd = new MySqlCommand(query, con);
+                cmd.Parameters.AddWithValue("?kit_name", kit_name);
+                cmd.ExecuteScalar();
+                MySqlDataReader rdr = cmd.ExecuteReader();
+                if (rdr.Read())
+                {
+                    itemEAN = rdr["ean"].ToString();
+                }
+            }
+            finally
+            {
+                con.Close();
+            }
+            return itemEAN;
         }
     }
 }
