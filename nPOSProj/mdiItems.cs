@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using MySql.Data;
+using MySql.Data.MySqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -12,9 +14,13 @@ namespace nPOSProj
 {
     public partial class mdiItems : Form
     {
+        private MySqlConnection con = new MySqlConnection();
+        private Conf.dbs dbcon = new Conf.dbs();
         private Barcode b = new Barcode();
         private VO.ItemVO item = new VO.ItemVO();
         private DAO.LoginDAO login = new DAO.LoginDAO();
+        AutoCompleteStringCollection collect = new AutoCompleteStringCollection();
+        AutoCompleteStringCollection collect1 = new AutoCompleteStringCollection();
         public mdiItems()
         {
             InitializeComponent();
@@ -162,6 +168,60 @@ namespace nPOSProj
         private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             btnReturn.Enabled = true;
+        }
+        private void autoComplete_EANKIT()
+        {
+            con.ConnectionString = dbcon.getConnectionString();
+            String sql = "SELECT DISTINCT item_ean FROM inventory_items WHERE is_kit = 1 ORDER BY item_ean ASC";
+            try
+            {
+                con.Open();
+                MySqlCommand cmd = new MySqlCommand(sql, con);
+                cmd.CommandType = CommandType.Text;
+                MySqlDataReader rdr = cmd.ExecuteReader();
+                if (rdr.HasRows == true)
+                {
+                    while (rdr.Read())
+                        collect.Add(rdr["item_ean"].ToString());
+                }
+                rdr.Close();
+                txtBoxTEAN.AutoCompleteMode = AutoCompleteMode.Suggest;
+                txtBoxTEAN.AutoCompleteSource = AutoCompleteSource.CustomSource;
+                txtBoxTEAN.AutoCompleteCustomSource = collect;
+                con.Close();
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Please Check your Database Server Connection", "Database Server Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Application.ExitThread();
+            }
+        }
+        private void autoComplete_KITNAME()
+        {
+            con.ConnectionString = dbcon.getConnectionString();
+            String sql = "SELECT DISTINCT kit_name FROM inventory_items WHERE is_kit = 1 ORDER BY kit_name ASC";
+            try
+            {
+                con.Open();
+                MySqlCommand cmd = new MySqlCommand(sql, con);
+                cmd.CommandType = CommandType.Text;
+                MySqlDataReader rdr = cmd.ExecuteReader();
+                if (rdr.HasRows == true)
+                {
+                    while (rdr.Read())
+                        collect1.Add(rdr["kit_name"].ToString());
+                }
+                rdr.Close();
+                txtBoxTDesc.AutoCompleteMode = AutoCompleteMode.Suggest;
+                txtBoxTDesc.AutoCompleteSource = AutoCompleteSource.CustomSource;
+                txtBoxTDesc.AutoCompleteCustomSource = collect1;
+                con.Close();
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Please Check your Database Server Connection", "Database Server Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Application.ExitThread();
+            }
         }
     }
 }
