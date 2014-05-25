@@ -51,9 +51,6 @@ namespace nPOSProj
             txtBoxRPrice.ReadOnly = false;
             txtBoxWholesalePrice.ReadOnly = false;
             bcSave.Enabled = true;
-            txtBoxTEAN.ReadOnly = true;
-            txtBoxTDesc.ReadOnly = true;
-            txtBoxTQTY.ReadOnly = true;
             btnReturn.Enabled = false;
         }
 
@@ -81,10 +78,6 @@ namespace nPOSProj
                     btnUp.Enabled = false;
                     btnReturn.Enabled = false;
                     bcSave.Enabled = false;
-                    //
-                    txtBoxTEAN.ReadOnly = true;
-                    txtBoxTDesc.ReadOnly = true;
-                    txtBoxTQTY.ReadOnly = true;
                 }
                 else
                     MessageBox.Show("Negative Value Will Not Be Considered!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -156,10 +149,6 @@ namespace nPOSProj
                         item.TrasferItemToStock();
                         dataGridView1.SelectedRows[0].Cells[0].Value = final.ToString();
                         btnReturn.Enabled = false;
-                        //
-                        txtBoxTEAN.ReadOnly = true;
-                        txtBoxTDesc.ReadOnly = true;
-                        txtBoxTQTY.ReadOnly = true;
                     }
                     else
                         MessageBox.Show("You Have Not Enough Quantity to Transfer Back to Stocks", "Alert", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
@@ -176,36 +165,6 @@ namespace nPOSProj
         private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             btnReturn.Enabled = true;
-            //
-            txtBoxTEAN.ReadOnly = false;
-            txtBoxTDesc.ReadOnly = false;
-        }
-        
-        private void txtBoxTEAN_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Enter)
-            {
-                try
-                {
-                    item.item_ean = txtBoxTEAN.Text;
-                    item.askKitName();
-                    txtBoxTDesc.Text = item.askKitName();
-                }
-                catch (Exception)
-                {
-                    MessageBox.Show("Check Input", "Reminder", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                }
-            }
-        }
-
-        private void txtBoxTEAN_TextChanged(object sender, EventArgs e)
-        {
-            if (txtBonxEAN.Text != "")
-            {
-                txtBoxTDesc.Clear();
-                txtBoxTQTY.Clear();
-                txtBoxTQTY.ReadOnly = true;
-            }
         }
     }
 }
