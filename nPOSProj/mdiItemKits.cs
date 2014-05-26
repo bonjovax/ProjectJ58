@@ -146,5 +146,12 @@ namespace nPOSProj
                 MessageBox.Show("Check Server or Check Input!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            mKits kits = new mKits();
+            kits.Ean = dataGridView1.SelectedRows[0].Cells[1].Value.ToString();
+            kits.ShowDialog();
+        }
     }
 }

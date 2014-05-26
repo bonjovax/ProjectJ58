@@ -29,13 +29,20 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(mdiItemKits));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.itemquantityDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.itemeanDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.kitnameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.itemretailpriceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.itemwholepriceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.inventoryitems1BindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.npos_dbDataSet = new nPOSProj.npos_dbDataSet();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btnAdd = new System.Windows.Forms.Button();
             this.txtBoxWholesalePrice = new System.Windows.Forms.TextBox();
@@ -51,27 +58,20 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnUpdate = new System.Windows.Forms.Button();
-            this.itemquantityDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.itemeanDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.kitnameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.itemretailpriceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.itemwholepriceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.inventoryitems1BindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.npos_dbDataSet = new nPOSProj.npos_dbDataSet();
             this.inventory_items1TableAdapter = new nPOSProj.npos_dbDataSetTableAdapters.inventory_items1TableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            this.groupBox1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.inventoryitems1BindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.npos_dbDataSet)).BeginInit();
+            this.groupBox1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // dataGridView1
             // 
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle11.BackColor = System.Drawing.Color.White;
-            this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView1.AutoGenerateColumns = false;
             this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
@@ -86,14 +86,75 @@
             this.dataGridView1.GridColor = System.Drawing.Color.Black;
             this.dataGridView1.Location = new System.Drawing.Point(4, 1);
             this.dataGridView1.Name = "dataGridView1";
-            dataGridViewCellStyle15.BackColor = System.Drawing.Color.Silver;
-            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.Color.Black;
-            this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle15;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.Silver;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.Black;
+            this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle5;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(708, 175);
             this.dataGridView1.TabIndex = 16;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
+            this.dataGridView1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellDoubleClick);
+            // 
+            // itemquantityDataGridViewTextBoxColumn
+            // 
+            this.itemquantityDataGridViewTextBoxColumn.DataPropertyName = "item_quantity";
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.itemquantityDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle2;
+            this.itemquantityDataGridViewTextBoxColumn.HeaderText = "Qty";
+            this.itemquantityDataGridViewTextBoxColumn.MaxInputLength = 6;
+            this.itemquantityDataGridViewTextBoxColumn.Name = "itemquantityDataGridViewTextBoxColumn";
+            this.itemquantityDataGridViewTextBoxColumn.Width = 50;
+            // 
+            // itemeanDataGridViewTextBoxColumn
+            // 
+            this.itemeanDataGridViewTextBoxColumn.DataPropertyName = "item_ean";
+            this.itemeanDataGridViewTextBoxColumn.HeaderText = "EAN";
+            this.itemeanDataGridViewTextBoxColumn.MaxInputLength = 13;
+            this.itemeanDataGridViewTextBoxColumn.Name = "itemeanDataGridViewTextBoxColumn";
+            this.itemeanDataGridViewTextBoxColumn.ReadOnly = true;
+            this.itemeanDataGridViewTextBoxColumn.Width = 130;
+            // 
+            // kitnameDataGridViewTextBoxColumn
+            // 
+            this.kitnameDataGridViewTextBoxColumn.DataPropertyName = "kit_name";
+            this.kitnameDataGridViewTextBoxColumn.HeaderText = "Description";
+            this.kitnameDataGridViewTextBoxColumn.MaxInputLength = 30;
+            this.kitnameDataGridViewTextBoxColumn.Name = "kitnameDataGridViewTextBoxColumn";
+            this.kitnameDataGridViewTextBoxColumn.Width = 260;
+            // 
+            // itemretailpriceDataGridViewTextBoxColumn
+            // 
+            this.itemretailpriceDataGridViewTextBoxColumn.DataPropertyName = "item_retail_price";
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.Format = "N2";
+            dataGridViewCellStyle3.NullValue = null;
+            this.itemretailpriceDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle3;
+            this.itemretailpriceDataGridViewTextBoxColumn.HeaderText = "Retail Price";
+            this.itemretailpriceDataGridViewTextBoxColumn.MaxInputLength = 15;
+            this.itemretailpriceDataGridViewTextBoxColumn.Name = "itemretailpriceDataGridViewTextBoxColumn";
+            // 
+            // itemwholepriceDataGridViewTextBoxColumn
+            // 
+            this.itemwholepriceDataGridViewTextBoxColumn.DataPropertyName = "item_whole_price";
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.Format = "N2";
+            dataGridViewCellStyle4.NullValue = null;
+            this.itemwholepriceDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle4;
+            this.itemwholepriceDataGridViewTextBoxColumn.HeaderText = "Wholesale Price";
+            this.itemwholepriceDataGridViewTextBoxColumn.MaxInputLength = 15;
+            this.itemwholepriceDataGridViewTextBoxColumn.Name = "itemwholepriceDataGridViewTextBoxColumn";
+            this.itemwholepriceDataGridViewTextBoxColumn.Width = 122;
+            // 
+            // inventoryitems1BindingSource
+            // 
+            this.inventoryitems1BindingSource.DataMember = "inventory_items1";
+            this.inventoryitems1BindingSource.DataSource = this.npos_dbDataSet;
+            // 
+            // npos_dbDataSet
+            // 
+            this.npos_dbDataSet.DataSetName = "npos_dbDataSet";
+            this.npos_dbDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // groupBox1
             // 
@@ -256,74 +317,14 @@
             // 
             this.btnUpdate.Enabled = false;
             this.btnUpdate.Image = ((System.Drawing.Image)(resources.GetObject("btnUpdate.Image")));
-            this.btnUpdate.Location = new System.Drawing.Point(6, 23);
+            this.btnUpdate.Location = new System.Drawing.Point(6, 22);
             this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(86, 80);
+            this.btnUpdate.Size = new System.Drawing.Size(86, 81);
             this.btnUpdate.TabIndex = 6;
             this.btnUpdate.Text = "Update";
             this.btnUpdate.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnUpdate.UseVisualStyleBackColor = true;
             this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
-            // 
-            // itemquantityDataGridViewTextBoxColumn
-            // 
-            this.itemquantityDataGridViewTextBoxColumn.DataPropertyName = "item_quantity";
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.itemquantityDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle12;
-            this.itemquantityDataGridViewTextBoxColumn.HeaderText = "Qty";
-            this.itemquantityDataGridViewTextBoxColumn.MaxInputLength = 6;
-            this.itemquantityDataGridViewTextBoxColumn.Name = "itemquantityDataGridViewTextBoxColumn";
-            this.itemquantityDataGridViewTextBoxColumn.Width = 50;
-            // 
-            // itemeanDataGridViewTextBoxColumn
-            // 
-            this.itemeanDataGridViewTextBoxColumn.DataPropertyName = "item_ean";
-            this.itemeanDataGridViewTextBoxColumn.HeaderText = "EAN";
-            this.itemeanDataGridViewTextBoxColumn.MaxInputLength = 13;
-            this.itemeanDataGridViewTextBoxColumn.Name = "itemeanDataGridViewTextBoxColumn";
-            this.itemeanDataGridViewTextBoxColumn.ReadOnly = true;
-            this.itemeanDataGridViewTextBoxColumn.Width = 130;
-            // 
-            // kitnameDataGridViewTextBoxColumn
-            // 
-            this.kitnameDataGridViewTextBoxColumn.DataPropertyName = "kit_name";
-            this.kitnameDataGridViewTextBoxColumn.HeaderText = "Description";
-            this.kitnameDataGridViewTextBoxColumn.MaxInputLength = 30;
-            this.kitnameDataGridViewTextBoxColumn.Name = "kitnameDataGridViewTextBoxColumn";
-            this.kitnameDataGridViewTextBoxColumn.Width = 260;
-            // 
-            // itemretailpriceDataGridViewTextBoxColumn
-            // 
-            this.itemretailpriceDataGridViewTextBoxColumn.DataPropertyName = "item_retail_price";
-            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle13.Format = "N2";
-            dataGridViewCellStyle13.NullValue = null;
-            this.itemretailpriceDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle13;
-            this.itemretailpriceDataGridViewTextBoxColumn.HeaderText = "Retail Price";
-            this.itemretailpriceDataGridViewTextBoxColumn.MaxInputLength = 15;
-            this.itemretailpriceDataGridViewTextBoxColumn.Name = "itemretailpriceDataGridViewTextBoxColumn";
-            // 
-            // itemwholepriceDataGridViewTextBoxColumn
-            // 
-            this.itemwholepriceDataGridViewTextBoxColumn.DataPropertyName = "item_whole_price";
-            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle14.Format = "N2";
-            dataGridViewCellStyle14.NullValue = null;
-            this.itemwholepriceDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle14;
-            this.itemwholepriceDataGridViewTextBoxColumn.HeaderText = "Wholesale Price";
-            this.itemwholepriceDataGridViewTextBoxColumn.MaxInputLength = 15;
-            this.itemwholepriceDataGridViewTextBoxColumn.Name = "itemwholepriceDataGridViewTextBoxColumn";
-            this.itemwholepriceDataGridViewTextBoxColumn.Width = 122;
-            // 
-            // inventoryitems1BindingSource
-            // 
-            this.inventoryitems1BindingSource.DataMember = "inventory_items1";
-            this.inventoryitems1BindingSource.DataSource = this.npos_dbDataSet;
-            // 
-            // npos_dbDataSet
-            // 
-            this.npos_dbDataSet.DataSetName = "npos_dbDataSet";
-            this.npos_dbDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // inventory_items1TableAdapter
             // 
@@ -346,11 +347,11 @@
             this.Text = "Item Kits";
             this.Load += new System.EventHandler(this.mditemKits_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.inventoryitems1BindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.npos_dbDataSet)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.inventoryitems1BindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.npos_dbDataSet)).EndInit();
             this.ResumeLayout(false);
 
         }
