@@ -30,8 +30,13 @@
         {
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.inventoryitemskitBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.npos_dbDataSet = new nPOSProj.npos_dbDataSet();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.label8 = new System.Windows.Forms.Label();
             this.txtBoxTQTY = new System.Windows.Forms.TextBox();
@@ -40,17 +45,16 @@
             this.label6 = new System.Windows.Forms.Label();
             this.txtBoxTEAN = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.npos_dbDataSet = new nPOSProj.npos_dbDataSet();
-            this.inventoryitemskitBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.inventory_items_kitTableAdapter = new nPOSProj.npos_dbDataSetTableAdapters.inventory_items_kitTableAdapter();
             this.kitqtyDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.stockcodeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.stocknameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.stockuomDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.stock_selling_price = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            this.groupBox3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.npos_dbDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.inventoryitemskitBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.npos_dbDataSet)).BeginInit();
+            this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
             // dataGridView1
@@ -67,19 +71,31 @@
             this.kitqtyDataGridViewTextBoxColumn,
             this.stockcodeDataGridViewTextBoxColumn,
             this.stocknameDataGridViewTextBoxColumn,
-            this.stockuomDataGridViewTextBoxColumn});
+            this.stockuomDataGridViewTextBoxColumn,
+            this.stock_selling_price});
             this.dataGridView1.DataSource = this.inventoryitemskitBindingSource;
             this.dataGridView1.GridColor = System.Drawing.Color.Black;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 13);
+            this.dataGridView1.Location = new System.Drawing.Point(2, 2);
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dataGridView1.Name = "dataGridView1";
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.Silver;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
-            this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            this.dataGridView1.ReadOnly = true;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.Silver;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.Black;
+            this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle5;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(826, 215);
+            this.dataGridView1.Size = new System.Drawing.Size(750, 215);
             this.dataGridView1.TabIndex = 17;
+            // 
+            // inventoryitemskitBindingSource
+            // 
+            this.inventoryitemskitBindingSource.DataMember = "inventory_items_kit";
+            this.inventoryitemskitBindingSource.DataSource = this.npos_dbDataSet;
+            // 
+            // npos_dbDataSet
+            // 
+            this.npos_dbDataSet.DataSetName = "npos_dbDataSet";
+            this.npos_dbDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // groupBox3
             // 
@@ -90,7 +106,7 @@
             this.groupBox3.Controls.Add(this.label6);
             this.groupBox3.Controls.Add(this.txtBoxTEAN);
             this.groupBox3.Controls.Add(this.label5);
-            this.groupBox3.Location = new System.Drawing.Point(691, 289);
+            this.groupBox3.Location = new System.Drawing.Point(2, 224);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(147, 84);
             this.groupBox3.TabIndex = 18;
@@ -168,16 +184,6 @@
             this.label5.TabIndex = 0;
             this.label5.Text = "EAN";
             // 
-            // npos_dbDataSet
-            // 
-            this.npos_dbDataSet.DataSetName = "npos_dbDataSet";
-            this.npos_dbDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // inventoryitemskitBindingSource
-            // 
-            this.inventoryitemskitBindingSource.DataMember = "inventory_items_kit";
-            this.inventoryitemskitBindingSource.DataSource = this.npos_dbDataSet;
-            // 
             // inventory_items_kitTableAdapter
             // 
             this.inventory_items_kitTableAdapter.ClearBeforeFill = true;
@@ -185,32 +191,56 @@
             // kitqtyDataGridViewTextBoxColumn
             // 
             this.kitqtyDataGridViewTextBoxColumn.DataPropertyName = "kit_qty";
-            this.kitqtyDataGridViewTextBoxColumn.HeaderText = "kit_qty";
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.kitqtyDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle2;
+            this.kitqtyDataGridViewTextBoxColumn.HeaderText = "Qty";
             this.kitqtyDataGridViewTextBoxColumn.Name = "kitqtyDataGridViewTextBoxColumn";
+            this.kitqtyDataGridViewTextBoxColumn.ReadOnly = true;
+            this.kitqtyDataGridViewTextBoxColumn.Width = 50;
             // 
             // stockcodeDataGridViewTextBoxColumn
             // 
             this.stockcodeDataGridViewTextBoxColumn.DataPropertyName = "stock_code";
-            this.stockcodeDataGridViewTextBoxColumn.HeaderText = "stock_code";
+            this.stockcodeDataGridViewTextBoxColumn.HeaderText = "Stock Code";
             this.stockcodeDataGridViewTextBoxColumn.Name = "stockcodeDataGridViewTextBoxColumn";
+            this.stockcodeDataGridViewTextBoxColumn.ReadOnly = true;
+            this.stockcodeDataGridViewTextBoxColumn.Width = 130;
             // 
             // stocknameDataGridViewTextBoxColumn
             // 
             this.stocknameDataGridViewTextBoxColumn.DataPropertyName = "stock_name";
-            this.stocknameDataGridViewTextBoxColumn.HeaderText = "stock_name";
+            this.stocknameDataGridViewTextBoxColumn.HeaderText = "Description";
             this.stocknameDataGridViewTextBoxColumn.Name = "stocknameDataGridViewTextBoxColumn";
+            this.stocknameDataGridViewTextBoxColumn.ReadOnly = true;
+            this.stocknameDataGridViewTextBoxColumn.Width = 270;
             // 
             // stockuomDataGridViewTextBoxColumn
             // 
             this.stockuomDataGridViewTextBoxColumn.DataPropertyName = "stock_uom";
-            this.stockuomDataGridViewTextBoxColumn.HeaderText = "stock_uom";
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.stockuomDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle3;
+            this.stockuomDataGridViewTextBoxColumn.HeaderText = "Unit";
             this.stockuomDataGridViewTextBoxColumn.Name = "stockuomDataGridViewTextBoxColumn";
+            this.stockuomDataGridViewTextBoxColumn.ReadOnly = true;
+            this.stockuomDataGridViewTextBoxColumn.Width = 130;
+            // 
+            // stock_selling_price
+            // 
+            this.stock_selling_price.DataPropertyName = "stock_selling_price";
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.Format = "N2";
+            dataGridViewCellStyle4.NullValue = null;
+            this.stock_selling_price.DefaultCellStyle = dataGridViewCellStyle4;
+            this.stock_selling_price.HeaderText = "Selling Price";
+            this.stock_selling_price.Name = "stock_selling_price";
+            this.stock_selling_price.ReadOnly = true;
+            this.stock_selling_price.Width = 125;
             // 
             // mKits
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(915, 529);
+            this.ClientSize = new System.Drawing.Size(754, 529);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.dataGridView1);
             this.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -221,10 +251,10 @@
             this.ShowInTaskbar = false;
             this.Load += new System.EventHandler(this.mKits_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.inventoryitemskitBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.npos_dbDataSet)).EndInit();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.npos_dbDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.inventoryitemskitBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -240,12 +270,13 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox txtBoxTEAN;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.BindingSource inventoryitemskitBindingSource;
+        private npos_dbDataSet npos_dbDataSet;
+        private npos_dbDataSetTableAdapters.inventory_items_kitTableAdapter inventory_items_kitTableAdapter;
         private System.Windows.Forms.DataGridViewTextBoxColumn kitqtyDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn stockcodeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn stocknameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn stockuomDataGridViewTextBoxColumn;
-        private System.Windows.Forms.BindingSource inventoryitemskitBindingSource;
-        private npos_dbDataSet npos_dbDataSet;
-        private npos_dbDataSetTableAdapters.inventory_items_kitTableAdapter inventory_items_kitTableAdapter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn stock_selling_price;
     }
 }

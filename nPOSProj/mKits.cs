@@ -11,15 +11,22 @@ namespace nPOSProj
 {
     public partial class mKits : Form
     {
+        private String _ean;
         public mKits()
         {
             InitializeComponent();
         }
 
+        public String Ean
+        {
+            get { return _ean; }
+            set { _ean = value; }
+        }
+
         private void mKits_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'npos_dbDataSet.inventory_items_kit' table. You can move, or remove it, as needed.
-            this.inventory_items_kitTableAdapter.Fill(this.npos_dbDataSet.inventory_items_kit, "1234328948393");
+            this.inventory_items_kitTableAdapter.Fill(this.npos_dbDataSet.inventory_items_kit, Ean);
         }
 
         //private void autoComplete_EANKIT()

@@ -3177,6 +3177,8 @@ namespace nPOSProj {
             
             private global::System.Data.DataColumn columnstock_uom;
             
+            private global::System.Data.DataColumn columnstock_selling_price;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public inventory_items_kitDataTable() {
@@ -3244,6 +3246,14 @@ namespace nPOSProj {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn stock_selling_priceColumn {
+                get {
+                    return this.columnstock_selling_price;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -3279,13 +3289,14 @@ namespace nPOSProj {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public inventory_items_kitRow Addinventory_items_kitRow(int kit_qty, string stock_code, string stock_name, string stock_uom) {
+            public inventory_items_kitRow Addinventory_items_kitRow(int kit_qty, string stock_code, string stock_name, string stock_uom, double stock_selling_price) {
                 inventory_items_kitRow rowinventory_items_kitRow = ((inventory_items_kitRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         kit_qty,
                         stock_code,
                         stock_name,
-                        stock_uom};
+                        stock_uom,
+                        stock_selling_price};
                 rowinventory_items_kitRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowinventory_items_kitRow);
                 return rowinventory_items_kitRow;
@@ -3312,6 +3323,7 @@ namespace nPOSProj {
                 this.columnstock_code = base.Columns["stock_code"];
                 this.columnstock_name = base.Columns["stock_name"];
                 this.columnstock_uom = base.Columns["stock_uom"];
+                this.columnstock_selling_price = base.Columns["stock_selling_price"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3325,6 +3337,8 @@ namespace nPOSProj {
                 base.Columns.Add(this.columnstock_name);
                 this.columnstock_uom = new global::System.Data.DataColumn("stock_uom", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnstock_uom);
+                this.columnstock_selling_price = new global::System.Data.DataColumn("stock_selling_price", typeof(double), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnstock_selling_price);
                 this.columnstock_code.AllowDBNull = false;
                 this.columnstock_code.MaxLength = 9;
                 this.columnstock_name.MaxLength = 75;
@@ -5438,6 +5452,23 @@ namespace nPOSProj {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public double stock_selling_price {
+                get {
+                    try {
+                        return ((double)(this[this.tableinventory_items_kit.stock_selling_priceColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'stock_selling_price\' in table \'inventory_items_kit\' is DBNu" +
+                                "ll.", e);
+                    }
+                }
+                set {
+                    this[this.tableinventory_items_kit.stock_selling_priceColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool Iskit_qtyNull() {
                 return this.IsNull(this.tableinventory_items_kit.kit_qtyColumn);
             }
@@ -5470,6 +5501,18 @@ namespace nPOSProj {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void Setstock_uomNull() {
                 this[this.tableinventory_items_kit.stock_uomColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool Isstock_selling_priceNull() {
+                return this.IsNull(this.tableinventory_items_kit.stock_selling_priceColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void Setstock_selling_priceNull() {
+                this[this.tableinventory_items_kit.stock_selling_priceColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -10377,6 +10420,7 @@ WHERE        (inventory_items.is_kit = 0)";
             tableMapping.ColumnMappings.Add("stock_code", "stock_code");
             tableMapping.ColumnMappings.Add("stock_name", "stock_name");
             tableMapping.ColumnMappings.Add("stock_uom", "stock_uom");
+            tableMapping.ColumnMappings.Add("stock_selling_price", "stock_selling_price");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -10393,7 +10437,7 @@ WHERE        (inventory_items.is_kit = 0)";
             this._commandCollection = new global::MySql.Data.MySqlClient.MySqlCommand[1];
             this._commandCollection[0] = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = @"SELECT        inventory_items_kit.kit_qty, inventory_stocks.stock_code, inventory_stocks.stock_name, inventory_stocks.stock_uom
+            this._commandCollection[0].CommandText = @"SELECT        inventory_items_kit.kit_qty, inventory_stocks.stock_code, inventory_stocks.stock_name, inventory_stocks.stock_uom, inventory_stocks.stock_selling_price
 FROM            inventory_items_kit INNER JOIN
                          inventory_stocks ON inventory_items_kit.stock_code = inventory_stocks.stock_code INNER JOIN
                          inventory_items ON inventory_items_kit.item_ean = inventory_items.item_ean
