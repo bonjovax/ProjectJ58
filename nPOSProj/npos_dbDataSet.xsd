@@ -672,7 +672,7 @@ WHERE        (inventory_items.is_kit = 0)</CommandText>
               <DbSource ConnectionRef="npos_dbConnectionString1 (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
-                    <CommandText>SELECT        inventory_items_kit.kit_qty, inventory_stocks.stock_code, inventory_stocks.stock_name
+                    <CommandText>SELECT        inventory_items_kit.kit_qty, inventory_stocks.stock_code, inventory_stocks.stock_name, inventory_stocks.stock_uom
 FROM            inventory_items_kit INNER JOIN
                          inventory_stocks ON inventory_items_kit.stock_code = inventory_stocks.stock_code INNER JOIN
                          inventory_items ON inventory_items_kit.item_ean = inventory_items.item_ean
@@ -688,6 +688,7 @@ WHERE        (inventory_items_kit.item_ean = @ean)</CommandText>
               <Mapping SourceColumn="kit_qty" DataSetColumn="kit_qty" />
               <Mapping SourceColumn="stock_code" DataSetColumn="stock_code" />
               <Mapping SourceColumn="stock_name" DataSetColumn="stock_name" />
+              <Mapping SourceColumn="stock_uom" DataSetColumn="stock_uom" />
             </Mappings>
             <Sources />
           </TableAdapter>
@@ -1110,6 +1111,13 @@ WHERE        (item_ean = @ean) AND (is_kit = 1)</CommandText>
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="75" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="stock_uom" msprop:Generator_ColumnVarNameInTable="columnstock_uom" msprop:Generator_ColumnPropNameInRow="stock_uom" msprop:Generator_ColumnPropNameInTable="stock_uomColumn" msprop:Generator_UserColumnName="stock_uom" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
