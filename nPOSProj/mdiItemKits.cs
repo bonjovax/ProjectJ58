@@ -135,10 +135,17 @@ namespace nPOSProj
             {
                 if (dlgResult == DialogResult.Yes)
                 {
-                    this.inventory_items1TableAdapter.DeleteQueryKit(dataGridView1.SelectedRows[0].Cells[1].Value.ToString());
-                    dataGridView1.Rows.RemoveAt(dataGridView1.SelectedRows[0].Index);
-                    btnDelete.Enabled = false;
-                    btnUpdate.Enabled = false;
+                    foreach (DataGridViewCell oneCell in dataGridView1.SelectedCells)
+                    {
+                        if (oneCell.Selected)
+                        {
+                            this.inventory_items1TableAdapter.DeleteQueryKit(dataGridView1.SelectedRows[0].Cells[1].Value.ToString());
+                            this.inventory_items1TableAdapter.DeleteQueryItemsList(dataGridView1.SelectedRows[0].Cells[1].Value.ToString());
+                            dataGridView1.Rows.RemoveAt(dataGridView1.SelectedRows[0].Index);
+                            btnDelete.Enabled = false;
+                            btnUpdate.Enabled = false;
+                        }
+                    }
                 }
             }
             catch (Exception)

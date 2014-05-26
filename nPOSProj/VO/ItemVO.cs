@@ -91,5 +91,22 @@ namespace nPOSProj.VO
             EAN = items.pushEan(kit_name);
             return EAN;
         }
+        #region Item Kits Objects
+        public void PushKit()
+        {
+            items = new DAO.ItemsDAO();
+            items.InsertKit(item_quantity, item_ean, stock_code);
+        }
+        public void PatchKit()
+        {
+            items = new DAO.ItemsDAO();
+            items.UpdateKit(item_quantity, item_ean, stock_code);
+        }
+        public void PullKit()
+        {
+            items = new DAO.ItemsDAO();
+            items.DeleteKit(item_ean, stock_code);
+        }
+        #endregion
     }
 }

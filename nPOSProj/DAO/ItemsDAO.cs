@@ -229,5 +229,73 @@ namespace nPOSProj.DAO
             }
             return itemEAN;
         }
+
+        #region Item Kits
+        public void InsertKit(Int32 kit_qty, String item_ean, String stock_code)
+        {
+            con = new MySqlConnection();
+            dbcon = new Conf.dbs();
+            con.ConnectionString = dbcon.getConnectionString();
+            String query = "INSERT INTO inventory_items_kit (kit_qty, item_ean, stock_code) VALUES";
+            query += "(?qty, ?ean, ?stock_code)";
+            try
+            {
+                con.Open();
+                MySqlCommand cmd = new MySqlCommand(query, con);
+                cmd.Parameters.AddWithValue("?qty", kit_qty);
+                cmd.Parameters.AddWithValue("?ean", item_ean);
+                cmd.Parameters.AddWithValue("?stock_code", stock_code);
+                cmd.ExecuteNonQuery();
+                cmd.Dispose();
+            }
+            finally
+            {
+                con.Close();
+            }
+        }
+        public void UpdateKit(Int32 kit_qty, String item_ean, String stock_code)
+        {
+            con = new MySqlConnection();
+            dbcon = new Conf.dbs();
+            con.ConnectionString = dbcon.getConnectionString();
+            String query = "UPDATE inventory_items_kit SET kit_qty = ?qty ";
+            query += "WHERE item_ean = ?ean AND stock_code = ?stock_code";
+            try
+            {
+                con.Open();
+                MySqlCommand cmd = new MySqlCommand(query, con);
+                cmd.Parameters.AddWithValue("?qty", kit_qty);
+                cmd.Parameters.AddWithValue("?ean", item_ean);
+                cmd.Parameters.AddWithValue("?stock_code", stock_code);
+                cmd.ExecuteNonQuery();
+                cmd.Dispose();
+            }
+            finally
+            {
+                con.Close();
+            }
+        }
+        public void DeleteKit(String item_ean, String stock_code)
+        {
+            con = new MySqlConnection();
+            dbcon = new Conf.dbs();
+            con.ConnectionString = dbcon.getConnectionString();
+            String query = "DELETE FROM inventory_items_kit ";
+            query += "WHERE item_ean = ?ean AND stock_code = ?stock_code";
+            try
+            {
+                con.Open();
+                MySqlCommand cmd = new MySqlCommand(query, con);
+                cmd.Parameters.AddWithValue("?ean", item_ean);
+                cmd.Parameters.AddWithValue("?stock_code", stock_code);
+                cmd.ExecuteNonQuery();
+                cmd.Dispose();
+            }
+            finally
+            {
+                con.Close();
+            }
+        }
+        #endregion
     }
 }
