@@ -33,7 +33,7 @@ namespace nPOSProj
             dataGridView1.Rows.Clear();
             dataGridView1.Refresh();
             String connectionString = dbcon.getConnectionString();
-            String query = "SELECT inventory_items_kit.kit_qty AS a, inventory_stocks.stock_code AS b, inventory_stocks.stock_name AS c, inventory_stocks.stock_uom AS d, inventory_stocks.stock_selling_price AS e ";
+            String query = "SELECT inventory_stocks.stock_code AS a, inventory_stocks.stock_name AS b, inventory_stocks.stock_uom AS c, inventory_stocks.stock_selling_price AS d ";
             query += "FROM inventory_items_kit INNER JOIN inventory_stocks ON inventory_items_kit.stock_code = inventory_stocks.stock_code INNER JOIN inventory_items ON inventory_items_kit.item_ean = inventory_items.item_ean ";
             query += "WHERE  (inventory_items_kit.item_ean = ?ean)";
             using (MySqlConnection con = new MySqlConnection(connectionString))
@@ -47,7 +47,7 @@ namespace nPOSProj
                         adapter.Fill(dataTable);
                         for (int i = 0; i < dataTable.Rows.Count; i++)
                         {
-                            dataGridView1.Rows.Add(dataTable.Rows[i][0], dataTable.Rows[i][1], dataTable.Rows[i][2], dataTable.Rows[i][3], dataTable.Rows[i][4]);
+                            dataGridView1.Rows.Add(dataTable.Rows[i][0], dataTable.Rows[i][1], dataTable.Rows[i][2], dataTable.Rows[i][3]);
                         }
                     }
                     catch (MySqlException ex)
