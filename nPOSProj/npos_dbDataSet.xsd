@@ -647,7 +647,8 @@ ORDER BY po_order.po_no</CommandText>
                          inventory_items.item_whole_price, inventory_category.cat_description, inventory_items.kit_name
 FROM            inventory_items INNER JOIN
                          inventory_stocks ON inventory_items.stock_code = inventory_stocks.stock_code INNER JOIN
-                         inventory_category ON inventory_stocks.stock_cat_code = inventory_category.cat_code</CommandText>
+                         inventory_category ON inventory_stocks.stock_cat_code = inventory_category.cat_code
+WHERE        (inventory_items.is_kit = 0)</CommandText>
                     <Parameters />
                   </DbCommand>
                 </SelectCommand>
