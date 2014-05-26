@@ -28,6 +28,13 @@ namespace nPOSProj
             {
                 // TODO: This line of code loads data into the 'npos_dbDataSet.inventory_items' table. You can move, or remove it, as needed.
                 this.inventory_itemsTableAdapter.Fill(this.npos_dbDataSet.inventory_items);
+                b.Alignment = AlignmentPositions.CENTER;
+                b.Width = 250;
+                b.Height = 100;
+                TYPE t = TYPE.CODE39;
+                b.IncludeLabel = true;
+                b.LabelPosition = LabelPositions.BOTTOMCENTER;
+                barcode.Image = b.Encode(t, "0");
             }
             catch (Exception)
             {
@@ -52,6 +59,31 @@ namespace nPOSProj
             txtBoxWholesalePrice.ReadOnly = false;
             bcSave.Enabled = true;
             btnReturn.Enabled = false;
+            try
+            {
+                b.Alignment = AlignmentPositions.CENTER;
+                b.Width = 250;
+                b.Height = 100;
+                TYPE t = TYPE.EAN13;
+                b.IncludeLabel = true;
+                b.LabelPosition = LabelPositions.BOTTOMCENTER;
+                barcode.Image = b.Encode(t, dataGridView1.SelectedRows[0].Cells[2].Value.ToString());
+            }
+            catch (Exception)
+            {
+                b.Alignment = AlignmentPositions.CENTER;
+                TYPE t = TYPE.CODE39;
+                b.IncludeLabel = true;
+                b.LabelPosition = LabelPositions.BOTTOMCENTER;
+                try
+                {
+                    barcode.Image = b.Encode(t, dataGridView1.SelectedRows[0].Cells[2].Value.ToString());
+                }
+                catch (Exception)
+                {
+                    barcode.Image = b.Encode(t, "0");
+                }
+            }
         }
 
         private void btnUp_Click(object sender, EventArgs e)

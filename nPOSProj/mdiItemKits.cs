@@ -6,11 +6,13 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using BarcodeLib;
 
 namespace nPOSProj
 {
     public partial class mdiItemKits : Form
     {
+        private Barcode b = new Barcode();
         public mdiItemKits()
         {
             InitializeComponent();
@@ -22,6 +24,13 @@ namespace nPOSProj
             {
                 // TODO: This line of code loads data into the 'npos_dbDataSet.inventory_items1' table. You can move, or remove it, as needed.
                 this.inventory_items1TableAdapter.Fill(this.npos_dbDataSet.inventory_items1);
+                b.Alignment = AlignmentPositions.CENTER;
+                b.Width = 250;
+                b.Height = 100;
+                TYPE t = TYPE.CODE39;
+                b.IncludeLabel = true;
+                b.LabelPosition = LabelPositions.BOTTOMCENTER;
+                barcode.Image = b.Encode(t, "0");
             }
             catch (Exception)
             {
@@ -43,6 +52,11 @@ namespace nPOSProj
                     txtBoxEAN.Clear();
                     txtBoxDescription.Clear();
                     btnAdd.Enabled = false;
+                    b.Alignment = AlignmentPositions.CENTER;
+                    TYPE t = TYPE.CODE39;
+                    b.IncludeLabel = true;
+                    b.LabelPosition = LabelPositions.BOTTOMCENTER;
+                    barcode.Image = b.Encode(t, "0");
                 }
                 else
                     MessageBox.Show("Negative Value will not consider", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -65,6 +79,31 @@ namespace nPOSProj
 
         private void txtBoxEAN_TextChanged(object sender, EventArgs e)
         {
+            try
+            {
+                b.Alignment = AlignmentPositions.CENTER;
+                b.Width = 250;
+                b.Height = 100;
+                TYPE t = TYPE.EAN13;
+                b.IncludeLabel = true;
+                b.LabelPosition = LabelPositions.BOTTOMCENTER;
+                barcode.Image = b.Encode(t, txtBoxEAN.Text);
+            }
+            catch (Exception)
+            {
+                b.Alignment = AlignmentPositions.CENTER;
+                TYPE t = TYPE.CODE39;
+                b.IncludeLabel = true;
+                b.LabelPosition = LabelPositions.BOTTOMCENTER;
+                try
+                {
+                    barcode.Image = b.Encode(t, txtBoxEAN.Text);
+                }
+                catch (Exception)
+                {
+                    barcode.Image = b.Encode(t, "0");
+                }
+            }
             if (txtBoxQty.Text != "" && txtBoxEAN.Text != "" && txtBoxDescription.Text != "" && txtBoxRetailPrice.Text != "0.00" && txtBoxWholesalePrice.Text != "0.00" && txtBoxRetailPrice.Text != "" && txtBoxWholesalePrice.Text != "")
             {
                 btnAdd.Enabled = true;
@@ -107,6 +146,31 @@ namespace nPOSProj
         {
             btnUpdate.Enabled = true;
             btnDelete.Enabled = true;
+            try
+            {
+                b.Alignment = AlignmentPositions.CENTER;
+                b.Width = 250;
+                b.Height = 100;
+                TYPE t = TYPE.EAN13;
+                b.IncludeLabel = true;
+                b.LabelPosition = LabelPositions.BOTTOMCENTER;
+                barcode.Image = b.Encode(t, dataGridView1.SelectedRows[0].Cells[1].Value.ToString());
+            }
+            catch (Exception)
+            {
+                b.Alignment = AlignmentPositions.CENTER;
+                TYPE t = TYPE.CODE39;
+                b.IncludeLabel = true;
+                b.LabelPosition = LabelPositions.BOTTOMCENTER;
+                try
+                {
+                    barcode.Image = b.Encode(t, dataGridView1.SelectedRows[0].Cells[1].Value.ToString());
+                }
+                catch (Exception)
+                {
+                    barcode.Image = b.Encode(t, "0");
+                }
+            }
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)
@@ -118,6 +182,11 @@ namespace nPOSProj
                     this.inventory_items1TableAdapter.UpdateQueryKit(dataGridView1.SelectedRows[0].Cells[2].Value.ToString(), Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[0].Value), Convert.ToDecimal(dataGridView1.SelectedRows[0].Cells[3].Value), Convert.ToDecimal(dataGridView1.SelectedRows[0].Cells[4].Value), dataGridView1.SelectedRows[0].Cells[1].Value.ToString());
                     btnUpdate.Enabled = false;
                     btnDelete.Enabled = false;
+                    b.Alignment = AlignmentPositions.CENTER;
+                    TYPE t = TYPE.CODE39;
+                    b.IncludeLabel = true;
+                    b.LabelPosition = LabelPositions.BOTTOMCENTER;
+                    barcode.Image = b.Encode(t, "0");
                 }
                 else
                     MessageBox.Show("Negative Value will not consider", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -144,6 +213,11 @@ namespace nPOSProj
                             dataGridView1.Rows.RemoveAt(dataGridView1.SelectedRows[0].Index);
                             btnDelete.Enabled = false;
                             btnUpdate.Enabled = false;
+                            b.Alignment = AlignmentPositions.CENTER;
+                            TYPE t = TYPE.CODE39;
+                            b.IncludeLabel = true;
+                            b.LabelPosition = LabelPositions.BOTTOMCENTER;
+                            barcode.Image = b.Encode(t, "0");
                         }
                     }
                 }

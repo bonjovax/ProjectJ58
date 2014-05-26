@@ -59,11 +59,16 @@
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnUpdate = new System.Windows.Forms.Button();
             this.inventory_items1TableAdapter = new nPOSProj.npos_dbDataSetTableAdapters.inventory_items1TableAdapter();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.bcSave = new System.Windows.Forms.Button();
+            this.barcode = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.inventoryitems1BindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.npos_dbDataSet)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            this.groupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.barcode)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridView1
@@ -330,11 +335,43 @@
             // 
             this.inventory_items1TableAdapter.ClearBeforeFill = true;
             // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.bcSave);
+            this.groupBox3.Controls.Add(this.barcode);
+            this.groupBox3.Location = new System.Drawing.Point(405, 297);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(307, 130);
+            this.groupBox3.TabIndex = 17;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Barcode Section";
+            // 
+            // bcSave
+            // 
+            this.bcSave.Enabled = false;
+            this.bcSave.Image = ((System.Drawing.Image)(resources.GetObject("bcSave.Image")));
+            this.bcSave.Location = new System.Drawing.Point(267, 20);
+            this.bcSave.Name = "bcSave";
+            this.bcSave.Size = new System.Drawing.Size(33, 100);
+            this.bcSave.TabIndex = 15;
+            this.bcSave.UseVisualStyleBackColor = true;
+            // 
+            // barcode
+            // 
+            this.barcode.BackColor = System.Drawing.Color.Transparent;
+            this.barcode.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.barcode.Location = new System.Drawing.Point(11, 20);
+            this.barcode.Name = "barcode";
+            this.barcode.Size = new System.Drawing.Size(250, 100);
+            this.barcode.TabIndex = 14;
+            this.barcode.TabStop = false;
+            // 
             // mdiItemKits
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(717, 297);
+            this.ClientSize = new System.Drawing.Size(717, 434);
+            this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.dataGridView1);
@@ -352,6 +389,8 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
+            this.groupBox3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.barcode)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -382,6 +421,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn kitnameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn itemretailpriceDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn itemwholepriceDataGridViewTextBoxColumn;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.Button bcSave;
+        private System.Windows.Forms.PictureBox barcode;
 
     }
 }
