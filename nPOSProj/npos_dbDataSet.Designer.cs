@@ -1788,6 +1788,7 @@ namespace nPOSProj {
                 this.columnstock_id.AutoIncrementStep = -1;
                 this.columnstock_id.AllowDBNull = false;
                 this.columnstock_id.Unique = true;
+                this.columnstock_code.AllowDBNull = false;
                 this.columnstock_code.MaxLength = 9;
                 this.columnstock_name.MaxLength = 75;
                 this.columnstock_uom.MaxLength = 50;
@@ -4173,12 +4174,7 @@ namespace nPOSProj {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public string stock_code {
                 get {
-                    try {
-                        return ((string)(this[this.tableinventory_stocks.stock_codeColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'stock_code\' in table \'inventory_stocks\' is DBNull.", e);
-                    }
+                    return ((string)(this[this.tableinventory_stocks.stock_codeColumn]));
                 }
                 set {
                     this[this.tableinventory_stocks.stock_codeColumn] = value;
@@ -4328,18 +4324,6 @@ namespace nPOSProj {
                 set {
                     this[this.tableinventory_stocks.warehouse_nameColumn] = value;
                 }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool Isstock_codeNull() {
-                return this.IsNull(this.tableinventory_stocks.stock_codeColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void Setstock_codeNull() {
-                this[this.tableinventory_stocks.stock_codeColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -8937,7 +8921,7 @@ WHERE        (stock_id = @stock_id) AND (stock_code = @stock_code)";
         public virtual int DeleteAlsoItemQuery(string stock_code) {
             global::MySql.Data.MySqlClient.MySqlCommand command = this.CommandCollection[1];
             if ((stock_code == null)) {
-                command.Parameters[0].Value = global::System.DBNull.Value;
+                throw new global::System.ArgumentNullException("stock_code");
             }
             else {
                 command.Parameters[0].Value = ((string)(stock_code));
@@ -8966,7 +8950,7 @@ WHERE        (stock_id = @stock_id) AND (stock_code = @stock_code)";
         public virtual int DeleteStocks(string stock_code, int stock_id) {
             global::MySql.Data.MySqlClient.MySqlCommand command = this.CommandCollection[2];
             if ((stock_code == null)) {
-                command.Parameters[0].Value = global::System.DBNull.Value;
+                throw new global::System.ArgumentNullException("stock_code");
             }
             else {
                 command.Parameters[0].Value = ((string)(stock_code));
@@ -8996,7 +8980,7 @@ WHERE        (stock_id = @stock_id) AND (stock_code = @stock_code)";
         public virtual int InsertAlsoItem(string stock_code, global::System.Nullable<decimal> item_retail_price) {
             global::MySql.Data.MySqlClient.MySqlCommand command = this.CommandCollection[3];
             if ((stock_code == null)) {
-                command.Parameters[0].Value = global::System.DBNull.Value;
+                throw new global::System.ArgumentNullException("stock_code");
             }
             else {
                 command.Parameters[0].Value = ((string)(stock_code));
@@ -9031,7 +9015,7 @@ WHERE        (stock_id = @stock_id) AND (stock_code = @stock_code)";
         public virtual int InsertStocks(string stock_code, string stock_name, string supplier_code, string stock_cat_Code, string warehouse_code, global::System.Nullable<int> stock_quantity, string stock_uom, global::System.Nullable<decimal> stock_cost_price, global::System.Nullable<decimal> stock_selling_price, global::System.Nullable<decimal> stock_total_price) {
             global::MySql.Data.MySqlClient.MySqlCommand command = this.CommandCollection[4];
             if ((stock_code == null)) {
-                command.Parameters[0].Value = global::System.DBNull.Value;
+                throw new global::System.ArgumentNullException("stock_code");
             }
             else {
                 command.Parameters[0].Value = ((string)(stock_code));
@@ -9169,7 +9153,7 @@ WHERE        (stock_id = @stock_id) AND (stock_code = @stock_code)";
             }
             command.Parameters[9].Value = ((int)(stock_id));
             if ((stock_code == null)) {
-                command.Parameters[10].Value = global::System.DBNull.Value;
+                throw new global::System.ArgumentNullException("stock_code");
             }
             else {
                 command.Parameters[10].Value = ((string)(stock_code));
