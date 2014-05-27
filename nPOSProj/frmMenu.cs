@@ -14,6 +14,7 @@ namespace nPOSProj
         private mdiFrmUserAccounts mdiUA = new mdiFrmUserAccounts();
         private mdiConfiguration mdiConfig = new mdiConfiguration();
         private mdiFrmInv mdiInv = new mdiFrmInv();
+        private frmPOS pos = new frmPOS();
         private String userName = frmLogin.User.user_name;
         public frmMenu()
         {
@@ -118,6 +119,12 @@ namespace nPOSProj
             lblProgversion.Text = "nPOS System v" + ProductVersion.ToString();
             lblAdlib.Text = "© Copyright 2014 - " + nows;
             timer1.Start();
+        }
+
+        private void btnSales_Click(object sender, EventArgs e)
+        {
+            pos.Show();
+            this.Hide();
         }
     }
 }
