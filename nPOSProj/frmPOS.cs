@@ -117,6 +117,8 @@ namespace nPOSProj
         private void frmPOS_Load(object sender, EventArgs e)
         {
             timer1.Start();
+            String userName = frmLogin.User.user_name;
+            lblUserAccount.Text = userName;
         }
     }
 }

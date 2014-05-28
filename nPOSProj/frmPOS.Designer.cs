@@ -66,7 +66,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.btnClose = new System.Windows.Forms.Button();
-            this.label10 = new System.Windows.Forms.Label();
+            this.lblUserAccount = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.lblDate = new System.Windows.Forms.Label();
             this.lblTime = new System.Windows.Forms.Label();
@@ -457,18 +457,18 @@
             this.btnClose.UseVisualStyleBackColor = false;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
-            // label10
+            // lblUserAccount
             // 
-            this.label10.BackColor = System.Drawing.Color.Black;
-            this.label10.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.label10.Font = new System.Drawing.Font("Courier New", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.ForeColor = System.Drawing.Color.Gold;
-            this.label10.Location = new System.Drawing.Point(0, 390);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(297, 26);
-            this.label10.TabIndex = 38;
-            this.label10.Text = "Username";
-            this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblUserAccount.BackColor = System.Drawing.Color.Black;
+            this.lblUserAccount.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.lblUserAccount.Font = new System.Drawing.Font("Courier New", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUserAccount.ForeColor = System.Drawing.Color.Gold;
+            this.lblUserAccount.Location = new System.Drawing.Point(0, 390);
+            this.lblUserAccount.Name = "lblUserAccount";
+            this.lblUserAccount.Size = new System.Drawing.Size(297, 26);
+            this.lblUserAccount.TabIndex = 38;
+            this.lblUserAccount.Text = "Username";
+            this.lblUserAccount.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label11
             // 
@@ -550,7 +550,7 @@
             this.Controls.Add(this.label13);
             this.Controls.Add(this.lblTime);
             this.Controls.Add(this.lblDate);
-            this.Controls.Add(this.label10);
+            this.Controls.Add(this.lblUserAccount);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.label3);
@@ -620,7 +620,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Button btnClose;
-        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label lblUserAccount;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label lblDate;
         private System.Windows.Forms.Label lblTime;
