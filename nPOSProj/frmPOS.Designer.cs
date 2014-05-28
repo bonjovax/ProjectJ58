@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPOS));
-            System.Windows.Forms.ListViewItem listViewItem3 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem4 = new System.Windows.Forms.ListViewItem(new string[] {
             "1234567890123",
             "222",
             "Palmolive Shampoo",
@@ -84,7 +84,7 @@
             this.listView1.FullRowSelect = true;
             this.listView1.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
             this.listView1.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem3});
+            listViewItem4});
             this.listView1.Location = new System.Drawing.Point(298, 155);
             this.listView1.MultiSelect = false;
             this.listView1.Name = "listView1";
@@ -163,7 +163,6 @@
             this.textBox3.Size = new System.Drawing.Size(329, 55);
             this.textBox3.TabIndex = 3;
             this.textBox3.Text = "0.00";
-            this.textBox3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // textBox4
             // 
