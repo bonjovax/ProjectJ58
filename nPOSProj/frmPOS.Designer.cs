@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem14 = new System.Windows.Forms.ListViewItem(new string[] {
             "1234567890123",
             "222",
             "Palmolive Shampoo",
@@ -63,6 +63,7 @@
             this.textBox11 = new System.Windows.Forms.TextBox();
             this.textBox12 = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.SuspendLayout();
             // 
             // listView1
@@ -79,11 +80,11 @@
             this.listView1.FullRowSelect = true;
             this.listView1.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
             this.listView1.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem2});
+            listViewItem14});
             this.listView1.Location = new System.Drawing.Point(297, 118);
             this.listView1.MultiSelect = false;
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(823, 510);
+            this.listView1.Size = new System.Drawing.Size(832, 510);
             this.listView1.TabIndex = 0;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Details;
@@ -129,7 +130,7 @@
             this.textBox1.ForeColor = System.Drawing.Color.Lime;
             this.textBox1.Location = new System.Drawing.Point(-2, -2);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(1212, 62);
+            this.textBox1.Size = new System.Drawing.Size(1131, 62);
             this.textBox1.TabIndex = 1;
             this.textBox1.Text = "Description";
             // 
@@ -138,9 +139,9 @@
             this.textBox2.BackColor = System.Drawing.Color.MidnightBlue;
             this.textBox2.Font = new System.Drawing.Font("Courier New", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox2.ForeColor = System.Drawing.Color.Lime;
-            this.textBox2.Location = new System.Drawing.Point(-2, 58);
+            this.textBox2.Location = new System.Drawing.Point(0, 58);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(145, 62);
+            this.textBox2.Size = new System.Drawing.Size(143, 62);
             this.textBox2.TabIndex = 2;
             this.textBox2.Text = "Qty";
             // 
@@ -162,20 +163,19 @@
             this.textBox4.ForeColor = System.Drawing.Color.Lime;
             this.textBox4.Location = new System.Drawing.Point(520, 58);
             this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(690, 62);
+            this.textBox4.Size = new System.Drawing.Size(609, 62);
             this.textBox4.TabIndex = 4;
             this.textBox4.Text = "Total";
             this.textBox4.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.MidnightBlue;
             this.label1.Font = new System.Drawing.Font("Courier New", 38.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Transparent;
-            this.label1.Location = new System.Drawing.Point(141, 61);
+            this.label1.Location = new System.Drawing.Point(142, 60);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(56, 57);
+            this.label1.Size = new System.Drawing.Size(52, 58);
             this.label1.TabIndex = 5;
             this.label1.Text = "@";
             this.label1.TextAlign = System.Drawing.ContentAlignment.TopRight;
@@ -356,12 +356,25 @@
             this.label4.Text = "Tender";
             this.label4.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
+            // groupBox1
+            // 
+            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.groupBox1.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox1.Location = new System.Drawing.Point(1135, -2);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(220, 749);
+            this.groupBox1.TabIndex = 21;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "groupBox1";
+            // 
             // frmPOS
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1204, 731);
+            this.ClientSize = new System.Drawing.Size(1364, 748);
             this.ControlBox = false;
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.textBox12);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.textBox10);
@@ -424,5 +437,6 @@
         private System.Windows.Forms.TextBox textBox11;
         private System.Windows.Forms.TextBox textBox12;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.GroupBox groupBox1;
     }
 }
