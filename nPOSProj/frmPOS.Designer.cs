@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.ListViewItem listViewItem17 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem4 = new System.Windows.Forms.ListViewItem(new string[] {
             "1234567890123",
             "222",
             "Palmolive Shampoo",
@@ -80,7 +80,7 @@
             this.listView1.FullRowSelect = true;
             this.listView1.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
             this.listView1.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem17});
+            listViewItem4});
             this.listView1.Location = new System.Drawing.Point(297, 118);
             this.listView1.MultiSelect = false;
             this.listView1.Name = "listView1";
@@ -358,9 +358,9 @@
             // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(1135, 10);
+            this.button5.Location = new System.Drawing.Point(1133, 10);
             this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(172, 50);
+            this.button5.Size = new System.Drawing.Size(136, 50);
             this.button5.TabIndex = 21;
             this.button5.Text = "button5";
             this.button5.UseVisualStyleBackColor = true;
@@ -369,7 +369,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1315, 748);
+            this.ClientSize = new System.Drawing.Size(1286, 748);
             this.ControlBox = false;
             this.Controls.Add(this.button5);
             this.Controls.Add(this.textBox12);
