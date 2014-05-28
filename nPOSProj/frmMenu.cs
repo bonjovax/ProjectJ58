@@ -126,5 +126,33 @@ namespace nPOSProj
             pos.Show();
             this.Hide();
         }
+
+        protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
+        {
+            if (keyData == Keys.F1 && btnSales.Enabled == true)
+            {
+                pos.Show();
+                this.Hide();
+                return true;    // indicate that you handled this keystroke
+            }
+            if (keyData == Keys.F3 && btnInventory.Enabled == true)
+            {
+                mdiInv.Show();
+                this.Hide();
+                return true;
+            }
+            if (keyData == Keys.F6 && btnUserAccounts.Enabled == true)
+            {
+                mdiUA.Show();
+                this.Hide();
+                return true;
+            }
+            return base.ProcessCmdKey(ref msg, keyData);
+        }
+
+        private void btnCustomers_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

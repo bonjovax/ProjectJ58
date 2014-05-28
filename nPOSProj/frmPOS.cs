@@ -45,20 +45,14 @@ namespace nPOSProj
         {
             MessageBox.Show("HOY");
         }
-
-        private void button8_Click(object sender, EventArgs e)
+        protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
         {
-
-        }
-
-        private void button7_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button6_Click(object sender, EventArgs e)
-        {
-
+            if (keyData == Keys.F1)
+            {
+                MessageBox.Show("You pressed the F1 key");
+                return true;    // indicate that you handled this keystroke
+            }
+            return base.ProcessCmdKey(ref msg, keyData);
         }
     }
 }
