@@ -11,6 +11,7 @@ namespace nPOSProj
 {
     public partial class frmPOS : Form
     {
+        private DAO.LoginDAO login;
         public frmPOS()
         {
             InitializeComponent();
@@ -40,6 +41,43 @@ namespace nPOSProj
             base.WndProc(ref m);
         }
         #endregion
+        private void onFormClose()
+        {
+            login = new DAO.LoginDAO();
+            String userName = frmLogin.User.user_name;
+            login.catchUsername(userName);
+            frmMenu fm = new frmMenu();
+            if (login.hasSales())
+            {
+                fm.unlockSales();
+            }
+            if (login.hasCustomers())
+            {
+                fm.unlockCustomers();
+            }
+            if (login.hasInventory())
+            {
+                fm.unlockInventory();
+            }
+            if (login.hasReports())
+            {
+                fm.unlockGeneralReports();
+            }
+            if (login.hasGC())
+            {
+                fm.unlockGiftCards();
+            }
+            if (login.hasUser_Accounts())
+            {
+                fm.unlockUserAccounts();
+            }
+            if (login.hasUserConf())
+            {
+                fm.unlockConfig();
+            }
+            fm.Show();
+            this.Hide();
+        }
 
         private void frmPOS_DoubleClick(object sender, EventArgs e)
         {
@@ -52,7 +90,22 @@ namespace nPOSProj
                 MessageBox.Show("You pressed the F1 key");
                 return true;    // indicate that you handled this keystroke
             }
+            if (keyData == Keys.F8)
+            {
+                onFormClose();
+                return true;
+            }
             return base.ProcessCmdKey(ref msg, keyData);
+        }
+
+        private void frmPOS_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            e.Cancel = true;
+        }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            onFormClose();
         }
     }
 }
