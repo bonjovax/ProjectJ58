@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.ListViewItem listViewItem15 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem17 = new System.Windows.Forms.ListViewItem(new string[] {
             "1234567890123",
             "222",
             "Palmolive Shampoo",
@@ -63,6 +63,7 @@
             this.textBox11 = new System.Windows.Forms.TextBox();
             this.textBox12 = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
+            this.button5 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // listView1
@@ -79,7 +80,7 @@
             this.listView1.FullRowSelect = true;
             this.listView1.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
             this.listView1.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem15});
+            listViewItem17});
             this.listView1.Location = new System.Drawing.Point(297, 118);
             this.listView1.MultiSelect = false;
             this.listView1.Name = "listView1";
@@ -355,12 +356,22 @@
             this.label4.Text = "Tender";
             this.label4.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
+            // button5
+            // 
+            this.button5.Location = new System.Drawing.Point(1135, 10);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(172, 50);
+            this.button5.TabIndex = 21;
+            this.button5.Text = "button5";
+            this.button5.UseVisualStyleBackColor = true;
+            // 
             // frmPOS
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1364, 748);
+            this.ClientSize = new System.Drawing.Size(1315, 748);
             this.ControlBox = false;
+            this.Controls.Add(this.button5);
             this.Controls.Add(this.textBox12);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.textBox10);
@@ -423,5 +434,6 @@
         private System.Windows.Forms.TextBox textBox11;
         private System.Windows.Forms.TextBox textBox12;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Button button5;
     }
 }
