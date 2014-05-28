@@ -107,5 +107,16 @@ namespace nPOSProj
         {
             onFormClose();
         }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            lblDate.Text = DateTime.Now.ToLongDateString();
+            lblTime.Text = DateTime.Now.ToLongTimeString();
+        }
+
+        private void frmPOS_Load(object sender, EventArgs e)
+        {
+            timer1.Start();
+        }
     }
 }
