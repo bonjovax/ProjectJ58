@@ -37,33 +37,33 @@
             "200.00",
             "0.00",
             "400.00"}, -1);
-            this.listView1 = new System.Windows.Forms.ListView();
+            this.lviewPOS = new System.Windows.Forms.ListView();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.rdDescription = new System.Windows.Forms.TextBox();
+            this.txtBoxQty = new System.Windows.Forms.TextBox();
+            this.rdPrice = new System.Windows.Forms.TextBox();
+            this.rdTotal = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox9 = new System.Windows.Forms.TextBox();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
-            this.button7 = new System.Windows.Forms.Button();
-            this.button8 = new System.Windows.Forms.Button();
-            this.button9 = new System.Windows.Forms.Button();
-            this.button10 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.txtBoxEAN = new System.Windows.Forms.TextBox();
+            this.btnSearch = new System.Windows.Forms.Button();
+            this.btnCancelSale = new System.Windows.Forms.Button();
+            this.btnParkSale = new System.Windows.Forms.Button();
+            this.btnCheckout = new System.Windows.Forms.Button();
+            this.btnVoid = new System.Windows.Forms.Button();
+            this.btnEdit = new System.Windows.Forms.Button();
+            this.btnWholesale = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.lblTotalAmount = new System.Windows.Forms.Label();
+            this.lblChangeDue = new System.Windows.Forms.Label();
+            this.lblSub = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
+            this.lblTax = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.btnClose = new System.Windows.Forms.Button();
             this.lblUserAccount = new System.Windows.Forms.Label();
@@ -71,34 +71,34 @@
             this.lblDate = new System.Windows.Forms.Label();
             this.lblTime = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.label12 = new System.Windows.Forms.Label();
+            this.lblSeriesNo = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // listView1
+            // lviewPOS
             // 
-            this.listView1.BackColor = System.Drawing.Color.White;
-            this.listView1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("listView1.BackgroundImage")));
-            this.listView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.lviewPOS.BackColor = System.Drawing.Color.White;
+            this.lviewPOS.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("lviewPOS.BackgroundImage")));
+            this.lviewPOS.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.lviewPOS.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader1,
             this.columnHeader2,
             this.columnHeader3,
             this.columnHeader4,
             this.columnHeader5,
             this.columnHeader6});
-            this.listView1.Font = new System.Drawing.Font("Tahoma", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.listView1.FullRowSelect = true;
-            this.listView1.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
-            this.listView1.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
+            this.lviewPOS.Font = new System.Drawing.Font("Tahoma", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lviewPOS.FullRowSelect = true;
+            this.lviewPOS.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
+            this.lviewPOS.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
             listViewItem1});
-            this.listView1.Location = new System.Drawing.Point(298, 156);
-            this.listView1.MultiSelect = false;
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(830, 565);
-            this.listView1.TabIndex = 0;
-            this.listView1.UseCompatibleStateImageBehavior = false;
-            this.listView1.View = System.Windows.Forms.View.Details;
+            this.lviewPOS.Location = new System.Drawing.Point(298, 156);
+            this.lviewPOS.MultiSelect = false;
+            this.lviewPOS.Name = "lviewPOS";
+            this.lviewPOS.Size = new System.Drawing.Size(830, 565);
+            this.lviewPOS.TabIndex = 0;
+            this.lviewPOS.UseCompatibleStateImageBehavior = false;
+            this.lviewPOS.View = System.Windows.Forms.View.Details;
             // 
             // columnHeader1
             // 
@@ -134,55 +134,55 @@
             this.columnHeader6.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.columnHeader6.Width = 133;
             // 
-            // textBox1
+            // rdDescription
             // 
-            this.textBox1.BackColor = System.Drawing.Color.Black;
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox1.Font = new System.Drawing.Font("Courier New", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.ForeColor = System.Drawing.Color.Lime;
-            this.textBox1.Location = new System.Drawing.Point(0, 0);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(1128, 55);
-            this.textBox1.TabIndex = 1;
-            this.textBox1.Text = "Description";
+            this.rdDescription.BackColor = System.Drawing.Color.Black;
+            this.rdDescription.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.rdDescription.Font = new System.Drawing.Font("Courier New", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rdDescription.ForeColor = System.Drawing.Color.Lime;
+            this.rdDescription.Location = new System.Drawing.Point(0, 0);
+            this.rdDescription.Name = "rdDescription";
+            this.rdDescription.Size = new System.Drawing.Size(1128, 55);
+            this.rdDescription.TabIndex = 1;
+            this.rdDescription.Text = "Description";
             // 
-            // textBox2
+            // txtBoxQty
             // 
-            this.textBox2.BackColor = System.Drawing.Color.MidnightBlue;
-            this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox2.Font = new System.Drawing.Font("Courier New", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.ForeColor = System.Drawing.Color.Lime;
-            this.textBox2.Location = new System.Drawing.Point(0, 55);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(143, 55);
-            this.textBox2.TabIndex = 2;
-            this.textBox2.Text = "Qty";
-            this.textBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtBoxQty.BackColor = System.Drawing.Color.MidnightBlue;
+            this.txtBoxQty.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtBoxQty.Font = new System.Drawing.Font("Courier New", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBoxQty.ForeColor = System.Drawing.Color.Lime;
+            this.txtBoxQty.Location = new System.Drawing.Point(0, 55);
+            this.txtBoxQty.Name = "txtBoxQty";
+            this.txtBoxQty.Size = new System.Drawing.Size(143, 55);
+            this.txtBoxQty.TabIndex = 2;
+            this.txtBoxQty.Text = "Qty";
+            this.txtBoxQty.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // textBox3
+            // rdPrice
             // 
-            this.textBox3.BackColor = System.Drawing.Color.MidnightBlue;
-            this.textBox3.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox3.Font = new System.Drawing.Font("Courier New", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox3.ForeColor = System.Drawing.Color.Lime;
-            this.textBox3.Location = new System.Drawing.Point(195, 55);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(329, 55);
-            this.textBox3.TabIndex = 3;
-            this.textBox3.Text = "0.00";
+            this.rdPrice.BackColor = System.Drawing.Color.MidnightBlue;
+            this.rdPrice.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.rdPrice.Font = new System.Drawing.Font("Courier New", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rdPrice.ForeColor = System.Drawing.Color.Lime;
+            this.rdPrice.Location = new System.Drawing.Point(195, 55);
+            this.rdPrice.Name = "rdPrice";
+            this.rdPrice.Size = new System.Drawing.Size(329, 55);
+            this.rdPrice.TabIndex = 3;
+            this.rdPrice.Text = "0.00";
             // 
-            // textBox4
+            // rdTotal
             // 
-            this.textBox4.BackColor = System.Drawing.Color.MidnightBlue;
-            this.textBox4.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox4.Font = new System.Drawing.Font("Courier New", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox4.ForeColor = System.Drawing.Color.Lime;
-            this.textBox4.Location = new System.Drawing.Point(524, 55);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(604, 55);
-            this.textBox4.TabIndex = 4;
-            this.textBox4.Text = "0.00";
-            this.textBox4.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.rdTotal.BackColor = System.Drawing.Color.MidnightBlue;
+            this.rdTotal.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.rdTotal.Font = new System.Drawing.Font("Courier New", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rdTotal.ForeColor = System.Drawing.Color.Lime;
+            this.rdTotal.Location = new System.Drawing.Point(524, 55);
+            this.rdTotal.Name = "rdTotal";
+            this.rdTotal.Size = new System.Drawing.Size(604, 55);
+            this.rdTotal.TabIndex = 4;
+            this.rdTotal.Text = "0.00";
+            this.rdTotal.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // label1
             // 
@@ -196,142 +196,142 @@
             this.label1.Text = "@";
             this.label1.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
-            // textBox9
+            // txtBoxEAN
             // 
-            this.textBox9.BackColor = System.Drawing.Color.MidnightBlue;
-            this.textBox9.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox9.Font = new System.Drawing.Font("Courier New", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox9.ForeColor = System.Drawing.Color.Lime;
-            this.textBox9.Location = new System.Drawing.Point(0, 201);
-            this.textBox9.Name = "textBox9";
-            this.textBox9.Size = new System.Drawing.Size(297, 42);
-            this.textBox9.TabIndex = 15;
-            this.textBox9.Text = "1234567890123";
+            this.txtBoxEAN.BackColor = System.Drawing.Color.MidnightBlue;
+            this.txtBoxEAN.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtBoxEAN.Font = new System.Drawing.Font("Courier New", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBoxEAN.ForeColor = System.Drawing.Color.Lime;
+            this.txtBoxEAN.Location = new System.Drawing.Point(0, 201);
+            this.txtBoxEAN.Name = "txtBoxEAN";
+            this.txtBoxEAN.Size = new System.Drawing.Size(297, 42);
+            this.txtBoxEAN.TabIndex = 15;
+            this.txtBoxEAN.Text = "1234567890123";
             // 
-            // button4
+            // btnSearch
             // 
-            this.button4.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button4.BackgroundImage")));
-            this.button4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button4.Location = new System.Drawing.Point(0, 111);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(297, 89);
-            this.button4.TabIndex = 16;
-            this.button4.UseVisualStyleBackColor = true;
+            this.btnSearch.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnSearch.BackgroundImage")));
+            this.btnSearch.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSearch.Location = new System.Drawing.Point(0, 111);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(297, 89);
+            this.btnSearch.TabIndex = 16;
+            this.btnSearch.UseVisualStyleBackColor = true;
             // 
-            // button6
+            // btnCancelSale
             // 
-            this.button6.BackColor = System.Drawing.Color.LightCoral;
-            this.button6.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button6.FlatAppearance.BorderColor = System.Drawing.Color.LightCoral;
-            this.button6.FlatAppearance.BorderSize = 0;
-            this.button6.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button6.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button6.Image = ((System.Drawing.Image)(resources.GetObject("button6.Image")));
-            this.button6.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button6.Location = new System.Drawing.Point(628, 113);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(138, 37);
-            this.button6.TabIndex = 22;
-            this.button6.Text = "(F5) Cancel Sale";
-            this.button6.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button6.UseVisualStyleBackColor = false;
+            this.btnCancelSale.BackColor = System.Drawing.Color.LightCoral;
+            this.btnCancelSale.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCancelSale.FlatAppearance.BorderColor = System.Drawing.Color.LightCoral;
+            this.btnCancelSale.FlatAppearance.BorderSize = 0;
+            this.btnCancelSale.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.btnCancelSale.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCancelSale.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancelSale.Image = ((System.Drawing.Image)(resources.GetObject("btnCancelSale.Image")));
+            this.btnCancelSale.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCancelSale.Location = new System.Drawing.Point(628, 113);
+            this.btnCancelSale.Name = "btnCancelSale";
+            this.btnCancelSale.Size = new System.Drawing.Size(138, 37);
+            this.btnCancelSale.TabIndex = 22;
+            this.btnCancelSale.Text = "(F5) Cancel Sale";
+            this.btnCancelSale.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnCancelSale.UseVisualStyleBackColor = false;
             // 
-            // button7
+            // btnParkSale
             // 
-            this.button7.BackColor = System.Drawing.Color.PaleGreen;
-            this.button7.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button7.FlatAppearance.BorderColor = System.Drawing.Color.PaleGreen;
-            this.button7.FlatAppearance.BorderSize = 0;
-            this.button7.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button7.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button7.Image = ((System.Drawing.Image)(resources.GetObject("button7.Image")));
-            this.button7.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button7.Location = new System.Drawing.Point(768, 113);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(123, 37);
-            this.button7.TabIndex = 23;
-            this.button7.Text = "(F6) Park Sale";
-            this.button7.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button7.UseVisualStyleBackColor = false;
+            this.btnParkSale.BackColor = System.Drawing.Color.PaleGreen;
+            this.btnParkSale.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnParkSale.FlatAppearance.BorderColor = System.Drawing.Color.PaleGreen;
+            this.btnParkSale.FlatAppearance.BorderSize = 0;
+            this.btnParkSale.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.btnParkSale.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnParkSale.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnParkSale.Image = ((System.Drawing.Image)(resources.GetObject("btnParkSale.Image")));
+            this.btnParkSale.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnParkSale.Location = new System.Drawing.Point(768, 113);
+            this.btnParkSale.Name = "btnParkSale";
+            this.btnParkSale.Size = new System.Drawing.Size(123, 37);
+            this.btnParkSale.TabIndex = 23;
+            this.btnParkSale.Text = "(F6) Park Sale";
+            this.btnParkSale.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnParkSale.UseVisualStyleBackColor = false;
             // 
-            // button8
+            // btnCheckout
             // 
-            this.button8.BackColor = System.Drawing.Color.LightSkyBlue;
-            this.button8.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button8.FlatAppearance.BorderColor = System.Drawing.Color.LightSkyBlue;
-            this.button8.FlatAppearance.BorderSize = 0;
-            this.button8.FlatAppearance.MouseOverBackColor = System.Drawing.Color.PaleTurquoise;
-            this.button8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button8.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button8.Image = ((System.Drawing.Image)(resources.GetObject("button8.Image")));
-            this.button8.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button8.Location = new System.Drawing.Point(893, 113);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(127, 37);
-            this.button8.TabIndex = 24;
-            this.button8.Text = "(F7) Checkout";
-            this.button8.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button8.UseVisualStyleBackColor = false;
+            this.btnCheckout.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.btnCheckout.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCheckout.FlatAppearance.BorderColor = System.Drawing.Color.LightSkyBlue;
+            this.btnCheckout.FlatAppearance.BorderSize = 0;
+            this.btnCheckout.FlatAppearance.MouseOverBackColor = System.Drawing.Color.PaleTurquoise;
+            this.btnCheckout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCheckout.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCheckout.Image = ((System.Drawing.Image)(resources.GetObject("btnCheckout.Image")));
+            this.btnCheckout.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCheckout.Location = new System.Drawing.Point(893, 113);
+            this.btnCheckout.Name = "btnCheckout";
+            this.btnCheckout.Size = new System.Drawing.Size(127, 37);
+            this.btnCheckout.TabIndex = 24;
+            this.btnCheckout.Text = "(F7) Checkout";
+            this.btnCheckout.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnCheckout.UseVisualStyleBackColor = false;
             // 
-            // button9
+            // btnVoid
             // 
-            this.button9.BackColor = System.Drawing.Color.PowderBlue;
-            this.button9.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button9.FlatAppearance.BorderColor = System.Drawing.Color.Azure;
-            this.button9.FlatAppearance.BorderSize = 0;
-            this.button9.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.button9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button9.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button9.Image = ((System.Drawing.Image)(resources.GetObject("button9.Image")));
-            this.button9.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button9.Location = new System.Drawing.Point(436, 113);
-            this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(96, 37);
-            this.button9.TabIndex = 25;
-            this.button9.Text = "(F3) Void";
-            this.button9.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button9.UseVisualStyleBackColor = false;
+            this.btnVoid.BackColor = System.Drawing.Color.PowderBlue;
+            this.btnVoid.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnVoid.FlatAppearance.BorderColor = System.Drawing.Color.Azure;
+            this.btnVoid.FlatAppearance.BorderSize = 0;
+            this.btnVoid.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.btnVoid.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnVoid.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnVoid.Image = ((System.Drawing.Image)(resources.GetObject("btnVoid.Image")));
+            this.btnVoid.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnVoid.Location = new System.Drawing.Point(436, 113);
+            this.btnVoid.Name = "btnVoid";
+            this.btnVoid.Size = new System.Drawing.Size(96, 37);
+            this.btnVoid.TabIndex = 25;
+            this.btnVoid.Text = "(F3) Void";
+            this.btnVoid.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnVoid.UseVisualStyleBackColor = false;
             // 
-            // button10
+            // btnEdit
             // 
-            this.button10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.button10.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button10.FlatAppearance.BorderColor = System.Drawing.Color.LightCyan;
-            this.button10.FlatAppearance.BorderSize = 0;
-            this.button10.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.button10.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button10.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button10.Image = ((System.Drawing.Image)(resources.GetObject("button10.Image")));
-            this.button10.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button10.Location = new System.Drawing.Point(534, 113);
-            this.button10.Name = "button10";
-            this.button10.Size = new System.Drawing.Size(92, 37);
-            this.button10.TabIndex = 26;
-            this.button10.Text = "(F4) Edit";
-            this.button10.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button10.UseVisualStyleBackColor = false;
+            this.btnEdit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.btnEdit.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnEdit.FlatAppearance.BorderColor = System.Drawing.Color.LightCyan;
+            this.btnEdit.FlatAppearance.BorderSize = 0;
+            this.btnEdit.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.btnEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEdit.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEdit.Image = ((System.Drawing.Image)(resources.GetObject("btnEdit.Image")));
+            this.btnEdit.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnEdit.Location = new System.Drawing.Point(534, 113);
+            this.btnEdit.Name = "btnEdit";
+            this.btnEdit.Size = new System.Drawing.Size(92, 37);
+            this.btnEdit.TabIndex = 26;
+            this.btnEdit.Text = "(F4) Edit";
+            this.btnEdit.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnEdit.UseVisualStyleBackColor = false;
             // 
-            // button1
+            // btnWholesale
             // 
-            this.button1.BackColor = System.Drawing.Color.RoyalBlue;
-            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.Azure;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightSteelBlue;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
-            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(300, 113);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(134, 37);
-            this.button1.TabIndex = 27;
-            this.button1.Text = "(F2) Wholesale";
-            this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button1.UseVisualStyleBackColor = false;
+            this.btnWholesale.BackColor = System.Drawing.Color.RoyalBlue;
+            this.btnWholesale.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnWholesale.FlatAppearance.BorderColor = System.Drawing.Color.Azure;
+            this.btnWholesale.FlatAppearance.BorderSize = 0;
+            this.btnWholesale.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightSteelBlue;
+            this.btnWholesale.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnWholesale.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnWholesale.Image = ((System.Drawing.Image)(resources.GetObject("btnWholesale.Image")));
+            this.btnWholesale.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnWholesale.Location = new System.Drawing.Point(300, 113);
+            this.btnWholesale.Name = "btnWholesale";
+            this.btnWholesale.Size = new System.Drawing.Size(134, 37);
+            this.btnWholesale.TabIndex = 27;
+            this.btnWholesale.Text = "(F2) Wholesale";
+            this.btnWholesale.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnWholesale.UseVisualStyleBackColor = false;
             // 
             // label5
             // 
@@ -359,44 +359,44 @@
             this.label6.Text = "Change Due";
             this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // label7
+            // lblTotalAmount
             // 
-            this.label7.BackColor = System.Drawing.Color.Black;
-            this.label7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.label7.Font = new System.Drawing.Font("Courier New", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.Color.Lime;
-            this.label7.Location = new System.Drawing.Point(0, 593);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(297, 49);
-            this.label7.TabIndex = 30;
-            this.label7.Text = "0.00";
-            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblTotalAmount.BackColor = System.Drawing.Color.Black;
+            this.lblTotalAmount.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.lblTotalAmount.Font = new System.Drawing.Font("Courier New", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotalAmount.ForeColor = System.Drawing.Color.Lime;
+            this.lblTotalAmount.Location = new System.Drawing.Point(0, 593);
+            this.lblTotalAmount.Name = "lblTotalAmount";
+            this.lblTotalAmount.Size = new System.Drawing.Size(297, 49);
+            this.lblTotalAmount.TabIndex = 30;
+            this.lblTotalAmount.Text = "0.00";
+            this.lblTotalAmount.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label8
+            // lblChangeDue
             // 
-            this.label8.BackColor = System.Drawing.Color.Black;
-            this.label8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.label8.Font = new System.Drawing.Font("Courier New", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.ForeColor = System.Drawing.Color.Lime;
-            this.label8.Location = new System.Drawing.Point(0, 672);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(297, 49);
-            this.label8.TabIndex = 31;
-            this.label8.Text = "0.00";
-            this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblChangeDue.BackColor = System.Drawing.Color.Black;
+            this.lblChangeDue.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.lblChangeDue.Font = new System.Drawing.Font("Courier New", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblChangeDue.ForeColor = System.Drawing.Color.Lime;
+            this.lblChangeDue.Location = new System.Drawing.Point(0, 672);
+            this.lblChangeDue.Name = "lblChangeDue";
+            this.lblChangeDue.Size = new System.Drawing.Size(297, 49);
+            this.lblChangeDue.TabIndex = 31;
+            this.lblChangeDue.Text = "0.00";
+            this.lblChangeDue.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label2
+            // lblSub
             // 
-            this.label2.BackColor = System.Drawing.Color.Black;
-            this.label2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.label2.Font = new System.Drawing.Font("Courier New", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.Lime;
-            this.label2.Location = new System.Drawing.Point(0, 458);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(297, 26);
-            this.label2.TabIndex = 33;
-            this.label2.Text = "0.00";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblSub.BackColor = System.Drawing.Color.Black;
+            this.lblSub.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.lblSub.Font = new System.Drawing.Font("Courier New", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSub.ForeColor = System.Drawing.Color.Lime;
+            this.lblSub.Location = new System.Drawing.Point(0, 458);
+            this.lblSub.Name = "lblSub";
+            this.lblSub.Size = new System.Drawing.Size(297, 26);
+            this.lblSub.TabIndex = 33;
+            this.lblSub.Text = "0.00";
+            this.lblSub.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label4
             // 
@@ -411,18 +411,18 @@
             this.label4.Text = "Subtotal";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // label3
+            // lblTax
             // 
-            this.label3.BackColor = System.Drawing.Color.Black;
-            this.label3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.label3.Font = new System.Drawing.Font("Courier New", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.Lime;
-            this.label3.Location = new System.Drawing.Point(0, 526);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(297, 26);
-            this.label3.TabIndex = 35;
-            this.label3.Text = "0%";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblTax.BackColor = System.Drawing.Color.Black;
+            this.lblTax.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.lblTax.Font = new System.Drawing.Font("Courier New", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTax.ForeColor = System.Drawing.Color.Lime;
+            this.lblTax.Location = new System.Drawing.Point(0, 526);
+            this.lblTax.Name = "lblTax";
+            this.lblTax.Size = new System.Drawing.Size(297, 26);
+            this.lblTax.TabIndex = 35;
+            this.lblTax.Text = "0%";
+            this.lblTax.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label9
             // 
@@ -513,18 +513,18 @@
             // 
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
-            // label12
+            // lblSeriesNo
             // 
-            this.label12.BackColor = System.Drawing.Color.Black;
-            this.label12.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.label12.Font = new System.Drawing.Font("Courier New", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.ForeColor = System.Drawing.Color.Red;
-            this.label12.Location = new System.Drawing.Point(0, 329);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(297, 26);
-            this.label12.TabIndex = 43;
-            this.label12.Text = "10";
-            this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblSeriesNo.BackColor = System.Drawing.Color.Black;
+            this.lblSeriesNo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.lblSeriesNo.Font = new System.Drawing.Font("Courier New", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSeriesNo.ForeColor = System.Drawing.Color.Red;
+            this.lblSeriesNo.Location = new System.Drawing.Point(0, 329);
+            this.lblSeriesNo.Name = "lblSeriesNo";
+            this.lblSeriesNo.Size = new System.Drawing.Size(297, 26);
+            this.lblSeriesNo.TabIndex = 43;
+            this.lblSeriesNo.Text = "10";
+            this.lblSeriesNo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label13
             // 
@@ -546,36 +546,37 @@
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1274, 748);
             this.ControlBox = false;
-            this.Controls.Add(this.label12);
+            this.Controls.Add(this.lblSeriesNo);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.lblTime);
             this.Controls.Add(this.lblDate);
             this.Controls.Add(this.lblUserAccount);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.btnClose);
-            this.Controls.Add(this.label3);
+            this.Controls.Add(this.lblTax);
             this.Controls.Add(this.label9);
-            this.Controls.Add(this.label2);
+            this.Controls.Add(this.lblSub);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.label8);
-            this.Controls.Add(this.label7);
+            this.Controls.Add(this.lblChangeDue);
+            this.Controls.Add(this.lblTotalAmount);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.button10);
-            this.Controls.Add(this.button9);
-            this.Controls.Add(this.button8);
-            this.Controls.Add(this.button7);
-            this.Controls.Add(this.button6);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.textBox9);
+            this.Controls.Add(this.btnWholesale);
+            this.Controls.Add(this.btnEdit);
+            this.Controls.Add(this.btnVoid);
+            this.Controls.Add(this.btnCheckout);
+            this.Controls.Add(this.btnParkSale);
+            this.Controls.Add(this.btnCancelSale);
+            this.Controls.Add(this.btnSearch);
+            this.Controls.Add(this.txtBoxEAN);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.listView1);
+            this.Controls.Add(this.rdTotal);
+            this.Controls.Add(this.rdPrice);
+            this.Controls.Add(this.txtBoxQty);
+            this.Controls.Add(this.rdDescription);
+            this.Controls.Add(this.lviewPOS);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmPOS";
@@ -591,33 +592,32 @@
 
         #endregion
 
-        private System.Windows.Forms.ListView listView1;
+        private System.Windows.Forms.ListView lviewPOS;
         private System.Windows.Forms.ColumnHeader columnHeader1;
         private System.Windows.Forms.ColumnHeader columnHeader2;
         private System.Windows.Forms.ColumnHeader columnHeader3;
         private System.Windows.Forms.ColumnHeader columnHeader4;
         private System.Windows.Forms.ColumnHeader columnHeader5;
         private System.Windows.Forms.ColumnHeader columnHeader6;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox rdDescription;
+        private System.Windows.Forms.TextBox txtBoxQty;
+        private System.Windows.Forms.TextBox rdPrice;
+        private System.Windows.Forms.TextBox rdTotal;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox9;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.Button button7;
-        private System.Windows.Forms.Button button8;
-        private System.Windows.Forms.Button button9;
-        private System.Windows.Forms.Button button10;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TextBox txtBoxEAN;
+        private System.Windows.Forms.Button btnSearch;
+        private System.Windows.Forms.Button btnParkSale;
+        private System.Windows.Forms.Button btnCheckout;
+        private System.Windows.Forms.Button btnVoid;
+        private System.Windows.Forms.Button btnEdit;
+        private System.Windows.Forms.Button btnWholesale;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lblTotalAmount;
+        private System.Windows.Forms.Label lblChangeDue;
+        private System.Windows.Forms.Label lblSub;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label lblTax;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.Label lblUserAccount;
@@ -625,7 +625,8 @@
         private System.Windows.Forms.Label lblDate;
         private System.Windows.Forms.Label lblTime;
         private System.Windows.Forms.Timer timer1;
-        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label lblSeriesNo;
         private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Button btnCancelSale;
     }
 }
