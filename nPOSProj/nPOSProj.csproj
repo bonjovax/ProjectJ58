@@ -86,6 +86,12 @@
     <Compile Include="frmChangePass.Designer.cs">
       <DependentUpon>frmChangePass.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmDlgCheckout.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDlgCheckout.Designer.cs">
+      <DependentUpon>frmDlgCheckout.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmPOS.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -238,6 +244,9 @@
     <Compile Include="VO\UserAccountVO.cs" />
     <EmbeddedResource Include="frmChangePass.resx">
       <DependentUpon>frmChangePass.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmDlgCheckout.resx">
+      <DependentUpon>frmDlgCheckout.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmPOS.resx">
       <DependentUpon>frmPOS.cs</DependentUpon>
