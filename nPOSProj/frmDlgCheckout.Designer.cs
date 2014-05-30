@@ -33,9 +33,9 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.tabControl1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -80,15 +80,6 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Debit/Credit Card";
             // 
-            // imageList1
-            // 
-            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
-            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
-            this.imageList1.Images.SetKeyName(0, "cash.png");
-            this.imageList1.Images.SetKeyName(1, "creditcard.png");
-            this.imageList1.Images.SetKeyName(2, "cheque.png");
-            this.imageList1.Images.SetKeyName(3, "account.png");
-            // 
             // tabPage3
             // 
             this.tabPage3.BackColor = System.Drawing.Color.White;
@@ -112,6 +103,15 @@
             this.tabPage4.Size = new System.Drawing.Size(495, 277);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "Accounts";
+            // 
+            // imageList1
+            // 
+            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
+            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageList1.Images.SetKeyName(0, "cash.png");
+            this.imageList1.Images.SetKeyName(1, "creditcard.png");
+            this.imageList1.Images.SetKeyName(2, "cheque.png");
+            this.imageList1.Images.SetKeyName(3, "account.png");
             // 
             // frmDlgCheckout
             // 

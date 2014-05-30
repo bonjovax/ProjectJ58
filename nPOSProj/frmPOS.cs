@@ -95,7 +95,7 @@ namespace nPOSProj
                 frmDlgCheckout checkout = new frmDlgCheckout();
                 checkout.ShowDialog();
             }
-            if (keyData == Keys.F8)
+            if (keyData == Keys.F9)
             {
                 onFormClose();
                 return true;

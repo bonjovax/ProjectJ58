@@ -73,6 +73,7 @@
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.lblSeriesNo = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
+            this.btnDiscount = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lviewPOS
@@ -95,7 +96,7 @@
             this.lviewPOS.Location = new System.Drawing.Point(298, 156);
             this.lviewPOS.MultiSelect = false;
             this.lviewPOS.Name = "lviewPOS";
-            this.lviewPOS.Size = new System.Drawing.Size(830, 565);
+            this.lviewPOS.Size = new System.Drawing.Size(955, 565);
             this.lviewPOS.TabIndex = 0;
             this.lviewPOS.UseCompatibleStateImageBehavior = false;
             this.lviewPOS.View = System.Windows.Forms.View.Details;
@@ -103,24 +104,24 @@
             // columnHeader1
             // 
             this.columnHeader1.Text = "EAN";
-            this.columnHeader1.Width = 140;
+            this.columnHeader1.Width = 172;
             // 
             // columnHeader2
             // 
             this.columnHeader2.Text = "Qty";
             this.columnHeader2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.columnHeader2.Width = 45;
+            this.columnHeader2.Width = 54;
             // 
             // columnHeader3
             // 
             this.columnHeader3.Text = "Description";
-            this.columnHeader3.Width = 315;
+            this.columnHeader3.Width = 380;
             // 
             // columnHeader4
             // 
             this.columnHeader4.Text = "Price";
             this.columnHeader4.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.columnHeader4.Width = 93;
+            this.columnHeader4.Width = 114;
             // 
             // columnHeader5
             // 
@@ -142,7 +143,7 @@
             this.rdDescription.ForeColor = System.Drawing.Color.Lime;
             this.rdDescription.Location = new System.Drawing.Point(0, 0);
             this.rdDescription.Name = "rdDescription";
-            this.rdDescription.Size = new System.Drawing.Size(1128, 55);
+            this.rdDescription.Size = new System.Drawing.Size(1253, 55);
             this.rdDescription.TabIndex = 1;
             this.rdDescription.Text = "Description";
             // 
@@ -179,7 +180,7 @@
             this.rdTotal.ForeColor = System.Drawing.Color.Lime;
             this.rdTotal.Location = new System.Drawing.Point(524, 55);
             this.rdTotal.Name = "rdTotal";
-            this.rdTotal.Size = new System.Drawing.Size(604, 55);
+            this.rdTotal.Size = new System.Drawing.Size(729, 55);
             this.rdTotal.TabIndex = 4;
             this.rdTotal.Text = "0.00";
             this.rdTotal.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -448,11 +449,11 @@
             this.btnClose.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClose.Image = ((System.Drawing.Image)(resources.GetObject("btnClose.Image")));
             this.btnClose.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnClose.Location = new System.Drawing.Point(1022, 113);
+            this.btnClose.Location = new System.Drawing.Point(1147, 113);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(106, 37);
             this.btnClose.TabIndex = 36;
-            this.btnClose.Text = "(F8) Close";
+            this.btnClose.Text = "(F9) Close";
             this.btnClose.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnClose.UseVisualStyleBackColor = false;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
@@ -539,6 +540,25 @@
             this.label13.Text = "No";
             this.label13.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
+            // btnDiscount
+            // 
+            this.btnDiscount.BackColor = System.Drawing.Color.Tomato;
+            this.btnDiscount.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnDiscount.FlatAppearance.BorderColor = System.Drawing.Color.Tomato;
+            this.btnDiscount.FlatAppearance.BorderSize = 0;
+            this.btnDiscount.FlatAppearance.MouseOverBackColor = System.Drawing.Color.PeachPuff;
+            this.btnDiscount.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDiscount.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDiscount.Image = ((System.Drawing.Image)(resources.GetObject("btnDiscount.Image")));
+            this.btnDiscount.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnDiscount.Location = new System.Drawing.Point(1022, 113);
+            this.btnDiscount.Name = "btnDiscount";
+            this.btnDiscount.Size = new System.Drawing.Size(123, 37);
+            this.btnDiscount.TabIndex = 44;
+            this.btnDiscount.Text = "(F8) Discount";
+            this.btnDiscount.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnDiscount.UseVisualStyleBackColor = false;
+            // 
             // frmPOS
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -546,6 +566,7 @@
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1274, 748);
             this.ControlBox = false;
+            this.Controls.Add(this.btnDiscount);
             this.Controls.Add(this.lblSeriesNo);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.lblTime);
@@ -628,5 +649,6 @@
         private System.Windows.Forms.Label lblSeriesNo;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Button btnCancelSale;
+        private System.Windows.Forms.Button btnDiscount;
     }
 }
