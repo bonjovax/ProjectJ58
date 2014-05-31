@@ -30,7 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPOS));
-            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem3 = new System.Windows.Forms.ListViewItem(new string[] {
             "1234567890123",
             "222",
             "Palmolive Shampoo",
@@ -74,6 +74,7 @@
             this.lblSeriesNo = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.btnDiscount = new System.Windows.Forms.Button();
+            this.lblProgversion = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lviewPOS
@@ -92,7 +93,7 @@
             this.lviewPOS.FullRowSelect = true;
             this.lviewPOS.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
             this.lviewPOS.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem1});
+            listViewItem3});
             this.lviewPOS.Location = new System.Drawing.Point(298, 156);
             this.lviewPOS.MultiSelect = false;
             this.lviewPOS.Name = "lviewPOS";
@@ -489,7 +490,7 @@
             // 
             this.lblDate.BackColor = System.Drawing.Color.Black;
             this.lblDate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.lblDate.Font = new System.Drawing.Font("Courier New", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDate.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDate.ForeColor = System.Drawing.Color.White;
             this.lblDate.Location = new System.Drawing.Point(0, 243);
             this.lblDate.Name = "lblDate";
@@ -560,6 +561,18 @@
             this.btnDiscount.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnDiscount.UseVisualStyleBackColor = false;
             // 
+            // lblProgversion
+            // 
+            this.lblProgversion.AutoSize = true;
+            this.lblProgversion.BackColor = System.Drawing.Color.Transparent;
+            this.lblProgversion.Font = new System.Drawing.Font("Arial Narrow", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblProgversion.ForeColor = System.Drawing.Color.Black;
+            this.lblProgversion.Location = new System.Drawing.Point(2, 721);
+            this.lblProgversion.Name = "lblProgversion";
+            this.lblProgversion.Size = new System.Drawing.Size(108, 15);
+            this.lblProgversion.TabIndex = 45;
+            this.lblProgversion.Text = "nPOS System vX.x.x.x";
+            // 
             // frmPOS
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -567,6 +580,7 @@
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1274, 748);
             this.ControlBox = false;
+            this.Controls.Add(this.lblProgversion);
             this.Controls.Add(this.btnDiscount);
             this.Controls.Add(this.lblSeriesNo);
             this.Controls.Add(this.label13);
@@ -651,5 +665,6 @@
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Button btnCancelSale;
         private System.Windows.Forms.Button btnDiscount;
+        private System.Windows.Forms.Label lblProgversion;
     }
 }

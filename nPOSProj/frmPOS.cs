@@ -124,6 +124,7 @@ namespace nPOSProj
             timer1.Start();
             String userName = frmLogin.User.user_name;
             lblUserAccount.Text = userName;
+            lblProgversion.Text = "nPOS System v" + ProductVersion.ToString();
         }
 
         private void btnCheckout_Click(object sender, EventArgs e)
