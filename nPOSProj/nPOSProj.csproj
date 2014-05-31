@@ -72,6 +72,7 @@
   <ItemGroup>
     <Compile Include="Conf\Crypto.cs" />
     <Compile Include="Conf\dbs.cs" />
+    <Compile Include="Conf\Rgx.cs" />
     <Compile Include="DAO\ChangePasswordDAO.cs" />
     <Compile Include="DAO\ConfigDAO.cs" />
     <Compile Include="DAO\InventoryDAO.cs" />

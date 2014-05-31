@@ -33,5 +33,28 @@ namespace nPOSProj.Conf
         {
             return getHash;
         }
+
+        public String RefHashed(String encode)
+        {
+            try
+            {
+                SHA1 hash = SHA1.Create();
+                ASCIIEncoding encoder = new ASCIIEncoding();
+                byte[] combined = encoder.GetBytes(encode);
+                hash.ComputeHash(combined);
+                getHash = Convert.ToBase64String(hash.Hash);
+            }
+            catch (Exception)
+            {
+                Console.WriteLine("NOT PRESENT!");
+            }
+            return getHash;
+        }
+
+        //Return
+        public String RefretreiveHash()
+        {
+            return getHash;
+        }
     }
 }

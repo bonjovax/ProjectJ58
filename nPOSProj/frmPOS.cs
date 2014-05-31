@@ -125,5 +125,11 @@ namespace nPOSProj
             String userName = frmLogin.User.user_name;
             lblUserAccount.Text = userName;
         }
+
+        private void btnCheckout_Click(object sender, EventArgs e)
+        {
+            frmDlgCheckout checkout = new frmDlgCheckout();
+            checkout.ShowDialog();
+        }
     }
 }

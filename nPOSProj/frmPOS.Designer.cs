@@ -276,6 +276,7 @@
             this.btnCheckout.Text = "(F7) Checkout";
             this.btnCheckout.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnCheckout.UseVisualStyleBackColor = false;
+            this.btnCheckout.Click += new System.EventHandler(this.btnCheckout_Click);
             // 
             // btnVoid
             // 
