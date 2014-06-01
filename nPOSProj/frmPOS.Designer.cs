@@ -30,7 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPOS));
-            System.Windows.Forms.ListViewItem listViewItem3 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem(new string[] {
             "1234567890123",
             "222",
             "Palmolive Shampoo",
@@ -50,7 +50,6 @@
             this.rdTotal = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.txtBoxEAN = new System.Windows.Forms.TextBox();
-            this.btnSearch = new System.Windows.Forms.Button();
             this.btnCancelSale = new System.Windows.Forms.Button();
             this.btnParkSale = new System.Windows.Forms.Button();
             this.btnCheckout = new System.Windows.Forms.Button();
@@ -75,6 +74,8 @@
             this.label13 = new System.Windows.Forms.Label();
             this.btnDiscount = new System.Windows.Forms.Button();
             this.lblProgversion = new System.Windows.Forms.Label();
+            this.btnRefund = new System.Windows.Forms.Button();
+            this.btnSearch = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lviewPOS
@@ -93,7 +94,7 @@
             this.lviewPOS.FullRowSelect = true;
             this.lviewPOS.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
             this.lviewPOS.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem3});
+            listViewItem1});
             this.lviewPOS.Location = new System.Drawing.Point(298, 156);
             this.lviewPOS.MultiSelect = false;
             this.lviewPOS.Name = "lviewPOS";
@@ -210,17 +211,6 @@
             this.txtBoxEAN.TabIndex = 15;
             this.txtBoxEAN.Text = "1234567890123";
             // 
-            // btnSearch
-            // 
-            this.btnSearch.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnSearch.BackgroundImage")));
-            this.btnSearch.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSearch.Location = new System.Drawing.Point(0, 111);
-            this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(297, 89);
-            this.btnSearch.TabIndex = 16;
-            this.btnSearch.UseVisualStyleBackColor = true;
-            // 
             // btnCancelSale
             // 
             this.btnCancelSale.BackColor = System.Drawing.Color.LightCoral;
@@ -232,11 +222,11 @@
             this.btnCancelSale.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancelSale.Image = ((System.Drawing.Image)(resources.GetObject("btnCancelSale.Image")));
             this.btnCancelSale.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCancelSale.Location = new System.Drawing.Point(628, 113);
+            this.btnCancelSale.Location = new System.Drawing.Point(628, 112);
             this.btnCancelSale.Name = "btnCancelSale";
             this.btnCancelSale.Size = new System.Drawing.Size(138, 37);
             this.btnCancelSale.TabIndex = 22;
-            this.btnCancelSale.Text = "(F5) Cancel Sale";
+            this.btnCancelSale.Text = "(F6) Cancel Sale";
             this.btnCancelSale.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnCancelSale.UseVisualStyleBackColor = false;
             // 
@@ -251,11 +241,11 @@
             this.btnParkSale.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnParkSale.Image = ((System.Drawing.Image)(resources.GetObject("btnParkSale.Image")));
             this.btnParkSale.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnParkSale.Location = new System.Drawing.Point(768, 113);
+            this.btnParkSale.Location = new System.Drawing.Point(768, 112);
             this.btnParkSale.Name = "btnParkSale";
             this.btnParkSale.Size = new System.Drawing.Size(123, 37);
             this.btnParkSale.TabIndex = 23;
-            this.btnParkSale.Text = "(F6) Park Sale";
+            this.btnParkSale.Text = "(F7) Park Sale";
             this.btnParkSale.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnParkSale.UseVisualStyleBackColor = false;
             // 
@@ -270,11 +260,11 @@
             this.btnCheckout.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCheckout.Image = ((System.Drawing.Image)(resources.GetObject("btnCheckout.Image")));
             this.btnCheckout.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCheckout.Location = new System.Drawing.Point(893, 113);
+            this.btnCheckout.Location = new System.Drawing.Point(893, 112);
             this.btnCheckout.Name = "btnCheckout";
-            this.btnCheckout.Size = new System.Drawing.Size(127, 37);
+            this.btnCheckout.Size = new System.Drawing.Size(124, 37);
             this.btnCheckout.TabIndex = 24;
-            this.btnCheckout.Text = "(F7) Checkout";
+            this.btnCheckout.Text = "(F8) Checkout";
             this.btnCheckout.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnCheckout.UseVisualStyleBackColor = false;
             this.btnCheckout.Click += new System.EventHandler(this.btnCheckout_Click);
@@ -290,11 +280,11 @@
             this.btnVoid.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnVoid.Image = ((System.Drawing.Image)(resources.GetObject("btnVoid.Image")));
             this.btnVoid.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnVoid.Location = new System.Drawing.Point(436, 113);
+            this.btnVoid.Location = new System.Drawing.Point(436, 112);
             this.btnVoid.Name = "btnVoid";
             this.btnVoid.Size = new System.Drawing.Size(96, 37);
             this.btnVoid.TabIndex = 25;
-            this.btnVoid.Text = "(F3) Void";
+            this.btnVoid.Text = "(F4) Void";
             this.btnVoid.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnVoid.UseVisualStyleBackColor = false;
             // 
@@ -309,11 +299,11 @@
             this.btnEdit.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEdit.Image = ((System.Drawing.Image)(resources.GetObject("btnEdit.Image")));
             this.btnEdit.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEdit.Location = new System.Drawing.Point(534, 113);
+            this.btnEdit.Location = new System.Drawing.Point(534, 112);
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.Size = new System.Drawing.Size(92, 37);
             this.btnEdit.TabIndex = 26;
-            this.btnEdit.Text = "(F4) Edit";
+            this.btnEdit.Text = "(F5) Edit";
             this.btnEdit.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnEdit.UseVisualStyleBackColor = false;
             // 
@@ -328,11 +318,11 @@
             this.btnWholesale.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnWholesale.Image = ((System.Drawing.Image)(resources.GetObject("btnWholesale.Image")));
             this.btnWholesale.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnWholesale.Location = new System.Drawing.Point(300, 113);
+            this.btnWholesale.Location = new System.Drawing.Point(298, 112);
             this.btnWholesale.Name = "btnWholesale";
-            this.btnWholesale.Size = new System.Drawing.Size(134, 37);
+            this.btnWholesale.Size = new System.Drawing.Size(136, 37);
             this.btnWholesale.TabIndex = 27;
-            this.btnWholesale.Text = "(F2) Wholesale";
+            this.btnWholesale.Text = "(F3) Wholesale";
             this.btnWholesale.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnWholesale.UseVisualStyleBackColor = false;
             // 
@@ -342,7 +332,7 @@
             this.label5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.label5.Font = new System.Drawing.Font("Courier New", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(0, 563);
+            this.label5.Location = new System.Drawing.Point(0, 564);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(297, 29);
             this.label5.TabIndex = 28;
@@ -355,7 +345,7 @@
             this.label6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.label6.Font = new System.Drawing.Font("Courier New", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(0, 641);
+            this.label6.Location = new System.Drawing.Point(0, 642);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(297, 30);
             this.label6.TabIndex = 29;
@@ -451,11 +441,11 @@
             this.btnClose.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClose.Image = ((System.Drawing.Image)(resources.GetObject("btnClose.Image")));
             this.btnClose.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnClose.Location = new System.Drawing.Point(1147, 113);
+            this.btnClose.Location = new System.Drawing.Point(1144, 112);
             this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(106, 37);
+            this.btnClose.Size = new System.Drawing.Size(109, 37);
             this.btnClose.TabIndex = 36;
-            this.btnClose.Text = "(F9) Close";
+            this.btnClose.Text = "(F10) Close";
             this.btnClose.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnClose.UseVisualStyleBackColor = false;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
@@ -553,11 +543,11 @@
             this.btnDiscount.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDiscount.Image = ((System.Drawing.Image)(resources.GetObject("btnDiscount.Image")));
             this.btnDiscount.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnDiscount.Location = new System.Drawing.Point(1022, 113);
+            this.btnDiscount.Location = new System.Drawing.Point(1019, 112);
             this.btnDiscount.Name = "btnDiscount";
             this.btnDiscount.Size = new System.Drawing.Size(123, 37);
             this.btnDiscount.TabIndex = 44;
-            this.btnDiscount.Text = "(F8) Discount";
+            this.btnDiscount.Text = "(F9) Discount";
             this.btnDiscount.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnDiscount.UseVisualStyleBackColor = false;
             // 
@@ -573,6 +563,44 @@
             this.lblProgversion.TabIndex = 45;
             this.lblProgversion.Text = "nPOS System vX.x.x.x";
             // 
+            // btnRefund
+            // 
+            this.btnRefund.BackColor = System.Drawing.Color.Moccasin;
+            this.btnRefund.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnRefund.FlatAppearance.BorderColor = System.Drawing.Color.Moccasin;
+            this.btnRefund.FlatAppearance.BorderSize = 0;
+            this.btnRefund.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Orange;
+            this.btnRefund.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRefund.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRefund.Image = ((System.Drawing.Image)(resources.GetObject("btnRefund.Image")));
+            this.btnRefund.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnRefund.Location = new System.Drawing.Point(150, 111);
+            this.btnRefund.Name = "btnRefund";
+            this.btnRefund.Size = new System.Drawing.Size(147, 89);
+            this.btnRefund.TabIndex = 46;
+            this.btnRefund.Text = "(F2) Refund";
+            this.btnRefund.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnRefund.UseVisualStyleBackColor = false;
+            // 
+            // btnSearch
+            // 
+            this.btnSearch.BackColor = System.Drawing.Color.GhostWhite;
+            this.btnSearch.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnSearch.FlatAppearance.BorderColor = System.Drawing.Color.GhostWhite;
+            this.btnSearch.FlatAppearance.BorderSize = 0;
+            this.btnSearch.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
+            this.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSearch.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSearch.Image = ((System.Drawing.Image)(resources.GetObject("btnSearch.Image")));
+            this.btnSearch.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnSearch.Location = new System.Drawing.Point(1, 111);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(149, 89);
+            this.btnSearch.TabIndex = 47;
+            this.btnSearch.Text = "(F1) Search";
+            this.btnSearch.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnSearch.UseVisualStyleBackColor = false;
+            // 
             // frmPOS
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -580,6 +608,8 @@
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1274, 748);
             this.ControlBox = false;
+            this.Controls.Add(this.btnSearch);
+            this.Controls.Add(this.btnRefund);
             this.Controls.Add(this.lblProgversion);
             this.Controls.Add(this.btnDiscount);
             this.Controls.Add(this.lblSeriesNo);
@@ -603,7 +633,6 @@
             this.Controls.Add(this.btnCheckout);
             this.Controls.Add(this.btnParkSale);
             this.Controls.Add(this.btnCancelSale);
-            this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.txtBoxEAN);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.rdTotal);
@@ -641,7 +670,6 @@
         private System.Windows.Forms.TextBox rdTotal;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtBoxEAN;
-        private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.Button btnParkSale;
         private System.Windows.Forms.Button btnCheckout;
         private System.Windows.Forms.Button btnVoid;
@@ -666,5 +694,7 @@
         private System.Windows.Forms.Button btnCancelSale;
         private System.Windows.Forms.Button btnDiscount;
         private System.Windows.Forms.Label lblProgversion;
+        private System.Windows.Forms.Button btnRefund;
+        private System.Windows.Forms.Button btnSearch;
     }
 }

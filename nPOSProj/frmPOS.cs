@@ -90,12 +90,12 @@ namespace nPOSProj
                 MessageBox.Show("You pressed the F1 key");
                 return true;    // indicate that you handled this keystroke
             }
-            if (keyData == Keys.F7)
+            if (keyData == Keys.F8)
             {
                 frmDlgCheckout checkout = new frmDlgCheckout();
                 checkout.ShowDialog();
             }
-            if (keyData == Keys.F9)
+            if (keyData == Keys.F10)
             {
                 onFormClose();
                 return true;
