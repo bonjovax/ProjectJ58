@@ -26,6 +26,11 @@ namespace nPOSProj
                 return currentUser;
             }
         }
+        public static String terminalNo;
+        public static String tN
+        {
+            get { return terminalNo; }
+        }
 
         public frmLogin()
         {
@@ -134,16 +139,25 @@ namespace nPOSProj
 
         private void frmLogin_Load(object sender, EventArgs e)
         {
-            String nows;
-            this.autoComplete();
-            if (DateTime.Now.Year.ToString() == "2014")
+            Conf.dbs ds = new Conf.dbs();
+            if (ds.GetMACAddress() == login.matchMac(ds.GetMACAddress()))
             {
-                nows = "";
+                String nows;
+                this.autoComplete();
+                if (DateTime.Now.Year.ToString() == "2014")
+                {
+                    nows = "";
+                }
+                else
+                    nows = DateTime.Now.Year.ToString();
+                lblProgversion.Text = "nPOS System v" + ProductVersion.ToString();
+                lblAdlib.Text = "© Copyright 2014 - " + nows;
             }
             else
-                nows = DateTime.Now.Year.ToString();
-            lblProgversion.Text = "nPOS System v" + ProductVersion.ToString();
-            lblAdlib.Text = "© Copyright 2014 - " + nows;
+            {
+                MessageBox.Show("System Access Restricted!\nContact Technical Support Immediately", "nPOS", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                Application.ExitThread();
+            }
         }
 
         private void btnLogin_Click(object sender, EventArgs e)

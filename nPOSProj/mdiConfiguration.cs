@@ -60,6 +60,18 @@ namespace nPOSProj
             }
         }
 
+        private void Terminal()
+        {
+            confvo = new VO.ConfigVO();
+            try
+            {
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Terminal No has been use or Check Your Database Server.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
         private void cBoxTaxType_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (cBoxTaxType.Text == "NV")
