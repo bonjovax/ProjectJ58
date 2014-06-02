@@ -27,7 +27,7 @@ namespace nPOSProj
             }
         }
         public static String terminalNo;
-        public static String tN
+        public String tN
         {
             get { return terminalNo; }
         }
@@ -142,6 +142,7 @@ namespace nPOSProj
             Conf.dbs ds = new Conf.dbs();
             if (ds.GetMACAddress() == login.matchMac(ds.GetMACAddress()))
             {
+                terminalNo = login.getIndentifier(ds.GetMACAddress());
                 String nows;
                 this.autoComplete();
                 if (DateTime.Now.Year.ToString() == "2014")

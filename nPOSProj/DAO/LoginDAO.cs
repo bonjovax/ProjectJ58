@@ -17,6 +17,7 @@ namespace nPOSProj.DAO
         private Conf.Crypto crypts;
         private String user_name = "";
         private String mac;
+        private String terminal;
         public LoginDAO()
         {
 
@@ -334,6 +335,33 @@ namespace nPOSProj.DAO
                 con.Close();
             }
             return mac;
+        }
+        public String getIndentifier(String physicalcode)
+        {
+            con = new MySqlConnection();
+            dbcon = new Conf.dbs();
+            con.ConnectionString = dbcon.getConnectionString();
+            String query = "SELECT identify AS a FROM system_terminal ";
+            query += "WHERE physicalcode = ?physicalcode";
+            try
+            {
+                con.Open();
+                MySqlCommand cmd = new MySqlCommand(query, con);
+                cmd.Parameters.AddWithValue("?physicalcode", physicalcode);
+                cmd.ExecuteScalar();
+                MySqlDataReader rdr = cmd.ExecuteReader();
+                if (rdr.Read())
+                {
+                    terminal = rdr["a"].ToString();
+                }
+                else
+                    terminal = null;
+            }
+            finally
+            {
+                con.Close();
+            }
+            return terminal;
         }
     }
 }

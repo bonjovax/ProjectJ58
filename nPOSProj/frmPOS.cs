@@ -121,6 +121,7 @@ namespace nPOSProj
 
         private void frmPOS_Load(object sender, EventArgs e)
         {
+            frmLogin lg = new frmLogin(); //we'll use that ^_^
             timer1.Start();
             String userName = frmLogin.User.user_name;
             lblUserAccount.Text = userName;
