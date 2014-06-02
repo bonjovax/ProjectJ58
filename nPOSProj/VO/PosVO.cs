@@ -7,6 +7,7 @@ namespace nPOSProj.VO
 {
     class PosVO
     {
+        private DAO.PosDAO POSDAO;
         private Int32 pos_orno;
 
         public Int32 Pos_orno
@@ -97,6 +98,29 @@ namespace nPOSProj.VO
         {
             get { return pos_park; }
             set { pos_park = value; }
+        }
+
+        private String pos_terminal;
+
+        public String Pos_terminal
+        {
+            get { return pos_terminal; }
+            set { pos_terminal = value; }
+        }
+
+        public Int32 GetOrNo()
+        {
+            Int32 Or;
+            POSDAO = new DAO.PosDAO();
+            POSDAO.GenerateOR();
+            Or = POSDAO.GenerateOR();
+            return Or + 1;
+        }
+
+        public void BeginTransaction()
+        {
+            POSDAO = new DAO.PosDAO();
+            POSDAO.Begin(Pos_orno, Pos_terminal, Pos_date, Pos_time, Pos_user);
         }
     }
 }

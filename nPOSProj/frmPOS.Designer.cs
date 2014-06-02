@@ -76,6 +76,8 @@
             this.lblProgversion = new System.Windows.Forms.Label();
             this.btnRefund = new System.Windows.Forms.Button();
             this.btnSearch = new System.Windows.Forms.Button();
+            this.proceed = new System.Windows.Forms.Label();
+            this.timer2 = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
             // 
             // lviewPOS
@@ -215,6 +217,7 @@
             // 
             this.btnCancelSale.BackColor = System.Drawing.Color.LightCoral;
             this.btnCancelSale.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCancelSale.Enabled = false;
             this.btnCancelSale.FlatAppearance.BorderColor = System.Drawing.Color.LightCoral;
             this.btnCancelSale.FlatAppearance.BorderSize = 0;
             this.btnCancelSale.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
@@ -253,6 +256,7 @@
             // 
             this.btnCheckout.BackColor = System.Drawing.Color.LightSkyBlue;
             this.btnCheckout.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCheckout.Enabled = false;
             this.btnCheckout.FlatAppearance.BorderColor = System.Drawing.Color.LightSkyBlue;
             this.btnCheckout.FlatAppearance.BorderSize = 0;
             this.btnCheckout.FlatAppearance.MouseOverBackColor = System.Drawing.Color.PaleTurquoise;
@@ -273,6 +277,7 @@
             // 
             this.btnVoid.BackColor = System.Drawing.Color.PowderBlue;
             this.btnVoid.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnVoid.Enabled = false;
             this.btnVoid.FlatAppearance.BorderColor = System.Drawing.Color.Azure;
             this.btnVoid.FlatAppearance.BorderSize = 0;
             this.btnVoid.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
@@ -292,6 +297,7 @@
             // 
             this.btnEdit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.btnEdit.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnEdit.Enabled = false;
             this.btnEdit.FlatAppearance.BorderColor = System.Drawing.Color.LightCyan;
             this.btnEdit.FlatAppearance.BorderSize = 0;
             this.btnEdit.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
@@ -311,6 +317,7 @@
             // 
             this.btnWholesale.BackColor = System.Drawing.Color.RoyalBlue;
             this.btnWholesale.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnWholesale.Enabled = false;
             this.btnWholesale.FlatAppearance.BorderColor = System.Drawing.Color.Azure;
             this.btnWholesale.FlatAppearance.BorderSize = 0;
             this.btnWholesale.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightSteelBlue;
@@ -516,7 +523,6 @@
             this.lblSeriesNo.Name = "lblSeriesNo";
             this.lblSeriesNo.Size = new System.Drawing.Size(297, 26);
             this.lblSeriesNo.TabIndex = 43;
-            this.lblSeriesNo.Text = "10";
             this.lblSeriesNo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label13
@@ -536,6 +542,7 @@
             // 
             this.btnDiscount.BackColor = System.Drawing.Color.Tomato;
             this.btnDiscount.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnDiscount.Enabled = false;
             this.btnDiscount.FlatAppearance.BorderColor = System.Drawing.Color.Tomato;
             this.btnDiscount.FlatAppearance.BorderSize = 0;
             this.btnDiscount.FlatAppearance.MouseOverBackColor = System.Drawing.Color.PeachPuff;
@@ -567,6 +574,7 @@
             // 
             this.btnRefund.BackColor = System.Drawing.Color.Moccasin;
             this.btnRefund.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnRefund.Enabled = false;
             this.btnRefund.FlatAppearance.BorderColor = System.Drawing.Color.Moccasin;
             this.btnRefund.FlatAppearance.BorderSize = 0;
             this.btnRefund.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Orange;
@@ -586,6 +594,7 @@
             // 
             this.btnSearch.BackColor = System.Drawing.Color.GhostWhite;
             this.btnSearch.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnSearch.Enabled = false;
             this.btnSearch.FlatAppearance.BorderColor = System.Drawing.Color.GhostWhite;
             this.btnSearch.FlatAppearance.BorderSize = 0;
             this.btnSearch.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
@@ -601,6 +610,19 @@
             this.btnSearch.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnSearch.UseVisualStyleBackColor = false;
             // 
+            // proceed
+            // 
+            this.proceed.BackColor = System.Drawing.Color.White;
+            this.proceed.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.proceed.Cursor = System.Windows.Forms.Cursors.No;
+            this.proceed.Font = new System.Drawing.Font("Courier New", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.proceed.Location = new System.Drawing.Point(486, 394);
+            this.proceed.Name = "proceed";
+            this.proceed.Size = new System.Drawing.Size(613, 116);
+            this.proceed.TabIndex = 48;
+            this.proceed.Text = "Press F12 to Proceed";
+            this.proceed.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // frmPOS
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -608,6 +630,7 @@
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1274, 748);
             this.ControlBox = false;
+            this.Controls.Add(this.proceed);
             this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.btnRefund);
             this.Controls.Add(this.lblProgversion);
@@ -696,5 +719,7 @@
         private System.Windows.Forms.Label lblProgversion;
         private System.Windows.Forms.Button btnRefund;
         private System.Windows.Forms.Button btnSearch;
+        private System.Windows.Forms.Label proceed;
+        private System.Windows.Forms.Timer timer2;
     }
 }

@@ -12,6 +12,8 @@ namespace nPOSProj
     public partial class frmPOS : Form
     {
         private DAO.LoginDAO login;
+        private VO.PosVO pos = new VO.PosVO();
+        private bool proceeds = false;
         public frmPOS()
         {
             InitializeComponent();
@@ -90,7 +92,7 @@ namespace nPOSProj
                 MessageBox.Show("You pressed the F1 key");
                 return true;    // indicate that you handled this keystroke
             }
-            if (keyData == Keys.F8)
+            if (keyData == Keys.F8 && btnCheckout.Enabled == true)
             {
                 frmDlgCheckout checkout = new frmDlgCheckout();
                 checkout.ShowDialog();
@@ -99,6 +101,32 @@ namespace nPOSProj
             {
                 onFormClose();
                 return true;
+            }
+            if (keyData == Keys.F12 && proceeds == false)
+            {
+                frmLogin lg = new frmLogin(); //we'll use that ^_^
+                //
+                String userName = frmLogin.User.user_name;
+                lblSeriesNo.Text = pos.GetOrNo().ToString();
+                pos.Pos_orno = pos.GetOrNo();
+                pos.Pos_terminal = lg.tN;
+                pos.Pos_date = Convert.ToDateTime(DateTime.Now.ToString("yyyy-MM-dd"));
+                pos.Pos_time = Convert.ToDateTime(DateTime.Now.ToString("HH:mm:ss"));
+                pos.Pos_user = userName;
+                pos.BeginTransaction();
+                //
+                proceed.Visible = false;
+                proceeds = true;
+                timer2.Stop();
+                //
+                btnSearch.Enabled = true;
+                btnRefund.Enabled = true;
+                btnWholesale.Enabled = true;
+                btnVoid.Enabled = true;
+                btnEdit.Enabled = true;
+                btnCancelSale.Enabled = true;
+                btnCheckout.Enabled = true;
+                btnDiscount.Enabled = true;
             }
             return base.ProcessCmdKey(ref msg, keyData);
         }
@@ -121,11 +149,28 @@ namespace nPOSProj
 
         private void frmPOS_Load(object sender, EventArgs e)
         {
-            frmLogin lg = new frmLogin(); //we'll use that ^_^
             timer1.Start();
             String userName = frmLogin.User.user_name;
             lblUserAccount.Text = userName;
             lblProgversion.Text = "nPOS System v" + ProductVersion.ToString();
+            //
+            timer2.Start();
+            timer2.Tick += new EventHandler(timer2_Tick);
+            timer2.Interval = 250;
+        }
+
+        void timer2_Tick(object sender, EventArgs e)
+        {
+            if (proceed.BackColor == Color.Red)
+            {
+                proceed.BackColor = Color.White;
+                proceed.ForeColor = Color.Black;
+            }
+            else
+            {
+                proceed.BackColor = Color.Red;
+                proceed.ForeColor = Color.White;
+            }
         }
 
         private void btnCheckout_Click(object sender, EventArgs e)

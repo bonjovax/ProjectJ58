@@ -30,20 +30,20 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(mdiConfiguration));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.txtBoxCompanyName = new System.Windows.Forms.TextBox();
-            this.txtBoxCompanyAddress = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.mTIN = new System.Windows.Forms.MaskedTextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.cBoxTaxType = new System.Windows.Forms.ComboBox();
-            this.txtBoxVatRate = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
+            this.btnSave = new System.Windows.Forms.Button();
             this.txtBoxContactNo = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.btnSave = new System.Windows.Forms.Button();
+            this.label6 = new System.Windows.Forms.Label();
+            this.txtBoxVatRate = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.cBoxTaxType = new System.Windows.Forms.ComboBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.mTIN = new System.Windows.Forms.MaskedTextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.txtBoxCompanyAddress = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.txtBoxCompanyName = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -71,86 +71,46 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Program Configuration";
             // 
-            // label1
+            // btnSave
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(11, 29);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(114, 18);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Company Name";
+            this.btnSave.Image = ((System.Drawing.Image)(resources.GetObject("btnSave.Image")));
+            this.btnSave.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnSave.Location = new System.Drawing.Point(437, 243);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(60, 57);
+            this.btnSave.TabIndex = 16;
+            this.btnSave.Text = "Save";
+            this.btnSave.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
-            // txtBoxCompanyName
+            // txtBoxContactNo
             // 
-            this.txtBoxCompanyName.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBoxCompanyName.Location = new System.Drawing.Point(143, 26);
-            this.txtBoxCompanyName.Name = "txtBoxCompanyName";
-            this.txtBoxCompanyName.Size = new System.Drawing.Size(354, 26);
-            this.txtBoxCompanyName.TabIndex = 1;
+            this.txtBoxContactNo.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBoxContactNo.Location = new System.Drawing.Point(360, 178);
+            this.txtBoxContactNo.Name = "txtBoxContactNo";
+            this.txtBoxContactNo.Size = new System.Drawing.Size(137, 26);
+            this.txtBoxContactNo.TabIndex = 13;
             // 
-            // txtBoxCompanyAddress
+            // label7
             // 
-            this.txtBoxCompanyAddress.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBoxCompanyAddress.Location = new System.Drawing.Point(143, 59);
-            this.txtBoxCompanyAddress.Multiline = true;
-            this.txtBoxCompanyAddress.Name = "txtBoxCompanyAddress";
-            this.txtBoxCompanyAddress.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtBoxCompanyAddress.Size = new System.Drawing.Size(354, 112);
-            this.txtBoxCompanyAddress.TabIndex = 3;
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(273, 181);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(81, 18);
+            this.label7.TabIndex = 12;
+            this.label7.Text = "Contact No";
             // 
-            // label2
+            // label6
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(10, 62);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(127, 18);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "Company Address";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(11, 181);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(34, 18);
-            this.label3.TabIndex = 4;
-            this.label3.Text = "TIN";
-            // 
-            // mTIN
-            // 
-            this.mTIN.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.mTIN.Location = new System.Drawing.Point(143, 178);
-            this.mTIN.Mask = "000-000-000-000";
-            this.mTIN.Name = "mTIN";
-            this.mTIN.Size = new System.Drawing.Size(124, 26);
-            this.mTIN.TabIndex = 6;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(11, 214);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(73, 18);
-            this.label4.TabIndex = 7;
-            this.label4.Text = "Tax Type";
-            // 
-            // cBoxTaxType
-            // 
-            this.cBoxTaxType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cBoxTaxType.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cBoxTaxType.FormattingEnabled = true;
-            this.cBoxTaxType.Items.AddRange(new object[] {
-            "V",
-            "NV"});
-            this.cBoxTaxType.Location = new System.Drawing.Point(143, 211);
-            this.cBoxTaxType.Name = "cBoxTaxType";
-            this.cBoxTaxType.Size = new System.Drawing.Size(121, 26);
-            this.cBoxTaxType.TabIndex = 8;
-            this.cBoxTaxType.SelectedIndexChanged += new System.EventHandler(this.cBoxTaxType_SelectedIndexChanged);
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(201, 247);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(23, 18);
+            this.label6.TabIndex = 11;
+            this.label6.Text = "%";
             // 
             // txtBoxVatRate
             // 
@@ -173,46 +133,86 @@
             this.label5.TabIndex = 9;
             this.label5.Text = "VAT Rate";
             // 
-            // label6
+            // cBoxTaxType
             // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(201, 247);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(23, 18);
-            this.label6.TabIndex = 11;
-            this.label6.Text = "%";
+            this.cBoxTaxType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cBoxTaxType.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cBoxTaxType.FormattingEnabled = true;
+            this.cBoxTaxType.Items.AddRange(new object[] {
+            "V",
+            "NV"});
+            this.cBoxTaxType.Location = new System.Drawing.Point(143, 211);
+            this.cBoxTaxType.Name = "cBoxTaxType";
+            this.cBoxTaxType.Size = new System.Drawing.Size(121, 26);
+            this.cBoxTaxType.TabIndex = 8;
+            this.cBoxTaxType.SelectedIndexChanged += new System.EventHandler(this.cBoxTaxType_SelectedIndexChanged);
             // 
-            // txtBoxContactNo
+            // label4
             // 
-            this.txtBoxContactNo.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBoxContactNo.Location = new System.Drawing.Point(360, 178);
-            this.txtBoxContactNo.Name = "txtBoxContactNo";
-            this.txtBoxContactNo.Size = new System.Drawing.Size(137, 26);
-            this.txtBoxContactNo.TabIndex = 13;
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(11, 214);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(73, 18);
+            this.label4.TabIndex = 7;
+            this.label4.Text = "Tax Type";
             // 
-            // label7
+            // mTIN
             // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(273, 181);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(81, 18);
-            this.label7.TabIndex = 12;
-            this.label7.Text = "Contact No";
+            this.mTIN.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.mTIN.Location = new System.Drawing.Point(143, 178);
+            this.mTIN.Mask = "000-000-000-000";
+            this.mTIN.Name = "mTIN";
+            this.mTIN.Size = new System.Drawing.Size(124, 26);
+            this.mTIN.TabIndex = 6;
             // 
-            // btnSave
+            // label3
             // 
-            this.btnSave.Image = ((System.Drawing.Image)(resources.GetObject("btnSave.Image")));
-            this.btnSave.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnSave.Location = new System.Drawing.Point(437, 243);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(60, 57);
-            this.btnSave.TabIndex = 16;
-            this.btnSave.Text = "Save";
-            this.btnSave.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnSave.UseVisualStyleBackColor = true;
-            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(11, 181);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(34, 18);
+            this.label3.TabIndex = 4;
+            this.label3.Text = "TIN";
+            // 
+            // txtBoxCompanyAddress
+            // 
+            this.txtBoxCompanyAddress.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBoxCompanyAddress.Location = new System.Drawing.Point(143, 59);
+            this.txtBoxCompanyAddress.Multiline = true;
+            this.txtBoxCompanyAddress.Name = "txtBoxCompanyAddress";
+            this.txtBoxCompanyAddress.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.txtBoxCompanyAddress.Size = new System.Drawing.Size(354, 112);
+            this.txtBoxCompanyAddress.TabIndex = 3;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(10, 62);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(127, 18);
+            this.label2.TabIndex = 2;
+            this.label2.Text = "Company Address";
+            // 
+            // txtBoxCompanyName
+            // 
+            this.txtBoxCompanyName.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBoxCompanyName.Location = new System.Drawing.Point(143, 26);
+            this.txtBoxCompanyName.Name = "txtBoxCompanyName";
+            this.txtBoxCompanyName.Size = new System.Drawing.Size(354, 26);
+            this.txtBoxCompanyName.TabIndex = 1;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(11, 29);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(114, 18);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Company Name";
             // 
             // mdiConfiguration
             // 
