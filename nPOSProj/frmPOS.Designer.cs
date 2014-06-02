@@ -30,7 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPOS));
-            System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem5 = new System.Windows.Forms.ListViewItem(new string[] {
             "1234567890123",
             "222",
             "Palmolive Shampoo",
@@ -96,12 +96,12 @@
             this.lviewPOS.FullRowSelect = true;
             this.lviewPOS.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
             this.lviewPOS.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem2});
+            listViewItem5});
             this.lviewPOS.Location = new System.Drawing.Point(298, 156);
             this.lviewPOS.MultiSelect = false;
             this.lviewPOS.Name = "lviewPOS";
             this.lviewPOS.Size = new System.Drawing.Size(955, 565);
-            this.lviewPOS.TabIndex = 0;
+            this.lviewPOS.TabIndex = 13;
             this.lviewPOS.UseCompatibleStateImageBehavior = false;
             this.lviewPOS.View = System.Windows.Forms.View.Details;
             // 
@@ -143,13 +143,14 @@
             // 
             this.rdDescription.BackColor = System.Drawing.Color.Black;
             this.rdDescription.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.rdDescription.Cursor = System.Windows.Forms.Cursors.No;
             this.rdDescription.Font = new System.Drawing.Font("Courier New", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rdDescription.ForeColor = System.Drawing.Color.Lime;
             this.rdDescription.Location = new System.Drawing.Point(0, 0);
             this.rdDescription.Name = "rdDescription";
+            this.rdDescription.ReadOnly = true;
             this.rdDescription.Size = new System.Drawing.Size(1253, 55);
-            this.rdDescription.TabIndex = 1;
-            this.rdDescription.Text = "Description";
+            this.rdDescription.TabIndex = 30;
             // 
             // txtBoxQty
             // 
@@ -159,21 +160,22 @@
             this.txtBoxQty.ForeColor = System.Drawing.Color.Lime;
             this.txtBoxQty.Location = new System.Drawing.Point(0, 55);
             this.txtBoxQty.Name = "txtBoxQty";
+            this.txtBoxQty.ReadOnly = true;
             this.txtBoxQty.Size = new System.Drawing.Size(143, 55);
-            this.txtBoxQty.TabIndex = 2;
-            this.txtBoxQty.Text = "Qty";
+            this.txtBoxQty.TabIndex = 1;
             this.txtBoxQty.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // rdPrice
             // 
             this.rdPrice.BackColor = System.Drawing.Color.MidnightBlue;
             this.rdPrice.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.rdPrice.Cursor = System.Windows.Forms.Cursors.No;
             this.rdPrice.Font = new System.Drawing.Font("Courier New", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rdPrice.ForeColor = System.Drawing.Color.Lime;
             this.rdPrice.Location = new System.Drawing.Point(195, 55);
             this.rdPrice.Name = "rdPrice";
             this.rdPrice.Size = new System.Drawing.Size(329, 55);
-            this.rdPrice.TabIndex = 3;
+            this.rdPrice.TabIndex = 29;
             this.rdPrice.Text = "0.00";
             // 
             // rdTotal
@@ -184,8 +186,9 @@
             this.rdTotal.ForeColor = System.Drawing.Color.Lime;
             this.rdTotal.Location = new System.Drawing.Point(524, 55);
             this.rdTotal.Name = "rdTotal";
+            this.rdTotal.ReadOnly = true;
             this.rdTotal.Size = new System.Drawing.Size(729, 55);
-            this.rdTotal.TabIndex = 4;
+            this.rdTotal.TabIndex = 31;
             this.rdTotal.Text = "0.00";
             this.rdTotal.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
@@ -197,7 +200,7 @@
             this.label1.Location = new System.Drawing.Point(143, 55);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(52, 55);
-            this.label1.TabIndex = 5;
+            this.label1.TabIndex = 28;
             this.label1.Text = "@";
             this.label1.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
@@ -206,12 +209,12 @@
             this.txtBoxEAN.BackColor = System.Drawing.Color.MidnightBlue;
             this.txtBoxEAN.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtBoxEAN.Font = new System.Drawing.Font("Courier New", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBoxEAN.ForeColor = System.Drawing.Color.Lime;
+            this.txtBoxEAN.ForeColor = System.Drawing.Color.White;
             this.txtBoxEAN.Location = new System.Drawing.Point(0, 201);
             this.txtBoxEAN.Name = "txtBoxEAN";
+            this.txtBoxEAN.ReadOnly = true;
             this.txtBoxEAN.Size = new System.Drawing.Size(297, 42);
-            this.txtBoxEAN.TabIndex = 15;
-            this.txtBoxEAN.Text = "1234567890123";
+            this.txtBoxEAN.TabIndex = 0;
             // 
             // btnCancelSale
             // 
@@ -228,7 +231,7 @@
             this.btnCancelSale.Location = new System.Drawing.Point(628, 112);
             this.btnCancelSale.Name = "btnCancelSale";
             this.btnCancelSale.Size = new System.Drawing.Size(138, 37);
-            this.btnCancelSale.TabIndex = 22;
+            this.btnCancelSale.TabIndex = 8;
             this.btnCancelSale.Text = "(F6) Cancel Sale";
             this.btnCancelSale.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnCancelSale.UseVisualStyleBackColor = false;
@@ -247,7 +250,7 @@
             this.btnParkSale.Location = new System.Drawing.Point(768, 112);
             this.btnParkSale.Name = "btnParkSale";
             this.btnParkSale.Size = new System.Drawing.Size(123, 37);
-            this.btnParkSale.TabIndex = 23;
+            this.btnParkSale.TabIndex = 9;
             this.btnParkSale.Text = "(F7) Park Sale";
             this.btnParkSale.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnParkSale.UseVisualStyleBackColor = false;
@@ -267,7 +270,7 @@
             this.btnCheckout.Location = new System.Drawing.Point(893, 112);
             this.btnCheckout.Name = "btnCheckout";
             this.btnCheckout.Size = new System.Drawing.Size(124, 37);
-            this.btnCheckout.TabIndex = 24;
+            this.btnCheckout.TabIndex = 10;
             this.btnCheckout.Text = "(F8) Checkout";
             this.btnCheckout.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnCheckout.UseVisualStyleBackColor = false;
@@ -288,7 +291,7 @@
             this.btnVoid.Location = new System.Drawing.Point(436, 112);
             this.btnVoid.Name = "btnVoid";
             this.btnVoid.Size = new System.Drawing.Size(96, 37);
-            this.btnVoid.TabIndex = 25;
+            this.btnVoid.TabIndex = 6;
             this.btnVoid.Text = "(F4) Void";
             this.btnVoid.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnVoid.UseVisualStyleBackColor = false;
@@ -308,7 +311,7 @@
             this.btnEdit.Location = new System.Drawing.Point(534, 112);
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.Size = new System.Drawing.Size(92, 37);
-            this.btnEdit.TabIndex = 26;
+            this.btnEdit.TabIndex = 7;
             this.btnEdit.Text = "(F5) Edit";
             this.btnEdit.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnEdit.UseVisualStyleBackColor = false;
@@ -328,7 +331,7 @@
             this.btnWholesale.Location = new System.Drawing.Point(298, 112);
             this.btnWholesale.Name = "btnWholesale";
             this.btnWholesale.Size = new System.Drawing.Size(136, 37);
-            this.btnWholesale.TabIndex = 27;
+            this.btnWholesale.TabIndex = 5;
             this.btnWholesale.Text = "(F3) Wholesale";
             this.btnWholesale.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnWholesale.UseVisualStyleBackColor = false;
@@ -343,7 +346,7 @@
             this.label5.Location = new System.Drawing.Point(0, 564);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(297, 29);
-            this.label5.TabIndex = 28;
+            this.label5.TabIndex = 24;
             this.label5.Text = "Total Amount";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
@@ -356,7 +359,7 @@
             this.label6.Location = new System.Drawing.Point(0, 642);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(297, 30);
-            this.label6.TabIndex = 29;
+            this.label6.TabIndex = 26;
             this.label6.Text = "Change Due";
             this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
@@ -369,7 +372,7 @@
             this.lblTotalAmount.Location = new System.Drawing.Point(0, 593);
             this.lblTotalAmount.Name = "lblTotalAmount";
             this.lblTotalAmount.Size = new System.Drawing.Size(297, 49);
-            this.lblTotalAmount.TabIndex = 30;
+            this.lblTotalAmount.TabIndex = 25;
             this.lblTotalAmount.Text = "0.00";
             this.lblTotalAmount.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -382,7 +385,7 @@
             this.lblChangeDue.Location = new System.Drawing.Point(0, 672);
             this.lblChangeDue.Name = "lblChangeDue";
             this.lblChangeDue.Size = new System.Drawing.Size(297, 49);
-            this.lblChangeDue.TabIndex = 31;
+            this.lblChangeDue.TabIndex = 27;
             this.lblChangeDue.Text = "0.00";
             this.lblChangeDue.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -395,7 +398,7 @@
             this.lblSub.Location = new System.Drawing.Point(0, 458);
             this.lblSub.Name = "lblSub";
             this.lblSub.Size = new System.Drawing.Size(297, 26);
-            this.lblSub.TabIndex = 33;
+            this.lblSub.TabIndex = 21;
             this.lblSub.Text = "0.00";
             this.lblSub.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -408,7 +411,7 @@
             this.label4.Location = new System.Drawing.Point(0, 429);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(297, 29);
-            this.label4.TabIndex = 32;
+            this.label4.TabIndex = 20;
             this.label4.Text = "Subtotal";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
@@ -421,7 +424,7 @@
             this.lblTax.Location = new System.Drawing.Point(0, 526);
             this.lblTax.Name = "lblTax";
             this.lblTax.Size = new System.Drawing.Size(297, 26);
-            this.lblTax.TabIndex = 35;
+            this.lblTax.TabIndex = 23;
             this.lblTax.Text = "0%";
             this.lblTax.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -434,7 +437,7 @@
             this.label9.Location = new System.Drawing.Point(0, 497);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(297, 29);
-            this.label9.TabIndex = 34;
+            this.label9.TabIndex = 22;
             this.label9.Text = "Tax";
             this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
@@ -452,7 +455,7 @@
             this.btnClose.Location = new System.Drawing.Point(1144, 112);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(109, 37);
-            this.btnClose.TabIndex = 36;
+            this.btnClose.TabIndex = 12;
             this.btnClose.Text = "(F10) Close";
             this.btnClose.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnClose.UseVisualStyleBackColor = false;
@@ -467,7 +470,7 @@
             this.lblUserAccount.Location = new System.Drawing.Point(0, 390);
             this.lblUserAccount.Name = "lblUserAccount";
             this.lblUserAccount.Size = new System.Drawing.Size(297, 26);
-            this.lblUserAccount.TabIndex = 38;
+            this.lblUserAccount.TabIndex = 19;
             this.lblUserAccount.Text = "Username";
             this.lblUserAccount.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -480,7 +483,7 @@
             this.label11.Location = new System.Drawing.Point(0, 361);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(297, 29);
-            this.label11.TabIndex = 37;
+            this.label11.TabIndex = 18;
             this.label11.Text = "User";
             this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
@@ -493,7 +496,7 @@
             this.lblDate.Location = new System.Drawing.Point(0, 243);
             this.lblDate.Name = "lblDate";
             this.lblDate.Size = new System.Drawing.Size(297, 26);
-            this.lblDate.TabIndex = 40;
+            this.lblDate.TabIndex = 14;
             this.lblDate.Text = "Date";
             this.lblDate.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -506,7 +509,7 @@
             this.lblTime.Location = new System.Drawing.Point(0, 269);
             this.lblTime.Name = "lblTime";
             this.lblTime.Size = new System.Drawing.Size(297, 26);
-            this.lblTime.TabIndex = 41;
+            this.lblTime.TabIndex = 15;
             this.lblTime.Text = "00:00:00 AM";
             this.lblTime.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -523,7 +526,7 @@
             this.lblSeriesNo.Location = new System.Drawing.Point(0, 329);
             this.lblSeriesNo.Name = "lblSeriesNo";
             this.lblSeriesNo.Size = new System.Drawing.Size(297, 26);
-            this.lblSeriesNo.TabIndex = 43;
+            this.lblSeriesNo.TabIndex = 17;
             this.lblSeriesNo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label13
@@ -535,7 +538,7 @@
             this.label13.Location = new System.Drawing.Point(0, 300);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(297, 29);
-            this.label13.TabIndex = 42;
+            this.label13.TabIndex = 16;
             this.label13.Text = "No";
             this.label13.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
@@ -554,7 +557,7 @@
             this.btnDiscount.Location = new System.Drawing.Point(1019, 112);
             this.btnDiscount.Name = "btnDiscount";
             this.btnDiscount.Size = new System.Drawing.Size(123, 37);
-            this.btnDiscount.TabIndex = 44;
+            this.btnDiscount.TabIndex = 11;
             this.btnDiscount.Text = "(F9) Discount";
             this.btnDiscount.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnDiscount.UseVisualStyleBackColor = false;
@@ -568,7 +571,7 @@
             this.lblProgversion.Location = new System.Drawing.Point(2, 721);
             this.lblProgversion.Name = "lblProgversion";
             this.lblProgversion.Size = new System.Drawing.Size(108, 15);
-            this.lblProgversion.TabIndex = 45;
+            this.lblProgversion.TabIndex = 33;
             this.lblProgversion.Text = "nPOS System vX.x.x.x";
             // 
             // btnRefund
@@ -586,7 +589,7 @@
             this.btnRefund.Location = new System.Drawing.Point(150, 111);
             this.btnRefund.Name = "btnRefund";
             this.btnRefund.Size = new System.Drawing.Size(147, 89);
-            this.btnRefund.TabIndex = 46;
+            this.btnRefund.TabIndex = 4;
             this.btnRefund.Text = "(F2) Refund";
             this.btnRefund.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnRefund.UseVisualStyleBackColor = false;
@@ -606,7 +609,7 @@
             this.btnSearch.Location = new System.Drawing.Point(1, 111);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(149, 89);
-            this.btnSearch.TabIndex = 47;
+            this.btnSearch.TabIndex = 3;
             this.btnSearch.Text = "(F1) Search";
             this.btnSearch.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnSearch.UseVisualStyleBackColor = false;
@@ -620,7 +623,7 @@
             this.proceed.Location = new System.Drawing.Point(486, 394);
             this.proceed.Name = "proceed";
             this.proceed.Size = new System.Drawing.Size(613, 116);
-            this.proceed.TabIndex = 48;
+            this.proceed.TabIndex = 32;
             this.proceed.Text = "Press F12 to Proceed";
             this.proceed.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 

@@ -125,11 +125,16 @@ namespace nPOSProj
                 proceeds = true;
                 timer2.Stop();
                 //
+                txtBoxEAN.ReadOnly = false;
+                txtBoxQty.ReadOnly = false;
+                txtBoxQty.Text = "1";
+                //
                 btnSearch.Enabled = true;
                 btnRefund.Enabled = true;
                 btnWholesale.Enabled = true;
                 btnCancelSale.Enabled = true;
                 btnParkSale.Enabled = false;
+
             }
             return base.ProcessCmdKey(ref msg, keyData);
         }
@@ -152,6 +157,7 @@ namespace nPOSProj
 
         private void frmPOS_Load(object sender, EventArgs e)
         {
+            rdDescription.Text = "3M Groceries & Supplies";
             timer1.Start();
             String userName = frmLogin.User.user_name;
             lblUserAccount.Text = userName;
