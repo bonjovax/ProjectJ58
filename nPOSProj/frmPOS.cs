@@ -13,6 +13,7 @@ namespace nPOSProj
     {
         private DAO.LoginDAO login;
         private VO.PosVO pos = new VO.PosVO();
+        private bool wholsale_select = false;
         private bool proceeds = false;
         public frmPOS()
         {
@@ -90,7 +91,12 @@ namespace nPOSProj
             if (keyData == Keys.F1)
             {
                 MessageBox.Show("You pressed the F1 key");
-                return true;    // indicate that you handled this keystroke
+                return true;
+            }
+            if (keyData == Keys.F3 && wholsale_select == false && btnWholesale.Enabled == true)
+            {
+                gotoWholesale();
+                return true;
             }
             if (keyData == Keys.F8 && btnCheckout.Enabled == true)
             {
@@ -122,11 +128,8 @@ namespace nPOSProj
                 btnSearch.Enabled = true;
                 btnRefund.Enabled = true;
                 btnWholesale.Enabled = true;
-                btnVoid.Enabled = true;
-                btnEdit.Enabled = true;
                 btnCancelSale.Enabled = true;
-                btnCheckout.Enabled = true;
-                btnDiscount.Enabled = true;
+                btnParkSale.Enabled = false;
             }
             return base.ProcessCmdKey(ref msg, keyData);
         }
@@ -177,6 +180,21 @@ namespace nPOSProj
         {
             frmDlgCheckout checkout = new frmDlgCheckout();
             checkout.ShowDialog();
+        }
+
+        private void gotoWholesale()
+        {
+            DialogResult dr = MessageBox.Show("Do You Wish To Set Your Transaction to Wholesale?", "Question", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (dr == System.Windows.Forms.DialogResult.Yes)
+            {
+                btnWholesale.Enabled = false;
+                wholsale_select = true;
+            }
+        }
+
+        private void btnWholesale_Click(object sender, EventArgs e)
+        {
+            gotoWholesale();
         }
     }
 }

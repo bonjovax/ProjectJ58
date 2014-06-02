@@ -122,5 +122,11 @@ namespace nPOSProj.VO
             POSDAO = new DAO.PosDAO();
             POSDAO.Begin(Pos_orno, Pos_terminal, Pos_date, Pos_time, Pos_user);
         }
+
+        public void SwitchToWholeSale()
+        {
+            POSDAO = new DAO.PosDAO();
+            POSDAO.SwitchWS(Pos_orno);
+        }
     }
 }

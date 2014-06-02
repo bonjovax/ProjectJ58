@@ -63,5 +63,26 @@ namespace nPOSProj.DAO
             }
             return OrNo;
         }
+
+        public void SwitchWS(Int32 pos_orno)
+        {
+            con = new MySqlConnection();
+            dbcon = new Conf.dbs();
+            con.ConnectionString = dbcon.getConnectionString();
+            String query = "UPDATE pos_store SET pos_iswholesale = 1 ";
+            query += "WHERE pos_orno = ?pos_orno";
+            try
+            {
+                con.Open();
+                MySqlCommand cmd = new MySqlCommand(query, con);
+                cmd.Parameters.AddWithValue("?pos_orno", pos_orno);
+                cmd.ExecuteNonQuery();
+                cmd.Dispose();
+            }
+            finally
+            {
+                con.Close();
+            }
+        }
     }
 }
