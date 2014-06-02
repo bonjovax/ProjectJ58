@@ -30,13 +30,6 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPOS));
-            System.Windows.Forms.ListViewItem listViewItem5 = new System.Windows.Forms.ListViewItem(new string[] {
-            "1234567890123",
-            "222",
-            "Palmolive Shampoo",
-            "200.00",
-            "0.00",
-            "400.00"}, -1);
             this.lviewPOS = new System.Windows.Forms.ListView();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -78,6 +71,7 @@
             this.btnSearch = new System.Windows.Forms.Button();
             this.proceed = new System.Windows.Forms.Label();
             this.timer2 = new System.Windows.Forms.Timer(this.components);
+            this.timer3 = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
             // 
             // lviewPOS
@@ -95,8 +89,6 @@
             this.lviewPOS.Font = new System.Drawing.Font("Tahoma", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lviewPOS.FullRowSelect = true;
             this.lviewPOS.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
-            this.lviewPOS.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem5});
             this.lviewPOS.Location = new System.Drawing.Point(298, 156);
             this.lviewPOS.MultiSelect = false;
             this.lviewPOS.Name = "lviewPOS";
@@ -159,11 +151,13 @@
             this.txtBoxQty.Font = new System.Drawing.Font("Courier New", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtBoxQty.ForeColor = System.Drawing.Color.Lime;
             this.txtBoxQty.Location = new System.Drawing.Point(0, 55);
+            this.txtBoxQty.MaxLength = 6;
             this.txtBoxQty.Name = "txtBoxQty";
             this.txtBoxQty.ReadOnly = true;
             this.txtBoxQty.Size = new System.Drawing.Size(143, 55);
             this.txtBoxQty.TabIndex = 1;
             this.txtBoxQty.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtBoxQty.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtBoxQty_KeyPress);
             // 
             // rdPrice
             // 
@@ -174,14 +168,18 @@
             this.rdPrice.ForeColor = System.Drawing.Color.Lime;
             this.rdPrice.Location = new System.Drawing.Point(195, 55);
             this.rdPrice.Name = "rdPrice";
+            this.rdPrice.ReadOnly = true;
             this.rdPrice.Size = new System.Drawing.Size(329, 55);
             this.rdPrice.TabIndex = 29;
             this.rdPrice.Text = "0.00";
+            this.rdPrice.MouseDown += new System.Windows.Forms.MouseEventHandler(this.rdPrice_MouseDown);
+            this.rdPrice.MouseHover += new System.EventHandler(this.rdPrice_MouseHover);
             // 
             // rdTotal
             // 
             this.rdTotal.BackColor = System.Drawing.Color.MidnightBlue;
             this.rdTotal.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.rdTotal.Cursor = System.Windows.Forms.Cursors.No;
             this.rdTotal.Font = new System.Drawing.Font("Courier New", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rdTotal.ForeColor = System.Drawing.Color.Lime;
             this.rdTotal.Location = new System.Drawing.Point(524, 55);
@@ -191,6 +189,8 @@
             this.rdTotal.TabIndex = 31;
             this.rdTotal.Text = "0.00";
             this.rdTotal.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.rdTotal.MouseDown += new System.Windows.Forms.MouseEventHandler(this.rdTotal_MouseDown);
+            this.rdTotal.MouseHover += new System.EventHandler(this.rdTotal_MouseHover);
             // 
             // label1
             // 
@@ -211,10 +211,12 @@
             this.txtBoxEAN.Font = new System.Drawing.Font("Courier New", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtBoxEAN.ForeColor = System.Drawing.Color.White;
             this.txtBoxEAN.Location = new System.Drawing.Point(0, 201);
+            this.txtBoxEAN.MaxLength = 13;
             this.txtBoxEAN.Name = "txtBoxEAN";
             this.txtBoxEAN.ReadOnly = true;
             this.txtBoxEAN.Size = new System.Drawing.Size(297, 42);
             this.txtBoxEAN.TabIndex = 0;
+            this.txtBoxEAN.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtBoxEAN_KeyPress);
             // 
             // btnCancelSale
             // 
@@ -725,5 +727,6 @@
         private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.Label proceed;
         private System.Windows.Forms.Timer timer2;
+        private System.Windows.Forms.Timer timer3;
     }
 }

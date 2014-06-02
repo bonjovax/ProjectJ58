@@ -128,15 +128,39 @@ namespace nPOSProj
                 txtBoxEAN.ReadOnly = false;
                 txtBoxQty.ReadOnly = false;
                 txtBoxQty.Text = "1";
+                rdDescription.Clear();
                 //
                 btnSearch.Enabled = true;
                 btnRefund.Enabled = true;
                 btnWholesale.Enabled = true;
                 btnCancelSale.Enabled = true;
                 btnParkSale.Enabled = false;
-
+                //
+                timer3.Start();
+                rdDescription.Text = "3M Groceries & Supplies";
+                timer3.Interval = 3000;
+                timer3.Tick += new EventHandler(timer3_Tick);
+                return true;
+            }
+            if (keyData == Keys.Q)
+            {
+                txtBoxQty.Focus();
+                return true;
+            }
+            if (keyData == Keys.A)
+            {
+                txtBoxEAN.Focus();
+                return true;
             }
             return base.ProcessCmdKey(ref msg, keyData);
+        }
+
+        void timer3_Tick(object sender, EventArgs e)
+        {
+            rdDescription.Text = "Ready";
+            rdPrice.Text = "0.00";
+            rdTotal.Text = "0.00";
+            timer3.Stop();
         }
 
         private void frmPOS_FormClosing(object sender, FormClosingEventArgs e)
@@ -201,6 +225,54 @@ namespace nPOSProj
         private void btnWholesale_Click(object sender, EventArgs e)
         {
             gotoWholesale();
+        }
+
+        private void rdPrice_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == System.Windows.Forms.MouseButtons.Left && e.Button == System.Windows.Forms.MouseButtons.Right)
+            {
+                txtBoxEAN.Focus();
+            }
+        }
+
+        private void rdTotal_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == System.Windows.Forms.MouseButtons.Left && e.Button == System.Windows.Forms.MouseButtons.Right)
+            {
+                txtBoxEAN.Focus();
+            }
+        }
+
+        private void rdTotal_MouseHover(object sender, EventArgs e)
+        {
+            txtBoxEAN.Focus();
+        }
+
+        private void rdPrice_MouseHover(object sender, EventArgs e)
+        {
+            txtBoxEAN.Focus();
+        }
+
+        private void txtBoxEAN_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (char.IsNumber(e.KeyChar))
+            {
+            }
+            else
+            {
+                e.Handled = e.KeyChar != (char)Keys.Back;
+            }
+        }
+
+        private void txtBoxQty_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (char.IsNumber(e.KeyChar))
+            {
+            }
+            else
+            {
+                e.Handled = e.KeyChar != (char)Keys.Back;
+            }
         }
     }
 }
