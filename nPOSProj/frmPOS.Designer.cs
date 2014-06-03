@@ -216,6 +216,7 @@
             this.txtBoxEAN.ReadOnly = true;
             this.txtBoxEAN.Size = new System.Drawing.Size(297, 42);
             this.txtBoxEAN.TabIndex = 0;
+            this.txtBoxEAN.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtBoxEAN_KeyDown);
             this.txtBoxEAN.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtBoxEAN_KeyPress);
             // 
             // btnCancelSale

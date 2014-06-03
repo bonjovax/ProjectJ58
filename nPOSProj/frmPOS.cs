@@ -6,15 +6,22 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using MySql.Data.MySqlClient;
 
 namespace nPOSProj
 {
     public partial class frmPOS : Form
     {
+        private MySqlConnection con = new MySqlConnection();
+        private Conf.dbs dbcon = new Conf.dbs();
         private DAO.LoginDAO login;
         private VO.PosVO pos = new VO.PosVO();
         private bool wholsale_select = false;
         private bool proceeds = false;
+        private Double price;
+        //
+        private Double computerItemQty;
+
         public frmPOS()
         {
             InitializeComponent();
@@ -122,7 +129,7 @@ namespace nPOSProj
                 pos.BeginTransaction();
                 //
                 proceed.Visible = false;
-                proceeds = true;
+                proceeds = true; //important
                 timer2.Stop();
                 //
                 txtBoxEAN.ReadOnly = false;
@@ -272,6 +279,67 @@ namespace nPOSProj
             else
             {
                 e.Handled = e.KeyChar != (char)Keys.Back;
+            }
+        }
+
+        private void getInfoItem()
+        {
+            con.ConnectionString = dbcon.getConnectionString();
+            String query = "SELECT inventory_stocks.stock_name AS a , inventory_items.kit_name AS b, ";
+            query += "inventory_items.item_retail_price AS c, inventory_items.item_whole_price AS d ";
+            query += "FROM inventory_items ";
+            query += "INNER JOIN inventory_stocks ON inventory_items.stock_code = inventory_stocks.stock_code ";
+            query += "WHERE (inventory_items.item_ean = ?item_ean)";
+            try
+            {
+                con.Open();
+                MySqlCommand cmd = new MySqlCommand(query, con);
+                cmd.Parameters.AddWithValue("?item_ean", txtBoxEAN.Text);
+                cmd.ExecuteScalar();
+                MySqlDataReader rdr = cmd.ExecuteReader();
+                if (rdr.Read())
+                {
+                    rdDescription.Text = rdr["a"].ToString() + "" + rdr["b"].ToString();
+                    if (btnWholesale.Enabled == false && wholsale_select == true)
+                    {
+                        price = Convert.ToDouble(rdr["d"]);
+                        rdPrice.Text = Convert.ToDouble(rdr["d"]).ToString("#,###,##0.00");
+                    }
+                    else
+                    {
+                        price = Convert.ToDouble(rdr["c"]);
+                        rdPrice.Text = Convert.ToDouble(rdr["c"]).ToString("#,###,##0.00");
+                    }
+                }
+                con.Close();
+            }
+            catch (Exception)
+            {
+                rdDescription.Text = "Error 11: Check Database Server";
+            }
+        }
+
+        private void txtBoxEAN_KeyDown(object sender, KeyEventArgs e)
+        {
+            try
+            {
+                if (e.KeyCode == Keys.Enter && proceeds == true)
+                {
+                    getInfoItem();
+                    computerItemQty = Convert.ToDouble(txtBoxQty.Text) * price;
+                    rdTotal.Text = computerItemQty.ToString("#,###,##0.00");
+                    ListViewItem item = new ListViewItem(txtBoxEAN.Text);
+                    item.SubItems.Add(txtBoxQty.Text);
+                    item.SubItems.Add(rdDescription.Text);
+                    item.SubItems.Add(price.ToString("#,###,##0.00"));
+                    item.SubItems.Add("0.00");
+                    item.SubItems.Add(computerItemQty.ToString("#,###,##0.00"));
+                    lviewPOS.Items.Add(item);
+                }
+            }
+            catch (Exception)
+            {
+                txtBoxQty.Focus();
             }
         }
     }
