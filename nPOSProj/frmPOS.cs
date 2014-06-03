@@ -327,21 +327,24 @@ namespace nPOSProj
             {
                 if (e.KeyCode == Keys.Enter && proceeds == true)
                 {
-                    getInfoItem();
-                    computerItemQty = Convert.ToDouble(txtBoxQty.Text) * price;
-                    rdTotal.Text = computerItemQty.ToString("#,###,##0.00");
-                    ListViewItem item = new ListViewItem(txtBoxEAN.Text);
-                    item.SubItems.Add(txtBoxQty.Text);
-                    item.SubItems.Add(rdDescription.Text);
-                    item.SubItems.Add(price.ToString("#,###,##0.00"));
-                    item.SubItems.Add("0.00");
-                    item.SubItems.Add(computerItemQty.ToString("#,###,##0.00"));
-                    lviewPOS.Items.Add(item);
-                    foreach (ListViewItem lv in lviewPOS.Items)
+                    if (txtBoxQty.Text != "0" && txtBoxQty.Text != "00" && txtBoxQty.Text != "000" && txtBoxQty.Text != "0000" && txtBoxQty.Text != "00000" && txtBoxQty.Text != "000000")
                     {
-                        total_fin += Double.Parse(lv.SubItems[5].Text);
+                        getInfoItem();
+                        computerItemQty = Convert.ToDouble(txtBoxQty.Text) * price;
+                        rdTotal.Text = computerItemQty.ToString("#,###,##0.00");
+                        ListViewItem item = new ListViewItem(txtBoxEAN.Text);
+                        item.SubItems.Add(txtBoxQty.Text);
+                        item.SubItems.Add(rdDescription.Text);
+                        item.SubItems.Add(price.ToString("#,###,##0.00"));
+                        item.SubItems.Add("0.00");
+                        item.SubItems.Add(computerItemQty.ToString("#,###,##0.00"));
+                        lviewPOS.Items.Add(item);
+                        foreach (ListViewItem lv in lviewPOS.Items)
+                        {
+                            total_fin += Double.Parse(lv.SubItems[5].Text);
+                        }
+                        lblTotalAmount.Text = total_fin.ToString("###,###,##0.00");
                     }
-                    lblTotalAmount.Text = total_fin.ToString("###,###,##0.00");
                 }
             }
             catch (Exception)
