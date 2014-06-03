@@ -21,6 +21,8 @@ namespace nPOSProj
         private Double price;
         //
         private Double computerItemQty;
+        //
+        private Double total_fin;
 
         public frmPOS()
         {
@@ -335,6 +337,11 @@ namespace nPOSProj
                     item.SubItems.Add("0.00");
                     item.SubItems.Add(computerItemQty.ToString("#,###,##0.00"));
                     lviewPOS.Items.Add(item);
+                    foreach (ListViewItem lv in lviewPOS.Items)
+                    {
+                        total_fin += Double.Parse(lv.SubItems[5].Text);
+                    }
+                    lblTotalAmount.Text = total_fin.ToString("###,###,##0.00");
                 }
             }
             catch (Exception)
