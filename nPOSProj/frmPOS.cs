@@ -21,9 +21,6 @@ namespace nPOSProj
         private Double price;
         //
         private Double computerItemQty;
-        //
-        //private Double total_fin;
-        //
         private bool found = false;
 
         public frmPOS()
@@ -409,6 +406,8 @@ namespace nPOSProj
         private bool checkEANList(String Ean, Int32 qty)
         {
             bool check = false;
+            Int32 uQTY;
+            Double uTotal;
             try
             {
                 foreach (ListViewItem item in lviewPOS.Items)
@@ -418,8 +417,10 @@ namespace nPOSProj
                     {
                         computerItemQty = Convert.ToDouble(txtBoxQty.Text) * price;
                         check = true;
-                        item.SubItems[1].Text = Convert.ToInt32(Convert.ToInt32(txtBoxQty.Text) + Convert.ToInt32(item.SubItems[1].Text)).ToString();
-                        item.SubItems[5].Text = Convert.ToDouble(Convert.ToDouble(item.SubItems[5].Text) + computerItemQty).ToString("#,###,##0.00");
+                        uQTY = Convert.ToInt32(txtBoxQty.Text) + Convert.ToInt32(item.SubItems[1].Text);
+                        uTotal = Convert.ToDouble(item.SubItems[5].Text) + computerItemQty;
+                        item.SubItems[1].Text = uQTY.ToString();
+                        item.SubItems[5].Text = uTotal.ToString("#,###,##0.00");
                     }
                 }
             }
