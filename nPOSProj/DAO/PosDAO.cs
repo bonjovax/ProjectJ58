@@ -115,7 +115,7 @@ namespace nPOSProj.DAO
             con = new MySqlConnection();
             dbcon = new Conf.dbs();
             con.ConnectionString = dbcon.getConnectionString();
-            String query = "UPDATE pos_park SET pos_quantity = ?pos_quantity, pos_amt = ?pos_amt ";
+            String query = "UPDATE pos_park SET pos_quantity = ?pos_quantity, pos_discount = ?pos_discount, pos_discount_amt = ?pos_discount_amt, pos_amt = ?pos_amt ";
             query += "WHERE pos_orno = ?pos_orno AND pos_ean = ?pos_ean";
             try
             {

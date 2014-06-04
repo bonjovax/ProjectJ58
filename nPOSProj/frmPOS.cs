@@ -23,6 +23,8 @@ namespace nPOSProj
         private Double computerItemQty;
         //
         private Double total_fin;
+        //
+        private bool found = false;
 
         public frmPOS()
         {
@@ -169,6 +171,7 @@ namespace nPOSProj
             rdDescription.Text = "Ready";
             rdPrice.Text = "0.00";
             rdTotal.Text = "0.00";
+            txtBoxQty.Text = "1";
             timer3.Stop();
         }
 
@@ -302,17 +305,20 @@ namespace nPOSProj
                 if (rdr.Read())
                 {
                     rdDescription.Text = rdr["a"].ToString() + "" + rdr["b"].ToString();
-                    if (btnWholesale.Enabled == false && wholsale_select == true)
+                    if (btnWholesale.Enabled == false && wholsale_select == true) //If Teller Select to Wholse
                     {
                         price = Convert.ToDouble(rdr["d"]);
                         rdPrice.Text = Convert.ToDouble(rdr["d"]).ToString("#,###,##0.00");
                     }
-                    else
+                    else //Others Retail
                     {
                         price = Convert.ToDouble(rdr["c"]);
                         rdPrice.Text = Convert.ToDouble(rdr["c"]).ToString("#,###,##0.00");
                     }
+                    found = true;
                 }
+                else
+                    found = false;
                 con.Close();
             }
             catch (Exception)
@@ -330,20 +336,46 @@ namespace nPOSProj
                     if (txtBoxQty.Text != "0" && txtBoxQty.Text != "00" && txtBoxQty.Text != "000" && txtBoxQty.Text != "0000" && txtBoxQty.Text != "00000" && txtBoxQty.Text != "000000")
                     {
                         getInfoItem();
-                        computerItemQty = Convert.ToDouble(txtBoxQty.Text) * price;
-                        rdTotal.Text = computerItemQty.ToString("#,###,##0.00");
-                        ListViewItem item = new ListViewItem(txtBoxEAN.Text);
-                        item.SubItems.Add(txtBoxQty.Text);
-                        item.SubItems.Add(rdDescription.Text);
-                        item.SubItems.Add(price.ToString("#,###,##0.00"));
-                        item.SubItems.Add("0.00");
-                        item.SubItems.Add(computerItemQty.ToString("#,###,##0.00"));
-                        lviewPOS.Items.Add(item);
-                        foreach (ListViewItem lv in lviewPOS.Items)
+                        if (found == true)
                         {
-                            total_fin += Double.Parse(lv.SubItems[5].Text);
+                            computerItemQty = Convert.ToDouble(txtBoxQty.Text) * price;
+                            rdTotal.Text = computerItemQty.ToString("#,###,##0.00");
+                            ListViewItem item = new ListViewItem(txtBoxEAN.Text);
+                            item.SubItems.Add(txtBoxQty.Text);
+                            item.SubItems.Add(rdDescription.Text);
+                            item.SubItems.Add(price.ToString("#,###,##0.00"));
+                            item.SubItems.Add("0.00");
+                            item.SubItems.Add(computerItemQty.ToString("#,###,##0.00"));
+                            lviewPOS.Items.Add(item);
+                            btnWholesale.Enabled = false;
+                            foreach (ListViewItem lv in lviewPOS.Items)
+                            {
+                                total_fin += Double.Parse(lv.SubItems[5].Text);
+                            }
+                            lblTotalAmount.Text = total_fin.ToString("###,###,##0.00");
+                            //
+                            timer3.Start();
+                            timer3.Interval = 2500;
+                            timer3.Tick += new EventHandler(timer3_Tick);
+                            txtBoxEAN.Clear();
+                            txtBoxEAN.Focus();
                         }
-                        lblTotalAmount.Text = total_fin.ToString("###,###,##0.00");
+                        else
+                        {
+                            timer3.Start();
+                            rdDescription.Text = "Item Not Found!";
+                            timer3.Interval = 3000;
+                            timer3.Tick += new EventHandler(timer3_Tick);
+                            txtBoxEAN.Clear();
+                            txtBoxEAN.Focus();
+                        }
+                    }
+                    else
+                    {
+                        timer3.Start();
+                        rdDescription.Text = "Zero [0] Quantity Is Not Allowed!";
+                        timer3.Interval = 3000;
+                        timer3.Tick += new EventHandler(timer3_Tick);
                     }
                 }
             }

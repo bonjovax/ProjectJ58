@@ -108,6 +108,46 @@ namespace nPOSProj.VO
             set { pos_terminal = value; }
         }
 
+        private Int32 pos_quantity;
+
+        public Int32 Pos_quantity
+        {
+            get { return pos_quantity; }
+            set { pos_quantity = value; }
+        }
+
+        private Double pos_discount;
+
+        public Double Pos_discount
+        {
+            get { return pos_discount; }
+            set { pos_discount = value; }
+        }
+
+        private Double pos_discount_amt;
+
+        public Double Pos_discount_amt
+        {
+            get { return pos_discount_amt; }
+            set { pos_discount_amt = value; }
+        }
+
+        private Int32 pos_ean;
+
+        public Int32 Pos_ean
+        {
+            get { return pos_ean; }
+            set { pos_ean = value; }
+        }
+
+        private Double pos_amt;
+
+        public Double Pos_amt
+        {
+            get { return pos_amt; }
+            set { pos_amt = value; }
+        }
+
         public Int32 GetOrNo()
         {
             Int32 Or;
@@ -127,6 +167,36 @@ namespace nPOSProj.VO
         {
             POSDAO = new DAO.PosDAO();
             POSDAO.SwitchWS(Pos_orno);
+        }
+
+        public void ParkItem()
+        {
+            POSDAO = new DAO.PosDAO();
+            POSDAO.Park_I(Pos_orno, Pos_ean, Pos_quantity, Pos_discount, Pos_discount_amt, Pos_amt);
+        }
+
+        public void ParkItemUpdate()
+        {
+            POSDAO = new DAO.PosDAO();
+            POSDAO.ParkU_I(Pos_orno, Pos_ean, Pos_discount, Pos_discount_amt, Pos_quantity, Pos_amt);
+        }
+
+        public void ParkDiscountItemUpdate()
+        {
+            POSDAO = new DAO.PosDAO();
+            POSDAO.ParkUwD_I(Pos_orno, Pos_ean, Pos_discount, Pos_discount_amt, Pos_amt);
+        }
+
+        public void ParkVoidItem()
+        {
+            POSDAO = new DAO.PosDAO();
+            POSDAO.ParkVoid_I(Pos_orno, Pos_ean);
+        }
+
+        public void CancelSale()
+        {
+            POSDAO = new DAO.PosDAO();
+            POSDAO.CancelT(Pos_orno);
         }
     }
 }
