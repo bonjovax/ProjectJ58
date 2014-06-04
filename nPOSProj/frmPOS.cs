@@ -23,6 +23,11 @@ namespace nPOSProj
         private Double computerItemQty;
         private bool found = false;
 
+        #region Discount Variable
+        private Double getTotalAmt;
+        private bool discountTx = false;
+        #endregion
+
         public frmPOS()
         {
             InitializeComponent();
@@ -110,6 +115,10 @@ namespace nPOSProj
             {
                 frmDlgCheckout checkout = new frmDlgCheckout();
                 checkout.ShowDialog();
+            }
+            if (keyData == Keys.F9 && btnDiscount.Enabled == true && discountTx == true)
+            {
+                MessageBox.Show("F9");
             }
             if (keyData == Keys.F10)
             {
@@ -433,6 +442,27 @@ namespace nPOSProj
         }
         #endregion
 
+        private void lviewPOS_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (lviewPOS.SelectedItems.Count > 0)
+            {
+                ListViewItem item = lviewPOS.SelectedItems[0];
+                //Discount
+                getTotalAmt = Convert.ToDouble(item.SubItems[5].Text);
+                btnDiscount.Enabled = true;
+                discountTx = true;
+                //
+            }
+        }
 
+        private void gotoDiscount()
+        {
+            //using (mPOrder newPO = new mPOrder())
+            //{
+            //    newPO.ShowDialog();
+            //    var poDate = newPO.PurchaseOrderDate;
+            //    this.po_orderTableAdapter.Fill(this.npos_dbDataSet.po_order, Convert.ToDateTime(poDate));
+            //}
+        }
     }
 }

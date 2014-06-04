@@ -96,6 +96,7 @@
             this.lviewPOS.TabIndex = 13;
             this.lviewPOS.UseCompatibleStateImageBehavior = false;
             this.lviewPOS.View = System.Windows.Forms.View.Details;
+            this.lviewPOS.SelectedIndexChanged += new System.EventHandler(this.lviewPOS_SelectedIndexChanged);
             // 
             // columnHeader1
             // 
