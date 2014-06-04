@@ -95,7 +95,7 @@ namespace nPOSProj
 
         private void frmPOS_DoubleClick(object sender, EventArgs e)
         {
-            MessageBox.Show("HOY");
+            
         }
         protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
         {
@@ -338,27 +338,39 @@ namespace nPOSProj
                         getInfoItem();
                         if (found == true)
                         {
-                            computerItemQty = Convert.ToDouble(txtBoxQty.Text) * price;
-                            rdTotal.Text = computerItemQty.ToString("#,###,##0.00");
-                            ListViewItem item = new ListViewItem(txtBoxEAN.Text);
-                            item.SubItems.Add(txtBoxQty.Text);
-                            item.SubItems.Add(rdDescription.Text);
-                            item.SubItems.Add(price.ToString("#,###,##0.00"));
-                            item.SubItems.Add("0.00");
-                            item.SubItems.Add(computerItemQty.ToString("#,###,##0.00"));
-                            lviewPOS.Items.Add(item);
-                            btnWholesale.Enabled = false;
-                            foreach (ListViewItem lv in lviewPOS.Items)
-                            {
-                                total_fin += Double.Parse(lv.SubItems[5].Text);
-                            }
-                            lblTotalAmount.Text = total_fin.ToString("###,###,##0.00");
                             //
-                            timer3.Start();
-                            timer3.Interval = 2500;
-                            timer3.Tick += new EventHandler(timer3_Tick);
-                            txtBoxEAN.Clear();
-                            txtBoxEAN.Focus();
+                            if (this.checkEANList(txtBoxEAN.Text, Convert.ToInt32(txtBoxQty.Text)) == false)
+                            {
+                                computerItemQty = Convert.ToDouble(txtBoxQty.Text) * price;
+                                rdTotal.Text = computerItemQty.ToString("#,###,##0.00");
+                                ListViewItem item = new ListViewItem(txtBoxEAN.Text);
+                                item.SubItems.Add(txtBoxQty.Text);
+                                item.SubItems.Add(rdDescription.Text);
+                                item.SubItems.Add(price.ToString("#,###,##0.00"));
+                                item.SubItems.Add("0.00");
+                                item.SubItems.Add(computerItemQty.ToString("#,###,##0.00"));
+                                lviewPOS.Items.Add(item);
+                                btnWholesale.Enabled = false;
+                                foreach (ListViewItem lv in lviewPOS.Items)
+                                {
+                                    total_fin += Double.Parse(lv.SubItems[5].Text);
+                                }
+                                lblTotalAmount.Text = total_fin.ToString("###,###,##0.00");
+                                //
+                                timer3.Start();
+                                timer3.Interval = 2500;
+                                timer3.Tick += new EventHandler(timer3_Tick);
+                                txtBoxEAN.Clear();
+                                txtBoxEAN.Focus();
+                            }
+                            else
+                            {
+                                foreach (ListViewItem lv in lviewPOS.Items)
+                                {
+                                    total_fin = Double.Parse(lv.SubItems[5].Text);
+                                }
+                                lblTotalAmount.Text = total_fin.ToString("###,###,##0.00");
+                            }
                         }
                         else
                         {
@@ -384,5 +396,31 @@ namespace nPOSProj
                 txtBoxQty.Focus();
             }
         }
+        #region Checking
+        private bool checkEANList(String Ean, Int32 qty)
+        {
+            bool check = false;
+            try
+            {
+                foreach (ListViewItem item in lviewPOS.Items)
+                {
+                    String _ean = item.SubItems[0].Text;
+                    if (_ean.Equals(Ean))
+                    {
+                        computerItemQty = Convert.ToDouble(txtBoxQty.Text) * price;
+                        check = true;
+                        item.SubItems[1].Text = Convert.ToInt32(Convert.ToInt32(txtBoxQty.Text) + Convert.ToInt32(item.SubItems[1].Text)).ToString();
+                        item.SubItems[5].Text = Convert.ToDouble(Convert.ToDouble(item.SubItems[5].Text) + computerItemQty).ToString("#,###,##0.00");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("frmMain::checkPLUList" + ex);
+            }
+
+            return check;
+        }
+        #endregion
     }
 }
