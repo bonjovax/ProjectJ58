@@ -94,6 +94,18 @@
     <Compile Include="frmDlgCheckout.Designer.cs">
       <DependentUpon>frmDlgCheckout.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmDlgDiscount.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDlgDiscount.Designer.cs">
+      <DependentUpon>frmDlgDiscount.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmDlgEditQty.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDlgEditQty.Designer.cs">
+      <DependentUpon>frmDlgEditQty.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmPOS.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -250,6 +262,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmDlgCheckout.resx">
       <DependentUpon>frmDlgCheckout.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmDlgDiscount.resx">
+      <DependentUpon>frmDlgDiscount.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmDlgEditQty.resx">
+      <DependentUpon>frmDlgEditQty.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmPOS.resx">
       <DependentUpon>frmPOS.cs</DependentUpon>

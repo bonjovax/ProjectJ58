@@ -155,6 +155,7 @@
             this.txtBoxQty.MaxLength = 6;
             this.txtBoxQty.Name = "txtBoxQty";
             this.txtBoxQty.ReadOnly = true;
+            this.txtBoxQty.ShortcutsEnabled = false;
             this.txtBoxQty.Size = new System.Drawing.Size(143, 55);
             this.txtBoxQty.TabIndex = 1;
             this.txtBoxQty.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -215,6 +216,7 @@
             this.txtBoxEAN.MaxLength = 13;
             this.txtBoxEAN.Name = "txtBoxEAN";
             this.txtBoxEAN.ReadOnly = true;
+            this.txtBoxEAN.ShortcutsEnabled = false;
             this.txtBoxEAN.Size = new System.Drawing.Size(297, 42);
             this.txtBoxEAN.TabIndex = 0;
             this.txtBoxEAN.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtBoxEAN_KeyDown);
@@ -299,6 +301,7 @@
             this.btnVoid.Text = "(F4) Void";
             this.btnVoid.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnVoid.UseVisualStyleBackColor = false;
+            this.btnVoid.Click += new System.EventHandler(this.btnVoid_Click);
             // 
             // btnEdit
             // 
@@ -565,6 +568,7 @@
             this.btnDiscount.Text = "(F9) Discount";
             this.btnDiscount.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnDiscount.UseVisualStyleBackColor = false;
+            this.btnDiscount.Click += new System.EventHandler(this.btnDiscount_Click);
             // 
             // lblProgversion
             // 
@@ -681,6 +685,7 @@
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmPOS_FormClosing);
             this.Load += new System.EventHandler(this.frmPOS_Load);
+            this.Click += new System.EventHandler(this.frmPOS_Click);
             this.ResumeLayout(false);
             this.PerformLayout();
 

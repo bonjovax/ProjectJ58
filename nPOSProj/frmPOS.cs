@@ -111,6 +111,11 @@ namespace nPOSProj
                 gotoWholesale();
                 return true;
             }
+            if (keyData == Keys.F4 && btnVoid.Enabled == true)
+            {
+                gotoVoid();
+                return true;
+            }
             if (keyData == Keys.F8 && btnCheckout.Enabled == true)
             {
                 frmDlgCheckout checkout = new frmDlgCheckout();
@@ -118,7 +123,7 @@ namespace nPOSProj
             }
             if (keyData == Keys.F9 && btnDiscount.Enabled == true && discountTx == true)
             {
-                MessageBox.Show("F9");
+                gotoDiscount();
             }
             if (keyData == Keys.F10)
             {
@@ -452,17 +457,68 @@ namespace nPOSProj
                 btnDiscount.Enabled = true;
                 discountTx = true;
                 //
+                btnVoid.Enabled = true;
             }
         }
 
+        #region GotoKing
         private void gotoDiscount()
         {
-            //using (mPOrder newPO = new mPOrder())
-            //{
-            //    newPO.ShowDialog();
-            //    var poDate = newPO.PurchaseOrderDate;
-            //    this.po_orderTableAdapter.Fill(this.npos_dbDataSet.po_order, Convert.ToDateTime(poDate));
-            //}
+            Double a = 0;
+            Double b = 0;
+            using (frmDlgDiscount disc = new frmDlgDiscount())
+            {
+                ListViewItem item = lviewPOS.SelectedItems[0];
+                disc.ShowDialog();
+                var discp = disc.Percentage;
+                if (disc.Percentage != 0)
+                {
+                    a = getTotalAmt * disc.Percentage;
+                    b = getTotalAmt - a;
+                    item.SubItems[4].Text = a.ToString("#,###,##0.00");
+                    item.SubItems[5].Text = b.ToString("#,###,##0.00");
+                    btnDiscount.Enabled = false;
+                    discountTx = false;
+                }
+            }
+        }
+
+        private void gotoEdit()
+        {
+            using (frmDlgEditQty edit = new frmDlgEditQty())
+            {
+            }
+        }
+
+        private void gotoVoid()
+        {
+            DialogResult dlg = MessageBox.Show("Do you wish to Continue?", "Void Item", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (dlg == System.Windows.Forms.DialogResult.Yes)
+            {
+                lviewPOS.Items[0].Remove();
+            }
+        }
+
+        #endregion
+
+        private void btnDiscount_Click(object sender, EventArgs e)
+        {
+            gotoDiscount();
+        }
+
+        private void frmPOS_Click(object sender, EventArgs e)
+        {
+            btnDiscount.Enabled = false;
+            discountTx = false;
+            btnVoid.Enabled = false;
+            //
+            btnEdit.Enabled = false;
+            //
+        }
+
+        private void btnVoid_Click(object sender, EventArgs e)
+        {
+            gotoVoid();
         }
     }
 }

@@ -120,6 +120,7 @@
             this.txtBoxTender.Location = new System.Drawing.Point(0, 147);
             this.txtBoxTender.MaxLength = 10;
             this.txtBoxTender.Name = "txtBoxTender";
+            this.txtBoxTender.ShortcutsEnabled = false;
             this.txtBoxTender.Size = new System.Drawing.Size(495, 79);
             this.txtBoxTender.TabIndex = 34;
             this.txtBoxTender.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -199,6 +200,7 @@
             this.mskCC.Location = new System.Drawing.Point(0, 136);
             this.mskCC.Mask = "0000 0000 0000 0000";
             this.mskCC.Name = "mskCC";
+            this.mskCC.ShortcutsEnabled = false;
             this.mskCC.Size = new System.Drawing.Size(495, 33);
             this.mskCC.TabIndex = 36;
             this.mskCC.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -297,6 +299,7 @@
             this.txtBoxBankNBranch.Location = new System.Drawing.Point(1, 173);
             this.txtBoxBankNBranch.MaxLength = 20;
             this.txtBoxBankNBranch.Name = "txtBoxBankNBranch";
+            this.txtBoxBankNBranch.ShortcutsEnabled = false;
             this.txtBoxBankNBranch.Size = new System.Drawing.Size(494, 24);
             this.txtBoxBankNBranch.TabIndex = 39;
             this.txtBoxBankNBranch.TextChanged += new System.EventHandler(this.txtBoxBankNBranch_TextChanged);
@@ -322,6 +325,7 @@
             this.txtBoxCheckNo.Location = new System.Drawing.Point(1, 128);
             this.txtBoxCheckNo.MaxLength = 15;
             this.txtBoxCheckNo.Name = "txtBoxCheckNo";
+            this.txtBoxCheckNo.ShortcutsEnabled = false;
             this.txtBoxCheckNo.Size = new System.Drawing.Size(494, 24);
             this.txtBoxCheckNo.TabIndex = 37;
             this.txtBoxCheckNo.TextChanged += new System.EventHandler(this.txtBoxCheckNo_TextChanged);

@@ -1,0 +1,51 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Windows.Forms;
+
+namespace nPOSProj
+{
+    public partial class frmDlgEditQty : Form
+    {
+        public frmDlgEditQty()
+        {
+            InitializeComponent();
+        }
+        public Int32 Qty
+        {
+            get { return Convert.ToInt32(txtBoxQty.Text); }
+        }
+
+        private void txtBoxQty_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (char.IsNumber(e.KeyChar))
+            {
+            }
+            else
+            {
+                e.Handled = e.KeyChar != (char)Keys.Back;
+            }
+        }
+
+        private void txtBoxQty_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                this.Close();
+            }
+        }
+
+        private void txtBoxQty_TextChanged(object sender, EventArgs e)
+        {
+            if (txtBoxQty.Text != "")
+            {
+            }
+            else
+                txtBoxQty.Text = "0";
+        }
+    }
+}
