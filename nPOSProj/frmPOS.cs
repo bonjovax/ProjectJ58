@@ -22,7 +22,7 @@ namespace nPOSProj
         //
         private Double computerItemQty;
         //
-        private Double total_fin;
+        //private Double total_fin;
         //
         private bool found = false;
 
@@ -329,16 +329,17 @@ namespace nPOSProj
 
         private void RecalculateSameItem()
         {
+            computerItemQty = Convert.ToDouble(txtBoxQty.Text) * price;
+            rdTotal.Text = computerItemQty.ToString("#,###,##0.00");
+            Double total_fin = 0;
             foreach (ListViewItem lv in lviewPOS.Items)
             {
-                total_fin = Double.Parse(lv.SubItems[5].Text);
+                total_fin += Double.Parse(lv.SubItems[5].Text);
             }
             lblTotalAmount.Text = total_fin.ToString("###,###,##0.00");
-            timer3.Start();
-            timer3.Interval = 2500;
-            timer3.Tick += new EventHandler(timer3_Tick);
             txtBoxEAN.Clear();
             txtBoxEAN.Focus();
+            txtBoxQty.Text = "1";
         }
 
         private void txtBoxEAN_KeyDown(object sender, KeyEventArgs e)
@@ -365,17 +366,15 @@ namespace nPOSProj
                                 item.SubItems.Add(computerItemQty.ToString("#,###,##0.00"));
                                 lviewPOS.Items.Add(item);
                                 btnWholesale.Enabled = false;
+                                Double total_fin = 0;
                                 foreach (ListViewItem lv in lviewPOS.Items)
                                 {
                                     total_fin += Double.Parse(lv.SubItems[5].Text);
                                 }
                                 lblTotalAmount.Text = total_fin.ToString("###,###,##0.00");
-                                //
-                                timer3.Start();
-                                timer3.Interval = 2500;
-                                timer3.Tick += new EventHandler(timer3_Tick);
                                 txtBoxEAN.Clear();
                                 txtBoxEAN.Focus();
+                                txtBoxQty.Text = "1";
                             }
                             else
                             {
@@ -432,6 +431,7 @@ namespace nPOSProj
             return check;
         }
         #endregion
+
 
     }
 }
