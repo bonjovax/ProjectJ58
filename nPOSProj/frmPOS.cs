@@ -327,6 +327,20 @@ namespace nPOSProj
             }
         }
 
+        private void RecalculateSameItem()
+        {
+            foreach (ListViewItem lv in lviewPOS.Items)
+            {
+                total_fin = Double.Parse(lv.SubItems[5].Text);
+            }
+            lblTotalAmount.Text = total_fin.ToString("###,###,##0.00");
+            timer3.Start();
+            timer3.Interval = 2500;
+            timer3.Tick += new EventHandler(timer3_Tick);
+            txtBoxEAN.Clear();
+            txtBoxEAN.Focus();
+        }
+
         private void txtBoxEAN_KeyDown(object sender, KeyEventArgs e)
         {
             try
@@ -365,11 +379,7 @@ namespace nPOSProj
                             }
                             else
                             {
-                                foreach (ListViewItem lv in lviewPOS.Items)
-                                {
-                                    total_fin = Double.Parse(lv.SubItems[5].Text);
-                                }
-                                lblTotalAmount.Text = total_fin.ToString("###,###,##0.00");
+                                RecalculateSameItem();
                             }
                         }
                         else
@@ -422,5 +432,6 @@ namespace nPOSProj
             return check;
         }
         #endregion
+
     }
 }
