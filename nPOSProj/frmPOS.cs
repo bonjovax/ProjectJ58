@@ -479,6 +479,11 @@ namespace nPOSProj
                     item.SubItems[5].Text = b.ToString("#,###,##0.00");
                     btnDiscount.Enabled = false;
                     discountTx = false;
+                    Double total_fin = 0;
+                    foreach (ListViewItem lv in lviewPOS.Items)
+                    {
+                        total_fin += Double.Parse(lv.SubItems[5].Text);
+                    }
                 }
             }
         }
