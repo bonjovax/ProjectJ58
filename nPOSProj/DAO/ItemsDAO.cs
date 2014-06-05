@@ -21,14 +21,14 @@ namespace nPOSProj.DAO
         private String itemEAN;
         public ItemsDAO() { }
 
-        public void Update(Int32 qty, String ean, Double r_price, Double w_price, String stock_code)
+        public void Update(Int32 qty, String ean, Double r_price, Double w_price, String stock_code, String eantmp)
         {
             con = new MySqlConnection();
             dbcon = new Conf.dbs();
             con.ConnectionString = dbcon.getConnectionString();
-            String query = "UPDATE inventory_items SET item_quantity = ?item_quantity, item_ean = ?item_ean, item_retail_price = ?item_retail_price, ";
+            String query = "UPDATE inventory_items SET item_quantity = ?item_quantity, item_ean = ?new_ean, item_retail_price = ?item_retail_price, ";
             query += "item_whole_price = ?item_whole_price ";
-            query += "WHERE stock_code = ?stock_code";
+            query += "WHERE stock_code = ?stock_code AND item_ean = ?eantmp";
             String query1 = "UPDATE inventory_stocks SET stock_selling_price = ?stock_selling_price, stock_total_price = ?stock_total_price ";
             query1 += "WHERE stock_code = ?stock_code";
             try
@@ -37,10 +37,11 @@ namespace nPOSProj.DAO
                 MySqlCommand cmd = new MySqlCommand(query, con);
                 MySqlCommand cmd1 = new MySqlCommand(query1, con);
                 cmd.Parameters.AddWithValue("?item_quantity", qty);
-                cmd.Parameters.AddWithValue("?item_ean", ean);
+                cmd.Parameters.AddWithValue("?new_ean", ean);
                 cmd.Parameters.AddWithValue("?item_retail_price", r_price);
                 cmd.Parameters.AddWithValue("?item_whole_price", w_price);
                 cmd.Parameters.AddWithValue("?stock_code", stock_code);
+                cmd.Parameters.AddWithValue("?eantmp", eantmp);
                 //
                 ComputeTotalAmtStocks(r_price, stock_code);
                 cmd1.Parameters.AddWithValue("?stock_selling_price", r_price);

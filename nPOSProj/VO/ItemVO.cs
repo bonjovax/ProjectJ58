@@ -16,6 +16,7 @@ namespace nPOSProj.VO
         private Int32 _is_kit;
         private String _kit_name;
         private DAO.ItemsDAO items;
+        private String _eantmp;
 
         public ItemVO() { }
 
@@ -59,11 +60,16 @@ namespace nPOSProj.VO
             get { return _kit_name; }
             set { _kit_name = value; }
         }
+        public String eanTmp
+        {
+            get { return _eantmp; }
+            set { _eantmp = value; }
+        }
 
         public void UpdateItem()
         {
             items = new DAO.ItemsDAO();
-            items.Update(item_quantity, item_ean, item_retail_price, item_whole_price, stock_code);
+            items.Update(item_quantity, item_ean, item_retail_price, item_whole_price, stock_code, eanTmp);
         }
         public void TrasferItemToStock()
         {

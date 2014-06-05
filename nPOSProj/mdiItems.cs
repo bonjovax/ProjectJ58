@@ -17,6 +17,7 @@ namespace nPOSProj
         private Barcode b = new Barcode();
         private VO.ItemVO item = new VO.ItemVO();
         private DAO.LoginDAO login = new DAO.LoginDAO();
+        private String eancom;
         public mdiItems()
         {
             InitializeComponent();
@@ -44,6 +45,7 @@ namespace nPOSProj
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             txtBoxQty.Text = dataGridView1.SelectedRows[0].Cells[0].Value.ToString();
+            eancom = dataGridView1.SelectedRows[0].Cells[2].Value.ToString();
             txtBonxEAN.Text = dataGridView1.SelectedRows[0].Cells[2].Value.ToString();
             txtBoxRPrice.Text = Convert.ToDouble(dataGridView1.SelectedRows[0].Cells[4].Value).ToString("#,###,##0.00");
             txtBoxWholesalePrice.Text = Convert.ToDouble(dataGridView1.SelectedRows[0].Cells[5].Value).ToString("#,###,##0.00");
@@ -91,28 +93,36 @@ namespace nPOSProj
             DialogResult dlgResult = MessageBox.Show("Do You Wish To Update?", "Question", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (dlgResult == DialogResult.Yes)
             {
-                if (Convert.ToInt32(txtBoxQty.Text) >= 0 && Convert.ToDouble(txtBoxRPrice.Text) >= 0 && Convert.ToDouble(txtBoxWholesalePrice.Text) >= 0)
+                try
                 {
-                    item.item_quantity = Convert.ToInt32(txtBoxQty.Text);
-                    item.item_ean = txtBonxEAN.Text;
-                    item.item_retail_price = Convert.ToDouble(txtBoxRPrice.Text);
-                    item.item_whole_price = Convert.ToDouble(txtBoxWholesalePrice.Text);
-                    item.stock_code = dataGridView1.SelectedRows[0].Cells[1].Value.ToString();
-                    item.UpdateItem();
-                    dataGridView1.SelectedRows[0].Cells[0].Value = txtBoxQty.Text;
-                    dataGridView1.SelectedRows[0].Cells[2].Value = txtBonxEAN.Text;
-                    dataGridView1.SelectedRows[0].Cells[4].Value = Convert.ToDouble(txtBoxRPrice.Text).ToString("#,###,##0.00");
-                    dataGridView1.SelectedRows[0].Cells[5].Value = Convert.ToDouble(txtBoxWholesalePrice.Text).ToString("#,###,##0.00");
-                    txtBoxQty.ReadOnly = true;
-                    txtBonxEAN.ReadOnly = true;
-                    txtBoxRPrice.ReadOnly = true;
-                    txtBoxWholesalePrice.ReadOnly = true;
-                    btnUp.Enabled = false;
-                    btnReturn.Enabled = false;
-                    bcSave.Enabled = false;
+                    if (Convert.ToInt32(txtBoxQty.Text) >= 0 && Convert.ToDouble(txtBoxRPrice.Text) >= 0 && Convert.ToDouble(txtBoxWholesalePrice.Text) >= 0)
+                    {
+                        item.item_quantity = Convert.ToInt32(txtBoxQty.Text);
+                        item.item_ean = txtBonxEAN.Text;
+                        item.eanTmp = eancom;
+                        item.item_retail_price = Convert.ToDouble(txtBoxRPrice.Text);
+                        item.item_whole_price = Convert.ToDouble(txtBoxWholesalePrice.Text);
+                        item.stock_code = dataGridView1.SelectedRows[0].Cells[1].Value.ToString();
+                        item.UpdateItem();
+                        dataGridView1.SelectedRows[0].Cells[0].Value = txtBoxQty.Text;
+                        dataGridView1.SelectedRows[0].Cells[2].Value = txtBonxEAN.Text;
+                        dataGridView1.SelectedRows[0].Cells[4].Value = Convert.ToDouble(txtBoxRPrice.Text).ToString("#,###,##0.00");
+                        dataGridView1.SelectedRows[0].Cells[5].Value = Convert.ToDouble(txtBoxWholesalePrice.Text).ToString("#,###,##0.00");
+                        txtBoxQty.ReadOnly = true;
+                        txtBonxEAN.ReadOnly = true;
+                        txtBoxRPrice.ReadOnly = true;
+                        txtBoxWholesalePrice.ReadOnly = true;
+                        btnUp.Enabled = false;
+                        btnReturn.Enabled = false;
+                        bcSave.Enabled = false;
+                    }
+                    else
+                        MessageBox.Show("Negative Value Will Not Be Considered!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
-                else
-                    MessageBox.Show("Negative Value Will Not Be Considered!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                catch (Exception)
+                {
+                    MessageBox.Show("Duplicate Input Not Allowed", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
 
