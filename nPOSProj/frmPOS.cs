@@ -174,6 +174,11 @@ namespace nPOSProj
                 txtBoxEAN.Focus();
                 return true;
             }
+            if (keyData == Keys.S)
+            {
+                lviewPOS.Focus();
+                return true;
+            }
             return base.ProcessCmdKey(ref msg, keyData);
         }
 
