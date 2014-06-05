@@ -477,13 +477,14 @@ namespace nPOSProj
                     b = getTotalAmt - a;
                     item.SubItems[4].Text = a.ToString("#,###,##0.00");
                     item.SubItems[5].Text = b.ToString("#,###,##0.00");
-                    btnDiscount.Enabled = false;
-                    discountTx = false;
-                    Double total_fin = 0;
-                    foreach (ListViewItem lv in lviewPOS.Items)
+                    Double total_disc = 0;
+                    foreach (ListViewItem items in lviewPOS.Items)
                     {
-                        total_fin += Double.Parse(lv.SubItems[5].Text);
+                        total_disc += Double.Parse(items.SubItems[5].Text);
                     }
+                    lblTotalAmount.Text = total_disc.ToString("###,###,##0.00");
+                    btnDiscount.Enabled = false;
+                    discountTx = false;  
                 }
             }
         }
