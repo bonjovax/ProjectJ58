@@ -493,6 +493,7 @@ namespace nPOSProj
         {
             using (frmDlgEditQty edit = new frmDlgEditQty())
             {
+                ListViewItem item = lviewPOS.SelectedItems[0];
             }
         }
 
@@ -502,6 +503,7 @@ namespace nPOSProj
             if (dlg == System.Windows.Forms.DialogResult.Yes)
             {
                 lviewPOS.Items[0].Remove();
+                btnVoid.Enabled = false;
             }
         }
 
