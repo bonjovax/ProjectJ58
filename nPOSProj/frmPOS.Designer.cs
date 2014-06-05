@@ -142,6 +142,7 @@
             this.rdDescription.Location = new System.Drawing.Point(0, 0);
             this.rdDescription.Name = "rdDescription";
             this.rdDescription.ReadOnly = true;
+            this.rdDescription.ShortcutsEnabled = false;
             this.rdDescription.Size = new System.Drawing.Size(1253, 55);
             this.rdDescription.TabIndex = 30;
             // 
@@ -171,6 +172,7 @@
             this.rdPrice.Location = new System.Drawing.Point(195, 55);
             this.rdPrice.Name = "rdPrice";
             this.rdPrice.ReadOnly = true;
+            this.rdPrice.ShortcutsEnabled = false;
             this.rdPrice.Size = new System.Drawing.Size(329, 55);
             this.rdPrice.TabIndex = 29;
             this.rdPrice.Text = "0.00";
@@ -187,6 +189,7 @@
             this.rdTotal.Location = new System.Drawing.Point(524, 55);
             this.rdTotal.Name = "rdTotal";
             this.rdTotal.ReadOnly = true;
+            this.rdTotal.ShortcutsEnabled = false;
             this.rdTotal.Size = new System.Drawing.Size(729, 55);
             this.rdTotal.TabIndex = 31;
             this.rdTotal.Text = "0.00";
@@ -322,6 +325,7 @@
             this.btnEdit.Text = "(F5) Edit";
             this.btnEdit.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnEdit.UseVisualStyleBackColor = false;
+            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
             // 
             // btnWholesale
             // 

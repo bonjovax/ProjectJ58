@@ -116,6 +116,11 @@ namespace nPOSProj
                 gotoVoid();
                 return true;
             }
+            if (keyData == Keys.F5 && btnVoid.Enabled == true)
+            {
+                gotoEdit();
+                return true;
+            }
             if (keyData == Keys.F8 && btnCheckout.Enabled == true)
             {
                 frmDlgCheckout checkout = new frmDlgCheckout();
@@ -463,6 +468,8 @@ namespace nPOSProj
                 discountTx = true;
                 //
                 btnVoid.Enabled = true;
+                //
+                btnEdit.Enabled = true;
             }
         }
 
@@ -499,6 +506,13 @@ namespace nPOSProj
             using (frmDlgEditQty edit = new frmDlgEditQty())
             {
                 ListViewItem item = lviewPOS.SelectedItems[0];
+                edit.dQty = Convert.ToInt32(item.SubItems[1].Text);
+                edit.ShowDialog();
+                if (edit.Qty != 0)
+                {
+                    item.SubItems[1].Text = edit.Qty.ToString();
+                    btnEdit.Enabled = false;
+                }
             }
         }
 
@@ -532,6 +546,11 @@ namespace nPOSProj
         private void btnVoid_Click(object sender, EventArgs e)
         {
             gotoVoid();
+        }
+
+        private void btnEdit_Click(object sender, EventArgs e)
+        {
+            gotoEdit();
         }
     }
 }

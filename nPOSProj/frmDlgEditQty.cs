@@ -11,6 +11,7 @@ namespace nPOSProj
 {
     public partial class frmDlgEditQty : Form
     {
+        private Int32 qty;
         public frmDlgEditQty()
         {
             InitializeComponent();
@@ -18,6 +19,11 @@ namespace nPOSProj
         public Int32 Qty
         {
             get { return Convert.ToInt32(txtBoxQty.Text); }
+        }
+        public Int32 dQty
+        {
+            get { return qty; }
+            set { qty = value; }
         }
 
         private void txtBoxQty_KeyPress(object sender, KeyPressEventArgs e)
@@ -46,6 +52,11 @@ namespace nPOSProj
             }
             else
                 txtBoxQty.Text = "0";
+        }
+
+        private void frmDlgEditQty_Load(object sender, EventArgs e)
+        {
+            txtBoxQty.Text = qty.ToString();
         }
     }
 }
