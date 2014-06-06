@@ -22,6 +22,7 @@ namespace nPOSProj
         //
         private Double computerItemQty;
         private bool found = false;
+        private bool found_kit = false;
 
         #region Discount Variable
         private Double getTotalAmt;
@@ -308,7 +309,7 @@ namespace nPOSProj
             query += "inventory_items.item_retail_price AS c, inventory_items.item_whole_price AS d ";
             query += "FROM inventory_items ";
             query += "INNER JOIN inventory_stocks ON inventory_items.stock_code = inventory_stocks.stock_code ";
-            query += "WHERE (inventory_items.item_ean = ?item_ean)";
+            query += "WHERE (inventory_items.item_ean = ?item_ean) AND (inventory_items.is_kit = 0)";
             try
             {
                 con.Open();
@@ -318,7 +319,7 @@ namespace nPOSProj
                 MySqlDataReader rdr = cmd.ExecuteReader();
                 if (rdr.Read())
                 {
-                    rdDescription.Text = rdr["a"].ToString() + "" + rdr["b"].ToString();
+                    rdDescription.Text = rdr["a"].ToString();
                     if (btnWholesale.Enabled == false && wholsale_select == true) //If Teller Select to Wholse
                     {
                         price = Convert.ToDouble(rdr["d"]);
@@ -333,6 +334,44 @@ namespace nPOSProj
                 }
                 else
                     found = false;
+                con.Close();
+            }
+            catch (Exception)
+            {
+                rdDescription.Text = "Error 11: Check Database Server";
+            }
+        }
+        private void getInfoItemKit()
+        {
+            con.ConnectionString = dbcon.getConnectionString();
+            String query = "SELECT kit_name AS a, ";
+            query += "item_retail_price AS b, item_whole_price AS c ";
+            query += "FROM inventory_items ";
+            query += "WHERE (item_ean = ?item_ean) AND (is_kit = 1)";
+            try
+            {
+                con.Open();
+                MySqlCommand cmd = new MySqlCommand(query, con);
+                cmd.Parameters.AddWithValue("?item_ean", txtBoxEAN.Text);
+                cmd.ExecuteScalar();
+                MySqlDataReader rdr = cmd.ExecuteReader();
+                if (rdr.Read())
+                {
+                    rdDescription.Text = rdr["a"].ToString();
+                    if (btnWholesale.Enabled == false && wholsale_select == true) //If Teller Select to Wholse
+                    {
+                        price = Convert.ToDouble(rdr["c"]);
+                        rdPrice.Text = Convert.ToDouble(rdr["c"]).ToString("#,###,##0.00");
+                    }
+                    else //Others Retail
+                    {
+                        price = Convert.ToDouble(rdr["b"]);
+                        rdPrice.Text = Convert.ToDouble(rdr["b"]).ToString("#,###,##0.00");
+                    }
+                    found_kit = true;
+                }
+                else
+                    found_kit = false;
                 con.Close();
             }
             catch (Exception)
@@ -365,7 +404,8 @@ namespace nPOSProj
                     if (txtBoxQty.Text != "0" && txtBoxQty.Text != "00" && txtBoxQty.Text != "000" && txtBoxQty.Text != "0000" && txtBoxQty.Text != "00000" && txtBoxQty.Text != "000000")
                     {
                         getInfoItem();
-                        if (found == true)
+                        getInfoItemKit();
+                        if (found == true || found_kit == true)
                         {
                             //
                             if (this.checkEANList(txtBoxEAN.Text, Convert.ToInt32(txtBoxQty.Text)) == false)
