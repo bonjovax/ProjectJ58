@@ -72,7 +72,6 @@
             this.proceed = new System.Windows.Forms.Label();
             this.timer2 = new System.Windows.Forms.Timer(this.components);
             this.timer3 = new System.Windows.Forms.Timer(this.components);
-            this.timer4 = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
             // 
             // lviewPOS
@@ -740,6 +739,5 @@
         private System.Windows.Forms.Label proceed;
         private System.Windows.Forms.Timer timer2;
         private System.Windows.Forms.Timer timer3;
-        private System.Windows.Forms.Timer timer4;
     }
 }

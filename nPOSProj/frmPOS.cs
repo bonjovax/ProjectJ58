@@ -149,7 +149,6 @@ namespace nPOSProj
                 //
                 proceed.Visible = false;
                 proceeds = true; //important
-                timer2.Stop();
                 //
                 txtBoxQty.ReadOnly = false;
                 txtBoxQty.Text = "1";
@@ -598,16 +597,13 @@ namespace nPOSProj
                 txtBoxEAN.Focus();
                 proceeds = false; //Important
                 //
-                proceed.Visible = true;
                 newFlash();
             }
         }
 
         private void newFlash()
         {
-            timer4.Start();
-            timer4.Tick += new EventHandler(timer4_Tick);
-            timer4.Interval = 250;
+            proceed.Visible = true;
             txtBoxQty.Text = "1";
             rdDescription.Text = "Thank You For Shopping!";
             rdPrice.Text = "0.00";
