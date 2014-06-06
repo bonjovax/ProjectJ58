@@ -504,7 +504,13 @@ namespace nPOSProj
                     btnDiscount.Enabled = false;
                     btnEdit.Enabled = false;
                     btnVoid.Enabled = false;
-                    discountTx = false;  
+                    discountTx = false;
+                }
+                else
+                {
+                    btnDiscount.Enabled = false;
+                    btnEdit.Enabled = false;
+                    btnVoid.Enabled = false;
                 }
             }
         }
@@ -539,6 +545,12 @@ namespace nPOSProj
                         total_amt += Double.Parse(items.SubItems[5].Text);
                     }
                     lblTotalAmount.Text = total_amt.ToString("###,###,##0.00");
+                }
+                else
+                {
+                    btnDiscount.Enabled = false;
+                    btnEdit.Enabled = false;
+                    btnVoid.Enabled = false;
                 }
             }
         }
