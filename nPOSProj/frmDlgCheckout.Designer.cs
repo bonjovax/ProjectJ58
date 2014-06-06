@@ -304,7 +304,7 @@
             this.txtBoxBankNBranch.Name = "txtBoxBankNBranch";
             this.txtBoxBankNBranch.ShortcutsEnabled = false;
             this.txtBoxBankNBranch.Size = new System.Drawing.Size(494, 24);
-            this.txtBoxBankNBranch.TabIndex = 39;
+            this.txtBoxBankNBranch.TabIndex = 4;
             this.txtBoxBankNBranch.TextChanged += new System.EventHandler(this.txtBoxBankNBranch_TextChanged);
             // 
             // label11
@@ -330,7 +330,7 @@
             this.txtBoxCheckNo.Name = "txtBoxCheckNo";
             this.txtBoxCheckNo.ShortcutsEnabled = false;
             this.txtBoxCheckNo.Size = new System.Drawing.Size(494, 24);
-            this.txtBoxCheckNo.TabIndex = 37;
+            this.txtBoxCheckNo.TabIndex = 3;
             this.txtBoxCheckNo.TextChanged += new System.EventHandler(this.txtBoxCheckNo_TextChanged);
             // 
             // label10

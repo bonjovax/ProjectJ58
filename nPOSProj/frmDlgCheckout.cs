@@ -18,12 +18,30 @@ namespace nPOSProj
         private Conf.Crypto tx = new Conf.Crypto();
         //
         private Double getAmount;
+        //
+        private Double tenderAmount;
+        private Double changeDue;
+
+        public Double ChangeDue
+        {
+            get { return changeDue; }
+            set { changeDue = value; }
+        }
 
         public Double GetAmount
         {
             get { return getAmount; }
             set { getAmount = value; }
         }
+
+        private bool isCashTX;
+
+        public bool IsCashTX
+        {
+            get { return isCashTX; }
+            set { isCashTX = value; }
+        }
+        
         public frmDlgCheckout()
         {
             InitializeComponent();
@@ -71,10 +89,16 @@ namespace nPOSProj
             lblTotalAmountDC.Text = GetAmount.ToString("#,###,##0.00");
             lblTotalAmountBC.Text = GetAmount.ToString("#,###,##0.00");
             lblTotalAmountAR.Text = GetAmount.ToString("#,###,##0.00");
+            //Tx Controls
+            IsCashTX = false;
         }
 
         private void mskCC_TextChanged(object sender, EventArgs e)
         {
+            txtBoxTender.Clear();
+            txtBoxCheckNo.Clear();
+            txtBoxBankNBranch.Clear();
+            //Needs to Add AR
             if (Regex.IsMatch(mskCC.Text, r.Visa()) || Regex.IsMatch(mskCC.Text, r.Mastercard()))
             {
                 LockCash_Controls();
@@ -113,7 +137,7 @@ namespace nPOSProj
             {
                 if (Regex.IsMatch(mskCC.Text, r.Visa()) || Regex.IsMatch(mskCC.Text, r.Mastercard()))
                 {
-                    MessageBox.Show("OK");
+                    MessageBox.Show("Ok");
                 }
                 else
                 {
@@ -132,7 +156,9 @@ namespace nPOSProj
                 lblRefNo.Text = tx.RefretreiveHash();
             }
             else
+            {
                 lblRefNo.Text = "";
+            }
         }
 
         private void txtBoxBankNBranch_TextChanged(object sender, EventArgs e)
@@ -145,7 +171,9 @@ namespace nPOSProj
                 lblRefNo.Text = tx.RefretreiveHash();
             }
             else
+            {
                 lblRefNo.Text = "";
+            }
         }
 
         private void txtBoxTender_KeyPress(object sender, KeyPressEventArgs e)
@@ -162,10 +190,19 @@ namespace nPOSProj
             {
                 if(Regex.IsMatch(txtBoxTender.Text, r.Amount()))
                 {
+                    if (GetAmount <= Convert.ToDouble(txtBoxTender.Text))
+                    {
+                        tenderAmount = Convert.ToDouble(txtBoxTender.Text);
+                        ChangeDue = tenderAmount - getAmount;
+                        IsCashTX = true;
+                        this.Close();
+                    }
+                    else
+                        MessageBox.Show("Insufficient Amount!\nPlease Try Again.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 else
                 {
-                    MessageBox.Show("YAWA");
+                    MessageBox.Show("Please Enter Tender Amount Propery!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }

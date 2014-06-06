@@ -153,6 +153,7 @@ namespace nPOSProj
                 //
                 txtBoxQty.ReadOnly = false;
                 txtBoxQty.Text = "1";
+                txtBoxEAN.ReadOnly = false;
                 rdDescription.Clear();
                 //
                 btnSearch.Enabled = true;
@@ -161,10 +162,15 @@ namespace nPOSProj
                 btnCancelSale.Enabled = true;
                 btnParkSale.Enabled = false;
                 //
-                timer3.Start();
-                rdDescription.Text = "3M Groceries & Supplies";
-                timer3.Interval = 3000;
-                timer3.Tick += new EventHandler(timer3_Tick);
+                rdDescription.Text = "Ready";
+                rdPrice.Text = "0.00";
+                rdTotal.Text = "0.00";
+                lblTotalAmount.Text = "0.00";
+                lblChangeDue.Text = "0.00";
+                lblSub.Text = "0.00";
+                lblTax.Text = "0.00";
+                lviewPOS.Items.Clear();
+                txtBoxEAN.Focus();
                 return true;
             }
             if (keyData == Keys.Q)
@@ -183,16 +189,6 @@ namespace nPOSProj
                 return true;
             }
             return base.ProcessCmdKey(ref msg, keyData);
-        }
-
-        void timer3_Tick(object sender, EventArgs e)
-        {
-            rdDescription.Text = "Ready";
-            rdPrice.Text = "0.00";
-            rdTotal.Text = "0.00";
-            txtBoxQty.Text = "1";
-            txtBoxEAN.ReadOnly = false;
-            timer3.Stop();
         }
 
         private void frmPOS_FormClosing(object sender, FormClosingEventArgs e)
@@ -410,9 +406,6 @@ namespace nPOSProj
                         {
                             timer3.Start();
                             rdDescription.Text = "Item Not Found!";
-                            txtBoxEAN.ReadOnly = true;
-                            timer3.Interval = 3000;
-                            timer3.Tick += new EventHandler(timer3_Tick);
                             txtBoxEAN.Clear();
                             txtBoxEAN.Focus();
                         }
@@ -421,8 +414,6 @@ namespace nPOSProj
                     {
                         timer3.Start();
                         rdDescription.Text = "Zero [0] Quantity Is Not Allowed!";
-                        timer3.Interval = 3000;
-                        timer3.Tick += new EventHandler(timer3_Tick);
                     }
                 }
             }
@@ -588,6 +579,48 @@ namespace nPOSProj
             }
             checkout.GetAmount = total_amt;
             checkout.ShowDialog();
+            //For Cash
+            if (checkout.IsCashTX == true)
+            {
+                lblChangeDue.Text = checkout.ChangeDue.ToString("#,###,##0.00");
+                btnSearch.Enabled = false;
+                btnRefund.Enabled = false;
+                btnWholesale.Enabled = false;
+                btnCancelSale.Enabled = false;
+                btnParkSale.Enabled = true;
+                btnVoid.Enabled = false;
+                btnEdit.Enabled = false;
+                btnCancelSale.Enabled = false;
+                btnCheckout.Enabled = false; //Very Important La
+                btnDiscount.Enabled = false;
+                txtBoxQty.ReadOnly = true;
+                txtBoxEAN.ReadOnly = true;
+                txtBoxEAN.Focus();
+                proceeds = false; //Important
+                //
+                proceed.Visible = true;
+                timer4.Start();
+                timer4.Tick += new EventHandler(timer4_Tick);
+                timer4.Interval = 250;
+                txtBoxQty.Text = "1";
+                rdDescription.Text = "Thank You For Shopping!";
+                rdPrice.Text = "0.00";
+                rdTotal.Text = "0.00";
+            }
+        }
+
+        void timer4_Tick(object sender, EventArgs e)
+        {
+            if (proceed.BackColor == Color.Red)
+            {
+                proceed.BackColor = Color.White;
+                proceed.ForeColor = Color.Black;
+            }
+            else
+            {
+                proceed.BackColor = Color.Red;
+                proceed.ForeColor = Color.White;
+            }
         }
 
         #endregion
