@@ -122,8 +122,11 @@
             this.txtBoxTender.Name = "txtBoxTender";
             this.txtBoxTender.ShortcutsEnabled = false;
             this.txtBoxTender.Size = new System.Drawing.Size(495, 79);
-            this.txtBoxTender.TabIndex = 34;
+            this.txtBoxTender.TabIndex = 0;
             this.txtBoxTender.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtBoxTender.TextChanged += new System.EventHandler(this.txtBoxTender_TextChanged);
+            this.txtBoxTender.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtBoxTender_KeyDown);
+            this.txtBoxTender.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtBoxTender_KeyPress);
             // 
             // label1
             // 
@@ -202,7 +205,7 @@
             this.mskCC.Name = "mskCC";
             this.mskCC.ShortcutsEnabled = false;
             this.mskCC.Size = new System.Drawing.Size(495, 33);
-            this.mskCC.TabIndex = 36;
+            this.mskCC.TabIndex = 1;
             this.mskCC.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.mskCC.TextChanged += new System.EventHandler(this.mskCC_TextChanged);
             this.mskCC.KeyDown += new System.Windows.Forms.KeyEventHandler(this.mskCC_KeyDown);
@@ -275,7 +278,7 @@
             this.lblRefNo.Location = new System.Drawing.Point(193, 197);
             this.lblRefNo.Name = "lblRefNo";
             this.lblRefNo.Size = new System.Drawing.Size(301, 25);
-            this.lblRefNo.TabIndex = 41;
+            this.lblRefNo.TabIndex = 4;
             this.lblRefNo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label12
@@ -297,7 +300,7 @@
             this.txtBoxBankNBranch.Font = new System.Drawing.Font("Courier New", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtBoxBankNBranch.ForeColor = System.Drawing.Color.Lime;
             this.txtBoxBankNBranch.Location = new System.Drawing.Point(1, 173);
-            this.txtBoxBankNBranch.MaxLength = 20;
+            this.txtBoxBankNBranch.MaxLength = 35;
             this.txtBoxBankNBranch.Name = "txtBoxBankNBranch";
             this.txtBoxBankNBranch.ShortcutsEnabled = false;
             this.txtBoxBankNBranch.Size = new System.Drawing.Size(494, 24);

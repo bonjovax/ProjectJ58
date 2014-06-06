@@ -123,8 +123,7 @@ namespace nPOSProj
             }
             if (keyData == Keys.F8 && btnCheckout.Enabled == true)
             {
-                frmDlgCheckout checkout = new frmDlgCheckout();
-                checkout.ShowDialog();
+                gotoCheckout();
             }
             if (keyData == Keys.F9 && btnDiscount.Enabled == true && discountTx == true)
             {
@@ -241,8 +240,7 @@ namespace nPOSProj
 
         private void btnCheckout_Click(object sender, EventArgs e)
         {
-            frmDlgCheckout checkout = new frmDlgCheckout();
-            checkout.ShowDialog();
+            gotoCheckout();
         }
 
         private void gotoWholesale()
@@ -578,6 +576,18 @@ namespace nPOSProj
                 btnEdit.Enabled = false;
                 btnVoid.Enabled = false;
             }
+        }
+
+        private void gotoCheckout()
+        {
+            frmDlgCheckout checkout = new frmDlgCheckout();
+            Double total_amt = 0;
+            foreach (ListViewItem items in lviewPOS.Items)
+            {
+                total_amt += Double.Parse(items.SubItems[5].Text);
+            }
+            checkout.GetAmount = total_amt;
+            checkout.ShowDialog();
         }
 
         #endregion

@@ -16,32 +16,93 @@ namespace nPOSProj
         private String b;
         private Conf.Rgx r = new Conf.Rgx();
         private Conf.Crypto tx = new Conf.Crypto();
+        //
+        private Double getAmount;
+
+        public Double GetAmount
+        {
+            get { return getAmount; }
+            set { getAmount = value; }
+        }
         public frmDlgCheckout()
         {
             InitializeComponent();
         }
 
+        private void LockCash_Controls()
+        {
+            txtBoxTender.ReadOnly = true;
+        }
+        private void LockDC_Controls()
+        {
+            mskCC.ReadOnly = true;
+        }
+        private void LockBC_Controls()
+        {
+            txtBoxCheckNo.ReadOnly = true;
+            txtBoxBankNBranch.ReadOnly = true;
+        }
+        private void LockAR_Controls()
+        {
+            //Adding thingy here
+        }
+        //
+        private void UnlockCash_Controls()
+        {
+            txtBoxTender.ReadOnly = false;
+        }
+        private void UnlockDC_Controls()
+        {
+            mskCC.ReadOnly = false;
+        }
+        private void UnlockBC_Controls()
+        {
+            txtBoxCheckNo.ReadOnly = false;
+            txtBoxBankNBranch.ReadOnly = false;
+        }
+        private void UnlockAR_Controls()
+        {
+            //Put That Thingy Here Also
+        }
+
         private void frmDlgCheckout_Load(object sender, EventArgs e)
         {
-
+            lblTotalAmount.Text = GetAmount.ToString("#,###,##0.00");
+            lblTotalAmountDC.Text = GetAmount.ToString("#,###,##0.00");
+            lblTotalAmountBC.Text = GetAmount.ToString("#,###,##0.00");
+            lblTotalAmountAR.Text = GetAmount.ToString("#,###,##0.00");
         }
 
         private void mskCC_TextChanged(object sender, EventArgs e)
         {
-            if (Regex.IsMatch(mskCC.Text, r.Visa()))
+            if (Regex.IsMatch(mskCC.Text, r.Visa()) || Regex.IsMatch(mskCC.Text, r.Mastercard()))
             {
-                pVisa.Visible = true;
+                LockCash_Controls();
+                LockBC_Controls();
+                LockAR_Controls();
+                if (mskCC.Text.Substring(0, 1) == "4")
+                {
+                    pVisa.Visible = true;
+                }
+                else
+                {
+                    pVisa.Visible = false;
+                }
+                if (mskCC.Text.Substring(0, 1) == "5")
+                {
+                    pMaster.Visible = true;
+                }
+                else
+                {
+                    pMaster.Visible = false;
+                }
             }
             else
             {
+                UnlockCash_Controls();
+                UnlockBC_Controls();
+                UnlockAR_Controls();
                 pVisa.Visible = false;
-            }
-            if (Regex.IsMatch(mskCC.Text, r.Mastercard()))
-            {
-                pMaster.Visible = true;
-            }
-            else
-            {
                 pMaster.Visible = false;
             }
         }
@@ -85,6 +146,44 @@ namespace nPOSProj
             }
             else
                 lblRefNo.Text = "";
+        }
+
+        private void txtBoxTender_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && e.KeyChar != '.' && e.KeyChar != ',')
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtBoxTender_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                if(Regex.IsMatch(txtBoxTender.Text, r.Amount()))
+                {
+                }
+                else
+                {
+                    MessageBox.Show("YAWA");
+                }
+            }
+        }
+
+        private void txtBoxTender_TextChanged(object sender, EventArgs e)
+        {
+            if (txtBoxTender.Text != "")
+            {
+                LockDC_Controls();
+                LockBC_Controls();
+                LockAR_Controls();
+            }
+            else
+            {
+                UnlockDC_Controls();
+                UnlockBC_Controls();
+                UnlockAR_Controls();
+            }
         }
     }
 }
