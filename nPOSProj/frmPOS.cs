@@ -403,7 +403,6 @@ namespace nPOSProj
                         }
                         else
                         {
-                            timer3.Start();
                             rdDescription.Text = "Item Not Found!";
                             txtBoxEAN.Clear();
                             txtBoxEAN.Focus();
@@ -411,7 +410,6 @@ namespace nPOSProj
                     }
                     else
                     {
-                        timer3.Start();
                         rdDescription.Text = "Zero [0] Quantity Is Not Allowed!";
                     }
                 }
