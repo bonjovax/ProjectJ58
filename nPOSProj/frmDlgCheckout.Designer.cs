@@ -80,7 +80,7 @@
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(503, 261);
-            this.tabControl1.TabIndex = 0;
+            this.tabControl1.TabIndex = 55;
             // 
             // tabPage1
             // 
@@ -107,7 +107,7 @@
             this.label5.Location = new System.Drawing.Point(0, 1);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(495, 40);
-            this.label5.TabIndex = 35;
+            this.label5.TabIndex = 15;
             this.label5.Text = "Total Amount";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
@@ -137,7 +137,7 @@
             this.label1.Location = new System.Drawing.Point(0, 107);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(495, 40);
-            this.label1.TabIndex = 33;
+            this.label1.TabIndex = 17;
             this.label1.Text = "Amount Tender";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
@@ -150,7 +150,7 @@
             this.lblTotalAmount.Location = new System.Drawing.Point(0, 41);
             this.lblTotalAmount.Name = "lblTotalAmount";
             this.lblTotalAmount.Size = new System.Drawing.Size(495, 66);
-            this.lblTotalAmount.TabIndex = 32;
+            this.lblTotalAmount.TabIndex = 16;
             this.lblTotalAmount.Text = "0.00";
             this.lblTotalAmount.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
@@ -219,7 +219,7 @@
             this.label9.Location = new System.Drawing.Point(0, 107);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(495, 29);
-            this.label9.TabIndex = 35;
+            this.label9.TabIndex = 20;
             this.label9.Text = "Card No";
             // 
             // lblTotalAmountDC
@@ -231,7 +231,7 @@
             this.lblTotalAmountDC.Location = new System.Drawing.Point(0, 41);
             this.lblTotalAmountDC.Name = "lblTotalAmountDC";
             this.lblTotalAmountDC.Size = new System.Drawing.Size(495, 66);
-            this.lblTotalAmountDC.TabIndex = 34;
+            this.lblTotalAmountDC.TabIndex = 19;
             this.lblTotalAmountDC.Text = "0.00";
             this.lblTotalAmountDC.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
@@ -244,7 +244,7 @@
             this.label3.Location = new System.Drawing.Point(0, 1);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(495, 40);
-            this.label3.TabIndex = 33;
+            this.label3.TabIndex = 18;
             this.label3.Text = "Total Amount";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
@@ -290,7 +290,7 @@
             this.label12.Location = new System.Drawing.Point(0, 197);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(193, 25);
-            this.label12.TabIndex = 40;
+            this.label12.TabIndex = 25;
             this.label12.Text = "Reference Code";
             // 
             // txtBoxBankNBranch
@@ -304,7 +304,7 @@
             this.txtBoxBankNBranch.Name = "txtBoxBankNBranch";
             this.txtBoxBankNBranch.ShortcutsEnabled = false;
             this.txtBoxBankNBranch.Size = new System.Drawing.Size(494, 24);
-            this.txtBoxBankNBranch.TabIndex = 4;
+            this.txtBoxBankNBranch.TabIndex = 3;
             this.txtBoxBankNBranch.TextChanged += new System.EventHandler(this.txtBoxBankNBranch_TextChanged);
             // 
             // label11
@@ -316,7 +316,7 @@
             this.label11.Location = new System.Drawing.Point(0, 152);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(495, 21);
-            this.label11.TabIndex = 38;
+            this.label11.TabIndex = 24;
             this.label11.Text = "Bank and Branch";
             // 
             // txtBoxCheckNo
@@ -330,7 +330,7 @@
             this.txtBoxCheckNo.Name = "txtBoxCheckNo";
             this.txtBoxCheckNo.ShortcutsEnabled = false;
             this.txtBoxCheckNo.Size = new System.Drawing.Size(494, 24);
-            this.txtBoxCheckNo.TabIndex = 3;
+            this.txtBoxCheckNo.TabIndex = 2;
             this.txtBoxCheckNo.TextChanged += new System.EventHandler(this.txtBoxCheckNo_TextChanged);
             // 
             // label10
@@ -342,7 +342,7 @@
             this.label10.Location = new System.Drawing.Point(0, 107);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(495, 21);
-            this.label10.TabIndex = 36;
+            this.label10.TabIndex = 23;
             this.label10.Text = "Check No";
             // 
             // lblTotalAmountBC
@@ -354,7 +354,7 @@
             this.lblTotalAmountBC.Location = new System.Drawing.Point(0, 41);
             this.lblTotalAmountBC.Name = "lblTotalAmountBC";
             this.lblTotalAmountBC.Size = new System.Drawing.Size(495, 66);
-            this.lblTotalAmountBC.TabIndex = 34;
+            this.lblTotalAmountBC.TabIndex = 22;
             this.lblTotalAmountBC.Text = "0.00";
             this.lblTotalAmountBC.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
@@ -367,7 +367,7 @@
             this.label6.Location = new System.Drawing.Point(0, 1);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(495, 40);
-            this.label6.TabIndex = 33;
+            this.label6.TabIndex = 21;
             this.label6.Text = "Total Amount";
             this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
@@ -394,7 +394,7 @@
             this.lblTotalAmountAR.Location = new System.Drawing.Point(0, 41);
             this.lblTotalAmountAR.Name = "lblTotalAmountAR";
             this.lblTotalAmountAR.Size = new System.Drawing.Size(495, 66);
-            this.lblTotalAmountAR.TabIndex = 34;
+            this.lblTotalAmountAR.TabIndex = 27;
             this.lblTotalAmountAR.Text = "0.00";
             this.lblTotalAmountAR.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
@@ -407,7 +407,7 @@
             this.label8.Location = new System.Drawing.Point(0, 1);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(495, 40);
-            this.label8.TabIndex = 33;
+            this.label8.TabIndex = 26;
             this.label8.Text = "Total Amount";
             this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 

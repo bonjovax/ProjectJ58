@@ -91,6 +91,7 @@ namespace nPOSProj
             lblTotalAmountAR.Text = GetAmount.ToString("#,###,##0.00");
             //Tx Controls
             IsCashTX = false;
+            txtBoxTender.Focus();
         }
 
         private void mskCC_TextChanged(object sender, EventArgs e)
