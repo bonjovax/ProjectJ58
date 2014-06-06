@@ -597,6 +597,44 @@ namespace nPOSProj
                 //
                 newFlash();
             }
+            if (checkout.IsDCTX == true) //Debit Credit Card
+            {
+                btnSearch.Enabled = false;
+                btnRefund.Enabled = false;
+                btnWholesale.Enabled = false;
+                btnCancelSale.Enabled = false;
+                btnParkSale.Enabled = true;
+                btnVoid.Enabled = false;
+                btnEdit.Enabled = false;
+                btnCancelSale.Enabled = false;
+                btnCheckout.Enabled = false; //Very Important La
+                btnDiscount.Enabled = false;
+                txtBoxQty.ReadOnly = true;
+                txtBoxEAN.ReadOnly = true;
+                txtBoxEAN.Focus();
+                proceeds = false; //Important
+                //
+                newFlash();
+            }
+            if (checkout.IsBCTX == true) //Bank Cheque
+            {
+                btnSearch.Enabled = false;
+                btnRefund.Enabled = false;
+                btnWholesale.Enabled = false;
+                btnCancelSale.Enabled = false;
+                btnParkSale.Enabled = true;
+                btnVoid.Enabled = false;
+                btnEdit.Enabled = false;
+                btnCancelSale.Enabled = false;
+                btnCheckout.Enabled = false; //Very Important La
+                btnDiscount.Enabled = false;
+                txtBoxQty.ReadOnly = true;
+                txtBoxEAN.ReadOnly = true;
+                txtBoxEAN.Focus();
+                proceeds = false; //Important
+                //
+                newFlash();
+            }
         }
 
         private void newFlash()

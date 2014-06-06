@@ -56,6 +56,8 @@
             this.lblTotalAmountAR = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
+            this.txtBoxCardHoldersName = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -157,6 +159,8 @@
             // tabPage2
             // 
             this.tabPage2.BackColor = System.Drawing.Color.Black;
+            this.tabPage2.Controls.Add(this.label2);
+            this.tabPage2.Controls.Add(this.txtBoxCardHoldersName);
             this.tabPage2.Controls.Add(this.pMaster);
             this.tabPage2.Controls.Add(this.pVisa);
             this.tabPage2.Controls.Add(this.mskCC);
@@ -175,7 +179,7 @@
             // pMaster
             // 
             this.pMaster.Image = ((System.Drawing.Image)(resources.GetObject("pMaster.Image")));
-            this.pMaster.Location = new System.Drawing.Point(13, 187);
+            this.pMaster.Location = new System.Drawing.Point(426, 139);
             this.pMaster.Name = "pMaster";
             this.pMaster.Size = new System.Drawing.Size(56, 32);
             this.pMaster.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -186,7 +190,7 @@
             // pVisa
             // 
             this.pVisa.Image = ((System.Drawing.Image)(resources.GetObject("pVisa.Image")));
-            this.pVisa.Location = new System.Drawing.Point(4, 191);
+            this.pVisa.Location = new System.Drawing.Point(417, 143);
             this.pVisa.Name = "pVisa";
             this.pVisa.Size = new System.Drawing.Size(73, 25);
             this.pVisa.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -278,7 +282,7 @@
             this.lblRefNo.Location = new System.Drawing.Point(193, 197);
             this.lblRefNo.Name = "lblRefNo";
             this.lblRefNo.Size = new System.Drawing.Size(301, 25);
-            this.lblRefNo.TabIndex = 4;
+            this.lblRefNo.TabIndex = 5;
             this.lblRefNo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label12
@@ -304,8 +308,10 @@
             this.txtBoxBankNBranch.Name = "txtBoxBankNBranch";
             this.txtBoxBankNBranch.ShortcutsEnabled = false;
             this.txtBoxBankNBranch.Size = new System.Drawing.Size(494, 24);
-            this.txtBoxBankNBranch.TabIndex = 3;
+            this.txtBoxBankNBranch.TabIndex = 4;
             this.txtBoxBankNBranch.TextChanged += new System.EventHandler(this.txtBoxBankNBranch_TextChanged);
+            this.txtBoxBankNBranch.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtBoxBankNBranch_KeyDown);
+            this.txtBoxBankNBranch.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtBoxBankNBranch_KeyPress);
             // 
             // label11
             // 
@@ -330,8 +336,10 @@
             this.txtBoxCheckNo.Name = "txtBoxCheckNo";
             this.txtBoxCheckNo.ShortcutsEnabled = false;
             this.txtBoxCheckNo.Size = new System.Drawing.Size(494, 24);
-            this.txtBoxCheckNo.TabIndex = 2;
+            this.txtBoxCheckNo.TabIndex = 3;
             this.txtBoxCheckNo.TextChanged += new System.EventHandler(this.txtBoxCheckNo_TextChanged);
+            this.txtBoxCheckNo.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtBoxCheckNo_KeyDown);
+            this.txtBoxCheckNo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtBoxCheckNo_KeyPress);
             // 
             // label10
             // 
@@ -420,6 +428,34 @@
             this.imageList1.Images.SetKeyName(2, "cheque.png");
             this.imageList1.Images.SetKeyName(3, "account.png");
             // 
+            // txtBoxCardHoldersName
+            // 
+            this.txtBoxCardHoldersName.BackColor = System.Drawing.Color.Black;
+            this.txtBoxCardHoldersName.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtBoxCardHoldersName.Font = new System.Drawing.Font("Courier New", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBoxCardHoldersName.ForeColor = System.Drawing.Color.Lime;
+            this.txtBoxCardHoldersName.Location = new System.Drawing.Point(2, 197);
+            this.txtBoxCardHoldersName.MaxLength = 30;
+            this.txtBoxCardHoldersName.Name = "txtBoxCardHoldersName";
+            this.txtBoxCardHoldersName.ReadOnly = true;
+            this.txtBoxCardHoldersName.Size = new System.Drawing.Size(493, 24);
+            this.txtBoxCardHoldersName.TabIndex = 2;
+            this.txtBoxCardHoldersName.TextChanged += new System.EventHandler(this.txtBoxCardHoldersName_TextChanged);
+            this.txtBoxCardHoldersName.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtBoxCardHoldersName_KeyDown);
+            this.txtBoxCardHoldersName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtBoxCardHoldersName_KeyPress);
+            // 
+            // label2
+            // 
+            this.label2.BackColor = System.Drawing.Color.MidnightBlue;
+            this.label2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.label2.Font = new System.Drawing.Font("Courier New", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(0, 175);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(499, 22);
+            this.label2.TabIndex = 39;
+            this.label2.Text = "Card Holder\'s Name";
+            // 
             // frmDlgCheckout
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
@@ -479,5 +515,7 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox txtBoxCardHoldersName;
     }
 }

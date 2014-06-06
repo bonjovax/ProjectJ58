@@ -34,6 +34,30 @@ namespace nPOSProj
             set { getAmount = value; }
         }
 
+        private String cardNo;
+
+        public String CardNo
+        {
+            get { return cardNo; }
+            set { cardNo = value; }
+        }
+
+        private String cardHoldersName;
+
+        public String CardHoldersName
+        {
+            get { return cardHoldersName; }
+            set { cardHoldersName = value; }
+        }
+
+        private String cRef;
+
+        public String CRef
+        {
+            get { return cRef; }
+            set { cRef = value; }
+        }
+
         private bool isCashTX;
 
         public bool IsCashTX
@@ -41,7 +65,47 @@ namespace nPOSProj
             get { return isCashTX; }
             set { isCashTX = value; }
         }
-        
+
+        private bool isDCTX;
+
+        public bool IsDCTX
+        {
+            get { return isDCTX; }
+            set { isDCTX = value; }
+        }
+
+        private bool isBCTX;
+
+        public bool IsBCTX
+        {
+            get { return isBCTX; }
+            set { isBCTX = value; }
+        }
+
+        private bool isARTX;
+
+        public bool IsARTX
+        {
+            get { return isARTX; }
+            set { isARTX = value; }
+        }
+
+        private String checkNo;
+
+        public String CheckNo
+        {
+            get { return checkNo; }
+            set { checkNo = value; }
+        }
+
+        private String bankNBranch;
+
+        public String BankNBranch
+        {
+            get { return bankNBranch; }
+            set { bankNBranch = value; }
+        }
+
         public frmDlgCheckout()
         {
             InitializeComponent();
@@ -54,6 +118,7 @@ namespace nPOSProj
         private void LockDC_Controls()
         {
             mskCC.ReadOnly = true;
+            txtBoxCardHoldersName.ReadOnly = true;
         }
         private void LockBC_Controls()
         {
@@ -72,6 +137,7 @@ namespace nPOSProj
         private void UnlockDC_Controls()
         {
             mskCC.ReadOnly = false;
+            txtBoxCardHoldersName.ReadOnly = false;
         }
         private void UnlockBC_Controls()
         {
@@ -91,6 +157,10 @@ namespace nPOSProj
             lblTotalAmountAR.Text = GetAmount.ToString("#,###,##0.00");
             //Tx Controls
             IsCashTX = false;
+            IsDCTX = false;
+            IsBCTX = false;
+            IsARTX = false;
+            //
             txtBoxTender.Focus();
         }
 
@@ -121,6 +191,7 @@ namespace nPOSProj
                 {
                     pMaster.Visible = false;
                 }
+                txtBoxCardHoldersName.ReadOnly = false;
             }
             else
             {
@@ -129,6 +200,8 @@ namespace nPOSProj
                 UnlockAR_Controls();
                 pVisa.Visible = false;
                 pMaster.Visible = false;
+                txtBoxCardHoldersName.ReadOnly = true;
+                txtBoxCardHoldersName.Clear();
             }
         }
 
@@ -138,7 +211,7 @@ namespace nPOSProj
             {
                 if (Regex.IsMatch(mskCC.Text, r.Visa()) || Regex.IsMatch(mskCC.Text, r.Mastercard()))
                 {
-                    MessageBox.Show("Ok");
+                    txtBoxCardHoldersName.Focus();
                 }
                 else
                 {
@@ -155,10 +228,17 @@ namespace nPOSProj
                 b = txtBoxBankNBranch.Text;
                 tx.RefHashed(a + b);
                 lblRefNo.Text = tx.RefretreiveHash();
+                //
+                LockCash_Controls();
+                LockDC_Controls();
+                LockAR_Controls();
             }
             else
             {
                 lblRefNo.Text = "";
+                UnlockCash_Controls();
+                UnlockDC_Controls();
+                UnlockAR_Controls();
             }
         }
 
@@ -170,10 +250,17 @@ namespace nPOSProj
                 b = txtBoxBankNBranch.Text;
                 tx.RefHashed(a + b);
                 lblRefNo.Text = tx.RefretreiveHash();
+                //
+                LockCash_Controls();
+                LockDC_Controls();
+                LockAR_Controls();
             }
             else
             {
                 lblRefNo.Text = "";
+                UnlockCash_Controls();
+                UnlockDC_Controls();
+                UnlockAR_Controls();
             }
         }
 
@@ -189,7 +276,7 @@ namespace nPOSProj
         {
             if (e.KeyCode == Keys.Enter)
             {
-                if(Regex.IsMatch(txtBoxTender.Text, r.Amount()))
+                if (Regex.IsMatch(txtBoxTender.Text, r.Amount()))
                 {
                     if (GetAmount <= Convert.ToDouble(txtBoxTender.Text))
                     {
@@ -221,6 +308,77 @@ namespace nPOSProj
                 UnlockDC_Controls();
                 UnlockBC_Controls();
                 UnlockAR_Controls();
+            }
+        }
+
+        private void txtBoxCardHoldersName_TextChanged(object sender, EventArgs e)
+        {
+            if (txtBoxCardHoldersName.Text != "")
+            {
+                LockCash_Controls();
+                LockBC_Controls();
+                LockAR_Controls();
+            }
+            else
+            {
+                UnlockCash_Controls();
+                UnlockBC_Controls();
+                UnlockAR_Controls();
+            }
+        }
+
+        private void txtBoxCardHoldersName_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (char.IsNumber(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtBoxCardHoldersName_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                CardNo = mskCC.Text;
+                cardHoldersName = txtBoxCardHoldersName.Text;
+                isDCTX = true;
+                this.Close();
+            }
+        }
+
+        private void txtBoxCheckNo_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && e.KeyChar != '-')
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtBoxCheckNo_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                txtBoxBankNBranch.Focus();
+            }
+        }
+
+        private void txtBoxBankNBranch_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (char.IsNumber(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtBoxBankNBranch_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                CheckNo = txtBoxCheckNo.Text;
+                BankNBranch = txtBoxBankNBranch.Text;
+                CRef = lblRefNo.Text;
+                IsBCTX = true;
+                this.Close();
             }
         }
     }
