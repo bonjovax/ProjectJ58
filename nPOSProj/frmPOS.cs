@@ -599,14 +599,19 @@ namespace nPOSProj
                 proceeds = false; //Important
                 //
                 proceed.Visible = true;
-                timer4.Start();
-                timer4.Tick += new EventHandler(timer4_Tick);
-                timer4.Interval = 250;
-                txtBoxQty.Text = "1";
-                rdDescription.Text = "Thank You For Shopping!";
-                rdPrice.Text = "0.00";
-                rdTotal.Text = "0.00";
+                newFlash();
             }
+        }
+
+        private void newFlash()
+        {
+            timer4.Start();
+            timer4.Tick += new EventHandler(timer4_Tick);
+            timer4.Interval = 250;
+            txtBoxQty.Text = "1";
+            rdDescription.Text = "Thank You For Shopping!";
+            rdPrice.Text = "0.00";
+            rdTotal.Text = "0.00";
         }
 
         void timer4_Tick(object sender, EventArgs e)
