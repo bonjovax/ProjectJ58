@@ -152,7 +152,6 @@ namespace nPOSProj
                 proceeds = true; //important
                 timer2.Stop();
                 //
-                txtBoxEAN.ReadOnly = false;
                 txtBoxQty.ReadOnly = false;
                 txtBoxQty.Text = "1";
                 rdDescription.Clear();
@@ -193,6 +192,7 @@ namespace nPOSProj
             rdPrice.Text = "0.00";
             rdTotal.Text = "0.00";
             txtBoxQty.Text = "1";
+            txtBoxEAN.ReadOnly = false;
             timer3.Stop();
         }
 
@@ -393,6 +393,12 @@ namespace nPOSProj
                                     total_fin += Double.Parse(lv.SubItems[5].Text);
                                 }
                                 lblTotalAmount.Text = total_fin.ToString("###,###,##0.00");
+                                if (lviewPOS.Items.Count != 0)
+                                {
+                                    btnCheckout.Enabled = true;
+                                }
+                                else
+                                    btnCheckout.Enabled = false;
                                 txtBoxEAN.Clear();
                                 txtBoxEAN.Focus();
                                 txtBoxQty.Text = "1";
@@ -406,6 +412,7 @@ namespace nPOSProj
                         {
                             timer3.Start();
                             rdDescription.Text = "Item Not Found!";
+                            txtBoxEAN.ReadOnly = true;
                             timer3.Interval = 3000;
                             timer3.Tick += new EventHandler(timer3_Tick);
                             txtBoxEAN.Clear();
@@ -465,9 +472,8 @@ namespace nPOSProj
                 //Discount
                 getTotalAmt = Convert.ToDouble(item.SubItems[5].Text);
                 btnDiscount.Enabled = true;
+                btnVoid.Enabled = true; //Void
                 discountTx = true;
-                //
-                btnVoid.Enabled = true;
                 //
                 btnEdit.Enabled = true;
             }
@@ -496,6 +502,8 @@ namespace nPOSProj
                     }
                     lblTotalAmount.Text = total_disc.ToString("###,###,##0.00");
                     btnDiscount.Enabled = false;
+                    btnEdit.Enabled = false;
+                    btnVoid.Enabled = false;
                     discountTx = false;  
                 }
             }
@@ -503,15 +511,34 @@ namespace nPOSProj
 
         private void gotoEdit()
         {
+            Int32 qty = 0;
+            Double a = 0;
+            Double b = 0;
+            Double c = 0;
+            Double discount_p = 0; //Database Grabbing DON'T FORGET! **Change it if you want**
             using (frmDlgEditQty edit = new frmDlgEditQty())
             {
                 ListViewItem item = lviewPOS.SelectedItems[0];
-                edit.dQty = Convert.ToInt32(item.SubItems[1].Text);
+                edit.dQty = Convert.ToInt32(item.SubItems[1].Text); //Display
                 edit.ShowDialog();
                 if (edit.Qty != 0)
                 {
                     item.SubItems[1].Text = edit.Qty.ToString();
+                    qty = Convert.ToInt32(item.SubItems[1].Text); //Computation
+                    a = qty * Convert.ToDouble(item.SubItems[3].Text); // Get Initial Total
+                    b = a * discount_p; //Compute Discount Percentage
+                    c = a - b; // Final
+                    item.SubItems[4].Text = b.ToString("#,###,##0.00");
+                    item.SubItems[5].Text = c.ToString("#,###,##0.00");
                     btnEdit.Enabled = false;
+                    btnDiscount.Enabled = false;
+                    btnVoid.Enabled = false;
+                    Double total_amt = 0;
+                    foreach (ListViewItem items in lviewPOS.Items)
+                    {
+                        total_amt += Double.Parse(items.SubItems[5].Text);
+                    }
+                    lblTotalAmount.Text = total_amt.ToString("###,###,##0.00");
                 }
             }
         }
@@ -522,6 +549,21 @@ namespace nPOSProj
             if (dlg == System.Windows.Forms.DialogResult.Yes)
             {
                 lviewPOS.Items[0].Remove();
+                Double total_amt = 0;
+                foreach (ListViewItem items in lviewPOS.Items)
+                {
+                    total_amt += Double.Parse(items.SubItems[5].Text);
+                }
+                lblTotalAmount.Text = total_amt.ToString("###,###,##0.00");
+                btnVoid.Enabled = false;
+                if (lviewPOS.Items.Count != 0)
+                {
+                    btnCheckout.Enabled = true;
+                }
+                else
+                    btnCheckout.Enabled = false;
+                btnDiscount.Enabled = false;
+                btnEdit.Enabled = false;
                 btnVoid.Enabled = false;
             }
         }

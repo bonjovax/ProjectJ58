@@ -76,6 +76,7 @@
             this.Name = "frmDlgEditQty";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Edit Quantity";
             this.Load += new System.EventHandler(this.frmDlgEditQty_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
