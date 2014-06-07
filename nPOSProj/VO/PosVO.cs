@@ -172,7 +172,12 @@ namespace nPOSProj.VO
         public void ParkItem()
         {
             POSDAO = new DAO.PosDAO();
-            POSDAO.Park_I(Pos_orno, Pos_ean, Pos_quantity, Pos_discount, Pos_discount_amt, Pos_amt);
+            POSDAO.Park_I(Pos_orno, Pos_ean, Pos_quantity, Pos_amt);
+        }
+        public void ParkItemSameUpdate()
+        {
+            POSDAO = new DAO.PosDAO();
+            POSDAO.Park_I_Update(Pos_orno, Pos_ean, Pos_quantity, Pos_amt);
         }
 
         public void ParkItemUpdate()

@@ -106,6 +106,12 @@
     <Compile Include="frmDlgEditQty.Designer.cs">
       <DependentUpon>frmDlgEditQty.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmDlgPark.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDlgPark.Designer.cs">
+      <DependentUpon>frmDlgPark.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmPOS.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -268,6 +274,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmDlgEditQty.resx">
       <DependentUpon>frmDlgEditQty.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmDlgPark.resx">
+      <DependentUpon>frmDlgPark.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmPOS.resx">
       <DependentUpon>frmPOS.cs</DependentUpon>

@@ -135,28 +135,28 @@
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="btnR.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
-        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAASxSURBVEhLlZV7TFt1FMfb0tJSnoXybgtteb+hMETjEEES/1iiZjGCi1niTDDR4MayRV2W6ELM
-        YlxwIlNeaqIEk80YHmMDGWwYDK/x3HDhDTIhMHFsPnrv5RzP75bWMsC5k3zy+/b3+55zfvf+7u2VPCRC
-        iGKigZgi1jdhupE4TIQSjxxBRLVSIbG+kKfGqlI/6GkKwbkhPcwN67H3YghWf+AH+/PVqHSVcuStJYJZ
-        4v+JZ2VSyepr+zxwvlGH3Ige+V/8QVjToHDPB4T7Psg0v+gP3KgeF5r1WPScJ1DOHcrdZyuxexR6q6V8
-        46kA4PqCQFj2gY11LQi/6UBYMQK/YhJhms2Ja+Th+oPgYmkAaDxkPNV4xVZqezzhrpJaf/wwEPlJDRUI
-        RmHJLMIvmcF5fFCTF/gpDf50JhA93cRbttdW8t9QEZNfFvuiME/cNsH6pBlHOw0oLEbQ7YgA59FZj5Hn
-        7gRd1W0TCgu++PURX6BaM4SaFbZHcU6cEvgJuuT5SBhqC4NIkwLCQuXw+3gE8DTHz0c5jTa9fisCjAY5
-        mMMVMHDZIObyk1p4JlHFmpTYSttivOWcFwizkTjYEoYabxkzIOPIITrQ6WgQpqMdo10fK/IVPQR4e8qw
-        vykMqQa0VXmzuQlCSkji/DVSsE4Z4O5IFJrDFGICISbLXSTY3xAOwkQM8hMx4sgYbDaCQm7z2P3hOjmu
-        DUcBN23AYK2UzSUTkhOvHlABfysW3n/Ln01uIyNJBdabscD/bMM6HgtZqW47ek++oRU9RQfF2/QeIWmv
-        Lw9AbiwOdEHyLTtyAtoq6X24EQ/CjXjsqNE/6HHoIK0LWEfj8MJngez3NUKyONZsxNHvI3ZMYBx63hNm
-        f4jE1wt8oeglDc60kt7vtZsfrp834/glI9PLhOT+fHs0dH9hhJxEJeSkEY8p4eknaXycSFdC7zcmyM10
-        Z0VE9lrUMFBvEtdysja9lJNjIajGtWojLF2NYV4ra7By8zs6wIFE4IficRNnTWtJUJjv6djpi7ke4pyT
-        Z6seSMSJhhjmX2MN+hrLTMD1pPwn97rioOqUP1QS66R38jjT8omZbWaQNTh79EAgct2pwHenIsNZ23+X
-        H9NhWUkofFyiw7NH6U9wF79dv31QPORzrEG2PkCBf3bSQlcaMriuNIdmXP8q1v7Mi7eIvRt9tTE7+pn+
-        62oahge7Mn8ea8DetoGKkjDgO9ORwXWmO7S1w4JZCeIBOxowMmLV8PcVyzY/05XHw5lnmBDfZBbZGk+X
-        jcm6JODaM7bw6WEDK7ojZW8atvmn65PBz0u+Qeu5xJYoTTC64a/n6TJb9wDfugcX6lPQx8PFeef2UdRe
-        ahnO1qU4/MsX0jDZrGae08S2YJdTFa1T4cjn9Ai2ZGJ/RRTmW1SocNnegM4B8tKU2FseiVxLJoxVJWOs
-        wY2tsc+njNgxWJPjbq4y64kCHazUZ1CjDLjTEA8dFeFQdzpU5ArpVZpja6vfZsDJl3WgVsrYh+adzRoP
-        jQSiyV0l2yjI1mJNcQT0fJSE0zUWmKmxYM+ZJKylucKntOhBHvI2E0ks8VEjimC7ukTMEX9sMk9cJt4l
-        ooldQiL5B4UquEWI/Op9AAAAAElFTkSuQmCC
+        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAABLFJREFUSEuV
+        lXtMW3UUx9vS0lKehfJuC215v6EwROMQQRL/WKJmMYKLWeJMMNHgxrJFXZboQsxiXHAiU15qogSTzRge
+        YwMZbBgMr/HccOENMiEwcWw+eu/lHM/vltYywLmTfPL79vf7nnN+9/7u7ZU8JEKIYqKBmCLWN2G6kThM
+        hBKPHEFEtVIhsb6Qp8aqUj/oaQrBuSE9zA3rsfdiCFZ/4Af789WodJVy5K0lglni/4lnZVLJ6mv7PHC+
+        UYfciB75X/xBWNOgcM8HhPs+yDS/6A/cqB4XmvVY9JwnUM4dyt1nK7F7FHqrpXzjqQDg+oJAWPaBjXUt
+        CL/pQFgxAr9iEmGazYlr5OH6g+BiaQBoPGQ81XjFVmp7POGuklp//DAQ+UkNFQhGYckswi+ZwXl8UJMX
+        +CkN/nQmED3dxFu211by31ARk18W+6IwT9w2wfqkGUc7DSgsRtDtiADn0VmPkefuBF3VbRMKC7749RFf
+        oFozhJoVtkdxTpwS+Am65PlIGGoLg0iTAsJC5fD7eATwNMfPRzmNNr1+KwKMBjmYwxUwcNkg5vKTWngm
+        UcWalNhK22K85ZwXCLORONgShhpvGTMg48ghOtDpaBCmox2jXR8r8hU9BHh7yrC/KQypBrRVebO5CUJK
+        SOL8NVKwThng7kgUmsMUYgIhJstdJNjfEA7CRAzyEzHiyBhsNoJCbvPY/eE6Oa4NRwE3bcBgrZTNJROS
+        E68eUAF/Kxbef8ufTW4jI0kF1puxwP9swzoeC1mpbjt6T76hFT1FB8Xb9B4haa8vD0BuLA50QfItO3IC
+        2irpfbgRD8KNeOyo0T/oceggrQtYR+PwwmeB7Pc1QrI41mzE0e8jdkxgHHreE2Z/iMTXC3yh6CUNzrSS
+        3u+1mx+unzfj+CUj08uE5P58ezR0f2GEnEQl5KQRjynh6SdpfJxIV0LvNybIzXRnRUT2WtQwUG8S13Ky
+        Nr2Uk2MhqMa1aiMsXY1hXitrsHLzOzrAgUTgh+JxE2dNa0lQmO/p2OmLuR7inJNnqx5IxImGGOZfYw36
+        GstMwPWk/Cf3uuKg6pQ/VBLrpHfyONPyiZltZpA1OHv0QCBy3anAd6ciw1nbf5cf02FZSSh8XKLDs0fp
+        T3AXv12/fVA85HOsQbY+QIF/dtJCVxoyuK40h2Zc/yrW/syLt4i9G321MTv6mf7rahqGB7syfx5rwN62
+        gYqSMOA705HBdaY7tLXDglkJ4gE7GjAyYtXw9xXLNj/TlcfDmWeYEN9kFtkaT5eNybok4NoztvDpYQMr
+        uiNlbxq2+afrk8HPS75B67nElihNMLrhr+fpMlv3AN+6BxfqU9DHw8V55/ZR1F5qGc7WpTj8yxfSMNms
+        Zp7TxLZgl1MVrVPhyOf0CLZkYn9FFOZbVKhw2d6AzgHy0pTYWx6JXEsmjFUlY6zBja2xz6eM2DFYk+Nu
+        rjLriQIdrNRnUKMMuNMQDx0V4VB3OlTkCulVmmNrq99mwMmXdaBWytiH5p3NGg+NBKLJXSXbKMjWYk1x
+        BPR8lITTNRaYqbFgz5kkrKW5wqe06EEe8jYTSSzxUSOKYLu6RMwRf2wyT1wm3iWiiV1CIvkHhSq4RYj8
+        6n0AAAAASUVORK5CYII=
 </value>
   </data>
   <metadata name="dateTimePicker2.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">

@@ -20,6 +20,8 @@ namespace nPOSProj
         private bool proceeds = false;
         private Double price;
         //
+        private Int32 OrNo;
+        //
         private Double computerItemQty;
         private bool found = false;
         private bool found_kit = false;
@@ -28,6 +30,8 @@ namespace nPOSProj
         private Double getTotalAmt;
         private bool discountTx = false;
         #endregion
+        //
+        private Int32 orderNo = 0;
 
         public frmPOS()
         {
@@ -122,6 +126,11 @@ namespace nPOSProj
                 gotoEdit();
                 return true;
             }
+            if (keyData == Keys.F7 && btnParkSale.Enabled == true)
+            {
+                gotoPark();
+                return true;
+            }
             if (keyData == Keys.F8 && btnCheckout.Enabled == true)
             {
                 gotoCheckout();
@@ -141,6 +150,7 @@ namespace nPOSProj
                 //
                 String userName = frmLogin.User.user_name;
                 lblSeriesNo.Text = pos.GetOrNo().ToString();
+                OrNo = pos.GetOrNo();
                 pos.Pos_orno = pos.GetOrNo();
                 pos.Pos_terminal = lg.tN;
                 pos.Pos_date = Convert.ToDateTime(DateTime.Now.ToString("yyyy-MM-dd"));
@@ -161,6 +171,11 @@ namespace nPOSProj
                 btnWholesale.Enabled = true;
                 btnCancelSale.Enabled = true;
                 btnParkSale.Enabled = false;
+                //
+                wholsale_select = false;
+                found = false;
+                found_kit = false;
+                discountTx = false;
                 //
                 rdDescription.Text = "Ready";
                 rdPrice.Text = "0.00";
@@ -244,6 +259,8 @@ namespace nPOSProj
             DialogResult dr = MessageBox.Show("Do You Wish To Set Your Transaction to Wholesale?", "Question", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (dr == System.Windows.Forms.DialogResult.Yes)
             {
+                pos.Pos_orno = OrNo;
+                pos.SwitchToWholeSale();
                 btnWholesale.Enabled = false;
                 wholsale_select = true;
             }
@@ -419,6 +436,14 @@ namespace nPOSProj
                                 item.SubItems.Add("0.00");
                                 item.SubItems.Add(computerItemQty.ToString("#,###,##0.00"));
                                 lviewPOS.Items.Add(item);
+                                //Data
+                                pos.Pos_orno = OrNo;
+                                pos.Pos_ean = Convert.ToInt32(txtBoxEAN.Text);
+                                pos.Pos_quantity = Convert.ToInt32(txtBoxQty.Text);
+                                pos.Pos_amt = computerItemQty;
+                                pos.ParkItem();
+                                //
+                                //
                                 btnWholesale.Enabled = false;
                                 Double total_fin = 0;
                                 foreach (ListViewItem lv in lviewPOS.Items)
@@ -478,6 +503,13 @@ namespace nPOSProj
                         uTotal = Convert.ToDouble(item.SubItems[5].Text) + computerItemQty;
                         item.SubItems[1].Text = uQTY.ToString();
                         item.SubItems[5].Text = uTotal.ToString("#,###,##0.00");
+                        //Data
+                        pos.Pos_orno = OrNo;
+                        pos.Pos_ean = Convert.ToInt32(txtBoxEAN.Text);
+                        pos.Pos_quantity = Convert.ToInt32(txtBoxQty.Text);
+                        pos.Pos_amt = uTotal;
+                        pos.ParkItemSameUpdate();
+                        //
                     }
                 }
             }
@@ -677,6 +709,45 @@ namespace nPOSProj
             }
         }
 
+        private void gotoPark()
+        {
+            using (frmDlgPark park = new frmDlgPark())
+            {
+                park.ShowDialog();
+                if (park.Selected == true)
+                {
+                    orderNo = park.OrderNo;
+                    lblSeriesNo.Text = orderNo.ToString();
+                    detectWholesale();
+                    loadParkedData();
+                    loadParkedDataKit();
+                    OrNo = park.OrderNo;
+                    Double total_amt = 0;
+                    //
+                    proceed.Visible = false;
+                    proceeds = true; //important
+                    //
+                    txtBoxQty.ReadOnly = false;
+                    txtBoxQty.Text = "1";
+                    txtBoxEAN.ReadOnly = false;
+                    rdDescription.Clear();
+                    rdDescription.Text = "Ready";
+                    //
+                    btnSearch.Enabled = true;
+                    btnRefund.Enabled = true;
+                    btnCancelSale.Enabled = true;
+                    btnParkSale.Enabled = false;
+                    //
+                    foreach (ListViewItem items in lviewPOS.Items)
+                    {
+                        total_amt += Double.Parse(items.SubItems[5].Text);
+                    }
+                    lblTotalAmount.Text = total_amt.ToString("###,###,##0.00");
+                    txtBoxEAN.Focus();
+                }
+            }
+        }
+
         private void newFlash()
         {
             proceed.Visible = true;
@@ -702,6 +773,120 @@ namespace nPOSProj
 
         #endregion
 
+        private void detectWholesale()
+        {
+            con.ConnectionString = dbcon.getConnectionString();
+            String query = "SELECT pos_iswholesale AS a FROM pos_store ";
+            query += "WHERE (pos_orno = ?pos_orno) AND (pos_iswholesale = 1)";
+            try
+            {
+                con.Open();
+                MySqlCommand cmd = new MySqlCommand(query, con);
+                cmd.Parameters.AddWithValue("?pos_orno", orderNo);
+                cmd.ExecuteScalar();
+                MySqlDataReader rdr = cmd.ExecuteReader();
+                if (rdr.Read())
+                {
+                    if (rdr["a"].ToString() == "1")
+                    {
+                        wholsale_select = true;
+                        btnWholesale.Enabled = false;
+                    }
+                    else
+                    {
+                        wholsale_select = false;
+                        btnWholesale.Enabled = false;
+                    }
+                }
+                con.Close();
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Check Server", "Database Server", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        private void loadParkedData()
+        {
+            try
+            {
+                lviewPOS.Items.Clear();
+                con.ConnectionString = dbcon.getConnectionString();
+                con.Open();
+                String query = "SELECT pos_park.pos_ean AS a, pos_park.pos_quantity AS b, inventory_stocks.stock_name AS c, inventory_items.item_retail_price AS d, inventory_items.item_whole_price AS e, pos_park.pos_discount_amt AS f, pos_park.pos_amt AS g ";
+                query += "FROM pos_park INNER JOIN inventory_items ON pos_park.pos_ean = inventory_items.item_ean INNER JOIN inventory_stocks ON inventory_items.stock_code = inventory_stocks.stock_code ";
+                query += "WHERE (pos_park.pos_orno = ?pos_orno) ORDER BY pos_park.pos_orno";
+                MySqlCommand cmd = new MySqlCommand(query, con);
+                cmd.Parameters.AddWithValue("?pos_orno", orderNo);
+                cmd.ExecuteScalar();
+                MySqlDataReader rdr = cmd.ExecuteReader();
+                while (rdr.Read())
+                {
+                    lviewPOS.BeginUpdate();
+                    ListViewItem lv = new ListViewItem(rdr["a"].ToString());
+                    lv.SubItems.Add(rdr["b"].ToString());
+                    lv.SubItems.Add(rdr["c"].ToString());
+                    if (wholsale_select == true && btnWholesale.Enabled == false)
+                    {
+                        lv.SubItems.Add(Convert.ToDouble(rdr["e"]).ToString("#,###,##0.00")); // Wholesale
+                    }
+                    else
+                    {
+                        lv.SubItems.Add(Convert.ToDouble(rdr["d"]).ToString("#,###,##0.00")); // Retail
+                    }
+                    lv.SubItems.Add(Convert.ToDouble(rdr["f"]).ToString("#,###,##0.00"));
+                    lv.SubItems.Add(Convert.ToDouble(rdr["g"]).ToString("#,###,##0.00"));
+                    lviewPOS.Items.Add(lv);
+                    lviewPOS.EndUpdate();
+                }
+                con.Close();
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Check If Server is Active", "Database Server Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Application.ExitThread();
+            }
+        }
+        private void loadParkedDataKit()
+        {
+            try
+            {
+                con.ConnectionString = dbcon.getConnectionString();
+                con.Open();
+                String query = "SELECT pos_park.pos_ean AS a, pos_park.pos_quantity AS b, inventory_items.kit_name AS c, inventory_items.item_retail_price AS d, inventory_items.item_whole_price AS e, pos_park.pos_discount_amt AS f, pos_park.pos_amt AS g ";
+                query += "FROM pos_park INNER JOIN inventory_items ON pos_park.pos_ean = inventory_items.item_ean ";
+                query += "WHERE (pos_park.pos_orno = ?pos_orno) AND (inventory_items.is_kit = 1) ORDER BY pos_park.pos_orno";
+                MySqlCommand cmd = new MySqlCommand(query, con);
+                cmd.Parameters.AddWithValue("?pos_orno", orderNo);
+                cmd.ExecuteScalar();
+                MySqlDataReader rdr = cmd.ExecuteReader();
+                while (rdr.Read())
+                {
+                    lviewPOS.BeginUpdate();
+                    ListViewItem lv = new ListViewItem(rdr["a"].ToString());
+                    lv.SubItems.Add(rdr["b"].ToString());
+                    lv.SubItems.Add(rdr["c"].ToString());
+                    if (wholsale_select == true && btnWholesale.Enabled == false)
+                    {
+                        lv.SubItems.Add(Convert.ToDouble(rdr["e"]).ToString("#,###,##0.00")); // Wholesale
+                    }
+                    else
+                    {
+                        lv.SubItems.Add(Convert.ToDouble(rdr["d"]).ToString("#,###,##0.00")); // Retail
+                    }
+                    lv.SubItems.Add(Convert.ToDouble(rdr["f"]).ToString("#,###,##0.00"));
+                    lv.SubItems.Add(Convert.ToDouble(rdr["g"]).ToString("#,###,##0.00"));
+                    lviewPOS.Items.Add(lv);
+                    lviewPOS.EndUpdate();
+                }
+                con.Close();
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Check If Server is Active", "Database Server Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Application.ExitThread();
+            }
+        }
+
         private void btnDiscount_Click(object sender, EventArgs e)
         {
             gotoDiscount();
@@ -725,6 +910,11 @@ namespace nPOSProj
         private void btnEdit_Click(object sender, EventArgs e)
         {
             gotoEdit();
+        }
+
+        private void btnParkSale_Click(object sender, EventArgs e)
+        {
+            gotoPark();
         }
     }
 }

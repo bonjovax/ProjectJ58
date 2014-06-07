@@ -262,6 +262,7 @@
             this.btnParkSale.Text = "(F7) Park Sale";
             this.btnParkSale.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnParkSale.UseVisualStyleBackColor = false;
+            this.btnParkSale.Click += new System.EventHandler(this.btnParkSale_Click);
             // 
             // btnCheckout
             // 

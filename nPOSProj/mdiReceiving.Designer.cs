@@ -31,11 +31,11 @@
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(mdiReceiving));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(mdiReceiving));
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.ponoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.podateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -52,6 +52,7 @@
             this.npos_dbDataSet = new nPOSProj.npos_dbDataSet();
             this.po_orderTableAdapter = new nPOSProj.npos_dbDataSetTableAdapters.po_orderTableAdapter();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnR = new System.Windows.Forms.Button();
             this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
             this.btnImport = new System.Windows.Forms.Button();
             this.txtBoxQty = new System.Windows.Forms.TextBox();
@@ -76,7 +77,6 @@
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.label8 = new System.Windows.Forms.Label();
             this.txtBoxRef = new System.Windows.Forms.TextBox();
-            this.btnR = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.poorderBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.npos_dbDataSet)).BeginInit();
@@ -89,7 +89,7 @@
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.AutoGenerateColumns = false;
-            this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.Control;
+            this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ponoDataGridViewTextBoxColumn,
@@ -244,6 +244,18 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Receiving Information";
             // 
+            // btnR
+            // 
+            this.btnR.Enabled = false;
+            this.btnR.Image = ((System.Drawing.Image)(resources.GetObject("btnR.Image")));
+            this.btnR.Location = new System.Drawing.Point(3, 181);
+            this.btnR.Name = "btnR";
+            this.btnR.Size = new System.Drawing.Size(38, 40);
+            this.btnR.TabIndex = 40;
+            this.btnR.UseVisualStyleBackColor = true;
+            this.btnR.Visible = false;
+            this.btnR.Click += new System.EventHandler(this.btnR_Click);
+            // 
             // dateTimePicker2
             // 
             this.dateTimePicker2.Enabled = false;
@@ -394,7 +406,7 @@
             // 
             this.dataGridView2.AllowUserToAddRows = false;
             this.dataGridView2.AllowUserToDeleteRows = false;
-            this.dataGridView2.BackgroundColor = System.Drawing.SystemColors.Control;
+            this.dataGridView2.BackgroundColor = System.Drawing.Color.White;
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dgQTY,
@@ -488,18 +500,6 @@
             this.txtBoxRef.Size = new System.Drawing.Size(226, 23);
             this.txtBoxRef.TabIndex = 39;
             this.txtBoxRef.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtBoxRef_KeyDown);
-            // 
-            // btnR
-            // 
-            this.btnR.Enabled = false;
-            this.btnR.Image = ((System.Drawing.Image)(resources.GetObject("btnR.Image")));
-            this.btnR.Location = new System.Drawing.Point(3, 181);
-            this.btnR.Name = "btnR";
-            this.btnR.Size = new System.Drawing.Size(38, 40);
-            this.btnR.TabIndex = 40;
-            this.btnR.UseVisualStyleBackColor = true;
-            this.btnR.Visible = false;
-            this.btnR.Click += new System.EventHandler(this.btnR_Click);
             // 
             // mdiReceiving
             // 

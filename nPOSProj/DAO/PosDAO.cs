@@ -85,13 +85,13 @@ namespace nPOSProj.DAO
             }
         }
 
-        public void Park_I(Int32 pos_orno, Int32 pos_ean, Int32 pos_quantity, Double pos_discount, Double pos_discount_amt, Double pos_amt)
+        public void Park_I(Int32 pos_orno, Int32 pos_ean, Int32 pos_quantity, Double pos_amt)
         {
             con = new MySqlConnection();
             dbcon = new Conf.dbs();
             con.ConnectionString = dbcon.getConnectionString();
-            String query = "INSERT INTO pos_park (pos_orno, pos_ean, pos_quantity, pos_discount, pos_discount_amt, pos_amt) VALUES";
-            query += "(?pos_orno, ?pos_ean, ?pos_quantity, ?pos_discount, ?pos_discount_amt, ?pos_amt)";
+            String query = "INSERT INTO pos_park (pos_orno, pos_ean, pos_quantity, pos_amt) VALUES";
+            query += "(?pos_orno, ?pos_ean, ?pos_quantity, ?pos_amt)";
             try
             {
                 con.Open();
@@ -99,9 +99,30 @@ namespace nPOSProj.DAO
                 cmd.Parameters.AddWithValue("?pos_orno", pos_orno);
                 cmd.Parameters.AddWithValue("?pos_ean", pos_ean);
                 cmd.Parameters.AddWithValue("?pos_quantity", pos_quantity);
-                cmd.Parameters.AddWithValue("?pos_discount", pos_discount);
-                cmd.Parameters.AddWithValue("?pos_discount_amt", pos_discount_amt);
                 cmd.Parameters.AddWithValue("?pos_amt", pos_amt);
+                cmd.ExecuteNonQuery();
+                cmd.Dispose();
+            }
+            finally
+            {
+                con.Close();
+            }
+        }
+        public void Park_I_Update(Int32 pos_orno, Int32 pos_ean, Int32 pos_quantity, Double pos_amt)
+        {
+            con = new MySqlConnection();
+            dbcon = new Conf.dbs();
+            con.ConnectionString = dbcon.getConnectionString();
+            String query = "UPDATE pos_park SET pos_quantity = pos_quantity + ?pos_quantity, pos_discount = 0, pos_discount_amt = 0, pos_amt = ?pos_amt ";
+            query += "WHERE (pos_orno = ?pos_orno) AND (pos_ean = ?pos_ean)";
+            try
+            {
+                con.Open();
+                MySqlCommand cmd = new MySqlCommand(query, con);
+                cmd.Parameters.AddWithValue("?pos_quantity", pos_quantity);
+                cmd.Parameters.AddWithValue("?pos_amt", pos_amt);
+                cmd.Parameters.AddWithValue("?pos_orno", pos_orno);
+                cmd.Parameters.AddWithValue("?pos_ean", pos_ean);
                 cmd.ExecuteNonQuery();
                 cmd.Dispose();
             }
