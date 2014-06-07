@@ -517,7 +517,7 @@ namespace nPOSProj
                                 lblSub.Text = b.ToString("#,###,##0.00");
                                 // Trunk Data
                                 pos.Pos_tax_perc = taxP;
-                                pos.Pos_tax_amt = b;
+                                pos.Pos_tax_amt = a;
                                 pos.Pos_total_amt = total_fin;
                                 pos.Pos_orno = OrNo;
                                 pos.UpdateTrunk();
@@ -644,7 +644,7 @@ namespace nPOSProj
                     //
                     // Trunk Data
                     pos.Pos_tax_perc = taxP;
-                    pos.Pos_tax_amt = b;
+                    pos.Pos_tax_amt = x;
                     pos.Pos_total_amt = total_disc;
                     pos.Pos_orno = OrNo;
                     pos.UpdateTrunk();
@@ -712,7 +712,7 @@ namespace nPOSProj
                     //
                     // Trunk Data
                     pos.Pos_tax_perc = taxP;
-                    pos.Pos_tax_amt = y;
+                    pos.Pos_tax_amt = x;
                     pos.Pos_total_amt = total_amt;
                     pos.Pos_orno = OrNo;
                     pos.UpdateTrunk();
@@ -751,7 +751,7 @@ namespace nPOSProj
                 //
                 // Trunk Data
                 pos.Pos_tax_perc = taxP;
-                pos.Pos_tax_amt = b;
+                pos.Pos_tax_amt = a;
                 pos.Pos_total_amt = total_amt;
                 pos.Pos_orno = OrNo;
                 pos.UpdateTrunk();
