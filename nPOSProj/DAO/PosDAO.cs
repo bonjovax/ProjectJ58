@@ -252,5 +252,7 @@ namespace nPOSProj.DAO
             }
         }
         #endregion
+        #region Gift Card
+        #endregion
     }
 }

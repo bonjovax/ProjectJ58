@@ -90,6 +90,14 @@ namespace nPOSProj
             set { isARTX = value; }
         }
 
+        private bool isGCTX;
+
+        public bool IsGCTX
+        {
+            get { return isGCTX; }
+            set { isGCTX = value; }
+        }
+
         private String checkNo;
 
         public String CheckNo
@@ -106,11 +114,20 @@ namespace nPOSProj
             set { bankNBranch = value; }
         }
 
+        private Int32 gc_code;
+
+        public Int32 Gc_code
+        {
+            get { return gc_code; }
+            set { gc_code = value; }
+        }
+
         public frmDlgCheckout()
         {
             InitializeComponent();
         }
 
+        #region Lock and Unlock
         private void LockCash_Controls()
         {
             txtBoxTender.ReadOnly = true;
@@ -128,6 +145,10 @@ namespace nPOSProj
         private void LockAR_Controls()
         {
             //Adding thingy here
+        }
+        private void LockGC_Controls()
+        {
+            txtBoxGCode.ReadOnly = true;
         }
         //
         private void UnlockCash_Controls()
@@ -148,13 +169,19 @@ namespace nPOSProj
         {
             //Put That Thingy Here Also
         }
-
+        private void UnlockGC_Controls()
+        {
+            txtBoxGCode.ReadOnly = true;
+        }
+        #endregion
+        //
         private void frmDlgCheckout_Load(object sender, EventArgs e)
         {
             lblTotalAmount.Text = GetAmount.ToString("#,###,##0.00");
             lblTotalAmountDC.Text = GetAmount.ToString("#,###,##0.00");
             lblTotalAmountBC.Text = GetAmount.ToString("#,###,##0.00");
             lblTotalAmountAR.Text = GetAmount.ToString("#,###,##0.00");
+            lblTotalAmountGC.Text = GetAmount.ToString("#,###,##0.00");
             //Tx Controls
             IsCashTX = false;
             IsDCTX = false;
@@ -175,6 +202,7 @@ namespace nPOSProj
                 LockCash_Controls();
                 LockBC_Controls();
                 LockAR_Controls();
+                LockGC_Controls();
                 if (mskCC.Text.Substring(0, 1) == "4")
                 {
                     pVisa.Visible = true;
@@ -198,6 +226,7 @@ namespace nPOSProj
                 UnlockCash_Controls();
                 UnlockBC_Controls();
                 UnlockAR_Controls();
+                UnlockGC_Controls();
                 pVisa.Visible = false;
                 pMaster.Visible = false;
                 txtBoxCardHoldersName.ReadOnly = true;
@@ -232,6 +261,7 @@ namespace nPOSProj
                 LockCash_Controls();
                 LockDC_Controls();
                 LockAR_Controls();
+                LockGC_Controls();
             }
             else
             {
@@ -239,6 +269,7 @@ namespace nPOSProj
                 UnlockCash_Controls();
                 UnlockDC_Controls();
                 UnlockAR_Controls();
+                UnlockGC_Controls();
             }
         }
 
@@ -254,6 +285,7 @@ namespace nPOSProj
                 LockCash_Controls();
                 LockDC_Controls();
                 LockAR_Controls();
+                LockGC_Controls();
             }
             else
             {
@@ -261,6 +293,7 @@ namespace nPOSProj
                 UnlockCash_Controls();
                 UnlockDC_Controls();
                 UnlockAR_Controls();
+                UnlockGC_Controls();
             }
         }
 
@@ -302,12 +335,14 @@ namespace nPOSProj
                 LockDC_Controls();
                 LockBC_Controls();
                 LockAR_Controls();
+                LockGC_Controls();
             }
             else
             {
                 UnlockDC_Controls();
                 UnlockBC_Controls();
                 UnlockAR_Controls();
+                UnlockGC_Controls();
             }
         }
 
@@ -318,12 +353,14 @@ namespace nPOSProj
                 LockCash_Controls();
                 LockBC_Controls();
                 LockAR_Controls();
+                LockGC_Controls();
             }
             else
             {
                 UnlockCash_Controls();
                 UnlockBC_Controls();
                 UnlockAR_Controls();
+                UnlockGC_Controls();
             }
         }
 
@@ -379,6 +416,24 @@ namespace nPOSProj
                 CRef = lblRefNo.Text;
                 IsBCTX = true;
                 this.Close();
+            }
+        }
+
+        private void txtBoxGCode_TextChanged(object sender, EventArgs e)
+        {
+            if (txtBoxGCode.Text != "")
+            {
+                LockDC_Controls();
+                LockBC_Controls();
+                LockAR_Controls();
+                LockCash_Controls();
+            }
+            else
+            {
+                UnlockDC_Controls();
+                UnlockBC_Controls();
+                UnlockAR_Controls();
+                UnlockCash_Controls();
             }
         }
     }
