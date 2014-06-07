@@ -137,7 +137,7 @@ namespace nPOSProj.DAO
             dbcon = new Conf.dbs();
             con.ConnectionString = dbcon.getConnectionString();
             String query = "UPDATE pos_park SET pos_quantity = ?pos_quantity, pos_discount = ?pos_discount, pos_discount_amt = ?pos_discount_amt, pos_amt = ?pos_amt ";
-            query += "WHERE pos_orno = ?pos_orno AND pos_ean = ?pos_ean";
+            query += "WHERE (pos_orno = ?pos_orno) AND (pos_ean = ?pos_ean)";
             try
             {
                 con.Open();
@@ -162,7 +162,7 @@ namespace nPOSProj.DAO
             dbcon = new Conf.dbs();
             con.ConnectionString = dbcon.getConnectionString();
             String query = "UPDATE pos_park SET pos_discount = ?pos_discount, pos_discount_amt = ?pos_discount_amt, pos_amt = ?pos_amt ";
-            query += "WHERE pos_orno = ?pos_orno AND pos_ean = ?pos_ean";
+            query += "WHERE (pos_orno = ?pos_orno) AND (pos_ean = ?pos_ean)";
             try
             {
                 con.Open();
@@ -186,7 +186,7 @@ namespace nPOSProj.DAO
             dbcon = new Conf.dbs();
             con.ConnectionString = dbcon.getConnectionString();
             String query = "DELETE FROM pos_park ";
-            query += "WHERE pos_orno = ?pos_orno AND pos_ean = ?pos_ean";
+            query += "WHERE (pos_orno = ?pos_orno) AND (pos_ean = ?pos_ean)";
             try
             {
                 con.Open();
@@ -227,5 +227,30 @@ namespace nPOSProj.DAO
                 con.Close();
             }
         }
+        #region Attribute
+        public void UpdateTrunkSales(Double tax_p, Double tax_amt, Double pos_total_amt, Int32 pos_orno)
+        {
+            con = new MySqlConnection();
+            dbcon = new Conf.dbs();
+            con.ConnectionString = dbcon.getConnectionString();
+            String query = "UPDATE pos_store SET pos_tax_perc = ?a, pos_tax_amt = ?b, pos_total_amt = ?c ";
+            query += "WHERE pos_orno = ?pos_orno";
+            try
+            {
+                con.Open();
+                MySqlCommand cmd = new MySqlCommand(query, con);
+                cmd.Parameters.AddWithValue("?a", tax_p);
+                cmd.Parameters.AddWithValue("?b", tax_amt);
+                cmd.Parameters.AddWithValue("?c", pos_total_amt);
+                cmd.Parameters.AddWithValue("?pos_orno", pos_orno);
+                cmd.ExecuteNonQuery();
+                cmd.Dispose();
+            }
+            finally
+            {
+                con.Close();
+            }
+        }
+        #endregion
     }
 }

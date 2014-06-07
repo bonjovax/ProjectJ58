@@ -203,5 +203,11 @@ namespace nPOSProj.VO
             POSDAO = new DAO.PosDAO();
             POSDAO.CancelT(Pos_orno);
         }
+
+        public void UpdateTrunk()
+        {
+            POSDAO = new DAO.PosDAO();
+            POSDAO.UpdateTrunkSales(Pos_tax_perc, Pos_tax_amt, Pos_total_amt, Pos_orno);
+        }
     }
 }

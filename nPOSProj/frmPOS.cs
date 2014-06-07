@@ -12,6 +12,10 @@ namespace nPOSProj
 {
     public partial class frmPOS : Form
     {
+        #region System Config
+        private Double taxP;
+        private String taxDisplay;
+        #endregion
         private MySqlConnection con = new MySqlConnection();
         private Conf.dbs dbcon = new Conf.dbs();
         private DAO.LoginDAO login;
@@ -32,6 +36,11 @@ namespace nPOSProj
         #endregion
         //
         private Int32 orderNo = 0;
+        //Catch
+        private Int32 catchEan = 0;
+        private Int32 catchQty = 0;
+        private Double catchPrice = 0;
+        //
 
         public frmPOS()
         {
@@ -183,7 +192,6 @@ namespace nPOSProj
                 lblTotalAmount.Text = "0.00";
                 lblChangeDue.Text = "0.00";
                 lblSub.Text = "0.00";
-                lblTax.Text = "0.00";
                 lviewPOS.Items.Clear();
                 txtBoxEAN.Focus();
                 return true;
@@ -233,6 +241,39 @@ namespace nPOSProj
             timer2.Start();
             timer2.Tick += new EventHandler(timer2_Tick);
             timer2.Interval = 250;
+            //
+            ConfigCheck();
+            lblTax.Text = taxDisplay.ToString();
+        }
+        private void ConfigCheck()
+        {
+            con.ConnectionString = dbcon.getConnectionString();
+            String query = "SELECT * FROM system_config";
+            try
+            {
+                con.Open();
+                MySqlCommand cmd = new MySqlCommand(query, con);
+                cmd.ExecuteScalar();
+                MySqlDataReader rdr = cmd.ExecuteReader();
+                if (rdr.Read())
+                {
+                    if (rdr["tax_type"].ToString() == "V")
+                    {
+                        taxP = Convert.ToDouble("." + rdr["vat_rate"]);
+                        taxDisplay = rdr["vat_rate"].ToString() + "%";
+                    }
+                    else
+                    {
+                        taxP = 0;
+                        taxDisplay = "0%";
+                    }
+                }
+                con.Close();
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Check Database Server!", "Database Server", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         void timer2_Tick(object sender, EventArgs e)
@@ -402,11 +443,26 @@ namespace nPOSProj
             computerItemQty = Convert.ToDouble(txtBoxQty.Text) * price;
             rdTotal.Text = computerItemQty.ToString("#,###,##0.00");
             Double total_fin = 0;
+            Double total_fins = 0;
+            Double a = 0;
+            Double b = 0;
             foreach (ListViewItem lv in lviewPOS.Items)
             {
                 total_fin += Double.Parse(lv.SubItems[5].Text);
+                total_fins += Double.Parse(lv.SubItems[5].Text);
             }
             lblTotalAmount.Text = total_fin.ToString("###,###,##0.00");
+            //Tax
+            a = total_fins * taxP;
+            b = total_fins - a;
+            lblSub.Text = b.ToString("#,###,##0.00");
+            // Trunk Data
+            pos.Pos_tax_perc = taxP;
+            pos.Pos_tax_amt = b;
+            pos.Pos_total_amt = total_fin;
+            pos.Pos_orno = OrNo;
+            pos.UpdateTrunk();
+            //
             txtBoxEAN.Clear();
             txtBoxEAN.Focus();
             txtBoxQty.Text = "1";
@@ -446,11 +502,26 @@ namespace nPOSProj
                                 //
                                 btnWholesale.Enabled = false;
                                 Double total_fin = 0;
+                                Double total_fins = 0;
+                                Double a = 0;
+                                Double b = 0; //To Data Tax Amount
                                 foreach (ListViewItem lv in lviewPOS.Items)
                                 {
                                     total_fin += Double.Parse(lv.SubItems[5].Text);
+                                    total_fins += Double.Parse(lv.SubItems[5].Text);
                                 }
                                 lblTotalAmount.Text = total_fin.ToString("###,###,##0.00");
+                                //Tax
+                                a = total_fins * taxP;
+                                b = total_fins - a;
+                                lblSub.Text = b.ToString("#,###,##0.00");
+                                // Trunk Data
+                                pos.Pos_tax_perc = taxP;
+                                pos.Pos_tax_amt = b;
+                                pos.Pos_total_amt = total_fin;
+                                pos.Pos_orno = OrNo;
+                                pos.UpdateTrunk();
+                                //
                                 if (lviewPOS.Items.Count != 0)
                                 {
                                     btnCheckout.Enabled = true;
@@ -527,6 +598,9 @@ namespace nPOSProj
             if (lviewPOS.SelectedItems.Count > 0)
             {
                 ListViewItem item = lviewPOS.SelectedItems[0];
+                catchEan = Convert.ToInt32(item.Text);
+                catchQty = Convert.ToInt32(item.SubItems[1].Text);
+                catchPrice = Convert.ToDouble(item.SubItems[3].Text);
                 //Discount
                 getTotalAmt = Convert.ToDouble(item.SubItems[5].Text);
                 btnDiscount.Enabled = true;
@@ -554,11 +628,33 @@ namespace nPOSProj
                     item.SubItems[4].Text = a.ToString("#,###,##0.00");
                     item.SubItems[5].Text = b.ToString("#,###,##0.00");
                     Double total_disc = 0;
+                    Double total_discs = 0;
+                    Double x = 0;
+                    Double y = 0;
                     foreach (ListViewItem items in lviewPOS.Items)
                     {
                         total_disc += Double.Parse(items.SubItems[5].Text);
+                        total_discs += Double.Parse(items.SubItems[5].Text);
                     }
                     lblTotalAmount.Text = total_disc.ToString("###,###,##0.00");
+                    //Tax
+                    x = total_discs * taxP;
+                    y = total_disc - x;
+                    lblSub.Text = y.ToString("#,###,##0.00");
+                    //
+                    // Trunk Data
+                    pos.Pos_tax_perc = taxP;
+                    pos.Pos_tax_amt = b;
+                    pos.Pos_total_amt = total_disc;
+                    pos.Pos_orno = OrNo;
+                    pos.UpdateTrunk();
+                    //Update Park Item With Discount
+                    pos.Pos_ean = catchEan;
+                    pos.Pos_discount = disc.Percentage;
+                    pos.Pos_discount_amt = a;
+                    pos.Pos_amt = b;
+                    pos.ParkDiscountItemUpdate();
+                    //
                     btnDiscount.Enabled = false;
                     btnEdit.Enabled = false;
                     btnVoid.Enabled = false;
@@ -577,12 +673,10 @@ namespace nPOSProj
         {
             Int32 qty = 0;
             Double a = 0;
-            Double b = 0;
-            Double c = 0;
-            Double discount_p = 0; //Database Grabbing DON'T FORGET! **Change it if you want**
             using (frmDlgEditQty edit = new frmDlgEditQty())
             {
                 ListViewItem item = lviewPOS.SelectedItems[0];
+                Int32 uEan = Convert.ToInt32(item.Text);
                 edit.dQty = Convert.ToInt32(item.SubItems[1].Text); //Display
                 edit.ShowDialog();
                 if (edit.Qty != 0)
@@ -590,19 +684,39 @@ namespace nPOSProj
                     item.SubItems[1].Text = edit.Qty.ToString();
                     qty = Convert.ToInt32(item.SubItems[1].Text); //Computation
                     a = qty * Convert.ToDouble(item.SubItems[3].Text); // Get Initial Total
-                    b = a * discount_p; //Compute Discount Percentage
-                    c = a - b; // Final
-                    item.SubItems[4].Text = b.ToString("#,###,##0.00");
-                    item.SubItems[5].Text = c.ToString("#,###,##0.00");
+                    item.SubItems[4].Text = "0.00"; //Discount
+                    item.SubItems[5].Text = a.ToString("#,###,##0.00"); //Total
                     btnEdit.Enabled = false;
                     btnDiscount.Enabled = false;
                     btnVoid.Enabled = false;
                     Double total_amt = 0;
+                    Double total_amts = 0;
+                    Double x = 0;
+                    Double y = 0;
                     foreach (ListViewItem items in lviewPOS.Items)
                     {
                         total_amt += Double.Parse(items.SubItems[5].Text);
+                        total_amts += Double.Parse(items.SubItems[5].Text);
                     }
                     lblTotalAmount.Text = total_amt.ToString("###,###,##0.00");
+                    //Tax
+                    x = total_amts * taxP;
+                    y = total_amts - x;
+                    lblSub.Text = y.ToString("#,###,##0.00");
+                    //Update Data
+                    pos.Pos_orno = OrNo;
+                    pos.Pos_ean = uEan;
+                    pos.Pos_quantity = qty;
+                    pos.Pos_amt = a;
+                    pos.ParkItemUpdate();
+                    //
+                    // Trunk Data
+                    pos.Pos_tax_perc = taxP;
+                    pos.Pos_tax_amt = y;
+                    pos.Pos_total_amt = total_amt;
+                    pos.Pos_orno = OrNo;
+                    pos.UpdateTrunk();
+                    //
                 }
                 else
                 {
@@ -618,13 +732,33 @@ namespace nPOSProj
             DialogResult dlg = MessageBox.Show("Do you wish to Continue?", "Void Item", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (dlg == System.Windows.Forms.DialogResult.Yes)
             {
-                lviewPOS.Items[0].Remove();
+                Int32 eanX = catchEan;
+                lviewPOS.SelectedItems[0].Remove();
                 Double total_amt = 0;
+                Double total_amts = 0;
+                Double a = 0;
+                Double b = 0;
                 foreach (ListViewItem items in lviewPOS.Items)
                 {
                     total_amt += Double.Parse(items.SubItems[5].Text);
+                    total_amts += Double.Parse(items.SubItems[5].Text);
                 }
                 lblTotalAmount.Text = total_amt.ToString("###,###,##0.00");
+                //Tax
+                a = total_amts * taxP;
+                b = total_amts - a;
+                lblSub.Text = b.ToString("#,###,##0.00");
+                //
+                // Trunk Data
+                pos.Pos_tax_perc = taxP;
+                pos.Pos_tax_amt = b;
+                pos.Pos_total_amt = total_amt;
+                pos.Pos_orno = OrNo;
+                pos.UpdateTrunk();
+                //Void Item Data
+                pos.Pos_ean = eanX;
+                pos.ParkVoidItem();
+                //
                 btnVoid.Enabled = false;
                 if (lviewPOS.Items.Count != 0)
                 {
@@ -723,6 +857,8 @@ namespace nPOSProj
                     loadParkedDataKit();
                     OrNo = park.OrderNo;
                     Double total_amt = 0;
+                    Double a = 0;
+                    Double b = 0;
                     //
                     proceed.Visible = false;
                     proceeds = true; //important
@@ -742,6 +878,11 @@ namespace nPOSProj
                     {
                         total_amt += Double.Parse(items.SubItems[5].Text);
                     }
+                    //Tax
+                    a = total_amt * taxP;
+                    b = total_amt - a;
+                    lblSub.Text = b.ToString("#,###,##0.00");
+                    //
                     lblTotalAmount.Text = total_amt.ToString("###,###,##0.00");
                     txtBoxEAN.Focus();
                 }
