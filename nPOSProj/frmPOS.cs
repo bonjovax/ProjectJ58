@@ -615,7 +615,13 @@ namespace nPOSProj
                 btnVoid.Enabled = true; //Void
                 discountTx = true;
                 //
-                btnEdit.Enabled = true;
+                login = new DAO.LoginDAO();
+                String userName = frmLogin.User.user_name;
+                login.catchUsername(userName);
+                if (login.hasUser_Accounts())
+                {
+                    btnEdit.Enabled = true;
+                }   
             }
         }
 
