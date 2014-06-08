@@ -57,13 +57,14 @@
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.lblTotalAmountAR = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.tabPage5 = new System.Windows.Forms.TabPage();
-            this.lblTotalAmountGC = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
+            this.lblNotif = new System.Windows.Forms.Label();
             this.txtBoxGCode = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.lblNotif = new System.Windows.Forms.Label();
+            this.lblTotalAmountGC = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
+            this.btnProceed = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -455,19 +456,10 @@
             this.label8.Text = "Total Amount";
             this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // imageList1
-            // 
-            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
-            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
-            this.imageList1.Images.SetKeyName(0, "cash.png");
-            this.imageList1.Images.SetKeyName(1, "creditcard.png");
-            this.imageList1.Images.SetKeyName(2, "cheque.png");
-            this.imageList1.Images.SetKeyName(3, "account.png");
-            this.imageList1.Images.SetKeyName(4, "gift-card-icon.png");
-            // 
             // tabPage5
             // 
             this.tabPage5.BackColor = System.Drawing.Color.Black;
+            this.tabPage5.Controls.Add(this.btnProceed);
             this.tabPage5.Controls.Add(this.lblNotif);
             this.tabPage5.Controls.Add(this.txtBoxGCode);
             this.tabPage5.Controls.Add(this.label4);
@@ -481,31 +473,17 @@
             this.tabPage5.TabIndex = 4;
             this.tabPage5.Text = "Gift Card";
             // 
-            // lblTotalAmountGC
+            // lblNotif
             // 
-            this.lblTotalAmountGC.BackColor = System.Drawing.Color.Black;
-            this.lblTotalAmountGC.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.lblTotalAmountGC.Font = new System.Drawing.Font("Courier New", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTotalAmountGC.ForeColor = System.Drawing.Color.Lime;
-            this.lblTotalAmountGC.Location = new System.Drawing.Point(0, 41);
-            this.lblTotalAmountGC.Name = "lblTotalAmountGC";
-            this.lblTotalAmountGC.Size = new System.Drawing.Size(495, 66);
-            this.lblTotalAmountGC.TabIndex = 29;
-            this.lblTotalAmountGC.Text = "0.00";
-            this.lblTotalAmountGC.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
-            // label7
-            // 
-            this.label7.BackColor = System.Drawing.Color.MidnightBlue;
-            this.label7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.label7.Font = new System.Drawing.Font("Courier New", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.Color.White;
-            this.label7.Location = new System.Drawing.Point(0, 1);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(495, 40);
-            this.label7.TabIndex = 28;
-            this.label7.Text = "Total Amount";
-            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblNotif.BackColor = System.Drawing.Color.Black;
+            this.lblNotif.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.lblNotif.Font = new System.Drawing.Font("Courier New", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNotif.ForeColor = System.Drawing.Color.Red;
+            this.lblNotif.Location = new System.Drawing.Point(0, 160);
+            this.lblNotif.Name = "lblNotif";
+            this.lblNotif.Size = new System.Drawing.Size(492, 26);
+            this.lblNotif.TabIndex = 32;
+            this.lblNotif.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // txtBoxGCode
             // 
@@ -533,17 +511,53 @@
             this.label4.TabIndex = 31;
             this.label4.Text = "Gift Card No";
             // 
-            // lblNotif
+            // lblTotalAmountGC
             // 
-            this.lblNotif.BackColor = System.Drawing.Color.Black;
-            this.lblNotif.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.lblNotif.Font = new System.Drawing.Font("Courier New", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNotif.ForeColor = System.Drawing.Color.Red;
-            this.lblNotif.Location = new System.Drawing.Point(-3, 160);
-            this.lblNotif.Name = "lblNotif";
-            this.lblNotif.Size = new System.Drawing.Size(495, 26);
-            this.lblNotif.TabIndex = 32;
-            this.lblNotif.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.lblTotalAmountGC.BackColor = System.Drawing.Color.Black;
+            this.lblTotalAmountGC.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.lblTotalAmountGC.Font = new System.Drawing.Font("Courier New", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotalAmountGC.ForeColor = System.Drawing.Color.Lime;
+            this.lblTotalAmountGC.Location = new System.Drawing.Point(0, 41);
+            this.lblTotalAmountGC.Name = "lblTotalAmountGC";
+            this.lblTotalAmountGC.Size = new System.Drawing.Size(495, 66);
+            this.lblTotalAmountGC.TabIndex = 29;
+            this.lblTotalAmountGC.Text = "0.00";
+            this.lblTotalAmountGC.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // label7
+            // 
+            this.label7.BackColor = System.Drawing.Color.MidnightBlue;
+            this.label7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.label7.Font = new System.Drawing.Font("Courier New", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.Color.White;
+            this.label7.Location = new System.Drawing.Point(0, 1);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(495, 40);
+            this.label7.TabIndex = 28;
+            this.label7.Text = "Total Amount";
+            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // imageList1
+            // 
+            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
+            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageList1.Images.SetKeyName(0, "cash.png");
+            this.imageList1.Images.SetKeyName(1, "creditcard.png");
+            this.imageList1.Images.SetKeyName(2, "cheque.png");
+            this.imageList1.Images.SetKeyName(3, "account.png");
+            this.imageList1.Images.SetKeyName(4, "gift-card-icon.png");
+            // 
+            // btnProceed
+            // 
+            this.btnProceed.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnProceed.ForeColor = System.Drawing.Color.White;
+            this.btnProceed.Location = new System.Drawing.Point(1, 189);
+            this.btnProceed.Name = "btnProceed";
+            this.btnProceed.Size = new System.Drawing.Size(491, 32);
+            this.btnProceed.TabIndex = 33;
+            this.btnProceed.Text = "Proceed";
+            this.btnProceed.UseVisualStyleBackColor = true;
+            this.btnProceed.Visible = false;
             // 
             // frmDlgCheckout
             // 
@@ -614,5 +628,6 @@
         private System.Windows.Forms.TextBox txtBoxGCode;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label lblNotif;
+        private System.Windows.Forms.Button btnProceed;
     }
 }
