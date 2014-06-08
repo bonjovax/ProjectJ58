@@ -899,10 +899,14 @@ namespace nPOSProj
                     }
                     if (lviewPOS.Items.Count != 0)
                     {
+                        btnCancelSale.Enabled = true;
                         btnCheckout.Enabled = true;
                     }
                     else
+                    {
+                        btnCancelSale.Enabled = false;
                         btnCheckout.Enabled = false;
+                    }
                     //Tax
                     a = total_amt * taxP;
                     b = total_amt - a;
