@@ -198,6 +198,12 @@ namespace nPOSProj.VO
             POSDAO.ParkVoid_I(Pos_orno, Pos_ean);
         }
 
+        public void ReturnCancelItems()
+        {
+            POSDAO = new DAO.PosDAO();
+            POSDAO.ReturnCancelI(Pos_ean, Pos_quantity, Pos_orno);
+        }
+
         public void CancelSale()
         {
             POSDAO = new DAO.PosDAO();

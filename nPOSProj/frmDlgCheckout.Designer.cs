@@ -58,13 +58,13 @@
             this.lblTotalAmountAR = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.tabPage5 = new System.Windows.Forms.TabPage();
+            this.btnProceed = new System.Windows.Forms.Button();
             this.lblNotif = new System.Windows.Forms.Label();
             this.txtBoxGCode = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.lblTotalAmountGC = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
-            this.btnProceed = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -473,6 +473,18 @@
             this.tabPage5.TabIndex = 4;
             this.tabPage5.Text = "Gift Card";
             // 
+            // btnProceed
+            // 
+            this.btnProceed.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnProceed.ForeColor = System.Drawing.Color.White;
+            this.btnProceed.Location = new System.Drawing.Point(1, 189);
+            this.btnProceed.Name = "btnProceed";
+            this.btnProceed.Size = new System.Drawing.Size(491, 32);
+            this.btnProceed.TabIndex = 33;
+            this.btnProceed.Text = "Proceed";
+            this.btnProceed.UseVisualStyleBackColor = true;
+            this.btnProceed.Visible = false;
+            // 
             // lblNotif
             // 
             this.lblNotif.BackColor = System.Drawing.Color.Black;
@@ -546,18 +558,6 @@
             this.imageList1.Images.SetKeyName(2, "cheque.png");
             this.imageList1.Images.SetKeyName(3, "account.png");
             this.imageList1.Images.SetKeyName(4, "gift-card-icon.png");
-            // 
-            // btnProceed
-            // 
-            this.btnProceed.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnProceed.ForeColor = System.Drawing.Color.White;
-            this.btnProceed.Location = new System.Drawing.Point(1, 189);
-            this.btnProceed.Name = "btnProceed";
-            this.btnProceed.Size = new System.Drawing.Size(491, 32);
-            this.btnProceed.TabIndex = 33;
-            this.btnProceed.Text = "Proceed";
-            this.btnProceed.UseVisualStyleBackColor = true;
-            this.btnProceed.Visible = false;
             // 
             // frmDlgCheckout
             // 

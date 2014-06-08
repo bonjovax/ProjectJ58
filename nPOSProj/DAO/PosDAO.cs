@@ -201,12 +201,34 @@ namespace nPOSProj.DAO
                 con.Close();
             }
         }
+        public void ReturnCancelI(Int32 pos_ean, Int32 pos_quantity, Int32 pos_orno)
+        {
+            con = new MySqlConnection();
+            dbcon = new Conf.dbs();
+            con.ConnectionString = dbcon.getConnectionString();
+            String query = "UPDATE pos_park SET pos_quantity = pos_quantity - ?pos_quantity ";
+            query += "WHERE (pos_ean = ?pos_ean) AND (pos_orno = ?pos_orno)";
+            try
+            {
+                con.Open();
+                MySqlCommand cmd = new MySqlCommand(query, con);
+                cmd.Parameters.AddWithValue("?pos_ean", pos_ean);
+                cmd.Parameters.AddWithValue("?pos_quantity", pos_quantity);
+                cmd.Parameters.AddWithValue("?pos_orno", pos_orno);
+                cmd.ExecuteNonQuery();
+                cmd.Dispose();
+            }
+            finally
+            {
+                con.Close();
+            }
+        }
         public void CancelT(Int32 pos_orno)
         {
             con = new MySqlConnection();
             dbcon = new Conf.dbs();
             con.ConnectionString = dbcon.getConnectionString();
-            String query = "DELETE FROM pos_store ";
+            String query = "UPDATE pos_store SET is_cancel = 1, pos_park = 0, pos_tax_perc = 0, pos_tax_amt = 0, pos_total_amt = 0, pos_total_amt = 0 ";
             query += "WHERE pos_orno = ?pos_orno";
             String query1 = "DELETE FROM pos_park ";
             query1 += "DELETE pos_orno = ?pos_orno";

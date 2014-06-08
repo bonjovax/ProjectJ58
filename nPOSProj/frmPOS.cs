@@ -895,6 +895,71 @@ namespace nPOSProj
             }
         }
 
+        private void gotoCancelT()
+        {
+            DialogResult dlg = MessageBox.Show("Do you Wish To Cancel Transaction Made By You?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if (dlg == System.Windows.Forms.DialogResult.Yes)
+            {
+                String query = "SELECT pos_ean, pos_quantity FROM pos_park ";
+                query += "WHERE pos_orno = ?pos_orno";
+                using (MySqlConnection con = new MySqlConnection(dbcon.getConnectionString()))
+                {
+                    using (MySqlDataAdapter adapter = new MySqlDataAdapter(query, con))
+                    {
+                        try
+                        {
+                            adapter.SelectCommand.Parameters.AddWithValue("?pos_orno", OrNo);
+                            pos.Pos_orno = OrNo;
+                            DataTable dataTable = new DataTable();
+                            adapter.Fill(dataTable);
+                            for (int i = 0; i < dataTable.Rows.Count; i++)
+                            {
+                                Int32 Eans = 0;
+                                Int32 qtys = 0;
+                                Eans = Convert.ToInt32(dataTable.Rows[i][0]);
+                                qtys = Convert.ToInt32(dataTable.Rows[i][1]);
+                                //Data Integration Return Sale to Item
+                                pos.Pos_ean = Eans;
+                                pos.Pos_quantity = qtys;
+                                pos.ReturnCancelItems();
+                                //
+                            }
+                            //Wipe all Park Item and Switch Core Table to Cancelled
+                            pos.CancelSale();
+                            //
+                            //Event
+                            lviewPOS.Items.Clear();
+                            btnSearch.Enabled = false;
+                            btnRefund.Enabled = false;
+                            btnWholesale.Enabled = false;
+                            btnCancelSale.Enabled = false;
+                            btnParkSale.Enabled = true;
+                            btnVoid.Enabled = false;
+                            btnEdit.Enabled = false;
+                            btnCancelSale.Enabled = false;
+                            btnCheckout.Enabled = false; //Very Important La
+                            btnDiscount.Enabled = false;
+                            txtBoxQty.ReadOnly = true;
+                            txtBoxEAN.ReadOnly = true;
+                            txtBoxEAN.Focus();
+                            proceeds = false; //Important
+                            //
+                            proceed.Visible = true;
+                            txtBoxQty.Text = "1";
+                            rdDescription.Text = "Transaction Cancelled!";
+                            rdPrice.Text = "0.00";
+                            rdTotal.Text = "0.00";
+                            //
+                        }
+                        catch (MySqlException ex)
+                        {
+                            Console.WriteLine(ex.ToString());
+                        }
+                    }
+                }
+            }
+        }
+
         private void newFlash()
         {
             proceed.Visible = true;
@@ -1062,6 +1127,11 @@ namespace nPOSProj
         private void btnParkSale_Click(object sender, EventArgs e)
         {
             gotoPark();
+        }
+
+        private void btnCancelSale_Click(object sender, EventArgs e)
+        {
+            gotoCancelT();
         }
     }
 }

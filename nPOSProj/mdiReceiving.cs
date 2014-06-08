@@ -94,21 +94,10 @@ namespace nPOSProj
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            try
-            {
-                getDataTable();
-                rdPONo.Text = dataGridView1.SelectedRows[0].Cells[0].Value.ToString();
-                dateTimePicker2.Text = dataGridView1.SelectedRows[0].Cells[1].Value.ToString();
-                rdSupplierCode.Text = dataGridView1.SelectedRows[0].Cells[3].Value.ToString();
-                rdSupplierName.Text = dataGridView1.SelectedRows[0].Cells[4].Value.ToString();
-                getRefNo();
-                txtBoxRef.ReadOnly = false;
-                btnR.Enabled = true;
-            }
-            catch (Exception)
-            {
-
-            }
+            rdPONo.Text = dataGridView1.SelectedRows[0].Cells[0].Value.ToString();
+            rdSupplierCode.Text = dataGridView1.SelectedRows[0].Cells[3].Value.ToString();
+            rdSupplierName.Text = dataGridView1.SelectedRows[0].Cells[4].Value.ToString();
+            getDataTable();
         }
 
         private void dateTimePicker1_ValueChanged(object sender, EventArgs e)

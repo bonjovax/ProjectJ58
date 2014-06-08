@@ -243,6 +243,7 @@
             this.btnCancelSale.Text = "(F6) Cancel Sale";
             this.btnCancelSale.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnCancelSale.UseVisualStyleBackColor = false;
+            this.btnCancelSale.Click += new System.EventHandler(this.btnCancelSale_Click);
             // 
             // btnParkSale
             // 

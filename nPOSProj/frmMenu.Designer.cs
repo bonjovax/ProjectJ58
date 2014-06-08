@@ -62,12 +62,13 @@
             // 
             // btnLogout
             // 
+            this.btnLogout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLogout.Image = ((System.Drawing.Image)(resources.GetObject("btnLogout.Image")));
             this.btnLogout.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnLogout.Location = new System.Drawing.Point(640, 486);
+            this.btnLogout.Location = new System.Drawing.Point(638, 486);
             this.btnLogout.Name = "btnLogout";
             this.btnLogout.Size = new System.Drawing.Size(61, 74);
-            this.btnLogout.TabIndex = 1;
+            this.btnLogout.TabIndex = 9;
             this.btnLogout.Text = "&Log-out";
             this.btnLogout.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnLogout.UseVisualStyleBackColor = true;
@@ -83,7 +84,7 @@
             this.btnSales.Location = new System.Drawing.Point(12, 133);
             this.btnSales.Name = "btnSales";
             this.btnSales.Size = new System.Drawing.Size(164, 162);
-            this.btnSales.TabIndex = 2;
+            this.btnSales.TabIndex = 0;
             this.btnSales.Text = "Sales (F1)";
             this.btnSales.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnSales.UseVisualStyleBackColor = true;
@@ -99,7 +100,7 @@
             this.btnGenReports.Location = new System.Drawing.Point(522, 133);
             this.btnGenReports.Name = "btnGenReports";
             this.btnGenReports.Size = new System.Drawing.Size(164, 162);
-            this.btnGenReports.TabIndex = 3;
+            this.btnGenReports.TabIndex = 4;
             this.btnGenReports.Text = "Reports (F4)";
             this.btnGenReports.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnGenReports.UseVisualStyleBackColor = true;
@@ -114,7 +115,7 @@
             this.btnCustomers.Location = new System.Drawing.Point(182, 133);
             this.btnCustomers.Name = "btnCustomers";
             this.btnCustomers.Size = new System.Drawing.Size(164, 162);
-            this.btnCustomers.TabIndex = 4;
+            this.btnCustomers.TabIndex = 1;
             this.btnCustomers.Text = "Customers (F2)";
             this.btnCustomers.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnCustomers.UseVisualStyleBackColor = true;
@@ -130,7 +131,7 @@
             this.btnInventory.Location = new System.Drawing.Point(352, 133);
             this.btnInventory.Name = "btnInventory";
             this.btnInventory.Size = new System.Drawing.Size(164, 162);
-            this.btnInventory.TabIndex = 6;
+            this.btnInventory.TabIndex = 3;
             this.btnInventory.Text = "Inventory (F3)";
             this.btnInventory.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnInventory.UseVisualStyleBackColor = true;
@@ -146,7 +147,7 @@
             this.btnGC.Location = new System.Drawing.Point(96, 301);
             this.btnGC.Name = "btnGC";
             this.btnGC.Size = new System.Drawing.Size(164, 162);
-            this.btnGC.TabIndex = 7;
+            this.btnGC.TabIndex = 5;
             this.btnGC.Text = "Gift Cards (F5)";
             this.btnGC.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnGC.UseVisualStyleBackColor = true;
@@ -161,7 +162,7 @@
             this.btnUserAccounts.Location = new System.Drawing.Point(266, 301);
             this.btnUserAccounts.Name = "btnUserAccounts";
             this.btnUserAccounts.Size = new System.Drawing.Size(164, 162);
-            this.btnUserAccounts.TabIndex = 9;
+            this.btnUserAccounts.TabIndex = 6;
             this.btnUserAccounts.Text = "&User Accounts (F6)";
             this.btnUserAccounts.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnUserAccounts.UseVisualStyleBackColor = true;
@@ -177,7 +178,7 @@
             this.btnConfig.Location = new System.Drawing.Point(436, 301);
             this.btnConfig.Name = "btnConfig";
             this.btnConfig.Size = new System.Drawing.Size(164, 162);
-            this.btnConfig.TabIndex = 11;
+            this.btnConfig.TabIndex = 7;
             this.btnConfig.Text = "Configure (F7)";
             this.btnConfig.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnConfig.UseVisualStyleBackColor = true;
@@ -185,12 +186,13 @@
             // 
             // btnChangePassword
             // 
+            this.btnChangePassword.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnChangePassword.Image = ((System.Drawing.Image)(resources.GetObject("btnChangePassword.Image")));
             this.btnChangePassword.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnChangePassword.Location = new System.Drawing.Point(579, 486);
+            this.btnChangePassword.Location = new System.Drawing.Point(573, 486);
             this.btnChangePassword.Name = "btnChangePassword";
-            this.btnChangePassword.Size = new System.Drawing.Size(61, 74);
-            this.btnChangePassword.TabIndex = 12;
+            this.btnChangePassword.Size = new System.Drawing.Size(63, 74);
+            this.btnChangePassword.TabIndex = 8;
             this.btnChangePassword.Text = "Change &Password";
             this.btnChangePassword.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnChangePassword.UseVisualStyleBackColor = true;
@@ -214,7 +216,7 @@
             this.lblAdlib.Location = new System.Drawing.Point(4, 543);
             this.lblAdlib.Name = "lblAdlib";
             this.lblAdlib.Size = new System.Drawing.Size(17, 15);
-            this.lblAdlib.TabIndex = 16;
+            this.lblAdlib.TabIndex = 12;
             this.lblAdlib.Text = "__";
             // 
             // lblProgversion
@@ -225,7 +227,7 @@
             this.lblProgversion.Location = new System.Drawing.Point(5, 531);
             this.lblProgversion.Name = "lblProgversion";
             this.lblProgversion.Size = new System.Drawing.Size(108, 15);
-            this.lblProgversion.TabIndex = 15;
+            this.lblProgversion.TabIndex = 11;
             this.lblProgversion.Text = "nPOS System vX.x.x.x";
             // 
             // label3
@@ -236,17 +238,17 @@
             this.label3.Location = new System.Drawing.Point(5, 519);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(121, 15);
-            this.label3.TabIndex = 14;
+            this.label3.TabIndex = 10;
             this.label3.Text = "Creative Software Solutions";
             // 
             // greetings
             // 
             this.greetings.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.greetings.ForeColor = System.Drawing.Color.Black;
-            this.greetings.Location = new System.Drawing.Point(327, 523);
+            this.greetings.Location = new System.Drawing.Point(311, 523);
             this.greetings.Name = "greetings";
-            this.greetings.Size = new System.Drawing.Size(249, 21);
-            this.greetings.TabIndex = 17;
+            this.greetings.Size = new System.Drawing.Size(254, 21);
+            this.greetings.TabIndex = 13;
             this.greetings.Text = "Good ___________";
             this.greetings.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
@@ -255,10 +257,10 @@
             this.lblTime.AutoSize = true;
             this.lblTime.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTime.ForeColor = System.Drawing.Color.Black;
-            this.lblTime.Location = new System.Drawing.Point(324, 541);
+            this.lblTime.Location = new System.Drawing.Point(308, 541);
             this.lblTime.Name = "lblTime";
             this.lblTime.Size = new System.Drawing.Size(15, 16);
-            this.lblTime.TabIndex = 18;
+            this.lblTime.TabIndex = 14;
             this.lblTime.Text = "_";
             // 
             // timer1
