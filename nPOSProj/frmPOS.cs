@@ -135,6 +135,11 @@ namespace nPOSProj
                 gotoEdit();
                 return true;
             }
+            if (keyData == Keys.F6 && btnCancelSale.Enabled == true)
+            {
+                gotoCancelT();
+                return true;
+            }
             if (keyData == Keys.F7 && btnParkSale.Enabled == true)
             {
                 gotoPark();
