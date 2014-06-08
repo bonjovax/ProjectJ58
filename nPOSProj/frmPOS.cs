@@ -878,6 +878,12 @@ namespace nPOSProj
                     {
                         total_amt += Double.Parse(items.SubItems[5].Text);
                     }
+                    if (lviewPOS.Items.Count != 0)
+                    {
+                        btnCheckout.Enabled = true;
+                    }
+                    else
+                        btnCheckout.Enabled = false;
                     //Tax
                     a = total_amt * taxP;
                     b = total_amt - a;
