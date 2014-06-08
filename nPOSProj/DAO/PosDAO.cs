@@ -231,7 +231,7 @@ namespace nPOSProj.DAO
             String query = "UPDATE pos_store SET is_cancel = 1, pos_park = 0, pos_tax_perc = 0, pos_tax_amt = 0, pos_total_amt = 0, pos_total_amt = 0 ";
             query += "WHERE pos_orno = ?pos_orno";
             String query1 = "DELETE FROM pos_park ";
-            query1 += "DELETE pos_orno = ?pos_orno";
+            query1 += "WHERE pos_orno = ?pos_orno";
             try
             {
                 con.Open();

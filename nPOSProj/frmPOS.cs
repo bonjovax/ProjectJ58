@@ -178,7 +178,6 @@ namespace nPOSProj
                 btnSearch.Enabled = true;
                 btnRefund.Enabled = true;
                 btnWholesale.Enabled = true;
-                btnCancelSale.Enabled = true;
                 btnParkSale.Enabled = false;
                 //
                 wholsale_select = false;
@@ -525,9 +524,13 @@ namespace nPOSProj
                                 if (lviewPOS.Items.Count != 0)
                                 {
                                     btnCheckout.Enabled = true;
+                                    btnCancelSale.Enabled = true;
                                 }
                                 else
+                                {
                                     btnCheckout.Enabled = false;
+                                    btnCancelSale.Enabled = false;
+                                }
                                 txtBoxEAN.Clear();
                                 txtBoxEAN.Focus();
                                 txtBoxQty.Text = "1";
@@ -763,9 +766,13 @@ namespace nPOSProj
                 if (lviewPOS.Items.Count != 0)
                 {
                     btnCheckout.Enabled = true;
+                    btnCancelSale.Enabled = true;
                 }
                 else
+                {
                     btnCheckout.Enabled = false;
+                    btnCancelSale.Enabled = false;
+                }
                 btnDiscount.Enabled = false;
                 btnEdit.Enabled = false;
                 btnVoid.Enabled = false;
@@ -933,7 +940,6 @@ namespace nPOSProj
                             btnRefund.Enabled = false;
                             btnWholesale.Enabled = false;
                             btnCancelSale.Enabled = false;
-                            btnParkSale.Enabled = true;
                             btnVoid.Enabled = false;
                             btnEdit.Enabled = false;
                             btnCancelSale.Enabled = false;
@@ -947,8 +953,10 @@ namespace nPOSProj
                             proceed.Visible = true;
                             txtBoxQty.Text = "1";
                             rdDescription.Text = "Transaction Cancelled!";
+                            lblSub.Text = "0.00";
                             rdPrice.Text = "0.00";
                             rdTotal.Text = "0.00";
+                            lblTotalAmount.Text = "0.00";
                             //
                         }
                         catch (MySqlException ex)
