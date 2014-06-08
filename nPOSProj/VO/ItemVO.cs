@@ -114,5 +114,18 @@ namespace nPOSProj.VO
             items.DeleteKit(item_ean, stock_code);
         }
         #endregion
+        public Int32 askQty()
+        {
+            Int32 qty;
+            items = new DAO.ItemsDAO();
+            items.askQuantity(item_ean);
+            qty = items.askQuantity(item_ean);
+            return qty;
+        }
+        public void OrderItem()
+        {
+            items = new DAO.ItemsDAO();
+            items.OrderI(item_ean, item_quantity);
+        }
     }
 }

@@ -19,6 +19,7 @@ namespace nPOSProj
         private MySqlConnection con = new MySqlConnection();
         private Conf.dbs dbcon = new Conf.dbs();
         private DAO.LoginDAO login;
+        private VO.ItemVO itemvo = new VO.ItemVO();
         private VO.PosVO pos = new VO.PosVO();
         private bool wholsale_select = false;
         private bool proceeds = false;
@@ -109,10 +110,6 @@ namespace nPOSProj
             this.Hide();
         }
 
-        private void frmPOS_DoubleClick(object sender, EventArgs e)
-        {
-            
-        }
         protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
         {
             if (keyData == Keys.F1)
@@ -474,6 +471,7 @@ namespace nPOSProj
 
         private void txtBoxEAN_KeyDown(object sender, KeyEventArgs e)
         {
+            Int32 getQty = 0;
             try
             {
                 if (e.KeyCode == Keys.Enter && proceeds == true)
@@ -484,65 +482,89 @@ namespace nPOSProj
                         getInfoItemKit();
                         if (found == true || found_kit == true)
                         {
-                            //
-                            if (this.checkEANList(txtBoxEAN.Text, Convert.ToInt32(txtBoxQty.Text)) == false)
+                            itemvo.item_ean = txtBoxEAN.Text;
+                            itemvo.askQty();
+                            getQty = itemvo.askQty();
+                            if (Convert.ToInt32(txtBoxQty.Text) <= getQty)
                             {
-                                computerItemQty = Convert.ToDouble(txtBoxQty.Text) * price;
-                                rdTotal.Text = computerItemQty.ToString("#,###,##0.00");
-                                ListViewItem item = new ListViewItem(txtBoxEAN.Text);
-                                item.SubItems.Add(txtBoxQty.Text);
-                                item.SubItems.Add(rdDescription.Text);
-                                item.SubItems.Add(price.ToString("#,###,##0.00"));
-                                item.SubItems.Add("0.00");
-                                item.SubItems.Add(computerItemQty.ToString("#,###,##0.00"));
-                                lviewPOS.Items.Add(item);
-                                //Data
-                                pos.Pos_orno = OrNo;
-                                pos.Pos_ean = Convert.ToInt32(txtBoxEAN.Text);
-                                pos.Pos_quantity = Convert.ToInt32(txtBoxQty.Text);
-                                pos.Pos_amt = computerItemQty;
-                                pos.ParkItem();
-                                //
-                                //
-                                btnWholesale.Enabled = false;
-                                Double total_fin = 0;
-                                Double total_fins = 0;
-                                Double a = 0;
-                                Double b = 0; //To Data Tax Amount
-                                foreach (ListViewItem lv in lviewPOS.Items)
+                                if (getQty <= 5) //Notifier if Item is Almost Exhausted
                                 {
-                                    total_fin += Double.Parse(lv.SubItems[5].Text);
-                                    total_fins += Double.Parse(lv.SubItems[5].Text);
+                                    using (cstDlgAlert alert = new cstDlgAlert())
+                                    {
+                                        alert.MsgDiri = getQty + " Item(s) Left in your Item Inventory";
+                                        alert.ShowDialog();
+                                    }
                                 }
-                                lblTotalAmount.Text = total_fin.ToString("###,###,##0.00");
-                                //Tax
-                                a = total_fins * taxP;
-                                b = total_fins - a;
-                                lblSub.Text = b.ToString("#,###,##0.00");
-                                // Trunk Data
-                                pos.Pos_tax_perc = taxP;
-                                pos.Pos_tax_amt = a;
-                                pos.Pos_total_amt = total_fin;
-                                pos.Pos_orno = OrNo;
-                                pos.UpdateTrunk();
                                 //
-                                if (lviewPOS.Items.Count != 0)
+                                if (this.checkEANList(txtBoxEAN.Text, Convert.ToInt32(txtBoxQty.Text)) == false)
                                 {
-                                    btnCheckout.Enabled = true;
-                                    btnCancelSale.Enabled = true;
+                                    itemvo.item_quantity = Convert.ToInt32(txtBoxQty.Text);
+                                    itemvo.OrderItem();
+                                    computerItemQty = Convert.ToDouble(txtBoxQty.Text) * price;
+                                    rdTotal.Text = computerItemQty.ToString("#,###,##0.00");
+                                    ListViewItem item = new ListViewItem(txtBoxEAN.Text);
+                                    item.SubItems.Add(txtBoxQty.Text);
+                                    item.SubItems.Add(rdDescription.Text);
+                                    item.SubItems.Add(price.ToString("#,###,##0.00"));
+                                    item.SubItems.Add("0.00");
+                                    item.SubItems.Add(computerItemQty.ToString("#,###,##0.00"));
+                                    lviewPOS.Items.Add(item);
+                                    //Data
+                                    pos.Pos_orno = OrNo;
+                                    pos.Pos_ean = Convert.ToInt32(txtBoxEAN.Text);
+                                    pos.Pos_quantity = Convert.ToInt32(txtBoxQty.Text);
+                                    pos.Pos_amt = computerItemQty;
+                                    pos.ParkItem();
+                                    //
+                                    //
+                                    btnWholesale.Enabled = false;
+                                    Double total_fin = 0;
+                                    Double total_fins = 0;
+                                    Double a = 0;
+                                    Double b = 0; //To Data Tax Amount
+                                    foreach (ListViewItem lv in lviewPOS.Items)
+                                    {
+                                        total_fin += Double.Parse(lv.SubItems[5].Text);
+                                        total_fins += Double.Parse(lv.SubItems[5].Text);
+                                    }
+                                    lblTotalAmount.Text = total_fin.ToString("###,###,##0.00");
+                                    //Tax
+                                    a = total_fins * taxP;
+                                    b = total_fins - a;
+                                    lblSub.Text = b.ToString("#,###,##0.00");
+                                    // Trunk Data
+                                    pos.Pos_tax_perc = taxP;
+                                    pos.Pos_tax_amt = a;
+                                    pos.Pos_total_amt = total_fin;
+                                    pos.Pos_orno = OrNo;
+                                    pos.UpdateTrunk();
+                                    //
+                                    if (lviewPOS.Items.Count != 0)
+                                    {
+                                        btnCheckout.Enabled = true;
+                                        btnCancelSale.Enabled = true;
+                                    }
+                                    else
+                                    {
+                                        btnCheckout.Enabled = false;
+                                        btnCancelSale.Enabled = false;
+                                    }
+                                    txtBoxEAN.Clear();
+                                    txtBoxEAN.Focus();
+                                    txtBoxQty.Text = "1";
                                 }
                                 else
                                 {
-                                    btnCheckout.Enabled = false;
-                                    btnCancelSale.Enabled = false;
+                                    RecalculateSameItem();
                                 }
-                                txtBoxEAN.Clear();
-                                txtBoxEAN.Focus();
-                                txtBoxQty.Text = "1";
                             }
                             else
                             {
-                                RecalculateSameItem();
+                                using (cstDlgAlert alert = new cstDlgAlert())
+                                {
+                                    alert.MsgDiri = "Insufficient Quantity Inventory Item!";
+                                    alert.ShowDialog();
+                                }
                             }
                         }
                         else
@@ -576,6 +598,9 @@ namespace nPOSProj
                     String _ean = item.SubItems[0].Text;
                     if (_ean.Equals(Ean))
                     {
+                        itemvo.item_ean = txtBoxEAN.Text;
+                        itemvo.item_quantity = Convert.ToInt32(txtBoxQty.Text);
+                        itemvo.OrderItem();
                         computerItemQty = Convert.ToDouble(txtBoxQty.Text) * price;
                         check = true;
                         uQTY = Convert.ToInt32(txtBoxQty.Text) + Convert.ToInt32(item.SubItems[1].Text);

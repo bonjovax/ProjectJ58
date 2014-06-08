@@ -298,5 +298,52 @@ namespace nPOSProj.DAO
             }
         }
         #endregion
+        public Int32 askQuantity(String ean)
+        {
+            con = new MySqlConnection();
+            dbcon = new Conf.dbs();
+            con.ConnectionString = dbcon.getConnectionString();
+            String query = "SELECT item_quantity AS a FROM inventory_items ";
+            query += "WHERE item_ean = ?item_ean";
+            try
+            {
+                qty = 0;
+                con.Open();
+                MySqlCommand cmd = new MySqlCommand(query, con);
+                cmd.Parameters.AddWithValue("?item_ean", ean);
+                cmd.ExecuteScalar();
+                MySqlDataReader rdr = cmd.ExecuteReader();
+                if (rdr.Read())
+                {
+                    qty = Convert.ToInt32(rdr["a"]);
+                }
+            }
+            finally
+            {
+                con.Close();
+            }
+            return qty;
+        }
+        public void OrderI(String item_ean, Int32 item_quantity)
+        {
+            con = new MySqlConnection();
+            dbcon = new Conf.dbs();
+            con.ConnectionString = dbcon.getConnectionString();
+            String query = "UPDATE inventory_items SET item_quantity = item_quantity - ?item_quantity ";
+            query += "WHERE (item_ean = ?item_ean)";
+            try
+            {
+                con.Open();
+                MySqlCommand cmd = new MySqlCommand(query, con);
+                cmd.Parameters.AddWithValue("?item_quantity", item_quantity);
+                cmd.Parameters.AddWithValue("?item_ean", item_ean);
+                cmd.ExecuteNonQuery();
+                cmd.Dispose();
+            }
+            finally
+            {
+                con.Close();
+            }
+        }
     }
 }

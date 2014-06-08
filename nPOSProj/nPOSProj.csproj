@@ -73,6 +73,12 @@
     <Compile Include="Conf\Crypto.cs" />
     <Compile Include="Conf\dbs.cs" />
     <Compile Include="Conf\Rgx.cs" />
+    <Compile Include="cstDlgAlert.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="cstDlgAlert.Designer.cs">
+      <DependentUpon>cstDlgAlert.cs</DependentUpon>
+    </Compile>
     <Compile Include="DAO\ChangePasswordDAO.cs" />
     <Compile Include="DAO\ConfigDAO.cs" />
     <Compile Include="DAO\InventoryDAO.cs" />
@@ -263,6 +269,9 @@
     <Compile Include="VO\PurchaseOrderVO.cs" />
     <Compile Include="VO\ReceivingVO.cs" />
     <Compile Include="VO\UserAccountVO.cs" />
+    <EmbeddedResource Include="cstDlgAlert.resx">
+      <DependentUpon>cstDlgAlert.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmChangePass.resx">
       <DependentUpon>frmChangePass.cs</DependentUpon>
     </EmbeddedResource>
