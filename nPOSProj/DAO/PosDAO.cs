@@ -180,21 +180,28 @@ namespace nPOSProj.DAO
                 con.Close();
             }
         }
-        public void ParkVoid_I(Int32 pos_orno, Int32 pos_ean)
+        public void ParkVoid_I(Int32 pos_orno, Int32 pos_ean, Int32 pos_quantity)
         {
             con = new MySqlConnection();
             dbcon = new Conf.dbs();
             con.ConnectionString = dbcon.getConnectionString();
-            String query = "DELETE FROM pos_park ";
-            query += "WHERE (pos_orno = ?pos_orno) AND (pos_ean = ?pos_ean)";
+            String query = "UPDATE inventory_items SET item_quantity = item_quantity + ?item_quantity ";
+            query += "WHERE (item_ean = ?item_ean)";
+            String query1 = "DELETE FROM pos_park ";
+            query1 += "WHERE (pos_orno = ?pos_orno) AND (pos_ean = ?pos_ean)";
             try
             {
                 con.Open();
                 MySqlCommand cmd = new MySqlCommand(query, con);
-                cmd.Parameters.AddWithValue("?pos_orno", pos_orno);
-                cmd.Parameters.AddWithValue("?pos_ean", pos_ean);
+                MySqlCommand cmd1 = new MySqlCommand(query1, con);
+                cmd.Parameters.AddWithValue("?item_quantity", pos_quantity);
+                cmd.Parameters.AddWithValue("?item_ean", pos_ean);
+                cmd1.Parameters.AddWithValue("?pos_orno", pos_orno);
+                cmd1.Parameters.AddWithValue("?pos_ean", pos_ean);
                 cmd.ExecuteNonQuery();
                 cmd.Dispose();
+                cmd1.ExecuteNonQuery();
+                cmd1.Dispose();
             }
             finally
             {

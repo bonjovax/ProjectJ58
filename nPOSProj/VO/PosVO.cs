@@ -195,7 +195,7 @@ namespace nPOSProj.VO
         public void ParkVoidItem()
         {
             POSDAO = new DAO.PosDAO();
-            POSDAO.ParkVoid_I(Pos_orno, Pos_ean);
+            POSDAO.ParkVoid_I(Pos_orno, Pos_ean, Pos_quantity);
         }
 
         public void ReturnCancelItems()

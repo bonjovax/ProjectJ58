@@ -765,6 +765,7 @@ namespace nPOSProj
                 pos.UpdateTrunk();
                 //Void Item Data
                 pos.Pos_ean = eanX;
+                pos.Pos_quantity = catchQty;
                 pos.ParkVoidItem();
                 //
                 btnVoid.Enabled = false;
