@@ -208,15 +208,22 @@ namespace nPOSProj.DAO
             con.ConnectionString = dbcon.getConnectionString();
             String query = "UPDATE pos_park SET pos_quantity = pos_quantity - ?pos_quantity ";
             query += "WHERE (pos_ean = ?pos_ean) AND (pos_orno = ?pos_orno)";
+            String query1 = "UPDATE inventory_items SET item_quantity = item_quantity + ?item_quantity ";
+            query1 += "WHERE (item_ean = ?item_ean)";
             try
             {
                 con.Open();
                 MySqlCommand cmd = new MySqlCommand(query, con);
+                MySqlCommand cmd1 = new MySqlCommand(query1, con);
                 cmd.Parameters.AddWithValue("?pos_ean", pos_ean);
+                cmd1.Parameters.AddWithValue("?item_quantity", pos_quantity);
                 cmd.Parameters.AddWithValue("?pos_quantity", pos_quantity);
                 cmd.Parameters.AddWithValue("?pos_orno", pos_orno);
+                cmd1.Parameters.AddWithValue("?item_ean", pos_ean);
                 cmd.ExecuteNonQuery();
+                cmd1.ExecuteNonQuery();
                 cmd.Dispose();
+                cmd1.Dispose();
             }
             finally
             {
