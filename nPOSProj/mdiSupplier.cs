@@ -177,9 +177,12 @@ namespace nPOSProj
             }
         }
 
-        private void inventorysupplierBindingSource_CurrentChanged(object sender, EventArgs e)
+        private void dataGridView1_KeyDown(object sender, KeyEventArgs e)
         {
-
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.Handled = true;
+            }
         }
     }
 }

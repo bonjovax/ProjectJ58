@@ -235,5 +235,25 @@ namespace nPOSProj
                 txtBoxQty.Clear();
             }
         }
+
+        private void dataGridView1_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                rdPONo.Text = dataGridView1.SelectedRows[0].Cells[0].Value.ToString();
+                rdSupplierCode.Text = dataGridView1.SelectedRows[0].Cells[3].Value.ToString();
+                rdSupplierName.Text = dataGridView1.SelectedRows[0].Cells[4].Value.ToString();
+                getDataTable();
+                e.Handled = true;
+            }
+        }
+
+        private void dataGridView2_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.Handled = true;
+            }
+        }
     }
 }

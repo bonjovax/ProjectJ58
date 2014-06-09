@@ -462,5 +462,21 @@ namespace nPOSProj
             btnTransfer.Enabled = true;
             txtBoxTransferQty.Text = dataGridView2.SelectedRows[0].Cells[1].Value.ToString();
         }
+
+        private void dataGridView2_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void dataGridView1_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.Handled = true;
+            }
+        }
     }
 }
