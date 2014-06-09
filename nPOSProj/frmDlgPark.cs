@@ -30,6 +30,7 @@ namespace nPOSProj
             set { orderNo = value; }
         }
 
+
         public frmDlgPark()
         {
             InitializeComponent();
@@ -81,6 +82,17 @@ namespace nPOSProj
             OrderNo = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[0].Value);
             Selected = true;
             this.Close();
+        }
+
+        private void dataGridView1_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                OrderNo = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[0].Value);
+                Selected = true;
+                this.Close();
+                e.Handled = true;
+            }
         }
     }
 }
