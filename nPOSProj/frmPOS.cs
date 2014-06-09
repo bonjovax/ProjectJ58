@@ -562,8 +562,16 @@ namespace nPOSProj
                             {
                                 using (cstDlgAlert alert = new cstDlgAlert())
                                 {
-                                    alert.MsgDiri = "Insufficient Quantity Inventory Item!";
-                                    alert.ShowDialog();
+                                    if (getQty == 0)
+                                    {
+                                        alert.MsgDiri = "Insufficient Quantity Inventory Item!";
+                                        alert.ShowDialog();
+                                    }
+                                    else
+                                    {
+                                        alert.MsgDiri = getQty + " Item Available! Insufficient Quantity Inventory Item";
+                                        alert.ShowDialog();
+                                    }
                                 }
                             }
                         }
