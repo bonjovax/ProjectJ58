@@ -53,11 +53,11 @@
             this.lblCmd.AutoSize = true;
             this.lblCmd.BackColor = System.Drawing.Color.Transparent;
             this.lblCmd.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCmd.Location = new System.Drawing.Point(391, 94);
+            this.lblCmd.Location = new System.Drawing.Point(370, 94);
             this.lblCmd.Name = "lblCmd";
-            this.lblCmd.Size = new System.Drawing.Size(218, 18);
+            this.lblCmd.Size = new System.Drawing.Size(238, 18);
             this.lblCmd.TabIndex = 34;
-            this.lblCmd.Text = "Press ESC To Continue";
+            this.lblCmd.Text = "Press Enter To Continue";
             // 
             // cstDlgAlert
             // 

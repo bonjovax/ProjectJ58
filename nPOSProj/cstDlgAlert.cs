@@ -25,7 +25,7 @@ namespace nPOSProj
 
         protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
         {
-            if (keyData == Keys.Escape)
+            if (keyData == Keys.Enter)
             {
                 this.Close();
                 return true;
