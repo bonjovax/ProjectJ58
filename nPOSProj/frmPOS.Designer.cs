@@ -626,6 +626,7 @@
             this.btnSearch.Text = "(F1) Search";
             this.btnSearch.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnSearch.UseVisualStyleBackColor = false;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // proceed
             // 

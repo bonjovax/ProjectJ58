@@ -112,9 +112,9 @@ namespace nPOSProj
 
         protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
         {
-            if (keyData == Keys.F1)
+            if (keyData == Keys.F1 && btnSearch.Enabled == true)
             {
-                MessageBox.Show("You pressed the F1 key");
+                gotoSearch();
                 return true;
             }
             if (keyData == Keys.F3 && wholsale_select == false && btnWholesale.Enabled == true)
@@ -775,6 +775,7 @@ namespace nPOSProj
                     btnEdit.Enabled = false;
                     btnVoid.Enabled = false;
                 }
+                txtBoxEAN.Focus();
             }
         }
 
@@ -825,6 +826,7 @@ namespace nPOSProj
                 btnDiscount.Enabled = false;
                 btnEdit.Enabled = false;
                 btnVoid.Enabled = false;
+                txtBoxEAN.Focus();
             }
         }
 
@@ -1021,6 +1023,21 @@ namespace nPOSProj
             }
         }
 
+        private void gotoSearch()
+        {
+            using (frmDlgSearch search = new frmDlgSearch())
+            {
+                search.ShowDialog();
+                if (search.Selected == true)
+                {
+                    txtBoxEAN.Text = search.Ean;
+                    txtBoxEAN.Focus();
+                }
+                else
+                    txtBoxEAN.Focus();
+            }
+        }
+
         private void newFlash()
         {
             proceed.Visible = true;
@@ -1193,6 +1210,11 @@ namespace nPOSProj
         private void btnCancelSale_Click(object sender, EventArgs e)
         {
             gotoCancelT();
+        }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            gotoSearch();
         }
     }
 }
