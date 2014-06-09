@@ -566,11 +566,15 @@ namespace nPOSProj
                                     {
                                         alert.MsgDiri = "Insufficient Quantity Inventory Item!";
                                         alert.ShowDialog();
+                                        txtBoxEAN.Clear();
+                                        txtBoxEAN.Focus();
                                     }
                                     else
                                     {
                                         alert.MsgDiri = getQty + " Item Available! Insufficient Quantity Inventory Item";
                                         alert.ShowDialog();
+                                        txtBoxEAN.Clear();
+                                        txtBoxEAN.Focus();
                                     }
                                 }
                             }
