@@ -180,7 +180,7 @@ namespace nPOSProj
                 btnSearch.Enabled = true;
                 btnRefund.Enabled = true;
                 btnWholesale.Enabled = true;
-                btnParkSale.Enabled = false;
+                //btnParkSale.Enabled = false;
                 //
                 wholsale_select = false;
                 found = false;
@@ -543,11 +543,13 @@ namespace nPOSProj
                                     {
                                         btnCheckout.Enabled = true;
                                         btnCancelSale.Enabled = true;
+                                        btnCheckout.Enabled = false;
                                     }
                                     else
                                     {
                                         btnCheckout.Enabled = false;
                                         btnCancelSale.Enabled = false;
+                                        btnCheckout.Enabled = true;
                                     }
                                     txtBoxEAN.Clear();
                                     txtBoxEAN.Focus();
@@ -817,11 +819,13 @@ namespace nPOSProj
                 {
                     btnCheckout.Enabled = true;
                     btnCancelSale.Enabled = true;
+                    btnCheckout.Enabled = false;
                 }
                 else
                 {
                     btnCheckout.Enabled = false;
                     btnCancelSale.Enabled = false;
+                    btnCheckout.Enabled = true;
                 }
                 btnDiscount.Enabled = false;
                 btnEdit.Enabled = false;
@@ -930,7 +934,6 @@ namespace nPOSProj
                     btnSearch.Enabled = true;
                     btnRefund.Enabled = true;
                     btnCancelSale.Enabled = true;
-                    btnParkSale.Enabled = false;
                     //
                     foreach (ListViewItem items in lviewPOS.Items)
                     {
@@ -940,11 +943,13 @@ namespace nPOSProj
                     {
                         btnCancelSale.Enabled = true;
                         btnCheckout.Enabled = true;
+                        btnParkSale.Enabled = false;
                     }
                     else
                     {
                         btnCancelSale.Enabled = false;
                         btnCheckout.Enabled = false;
+                        btnParkSale.Enabled = true;
                     }
                     //Tax
                     a = total_amt * taxP;
