@@ -550,13 +550,13 @@ namespace nPOSProj
                                     {
                                         btnCheckout.Enabled = true;
                                         btnCancelSale.Enabled = true;
-                                        btnCheckout.Enabled = false;
+                                        btnParkSale.Enabled = false;
                                     }
                                     else
                                     {
                                         btnCheckout.Enabled = false;
                                         btnCancelSale.Enabled = false;
-                                        btnCheckout.Enabled = true;
+                                        btnParkSale.Enabled = true;
                                     }
                                     txtBoxEAN.Clear();
                                     txtBoxEAN.Focus();
@@ -842,13 +842,13 @@ namespace nPOSProj
                     {
                         btnCheckout.Enabled = true;
                         btnCancelSale.Enabled = true;
-                        btnCheckout.Enabled = false;
+                        btnParkSale.Enabled = false;
                     }
                     else
                     {
                         btnCheckout.Enabled = false;
                         btnCancelSale.Enabled = false;
-                        btnCheckout.Enabled = true;
+                        btnParkSale.Enabled = true;
                     }
                     btnDiscount.Enabled = false;
                     btnEdit.Enabled = false;
