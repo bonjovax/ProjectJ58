@@ -538,7 +538,7 @@ namespace nPOSProj
                                     //Tax
                                     a = total_fins * taxP;
                                     b = total_fins - a;
-                                    lblSub.Text = b.ToString("#,###,##0.00");
+                                    lblSub.Text = a.ToString("#,###,##0.00");
                                     // Trunk Data
                                     pos.Pos_tax_perc = taxP;
                                     pos.Pos_tax_amt = a;
