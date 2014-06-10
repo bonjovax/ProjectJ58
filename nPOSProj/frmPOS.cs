@@ -466,7 +466,7 @@ namespace nPOSProj
             lblSub.Text = b.ToString("#,###,##0.00");
             // Trunk Data
             pos.Pos_tax_perc = taxP;
-            pos.Pos_tax_amt = b;
+            pos.Pos_tax_amt = a; //Damn You!!
             pos.Pos_total_amt = total_fin;
             pos.Pos_orno = OrNo;
             pos.UpdateTrunk();
@@ -538,7 +538,7 @@ namespace nPOSProj
                                     //Tax
                                     a = total_fins * taxP;
                                     b = total_fins - a;
-                                    lblSub.Text = a.ToString("#,###,##0.00");
+                                    lblSub.Text = b.ToString("#,###,##0.00");
                                     // Trunk Data
                                     pos.Pos_tax_perc = taxP;
                                     pos.Pos_tax_amt = a;
