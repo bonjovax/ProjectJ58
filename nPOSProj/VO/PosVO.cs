@@ -7,6 +7,7 @@ namespace nPOSProj.VO
 {
     class PosVO
     {
+        #region Value Stuffs
         private DAO.PosDAO POSDAO;
         private Int32 pos_orno;
 
@@ -147,7 +148,82 @@ namespace nPOSProj.VO
             get { return pos_amt; }
             set { pos_amt = value; }
         }
+        #endregion
+        #region Checkout Value Stuffs
+        private Double pos_tender;
 
+        public Double Pos_tender
+        {
+            get { return pos_tender; }
+            set { pos_tender = value; }
+        }
+
+        private String card_data;
+
+        public String Card_data
+        {
+            get { return card_data; }
+            set { card_data = value; }
+        }
+
+        private String card_holders;
+
+        public String Card_holders
+        {
+            get { return card_holders; }
+            set { card_holders = value; }
+        }
+
+        private String card_lastfour;
+
+        public String Card_lastfour
+        {
+            get { return card_lastfour; }
+            set { card_lastfour = value; }
+        }
+
+        private Double tx_amount;
+
+        public Double Tx_amount
+        {
+            get { return tx_amount; }
+            set { tx_amount = value; }
+        }
+
+        private String bc_checkno;
+
+        public String Bc_checkno
+        {
+            get { return bc_checkno; }
+            set { bc_checkno = value; }
+        }
+
+        private String bc_banknbranch;
+
+        public String Bc_banknbranch
+        {
+            get { return bc_banknbranch; }
+            set { bc_banknbranch = value; }
+        }
+
+        private String bc_refcode;
+
+        public String Bc_refcode
+        {
+            get { return bc_refcode; }
+            set { bc_refcode = value; }
+        }
+
+        private Int32 gc_cardo;
+
+        public Int32 Gc_cardo
+        {
+            get { return gc_cardo; }
+            set { gc_cardo = value; }
+        }
+        #endregion
+
+        #region POS Main Course Classes
         public Int32 GetOrNo()
         {
             Int32 Or;
@@ -215,5 +291,28 @@ namespace nPOSProj.VO
             POSDAO = new DAO.PosDAO();
             POSDAO.UpdateTrunkSales(Pos_tax_perc, Pos_tax_amt, Pos_total_amt, Pos_orno);
         }
+        #endregion
+        #region POS Checkout Stuffs
+        public void CashCheckout()
+        {
+            POSDAO = new DAO.PosDAO();
+            POSDAO.Cash(Pos_tender, Pos_change, Pos_orno, Pos_terminal);
+        }
+        public void DCCardCheckout()
+        {
+            POSDAO = new DAO.PosDAO();
+            POSDAO.DBCCard(Pos_tender, Pos_orno, Pos_terminal, Card_data, Card_holders, Card_lastfour, Tx_amount);
+        }
+        public void BankCheckout()
+        {
+            POSDAO = new DAO.PosDAO();
+            POSDAO.BCheck(Pos_tender, Pos_orno, Pos_terminal, Bc_checkno, Bc_banknbranch, Bc_refcode, Tx_amount);
+        }
+        public void GiftCardCheckout()
+        {
+            POSDAO = new DAO.PosDAO();
+            POSDAO.GiftDick(Pos_tender, Pos_orno, Pos_terminal, Gc_cardo, Tx_amount);
+        }
+        #endregion
     }
 }
