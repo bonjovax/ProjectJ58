@@ -273,7 +273,7 @@ namespace nPOSProj
             }
             catch (Exception)
             {
-                MessageBox.Show("Check Database Server!", "Database Server", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                rdDescription.Text = "Error 11: Check Database Server";
             }
         }
 
@@ -311,7 +311,7 @@ namespace nPOSProj
             }
             catch (Exception)
             {
-                rdDescription.Text = "Check Database Server!";
+                rdDescription.Text = "Error 11: Check Database Server";
             }
         }
 
@@ -638,9 +638,9 @@ namespace nPOSProj
                     }
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                MessageBox.Show("frmMain::checkPLUList" + ex);
+                rdDescription.Text = "Error 11: Check Database Server";
             }
 
             return check;
@@ -674,117 +674,131 @@ namespace nPOSProj
         #region GotoKing
         private void gotoDiscount()
         {
-            Double a = 0;
-            Double b = 0;
-            using (frmDlgDiscount disc = new frmDlgDiscount())
+            try
             {
-                ListViewItem item = lviewPOS.SelectedItems[0];
-                disc.ShowDialog();
-                var discp = disc.Percentage;
-                if (disc.Percentage != 0)
+                Double a = 0;
+                Double b = 0;
+                using (frmDlgDiscount disc = new frmDlgDiscount())
                 {
-                    a = getTotalAmt * disc.Percentage;
-                    b = getTotalAmt - a;
-                    item.SubItems[4].Text = a.ToString("#,###,##0.00");
-                    item.SubItems[5].Text = b.ToString("#,###,##0.00");
-                    Double total_disc = 0;
-                    Double total_discs = 0;
-                    Double x = 0;
-                    Double y = 0;
-                    foreach (ListViewItem items in lviewPOS.Items)
+                    ListViewItem item = lviewPOS.SelectedItems[0];
+                    disc.ShowDialog();
+                    var discp = disc.Percentage;
+                    if (disc.Percentage != 0)
                     {
-                        total_disc += Double.Parse(items.SubItems[5].Text);
-                        total_discs += Double.Parse(items.SubItems[5].Text);
+                        a = getTotalAmt * disc.Percentage;
+                        b = getTotalAmt - a;
+                        item.SubItems[4].Text = a.ToString("#,###,##0.00");
+                        item.SubItems[5].Text = b.ToString("#,###,##0.00");
+                        Double total_disc = 0;
+                        Double total_discs = 0;
+                        Double x = 0;
+                        Double y = 0;
+                        foreach (ListViewItem items in lviewPOS.Items)
+                        {
+                            total_disc += Double.Parse(items.SubItems[5].Text);
+                            total_discs += Double.Parse(items.SubItems[5].Text);
+                        }
+                        lblTotalAmount.Text = total_disc.ToString("###,###,##0.00");
+                        //Tax
+                        x = total_discs * taxP;
+                        y = total_disc - x;
+                        lblSub.Text = y.ToString("#,###,##0.00");
+                        //
+                        // Trunk Data
+                        pos.Pos_tax_perc = taxP;
+                        pos.Pos_tax_amt = x;
+                        pos.Pos_total_amt = total_disc;
+                        pos.Pos_orno = OrNo;
+                        pos.UpdateTrunk();
+                        //Update Park Item With Discount
+                        pos.Pos_ean = catchEan;
+                        pos.Pos_discount = disc.Percentage;
+                        pos.Pos_discount_amt = a;
+                        pos.Pos_amt = b;
+                        pos.ParkDiscountItemUpdate();
+                        //
+                        btnDiscount.Enabled = false;
+                        btnEdit.Enabled = false;
+                        btnVoid.Enabled = false;
+                        discountTx = false;
                     }
-                    lblTotalAmount.Text = total_disc.ToString("###,###,##0.00");
-                    //Tax
-                    x = total_discs * taxP;
-                    y = total_disc - x;
-                    lblSub.Text = y.ToString("#,###,##0.00");
-                    //
-                    // Trunk Data
-                    pos.Pos_tax_perc = taxP;
-                    pos.Pos_tax_amt = x;
-                    pos.Pos_total_amt = total_disc;
-                    pos.Pos_orno = OrNo;
-                    pos.UpdateTrunk();
-                    //Update Park Item With Discount
-                    pos.Pos_ean = catchEan;
-                    pos.Pos_discount = disc.Percentage;
-                    pos.Pos_discount_amt = a;
-                    pos.Pos_amt = b;
-                    pos.ParkDiscountItemUpdate();
-                    //
-                    btnDiscount.Enabled = false;
-                    btnEdit.Enabled = false;
-                    btnVoid.Enabled = false;
-                    discountTx = false;
+                    else
+                    {
+                        btnDiscount.Enabled = false;
+                        btnEdit.Enabled = false;
+                        btnVoid.Enabled = false;
+                    }
                 }
-                else
-                {
-                    btnDiscount.Enabled = false;
-                    btnEdit.Enabled = false;
-                    btnVoid.Enabled = false;
-                }
+            }
+            catch (Exception)
+            {
+                rdDescription.Text = "Error 10: Network Connection";
             }
         }
 
         private void gotoEdit()
         {
-            Int32 qty = 0;
-            Double a = 0;
-            using (frmDlgEditQty edit = new frmDlgEditQty())
+            try
             {
-                ListViewItem item = lviewPOS.SelectedItems[0];
-                Int32 uEan = Convert.ToInt32(item.Text);
-                edit.dQty = Convert.ToInt32(item.SubItems[1].Text); //Display
-                edit.ShowDialog();
-                if (edit.Qty != 0)
+                Int32 qty = 0;
+                Double a = 0;
+                using (frmDlgEditQty edit = new frmDlgEditQty())
                 {
-                    item.SubItems[1].Text = edit.Qty.ToString();
-                    qty = Convert.ToInt32(item.SubItems[1].Text); //Computation
-                    a = qty * Convert.ToDouble(item.SubItems[3].Text); // Get Initial Total
-                    item.SubItems[4].Text = "0.00"; //Discount
-                    item.SubItems[5].Text = a.ToString("#,###,##0.00"); //Total
-                    btnEdit.Enabled = false;
-                    btnDiscount.Enabled = false;
-                    btnVoid.Enabled = false;
-                    Double total_amt = 0;
-                    Double total_amts = 0;
-                    Double x = 0;
-                    Double y = 0;
-                    foreach (ListViewItem items in lviewPOS.Items)
+                    ListViewItem item = lviewPOS.SelectedItems[0];
+                    Int32 uEan = Convert.ToInt32(item.Text);
+                    edit.dQty = Convert.ToInt32(item.SubItems[1].Text); //Display
+                    edit.ShowDialog();
+                    if (edit.Qty != 0)
                     {
-                        total_amt += Double.Parse(items.SubItems[5].Text);
-                        total_amts += Double.Parse(items.SubItems[5].Text);
+                        item.SubItems[1].Text = edit.Qty.ToString();
+                        qty = Convert.ToInt32(item.SubItems[1].Text); //Computation
+                        a = qty * Convert.ToDouble(item.SubItems[3].Text); // Get Initial Total
+                        item.SubItems[4].Text = "0.00"; //Discount
+                        item.SubItems[5].Text = a.ToString("#,###,##0.00"); //Total
+                        btnEdit.Enabled = false;
+                        btnDiscount.Enabled = false;
+                        btnVoid.Enabled = false;
+                        Double total_amt = 0;
+                        Double total_amts = 0;
+                        Double x = 0;
+                        Double y = 0;
+                        foreach (ListViewItem items in lviewPOS.Items)
+                        {
+                            total_amt += Double.Parse(items.SubItems[5].Text);
+                            total_amts += Double.Parse(items.SubItems[5].Text);
+                        }
+                        lblTotalAmount.Text = total_amt.ToString("###,###,##0.00");
+                        //Tax
+                        x = total_amts * taxP;
+                        y = total_amts - x;
+                        lblSub.Text = y.ToString("#,###,##0.00");
+                        //Update Data
+                        pos.Pos_orno = OrNo;
+                        pos.Pos_ean = uEan;
+                        pos.Pos_quantity = qty;
+                        pos.Pos_amt = a;
+                        pos.ParkItemUpdate();
+                        //
+                        // Trunk Data
+                        pos.Pos_tax_perc = taxP;
+                        pos.Pos_tax_amt = x;
+                        pos.Pos_total_amt = total_amt;
+                        pos.Pos_orno = OrNo;
+                        pos.UpdateTrunk();
+                        //
                     }
-                    lblTotalAmount.Text = total_amt.ToString("###,###,##0.00");
-                    //Tax
-                    x = total_amts * taxP;
-                    y = total_amts - x;
-                    lblSub.Text = y.ToString("#,###,##0.00");
-                    //Update Data
-                    pos.Pos_orno = OrNo;
-                    pos.Pos_ean = uEan;
-                    pos.Pos_quantity = qty;
-                    pos.Pos_amt = a;
-                    pos.ParkItemUpdate();
-                    //
-                    // Trunk Data
-                    pos.Pos_tax_perc = taxP;
-                    pos.Pos_tax_amt = x;
-                    pos.Pos_total_amt = total_amt;
-                    pos.Pos_orno = OrNo;
-                    pos.UpdateTrunk();
-                    //
+                    else
+                    {
+                        btnDiscount.Enabled = false;
+                        btnEdit.Enabled = false;
+                        btnVoid.Enabled = false;
+                    }
+                    txtBoxEAN.Focus();
                 }
-                else
-                {
-                    btnDiscount.Enabled = false;
-                    btnEdit.Enabled = false;
-                    btnVoid.Enabled = false;
-                }
-                txtBoxEAN.Focus();
+            }
+            catch (Exception)
+            {
+                rdDescription.Text = "Error 10: Network Connection";
             }
         }
 
@@ -793,51 +807,58 @@ namespace nPOSProj
             DialogResult dlg = MessageBox.Show("Do you wish to Continue?", "Void Item", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (dlg == System.Windows.Forms.DialogResult.Yes)
             {
-                Int32 eanX = catchEan;
-                lviewPOS.SelectedItems[0].Remove();
-                Double total_amt = 0;
-                Double total_amts = 0;
-                Double a = 0;
-                Double b = 0;
-                foreach (ListViewItem items in lviewPOS.Items)
+                try
                 {
-                    total_amt += Double.Parse(items.SubItems[5].Text);
-                    total_amts += Double.Parse(items.SubItems[5].Text);
+                    Int32 eanX = catchEan;
+                    lviewPOS.SelectedItems[0].Remove();
+                    Double total_amt = 0;
+                    Double total_amts = 0;
+                    Double a = 0;
+                    Double b = 0;
+                    foreach (ListViewItem items in lviewPOS.Items)
+                    {
+                        total_amt += Double.Parse(items.SubItems[5].Text);
+                        total_amts += Double.Parse(items.SubItems[5].Text);
+                    }
+                    lblTotalAmount.Text = total_amt.ToString("###,###,##0.00");
+                    //Tax
+                    a = total_amts * taxP;
+                    b = total_amts - a;
+                    lblSub.Text = b.ToString("#,###,##0.00");
+                    //
+                    // Trunk Data
+                    pos.Pos_tax_perc = taxP;
+                    pos.Pos_tax_amt = a;
+                    pos.Pos_total_amt = total_amt;
+                    pos.Pos_orno = OrNo;
+                    pos.UpdateTrunk();
+                    //Void Item Data
+                    pos.Pos_ean = eanX;
+                    pos.Pos_quantity = catchQty;
+                    pos.ParkVoidItem();
+                    //
+                    btnVoid.Enabled = false;
+                    if (lviewPOS.Items.Count != 0)
+                    {
+                        btnCheckout.Enabled = true;
+                        btnCancelSale.Enabled = true;
+                        btnCheckout.Enabled = false;
+                    }
+                    else
+                    {
+                        btnCheckout.Enabled = false;
+                        btnCancelSale.Enabled = false;
+                        btnCheckout.Enabled = true;
+                    }
+                    btnDiscount.Enabled = false;
+                    btnEdit.Enabled = false;
+                    btnVoid.Enabled = false;
+                    txtBoxEAN.Focus();
                 }
-                lblTotalAmount.Text = total_amt.ToString("###,###,##0.00");
-                //Tax
-                a = total_amts * taxP;
-                b = total_amts - a;
-                lblSub.Text = b.ToString("#,###,##0.00");
-                //
-                // Trunk Data
-                pos.Pos_tax_perc = taxP;
-                pos.Pos_tax_amt = a;
-                pos.Pos_total_amt = total_amt;
-                pos.Pos_orno = OrNo;
-                pos.UpdateTrunk();
-                //Void Item Data
-                pos.Pos_ean = eanX;
-                pos.Pos_quantity = catchQty;
-                pos.ParkVoidItem();
-                //
-                btnVoid.Enabled = false;
-                if (lviewPOS.Items.Count != 0)
+                catch (Exception)
                 {
-                    btnCheckout.Enabled = true;
-                    btnCancelSale.Enabled = true;
-                    btnCheckout.Enabled = false;
+                    rdDescription.Text = "Error 10: Network Connection";
                 }
-                else
-                {
-                    btnCheckout.Enabled = false;
-                    btnCancelSale.Enabled = false;
-                    btnCheckout.Enabled = true;
-                }
-                btnDiscount.Enabled = false;
-                btnEdit.Enabled = false;
-                btnVoid.Enabled = false;
-                txtBoxEAN.Focus();
             }
         }
 
@@ -1026,9 +1047,9 @@ namespace nPOSProj
                             lblTotalAmount.Text = "0.00";
                             //
                         }
-                        catch (MySqlException ex)
+                        catch (MySqlException)
                         {
-                            Console.WriteLine(ex.ToString());
+                            rdDescription.Text = "Error 10: Network Connection";
                         }
                     }
                 }
@@ -1104,7 +1125,7 @@ namespace nPOSProj
             }
             catch (Exception)
             {
-                MessageBox.Show("Check Server", "Database Server", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                rdDescription.Text = "Error 10: Network Connection";
             }
         }
         private void loadParkedData()
@@ -1144,7 +1165,7 @@ namespace nPOSProj
             }
             catch (Exception)
             {
-                MessageBox.Show("Check If Server is Active", "Database Server Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                rdDescription.Text = "Error 10: Network Connection";
                 Application.ExitThread();
             }
         }
@@ -1184,7 +1205,7 @@ namespace nPOSProj
             }
             catch (Exception)
             {
-                MessageBox.Show("Check If Server is Active", "Database Server Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                rdDescription.Text = "Error 10: Network Connection";
                 Application.ExitThread();
             }
         }
