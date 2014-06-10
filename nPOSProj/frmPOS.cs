@@ -298,13 +298,20 @@ namespace nPOSProj
 
         private void gotoWholesale()
         {
-            DialogResult dr = MessageBox.Show("Do You Wish To Set Your Transaction to Wholesale?", "Question", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (dr == System.Windows.Forms.DialogResult.Yes)
+            try
             {
-                pos.Pos_orno = OrNo;
-                pos.SwitchToWholeSale();
-                btnWholesale.Enabled = false;
-                wholsale_select = true;
+                DialogResult dr = MessageBox.Show("Do You Wish To Set Your Transaction to Wholesale?", "Question", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (dr == System.Windows.Forms.DialogResult.Yes)
+                {
+                    pos.Pos_orno = OrNo;
+                    pos.SwitchToWholeSale();
+                    btnWholesale.Enabled = false;
+                    wholsale_select = true;
+                }
+            }
+            catch (Exception)
+            {
+                rdDescription.Text = "Check Database Server!";
             }
         }
 
