@@ -865,6 +865,7 @@ namespace nPOSProj
         private void gotoCheckout()
         {
             frmDlgCheckout checkout = new frmDlgCheckout();
+            frmLogin lg = new frmLogin(); //we'll use that ^_^
             Double total_amt = 0;
             foreach (ListViewItem items in lviewPOS.Items)
             {
@@ -890,6 +891,12 @@ namespace nPOSProj
                 txtBoxEAN.ReadOnly = true;
                 txtBoxEAN.Focus();
                 proceeds = false; //Important
+                //
+                pos.Pos_tender = checkout.TenderAmount;
+                pos.Pos_change = checkout.ChangeDue;
+                pos.Pos_orno = OrNo;
+                pos.Pos_terminal = lg.tN;
+                pos.CashCheckout();
                 //
                 newFlash();
             }

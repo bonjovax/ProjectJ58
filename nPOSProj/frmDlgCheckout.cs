@@ -20,6 +20,12 @@ namespace nPOSProj
         private Double getAmount;
         //
         private Double tenderAmount;
+
+        public Double TenderAmount
+        {
+            get { return tenderAmount; }
+            set { tenderAmount = value; }
+        }
         private Double changeDue;
 
         public Double ChangeDue
@@ -313,8 +319,8 @@ namespace nPOSProj
                 {
                     if (GetAmount <= Convert.ToDouble(txtBoxTender.Text))
                     {
-                        tenderAmount = Convert.ToDouble(txtBoxTender.Text);
-                        ChangeDue = tenderAmount - getAmount;
+                        TenderAmount = Convert.ToDouble(txtBoxTender.Text);
+                        ChangeDue = TenderAmount - getAmount;
                         IsCashTX = true;
                         this.Close();
                     }

@@ -294,7 +294,7 @@ namespace nPOSProj.DAO
             con = new MySqlConnection();
             dbcon = new Conf.dbs();
             con.ConnectionString = dbcon.getConnectionString();
-            String query = "UPDATE pos_store SET crm_custcode = 'WLKIN', pos_customer = 'Walk-In, pos_paymethod = 'Cash', ";
+            String query = "UPDATE pos_store SET crm_custcode = 'WLKIN', pos_customer = 'Walk-In', pos_paymethod = 'Cash', ";
             query += "pos_tender = ?pos_tender, pos_change = ?pos_change, pos_park = 0 ";
             query += "WHERE (pos_orno = ?pos_orno) AND (pos_terminal = ?pos_terminal)";
             try
@@ -305,6 +305,8 @@ namespace nPOSProj.DAO
                 cmd.Parameters.AddWithValue("?pos_change", pos_change);
                 cmd.Parameters.AddWithValue("?pos_orno", pos_orno);
                 cmd.Parameters.AddWithValue("?pos_terminal", pos_terminal);
+                cmd.ExecuteNonQuery();
+                cmd.Dispose();
             }
             finally
             {
@@ -316,7 +318,7 @@ namespace nPOSProj.DAO
             con = new MySqlConnection();
             dbcon = new Conf.dbs();
             con.ConnectionString = dbcon.getConnectionString();
-            String query = "UPDATE pos_store SET crm_custcode = 'WLKIN', pos_customer = 'Walk-In, pos_paymethod = 'Debit/Credit Card', ";
+            String query = "UPDATE pos_store SET crm_custcode = 'WLKIN', pos_customer = 'Walk-In', pos_paymethod = 'Debit/Credit Card', ";
             query += "pos_tender = ?pos_tender, pos_park = 0 ";
             query += "WHERE (pos_orno = ?pos_orno) AND (pos_terminal = ?pos_terminal)";
             String query1 = "INSERT INTO pos_dc_tx (pos_orno, card_data, card_holders, card_lastfour, tx_amount, date_tx, time_tx) VALUES";
@@ -354,7 +356,7 @@ namespace nPOSProj.DAO
             con = new MySqlConnection();
             dbcon = new Conf.dbs();
             con.ConnectionString = dbcon.getConnectionString();
-            String query = "UPDATE pos_store SET crm_custcode = 'WLKIN', pos_customer = 'Walk-In, pos_paymethod = 'Bank Cheque', ";
+            String query = "UPDATE pos_store SET crm_custcode = 'WLKIN', pos_customer = 'Walk-In', pos_paymethod = 'Bank Cheque', ";
             query += "pos_tender = ?pos_tender, pos_park = 0 ";
             query += "WHERE (pos_orno = ?pos_orno) AND (pos_terminal = ?pos_terminal)";
             String query1 = "INSERT INTO pos_bc_tx (pos_orno, bc_checkno, bc_banknbranch, bc_refcode, tx_amount, date_tx, time_tx) VALUES";
@@ -392,7 +394,7 @@ namespace nPOSProj.DAO
             con = new MySqlConnection();
             dbcon = new Conf.dbs();
             con.ConnectionString = dbcon.getConnectionString();
-            String query = "UPDATE pos_store SET crm_custcode = 'WLKIN', pos_customer = 'Walk-In, pos_paymethod = 'Gift Card', ";
+            String query = "UPDATE pos_store SET crm_custcode = 'WLKIN', pos_customer = 'Walk-In', pos_paymethod = 'Gift Card', ";
             query += "pos_tender = ?pos_tender, pos_park = 0 ";
             query += "WHERE (pos_orno = ?pos_orno) AND (pos_terminal = ?pos_terminal)";
             String query1 = "INSERT INTO pos_gc_tx (pos_orno, gc_cardno, tx_amount, date_tx, time_tx) VALUES";
