@@ -1,21 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using BarcodeLib;
-using MySql.Data.MySqlClient;
 
 namespace nPOSProj
 {
     public partial class frmGiftCard : Form
     {
         private Barcode b = new Barcode();
-        private Conf.dbs dbcon = new Conf.dbs();
-        private MySqlConnection con = new MySqlConnection();
+        private VO.GiftCardVO gift;
         public frmGiftCard()
         {
             InitializeComponent();
@@ -32,32 +29,19 @@ namespace nPOSProj
             barcode.Image = b.Encode(t, "0");
             txtBoxCardNo.Focus();
             //
-            dbcon = new Conf.dbs();
-            dataGridView1.DataSource = null;
-            dataGridView1.Rows.Clear();
-            dataGridView1.Refresh();
-            String connectionString = dbcon.getConnectionString();
-            String query = "SELECT * ";
-            query += "FROM gc_core";
-            using (MySqlConnection con = new MySqlConnection(connectionString))
+            gift = new VO.GiftCardVO();
+            String[,] grabData = gift.ReadGC();
+            try
             {
-                using (MySqlDataAdapter adapter = new MySqlDataAdapter(query, con))
+                dataGridView1.Rows.Clear();
+                for (int x = 0; x < grabData.GetLength(1); x++)
                 {
-                    try
-                    {
-                        DataTable dataTable = new DataTable();
-                        adapter.Fill(dataTable);
-                        for (int i = 0; i < dataTable.Rows.Count; i++)
-                        {
-                            dataGridView1.Rows.Add(dataTable.Rows[i][0], dataTable.Rows[i][1], dataTable.Rows[i][2], dataTable.Rows[i][3], dataTable.Rows[i][4]);
-                        }
-                    }
-                    catch (MySqlException ex)
-                    {
-                        MessageBox.Show("Error" + ex);
-                    }
+                    dataGridView1.Rows.Add(grabData[0, x].ToString(), grabData[1, x].ToString(), Convert.ToDouble(grabData[2, x]), grabData[3, x].ToString(), Convert.ToDateTime(grabData[4, x]));
                 }
-            } // end using
+            }
+            catch (Exception)
+            {
+            }
         }
 
         private void txtBoxCardNo_TextChanged(object sender, EventArgs e)

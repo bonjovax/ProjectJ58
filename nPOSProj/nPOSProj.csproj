@@ -81,6 +81,7 @@
     </Compile>
     <Compile Include="DAO\ChangePasswordDAO.cs" />
     <Compile Include="DAO\ConfigDAO.cs" />
+    <Compile Include="DAO\GiftCardDAO.cs" />
     <Compile Include="DAO\InventoryDAO.cs" />
     <Compile Include="DAO\ItemsDAO.cs" />
     <Compile Include="DAO\LoginDAO.cs" />
@@ -275,6 +276,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="VO\ChangePasswordVO.cs" />
     <Compile Include="VO\ConfigVO.cs" />
+    <Compile Include="VO\GiftCardVO.cs" />
     <Compile Include="VO\InventoryVO.cs" />
     <Compile Include="VO\ItemVO.cs" />
     <Compile Include="VO\PosVO.cs" />
