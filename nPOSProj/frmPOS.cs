@@ -965,6 +965,7 @@ namespace nPOSProj
                     txtBoxEAN.ReadOnly = false;
                     rdDescription.Clear();
                     rdDescription.Text = "Ready";
+                    lblChangeDue.Text = "0.00";
                     //
                     btnSearch.Enabled = true;
                     btnRefund.Enabled = true;
