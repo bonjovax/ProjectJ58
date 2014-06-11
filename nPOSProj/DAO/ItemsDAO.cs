@@ -21,6 +21,7 @@ namespace nPOSProj.DAO
         private String itemEAN;
         public ItemsDAO() { }
 
+        #region Item Core
         public void Update(Int32 qty, String ean, Double r_price, Double w_price, String stock_code, String eantmp)
         {
             con = new MySqlConnection();
@@ -230,7 +231,7 @@ namespace nPOSProj.DAO
             }
             return itemEAN;
         }
-
+        #endregion
         #region Item Kits
         public void InsertKit(Int32 kit_qty, String item_ean, String stock_code)
         {
@@ -298,6 +299,7 @@ namespace nPOSProj.DAO
             }
         }
         #endregion
+        #region Item Extended
         public Int32 askQuantity(String ean)
         {
             con = new MySqlConnection();
@@ -345,5 +347,134 @@ namespace nPOSProj.DAO
                 con.Close();
             }
         }
+        #endregion
+        #region Data Grabbing
+        public Int32 KitCount()
+        {
+            con = new MySqlConnection();
+            dbcon = new Conf.dbs();
+            con.ConnectionString = dbcon.getConnectionString();
+            String sql = "SELECT COUNT(*) AS a FROM inventory_items WHERE (is_kit = 1)";
+            Int32 count = 0;
+            try
+            {
+                con.Open();
+                MySqlCommand cmd = new MySqlCommand(sql, con);
+                MySqlDataReader rdr = cmd.ExecuteReader();
+                if (rdr.Read())
+                {
+                    count = Convert.ToInt32(rdr["a"].ToString());
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(" Error :: ERROR " + ex);
+            }
+            finally
+            {
+                con.Close();
+            }
+            return count;
+        }
+        public Int32 ItemCount()
+        {
+            con = new MySqlConnection();
+            dbcon = new Conf.dbs();
+            con.ConnectionString = dbcon.getConnectionString();
+            String sql = "SELECT COUNT(*) AS a FROM inventory_items INNER JOIN inventory_stocks ON inventory_items.stock_code = inventory_stocks.stock_code ";
+            sql += "WHERE (inventory_items.is_kit = 0)";
+            Int32 count = 0;
+            try
+            {
+                con.Open();
+                MySqlCommand cmd = new MySqlCommand(sql, con);
+                MySqlDataReader rdr = cmd.ExecuteReader();
+                if (rdr.Read())
+                {
+                    count = Convert.ToInt32(rdr["a"].ToString());
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(" Error :: ERROR " + ex);
+            }
+            finally
+            {
+                con.Close();
+            }
+            return count;
+        }
+        //
+        public String[,] ReadKits()
+        {
+            Int32 count = this.KitCount();
+            String[,] xxx = new String[4, count];
+            con = new MySqlConnection();
+            dbcon = new Conf.dbs();
+            con.ConnectionString = dbcon.getConnectionString();
+            String query = "SELECT item_ean, kit_name, item_whole_price, item_retail_price ";
+            query += "FROM inventory_items ";
+            query += "WHERE (is_kit = 1)";
+            try
+            {
+                con.Open();
+                MySqlCommand cmd = new MySqlCommand(query, con);
+                MySqlDataReader rdr = cmd.ExecuteReader();
+                int counts = 0;
+                while (rdr.Read())
+                {
+                    xxx[0, counts] = rdr["item_ean"].ToString();
+                    xxx[1, counts] = rdr["kit_name"].ToString();
+                    xxx[2, counts] = rdr["item_whole_price"].ToString();
+                    xxx[3, counts] = rdr["item_retail_price"].ToString();
+                    counts++;
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(" Err :: ERROR " + ex);
+            }
+            finally
+            {
+                con.Close();
+            }
+            return xxx;
+        }
+        public String[,] ReadItems()
+        {
+            Int32 count = this.ItemCount();
+            String[,] yyy = new String[4, count];
+            con = new MySqlConnection();
+            dbcon = new Conf.dbs();
+            con.ConnectionString = dbcon.getConnectionString();
+            String query = "SELECT inventory_items.item_ean AS a, inventory_stocks.stock_name AS b, inventory_items.item_whole_price AS c, inventory_items.item_retail_price AS d ";
+            query += "FROM inventory_items INNER JOIN inventory_stocks ON inventory_items.stock_code = inventory_stocks.stock_code ";
+            query += "WHERE (inventory_items.is_kit = 0)";
+            try
+            {
+                con.Open();
+                MySqlCommand cmd = new MySqlCommand(query, con);
+                MySqlDataReader rdr = cmd.ExecuteReader();
+                int counts = 0;
+                while (rdr.Read())
+                {
+                    yyy[0, counts] = rdr["a"].ToString();
+                    yyy[1, counts] = rdr["b"].ToString();
+                    yyy[2, counts] = rdr["c"].ToString();
+                    yyy[3, counts] = rdr["d"].ToString();
+                    counts++;
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(" Err :: ERROR " + ex);
+            }
+            finally
+            {
+                con.Close();
+            }
+            return yyy;
+        }
+        #endregion
     }
 }

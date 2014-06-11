@@ -127,5 +127,24 @@ namespace nPOSProj.VO
             items = new DAO.ItemsDAO();
             items.OrderI(item_ean, item_quantity);
         }
+        //
+        public String[,] ReadKits()
+        {
+            items = new DAO.ItemsDAO();
+            Int32 count = items.KitCount();
+            String[,] xxx = new String[4, count];
+            items.ReadKits();
+            xxx = items.ReadKits();
+            return xxx;
+        }
+        public String[,] ReadItems()
+        {
+            items = new DAO.ItemsDAO();
+            Int32 count = items.ItemCount();
+            String[,] yyy = new String[4, count];
+            items.ReadItems();
+            yyy = items.ReadItems();
+            return yyy;
+        }
     }
 }
