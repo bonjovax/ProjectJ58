@@ -48,6 +48,14 @@ namespace nPOSProj
             set { cardNo = value; }
         }
 
+        private String cardType;
+
+        public String CardType
+        {
+            get { return cardType; }
+            set { cardType = value; }
+        }
+
         private String cRef;
 
         public String CRef
@@ -202,6 +210,7 @@ namespace nPOSProj
                 if (mskCC.Text.Substring(0, 1) == "4")
                 {
                     pVisa.Visible = true;
+                    CardType = "Visa";
                 }
                 else
                 {
@@ -210,6 +219,7 @@ namespace nPOSProj
                 if (mskCC.Text.Substring(0, 1) == "5")
                 {
                     pMaster.Visible = true;
+                    CardType = "MasterCard";
                 }
                 else
                 {
@@ -224,6 +234,7 @@ namespace nPOSProj
                 UnlockGC_Controls();
                 pVisa.Visible = false;
                 pMaster.Visible = false;
+                CardType = "";
             }
         }
 
@@ -234,10 +245,13 @@ namespace nPOSProj
                 if (Regex.IsMatch(mskCC.Text, r.Visa()) || Regex.IsMatch(mskCC.Text, r.Mastercard()))
                 {
                     //Deleted Due to PCI DSS Compliancy
+                    CardNo = mskCC.Text;
+                    isDCTX = true;
+                    this.Close();
                 }
                 else
                 {
-                    MessageBox.Show("Not OK");
+                    MessageBox.Show("Invalid Card", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }

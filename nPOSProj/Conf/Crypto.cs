@@ -86,7 +86,7 @@ namespace nPOSProj.Conf
             }
             return encryptedBytes;
         }
-        public byte[] AES_Decrypt(byte[] bytesToBeDecrypted, byte[] passwordBytes)
+        private byte[] AES_Decrypt(byte[] bytesToBeDecrypted, byte[] passwordBytes)
         {
             byte[] decryptedBytes = null;
             byte[] saltBytes = new byte[] { 1, 2, 3, 4, 5, 6, 7, 8 };

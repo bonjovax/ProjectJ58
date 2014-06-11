@@ -166,12 +166,12 @@ namespace nPOSProj.VO
             set { card_data = value; }
         }
 
-        private String card_holders;
+        private String card_type;
 
-        public String Card_holders
+        public String Card_type
         {
-            get { return card_holders; }
-            set { card_holders = value; }
+            get { return card_type; }
+            set { card_type = value; }
         }
 
         private String card_lastfour;
@@ -301,7 +301,7 @@ namespace nPOSProj.VO
         public void DCCardCheckout()
         {
             POSDAO = new DAO.PosDAO();
-            POSDAO.DBCCard(Pos_tender, Pos_orno, Pos_terminal, Card_data, Card_holders, Card_lastfour, Tx_amount);
+            POSDAO.DBCCard(Pos_tender, Pos_orno, Pos_terminal, Card_data, Card_lastfour, card_type, Tx_amount);
         }
         public void BankCheckout()
         {

@@ -18,6 +18,7 @@ namespace nPOSProj
         #endregion
         private MySqlConnection con = new MySqlConnection();
         private Conf.dbs dbcon = new Conf.dbs();
+        private Conf.Crypto crypt = new Conf.Crypto();
         private DAO.LoginDAO login;
         private VO.ItemVO itemvo = new VO.ItemVO();
         private VO.PosVO pos = new VO.PosVO();
@@ -916,6 +917,16 @@ namespace nPOSProj
                 txtBoxEAN.ReadOnly = true;
                 txtBoxEAN.Focus();
                 proceeds = false; //Important
+                //
+                pos.Pos_tender = total_amt;
+                pos.Pos_orno = OrNo;
+                pos.Pos_terminal = lg.tN;
+                String enx = crypt.EncryptText(checkout.CardNo, lg.tN);
+                pos.Card_data = enx;
+                pos.Card_lastfour = checkout.CardNo.Substring(checkout.CardNo.Length - 4, 4);
+                pos.Card_type = checkout.CardType;
+                pos.Tx_amount = total_amt;
+                pos.DCCardCheckout();
                 //
                 newFlash();
             }
