@@ -48,14 +48,6 @@ namespace nPOSProj
             set { cardNo = value; }
         }
 
-        private String cardHoldersName;
-
-        public String CardHoldersName
-        {
-            get { return cardHoldersName; }
-            set { cardHoldersName = value; }
-        }
-
         private String cRef;
 
         public String CRef
@@ -141,7 +133,6 @@ namespace nPOSProj
         private void LockDC_Controls()
         {
             mskCC.ReadOnly = true;
-            txtBoxCardHoldersName.ReadOnly = true;
         }
         private void LockBC_Controls()
         {
@@ -164,7 +155,6 @@ namespace nPOSProj
         private void UnlockDC_Controls()
         {
             mskCC.ReadOnly = false;
-            txtBoxCardHoldersName.ReadOnly = false;
         }
         private void UnlockBC_Controls()
         {
@@ -225,7 +215,6 @@ namespace nPOSProj
                 {
                     pMaster.Visible = false;
                 }
-                txtBoxCardHoldersName.ReadOnly = false;
             }
             else
             {
@@ -235,8 +224,6 @@ namespace nPOSProj
                 UnlockGC_Controls();
                 pVisa.Visible = false;
                 pMaster.Visible = false;
-                txtBoxCardHoldersName.ReadOnly = true;
-                txtBoxCardHoldersName.Clear();
             }
         }
 
@@ -246,7 +233,7 @@ namespace nPOSProj
             {
                 if (Regex.IsMatch(mskCC.Text, r.Visa()) || Regex.IsMatch(mskCC.Text, r.Mastercard()))
                 {
-                    txtBoxCardHoldersName.Focus();
+                    //Deleted Due to PCI DSS Compliancy
                 }
                 else
                 {
@@ -352,40 +339,12 @@ namespace nPOSProj
             }
         }
 
-        private void txtBoxCardHoldersName_TextChanged(object sender, EventArgs e)
-        {
-            if (txtBoxCardHoldersName.Text != "")
-            {
-                LockCash_Controls();
-                LockBC_Controls();
-                LockAR_Controls();
-                LockGC_Controls();
-            }
-            else
-            {
-                UnlockCash_Controls();
-                UnlockBC_Controls();
-                UnlockAR_Controls();
-                UnlockGC_Controls();
-            }
-        }
 
         private void txtBoxCardHoldersName_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (char.IsNumber(e.KeyChar))
             {
                 e.Handled = true;
-            }
-        }
-
-        private void txtBoxCardHoldersName_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Enter)
-            {
-                CardNo = mskCC.Text;
-                cardHoldersName = txtBoxCardHoldersName.Text;
-                isDCTX = true;
-                this.Close();
             }
         }
 

@@ -37,8 +37,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.lblTotalAmount = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.label2 = new System.Windows.Forms.Label();
-            this.txtBoxCardHoldersName = new System.Windows.Forms.TextBox();
             this.pMaster = new System.Windows.Forms.PictureBox();
             this.pVisa = new System.Windows.Forms.PictureBox();
             this.mskCC = new System.Windows.Forms.MaskedTextBox();
@@ -168,8 +166,6 @@
             // tabPage2
             // 
             this.tabPage2.BackColor = System.Drawing.Color.Black;
-            this.tabPage2.Controls.Add(this.label2);
-            this.tabPage2.Controls.Add(this.txtBoxCardHoldersName);
             this.tabPage2.Controls.Add(this.pMaster);
             this.tabPage2.Controls.Add(this.pVisa);
             this.tabPage2.Controls.Add(this.mskCC);
@@ -184,34 +180,6 @@
             this.tabPage2.Size = new System.Drawing.Size(495, 223);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Debit/Credit Card";
-            // 
-            // label2
-            // 
-            this.label2.BackColor = System.Drawing.Color.MidnightBlue;
-            this.label2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.label2.Font = new System.Drawing.Font("Courier New", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(0, 175);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(499, 22);
-            this.label2.TabIndex = 39;
-            this.label2.Text = "Card Holder\'s Name";
-            // 
-            // txtBoxCardHoldersName
-            // 
-            this.txtBoxCardHoldersName.BackColor = System.Drawing.Color.Black;
-            this.txtBoxCardHoldersName.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtBoxCardHoldersName.Font = new System.Drawing.Font("Courier New", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBoxCardHoldersName.ForeColor = System.Drawing.Color.Lime;
-            this.txtBoxCardHoldersName.Location = new System.Drawing.Point(2, 197);
-            this.txtBoxCardHoldersName.MaxLength = 30;
-            this.txtBoxCardHoldersName.Name = "txtBoxCardHoldersName";
-            this.txtBoxCardHoldersName.ReadOnly = true;
-            this.txtBoxCardHoldersName.Size = new System.Drawing.Size(493, 24);
-            this.txtBoxCardHoldersName.TabIndex = 2;
-            this.txtBoxCardHoldersName.TextChanged += new System.EventHandler(this.txtBoxCardHoldersName_TextChanged);
-            this.txtBoxCardHoldersName.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtBoxCardHoldersName_KeyDown);
-            this.txtBoxCardHoldersName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtBoxCardHoldersName_KeyPress);
             // 
             // pMaster
             // 
@@ -620,8 +588,6 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox txtBoxCardHoldersName;
         private System.Windows.Forms.TabPage tabPage5;
         private System.Windows.Forms.Label lblTotalAmountGC;
         private System.Windows.Forms.Label label7;
