@@ -947,6 +947,15 @@ namespace nPOSProj
                 txtBoxEAN.Focus();
                 proceeds = false; //Important
                 //
+                pos.Pos_tender = total_amt;
+                pos.Pos_orno = OrNo;
+                pos.Pos_terminal = lg.tN;
+                pos.Bc_checkno = checkout.CheckNo;
+                pos.Bc_banknbranch = checkout.BankNBranch;
+                pos.Bc_refcode = checkout.CRef;
+                pos.Tx_amount = total_amt;
+                pos.BankCheckout();
+                //
                 newFlash();
             }
         }

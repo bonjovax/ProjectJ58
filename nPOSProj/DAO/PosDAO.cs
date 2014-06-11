@@ -322,7 +322,7 @@ namespace nPOSProj.DAO
             query += "pos_tender = ?pos_tender, pos_park = 0 ";
             query += "WHERE (pos_orno = ?pos_orno) AND (pos_terminal = ?pos_terminal)";
             String query1 = "INSERT INTO pos_dc_tx (pos_orno, card_data, card_lastfour, card_type, tx_amount, date_tx, time_tx) VALUES";
-            query1 += "(?pos_orno, ?card_data, ?card_lastfour, ?card_type, ?tx_amount,?date_tx, ?time_tx)";
+            query1 += "(?pos_orno, ?card_data, ?card_lastfour, ?card_type, ?tx_amount, ?date_tx, ?time_tx)";
             try
             {
                 con.Open();
@@ -360,7 +360,7 @@ namespace nPOSProj.DAO
             query += "pos_tender = ?pos_tender, pos_park = 0 ";
             query += "WHERE (pos_orno = ?pos_orno) AND (pos_terminal = ?pos_terminal)";
             String query1 = "INSERT INTO pos_bc_tx (pos_orno, bc_checkno, bc_banknbranch, bc_refcode, tx_amount, date_tx, time_tx) VALUES";
-            query1 += "(?pos_orno, ?bc_checkno, ?bc_banknbranch, bc_refcode, tx_amount, date_tx, time_tx)";
+            query1 += "(?pos_orno, ?bc_checkno, ?bc_banknbranch, ?bc_refcode, ?tx_amount, ?date_tx, ?time_tx)";
             try
             {
                 con.Open();
