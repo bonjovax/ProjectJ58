@@ -124,6 +124,12 @@
     <Compile Include="frmDlgSearch.Designer.cs">
       <DependentUpon>frmDlgSearch.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmGiftCard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmGiftCard.Designer.cs">
+      <DependentUpon>frmGiftCard.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmPOS.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -295,6 +301,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmDlgSearch.resx">
       <DependentUpon>frmDlgSearch.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmGiftCard.resx">
+      <DependentUpon>frmGiftCard.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmPOS.resx">
       <DependentUpon>frmPOS.cs</DependentUpon>

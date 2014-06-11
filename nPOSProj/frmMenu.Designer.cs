@@ -151,6 +151,7 @@
             this.btnGC.Text = "Gift Cards (F5)";
             this.btnGC.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnGC.UseVisualStyleBackColor = true;
+            this.btnGC.Click += new System.EventHandler(this.btnGC_Click);
             // 
             // btnUserAccounts
             // 
