@@ -15,6 +15,9 @@ namespace nPOSProj
         #region System Config
         private Double taxP;
         private String taxDisplay;
+        private String compName;
+        private String TIN;
+        private String TaxT;
         #endregion
         private MySqlConnection con = new MySqlConnection();
         private Conf.dbs dbcon = new Conf.dbs();
@@ -235,7 +238,8 @@ namespace nPOSProj
 
         private void frmPOS_Load(object sender, EventArgs e)
         {
-            rdDescription.Text = "3M Groceries & Supplies";
+            ConfigCheck();
+            rdDescription.Text = compName;
             timer1.Start();
             String userName = frmLogin.User.user_name;
             lblUserAccount.Text = userName;
@@ -245,7 +249,6 @@ namespace nPOSProj
             timer2.Tick += new EventHandler(timer2_Tick);
             timer2.Interval = 250;
             //
-            ConfigCheck();
             lblTax.Text = taxDisplay.ToString();
         }
         private void ConfigCheck()
@@ -264,11 +267,16 @@ namespace nPOSProj
                     {
                         taxP = Convert.ToDouble("." + rdr["vat_rate"]);
                         taxDisplay = rdr["vat_rate"].ToString() + "%";
+                        compName = rdr["company_name"].ToString();
+                        TIN = rdr["tin_number"].ToString();
+                        TaxT = "V";
                     }
                     else
                     {
                         taxP = 0;
                         taxDisplay = "0%";
+                        compName = rdr["company_name"].ToString();
+                        TaxT = "NV";
                     }
                 }
                 con.Close();
