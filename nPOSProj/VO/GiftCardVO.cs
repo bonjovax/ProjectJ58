@@ -10,6 +10,7 @@ namespace nPOSProj.VO
         private DAO.GiftCardDAO gcdao;
         public GiftCardVO() { }
 
+        #region Core Values
         private String gc_cardno;
 
         public String Gc_cardno
@@ -41,7 +42,9 @@ namespace nPOSProj.VO
             get { return gc_validuntil; }
             set { gc_validuntil = value; }
         }
+        #endregion
 
+        #region Core
         public String[,] ReadGC()
         {
             gcdao = new DAO.GiftCardDAO();
@@ -63,5 +66,21 @@ namespace nPOSProj.VO
             gcdao = new DAO.GiftCardDAO();
             gcdao.Delete(Gc_cardno);
         }
+        #endregion
+        #region Checkout Section
+        public Double askAmount()
+        {
+            Double amount = 0;
+            gcdao = new DAO.GiftCardDAO();
+            gcdao.catchA(Gc_cardno);
+            amount = gcdao.catchA(Gc_cardno);
+            return amount;
+        }
+        public void DebitGC()
+        {
+            gcdao = new DAO.GiftCardDAO();
+            gcdao.Debit(Gc_amount, Gc_cardno);
+        }
+        #endregion
     }
 }

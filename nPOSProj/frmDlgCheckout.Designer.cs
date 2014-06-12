@@ -452,6 +452,7 @@
             this.btnProceed.Text = "Proceed";
             this.btnProceed.UseVisualStyleBackColor = true;
             this.btnProceed.Visible = false;
+            this.btnProceed.Click += new System.EventHandler(this.btnProceed_Click);
             // 
             // lblNotif
             // 
@@ -478,6 +479,7 @@
             this.txtBoxGCode.Size = new System.Drawing.Size(494, 24);
             this.txtBoxGCode.TabIndex = 30;
             this.txtBoxGCode.TextChanged += new System.EventHandler(this.txtBoxGCode_TextChanged);
+            this.txtBoxGCode.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtBoxGCode_KeyDown);
             // 
             // label4
             // 

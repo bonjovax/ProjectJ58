@@ -16,6 +16,8 @@ namespace nPOSProj
         private String b;
         private Conf.Rgx r = new Conf.Rgx();
         private Conf.Crypto tx = new Conf.Crypto();
+        private VO.GiftCardVO gc;
+        private Double getGCamt = 0;
         //
         private Double getAmount;
         //
@@ -120,12 +122,20 @@ namespace nPOSProj
             set { bankNBranch = value; }
         }
 
-        private Int32 gc_code;
+        private String gc_code;
 
-        public Int32 Gc_code
+        public String Gc_code
         {
             get { return gc_code; }
             set { gc_code = value; }
+        }
+
+        private Double gc_bal;
+
+        public Double Gc_bal
+        {
+            get { return gc_bal; }
+            set { gc_bal = value; }
         }
 
         public frmDlgCheckout()
@@ -191,6 +201,7 @@ namespace nPOSProj
             IsDCTX = false;
             IsBCTX = false;
             IsARTX = false;
+            IsGCTX = false;
             //
             txtBoxTender.Focus();
         }
@@ -414,6 +425,49 @@ namespace nPOSProj
                 UnlockAR_Controls();
                 UnlockCash_Controls();
             }
+        }
+
+        private void txtBoxGCode_KeyDown(object sender, KeyEventArgs e)
+        {
+            gc = new VO.GiftCardVO();
+            try
+            {
+                if (e.KeyCode == Keys.Enter)
+                {
+                    gc.Gc_cardno = txtBoxGCode.Text;
+                    gc.askAmount();
+                    if (getAmount <= gc.askAmount())
+                    {
+                        if (gc.askAmount() == 0)
+                        {
+                            lblNotif.Text = "Gift Card Has Been Consumed/Not Found";
+                            btnProceed.Visible = false;
+                        }
+                        else
+                        {
+                            getGCamt = gc.askAmount();
+                            lblNotif.Text = "P " + gc.askAmount().ToString("#,###,##0.00") + " Available Balance.";
+                            btnProceed.Visible = true;
+                        }
+                    }
+                    else
+                    {
+                        lblNotif.Text = "P " + gc.askAmount().ToString("#,###,##0.00") + " Available in your Gift Card";
+                    }
+                }
+            }
+            catch (Exception)
+            {
+                lblNotif.Text = "Check Database Server!";
+            }
+        }
+
+        private void btnProceed_Click(object sender, EventArgs e)
+        {
+            Gc_code = txtBoxGCode.Text;
+            Gc_bal = getGCamt;
+            isGCTX = true;
+            this.Close();
         }
     }
 }

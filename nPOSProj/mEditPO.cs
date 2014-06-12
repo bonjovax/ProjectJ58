@@ -200,7 +200,7 @@ namespace nPOSProj
                 {
                     stock_cost_price = Convert.ToDouble(rdr["stock_cost_price"]);
                     UOM = rdr["stock_uom"].ToString();
-                    txtBoxUnitPrice.Text = stock_cost_price.ToString("#,###,###.00");
+                    txtBoxUnitPrice.Text = stock_cost_price.ToString("#,###,##0.00");
                     txtBoxUOM.Text = UOM;
                     txtBoxQty.ReadOnly = false;
                 }
@@ -328,7 +328,7 @@ namespace nPOSProj
                 po.stock_name = txtBoxParticulars.Text;
                 po.supplier_code = txtBoxSupplierCode.Text;
                 txtBoxStockCode.Text = po.askStockCode();
-                txtBoxUnitPrice.Text = po.askStockPriceStockName().ToString("#,###,###.00");
+                txtBoxUnitPrice.Text = po.askStockPriceStockName().ToString("#,###,##0.00");
                 txtBoxUOM.Text = po.askUOM_N();
                 txtBoxQty.Focus();
                 txtBoxUQTY.ReadOnly = false;

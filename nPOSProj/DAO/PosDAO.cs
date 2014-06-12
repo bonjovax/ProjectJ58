@@ -389,7 +389,7 @@ namespace nPOSProj.DAO
                 con.Close();
             }
         }
-        public void GiftDick(Double pos_tender, Int32 pos_orno, String pos_terminal, Int32 gc_cardno, Double tx_amount)
+        public void GiftDick(Double pos_tender, Int32 pos_orno, String pos_terminal, String gc_cardno, Double tx_amount)
         {
             con = new MySqlConnection();
             dbcon = new Conf.dbs();

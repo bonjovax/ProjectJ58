@@ -15,6 +15,7 @@ namespace nPOSProj.DAO
 
         public GiftCardDAO() { }
 
+        #region Core Data Access
         public Int32 PositionCount()
         {
             con = new MySqlConnection();
@@ -119,5 +120,56 @@ namespace nPOSProj.DAO
                 con.Close();
             }
         }
+        #endregion
+        #region Checkout Section
+        public Double catchA(String gc_cardno)
+        {
+            Double amount = 0;
+            con = new MySqlConnection();
+            dbcon = new Conf.dbs();
+            con.ConnectionString = dbcon.getConnectionString();
+            String query = "SELECT gc_amount AS a FROM gc_core ";
+            query += "WHERE gc_cardno = ?gc_cardno";
+            try
+            {
+                con.Open();
+                MySqlCommand cmd = new MySqlCommand(query, con);
+                cmd.Parameters.AddWithValue("?gc_cardno", gc_cardno);
+                cmd.ExecuteScalar();
+                MySqlDataReader rdr = cmd.ExecuteReader();
+                if (rdr.Read())
+                {
+                    amount = Convert.ToDouble(rdr["a"]);
+                }
+            }
+            finally
+            {
+                con.Close();
+            }
+            return amount;
+        }
+
+        public void Debit(Double amt, String gc_cardno)
+        {
+            con = new MySqlConnection();
+            dbcon = new Conf.dbs();
+            con.ConnectionString = dbcon.getConnectionString();
+            String query = "UPDATE gc_core SET gc_amount = gc_amount - ?gc_amount ";
+            query += "WHERE gc_cardno = ?gc_cardno";
+            try
+            {
+                con.Open();
+                MySqlCommand cmd = new MySqlCommand(query, con);
+                cmd.Parameters.AddWithValue("?gc_amount", amt);
+                cmd.Parameters.AddWithValue("?gc_cardno", gc_cardno);
+                cmd.ExecuteNonQuery();
+                cmd.Dispose();
+            }
+            finally
+            {
+                con.Close();
+            }
+        }
+        #endregion
     }
 }

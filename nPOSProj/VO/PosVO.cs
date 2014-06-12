@@ -214,9 +214,9 @@ namespace nPOSProj.VO
             set { bc_refcode = value; }
         }
 
-        private Int32 gc_cardo;
+        private String gc_cardo;
 
-        public Int32 Gc_cardo
+        public String Gc_cardo
         {
             get { return gc_cardo; }
             set { gc_cardo = value; }

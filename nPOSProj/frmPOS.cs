@@ -22,6 +22,7 @@ namespace nPOSProj
         private DAO.LoginDAO login;
         private VO.ItemVO itemvo = new VO.ItemVO();
         private VO.PosVO pos = new VO.PosVO();
+        private VO.GiftCardVO gcard = new VO.GiftCardVO();
         private bool wholsale_select = false;
         private bool proceeds = false;
         private Double price;
@@ -955,6 +956,36 @@ namespace nPOSProj
                 pos.Bc_refcode = checkout.CRef;
                 pos.Tx_amount = total_amt;
                 pos.BankCheckout();
+                //
+                newFlash();
+            }
+            if (checkout.IsGCTX == true)
+            {
+                btnSearch.Enabled = false;
+                btnRefund.Enabled = false;
+                btnWholesale.Enabled = false;
+                btnCancelSale.Enabled = false;
+                btnParkSale.Enabled = true;
+                btnVoid.Enabled = false;
+                btnEdit.Enabled = false;
+                btnCancelSale.Enabled = false;
+                btnCheckout.Enabled = false; //Very Important La
+                btnDiscount.Enabled = false;
+                txtBoxQty.ReadOnly = true;
+                txtBoxEAN.ReadOnly = true;
+                txtBoxEAN.Focus();
+                proceeds = false; //Important
+                //
+                pos.Pos_tender = checkout.GetAmount;
+                pos.Pos_orno = OrNo;
+                pos.Pos_terminal = lg.tN;
+                pos.Gc_cardo = checkout.Gc_code;
+                pos.Tx_amount = checkout.GetAmount; //Same
+                pos.GiftCardCheckout();
+                //
+                gcard.Gc_amount = checkout.GetAmount;
+                gcard.Gc_cardno = checkout.Gc_code;
+                gcard.DebitGC();
                 //
                 newFlash();
             }
