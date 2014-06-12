@@ -217,6 +217,7 @@ namespace nPOSProj
             b.IncludeLabel = true;
             b.LabelPosition = LabelPositions.BOTTOMCENTER;
             barcode.Image = b.Encode(t, dataGridView1.SelectedRows[0].Cells[0].Value.ToString());
+            bcSave.Enabled = true;
         }
     }
 }
