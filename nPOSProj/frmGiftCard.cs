@@ -207,5 +207,16 @@ namespace nPOSProj
                 e.Handled = true;
             }
         }
+
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            b.Alignment = AlignmentPositions.CENTER;
+            b.Width = 775;
+            b.Height = 55;
+            TYPE t = TYPE.CODE39;
+            b.IncludeLabel = true;
+            b.LabelPosition = LabelPositions.BOTTOMCENTER;
+            barcode.Image = b.Encode(t, dataGridView1.SelectedRows[0].Cells[0].Value.ToString());
+        }
     }
 }
