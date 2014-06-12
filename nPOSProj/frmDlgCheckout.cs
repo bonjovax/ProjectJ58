@@ -448,6 +448,7 @@ namespace nPOSProj
                             getGCamt = gc.askAmount();
                             lblNotif.Text = "P " + gc.askAmount().ToString("#,###,##0.00") + " Available Balance.";
                             btnProceed.Visible = true;
+                            btnProceed.Focus();
                         }
                     }
                     else
