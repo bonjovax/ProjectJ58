@@ -79,9 +79,15 @@ namespace nPOSProj
 
         private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            OrderNo = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[0].Value);
-            Selected = true;
-            this.Close();
+            try
+            {
+                OrderNo = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[0].Value);
+                Selected = true;
+                this.Close();
+            }
+            catch (Exception)
+            {
+            }
         }
 
         private void dataGridView1_KeyDown(object sender, KeyEventArgs e)
