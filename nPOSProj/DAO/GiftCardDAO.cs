@@ -46,7 +46,7 @@ namespace nPOSProj.DAO
         public String[,] Read()
         {
             Int32 count = this.PositionCount();
-            String[,] xxx = new String[5, count];
+            String[,] xxx = new String[4, count];
             con = new MySqlConnection();
             dbcon = new Conf.dbs();
             con.ConnectionString = dbcon.getConnectionString();
@@ -59,11 +59,10 @@ namespace nPOSProj.DAO
                 int counts = 0;
                 while (rdr.Read())
                 {
-                    xxx[0, counts] = rdr["gc_id"].ToString();
-                    xxx[1, counts] = rdr["gc_cardno"].ToString();
-                    xxx[2, counts] = rdr["gc_amount"].ToString();
-                    xxx[3, counts] = rdr["gc_holder"].ToString();
-                    xxx[4, counts] = rdr["gc_validuntil"].ToString();
+                    xxx[0, counts] = rdr["gc_cardno"].ToString();
+                    xxx[1, counts] = rdr["gc_amount"].ToString();
+                    xxx[2, counts] = rdr["gc_holder"].ToString();
+                    xxx[3, counts] = rdr["gc_validuntil"].ToString();
                     counts++;
                 }
             }
@@ -76,6 +75,49 @@ namespace nPOSProj.DAO
                 con.Close();
             }
             return xxx;
+        }
+        public void Add(String gc_cardno, Double gc_amount, String gc_holder, DateTime gc_validuntil)
+        {
+            con = new MySqlConnection();
+            dbcon = new Conf.dbs();
+            con.ConnectionString = dbcon.getConnectionString();
+            String query = "INSERT INTO gc_core (gc_cardno, gc_amount, gc_holder, gc_validuntil) VALUES";
+            query += "(?a, ?b, ?c, ?d)";
+            try
+            {
+                con.Open();
+                MySqlCommand cmd = new MySqlCommand(query, con);
+                cmd.Parameters.AddWithValue("?a", gc_cardno);
+                cmd.Parameters.AddWithValue("?b", gc_amount);
+                cmd.Parameters.AddWithValue("?c", gc_holder);
+                cmd.Parameters.AddWithValue("?d", gc_validuntil);
+                cmd.ExecuteNonQuery();
+                cmd.Dispose();
+            }
+            finally
+            {
+                con.Close();
+            }
+        }
+        public void Delete(String gc_cardno)
+        {
+            con = new MySqlConnection();
+            dbcon = new Conf.dbs();
+            con.ConnectionString = dbcon.getConnectionString();
+            String query = "DELETE FROM gc_core ";
+            query += "WHERE gc_cardno = ?a";
+            try
+            {
+                con.Open();
+                MySqlCommand cmd = new MySqlCommand(query, con);
+                cmd.Parameters.AddWithValue("?a", gc_cardno);
+                cmd.ExecuteNonQuery();
+                cmd.Dispose();
+            }
+            finally
+            {
+                con.Close();
+            }
         }
     }
 }
