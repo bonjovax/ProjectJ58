@@ -94,8 +94,9 @@
             // 
             // lblWarning
             // 
+            this.lblWarning.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblWarning.ForeColor = System.Drawing.Color.Brown;
-            this.lblWarning.Location = new System.Drawing.Point(224, 24);
+            this.lblWarning.Location = new System.Drawing.Point(220, 24);
             this.lblWarning.Name = "lblWarning";
             this.lblWarning.Size = new System.Drawing.Size(345, 23);
             this.lblWarning.TabIndex = 22;
@@ -131,6 +132,8 @@
             this.txtBoxProv.Name = "txtBoxProv";
             this.txtBoxProv.Size = new System.Drawing.Size(189, 23);
             this.txtBoxProv.TabIndex = 19;
+            this.txtBoxProv.TextChanged += new System.EventHandler(this.txtBoxProv_TextChanged);
+            this.txtBoxProv.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtBoxProv_KeyPress);
             // 
             // label10
             // 
@@ -151,6 +154,8 @@
             this.txtBoxCity.Name = "txtBoxCity";
             this.txtBoxCity.Size = new System.Drawing.Size(189, 23);
             this.txtBoxCity.TabIndex = 17;
+            this.txtBoxCity.TextChanged += new System.EventHandler(this.txtBoxCity_TextChanged);
+            this.txtBoxCity.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtBoxCity_KeyPress);
             // 
             // label9
             // 
@@ -171,6 +176,7 @@
             this.txtBoxAddress.Name = "txtBoxAddress";
             this.txtBoxAddress.Size = new System.Drawing.Size(573, 23);
             this.txtBoxAddress.TabIndex = 15;
+            this.txtBoxAddress.TextChanged += new System.EventHandler(this.txtBoxAddress_TextChanged);
             // 
             // label8
             // 
@@ -191,6 +197,7 @@
             this.txtBoxPhone.Name = "txtBoxPhone";
             this.txtBoxPhone.Size = new System.Drawing.Size(189, 23);
             this.txtBoxPhone.TabIndex = 13;
+            this.txtBoxPhone.TextChanged += new System.EventHandler(this.txtBoxPhone_TextChanged);
             // 
             // label7
             // 
@@ -231,6 +238,8 @@
             this.txtBoxLast.Name = "txtBoxLast";
             this.txtBoxLast.Size = new System.Drawing.Size(189, 23);
             this.txtBoxLast.TabIndex = 9;
+            this.txtBoxLast.TextChanged += new System.EventHandler(this.txtBoxLast_TextChanged);
+            this.txtBoxLast.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtBoxLast_KeyPress);
             // 
             // label5
             // 
@@ -251,6 +260,8 @@
             this.txtBoxMiddle.Name = "txtBoxMiddle";
             this.txtBoxMiddle.Size = new System.Drawing.Size(189, 23);
             this.txtBoxMiddle.TabIndex = 7;
+            this.txtBoxMiddle.TextChanged += new System.EventHandler(this.txtBoxMiddle_TextChanged);
+            this.txtBoxMiddle.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtBoxMiddle_KeyPress);
             // 
             // label4
             // 
@@ -271,6 +282,8 @@
             this.txtBoxFirst.Name = "txtBoxFirst";
             this.txtBoxFirst.Size = new System.Drawing.Size(189, 23);
             this.txtBoxFirst.TabIndex = 5;
+            this.txtBoxFirst.TextChanged += new System.EventHandler(this.txtBoxFirst_TextChanged);
+            this.txtBoxFirst.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtBoxFirst_KeyPress);
             // 
             // label3
             // 
@@ -306,12 +319,14 @@
             // 
             this.txtBoxCustomerCode.BackColor = System.Drawing.Color.Khaki;
             this.txtBoxCustomerCode.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtBoxCustomerCode.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtBoxCustomerCode.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtBoxCustomerCode.Location = new System.Drawing.Point(116, 24);
             this.txtBoxCustomerCode.MaxLength = 10;
             this.txtBoxCustomerCode.Name = "txtBoxCustomerCode";
             this.txtBoxCustomerCode.Size = new System.Drawing.Size(102, 23);
             this.txtBoxCustomerCode.TabIndex = 1;
+            this.txtBoxCustomerCode.TextChanged += new System.EventHandler(this.txtBoxCustomerCode_TextChanged);
             // 
             // label1
             // 
@@ -334,6 +349,7 @@
             this.btnSave.Text = "&Save";
             this.btnSave.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // btnExit
             // 

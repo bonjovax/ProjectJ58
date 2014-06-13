@@ -44,6 +44,10 @@ namespace nPOSProj
             using (mNewDirectory newdir = new mNewDirectory())
             {
                 newdir.ShowDialog();
+                if (newdir.Activity == true)
+                {
+                    LoadData();
+                }
             }
         }
     }
