@@ -11,6 +11,13 @@ namespace nPOSProj
 {
     public partial class mNewDirectory : Form
     {
+        private bool activity;
+
+        public bool Activity
+        {
+            get { return activity; }
+            set { activity = value; }
+        }
         public mNewDirectory()
         {
             InitializeComponent();
