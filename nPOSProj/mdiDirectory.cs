@@ -74,5 +74,23 @@ namespace nPOSProj
                 MessageBox.Show("Check Database!", "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            btnDelete.Enabled = true;
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            DialogResult dr = MessageBox.Show("Are you sure you want to Delete Your Selected Record?\nAll Trasactions Under your Selected Customer Code will be Wiped Out!\nThis Can't be Undo!", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            customer = new VO.CustomersVO();
+            if (dr == System.Windows.Forms.DialogResult.Yes)
+            {
+                customer.Custcode = dataGridView1.SelectedRows[0].Cells[0].Value.ToString();
+                customer.DeleteCustomers();
+                dataGridView1.Rows.RemoveAt(dataGridView1.SelectedRows[0].Index);
+                btnDelete.Enabled = false;
+            }
+        }
     }
 }
