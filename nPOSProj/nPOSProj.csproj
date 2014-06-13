@@ -81,6 +81,7 @@
     </Compile>
     <Compile Include="DAO\ChangePasswordDAO.cs" />
     <Compile Include="DAO\ConfigDAO.cs" />
+    <Compile Include="DAO\CustomersDAO.cs" />
     <Compile Include="DAO\GiftCardDAO.cs" />
     <Compile Include="DAO\InventoryDAO.cs" />
     <Compile Include="DAO\ItemsDAO.cs" />
@@ -154,6 +155,12 @@
     </Compile>
     <Compile Include="mdiConfiguration.Designer.cs">
       <DependentUpon>mdiConfiguration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="mdiDirectory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="mdiDirectory.Designer.cs">
+      <DependentUpon>mdiDirectory.cs</DependentUpon>
     </Compile>
     <Compile Include="mdiFrmCustomers.cs">
       <SubType>Form</SubType>
@@ -251,6 +258,12 @@
     <Compile Include="mKits.Designer.cs">
       <DependentUpon>mKits.cs</DependentUpon>
     </Compile>
+    <Compile Include="mNewDirectory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="mNewDirectory.Designer.cs">
+      <DependentUpon>mNewDirectory.cs</DependentUpon>
+    </Compile>
     <Compile Include="mPOrder.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -282,6 +295,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="VO\ChangePasswordVO.cs" />
     <Compile Include="VO\ConfigVO.cs" />
+    <Compile Include="VO\CustomersVO.cs" />
     <Compile Include="VO\GiftCardVO.cs" />
     <Compile Include="VO\InventoryVO.cs" />
     <Compile Include="VO\ItemVO.cs" />
@@ -324,6 +338,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="mdiConfiguration.resx">
       <DependentUpon>mdiConfiguration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="mdiDirectory.resx">
+      <DependentUpon>mdiDirectory.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="mdiFrmCustomers.resx">
       <DependentUpon>mdiFrmCustomers.cs</DependentUpon>
@@ -372,6 +389,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="mKits.resx">
       <DependentUpon>mKits.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="mNewDirectory.resx">
+      <DependentUpon>mNewDirectory.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="mPOrder.resx">
       <DependentUpon>mPOrder.cs</DependentUpon>

@@ -86,6 +86,7 @@
             this.tsDirectory.Size = new System.Drawing.Size(68, 69);
             this.tsDirectory.Text = "&Directory";
             this.tsDirectory.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.tsDirectory.Click += new System.EventHandler(this.tsDirectory_Click);
             // 
             // toolStripSeparator7
             // 
