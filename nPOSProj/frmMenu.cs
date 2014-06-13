@@ -161,6 +161,12 @@ namespace nPOSProj
                 this.Hide();
                 return true;
             }
+            if (keyData == Keys.F7 && btnConfig.Enabled == true)
+            {
+                mdiConfig = new mdiConfiguration();
+                mdiConfig.ShowDialog();
+                return true;
+            }
             return base.ProcessCmdKey(ref msg, keyData);
         }
 

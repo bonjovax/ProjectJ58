@@ -269,14 +269,14 @@ namespace nPOSProj
                         taxDisplay = rdr["vat_rate"].ToString() + "%";
                         compName = rdr["company_name"].ToString();
                         TIN = rdr["tin_number"].ToString();
-                        TaxT = "V";
+                        TaxT = rdr["tax_type"].ToString();
                     }
                     else
                     {
                         taxP = 0;
                         taxDisplay = "0%";
                         compName = rdr["company_name"].ToString();
-                        TaxT = "NV";
+                        TaxT = rdr["tax_type"].ToString();
                     }
                 }
                 con.Close();
