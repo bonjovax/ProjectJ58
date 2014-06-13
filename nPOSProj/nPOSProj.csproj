@@ -144,6 +144,12 @@
     <Compile Include="frmRptPO.Designer.cs">
       <DependentUpon>frmRptPO.cs</DependentUpon>
     </Compile>
+    <Compile Include="mCrmBasic.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="mCrmBasic.Designer.cs">
+      <DependentUpon>mCrmBasic.cs</DependentUpon>
+    </Compile>
     <Compile Include="mdiCategory.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -179,6 +185,12 @@
     </Compile>
     <Compile Include="mdiItems.Designer.cs">
       <DependentUpon>mdiItems.cs</DependentUpon>
+    </Compile>
+    <Compile Include="mdiPayment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="mdiPayment.Designer.cs">
+      <DependentUpon>mdiPayment.cs</DependentUpon>
     </Compile>
     <Compile Include="mdiPO.cs">
       <SubType>Form</SubType>
@@ -345,6 +357,9 @@
     <EmbeddedResource Include="frmRptPO.resx">
       <DependentUpon>frmRptPO.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="mCrmBasic.resx">
+      <DependentUpon>mCrmBasic.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="mdiCategory.resx">
       <DependentUpon>mdiCategory.cs</DependentUpon>
     </EmbeddedResource>
@@ -362,6 +377,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="mdiItems.resx">
       <DependentUpon>mdiItems.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="mdiPayment.resx">
+      <DependentUpon>mdiPayment.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="mdiPO.resx">
       <DependentUpon>mdiPO.cs</DependentUpon>
