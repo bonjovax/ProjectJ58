@@ -92,5 +92,31 @@ namespace nPOSProj
                 btnDelete.Enabled = false;
             }
         }
+
+        private void btnFilter_Click(object sender, EventArgs e)
+        {
+            using (mFilterDir fildir = new mFilterDir())
+            {
+                fildir.ShowDialog();
+                if (fildir.Searched == true)
+                {
+                    try
+                    {
+                        customer = new VO.CustomersVO();
+                        customer.Balance = fildir.FilterAmount;
+                        String[,] grabData = customer.ReadCustomersFilts();
+                        dataGridView1.Rows.Clear();
+                        for (int x = 0; x < grabData.GetLength(1); x++)
+                        {
+                            dataGridView1.Rows.Add(grabData[0, x].ToString(), grabData[1, x].ToString(), grabData[2, x].ToString(), grabData[3, x].ToString(), grabData[4, x].ToString(), Convert.ToDouble(grabData[5, x].ToString()));
+                        }
+                    }
+                    catch (Exception)
+                    {
+                        MessageBox.Show("Check Database!", "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
+        }
     }
 }

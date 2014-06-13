@@ -360,6 +360,8 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "mEditDirectory";
+            this.ShowIcon = false;
+            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Load += new System.EventHandler(this.mEditDirectory_Load);
             this.groupBox1.ResumeLayout(false);

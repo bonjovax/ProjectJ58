@@ -85,6 +85,13 @@ namespace nPOSProj.VO
             get { return zip_code; }
             set { zip_code = value; }
         }
+        private Double balance;
+
+        public Double Balance
+        {
+            get { return balance; }
+            set { balance = value; }
+        }
         public CustomersVO() { }
 
         public String[,] ReadCustomers()
@@ -94,6 +101,15 @@ namespace nPOSProj.VO
             String[,] xxx = new String[6, count];
             customers.ReadCustomer();
             xxx = customers.ReadCustomer();
+            return xxx;
+        }
+        public String[,] ReadCustomersFilts()
+        {
+            customers = new DAO.CustomersDAO();
+            Int32 count = customers.PositionCountFilter(Balance);
+            String[,] xxx = new String[6, count];
+            customers.ReadCustomerFilter(Balance);
+            xxx = customers.ReadCustomerFilter(Balance);
             return xxx;
         }
         public String[] ReadEdits()
