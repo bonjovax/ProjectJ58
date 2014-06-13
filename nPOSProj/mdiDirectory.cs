@@ -31,6 +31,7 @@ namespace nPOSProj
             }
             catch (Exception)
             {
+                MessageBox.Show("Check Database!", "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -48,6 +49,29 @@ namespace nPOSProj
                 {
                     LoadData();
                 }
+            }
+        }
+
+        private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                using (mEditDirectory editdir = new mEditDirectory())
+                {
+                    editdir.Custcode = dataGridView1.SelectedRows[0].Cells[0].Value.ToString();
+                    editdir.ShowDialog();
+                    if (editdir.Activity == true)
+                    {
+                        dataGridView1.SelectedRows[0].Cells[1].Value = editdir.Company;
+                        dataGridView1.SelectedRows[0].Cells[2].Value = editdir.First;
+                        dataGridView1.SelectedRows[0].Cells[3].Value = editdir.Middle;
+                        dataGridView1.SelectedRows[0].Cells[4].Value = editdir.Last;
+                    }
+                }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Check Database!", "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

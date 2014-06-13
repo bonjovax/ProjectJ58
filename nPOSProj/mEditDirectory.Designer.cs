@@ -52,9 +52,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.txtBoxCustomerCode = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.btnClear = new System.Windows.Forms.Button();
             this.btnExit = new System.Windows.Forms.Button();
-            this.btnSave = new System.Windows.Forms.Button();
+            this.btnUpdate = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -120,6 +119,7 @@
             this.txtBoxProv.Name = "txtBoxProv";
             this.txtBoxProv.Size = new System.Drawing.Size(189, 23);
             this.txtBoxProv.TabIndex = 19;
+            this.txtBoxProv.TextChanged += new System.EventHandler(this.txtBoxProv_TextChanged);
             // 
             // label10
             // 
@@ -140,6 +140,7 @@
             this.txtBoxCity.Name = "txtBoxCity";
             this.txtBoxCity.Size = new System.Drawing.Size(189, 23);
             this.txtBoxCity.TabIndex = 17;
+            this.txtBoxCity.TextChanged += new System.EventHandler(this.txtBoxCity_TextChanged);
             // 
             // label9
             // 
@@ -160,6 +161,7 @@
             this.txtBoxAddress.Name = "txtBoxAddress";
             this.txtBoxAddress.Size = new System.Drawing.Size(573, 23);
             this.txtBoxAddress.TabIndex = 15;
+            this.txtBoxAddress.TextChanged += new System.EventHandler(this.txtBoxAddress_TextChanged);
             // 
             // label8
             // 
@@ -180,6 +182,7 @@
             this.txtBoxPhone.Name = "txtBoxPhone";
             this.txtBoxPhone.Size = new System.Drawing.Size(189, 23);
             this.txtBoxPhone.TabIndex = 13;
+            this.txtBoxPhone.TextChanged += new System.EventHandler(this.txtBoxPhone_TextChanged);
             // 
             // label7
             // 
@@ -220,6 +223,7 @@
             this.txtBoxLast.Name = "txtBoxLast";
             this.txtBoxLast.Size = new System.Drawing.Size(189, 23);
             this.txtBoxLast.TabIndex = 9;
+            this.txtBoxLast.TextChanged += new System.EventHandler(this.txtBoxLast_TextChanged);
             // 
             // label5
             // 
@@ -240,6 +244,7 @@
             this.txtBoxMiddle.Name = "txtBoxMiddle";
             this.txtBoxMiddle.Size = new System.Drawing.Size(189, 23);
             this.txtBoxMiddle.TabIndex = 7;
+            this.txtBoxMiddle.TextChanged += new System.EventHandler(this.txtBoxMiddle_TextChanged);
             // 
             // label4
             // 
@@ -260,6 +265,7 @@
             this.txtBoxFirst.Name = "txtBoxFirst";
             this.txtBoxFirst.Size = new System.Drawing.Size(189, 23);
             this.txtBoxFirst.TabIndex = 5;
+            this.txtBoxFirst.TextChanged += new System.EventHandler(this.txtBoxFirst_TextChanged);
             // 
             // label3
             // 
@@ -280,6 +286,7 @@
             this.txtBoxCompany.Name = "txtBoxCompany";
             this.txtBoxCompany.Size = new System.Drawing.Size(453, 23);
             this.txtBoxCompany.TabIndex = 3;
+            this.txtBoxCompany.TextChanged += new System.EventHandler(this.txtBoxCompany_TextChanged);
             // 
             // label2
             // 
@@ -311,18 +318,6 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Customer Code";
             // 
-            // btnClear
-            // 
-            this.btnClear.Image = ((System.Drawing.Image)(resources.GetObject("btnClear.Image")));
-            this.btnClear.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnClear.Location = new System.Drawing.Point(432, 304);
-            this.btnClear.Name = "btnClear";
-            this.btnClear.Size = new System.Drawing.Size(47, 50);
-            this.btnClear.TabIndex = 14;
-            this.btnClear.Text = "&Clear";
-            this.btnClear.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnClear.UseVisualStyleBackColor = true;
-            // 
             // btnExit
             // 
             this.btnExit.Image = ((System.Drawing.Image)(resources.GetObject("btnExit.Image")));
@@ -334,19 +329,21 @@
             this.btnExit.Text = "&Exit";
             this.btnExit.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnExit.UseVisualStyleBackColor = true;
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
-            // btnSave
+            // btnUpdate
             // 
-            this.btnSave.Enabled = false;
-            this.btnSave.Image = ((System.Drawing.Image)(resources.GetObject("btnSave.Image")));
-            this.btnSave.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnSave.Location = new System.Drawing.Point(479, 304);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(56, 50);
-            this.btnSave.TabIndex = 12;
-            this.btnSave.Text = "&Update";
-            this.btnSave.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnSave.UseVisualStyleBackColor = true;
+            this.btnUpdate.Enabled = false;
+            this.btnUpdate.Image = ((System.Drawing.Image)(resources.GetObject("btnUpdate.Image")));
+            this.btnUpdate.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnUpdate.Location = new System.Drawing.Point(479, 304);
+            this.btnUpdate.Name = "btnUpdate";
+            this.btnUpdate.Size = new System.Drawing.Size(56, 50);
+            this.btnUpdate.TabIndex = 12;
+            this.btnUpdate.Text = "&Update";
+            this.btnUpdate.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnUpdate.UseVisualStyleBackColor = true;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
             // mEditDirectory
             // 
@@ -354,9 +351,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(593, 357);
-            this.Controls.Add(this.btnClear);
             this.Controls.Add(this.btnExit);
-            this.Controls.Add(this.btnSave);
+            this.Controls.Add(this.btnUpdate);
             this.Controls.Add(this.groupBox1);
             this.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
@@ -365,6 +361,7 @@
             this.MinimizeBox = false;
             this.Name = "mEditDirectory";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Load += new System.EventHandler(this.mEditDirectory_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
@@ -396,8 +393,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtBoxCustomerCode;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button btnClear;
         private System.Windows.Forms.Button btnExit;
-        private System.Windows.Forms.Button btnSave;
+        private System.Windows.Forms.Button btnUpdate;
     }
 }

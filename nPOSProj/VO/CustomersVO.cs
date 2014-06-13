@@ -96,6 +96,14 @@ namespace nPOSProj.VO
             xxx = customers.ReadCustomer();
             return xxx;
         }
+        public String[] ReadEdits()
+        {
+            customers = new DAO.CustomersDAO();
+            String[] jefreak = new String[11];
+            customers.ReadEdit(Custcode);
+            jefreak = customers.ReadEdit(Custcode);
+            return jefreak;
+        }
         public void AddCustomers()
         {
             customers = new DAO.CustomersDAO();
