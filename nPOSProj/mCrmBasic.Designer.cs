@@ -33,10 +33,14 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.chkBoxLoadAll = new System.Windows.Forms.CheckBox();
+            this.dfrom = new System.Windows.Forms.DateTimePicker();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.dto = new System.Windows.Forms.DateTimePicker();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.chkBoxLoadAll = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -66,9 +70,63 @@
             this.dataGridView1.Size = new System.Drawing.Size(435, 193);
             this.dataGridView1.TabIndex = 8;
             // 
+            // chkBoxLoadAll
+            // 
+            this.chkBoxLoadAll.AutoSize = true;
+            this.chkBoxLoadAll.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chkBoxLoadAll.Location = new System.Drawing.Point(348, 198);
+            this.chkBoxLoadAll.Name = "chkBoxLoadAll";
+            this.chkBoxLoadAll.Size = new System.Drawing.Size(72, 20);
+            this.chkBoxLoadAll.TabIndex = 9;
+            this.chkBoxLoadAll.Text = "Load All";
+            this.chkBoxLoadAll.UseVisualStyleBackColor = true;
+            this.chkBoxLoadAll.CheckedChanged += new System.EventHandler(this.chkBoxLoadAll_CheckedChanged);
+            // 
+            // dfrom
+            // 
+            this.dfrom.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dfrom.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dfrom.Location = new System.Drawing.Point(50, 197);
+            this.dfrom.Name = "dfrom";
+            this.dfrom.Size = new System.Drawing.Size(130, 23);
+            this.dfrom.TabIndex = 10;
+            this.dfrom.ValueChanged += new System.EventHandler(this.from_ValueChanged);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(5, 200);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(39, 16);
+            this.label1.TabIndex = 11;
+            this.label1.Text = "From";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(183, 200);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(25, 16);
+            this.label2.TabIndex = 13;
+            this.label2.Text = "To";
+            // 
+            // dto
+            // 
+            this.dto.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dto.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dto.Location = new System.Drawing.Point(211, 197);
+            this.dto.Name = "dto";
+            this.dto.Size = new System.Drawing.Size(130, 23);
+            this.dto.TabIndex = 12;
+            this.dto.ValueChanged += new System.EventHandler(this.to_ValueChanged);
+            // 
             // Column1
             // 
             dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.Format = "d";
+            dataGridViewCellStyle5.NullValue = null;
             this.Column1.DefaultCellStyle = dataGridViewCellStyle5;
             this.Column1.HeaderText = "Date";
             this.Column1.Name = "Column1";
@@ -78,6 +136,8 @@
             // Column2
             // 
             dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.Format = "T";
+            dataGridViewCellStyle6.NullValue = null;
             this.Column2.DefaultCellStyle = dataGridViewCellStyle6;
             this.Column2.HeaderText = "Time";
             this.Column2.Name = "Column2";
@@ -95,23 +155,18 @@
             this.Column3.ReadOnly = true;
             this.Column3.Width = 130;
             // 
-            // chkBoxLoadAll
-            // 
-            this.chkBoxLoadAll.AutoSize = true;
-            this.chkBoxLoadAll.Location = new System.Drawing.Point(368, 196);
-            this.chkBoxLoadAll.Name = "chkBoxLoadAll";
-            this.chkBoxLoadAll.Size = new System.Drawing.Size(64, 17);
-            this.chkBoxLoadAll.TabIndex = 9;
-            this.chkBoxLoadAll.Text = "Load All";
-            this.chkBoxLoadAll.UseVisualStyleBackColor = true;
-            // 
             // mCrmBasic
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(435, 214);
+            this.ClientSize = new System.Drawing.Size(435, 224);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.dto);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.dfrom);
             this.Controls.Add(this.chkBoxLoadAll);
             this.Controls.Add(this.dataGridView1);
+            this.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
@@ -119,6 +174,8 @@
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Payment Details";
+            this.Load += new System.EventHandler(this.mCrmBasic_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -128,9 +185,13 @@
         #endregion
 
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.CheckBox chkBoxLoadAll;
+        private System.Windows.Forms.DateTimePicker dfrom;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.DateTimePicker dto;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
-        private System.Windows.Forms.CheckBox chkBoxLoadAll;
     }
 }

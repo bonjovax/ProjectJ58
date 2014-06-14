@@ -13,6 +13,7 @@ namespace nPOSProj
     {
         private DAO.LoginDAO login;
         private mdiDirectory directory = new mdiDirectory();
+        private mdiPayment payment = new mdiPayment();
         public mdiFrmCustomers()
         {
             InitializeComponent();
@@ -109,6 +110,16 @@ namespace nPOSProj
                 directory = new mdiDirectory();
                 directory.MdiParent = this;
                 directory.Show();
+            }
+        }
+
+        private void tsPayment_Click(object sender, EventArgs e)
+        {
+            if (ActivateThisChild("mdiPayment") == false)
+            {
+                payment = new mdiPayment();
+                payment.MdiParent = this;
+                payment.Show();
             }
         }
     }

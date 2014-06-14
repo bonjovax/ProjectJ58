@@ -13,10 +13,14 @@ namespace nPOSProj.DAO
         private MySqlConnection con;
         private Conf.dbs dbcon;
         private String userName = frmLogin.User.user_name;
+        private Int32 count1 = 0;
+        private Int32 count2 = 0;
+        private Int32 count3 = 0;
         public CustomersDAO()
         {
 
         }
+        #region Customer Core
         public Int32 PositionCount()
         {
             con = new MySqlConnection();
@@ -108,6 +112,41 @@ namespace nPOSProj.DAO
                 con.Close();
             }
             return xxx;
+        }
+        public String[,] ReadCustomerForPayment()
+        {
+            Int32 count = this.PositionCount();
+            String[,] yyy = new String[5, count];
+            con = new MySqlConnection();
+            dbcon = new Conf.dbs();
+            con.ConnectionString = dbcon.getConnectionString();
+            String query = "SELECT crm_custcode AS a, crm_companyname AS b, crm_payable AS c, crm_paidamt AS d, crm_balance AS e ";
+            query += "FROM crm_customer ORDER BY crm_custcode";
+            try
+            {
+                con.Open();
+                MySqlCommand cmd = new MySqlCommand(query, con);
+                MySqlDataReader rdr = cmd.ExecuteReader();
+                int counts = 0;
+                while (rdr.Read())
+                {
+                    yyy[0, counts] = rdr["a"].ToString();
+                    yyy[1, counts] = rdr["b"].ToString();
+                    yyy[2, counts] = rdr["c"].ToString();
+                    yyy[3, counts] = rdr["d"].ToString();
+                    yyy[4, counts] = rdr["e"].ToString();
+                    counts++;
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(" Err :: ERROR " + ex);
+            }
+            finally
+            {
+                con.Close();
+            }
+            return yyy;
         }
         public String[,] ReadCustomerFilter(Double crm_balance)
         {
@@ -295,5 +334,212 @@ namespace nPOSProj.DAO
             }
             return cabilat;
         }
+        #endregion
+
+        #region CRM Basic
+        public Int32 PositionCountCRM(String crm_custcode, DateTime filterToday)
+        {
+            con = new MySqlConnection();
+            dbcon = new Conf.dbs();
+            con.ConnectionString = dbcon.getConnectionString();
+            String sql = "SELECT COUNT(*) AS a FROM crm_basic WHERE crm_custcode = ?a AND crm_paydate = ?b ORDER BY basic_id";
+            try
+            {
+                con.Open();
+                MySqlCommand cmd = new MySqlCommand(sql, con);
+                cmd.Parameters.AddWithValue("?a", crm_custcode);
+                cmd.Parameters.AddWithValue("?b", filterToday);
+                cmd.ExecuteScalar();
+                MySqlDataReader rdr = cmd.ExecuteReader();
+                if (rdr.Read())
+                {
+                    count1 = Convert.ToInt32(rdr["a"].ToString());
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(" Error :: ERROR " + ex);
+            }
+            finally
+            {
+                con.Close();
+            }
+            return count1;
+        }
+        public Int32 PositionCountCRMFilter(String crm_custcode, DateTime from, DateTime to)
+        {
+            con = new MySqlConnection();
+            dbcon = new Conf.dbs();
+            con.ConnectionString = dbcon.getConnectionString();
+            String sql = "SELECT COUNT(*) AS a FROM crm_basic WHERE (crm_custcode = ?a) AND ((crm_paydate >= ?from) AND (crm_paydate <= ?to)) ORDER BY basic_id";
+            try
+            {
+                con.Open();
+                MySqlCommand cmd = new MySqlCommand(sql, con);
+                cmd.Parameters.AddWithValue("?a", crm_custcode);
+                cmd.Parameters.AddWithValue("?from", from);
+                cmd.Parameters.AddWithValue("?to", to);
+                cmd.ExecuteScalar();
+                MySqlDataReader rdr = cmd.ExecuteReader();
+                if (rdr.Read())
+                {
+                    count2 = Convert.ToInt32(rdr["a"].ToString());
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(" Error :: ERROR " + ex);
+            }
+            finally
+            {
+                con.Close();
+            }
+            return count2;
+        }
+        public Int32 PositionCountCRMAll(String crm_custcode)
+        {
+            con = new MySqlConnection();
+            dbcon = new Conf.dbs();
+            con.ConnectionString = dbcon.getConnectionString();
+            String sql = "SELECT COUNT(*) AS a FROM crm_basic WHERE (crm_custcode = ?a) ORDER BY basic_id";
+            try
+            {
+                con.Open();
+                MySqlCommand cmd = new MySqlCommand(sql, con);
+                cmd.Parameters.AddWithValue("?a", crm_custcode);
+                cmd.ExecuteScalar();
+                MySqlDataReader rdr = cmd.ExecuteReader();
+                if (rdr.Read())
+                {
+                    count3 = Convert.ToInt32(rdr["a"].ToString());
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(" Error :: ERROR " + ex);
+            }
+            finally
+            {
+                con.Close();
+            }
+            return count3;
+        }
+        public String[,] ReadCRMToday(String crm_custcode, DateTime crm_paydate)
+        {
+            this.PositionCountCRM(crm_custcode, crm_paydate);
+            Int32 count = count1;
+            String[,] xxx = new String[3, count];
+            con = new MySqlConnection();
+            dbcon = new Conf.dbs();
+            con.ConnectionString = dbcon.getConnectionString();
+            String query = "SELECT crm_paydate AS a, crm_paytime AS b, crm_payamount AS c ";
+            query += "FROM crm_basic ";
+            query += "WHERE crm_custcode = ?a AND crm_paydate = ?b ORDER BY crm_paydate";
+            try
+            {
+                con.Open();
+                MySqlCommand cmd = new MySqlCommand(query, con);
+                cmd.Parameters.AddWithValue("?a", crm_custcode);
+                cmd.Parameters.AddWithValue("?b", crm_paydate);
+                cmd.ExecuteScalar();
+                MySqlDataReader rdr = cmd.ExecuteReader();
+                int counts = 0;
+                while (rdr.Read())
+                {
+                    xxx[0, counts] = rdr["a"].ToString();
+                    xxx[1, counts] = rdr["b"].ToString();
+                    xxx[2, counts] = rdr["c"].ToString();
+                    counts++;
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(" Err :: ERROR " + ex);
+            }
+            finally
+            {
+                con.Close();
+            }
+            return xxx;
+        }
+        //
+        public String[,] ReadCRMFilterDate(String crm_custcode, DateTime from, DateTime to)
+        {
+            this.PositionCountCRMFilter(crm_custcode, from, to);
+            Int32 count = count2;
+            String[,] yyy = new String[3, count];
+            con = new MySqlConnection();
+            dbcon = new Conf.dbs();
+            con.ConnectionString = dbcon.getConnectionString();
+            String query = "SELECT crm_paydate AS a, crm_paytime AS b, crm_payamount AS c ";
+            query += "FROM crm_basic ";
+            query += "WHERE (crm_custcode = ?a) AND ((crm_paydate >= ?from) AND (crm_paydate <= ?to)) ORDER By crm_paydate";
+            try
+            {
+                con.Open();
+                MySqlCommand cmd = new MySqlCommand(query, con);
+                cmd.Parameters.AddWithValue("?a", crm_custcode);
+                cmd.Parameters.AddWithValue("?from", from);
+                cmd.Parameters.AddWithValue("?to", to);
+                cmd.ExecuteScalar();
+                MySqlDataReader rdr = cmd.ExecuteReader();
+                int counts = 0;
+                while (rdr.Read())
+                {
+                    yyy[0, counts] = rdr["a"].ToString();
+                    yyy[1, counts] = rdr["b"].ToString();
+                    yyy[2, counts] = rdr["c"].ToString();
+                    counts++;
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(" Err :: ERROR " + ex);
+            }
+            finally
+            {
+                con.Close();
+            }
+            return yyy;
+        }
+        //
+        public String[,] ReadCRMAll(String crm_custcode)
+        {
+            this.PositionCountCRMAll(crm_custcode);
+            Int32 count = count3;
+            String[,] zzz = new String[3, count];
+            con = new MySqlConnection();
+            dbcon = new Conf.dbs();
+            con.ConnectionString = dbcon.getConnectionString();
+            String query = "SELECT crm_paydate AS a, crm_paytime AS b, crm_payamount AS c ";
+            query += "FROM crm_basic ";
+            query += "WHERE (crm_custcode = ?a) ORDER BY crm_paydate";
+            try
+            {
+                con.Open();
+                MySqlCommand cmd = new MySqlCommand(query, con);
+                cmd.Parameters.AddWithValue("?a", crm_custcode);
+                cmd.ExecuteScalar();
+                MySqlDataReader rdr = cmd.ExecuteReader();
+                int counts = 0;
+                while (rdr.Read())
+                {
+                    zzz[0, counts] = rdr["a"].ToString();
+                    zzz[1, counts] = rdr["b"].ToString();
+                    zzz[2, counts] = rdr["c"].ToString();
+                    counts++;
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(" Err :: ERROR " + ex);
+            }
+            finally
+            {
+                con.Close();
+            }
+            return zzz;
+        }
+        #endregion
     }
 }

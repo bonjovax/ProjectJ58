@@ -92,6 +92,31 @@ namespace nPOSProj.VO
             get { return balance; }
             set { balance = value; }
         }
+        //
+        private DateTime today;
+
+        public DateTime Today
+        {
+            get { return today; }
+            set { today = value; }
+        }
+
+        private DateTime from;
+
+        public DateTime From
+        {
+            get { return from; }
+            set { from = value; }
+        }
+
+        private DateTime to;
+
+        public DateTime To
+        {
+            get { return to; }
+            set { to = value; }
+        }
+
         public CustomersVO() { }
 
         public String[,] ReadCustomers()
@@ -102,6 +127,15 @@ namespace nPOSProj.VO
             customers.ReadCustomer();
             xxx = customers.ReadCustomer();
             return xxx;
+        }
+        public String[,] ReadCustomersPayment()
+        {
+            customers = new DAO.CustomersDAO();
+            Int32 count = customers.PositionCount();
+            String[,] yyy = new String[5, count];
+            customers.ReadCustomerForPayment();
+            yyy = customers.ReadCustomerForPayment();
+            return yyy;
         }
         public String[,] ReadCustomersFilts()
         {
@@ -142,5 +176,35 @@ namespace nPOSProj.VO
             check = customers.checkCustcode(Custcode);
             return check;
         }
+
+        #region Payments
+        public String[,] ReadPaymentsDefualt()
+        {
+            customers = new DAO.CustomersDAO();
+            Int32 count = customers.PositionCountCRM(Custcode, Today);
+            String[,] xxx = new String[3, count];
+            customers.ReadCRMToday(Custcode, Today);
+            xxx = customers.ReadCRMToday(Custcode, Today);
+            return xxx;
+        }
+        public String[,] ReadPaymentsDateFilter()
+        {
+            customers = new DAO.CustomersDAO();
+            Int32 count = customers.PositionCountCRMFilter(Custcode, From, To);
+            String[,] yyy = new String[3, count];
+            customers.ReadCRMFilterDate(Custcode, From, To);
+            yyy = customers.ReadCRMFilterDate(Custcode, From, To);
+            return yyy;
+        }
+        public String[,] ReadPaymentsAll()
+        {
+            customers = new DAO.CustomersDAO();
+            Int32 cunt = customers.PositionCountCRMAll(Custcode);
+            String[,] zzz = new String[3, cunt];
+            customers.ReadCRMAll(Custcode);
+            zzz = customers.ReadCRMAll(Custcode);
+            return zzz;
+        }
+        #endregion
     }
 }

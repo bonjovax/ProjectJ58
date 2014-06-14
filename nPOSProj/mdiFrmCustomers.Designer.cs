@@ -34,6 +34,8 @@
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.tsDirectory = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
+            this.tsPayment = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.tsExit = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.tsAbout = new System.Windows.Forms.ToolStripButton();
@@ -44,8 +46,6 @@
             this.tsToday = new System.Windows.Forms.ToolStripStatusLabel();
             this.tsUser = new System.Windows.Forms.ToolStripStatusLabel();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -58,7 +58,7 @@
             this.toolStripSeparator3,
             this.tsDirectory,
             this.toolStripSeparator7,
-            this.toolStripButton1,
+            this.tsPayment,
             this.toolStripSeparator2,
             this.tsExit,
             this.toolStripSeparator1,
@@ -92,6 +92,23 @@
             // 
             this.toolStripSeparator7.Name = "toolStripSeparator7";
             this.toolStripSeparator7.Size = new System.Drawing.Size(6, 72);
+            // 
+            // tsPayment
+            // 
+            this.tsPayment.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tsPayment.Image = ((System.Drawing.Image)(resources.GetObject("tsPayment.Image")));
+            this.tsPayment.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.tsPayment.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsPayment.Name = "tsPayment";
+            this.tsPayment.Size = new System.Drawing.Size(66, 69);
+            this.tsPayment.Text = "&Payment";
+            this.tsPayment.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.tsPayment.Click += new System.EventHandler(this.tsPayment_Click);
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 72);
             // 
             // tsExit
             // 
@@ -178,22 +195,6 @@
             // 
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
-            // toolStripButton1
-            // 
-            this.toolStripButton1.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
-            this.toolStripButton1.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Size = new System.Drawing.Size(66, 69);
-            this.toolStripButton1.Text = "&Payment";
-            this.toolStripButton1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            // 
-            // toolStripSeparator2
-            // 
-            this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 72);
-            // 
             // mdiFrmCustomers
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -235,7 +236,7 @@
         private System.Windows.Forms.ToolStripStatusLabel tsToday;
         private System.Windows.Forms.ToolStripStatusLabel tsUser;
         private System.Windows.Forms.Timer timer1;
-        private System.Windows.Forms.ToolStripButton toolStripButton1;
+        private System.Windows.Forms.ToolStripButton tsPayment;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
     }
 }
