@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using System.Text.RegularExpressions;
+using MySql.Data.MySqlClient;
 
 namespace nPOSProj
 {
@@ -17,6 +18,66 @@ namespace nPOSProj
         private Conf.Rgx r = new Conf.Rgx();
         private Conf.Crypto tx = new Conf.Crypto();
         private VO.GiftCardVO gc;
+        #region Worms
+        private MySqlConnection con = new MySqlConnection();
+        private Conf.dbs dbcon = new Conf.dbs();
+        AutoCompleteStringCollection collectA = new AutoCompleteStringCollection();
+        AutoCompleteStringCollection collectB = new AutoCompleteStringCollection();
+        private void autoCompleteCustCode()
+        {
+            con.ConnectionString = dbcon.getConnectionString();
+            String sql = "SELECT DISTINCT crm_custcode AS anus FROM crm_customer ORDER BY crm_custcode ASC";
+            try
+            {
+                con.Open();
+                MySqlCommand cmd = new MySqlCommand(sql, con);
+                cmd.CommandType = CommandType.Text;
+                MySqlDataReader rdr = cmd.ExecuteReader();
+                if (rdr.HasRows == true)
+                {
+                    while (rdr.Read())
+                        collectA.Add(rdr["anus"].ToString());
+                }
+                rdr.Close();
+                txtBoxCustCode.AutoCompleteMode = AutoCompleteMode.Suggest;
+                txtBoxCustCode.AutoCompleteSource = AutoCompleteSource.CustomSource;
+                txtBoxCustCode.AutoCompleteCustomSource = collectA;
+                con.Close();
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Please Check your Database Server Connection", "Database Server Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Application.ExitThread();
+            }
+        }
+        private void autoCompleteCompany()
+        {
+            con.ConnectionString = dbcon.getConnectionString();
+            String sql = "SELECT crm_companyname AS anus FROM crm_customer ORDER BY crm_companyname ASC";
+            try
+            {
+                con.Open();
+                MySqlCommand cmd = new MySqlCommand(sql, con);
+                cmd.CommandType = CommandType.Text;
+                MySqlDataReader rdr = cmd.ExecuteReader();
+                if (rdr.HasRows == true)
+                {
+                    while (rdr.Read())
+                        collectB.Add(rdr["anus"].ToString());
+                }
+                rdr.Close();
+                txtBoxCompany.AutoCompleteMode = AutoCompleteMode.Suggest;
+                txtBoxCompany.AutoCompleteSource = AutoCompleteSource.CustomSource;
+                txtBoxCompany.AutoCompleteCustomSource = collectB;
+                con.Close();
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Please Check your Database Server Connection", "Database Server Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Application.ExitThread();
+            }
+        }
+        #endregion
         private Double getGCamt = 0;
         //
         private Double getAmount;
@@ -191,6 +252,8 @@ namespace nPOSProj
         //
         private void frmDlgCheckout_Load(object sender, EventArgs e)
         {
+            this.autoCompleteCustCode();
+            this.autoCompleteCompany();
             lblTotalAmount.Text = GetAmount.ToString("#,###,##0.00");
             lblTotalAmountDC.Text = GetAmount.ToString("#,###,##0.00");
             lblTotalAmountBC.Text = GetAmount.ToString("#,###,##0.00");

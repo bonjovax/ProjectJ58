@@ -63,6 +63,11 @@
             this.lblTotalAmountGC = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
+            this.txtBoxCustCode = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.txtBoxCompany = new System.Windows.Forms.TextBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.btnAProceed = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -387,6 +392,11 @@
             // tabPage4
             // 
             this.tabPage4.BackColor = System.Drawing.Color.Black;
+            this.tabPage4.Controls.Add(this.btnAProceed);
+            this.tabPage4.Controls.Add(this.txtBoxCompany);
+            this.tabPage4.Controls.Add(this.label13);
+            this.tabPage4.Controls.Add(this.txtBoxCustCode);
+            this.tabPage4.Controls.Add(this.label2);
             this.tabPage4.Controls.Add(this.lblTotalAmountAR);
             this.tabPage4.Controls.Add(this.label8);
             this.tabPage4.ImageIndex = 3;
@@ -529,6 +539,68 @@
             this.imageList1.Images.SetKeyName(3, "account.png");
             this.imageList1.Images.SetKeyName(4, "gift-card-icon.png");
             // 
+            // txtBoxCustCode
+            // 
+            this.txtBoxCustCode.BackColor = System.Drawing.Color.Black;
+            this.txtBoxCustCode.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtBoxCustCode.Font = new System.Drawing.Font("Courier New", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBoxCustCode.ForeColor = System.Drawing.Color.Lime;
+            this.txtBoxCustCode.Location = new System.Drawing.Point(1, 128);
+            this.txtBoxCustCode.MaxLength = 35;
+            this.txtBoxCustCode.Name = "txtBoxCustCode";
+            this.txtBoxCustCode.ShortcutsEnabled = false;
+            this.txtBoxCustCode.Size = new System.Drawing.Size(494, 24);
+            this.txtBoxCustCode.TabIndex = 28;
+            // 
+            // label2
+            // 
+            this.label2.BackColor = System.Drawing.Color.MidnightBlue;
+            this.label2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.label2.Font = new System.Drawing.Font("Courier New", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(0, 107);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(495, 21);
+            this.label2.TabIndex = 29;
+            this.label2.Text = "Customer Code";
+            // 
+            // txtBoxCompany
+            // 
+            this.txtBoxCompany.BackColor = System.Drawing.Color.Black;
+            this.txtBoxCompany.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtBoxCompany.Font = new System.Drawing.Font("Courier New", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBoxCompany.ForeColor = System.Drawing.Color.Lime;
+            this.txtBoxCompany.Location = new System.Drawing.Point(1, 175);
+            this.txtBoxCompany.MaxLength = 35;
+            this.txtBoxCompany.Name = "txtBoxCompany";
+            this.txtBoxCompany.ShortcutsEnabled = false;
+            this.txtBoxCompany.Size = new System.Drawing.Size(494, 24);
+            this.txtBoxCompany.TabIndex = 30;
+            // 
+            // label13
+            // 
+            this.label13.BackColor = System.Drawing.Color.MidnightBlue;
+            this.label13.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.label13.Font = new System.Drawing.Font("Courier New", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.ForeColor = System.Drawing.Color.White;
+            this.label13.Location = new System.Drawing.Point(0, 154);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(495, 21);
+            this.label13.TabIndex = 31;
+            this.label13.Text = "Company";
+            // 
+            // btnAProceed
+            // 
+            this.btnAProceed.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAProceed.ForeColor = System.Drawing.Color.White;
+            this.btnAProceed.Location = new System.Drawing.Point(2, 200);
+            this.btnAProceed.Name = "btnAProceed";
+            this.btnAProceed.Size = new System.Drawing.Size(491, 22);
+            this.btnAProceed.TabIndex = 34;
+            this.btnAProceed.Text = "Proceed";
+            this.btnAProceed.UseVisualStyleBackColor = true;
+            this.btnAProceed.Visible = false;
+            // 
             // frmDlgCheckout
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
@@ -556,6 +628,7 @@
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
             this.tabPage4.ResumeLayout(false);
+            this.tabPage4.PerformLayout();
             this.tabPage5.ResumeLayout(false);
             this.tabPage5.PerformLayout();
             this.ResumeLayout(false);
@@ -597,5 +670,10 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label lblNotif;
         private System.Windows.Forms.Button btnProceed;
+        private System.Windows.Forms.TextBox txtBoxCompany;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.TextBox txtBoxCustCode;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button btnAProceed;
     }
 }
