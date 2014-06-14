@@ -543,6 +543,7 @@
             // 
             this.txtBoxCustCode.BackColor = System.Drawing.Color.Black;
             this.txtBoxCustCode.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtBoxCustCode.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtBoxCustCode.Font = new System.Drawing.Font("Courier New", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtBoxCustCode.ForeColor = System.Drawing.Color.Lime;
             this.txtBoxCustCode.Location = new System.Drawing.Point(1, 128);
@@ -551,6 +552,8 @@
             this.txtBoxCustCode.ShortcutsEnabled = false;
             this.txtBoxCustCode.Size = new System.Drawing.Size(494, 24);
             this.txtBoxCustCode.TabIndex = 28;
+            this.txtBoxCustCode.TextChanged += new System.EventHandler(this.txtBoxCustCode_TextChanged);
+            this.txtBoxCustCode.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtBoxCustCode_KeyDown);
             // 
             // label2
             // 
@@ -576,6 +579,8 @@
             this.txtBoxCompany.ShortcutsEnabled = false;
             this.txtBoxCompany.Size = new System.Drawing.Size(494, 24);
             this.txtBoxCompany.TabIndex = 30;
+            this.txtBoxCompany.TextChanged += new System.EventHandler(this.txtBoxCompany_TextChanged);
+            this.txtBoxCompany.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtBoxCompany_KeyDown);
             // 
             // label13
             // 
@@ -600,6 +605,7 @@
             this.btnAProceed.Text = "Proceed";
             this.btnAProceed.UseVisualStyleBackColor = true;
             this.btnAProceed.Visible = false;
+            this.btnAProceed.Click += new System.EventHandler(this.btnAProceed_Click);
             // 
             // frmDlgCheckout
             // 

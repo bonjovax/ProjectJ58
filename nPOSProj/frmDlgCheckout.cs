@@ -18,6 +18,7 @@ namespace nPOSProj
         private Conf.Rgx r = new Conf.Rgx();
         private Conf.Crypto tx = new Conf.Crypto();
         private VO.GiftCardVO gc;
+        private VO.CustomersVO customers;
         #region Worms
         private MySqlConnection con = new MySqlConnection();
         private Conf.dbs dbcon = new Conf.dbs();
@@ -531,6 +532,64 @@ namespace nPOSProj
             Gc_code = txtBoxGCode.Text;
             Gc_bal = getGCamt;
             isGCTX = true;
+            this.Close();
+        }
+
+        private void txtBoxCustCode_KeyDown(object sender, KeyEventArgs e)
+        {
+            customers = new VO.CustomersVO();
+            if (e.KeyCode == Keys.Enter)
+            {
+                customers.Custcode = txtBoxCustCode.Text;
+                customers.DisplayCompany();
+                txtBoxCompany.Text = customers.DisplayCompany();
+                btnAProceed.Focus();
+            }
+        }
+
+        private void txtBoxCompany_KeyDown(object sender, KeyEventArgs e)
+        {
+            customers = new VO.CustomersVO();
+            if (e.KeyCode == Keys.Enter)
+            {
+                customers.Companyname = txtBoxCompany.Text;
+                customers.DisplayCustomerCode();
+                txtBoxCustCode.Text = customers.DisplayCustomerCode();
+                btnAProceed.Focus();
+            }
+        }
+
+        private void txtBoxCustCode_TextChanged(object sender, EventArgs e)
+        {
+            customers = new VO.CustomersVO();
+            customers.Custcode = txtBoxCustCode.Text;
+            customers.Companyname = txtBoxCompany.Text;
+            customers.Correct();
+            if (txtBoxCustCode.Text != "" && txtBoxCompany.Text != "" && customers.Correct() == true)
+            {
+                btnAProceed.Visible = true;
+            }
+            else
+                btnAProceed.Visible = false;
+        }
+
+        private void txtBoxCompany_TextChanged(object sender, EventArgs e)
+        {
+            customers = new VO.CustomersVO();
+            customers.Custcode = txtBoxCustCode.Text;
+            customers.Companyname = txtBoxCompany.Text;
+            customers.Correct();
+            if (txtBoxCustCode.Text != "" && txtBoxCompany.Text != "" && customers.Correct() == true)
+            {
+                btnAProceed.Visible = true;
+            }
+            else
+                btnAProceed.Visible = false;
+        }
+
+        private void btnAProceed_Click(object sender, EventArgs e)
+        {
+            IsARTX = true;
             this.Close();
         }
     }

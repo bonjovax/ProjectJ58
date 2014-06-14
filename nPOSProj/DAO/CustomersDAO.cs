@@ -16,6 +16,9 @@ namespace nPOSProj.DAO
         private Int32 count1 = 0;
         private Int32 count2 = 0;
         private Int32 count3 = 0;
+        private String cmpName;
+        private String custC;
+        private bool korek = false;
         public CustomersDAO()
         {
 
@@ -335,7 +338,6 @@ namespace nPOSProj.DAO
             return cabilat;
         }
         #endregion
-
         #region CRM Basic
         public Int32 PositionCountCRM(String crm_custcode, DateTime filterToday)
         {
@@ -539,6 +541,82 @@ namespace nPOSProj.DAO
                 con.Close();
             }
             return zzz;
+        }
+        #endregion
+        #region Misc
+        public String DisplayCmp(String crm_custcode)
+        {
+            con = new MySqlConnection();
+            dbcon = new Conf.dbs();
+            con.ConnectionString = dbcon.getConnectionString();
+            String query = "SELECT crm_companyname FROM crm_customer WHERE crm_custcode = ?a";
+            try
+            {
+                con.Open();
+                MySqlCommand cmd = new MySqlCommand(query, con);
+                cmd.Parameters.AddWithValue("?a", crm_custcode);
+                cmd.ExecuteScalar();
+                MySqlDataReader rdr = cmd.ExecuteReader();
+                if (rdr.Read())
+                {
+                    cmpName = rdr["crm_companyname"].ToString();
+                }
+            }
+            finally
+            {
+                con.Close();
+            }
+            return cmpName;
+        }
+        public String DisplayCustC(String crm_companyname)
+        {
+            con = new MySqlConnection();
+            dbcon = new Conf.dbs();
+            con.ConnectionString = dbcon.getConnectionString();
+            String query = "SELECT crm_custcode FROM crm_customer WHERE crm_companyname = ?a";
+            try
+            {
+                con.Open();
+                MySqlCommand cmd = new MySqlCommand(query, con);
+                cmd.Parameters.AddWithValue("?a", crm_companyname);
+                cmd.ExecuteScalar();
+                MySqlDataReader rdr = cmd.ExecuteReader();
+                if (rdr.Read())
+                {
+                    custC = rdr["crm_custcode"].ToString();
+                }
+            }
+            finally
+            {
+                con.Close();
+            }
+            return custC;
+        }
+        public bool correct(String crm_custcode, String crm_companyname)
+        {
+            con = new MySqlConnection();
+            dbcon = new Conf.dbs();
+            con.ConnectionString = dbcon.getConnectionString();
+            String query = "SELECT * FROM crm_customer ";
+            query += "WHERE (crm_custcode = ?a) AND (crm_companyname = ?b)";
+            try
+            {
+                con.Open();
+                MySqlCommand cmd = new MySqlCommand(query, con);
+                cmd.Parameters.AddWithValue("?a", crm_custcode);
+                cmd.Parameters.AddWithValue("?b", crm_companyname);
+                cmd.ExecuteScalar();
+                MySqlDataReader rdr = cmd.ExecuteReader();
+                if (rdr.Read())
+                {
+                    korek = true;
+                }
+            }
+            finally
+            {
+                con.Close();
+            }
+            return korek;
         }
         #endregion
     }

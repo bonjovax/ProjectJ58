@@ -997,6 +997,28 @@ namespace nPOSProj
                 //
                 newFlash();
             }
+            if (checkout.IsARTX == true)
+            {
+                btnSearch.Enabled = false;
+                btnRefund.Enabled = false;
+                btnWholesale.Enabled = false;
+                btnCancelSale.Enabled = false;
+                btnParkSale.Enabled = true;
+                btnVoid.Enabled = false;
+                btnEdit.Enabled = false;
+                btnCancelSale.Enabled = false;
+                btnCheckout.Enabled = false; //Very Important La
+                btnDiscount.Enabled = false;
+                txtBoxQty.ReadOnly = true;
+                txtBoxEAN.ReadOnly = true;
+                txtBoxEAN.Focus();
+                proceeds = false; //Important
+                //
+                //Checkout Codes
+                //
+                //Accounts Trigger Codes
+                //
+            }
         }
 
         private void gotoPark()

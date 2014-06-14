@@ -10,6 +10,7 @@ namespace nPOSProj.VO
         private DAO.CustomersDAO customers;
         private String custcode;
 
+        #region Values
         public String Custcode
         {
             get { return custcode; }
@@ -116,9 +117,10 @@ namespace nPOSProj.VO
             get { return to; }
             set { to = value; }
         }
-
+        #endregion
         public CustomersVO() { }
 
+        #region Core
         public String[,] ReadCustomers()
         {
             customers = new DAO.CustomersDAO();
@@ -176,7 +178,7 @@ namespace nPOSProj.VO
             check = customers.checkCustcode(Custcode);
             return check;
         }
-
+        #endregion
         #region Payments
         public String[,] ReadPaymentsDefualt()
         {
@@ -204,6 +206,32 @@ namespace nPOSProj.VO
             customers.ReadCRMAll(Custcode);
             zzz = customers.ReadCRMAll(Custcode);
             return zzz;
+        }
+        #endregion
+        #region Miscellaneous
+        public String DisplayCompany()
+        {
+            String compN;
+            customers = new DAO.CustomersDAO();
+            customers.DisplayCmp(Custcode);
+            compN = customers.DisplayCmp(Custcode);
+            return compN;
+        }
+        public String DisplayCustomerCode()
+        {
+            String Custc;
+            customers = new DAO.CustomersDAO();
+            customers.DisplayCustC(Companyname);
+            Custc = customers.DisplayCustC(Companyname);
+            return Custc;
+        }
+        public bool Correct()
+        {
+            Boolean Korek;
+            customers = new DAO.CustomersDAO();
+            customers.correct(Custcode, Companyname);
+            Korek = customers.correct(Custcode, Companyname);
+            return Korek;
         }
         #endregion
     }
