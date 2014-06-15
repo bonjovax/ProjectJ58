@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(mdiSupplier));
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.suppliercodeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -74,6 +74,8 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.btnDelete = new System.Windows.Forms.Button();
             this.inventory_supplierTableAdapter = new nPOSProj.npos_dbDataSetTableAdapters.inventory_supplierTableAdapter();
+            this.btnXML = new System.Windows.Forms.Button();
+            this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.inventorysupplierBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.npos_dbDataSet)).BeginInit();
@@ -87,8 +89,8 @@
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
-            this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
+            this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridView1.AutoGenerateColumns = false;
             this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
@@ -107,10 +109,10 @@
             this.dataGridView1.GridColor = System.Drawing.Color.Black;
             this.dataGridView1.Location = new System.Drawing.Point(2, 2);
             this.dataGridView1.Name = "dataGridView1";
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.Silver;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
-            this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.Silver;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Black;
+            this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(883, 248);
             this.dataGridView1.TabIndex = 0;
@@ -190,6 +192,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.btnXML);
             this.groupBox1.Controls.Add(this.label11);
             this.groupBox1.Controls.Add(this.panel1);
             this.groupBox1.Controls.Add(this.btnClear);
@@ -529,6 +532,21 @@
             // 
             this.inventory_supplierTableAdapter.ClearBeforeFill = true;
             // 
+            // btnXML
+            // 
+            this.btnXML.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnXML.Image = ((System.Drawing.Image)(resources.GetObject("btnXML.Image")));
+            this.btnXML.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnXML.Location = new System.Drawing.Point(716, 41);
+            this.btnXML.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnXML.Name = "btnXML";
+            this.btnXML.Size = new System.Drawing.Size(101, 32);
+            this.btnXML.TabIndex = 103;
+            this.btnXML.Text = "&XML Export";
+            this.btnXML.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnXML.UseVisualStyleBackColor = true;
+            this.btnXML.Click += new System.EventHandler(this.btnXML_Click);
+            // 
             // mdiSupplier
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -600,5 +618,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn suppliercontactDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn suppliercontactpersonDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn suppliercpersonpositionDataGridViewTextBoxColumn;
+        private System.Windows.Forms.Button btnXML;
+        private System.Windows.Forms.SaveFileDialog saveFileDialog1;
     }
 }

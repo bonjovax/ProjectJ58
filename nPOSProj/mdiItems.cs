@@ -229,7 +229,6 @@ namespace nPOSProj
                     dickrow = dt.NewRow();
                     for (int i = 0; i <= cols - 1; i++)
                     {
-
                         dickrow[i] = drow.Cells[i].Value;
                     }
                     dt.Rows.Add(dickrow);
