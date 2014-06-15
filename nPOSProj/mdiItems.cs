@@ -208,5 +208,34 @@ namespace nPOSProj
         {
             btnReturn.Enabled = true;
         }
+
+        private void btnXML_Click(object sender, EventArgs e)
+        {
+            DataTable dt = new DataTable("InventoryItems");
+            saveFileDialog1.DefaultExt = ".xml";
+            saveFileDialog1.FileName = "Export";
+            saveFileDialog1.Filter = "Extensible Markup Language (*.xml)|*.xml";
+            if (saveFileDialog1.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                for (int i = 0; i < dataGridView1.ColumnCount; i++)
+                {
+                    dt.Columns.Add(dataGridView1.Columns[i].Name, typeof(System.String));
+                }
+
+                DataRow dickrow;
+                int cols = dataGridView1.Columns.Count;
+                foreach (DataGridViewRow drow in this.dataGridView1.Rows)
+                {
+                    dickrow = dt.NewRow();
+                    for (int i = 0; i <= cols - 1; i++)
+                    {
+
+                        dickrow[i] = drow.Cells[i].Value;
+                    }
+                    dt.Rows.Add(dickrow);
+                }
+                dt.WriteXml(saveFileDialog1.FileName);
+            }
+        }
     }
 }

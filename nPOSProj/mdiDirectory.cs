@@ -144,7 +144,6 @@ namespace nPOSProj
                     }
                     dt.Rows.Add(dickrow);
                 }
-
                 dt.WriteXml(saveFileDialog1.FileName);
             }
         }

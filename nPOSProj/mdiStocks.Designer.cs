@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(mdiStocks));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -40,6 +39,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(mdiStocks));
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
@@ -114,6 +114,8 @@
             this.inventory_stocksTableAdapter = new nPOSProj.npos_dbDataSetTableAdapters.inventory_stocksTableAdapter();
             this.inventory_supplierTableAdapter = new nPOSProj.npos_dbDataSetTableAdapters.inventory_supplierTableAdapter();
             this.inventory_categoryTableAdapter = new nPOSProj.npos_dbDataSetTableAdapters.inventory_categoryTableAdapter();
+            this.btnXML = new System.Windows.Forms.Button();
+            this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox7.SuspendLayout();
@@ -149,6 +151,7 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.btnXML);
             this.tabPage1.Controls.Add(this.groupBox7);
             this.tabPage1.Controls.Add(this.groupBox5);
             this.tabPage1.Controls.Add(this.groupBox6);
@@ -170,7 +173,7 @@
             this.groupBox7.Controls.Add(this.label13);
             this.groupBox7.Location = new System.Drawing.Point(648, 180);
             this.groupBox7.Name = "groupBox7";
-            this.groupBox7.Size = new System.Drawing.Size(173, 192);
+            this.groupBox7.Size = new System.Drawing.Size(173, 157);
             this.groupBox7.TabIndex = 70;
             this.groupBox7.TabStop = false;
             this.groupBox7.Text = "Transfer Stocks to Items";
@@ -180,7 +183,7 @@
             this.btnTransfer.Enabled = false;
             this.btnTransfer.Image = ((System.Drawing.Image)(resources.GetObject("btnTransfer.Image")));
             this.btnTransfer.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnTransfer.Location = new System.Drawing.Point(52, 85);
+            this.btnTransfer.Location = new System.Drawing.Point(52, 76);
             this.btnTransfer.Name = "btnTransfer";
             this.btnTransfer.Size = new System.Drawing.Size(66, 70);
             this.btnTransfer.TabIndex = 16;
@@ -192,7 +195,7 @@
             // txtBoxTransferQty
             // 
             this.txtBoxTransferQty.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBoxTransferQty.Location = new System.Drawing.Point(49, 54);
+            this.txtBoxTransferQty.Location = new System.Drawing.Point(49, 45);
             this.txtBoxTransferQty.MaxLength = 6;
             this.txtBoxTransferQty.Name = "txtBoxTransferQty";
             this.txtBoxTransferQty.ReadOnly = true;
@@ -204,7 +207,7 @@
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(71, 33);
+            this.label13.Location = new System.Drawing.Point(71, 24);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(27, 16);
             this.label13.TabIndex = 112;
@@ -973,6 +976,21 @@
             // 
             this.inventory_categoryTableAdapter.ClearBeforeFill = true;
             // 
+            // btnXML
+            // 
+            this.btnXML.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnXML.Image = ((System.Drawing.Image)(resources.GetObject("btnXML.Image")));
+            this.btnXML.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnXML.Location = new System.Drawing.Point(682, 339);
+            this.btnXML.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnXML.Name = "btnXML";
+            this.btnXML.Size = new System.Drawing.Size(101, 32);
+            this.btnXML.TabIndex = 102;
+            this.btnXML.Text = "&XML Export";
+            this.btnXML.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnXML.UseVisualStyleBackColor = true;
+            this.btnXML.Click += new System.EventHandler(this.btnXML_Click);
+            // 
             // mdiStocks
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1088,5 +1106,7 @@
         private System.Windows.Forms.DataGridViewComboBoxColumn cbSupplier;
         private System.Windows.Forms.DataGridViewComboBoxColumn cbCategory;
         private System.Windows.Forms.DataGridViewComboBoxColumn cbWarehouse;
+        private System.Windows.Forms.Button btnXML;
+        private System.Windows.Forms.SaveFileDialog saveFileDialog1;
     }
 }
