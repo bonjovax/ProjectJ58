@@ -425,6 +425,44 @@ namespace nPOSProj.DAO
                 con.Close();
             }
         }
+        public void AR_Basic(String customer, Double pos_tender, Int32 pos_orno, String pos_terminal, String crm_custcode, Double tx_amount)
+        {
+            con = new MySqlConnection();
+            dbcon = new Conf.dbs();
+            con.ConnectionString = dbcon.getConnectionString();
+            String query = "UPDATE pos_store SET crm_custcode = ?set_custcode, pos_customer = ?set_customer, pos_paymethod = 'Charge to Accounts', ";
+            query += "pos_tender = ?pos_tender, pos_park = 0 ";
+            query += "WHERE (pos_orno = ?pos_orno) AND (pos_terminal = ?pos_terminal)";
+            String query1 = "INSERT INTO pos_ar_basic_tx (pos_orno, crm_custcode, tx_amount, date_tx, time_tx) VALUES";
+            query1 += "(?pos_orno, ?crm_custcode, ?tx_amount, ?date_tx, ?time_tx)";
+            try
+            {
+                con.Open();
+                MySqlCommand cmd = new MySqlCommand(query, con);
+                MySqlCommand cmd1 = new MySqlCommand(query1, con);
+                //
+                cmd.Parameters.AddWithValue("?set_custcode", crm_custcode);
+                cmd.Parameters.AddWithValue("?set_customer", customer);
+                cmd.Parameters.AddWithValue("?pos_tender", pos_tender);
+                cmd.Parameters.AddWithValue("?pos_orno", pos_orno);
+                cmd.Parameters.AddWithValue("?pos_terminal", pos_terminal);
+                //
+                cmd1.Parameters.AddWithValue("?pos_orno", pos_orno);
+                cmd1.Parameters.AddWithValue("?crm_custcode", crm_custcode);
+                cmd1.Parameters.AddWithValue("?tx_amount", tx_amount);
+                cmd1.Parameters.AddWithValue("?date_tx", DateTime.Now.ToString("yyyy-MM-dd"));
+                cmd1.Parameters.AddWithValue("?time_tx", DateTime.Now.ToString("HH:mm:ss"));
+                //
+                cmd.ExecuteNonQuery();
+                cmd1.ExecuteNonQuery();
+                cmd.Dispose();
+                cmd1.Dispose();
+            }
+            finally
+            {
+                con.Close();
+            }
+        }
         #endregion
     }
 }

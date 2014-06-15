@@ -313,6 +313,11 @@ namespace nPOSProj.VO
             POSDAO = new DAO.PosDAO();
             POSDAO.GiftDick(Pos_tender, Pos_orno, Pos_terminal, Gc_cardo, Tx_amount);
         }
+        public void ARBasicCheckout()
+        {
+            POSDAO = new DAO.PosDAO();
+            POSDAO.AR_Basic(Pos_customer, Pos_tender, Pos_orno, Pos_terminal, Crm_custcode, Tx_amount);
+        }
         #endregion
     }
 }

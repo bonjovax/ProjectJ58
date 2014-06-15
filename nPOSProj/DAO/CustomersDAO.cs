@@ -19,6 +19,7 @@ namespace nPOSProj.DAO
         private String cmpName;
         private String custC;
         private bool korek = false;
+        private bool foundZero = false;
         public CustomersDAO()
         {
 
@@ -617,6 +618,94 @@ namespace nPOSProj.DAO
                 con.Close();
             }
             return korek;
+        }
+        #endregion
+        #region Checkout Part
+        public void CreditAccount(Double crm_balance, Double crm_payable, String crm_custcode)
+        {
+            con = new MySqlConnection();
+            dbcon = new Conf.dbs();
+            con.ConnectionString = dbcon.getConnectionString();
+            String query = "UPDATE crm_customer SET crm_balance = crm_balance + ?crm_balance, crm_payable = crm_payable + ?crm_payable ";
+            query += "WHERE crm_custcode = ?crm_custcode";
+            try
+            {
+                con.Open();
+                MySqlCommand cmd = new MySqlCommand(query, con);
+                cmd.Parameters.AddWithValue("?crm_balance", crm_balance);
+                cmd.Parameters.AddWithValue("?crm_payable", crm_payable);
+                cmd.Parameters.AddWithValue("?crm_custcode", crm_custcode);
+                cmd.ExecuteNonQuery();
+                cmd.Dispose();
+            }
+            finally
+            {
+                con.Close();
+            }
+        }
+        public void DebitAccount(Double crm_balance, Double crm_paidamt, String crm_custcode)
+        {
+            con = new MySqlConnection();
+            dbcon = new Conf.dbs();
+            con.ConnectionString = dbcon.getConnectionString();
+            String query = "UPDATE crm_customer SET crm_balance = crm_balance - ?crm_balance, crm_paidamt = ?crm_paidamt ";
+            query += "WHERE crm_custcode = ?crm_custcode";
+            String query1 = "INSERT INTO crm_basic (crm_custcode, crm_paydate, crm_paytime, crm_payamount) VALUES";
+            query1 += "(?crm_custcode, ?crm_paydate, ?crm_paytime, ?crm_payamount)";
+            String query2 = "UPDATE crm_customer SET crm_payable = 0 ";
+            query2 += "WHERE crm_custcode = ?crm_custcode";
+            try
+            {
+                con.Open();
+                MySqlCommand cmd = new MySqlCommand(query, con);
+                MySqlCommand cmd1 = new MySqlCommand(query1, con);
+                MySqlCommand cmd2 = new MySqlCommand(query2, con);
+                cmd.Parameters.AddWithValue("?crm_balance", crm_balance);
+                cmd.Parameters.AddWithValue("?crm_paidamt", crm_paidamt);
+                cmd.Parameters.AddWithValue("?crm_custcode", crm_custcode);
+                cmd1.Parameters.AddWithValue("?crm_custcode", crm_custcode);
+                cmd1.Parameters.AddWithValue("?crm_paydate", Convert.ToDateTime(DateTime.Now.ToString("yyyy-MM-dd")));
+                cmd1.Parameters.AddWithValue("?crm_paytime", Convert.ToDateTime(DateTime.Now.ToString("HH:mm:ss")));
+                cmd1.Parameters.AddWithValue("?crm_paidamt", crm_paidamt);
+                cmd2.Parameters.AddWithValue("?crm_custcode", crm_custcode);
+                cmd.ExecuteNonQuery();
+                cmd1.ExecuteNonQuery();
+                cmd.Dispose();
+                cmd1.Dispose();
+                if (this.checkZeroAmt(crm_custcode) == true)
+                {
+                    cmd2.ExecuteNonQuery();
+                    cmd2.Dispose();
+                }
+            }
+            finally
+            {
+                con.Close();
+            }
+        }
+        private bool checkZeroAmt(String crm_custcode)
+        {
+            con = new MySqlConnection();
+            dbcon = new Conf.dbs();
+            con.ConnectionString = dbcon.getConnectionString();
+            String query = "SELECT crm_balance FROM crm_customer ";
+            query += "WHERE crm_balance = 0";
+            try
+            {
+                con.Open();
+                MySqlCommand cmd = new MySqlCommand(query, con);
+                cmd.ExecuteScalar();
+                MySqlDataReader rdr = cmd.ExecuteReader();
+                if (rdr.Read())
+                {
+                    foundZero = true;
+                }
+            }
+            finally
+            {
+                con.Close();
+            }
+            return foundZero;
         }
         #endregion
     }

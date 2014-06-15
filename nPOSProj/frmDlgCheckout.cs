@@ -200,6 +200,21 @@ namespace nPOSProj
             set { gc_bal = value; }
         }
 
+        private String custcode;
+
+        public String Custcode
+        {
+            get { return custcode; }
+            set { custcode = value; }
+        }
+        private String company;
+
+        public String Company
+        {
+            get { return company; }
+            set { company = value; }
+        }
+
         public frmDlgCheckout()
         {
             InitializeComponent();
@@ -250,6 +265,15 @@ namespace nPOSProj
             txtBoxGCode.ReadOnly = true;
         }
         #endregion
+        protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
+        {
+            if (keyData == Keys.Escape)
+            {
+                this.Close();
+                return true;
+            }
+            return base.ProcessCmdKey(ref msg, keyData);
+        }
         //
         private void frmDlgCheckout_Load(object sender, EventArgs e)
         {
@@ -589,6 +613,8 @@ namespace nPOSProj
 
         private void btnAProceed_Click(object sender, EventArgs e)
         {
+            Custcode = txtBoxCustCode.Text;
+            Company = txtBoxCompany.Text;
             IsARTX = true;
             this.Close();
         }

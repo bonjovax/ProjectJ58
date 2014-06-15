@@ -25,6 +25,7 @@ namespace nPOSProj
         private DAO.LoginDAO login;
         private VO.ItemVO itemvo = new VO.ItemVO();
         private VO.PosVO pos = new VO.PosVO();
+        private VO.CustomersVO customer = new VO.CustomersVO();
         private VO.GiftCardVO gcard = new VO.GiftCardVO();
         private bool wholsale_select = false;
         private bool proceeds = false;
@@ -162,44 +163,51 @@ namespace nPOSProj
             }
             if (keyData == Keys.F12 && proceeds == false)
             {
-                frmLogin lg = new frmLogin(); //we'll use that ^_^
-                //
-                String userName = frmLogin.User.user_name;
-                lblSeriesNo.Text = pos.GetOrNo().ToString();
-                OrNo = pos.GetOrNo();
-                pos.Pos_orno = pos.GetOrNo();
-                pos.Pos_terminal = lg.tN;
-                pos.Pos_date = Convert.ToDateTime(DateTime.Now.ToString("yyyy-MM-dd"));
-                pos.Pos_time = Convert.ToDateTime(DateTime.Now.ToString("HH:mm:ss"));
-                pos.Pos_user = userName;
-                pos.BeginTransaction();
-                //
-                proceed.Visible = false;
-                proceeds = true; //important
-                //
-                txtBoxQty.ReadOnly = false;
-                txtBoxQty.Text = "1";
-                txtBoxEAN.ReadOnly = false;
-                rdDescription.Clear();
-                //
-                btnSearch.Enabled = true;
-                btnRefund.Enabled = true;
-                btnWholesale.Enabled = true;
-                //btnParkSale.Enabled = false;
-                //
-                wholsale_select = false;
-                found = false;
-                found_kit = false;
-                discountTx = false;
-                //
-                rdDescription.Text = "Ready";
-                rdPrice.Text = "0.00";
-                rdTotal.Text = "0.00";
-                lblTotalAmount.Text = "0.00";
-                lblChangeDue.Text = "0.00";
-                lblSub.Text = "0.00";
-                lviewPOS.Items.Clear();
-                txtBoxEAN.Focus();
+                try
+                {
+                    frmLogin lg = new frmLogin(); //we'll use that ^_^
+                    //
+                    String userName = frmLogin.User.user_name;
+                    lblSeriesNo.Text = pos.GetOrNo().ToString();
+                    OrNo = pos.GetOrNo();
+                    pos.Pos_orno = pos.GetOrNo();
+                    pos.Pos_terminal = lg.tN;
+                    pos.Pos_date = Convert.ToDateTime(DateTime.Now.ToString("yyyy-MM-dd"));
+                    pos.Pos_time = Convert.ToDateTime(DateTime.Now.ToString("HH:mm:ss"));
+                    pos.Pos_user = userName;
+                    pos.BeginTransaction();
+                    //
+                    proceed.Visible = false;
+                    proceeds = true; //important
+                    //
+                    txtBoxQty.ReadOnly = false;
+                    txtBoxQty.Text = "1";
+                    txtBoxEAN.ReadOnly = false;
+                    rdDescription.Clear();
+                    //
+                    btnSearch.Enabled = true;
+                    btnRefund.Enabled = true;
+                    btnWholesale.Enabled = true;
+                    //btnParkSale.Enabled = false;
+                    //
+                    wholsale_select = false;
+                    found = false;
+                    found_kit = false;
+                    discountTx = false;
+                    //
+                    rdDescription.Text = "Ready";
+                    rdPrice.Text = "0.00";
+                    rdTotal.Text = "0.00";
+                    lblTotalAmount.Text = "0.00";
+                    lblChangeDue.Text = "0.00";
+                    lblSub.Text = "0.00";
+                    lviewPOS.Items.Clear();
+                    txtBoxEAN.Focus();
+                }
+                catch (Exception)
+                {
+                    rdDescription.Text = "Error 10: Network Connection";
+                }
                 return true;
             }
             if (keyData == Keys.Q)
@@ -874,208 +882,232 @@ namespace nPOSProj
 
         private void gotoCheckout()
         {
-            frmDlgCheckout checkout = new frmDlgCheckout();
-            frmLogin lg = new frmLogin(); //we'll use that ^_^
-            Double total_amt = 0;
-            foreach (ListViewItem items in lviewPOS.Items)
+            try
             {
-                total_amt += Double.Parse(items.SubItems[5].Text);
+                frmDlgCheckout checkout = new frmDlgCheckout();
+                frmLogin lg = new frmLogin(); //we'll use that ^_^
+                Double total_amt = 0;
+                foreach (ListViewItem items in lviewPOS.Items)
+                {
+                    total_amt += Double.Parse(items.SubItems[5].Text);
+                }
+                checkout.GetAmount = total_amt;
+                checkout.ShowDialog();
+                //For Cash
+                if (checkout.IsCashTX == true)
+                {
+                    lblChangeDue.Text = checkout.ChangeDue.ToString("#,###,##0.00");
+                    btnSearch.Enabled = false;
+                    btnRefund.Enabled = false;
+                    btnWholesale.Enabled = false;
+                    btnCancelSale.Enabled = false;
+                    btnParkSale.Enabled = true;
+                    btnVoid.Enabled = false;
+                    btnEdit.Enabled = false;
+                    btnCancelSale.Enabled = false;
+                    btnCheckout.Enabled = false; //Very Important La
+                    btnDiscount.Enabled = false;
+                    txtBoxQty.ReadOnly = true;
+                    txtBoxEAN.ReadOnly = true;
+                    txtBoxEAN.Focus();
+                    proceeds = false; //Important
+                    //
+                    pos.Pos_tender = checkout.TenderAmount;
+                    pos.Pos_change = checkout.ChangeDue;
+                    pos.Pos_orno = OrNo;
+                    pos.Pos_terminal = lg.tN;
+                    pos.CashCheckout();
+                    //
+                    newFlash();
+                }
+                if (checkout.IsDCTX == true) //Debit Credit Card
+                {
+                    btnSearch.Enabled = false;
+                    btnRefund.Enabled = false;
+                    btnWholesale.Enabled = false;
+                    btnCancelSale.Enabled = false;
+                    btnParkSale.Enabled = true;
+                    btnVoid.Enabled = false;
+                    btnEdit.Enabled = false;
+                    btnCancelSale.Enabled = false;
+                    btnCheckout.Enabled = false; //Very Important La
+                    btnDiscount.Enabled = false;
+                    txtBoxQty.ReadOnly = true;
+                    txtBoxEAN.ReadOnly = true;
+                    txtBoxEAN.Focus();
+                    proceeds = false; //Important
+                    //
+                    pos.Pos_tender = total_amt;
+                    pos.Pos_orno = OrNo;
+                    pos.Pos_terminal = lg.tN;
+                    String enx = crypt.EncryptText(checkout.CardNo, lg.tN);
+                    pos.Card_data = enx;
+                    pos.Card_lastfour = checkout.CardNo.Substring(checkout.CardNo.Length - 4, 4);
+                    pos.Card_type = checkout.CardType;
+                    pos.Tx_amount = total_amt;
+                    pos.DCCardCheckout();
+                    //
+                    newFlash();
+                }
+                if (checkout.IsBCTX == true) //Bank Cheque
+                {
+                    btnSearch.Enabled = false;
+                    btnRefund.Enabled = false;
+                    btnWholesale.Enabled = false;
+                    btnCancelSale.Enabled = false;
+                    btnParkSale.Enabled = true;
+                    btnVoid.Enabled = false;
+                    btnEdit.Enabled = false;
+                    btnCancelSale.Enabled = false;
+                    btnCheckout.Enabled = false; //Very Important La
+                    btnDiscount.Enabled = false;
+                    txtBoxQty.ReadOnly = true;
+                    txtBoxEAN.ReadOnly = true;
+                    txtBoxEAN.Focus();
+                    proceeds = false; //Important
+                    //
+                    pos.Pos_tender = total_amt;
+                    pos.Pos_orno = OrNo;
+                    pos.Pos_terminal = lg.tN;
+                    pos.Bc_checkno = checkout.CheckNo;
+                    pos.Bc_banknbranch = checkout.BankNBranch;
+                    pos.Bc_refcode = checkout.CRef;
+                    pos.Tx_amount = total_amt;
+                    pos.BankCheckout();
+                    //
+                    newFlash();
+                }
+                if (checkout.IsGCTX == true)
+                {
+                    btnSearch.Enabled = false;
+                    btnRefund.Enabled = false;
+                    btnWholesale.Enabled = false;
+                    btnCancelSale.Enabled = false;
+                    btnParkSale.Enabled = true;
+                    btnVoid.Enabled = false;
+                    btnEdit.Enabled = false;
+                    btnCancelSale.Enabled = false;
+                    btnCheckout.Enabled = false; //Very Important La
+                    btnDiscount.Enabled = false;
+                    txtBoxQty.ReadOnly = true;
+                    txtBoxEAN.ReadOnly = true;
+                    txtBoxEAN.Focus();
+                    proceeds = false; //Important
+                    //
+                    pos.Pos_tender = checkout.GetAmount;
+                    pos.Pos_orno = OrNo;
+                    pos.Pos_terminal = lg.tN;
+                    pos.Gc_cardo = checkout.Gc_code;
+                    pos.Tx_amount = checkout.GetAmount; //Same
+                    pos.GiftCardCheckout();
+                    //
+                    gcard.Gc_amount = checkout.GetAmount;
+                    gcard.Gc_cardno = checkout.Gc_code;
+                    gcard.DebitGC();
+                    //
+                    newFlash();
+                }
+                if (checkout.IsARTX == true) //CRM A/R Basic Codes
+                {
+                    btnSearch.Enabled = false;
+                    btnRefund.Enabled = false;
+                    btnWholesale.Enabled = false;
+                    btnCancelSale.Enabled = false;
+                    btnParkSale.Enabled = true;
+                    btnVoid.Enabled = false;
+                    btnEdit.Enabled = false;
+                    btnCancelSale.Enabled = false;
+                    btnCheckout.Enabled = false; //Very Important La
+                    btnDiscount.Enabled = false;
+                    txtBoxQty.ReadOnly = true;
+                    txtBoxEAN.ReadOnly = true;
+                    txtBoxEAN.Focus();
+                    proceeds = false; //Important
+                    //
+                    pos.Pos_customer = checkout.Company;
+                    pos.Pos_tender = checkout.GetAmount;
+                    pos.Pos_orno = OrNo;
+                    pos.Pos_terminal = lg.tN;
+                    pos.Crm_custcode = checkout.Custcode;
+                    pos.Tx_amount = checkout.GetAmount; //Same
+                    pos.ARBasicCheckout();
+                    //
+                    customer.Balance = checkout.GetAmount;
+                    customer.Payable = checkout.GetAmount;
+                    customer.Custcode = checkout.Custcode;
+                    customer.CreditToAccount();
+                    //
+                    newFlash();
+                }
             }
-            checkout.GetAmount = total_amt;
-            checkout.ShowDialog();
-            //For Cash
-            if (checkout.IsCashTX == true)
+            catch (Exception)
             {
-                lblChangeDue.Text = checkout.ChangeDue.ToString("#,###,##0.00");
-                btnSearch.Enabled = false;
-                btnRefund.Enabled = false;
-                btnWholesale.Enabled = false;
-                btnCancelSale.Enabled = false;
-                btnParkSale.Enabled = true;
-                btnVoid.Enabled = false;
-                btnEdit.Enabled = false;
-                btnCancelSale.Enabled = false;
-                btnCheckout.Enabled = false; //Very Important La
-                btnDiscount.Enabled = false;
-                txtBoxQty.ReadOnly = true;
-                txtBoxEAN.ReadOnly = true;
-                txtBoxEAN.Focus();
-                proceeds = false; //Important
-                //
-                pos.Pos_tender = checkout.TenderAmount;
-                pos.Pos_change = checkout.ChangeDue;
-                pos.Pos_orno = OrNo;
-                pos.Pos_terminal = lg.tN;
-                pos.CashCheckout();
-                //
-                newFlash();
-            }
-            if (checkout.IsDCTX == true) //Debit Credit Card
-            {
-                btnSearch.Enabled = false;
-                btnRefund.Enabled = false;
-                btnWholesale.Enabled = false;
-                btnCancelSale.Enabled = false;
-                btnParkSale.Enabled = true;
-                btnVoid.Enabled = false;
-                btnEdit.Enabled = false;
-                btnCancelSale.Enabled = false;
-                btnCheckout.Enabled = false; //Very Important La
-                btnDiscount.Enabled = false;
-                txtBoxQty.ReadOnly = true;
-                txtBoxEAN.ReadOnly = true;
-                txtBoxEAN.Focus();
-                proceeds = false; //Important
-                //
-                pos.Pos_tender = total_amt;
-                pos.Pos_orno = OrNo;
-                pos.Pos_terminal = lg.tN;
-                String enx = crypt.EncryptText(checkout.CardNo, lg.tN);
-                pos.Card_data = enx;
-                pos.Card_lastfour = checkout.CardNo.Substring(checkout.CardNo.Length - 4, 4);
-                pos.Card_type = checkout.CardType;
-                pos.Tx_amount = total_amt;
-                pos.DCCardCheckout();
-                //
-                newFlash();
-            }
-            if (checkout.IsBCTX == true) //Bank Cheque
-            {
-                btnSearch.Enabled = false;
-                btnRefund.Enabled = false;
-                btnWholesale.Enabled = false;
-                btnCancelSale.Enabled = false;
-                btnParkSale.Enabled = true;
-                btnVoid.Enabled = false;
-                btnEdit.Enabled = false;
-                btnCancelSale.Enabled = false;
-                btnCheckout.Enabled = false; //Very Important La
-                btnDiscount.Enabled = false;
-                txtBoxQty.ReadOnly = true;
-                txtBoxEAN.ReadOnly = true;
-                txtBoxEAN.Focus();
-                proceeds = false; //Important
-                //
-                pos.Pos_tender = total_amt;
-                pos.Pos_orno = OrNo;
-                pos.Pos_terminal = lg.tN;
-                pos.Bc_checkno = checkout.CheckNo;
-                pos.Bc_banknbranch = checkout.BankNBranch;
-                pos.Bc_refcode = checkout.CRef;
-                pos.Tx_amount = total_amt;
-                pos.BankCheckout();
-                //
-                newFlash();
-            }
-            if (checkout.IsGCTX == true)
-            {
-                btnSearch.Enabled = false;
-                btnRefund.Enabled = false;
-                btnWholesale.Enabled = false;
-                btnCancelSale.Enabled = false;
-                btnParkSale.Enabled = true;
-                btnVoid.Enabled = false;
-                btnEdit.Enabled = false;
-                btnCancelSale.Enabled = false;
-                btnCheckout.Enabled = false; //Very Important La
-                btnDiscount.Enabled = false;
-                txtBoxQty.ReadOnly = true;
-                txtBoxEAN.ReadOnly = true;
-                txtBoxEAN.Focus();
-                proceeds = false; //Important
-                //
-                pos.Pos_tender = checkout.GetAmount;
-                pos.Pos_orno = OrNo;
-                pos.Pos_terminal = lg.tN;
-                pos.Gc_cardo = checkout.Gc_code;
-                pos.Tx_amount = checkout.GetAmount; //Same
-                pos.GiftCardCheckout();
-                //
-                gcard.Gc_amount = checkout.GetAmount;
-                gcard.Gc_cardno = checkout.Gc_code;
-                gcard.DebitGC();
-                //
-                newFlash();
-            }
-            if (checkout.IsARTX == true)
-            {
-                btnSearch.Enabled = false;
-                btnRefund.Enabled = false;
-                btnWholesale.Enabled = false;
-                btnCancelSale.Enabled = false;
-                btnParkSale.Enabled = true;
-                btnVoid.Enabled = false;
-                btnEdit.Enabled = false;
-                btnCancelSale.Enabled = false;
-                btnCheckout.Enabled = false; //Very Important La
-                btnDiscount.Enabled = false;
-                txtBoxQty.ReadOnly = true;
-                txtBoxEAN.ReadOnly = true;
-                txtBoxEAN.Focus();
-                proceeds = false; //Important
-                //
-                //Checkout Codes
-                //
-                //Accounts Trigger Codes
-                //
+                rdDescription.Text = "Error 10: Network Connection";
             }
         }
 
         private void gotoPark()
         {
-            using (frmDlgPark park = new frmDlgPark())
+            try
             {
-                park.ShowDialog();
-                if (park.Selected == true)
+                using (frmDlgPark park = new frmDlgPark())
                 {
-                    orderNo = park.OrderNo;
-                    lblSeriesNo.Text = orderNo.ToString();
-                    detectWholesale();
-                    loadParkedData();
-                    loadParkedDataKit();
-                    OrNo = park.OrderNo;
-                    Double total_amt = 0;
-                    Double a = 0;
-                    Double b = 0;
-                    //
-                    proceed.Visible = false;
-                    proceeds = true; //important
-                    //
-                    txtBoxQty.ReadOnly = false;
-                    txtBoxQty.Text = "1";
-                    txtBoxEAN.ReadOnly = false;
-                    rdDescription.Clear();
-                    rdDescription.Text = "Ready";
-                    lblChangeDue.Text = "0.00";
-                    //
-                    btnSearch.Enabled = true;
-                    btnRefund.Enabled = true;
-                    btnCancelSale.Enabled = true;
-                    //
-                    foreach (ListViewItem items in lviewPOS.Items)
+                    park.ShowDialog();
+                    if (park.Selected == true)
                     {
-                        total_amt += Double.Parse(items.SubItems[5].Text);
-                    }
-                    if (lviewPOS.Items.Count != 0)
-                    {
+                        orderNo = park.OrderNo;
+                        lblSeriesNo.Text = orderNo.ToString();
+                        detectWholesale();
+                        loadParkedData();
+                        loadParkedDataKit();
+                        OrNo = park.OrderNo;
+                        Double total_amt = 0;
+                        Double a = 0;
+                        Double b = 0;
+                        //
+                        proceed.Visible = false;
+                        proceeds = true; //important
+                        //
+                        txtBoxQty.ReadOnly = false;
+                        txtBoxQty.Text = "1";
+                        txtBoxEAN.ReadOnly = false;
+                        rdDescription.Clear();
+                        rdDescription.Text = "Ready";
+                        lblChangeDue.Text = "0.00";
+                        //
+                        btnSearch.Enabled = true;
+                        btnRefund.Enabled = true;
                         btnCancelSale.Enabled = true;
-                        btnCheckout.Enabled = true;
-                        btnParkSale.Enabled = false;
+                        //
+                        foreach (ListViewItem items in lviewPOS.Items)
+                        {
+                            total_amt += Double.Parse(items.SubItems[5].Text);
+                        }
+                        if (lviewPOS.Items.Count != 0)
+                        {
+                            btnCancelSale.Enabled = true;
+                            btnCheckout.Enabled = true;
+                            btnParkSale.Enabled = false;
+                        }
+                        else
+                        {
+                            btnCancelSale.Enabled = false;
+                            btnCheckout.Enabled = false;
+                            btnParkSale.Enabled = true;
+                        }
+                        //Tax
+                        a = total_amt * taxP;
+                        b = total_amt - a;
+                        lblSub.Text = b.ToString("#,###,##0.00");
+                        //
+                        lblTotalAmount.Text = total_amt.ToString("###,###,##0.00");
+                        txtBoxEAN.Focus();
                     }
-                    else
-                    {
-                        btnCancelSale.Enabled = false;
-                        btnCheckout.Enabled = false;
-                        btnParkSale.Enabled = true;
-                    }
-                    //Tax
-                    a = total_amt * taxP;
-                    b = total_amt - a;
-                    lblSub.Text = b.ToString("#,###,##0.00");
-                    //
-                    lblTotalAmount.Text = total_amt.ToString("###,###,##0.00");
-                    txtBoxEAN.Focus();
                 }
+            }
+            catch (Exception)
+            {
+                rdDescription.Text = "Error 10: Network Connection";
             }
         }
 
@@ -1147,16 +1179,23 @@ namespace nPOSProj
 
         private void gotoSearch()
         {
-            using (frmDlgSearch search = new frmDlgSearch())
+            try
             {
-                search.ShowDialog();
-                if (search.Selected == true)
+                using (frmDlgSearch search = new frmDlgSearch())
                 {
-                    txtBoxEAN.Text = search.Ean;
-                    txtBoxEAN.Focus();
+                    search.ShowDialog();
+                    if (search.Selected == true)
+                    {
+                        txtBoxEAN.Text = search.Ean;
+                        txtBoxEAN.Focus();
+                    }
+                    else
+                        txtBoxEAN.Focus();
                 }
-                else
-                    txtBoxEAN.Focus();
+            }
+            catch (Exception)
+            {
+                rdDescription.Text = "Error 10: Network Connection";
             }
         }
 

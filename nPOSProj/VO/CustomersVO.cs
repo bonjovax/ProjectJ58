@@ -93,6 +93,14 @@ namespace nPOSProj.VO
             get { return balance; }
             set { balance = value; }
         }
+
+        private Double payable;
+
+        public Double Payable
+        {
+            get { return payable; }
+            set { payable = value; }
+        }
         //
         private DateTime today;
 
@@ -116,6 +124,14 @@ namespace nPOSProj.VO
         {
             get { return to; }
             set { to = value; }
+        }
+
+        private Double amountPaid;
+
+        public Double AmountPaid
+        {
+            get { return amountPaid; }
+            set { amountPaid = value; }
         }
         #endregion
         public CustomersVO() { }
@@ -232,6 +248,18 @@ namespace nPOSProj.VO
             customers.correct(Custcode, Companyname);
             Korek = customers.correct(Custcode, Companyname);
             return Korek;
+        }
+        #endregion
+        #region Checkout Section and Account Payments
+        public void CreditToAccount()
+        {
+            customers = new DAO.CustomersDAO();
+            customers.CreditAccount(Balance, Payable, Custcode);
+        }
+        public void DebitToAccount()
+        {
+            customers = new DAO.CustomersDAO();
+            customers.DebitAccount(Balance, AmountPaid, Custcode);
         }
         #endregion
     }
