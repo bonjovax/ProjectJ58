@@ -1059,7 +1059,6 @@ namespace nPOSProj
                         lblSeriesNo.Text = orderNo.ToString();
                         detectWholesale();
                         loadParkedData();
-                        loadParkedDataKit();
                         OrNo = park.OrderNo;
                         Double total_amt = 0;
                         Double a = 0;
@@ -1265,47 +1264,11 @@ namespace nPOSProj
                 con.Open();
                 String query = "SELECT pos_park.pos_ean AS a, pos_park.pos_quantity AS b, inventory_stocks.stock_name AS c, inventory_items.item_retail_price AS d, inventory_items.item_whole_price AS e, pos_park.pos_discount_amt AS f, pos_park.pos_amt AS g ";
                 query += "FROM pos_park INNER JOIN inventory_items ON pos_park.pos_ean = inventory_items.item_ean INNER JOIN inventory_stocks ON inventory_items.stock_code = inventory_stocks.stock_code ";
-                query += "WHERE (pos_park.pos_orno = ?pos_orno) ORDER BY pos_park.pos_orno";
-                MySqlCommand cmd = new MySqlCommand(query, con);
-                cmd.Parameters.AddWithValue("?pos_orno", orderNo);
-                cmd.ExecuteScalar();
-                MySqlDataReader rdr = cmd.ExecuteReader();
-                while (rdr.Read())
-                {
-                    lviewPOS.BeginUpdate();
-                    ListViewItem lv = new ListViewItem(rdr["a"].ToString());
-                    lv.SubItems.Add(rdr["b"].ToString());
-                    lv.SubItems.Add(rdr["c"].ToString());
-                    if (wholsale_select == true && btnWholesale.Enabled == false)
-                    {
-                        lv.SubItems.Add(Convert.ToDouble(rdr["e"]).ToString("#,###,##0.00")); // Wholesale
-                    }
-                    else
-                    {
-                        lv.SubItems.Add(Convert.ToDouble(rdr["d"]).ToString("#,###,##0.00")); // Retail
-                    }
-                    lv.SubItems.Add(Convert.ToDouble(rdr["f"]).ToString("#,###,##0.00"));
-                    lv.SubItems.Add(Convert.ToDouble(rdr["g"]).ToString("#,###,##0.00"));
-                    lviewPOS.Items.Add(lv);
-                    lviewPOS.EndUpdate();
-                }
-                con.Close();
-            }
-            catch (Exception)
-            {
-                rdDescription.Text = "Error 10: Network Connection";
-                Application.ExitThread();
-            }
-        }
-        private void loadParkedDataKit()
-        {
-            try
-            {
-                con.ConnectionString = dbcon.getConnectionString();
-                con.Open();
-                String query = "SELECT pos_park.pos_ean AS a, pos_park.pos_quantity AS b, inventory_items.kit_name AS c, inventory_items.item_retail_price AS d, inventory_items.item_whole_price AS e, pos_park.pos_discount_amt AS f, pos_park.pos_amt AS g ";
+                query += "WHERE (pos_park.pos_orno = ?pos_orno) ";
+                query += "UNION ALL "; //Thanks to this Clause It Made My Life Easier ^_^
+                query += "SELECT pos_park.pos_ean AS a, pos_park.pos_quantity AS b, inventory_items.kit_name AS c, inventory_items.item_retail_price AS d, inventory_items.item_whole_price AS e, pos_park.pos_discount_amt AS f, pos_park.pos_amt AS g ";
                 query += "FROM pos_park INNER JOIN inventory_items ON pos_park.pos_ean = inventory_items.item_ean ";
-                query += "WHERE (pos_park.pos_orno = ?pos_orno) AND (inventory_items.is_kit = 1) ORDER BY pos_park.pos_orno";
+                query += "WHERE (pos_park.pos_orno = ?pos_orno) AND (inventory_items.is_kit = 1)";
                 MySqlCommand cmd = new MySqlCommand(query, con);
                 cmd.Parameters.AddWithValue("?pos_orno", orderNo);
                 cmd.ExecuteScalar();
@@ -1334,10 +1297,9 @@ namespace nPOSProj
             catch (Exception)
             {
                 rdDescription.Text = "Error 10: Network Connection";
-                Application.ExitThread();
             }
         }
-
+        
         private void btnDiscount_Click(object sender, EventArgs e)
         {
             gotoDiscount();
