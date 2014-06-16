@@ -16,8 +16,17 @@ namespace nPOSProj
         private Double taxP;
         private String taxDisplay;
         private String compName;
+        private String address1;
+        private String address2;
+        private String contact;
+        private String store_op;
+        private String permit_no;
         private String TIN;
         private String TaxT;
+        private String accreditation;
+        private String serial_no;
+        private String machine_no;
+        private String postmachine;
         #endregion
         private MySqlConnection con = new MySqlConnection();
         private Conf.dbs dbcon = new Conf.dbs();
@@ -261,6 +270,7 @@ namespace nPOSProj
         }
         private void ConfigCheck()
         {
+            frmLogin fl = new frmLogin();
             con.ConnectionString = dbcon.getConnectionString();
             String query = "SELECT * FROM system_config";
             try
@@ -276,15 +286,30 @@ namespace nPOSProj
                         taxP = Convert.ToDouble("." + rdr["vat_rate"]);
                         taxDisplay = rdr["vat_rate"].ToString() + "%";
                         compName = rdr["company_name"].ToString();
+                        address1 = rdr["company_address"].ToString();
+                        address2 = rdr["company_address2"].ToString();
+                        contact = rdr["company_contact"].ToString();
+                        store_op = rdr["company_operator"].ToString();
                         TIN = rdr["tin_number"].ToString();
                         TaxT = rdr["tax_type"].ToString();
+                        accreditation = rdr["accreditation_no"].ToString();
+                        serial_no = rdr["serial_no"].ToString();
+                        machine_no = rdr["machine_no"].ToString() + fl.tN;
                     }
                     else
                     {
                         taxP = 0;
                         taxDisplay = "0%";
                         compName = rdr["company_name"].ToString();
+                        address1 = rdr["company_address"].ToString();
+                        address2 = rdr["company_address2"].ToString();
+                        contact = rdr["company_contact"].ToString();
+                        store_op = rdr["company_operator"].ToString();
+                        TIN = rdr["tin_number"].ToString();
                         TaxT = rdr["tax_type"].ToString();
+                        accreditation = rdr["accreditation_no"].ToString();
+                        serial_no = rdr["serial_no"].ToString();
+                        machine_no = rdr["machine_no"].ToString() + fl.tN;
                     }
                 }
                 con.Close();
