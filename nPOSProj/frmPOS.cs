@@ -26,7 +26,6 @@ namespace nPOSProj
         private String accreditation;
         private String serial_no;
         private String machine_no;
-        private String postmachine;
         #endregion
         private MySqlConnection con = new MySqlConnection();
         private Conf.dbs dbcon = new Conf.dbs();
