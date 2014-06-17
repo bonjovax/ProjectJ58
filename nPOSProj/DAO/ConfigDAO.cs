@@ -169,7 +169,7 @@ namespace nPOSProj.DAO
             con = new MySqlConnection();
             dbcon = new Conf.dbs();
             con.ConnectionString = dbcon.getConnectionString();
-            String query = "SELECT contact_number FROM system_config";
+            String query = "SELECT company_contact FROM system_config";
             try
             {
                 con.Open();
