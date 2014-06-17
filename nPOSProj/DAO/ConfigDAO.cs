@@ -29,7 +29,7 @@ namespace nPOSProj.DAO
             con.ConnectionString = dbcon.getConnectionString();
             String query = "UPDATE system_config SET company_name = ?company_name, ";
             query += "company_address = ?company_address, tin_number = ?tin_number, tax_type = ?tax_type, vat_rate = ?vat_rate, ";
-            query += "contact_number = ?contact_number";
+            query += "company_contact = ?company_contact";
             try
             {
                 con.Open();
@@ -39,7 +39,7 @@ namespace nPOSProj.DAO
                 cmd.Parameters.AddWithValue("?tin_number", tin_number);
                 cmd.Parameters.AddWithValue("?tax_type", tax_type);
                 cmd.Parameters.AddWithValue("?vat_rate", vat_rate);
-                cmd.Parameters.AddWithValue("?contact_number", contact_number);
+                cmd.Parameters.AddWithValue("?company_contact", contact_number);
                 cmd.ExecuteNonQuery();
                 cmd.Dispose();
             }
