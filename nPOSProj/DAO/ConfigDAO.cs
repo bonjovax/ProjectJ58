@@ -178,7 +178,7 @@ namespace nPOSProj.DAO
                 MySqlDataReader rdr = cmd.ExecuteReader();
                 if (rdr.Read())
                 {
-                    Contact_Number = rdr["contact_number"].ToString();
+                    Contact_Number = rdr["company_contact"].ToString();
                 }
             }
             finally
