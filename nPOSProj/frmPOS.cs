@@ -538,31 +538,58 @@ namespace nPOSProj
             }
             if (all_items_tax == 1) //If All Items are Taxable
             {
-                lblVatable.Text = vATable.ToString("#,###,##0.00");
-                lblVATe.Text = vExempt.ToString("###,###,##0.00");
-                lblVATz.Text = vZero.ToString("###,###,##0.00");
+                if (TaxT == "V")
+                {
+                    lblVatable.Text = vATable.ToString("#,###,##0.00");
+                    lblVATe.Text = vExempt.ToString("###,###,##0.00");
+                    lblVATz.Text = vZero.ToString("###,###,##0.00");
+                }
+                else
+                {
+                    vATable = 0;
+                    vExempt = 0;
+                    vZero = 0;
+                }
                 lblTotalAmount.Text = total_fin.ToString("###,###,##0.00");
                 if (itemTT == "V")
                 {
-                    //Tax
-                    a = v1 * taxP;
-                    //Please Add Condition if Sale is VAT
-                    lblTAXamt.Text = v2.ToString("#,###,##0.00");
-                    b = v1 - a;
-                    lblVatable.Text = b.ToString("#,###,##0.00");
+                    if (TaxT == "V")
+                    {
+                        //Tax
+                        a = v1 * taxP;
+                        //Please Add Condition if Sale is VAT
+                        lblTAXamt.Text = v2.ToString("#,###,##0.00");
+                        b = v1 - a;
+                        lblVatable.Text = b.ToString("#,###,##0.00");
+                    }
+                    else
+                    {
+                        a = 0;
+                        v2 = 0;
+                        b = 0;
+                    }
                 }
 
             }
             else
             {
-
-                lblVatable.Text = v1.ToString("#,###,##0.00");
-                lblVATe.Text = vExempt.ToString("###,###,##0.00");
-                lblVATz.Text = vZero.ToString("###,###,##0.00");
+                if (TaxT == "V")
+                {
+                    lblVatable.Text = v1.ToString("#,###,##0.00");
+                    lblVATe.Text = vExempt.ToString("###,###,##0.00");
+                    lblVATz.Text = vZero.ToString("###,###,##0.00");
+                }
                 if (itemTT == "V")
                 {
-                    a = v1 * taxP;
-                    lblTAXamt.Text = a.ToString("###,###,##0.00");
+                    if (TaxT == "V")
+                    {
+                        a = v1 * taxP;
+                        lblTAXamt.Text = a.ToString("###,###,##0.00");
+                    }
+                    else
+                    {
+                        a = 0;
+                    }
                 }
                 a = v1 * taxP;
                 totalVar = v1 + vExempt + vZero + a;
@@ -577,7 +604,7 @@ namespace nPOSProj
             }
             else
             {
-                pos.Pos_tax_perc = a;
+                pos.Pos_tax_amt = a;
                 pos.Pos_total_amt = totalVar;
             }
             pos.Pos_orno = OrNo;
@@ -675,31 +702,58 @@ namespace nPOSProj
                                     }
                                     if (all_items_tax == 1) //If All Items are Taxable
                                     {
-                                        lblVatable.Text = vATable.ToString("#,###,##0.00");
-                                        lblVATe.Text = vExempt.ToString("###,###,##0.00");
-                                        lblVATz.Text = vZero.ToString("###,###,##0.00");
+                                        if (TaxT == "V")
+                                        {
+                                            lblVatable.Text = vATable.ToString("#,###,##0.00");
+                                            lblVATe.Text = vExempt.ToString("###,###,##0.00");
+                                            lblVATz.Text = vZero.ToString("###,###,##0.00");
+                                        }
+                                        else
+                                        {
+                                            vATable = 0;
+                                            vExempt = 0;
+                                            vZero = 0;
+                                        }
                                         lblTotalAmount.Text = total_fin.ToString("###,###,##0.00");
                                         if (itemTT == "V")
                                         {
-                                            //Tax
-                                            a = v1 * taxP;
-                                            //Please Add Condition if Sale is VAT
-                                            lblTAXamt.Text = v2.ToString("#,###,##0.00");
-                                            b = v1 - a;
-                                            lblVatable.Text = b.ToString("#,###,##0.00");
+                                            if (TaxT == "V")
+                                            {
+                                                //Tax
+                                                a = v1 * taxP;
+                                                //Please Add Condition if Sale is VAT
+                                                lblTAXamt.Text = v2.ToString("#,###,##0.00");
+                                                b = v1 - a;
+                                                lblVatable.Text = b.ToString("#,###,##0.00");
+                                            }
+                                            else
+                                            {
+                                                a = 0;
+                                                v2 = 0;
+                                                b = 0;
+                                            }
                                         }
                                         
                                     }
                                     else
                                     {
-                                        
-                                        lblVatable.Text = v1.ToString("#,###,##0.00");
-                                        lblVATe.Text = vExempt.ToString("###,###,##0.00");
-                                        lblVATz.Text = vZero.ToString("###,###,##0.00");
+                                        if (TaxT == "V")
+                                        {
+                                            lblVatable.Text = v1.ToString("#,###,##0.00");
+                                            lblVATe.Text = vExempt.ToString("###,###,##0.00");
+                                            lblVATz.Text = vZero.ToString("###,###,##0.00");
+                                        }
                                         if (itemTT == "V")
                                         {
-                                            a = v1 * taxP;
-                                            lblTAXamt.Text = a.ToString("###,###,##0.00");
+                                            if (TaxT == "V")
+                                            {
+                                                a = v1 * taxP;
+                                                lblTAXamt.Text = a.ToString("###,###,##0.00");
+                                            }
+                                            else
+                                            {
+                                                a = 0;
+                                            }
                                         }
                                         a = v1 * taxP;
                                         totalVar = v1 + vExempt + vZero + a;
@@ -714,7 +768,7 @@ namespace nPOSProj
                                     }
                                     else
                                     {
-                                        pos.Pos_tax_perc = a;
+                                        pos.Pos_tax_amt = a;
                                         pos.Pos_total_amt = totalVar;
                                     }
                                     pos.Pos_orno = OrNo;
@@ -1026,31 +1080,58 @@ namespace nPOSProj
                     }
                     if (all_items_tax == 1) //If All Items are Taxable
                     {
-                        lblVatable.Text = vATable.ToString("#,###,##0.00");
-                        lblVATe.Text = vExempt.ToString("###,###,##0.00");
-                        lblVATz.Text = vZero.ToString("###,###,##0.00");
+                        if (TaxT == "V")
+                        {
+                            lblVatable.Text = vATable.ToString("#,###,##0.00");
+                            lblVATe.Text = vExempt.ToString("###,###,##0.00");
+                            lblVATz.Text = vZero.ToString("###,###,##0.00");
+                        }
+                        else
+                        {
+                            vATable = 0;
+                            vExempt = 0;
+                            vZero = 0;
+                        }
                         lblTotalAmount.Text = total_fin.ToString("###,###,##0.00");
                         if (itemTT == "V")
                         {
-                            //Tax
-                            a = v1 * taxP;
-                            //Please Add Condition if Sale is VAT
-                            lblTAXamt.Text = v2.ToString("#,###,##0.00");
-                            b = v1 - a;
-                            lblVatable.Text = b.ToString("#,###,##0.00");
+                            if (TaxT == "V")
+                            {
+                                //Tax
+                                a = v1 * taxP;
+                                //Please Add Condition if Sale is VAT
+                                lblTAXamt.Text = v2.ToString("#,###,##0.00");
+                                b = v1 - a;
+                                lblVatable.Text = b.ToString("#,###,##0.00");
+                            }
+                            else
+                            {
+                                a = 0;
+                                v2 = 0;
+                                b = 0;
+                            }
                         }
 
                     }
                     else
                     {
-
-                        lblVatable.Text = v1.ToString("#,###,##0.00");
-                        lblVATe.Text = vExempt.ToString("###,###,##0.00");
-                        lblVATz.Text = vZero.ToString("###,###,##0.00");
+                        if (TaxT == "V")
+                        {
+                            lblVatable.Text = v1.ToString("#,###,##0.00");
+                            lblVATe.Text = vExempt.ToString("###,###,##0.00");
+                            lblVATz.Text = vZero.ToString("###,###,##0.00");
+                        }
                         if (itemTT == "V")
                         {
-                            a = v1 * taxP;
-                            lblTAXamt.Text = a.ToString("###,###,##0.00");
+                            if (TaxT == "V")
+                            {
+                                a = v1 * taxP;
+                                lblTAXamt.Text = a.ToString("###,###,##0.00");
+                            }
+                            else
+                            {
+                                a = 0;
+                            }
                         }
                         a = v1 * taxP;
                         totalVar = v1 + vExempt + vZero + a;
@@ -1065,7 +1146,7 @@ namespace nPOSProj
                     }
                     else
                     {
-                        pos.Pos_tax_perc = a;
+                        pos.Pos_tax_amt = a;
                         pos.Pos_total_amt = totalVar;
                     }
                     pos.Pos_orno = OrNo;
