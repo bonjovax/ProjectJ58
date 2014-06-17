@@ -208,7 +208,7 @@ namespace nPOSProj
                     rdTotal.Text = "0.00";
                     lblTotalAmount.Text = "0.00";
                     lblChangeDue.Text = "0.00";
-                    lblSub.Text = "0.00";
+                    lblVatable.Text = "0.00";
                     lviewPOS.Items.Clear();
                     txtBoxEAN.Focus();
                 }
@@ -505,7 +505,7 @@ namespace nPOSProj
             //Tax
             a = total_fins * taxP;
             b = total_fins - a;
-            lblSub.Text = b.ToString("#,###,##0.00");
+            lblVatable.Text = b.ToString("#,###,##0.00");
             // Trunk Data
             pos.Pos_tax_perc = taxP;
             pos.Pos_tax_amt = a; //Damn You!!
@@ -580,7 +580,7 @@ namespace nPOSProj
                                     //Tax
                                     a = total_fins * taxP;
                                     b = total_fins - a;
-                                    lblSub.Text = b.ToString("#,###,##0.00");
+                                    lblVatable.Text = b.ToString("#,###,##0.00");
                                     // Trunk Data
                                     pos.Pos_tax_perc = taxP;
                                     pos.Pos_tax_amt = a;
@@ -744,7 +744,7 @@ namespace nPOSProj
                         //Tax
                         x = total_discs * taxP;
                         y = total_disc - x;
-                        lblSub.Text = y.ToString("#,###,##0.00");
+                        lblVatable.Text = y.ToString("#,###,##0.00");
                         //
                         // Trunk Data
                         pos.Pos_tax_perc = taxP;
@@ -813,7 +813,7 @@ namespace nPOSProj
                         //Tax
                         x = total_amts * taxP;
                         y = total_amts - x;
-                        lblSub.Text = y.ToString("#,###,##0.00");
+                        lblVatable.Text = y.ToString("#,###,##0.00");
                         //Update Data
                         pos.Pos_orno = OrNo;
                         pos.Pos_ean = uEan;
@@ -866,7 +866,7 @@ namespace nPOSProj
                     //Tax
                     a = total_amts * taxP;
                     b = total_amts - a;
-                    lblSub.Text = b.ToString("#,###,##0.00");
+                    lblVatable.Text = b.ToString("#,###,##0.00");
                     //
                     // Trunk Data
                     pos.Pos_tax_perc = taxP;
@@ -1121,7 +1121,7 @@ namespace nPOSProj
                         //Tax
                         a = total_amt * taxP;
                         b = total_amt - a;
-                        lblSub.Text = b.ToString("#,###,##0.00");
+                        lblVatable.Text = b.ToString("#,###,##0.00");
                         //
                         lblTotalAmount.Text = total_amt.ToString("###,###,##0.00");
                         txtBoxEAN.Focus();
@@ -1185,7 +1185,7 @@ namespace nPOSProj
                             proceed.Visible = true;
                             txtBoxQty.Text = "1";
                             rdDescription.Text = "Transaction Cancelled!";
-                            lblSub.Text = "0.00";
+                            lblVatable.Text = "0.00";
                             rdPrice.Text = "0.00";
                             rdTotal.Text = "0.00";
                             lblTotalAmount.Text = "0.00";

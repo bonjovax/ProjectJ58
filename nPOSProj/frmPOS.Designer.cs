@@ -53,7 +53,7 @@
             this.label6 = new System.Windows.Forms.Label();
             this.lblTotalAmount = new System.Windows.Forms.Label();
             this.lblChangeDue = new System.Windows.Forms.Label();
-            this.lblSub = new System.Windows.Forms.Label();
+            this.lblVatable = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.lblTax = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
@@ -71,6 +71,10 @@
             this.btnSearch = new System.Windows.Forms.Button();
             this.proceed = new System.Windows.Forms.Label();
             this.timer2 = new System.Windows.Forms.Timer(this.components);
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lviewPOS
@@ -401,31 +405,31 @@
             this.lblChangeDue.Text = "0.00";
             this.lblChangeDue.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // lblSub
+            // lblVatable
             // 
-            this.lblSub.BackColor = System.Drawing.Color.Black;
-            this.lblSub.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.lblSub.Font = new System.Drawing.Font("Courier New", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSub.ForeColor = System.Drawing.Color.Lime;
-            this.lblSub.Location = new System.Drawing.Point(0, 458);
-            this.lblSub.Name = "lblSub";
-            this.lblSub.Size = new System.Drawing.Size(297, 26);
-            this.lblSub.TabIndex = 21;
-            this.lblSub.Text = "0.00";
-            this.lblSub.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblVatable.BackColor = System.Drawing.Color.Black;
+            this.lblVatable.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.lblVatable.Font = new System.Drawing.Font("Courier New", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblVatable.ForeColor = System.Drawing.Color.Lime;
+            this.lblVatable.Location = new System.Drawing.Point(0, 458);
+            this.lblVatable.Name = "lblVatable";
+            this.lblVatable.Size = new System.Drawing.Size(91, 26);
+            this.lblVatable.TabIndex = 21;
+            this.lblVatable.Text = "0.00";
+            this.lblVatable.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label4
             // 
             this.label4.BackColor = System.Drawing.Color.MidnightBlue;
             this.label4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.label4.Font = new System.Drawing.Font("Courier New", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Font = new System.Drawing.Font("Courier New", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.White;
             this.label4.Location = new System.Drawing.Point(0, 429);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(297, 29);
+            this.label4.Size = new System.Drawing.Size(91, 29);
             this.label4.TabIndex = 20;
-            this.label4.Text = "Subtotal";
-            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label4.Text = "VATable";
+            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblTax
             // 
@@ -641,6 +645,58 @@
             this.proceed.Text = "Press F12 to Proceed";
             this.proceed.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // label2
+            // 
+            this.label2.BackColor = System.Drawing.Color.Black;
+            this.label2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.label2.Font = new System.Drawing.Font("Courier New", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.Lime;
+            this.label2.Location = new System.Drawing.Point(91, 458);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(110, 26);
+            this.label2.TabIndex = 35;
+            this.label2.Text = "0.00";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label3
+            // 
+            this.label3.BackColor = System.Drawing.Color.MidnightBlue;
+            this.label3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.label3.Font = new System.Drawing.Font("Courier New", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.White;
+            this.label3.Location = new System.Drawing.Point(91, 429);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(110, 29);
+            this.label3.TabIndex = 34;
+            this.label3.Text = "VAT Exempt";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label7
+            // 
+            this.label7.BackColor = System.Drawing.Color.Black;
+            this.label7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.label7.Font = new System.Drawing.Font("Courier New", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.Color.Lime;
+            this.label7.Location = new System.Drawing.Point(201, 458);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(96, 26);
+            this.label7.TabIndex = 37;
+            this.label7.Text = "0.00";
+            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label8
+            // 
+            this.label8.BackColor = System.Drawing.Color.MidnightBlue;
+            this.label8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.label8.Font = new System.Drawing.Font("Courier New", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.ForeColor = System.Drawing.Color.White;
+            this.label8.Location = new System.Drawing.Point(201, 429);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(96, 29);
+            this.label8.TabIndex = 36;
+            this.label8.Text = "VAT Z-Rated";
+            this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // frmPOS
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -648,6 +704,10 @@
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1274, 748);
             this.ControlBox = false;
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.proceed);
             this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.btnRefund);
@@ -662,7 +722,7 @@
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.lblTax);
             this.Controls.Add(this.label9);
-            this.Controls.Add(this.lblSub);
+            this.Controls.Add(this.lblVatable);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.lblChangeDue);
             this.Controls.Add(this.lblTotalAmount);
@@ -721,7 +781,7 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label lblTotalAmount;
         private System.Windows.Forms.Label lblChangeDue;
-        private System.Windows.Forms.Label lblSub;
+        private System.Windows.Forms.Label lblVatable;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label lblTax;
         private System.Windows.Forms.Label label9;
@@ -740,5 +800,9 @@
         private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.Label proceed;
         private System.Windows.Forms.Timer timer2;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label8;
     }
 }
