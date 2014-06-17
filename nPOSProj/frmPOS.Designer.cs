@@ -37,6 +37,7 @@
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.rdDescription = new System.Windows.Forms.TextBox();
             this.txtBoxQty = new System.Windows.Forms.TextBox();
             this.rdPrice = new System.Windows.Forms.TextBox();
@@ -77,7 +78,6 @@
             this.label8 = new System.Windows.Forms.Label();
             this.lblTAXamt = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
-            this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.SuspendLayout();
             // 
             // lviewPOS
@@ -139,11 +139,16 @@
             this.columnHeader6.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.columnHeader6.Width = 133;
             // 
+            // columnHeader7
+            // 
+            this.columnHeader7.Text = "*";
+            this.columnHeader7.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.columnHeader7.Width = 34;
+            // 
             // rdDescription
             // 
             this.rdDescription.BackColor = System.Drawing.Color.Black;
             this.rdDescription.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.rdDescription.Cursor = System.Windows.Forms.Cursors.No;
             this.rdDescription.Font = new System.Drawing.Font("Courier New", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rdDescription.ForeColor = System.Drawing.Color.Lime;
             this.rdDescription.Location = new System.Drawing.Point(0, 0);
@@ -173,7 +178,6 @@
             // 
             this.rdPrice.BackColor = System.Drawing.Color.MidnightBlue;
             this.rdPrice.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.rdPrice.Cursor = System.Windows.Forms.Cursors.No;
             this.rdPrice.Font = new System.Drawing.Font("Courier New", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rdPrice.ForeColor = System.Drawing.Color.Lime;
             this.rdPrice.Location = new System.Drawing.Point(195, 55);
@@ -190,7 +194,6 @@
             // 
             this.rdTotal.BackColor = System.Drawing.Color.MidnightBlue;
             this.rdTotal.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.rdTotal.Cursor = System.Windows.Forms.Cursors.No;
             this.rdTotal.Font = new System.Drawing.Font("Courier New", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rdTotal.ForeColor = System.Drawing.Color.Lime;
             this.rdTotal.Location = new System.Drawing.Point(524, 55);
@@ -235,7 +238,6 @@
             // btnCancelSale
             // 
             this.btnCancelSale.BackColor = System.Drawing.Color.LightCoral;
-            this.btnCancelSale.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCancelSale.Enabled = false;
             this.btnCancelSale.FlatAppearance.BorderColor = System.Drawing.Color.LightCoral;
             this.btnCancelSale.FlatAppearance.BorderSize = 0;
@@ -256,7 +258,6 @@
             // btnParkSale
             // 
             this.btnParkSale.BackColor = System.Drawing.Color.PaleGreen;
-            this.btnParkSale.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnParkSale.FlatAppearance.BorderColor = System.Drawing.Color.PaleGreen;
             this.btnParkSale.FlatAppearance.BorderSize = 0;
             this.btnParkSale.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
@@ -276,7 +277,6 @@
             // btnCheckout
             // 
             this.btnCheckout.BackColor = System.Drawing.Color.LightSkyBlue;
-            this.btnCheckout.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCheckout.Enabled = false;
             this.btnCheckout.FlatAppearance.BorderColor = System.Drawing.Color.LightSkyBlue;
             this.btnCheckout.FlatAppearance.BorderSize = 0;
@@ -297,7 +297,6 @@
             // btnVoid
             // 
             this.btnVoid.BackColor = System.Drawing.Color.PowderBlue;
-            this.btnVoid.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnVoid.Enabled = false;
             this.btnVoid.FlatAppearance.BorderColor = System.Drawing.Color.Azure;
             this.btnVoid.FlatAppearance.BorderSize = 0;
@@ -318,7 +317,6 @@
             // btnEdit
             // 
             this.btnEdit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.btnEdit.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnEdit.Enabled = false;
             this.btnEdit.FlatAppearance.BorderColor = System.Drawing.Color.LightCyan;
             this.btnEdit.FlatAppearance.BorderSize = 0;
@@ -339,7 +337,6 @@
             // btnWholesale
             // 
             this.btnWholesale.BackColor = System.Drawing.Color.RoyalBlue;
-            this.btnWholesale.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnWholesale.Enabled = false;
             this.btnWholesale.FlatAppearance.BorderColor = System.Drawing.Color.Azure;
             this.btnWholesale.FlatAppearance.BorderSize = 0;
@@ -464,7 +461,6 @@
             // btnClose
             // 
             this.btnClose.BackColor = System.Drawing.Color.Crimson;
-            this.btnClose.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnClose.FlatAppearance.BorderColor = System.Drawing.Color.Crimson;
             this.btnClose.FlatAppearance.BorderSize = 0;
             this.btnClose.FlatAppearance.MouseOverBackColor = System.Drawing.Color.MistyRose;
@@ -565,7 +561,6 @@
             // btnDiscount
             // 
             this.btnDiscount.BackColor = System.Drawing.Color.Tomato;
-            this.btnDiscount.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnDiscount.Enabled = false;
             this.btnDiscount.FlatAppearance.BorderColor = System.Drawing.Color.Tomato;
             this.btnDiscount.FlatAppearance.BorderSize = 0;
@@ -598,7 +593,6 @@
             // btnRefund
             // 
             this.btnRefund.BackColor = System.Drawing.Color.Moccasin;
-            this.btnRefund.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnRefund.Enabled = false;
             this.btnRefund.FlatAppearance.BorderColor = System.Drawing.Color.Moccasin;
             this.btnRefund.FlatAppearance.BorderSize = 0;
@@ -618,7 +612,6 @@
             // btnSearch
             // 
             this.btnSearch.BackColor = System.Drawing.Color.GhostWhite;
-            this.btnSearch.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnSearch.Enabled = false;
             this.btnSearch.FlatAppearance.BorderColor = System.Drawing.Color.GhostWhite;
             this.btnSearch.FlatAppearance.BorderSize = 0;
@@ -640,7 +633,6 @@
             // 
             this.proceed.BackColor = System.Drawing.Color.White;
             this.proceed.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.proceed.Cursor = System.Windows.Forms.Cursors.No;
             this.proceed.Font = new System.Drawing.Font("Courier New", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.proceed.Location = new System.Drawing.Point(486, 394);
             this.proceed.Name = "proceed";
@@ -726,12 +718,6 @@
             this.label12.TabIndex = 38;
             this.label12.Text = "TAX Amount";
             this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // columnHeader7
-            // 
-            this.columnHeader7.Text = "";
-            this.columnHeader7.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.columnHeader7.Width = 34;
             // 
             // frmPOS
             // 
