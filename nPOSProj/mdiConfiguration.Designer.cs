@@ -44,11 +44,13 @@
             this.label2 = new System.Windows.Forms.Label();
             this.txtBoxCompanyName = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.cBTax = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.cBTax);
             this.groupBox1.Controls.Add(this.btnSave);
             this.groupBox1.Controls.Add(this.txtBoxContactNo);
             this.groupBox1.Controls.Add(this.label7);
@@ -214,6 +216,17 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Company Name";
             // 
+            // cBTax
+            // 
+            this.cBTax.AutoSize = true;
+            this.cBTax.Location = new System.Drawing.Point(143, 275);
+            this.cBTax.Name = "cBTax";
+            this.cBTax.Size = new System.Drawing.Size(152, 23);
+            this.cBTax.TabIndex = 17;
+            this.cBTax.Text = "All Items Taxable";
+            this.cBTax.UseVisualStyleBackColor = true;
+            this.cBTax.Visible = false;
+            // 
             // mdiConfiguration
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -252,5 +265,6 @@
         private System.Windows.Forms.TextBox txtBoxCompanyName;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnSave;
+        private System.Windows.Forms.CheckBox cBTax;
     }
 }

@@ -26,7 +26,9 @@ namespace nPOSProj
         private String accreditation;
         private String serial_no;
         private String machine_no;
+        private Int16 all_items_tax;
         #endregion
+        private String itemTT;
         private MySqlConnection con = new MySqlConnection();
         private Conf.dbs dbcon = new Conf.dbs();
         private Conf.Crypto crypt = new Conf.Crypto();
@@ -38,6 +40,7 @@ namespace nPOSProj
         private bool wholsale_select = false;
         private bool proceeds = false;
         private Double price;
+        private Double totalVar = 0;
         //
         private Int32 OrNo;
         //
@@ -294,6 +297,7 @@ namespace nPOSProj
                         accreditation = rdr["accreditation_no"].ToString();
                         serial_no = rdr["serial_no"].ToString();
                         machine_no = rdr["machine_no"].ToString() + fl.tN;
+                        all_items_tax = Convert.ToInt16(rdr["all_items_tax"]);
                     }
                     else
                     {
@@ -309,6 +313,7 @@ namespace nPOSProj
                         accreditation = rdr["accreditation_no"].ToString();
                         serial_no = rdr["serial_no"].ToString();
                         machine_no = rdr["machine_no"].ToString() + fl.tN;
+                        all_items_tax = Convert.ToInt16(rdr["all_items_tax"]);
                     }
                 }
                 con.Close();
@@ -414,7 +419,7 @@ namespace nPOSProj
         {
             con.ConnectionString = dbcon.getConnectionString();
             String query = "SELECT inventory_stocks.stock_name AS a , inventory_items.kit_name AS b, ";
-            query += "inventory_items.item_retail_price AS c, inventory_items.item_whole_price AS d ";
+            query += "inventory_items.item_retail_price AS c, inventory_items.item_whole_price AS d, inventory_items.item_tax_type AS e ";
             query += "FROM inventory_items ";
             query += "INNER JOIN inventory_stocks ON inventory_items.stock_code = inventory_stocks.stock_code ";
             query += "WHERE (inventory_items.item_ean = ?item_ean) AND (inventory_items.is_kit = 0)";
@@ -432,11 +437,13 @@ namespace nPOSProj
                     {
                         price = Convert.ToDouble(rdr["d"]);
                         rdPrice.Text = Convert.ToDouble(rdr["d"]).ToString("#,###,##0.00");
+                        itemTT = rdr["e"].ToString();
                     }
                     else //Others Retail
                     {
                         price = Convert.ToDouble(rdr["c"]);
                         rdPrice.Text = Convert.ToDouble(rdr["c"]).ToString("#,###,##0.00");
+                        itemTT = rdr["e"].ToString();
                     }
                     found = true;
                 }
@@ -453,7 +460,7 @@ namespace nPOSProj
         {
             con.ConnectionString = dbcon.getConnectionString();
             String query = "SELECT kit_name AS a, ";
-            query += "item_retail_price AS b, item_whole_price AS c ";
+            query += "item_retail_price AS b, item_whole_price AS c, item_tax_type AS d ";
             query += "FROM inventory_items ";
             query += "WHERE (item_ean = ?item_ean) AND (is_kit = 1)";
             try
@@ -470,11 +477,13 @@ namespace nPOSProj
                     {
                         price = Convert.ToDouble(rdr["c"]);
                         rdPrice.Text = Convert.ToDouble(rdr["c"]).ToString("#,###,##0.00");
+                        itemTT = rdr["d"].ToString();
                     }
                     else //Others Retail
                     {
                         price = Convert.ToDouble(rdr["b"]);
                         rdPrice.Text = Convert.ToDouble(rdr["b"]).ToString("#,###,##0.00");
+                        itemTT = rdr["d"].ToString();
                     }
                     found_kit = true;
                 }
@@ -495,21 +504,82 @@ namespace nPOSProj
             Double total_fin = 0;
             Double total_fins = 0;
             Double a = 0;
-            Double b = 0;
+            Double b = 0; //To Data Tax Amount
+            Double vATable = 0;
+            Double v1 = 0;
+            Double v2 = 0;
+            Double vExempt = 0;
+            Double vZero = 0;
             foreach (ListViewItem lv in lviewPOS.Items)
             {
                 total_fin += Double.Parse(lv.SubItems[5].Text);
                 total_fins += Double.Parse(lv.SubItems[5].Text);
+                if (lv.SubItems[6].Text == "V")
+                {
+                    if (all_items_tax == 1) //If All Items are Taxable
+                    {
+                        v1 += Double.Parse(lv.SubItems[5].Text);
+                        v2 = v1 * taxP;
+                        vATable = v1 - v2;
+                    }
+                    else //Otherwise
+                    {
+                        v1 += Double.Parse(lv.SubItems[5].Text);
+                    }
+                }
+                if (lv.SubItems[6].Text == "E")
+                {
+                    vExempt += Double.Parse(lv.SubItems[5].Text);
+                }
+                if (lv.SubItems[6].Text == "Z")
+                {
+                    vZero += Double.Parse(lv.SubItems[5].Text);
+                }
             }
-            lblTotalAmount.Text = total_fin.ToString("###,###,##0.00");
-            //Tax
-            a = total_fins * taxP;
-            b = total_fins - a;
-            lblVatable.Text = b.ToString("#,###,##0.00");
-            // Trunk Data
+            if (all_items_tax == 1) //If All Items are Taxable
+            {
+                lblVatable.Text = vATable.ToString("#,###,##0.00");
+                lblVATe.Text = vExempt.ToString("###,###,##0.00");
+                lblVATz.Text = vZero.ToString("###,###,##0.00");
+                lblTotalAmount.Text = total_fin.ToString("###,###,##0.00");
+                if (itemTT == "V")
+                {
+                    //Tax
+                    a = v1 * taxP;
+                    //Please Add Condition if Sale is VAT
+                    lblTAXamt.Text = v2.ToString("#,###,##0.00");
+                    b = v1 - a;
+                    lblVatable.Text = b.ToString("#,###,##0.00");
+                }
+
+            }
+            else
+            {
+
+                lblVatable.Text = v1.ToString("#,###,##0.00");
+                lblVATe.Text = vExempt.ToString("###,###,##0.00");
+                lblVATz.Text = vZero.ToString("###,###,##0.00");
+                if (itemTT == "V")
+                {
+                    a = v1 * taxP;
+                    lblTAXamt.Text = a.ToString("###,###,##0.00");
+                }
+                a = v1 * taxP;
+                totalVar = v1 + vExempt + vZero + a;
+                lblTotalAmount.Text = totalVar.ToString("###,###,##0.00");
+            }
             pos.Pos_tax_perc = taxP;
-            pos.Pos_tax_amt = a; //Damn You!!
-            pos.Pos_total_amt = total_fin;
+            // Trunk Data
+            if (all_items_tax == 1)
+            {
+                pos.Pos_tax_amt = v2;
+                pos.Pos_total_amt = total_fin;
+            }
+            else
+            {
+                pos.Pos_tax_perc = a;
+                pos.Pos_total_amt = totalVar;
+            }
             pos.Pos_orno = OrNo;
             pos.UpdateTrunk();
             //
@@ -557,6 +627,7 @@ namespace nPOSProj
                                     item.SubItems.Add(price.ToString("#,###,##0.00"));
                                     item.SubItems.Add("0.00");
                                     item.SubItems.Add(computerItemQty.ToString("#,###,##0.00"));
+                                    item.SubItems.Add(itemTT);
                                     lviewPOS.Items.Add(item);
                                     //Data
                                     pos.Pos_orno = OrNo;
@@ -571,20 +642,81 @@ namespace nPOSProj
                                     Double total_fins = 0;
                                     Double a = 0;
                                     Double b = 0; //To Data Tax Amount
+                                    Double vATable = 0;
+                                    Double v1 = 0;
+                                    Double v2 = 0;
+                                    Double vExempt = 0;
+                                    Double vZero = 0;
                                     foreach (ListViewItem lv in lviewPOS.Items)
                                     {
                                         total_fin += Double.Parse(lv.SubItems[5].Text);
                                         total_fins += Double.Parse(lv.SubItems[5].Text);
+                                        if (lv.SubItems[6].Text == "V")
+                                        {
+                                            if (all_items_tax == 1) //If All Items are Taxable
+                                            {
+                                                v1 += Double.Parse(lv.SubItems[5].Text);
+                                                v2 = v1 * taxP;
+                                                vATable = v1 - v2;
+                                            }
+                                            else //Otherwise
+                                            {
+                                                v1 += Double.Parse(lv.SubItems[5].Text);
+                                            }
+                                        }
+                                        if (lv.SubItems[6].Text == "E")
+                                        {
+                                            vExempt += Double.Parse(lv.SubItems[5].Text);
+                                        }
+                                        if (lv.SubItems[6].Text == "Z")
+                                        {
+                                            vZero += Double.Parse(lv.SubItems[5].Text);
+                                        }
                                     }
-                                    lblTotalAmount.Text = total_fin.ToString("###,###,##0.00");
-                                    //Tax
-                                    a = total_fins * taxP;
-                                    b = total_fins - a;
-                                    lblVatable.Text = b.ToString("#,###,##0.00");
-                                    // Trunk Data
+                                    if (all_items_tax == 1) //If All Items are Taxable
+                                    {
+                                        lblVatable.Text = vATable.ToString("#,###,##0.00");
+                                        lblVATe.Text = vExempt.ToString("###,###,##0.00");
+                                        lblVATz.Text = vZero.ToString("###,###,##0.00");
+                                        lblTotalAmount.Text = total_fin.ToString("###,###,##0.00");
+                                        if (itemTT == "V")
+                                        {
+                                            //Tax
+                                            a = v1 * taxP;
+                                            //Please Add Condition if Sale is VAT
+                                            lblTAXamt.Text = v2.ToString("#,###,##0.00");
+                                            b = v1 - a;
+                                            lblVatable.Text = b.ToString("#,###,##0.00");
+                                        }
+                                        
+                                    }
+                                    else
+                                    {
+                                        
+                                        lblVatable.Text = v1.ToString("#,###,##0.00");
+                                        lblVATe.Text = vExempt.ToString("###,###,##0.00");
+                                        lblVATz.Text = vZero.ToString("###,###,##0.00");
+                                        if (itemTT == "V")
+                                        {
+                                            a = v1 * taxP;
+                                            lblTAXamt.Text = a.ToString("###,###,##0.00");
+                                        }
+                                        a = v1 * taxP;
+                                        totalVar = v1 + vExempt + vZero + a;
+                                        lblTotalAmount.Text = totalVar.ToString("###,###,##0.00");
+                                    }                                  
                                     pos.Pos_tax_perc = taxP;
-                                    pos.Pos_tax_amt = a;
-                                    pos.Pos_total_amt = total_fin;
+                                    // Trunk Data
+                                    if (all_items_tax == 1)
+                                    {
+                                        pos.Pos_tax_amt = v2;
+                                        pos.Pos_total_amt = total_fin;
+                                    }
+                                    else
+                                    {
+                                        pos.Pos_tax_perc = a;
+                                        pos.Pos_total_amt = totalVar;
+                                    }
                                     pos.Pos_orno = OrNo;
                                     pos.UpdateTrunk();
                                     //
@@ -743,6 +875,8 @@ namespace nPOSProj
                         lblTotalAmount.Text = total_disc.ToString("###,###,##0.00");
                         //Tax
                         x = total_discs * taxP;
+                        //Please Add Condition if Sale is VAT
+                        lblTAXamt.Text = x.ToString("#,###,##0.00");
                         y = total_disc - x;
                         lblVatable.Text = y.ToString("#,###,##0.00");
                         //
@@ -812,6 +946,8 @@ namespace nPOSProj
                         lblTotalAmount.Text = total_amt.ToString("###,###,##0.00");
                         //Tax
                         x = total_amts * taxP;
+                        //Please Add Condition if Sale is VAT
+                        lblTAXamt.Text = x.ToString("#,###,##0.00");
                         y = total_amts - x;
                         lblVatable.Text = y.ToString("#,###,##0.00");
                         //Update Data
@@ -853,25 +989,85 @@ namespace nPOSProj
                 {
                     Int32 eanX = catchEan;
                     lviewPOS.SelectedItems[0].Remove();
-                    Double total_amt = 0;
-                    Double total_amts = 0;
+                    Double total_fin = 0;
+                    Double total_fins = 0;
                     Double a = 0;
-                    Double b = 0;
-                    foreach (ListViewItem items in lviewPOS.Items)
+                    Double b = 0; //To Data Tax Amount
+                    Double vATable = 0;
+                    Double v1 = 0;
+                    Double v2 = 0;
+                    Double vExempt = 0;
+                    Double vZero = 0;
+                    foreach (ListViewItem lv in lviewPOS.Items)
                     {
-                        total_amt += Double.Parse(items.SubItems[5].Text);
-                        total_amts += Double.Parse(items.SubItems[5].Text);
+                        total_fin += Double.Parse(lv.SubItems[5].Text);
+                        total_fins += Double.Parse(lv.SubItems[5].Text);
+                        if (lv.SubItems[6].Text == "V")
+                        {
+                            if (all_items_tax == 1) //If All Items are Taxable
+                            {
+                                v1 += Double.Parse(lv.SubItems[5].Text);
+                                v2 = v1 * taxP;
+                                vATable = v1 - v2;
+                            }
+                            else //Otherwise
+                            {
+                                v1 += Double.Parse(lv.SubItems[5].Text);
+                            }
+                        }
+                        if (lv.SubItems[6].Text == "E")
+                        {
+                            vExempt += Double.Parse(lv.SubItems[5].Text);
+                        }
+                        if (lv.SubItems[6].Text == "Z")
+                        {
+                            vZero += Double.Parse(lv.SubItems[5].Text);
+                        }
                     }
-                    lblTotalAmount.Text = total_amt.ToString("###,###,##0.00");
-                    //Tax
-                    a = total_amts * taxP;
-                    b = total_amts - a;
-                    lblVatable.Text = b.ToString("#,###,##0.00");
-                    //
-                    // Trunk Data
+                    if (all_items_tax == 1) //If All Items are Taxable
+                    {
+                        lblVatable.Text = vATable.ToString("#,###,##0.00");
+                        lblVATe.Text = vExempt.ToString("###,###,##0.00");
+                        lblVATz.Text = vZero.ToString("###,###,##0.00");
+                        lblTotalAmount.Text = total_fin.ToString("###,###,##0.00");
+                        if (itemTT == "V")
+                        {
+                            //Tax
+                            a = v1 * taxP;
+                            //Please Add Condition if Sale is VAT
+                            lblTAXamt.Text = v2.ToString("#,###,##0.00");
+                            b = v1 - a;
+                            lblVatable.Text = b.ToString("#,###,##0.00");
+                        }
+
+                    }
+                    else
+                    {
+
+                        lblVatable.Text = v1.ToString("#,###,##0.00");
+                        lblVATe.Text = vExempt.ToString("###,###,##0.00");
+                        lblVATz.Text = vZero.ToString("###,###,##0.00");
+                        if (itemTT == "V")
+                        {
+                            a = v1 * taxP;
+                            lblTAXamt.Text = a.ToString("###,###,##0.00");
+                        }
+                        a = v1 * taxP;
+                        totalVar = v1 + vExempt + vZero + a;
+                        lblTotalAmount.Text = totalVar.ToString("###,###,##0.00");
+                    }
                     pos.Pos_tax_perc = taxP;
-                    pos.Pos_tax_amt = a;
-                    pos.Pos_total_amt = total_amt;
+                    // Trunk Data
+                    if (all_items_tax == 1)
+                    {
+                        pos.Pos_tax_amt = v2;
+                        pos.Pos_total_amt = total_fin;
+                    }
+                    else
+                    {
+                        pos.Pos_tax_perc = a;
+                        pos.Pos_total_amt = totalVar;
+                    }
                     pos.Pos_orno = OrNo;
                     pos.UpdateTrunk();
                     //Void Item Data
@@ -1120,6 +1316,8 @@ namespace nPOSProj
                         }
                         //Tax
                         a = total_amt * taxP;
+                        //Please Add Condition if Sale is VAT
+                        lblTAXamt.Text = a.ToString("#,###,##0.00");
                         b = total_amt - a;
                         lblVatable.Text = b.ToString("#,###,##0.00");
                         //

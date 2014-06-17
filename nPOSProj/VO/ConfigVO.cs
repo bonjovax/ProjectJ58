@@ -13,6 +13,7 @@ namespace nPOSProj.VO
         private String _tax_type;
         private Double _vat_rate;
         private String _contact_number;
+        private Int16 _allITax;
         private DAO.ConfigDAO confdao;
         
         public ConfigVO()
@@ -49,6 +50,11 @@ namespace nPOSProj.VO
         {
             get { return _contact_number; }
             set { _contact_number = value; }
+        }
+        public Int16 allITax
+        {
+            get { return _allITax; }
+            set { _allITax = value; }
         }
 
         public String askCompanyName()
@@ -99,10 +105,18 @@ namespace nPOSProj.VO
             Cn = confdao.readContact_Number();
             return Cn;
         }
+        public Int16 askAllItem()
+        {
+            Int16 switchs = 0;
+            confdao = new DAO.ConfigDAO();
+            confdao.allItemTax();
+            switchs = confdao.allItemTax();
+            return switchs;
+        }
         public void Patch()
         {
             confdao = new DAO.ConfigDAO();
-            confdao.PatchInfo(company_name, company_address, tin_number, tax_type, vat_rate, contact_number);
+            confdao.PatchInfo(company_name, company_address, tin_number, tax_type, vat_rate, allITax, contact_number);
         }
     }
 }

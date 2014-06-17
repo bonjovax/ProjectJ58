@@ -28,6 +28,12 @@ namespace nPOSProj
                 cBoxTaxType.Text = confvo.askTaxType();
                 txtBoxVatRate.Text = confvo.askVATRate().ToString();
                 txtBoxContactNo.Text = confvo.askContactNumber();
+                if (confvo.askAllItem() == 1)
+                {
+                    cBTax.Checked = true;
+                }
+                else
+                    cBTax.Checked = false;
             }
             catch (Exception)
             {
@@ -51,6 +57,12 @@ namespace nPOSProj
                 confvo.tax_type = cBoxTaxType.Text;
                 confvo.vat_rate = Convert.ToDouble(txtBoxVatRate.Text);
                 confvo.contact_number = txtBoxContactNo.Text;
+                if (cBTax.Checked == true)
+                {
+                    confvo.allITax = 1;
+                }
+                else
+                    confvo.allITax = 0;
                 confvo.Patch();
                 MessageBox.Show("Information has been Saved!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
@@ -78,9 +90,13 @@ namespace nPOSProj
             {
                 txtBoxVatRate.Text = "0";
                 txtBoxVatRate.ReadOnly = true;
+                cBTax.Visible = false;
             }
             else
+            {
                 txtBoxVatRate.ReadOnly = false;
+                cBTax.Visible = true;
+            }
         }
     }
 }

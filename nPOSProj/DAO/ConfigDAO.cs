@@ -16,19 +16,20 @@ namespace nPOSProj.DAO
         private String Tax_Type;
         private Double Vat_Rate;
         private String Contact_Number;
+        private Int16 allIT;
 
         public ConfigDAO()
         {
 
         }
 
-        public void PatchInfo(String company_name, String company_address, String tin_number, String tax_type, Double vat_rate, String contact_number)
+        public void PatchInfo(String company_name, String company_address, String tin_number, String tax_type, Double vat_rate, Int16 all_items_tax, String contact_number)
         {
             con = new MySqlConnection();
             dbcon = new Conf.dbs();
             con.ConnectionString = dbcon.getConnectionString();
             String query = "UPDATE system_config SET company_name = ?company_name, ";
-            query += "company_address = ?company_address, tin_number = ?tin_number, tax_type = ?tax_type, vat_rate = ?vat_rate, ";
+            query += "company_address = ?company_address, tin_number = ?tin_number, tax_type = ?tax_type, vat_rate = ?vat_rate, all_items_tax = ?all_items_tax, ";
             query += "company_contact = ?company_contact";
             try
             {
@@ -39,6 +40,7 @@ namespace nPOSProj.DAO
                 cmd.Parameters.AddWithValue("?tin_number", tin_number);
                 cmd.Parameters.AddWithValue("?tax_type", tax_type);
                 cmd.Parameters.AddWithValue("?vat_rate", vat_rate);
+                cmd.Parameters.AddWithValue("?all_items_tax", all_items_tax);
                 cmd.Parameters.AddWithValue("?company_contact", contact_number);
                 cmd.ExecuteNonQuery();
                 cmd.Dispose();
@@ -186,6 +188,30 @@ namespace nPOSProj.DAO
                 con.Close();
             }
             return Contact_Number;
+        }
+
+        public Int16 allItemTax()
+        {
+            con = new MySqlConnection();
+            dbcon = new Conf.dbs();
+            con.ConnectionString = dbcon.getConnectionString();
+            String query = "SELECT all_items_tax FROM system_config";
+            try
+            {
+                con.Open();
+                MySqlCommand cmd = new MySqlCommand(query, con);
+                cmd.ExecuteScalar();
+                MySqlDataReader rdr = cmd.ExecuteReader();
+                if (rdr.Read())
+                {
+                    allIT = Convert.ToInt16(rdr["all_items_tax"]);
+                }
+            }
+            finally
+            {
+                con.Close();
+            }
+            return allIT;
         }
     }
 }

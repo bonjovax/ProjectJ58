@@ -71,10 +71,13 @@
             this.btnSearch = new System.Windows.Forms.Button();
             this.proceed = new System.Windows.Forms.Label();
             this.timer2 = new System.Windows.Forms.Timer(this.components);
-            this.label2 = new System.Windows.Forms.Label();
+            this.lblVATe = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
+            this.lblVATz = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
+            this.lblTAXamt = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.SuspendLayout();
             // 
             // lviewPOS
@@ -88,7 +91,8 @@
             this.columnHeader3,
             this.columnHeader4,
             this.columnHeader5,
-            this.columnHeader6});
+            this.columnHeader6,
+            this.columnHeader7});
             this.lviewPOS.Font = new System.Drawing.Font("Tahoma", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lviewPOS.FullRowSelect = true;
             this.lviewPOS.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
@@ -115,7 +119,7 @@
             // columnHeader3
             // 
             this.columnHeader3.Text = "Description";
-            this.columnHeader3.Width = 380;
+            this.columnHeader3.Width = 349;
             // 
             // columnHeader4
             // 
@@ -439,7 +443,7 @@
             this.lblTax.ForeColor = System.Drawing.Color.Lime;
             this.lblTax.Location = new System.Drawing.Point(0, 526);
             this.lblTax.Name = "lblTax";
-            this.lblTax.Size = new System.Drawing.Size(297, 26);
+            this.lblTax.Size = new System.Drawing.Size(143, 26);
             this.lblTax.TabIndex = 23;
             this.lblTax.Text = "0%";
             this.lblTax.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -448,11 +452,11 @@
             // 
             this.label9.BackColor = System.Drawing.Color.MidnightBlue;
             this.label9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.label9.Font = new System.Drawing.Font("Courier New", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Font = new System.Drawing.Font("Courier New", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.Color.White;
             this.label9.Location = new System.Drawing.Point(0, 497);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(297, 29);
+            this.label9.Size = new System.Drawing.Size(144, 29);
             this.label9.TabIndex = 22;
             this.label9.Text = "Tax";
             this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -645,18 +649,18 @@
             this.proceed.Text = "Press F12 to Proceed";
             this.proceed.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label2
+            // lblVATe
             // 
-            this.label2.BackColor = System.Drawing.Color.Black;
-            this.label2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.label2.Font = new System.Drawing.Font("Courier New", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.Lime;
-            this.label2.Location = new System.Drawing.Point(91, 458);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(110, 26);
-            this.label2.TabIndex = 35;
-            this.label2.Text = "0.00";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblVATe.BackColor = System.Drawing.Color.Black;
+            this.lblVATe.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.lblVATe.Font = new System.Drawing.Font("Courier New", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblVATe.ForeColor = System.Drawing.Color.Lime;
+            this.lblVATe.Location = new System.Drawing.Point(91, 458);
+            this.lblVATe.Name = "lblVATe";
+            this.lblVATe.Size = new System.Drawing.Size(110, 26);
+            this.lblVATe.TabIndex = 35;
+            this.lblVATe.Text = "0.00";
+            this.lblVATe.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label3
             // 
@@ -671,18 +675,18 @@
             this.label3.Text = "VAT Exempt";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label7
+            // lblVATz
             // 
-            this.label7.BackColor = System.Drawing.Color.Black;
-            this.label7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.label7.Font = new System.Drawing.Font("Courier New", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.Color.Lime;
-            this.label7.Location = new System.Drawing.Point(201, 458);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(96, 26);
-            this.label7.TabIndex = 37;
-            this.label7.Text = "0.00";
-            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblVATz.BackColor = System.Drawing.Color.Black;
+            this.lblVATz.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.lblVATz.Font = new System.Drawing.Font("Courier New", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblVATz.ForeColor = System.Drawing.Color.Lime;
+            this.lblVATz.Location = new System.Drawing.Point(201, 458);
+            this.lblVATz.Name = "lblVATz";
+            this.lblVATz.Size = new System.Drawing.Size(96, 26);
+            this.lblVATz.TabIndex = 37;
+            this.lblVATz.Text = "0.00";
+            this.lblVATz.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label8
             // 
@@ -697,6 +701,38 @@
             this.label8.Text = "VAT Z-Rated";
             this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // lblTAXamt
+            // 
+            this.lblTAXamt.BackColor = System.Drawing.Color.Black;
+            this.lblTAXamt.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.lblTAXamt.Font = new System.Drawing.Font("Courier New", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTAXamt.ForeColor = System.Drawing.Color.Lime;
+            this.lblTAXamt.Location = new System.Drawing.Point(143, 526);
+            this.lblTAXamt.Name = "lblTAXamt";
+            this.lblTAXamt.Size = new System.Drawing.Size(154, 26);
+            this.lblTAXamt.TabIndex = 39;
+            this.lblTAXamt.Text = "0.00";
+            this.lblTAXamt.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label12
+            // 
+            this.label12.BackColor = System.Drawing.Color.MidnightBlue;
+            this.label12.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.label12.Font = new System.Drawing.Font("Courier New", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.ForeColor = System.Drawing.Color.White;
+            this.label12.Location = new System.Drawing.Point(144, 497);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(153, 29);
+            this.label12.TabIndex = 38;
+            this.label12.Text = "TAX Amount";
+            this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // columnHeader7
+            // 
+            this.columnHeader7.Text = "";
+            this.columnHeader7.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.columnHeader7.Width = 34;
+            // 
             // frmPOS
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -704,9 +740,11 @@
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1274, 748);
             this.ControlBox = false;
-            this.Controls.Add(this.label7);
+            this.Controls.Add(this.lblTAXamt);
+            this.Controls.Add(this.label12);
+            this.Controls.Add(this.lblVATz);
             this.Controls.Add(this.label8);
-            this.Controls.Add(this.label2);
+            this.Controls.Add(this.lblVATe);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.proceed);
             this.Controls.Add(this.btnSearch);
@@ -800,9 +838,12 @@
         private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.Label proceed;
         private System.Windows.Forms.Timer timer2;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lblVATe;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label lblVATz;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label lblTAXamt;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.ColumnHeader columnHeader7;
     }
 }
