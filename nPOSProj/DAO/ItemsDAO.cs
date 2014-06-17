@@ -22,13 +22,13 @@ namespace nPOSProj.DAO
         public ItemsDAO() { }
 
         #region Item Core
-        public void Update(Int32 qty, String ean, Double r_price, Double w_price, String stock_code, String eantmp)
+        public void Update(Int32 qty, String ean, Double r_price, Double w_price, String item_tax_type, String stock_code, String eantmp)
         {
             con = new MySqlConnection();
             dbcon = new Conf.dbs();
             con.ConnectionString = dbcon.getConnectionString();
             String query = "UPDATE inventory_items SET item_quantity = ?item_quantity, item_ean = ?new_ean, item_retail_price = ?item_retail_price, ";
-            query += "item_whole_price = ?item_whole_price ";
+            query += "item_whole_price = ?item_whole_price, item_tax_type = ?item_tax_type ";
             query += "WHERE stock_code = ?stock_code AND item_ean = ?eantmp";
             String query1 = "UPDATE inventory_stocks SET stock_selling_price = ?stock_selling_price, stock_total_price = ?stock_total_price ";
             query1 += "WHERE stock_code = ?stock_code";
@@ -41,6 +41,7 @@ namespace nPOSProj.DAO
                 cmd.Parameters.AddWithValue("?new_ean", ean);
                 cmd.Parameters.AddWithValue("?item_retail_price", r_price);
                 cmd.Parameters.AddWithValue("?item_whole_price", w_price);
+                cmd.Parameters.AddWithValue("?item_tax_type", item_tax_type);
                 cmd.Parameters.AddWithValue("?stock_code", stock_code);
                 cmd.Parameters.AddWithValue("?eantmp", eantmp);
                 //

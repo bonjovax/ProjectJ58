@@ -18,6 +18,7 @@ namespace nPOSProj
         private VO.ItemVO item = new VO.ItemVO();
         private DAO.LoginDAO login = new DAO.LoginDAO();
         private String eancom;
+        private String item_tax_type_select;
         public mdiItems()
         {
             InitializeComponent();
@@ -49,6 +50,18 @@ namespace nPOSProj
             txtBonxEAN.Text = dataGridView1.SelectedRows[0].Cells[2].Value.ToString();
             txtBoxRPrice.Text = Convert.ToDouble(dataGridView1.SelectedRows[0].Cells[4].Value).ToString("#,###,##0.00");
             txtBoxWholesalePrice.Text = Convert.ToDouble(dataGridView1.SelectedRows[0].Cells[5].Value).ToString("#,###,##0.00");
+            if (dataGridView1.SelectedRows[0].Cells[7].Value.ToString() == "V")
+            {
+                rdVatable.Checked = true;
+            }
+            if (dataGridView1.SelectedRows[0].Cells[7].Value.ToString() == "E")
+            {
+                rdE.Checked = true;
+            }
+            if (dataGridView1.SelectedRows[0].Cells[7].Value.ToString() == "Z")
+            {
+                rdZ.Checked = true;
+            }
             String userName = frmLogin.User.user_name;
             login.catchUsername(userName);
             if (login.hasUser_Accounts())
@@ -102,12 +115,26 @@ namespace nPOSProj
                         item.eanTmp = eancom;
                         item.item_retail_price = Convert.ToDouble(txtBoxRPrice.Text);
                         item.item_whole_price = Convert.ToDouble(txtBoxWholesalePrice.Text);
+                        if (rdVatable.Checked == true)
+                        {
+                            item_tax_type_select = "V";
+                        }
+                        if (rdE.Checked == true)
+                        {
+                            item_tax_type_select = "E";
+                        }
+                        if (rdZ.Checked == true)
+                        {
+                            item_tax_type_select = "Z";
+                        }
+                        item.item_tax_type = item_tax_type_select;
                         item.stock_code = dataGridView1.SelectedRows[0].Cells[1].Value.ToString();
                         item.UpdateItem();
                         dataGridView1.SelectedRows[0].Cells[0].Value = txtBoxQty.Text;
                         dataGridView1.SelectedRows[0].Cells[2].Value = txtBonxEAN.Text;
                         dataGridView1.SelectedRows[0].Cells[4].Value = Convert.ToDouble(txtBoxRPrice.Text).ToString("#,###,##0.00");
                         dataGridView1.SelectedRows[0].Cells[5].Value = Convert.ToDouble(txtBoxWholesalePrice.Text).ToString("#,###,##0.00");
+                        dataGridView1.SelectedRows[0].Cells[7].Value = item_tax_type_select;
                         txtBoxQty.ReadOnly = true;
                         txtBonxEAN.ReadOnly = true;
                         txtBoxRPrice.ReadOnly = true;

@@ -13,6 +13,7 @@ namespace nPOSProj.VO
         private Int32 _item_quantity;
         private Double _item_retail_price;
         private Double _item_whole_price;
+        private String _item_tax_type;
         private Int32 _is_kit;
         private String _kit_name;
         private DAO.ItemsDAO items;
@@ -50,6 +51,11 @@ namespace nPOSProj.VO
             get { return _item_whole_price; }
             set { _item_whole_price = value; }
         }
+        public String item_tax_type
+        {
+            get { return _item_tax_type; }
+            set { _item_tax_type = value; }
+        }
         public Int32 is_kit
         {
             get { return _is_kit; }
@@ -69,7 +75,7 @@ namespace nPOSProj.VO
         public void UpdateItem()
         {
             items = new DAO.ItemsDAO();
-            items.Update(item_quantity, item_ean, item_retail_price, item_whole_price, stock_code, eanTmp);
+            items.Update(item_quantity, item_ean, item_retail_price, item_whole_price, item_tax_type, stock_code, eanTmp);
         }
         public void TrasferItemToStock()
         {

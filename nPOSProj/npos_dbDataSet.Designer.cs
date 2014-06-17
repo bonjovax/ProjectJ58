@@ -2808,6 +2808,8 @@ namespace nPOSProj {
             
             private global::System.Data.DataColumn columnkit_name;
             
+            private global::System.Data.DataColumn columnitem_tax_type;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public inventory_itemsDataTable() {
@@ -2915,6 +2917,14 @@ namespace nPOSProj {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn item_tax_typeColumn {
+                get {
+                    return this.columnitem_tax_type;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -2950,7 +2960,7 @@ namespace nPOSProj {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public inventory_itemsRow Addinventory_itemsRow(string stock_code, string item_ean, int item_quantity, double item_retail_price, double item_whole_price, string stock_name, string cat_description, string kit_name) {
+            public inventory_itemsRow Addinventory_itemsRow(string stock_code, string item_ean, int item_quantity, double item_retail_price, double item_whole_price, string stock_name, string cat_description, string kit_name, string item_tax_type) {
                 inventory_itemsRow rowinventory_itemsRow = ((inventory_itemsRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -2961,7 +2971,8 @@ namespace nPOSProj {
                         item_whole_price,
                         stock_name,
                         cat_description,
-                        kit_name};
+                        kit_name,
+                        item_tax_type};
                 rowinventory_itemsRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowinventory_itemsRow);
                 return rowinventory_itemsRow;
@@ -3000,6 +3011,7 @@ namespace nPOSProj {
                 this.columnstock_name = base.Columns["stock_name"];
                 this.columncat_description = base.Columns["cat_description"];
                 this.columnkit_name = base.Columns["kit_name"];
+                this.columnitem_tax_type = base.Columns["item_tax_type"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3023,6 +3035,8 @@ namespace nPOSProj {
                 base.Columns.Add(this.columncat_description);
                 this.columnkit_name = new global::System.Data.DataColumn("kit_name", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnkit_name);
+                this.columnitem_tax_type = new global::System.Data.DataColumn("item_tax_type", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnitem_tax_type);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnitem_id}, true));
                 this.columnitem_id.AutoIncrement = true;
@@ -3036,6 +3050,7 @@ namespace nPOSProj {
                 this.columnstock_name.MaxLength = 75;
                 this.columncat_description.MaxLength = 20;
                 this.columnkit_name.MaxLength = 30;
+                this.columnitem_tax_type.MaxLength = 1;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -5280,6 +5295,22 @@ namespace nPOSProj {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string item_tax_type {
+                get {
+                    try {
+                        return ((string)(this[this.tableinventory_items.item_tax_typeColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'item_tax_type\' in table \'inventory_items\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableinventory_items.item_tax_typeColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool Isitem_eanNull() {
                 return this.IsNull(this.tableinventory_items.item_eanColumn);
             }
@@ -5360,6 +5391,18 @@ namespace nPOSProj {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void Setkit_nameNull() {
                 this[this.tableinventory_items.kit_nameColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool Isitem_tax_typeNull() {
+                return this.IsNull(this.tableinventory_items.item_tax_typeColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void Setitem_tax_typeNull() {
+                this[this.tableinventory_items.item_tax_typeColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -10203,6 +10246,7 @@ ORDER BY po_order.po_no";
             tableMapping.ColumnMappings.Add("stock_name", "stock_name");
             tableMapping.ColumnMappings.Add("cat_description", "cat_description");
             tableMapping.ColumnMappings.Add("kit_name", "kit_name");
+            tableMapping.ColumnMappings.Add("item_tax_type", "item_tax_type");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -10220,7 +10264,7 @@ ORDER BY po_order.po_no";
             this._commandCollection[0] = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = @"SELECT        inventory_items.item_id, inventory_stocks.stock_code, inventory_stocks.stock_name, inventory_items.item_ean, inventory_items.item_quantity, inventory_items.item_retail_price, 
-                         inventory_items.item_whole_price, inventory_category.cat_description, inventory_items.kit_name
+                         inventory_items.item_whole_price, inventory_category.cat_description, inventory_items.kit_name, inventory_items.item_tax_type
 FROM            inventory_items INNER JOIN
                          inventory_stocks ON inventory_items.stock_code = inventory_stocks.stock_code INNER JOIN
                          inventory_category ON inventory_stocks.stock_cat_code = inventory_category.cat_code

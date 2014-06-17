@@ -31,21 +31,13 @@
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(mdiItems));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(mdiItems));
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.itemquantityDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.stockcodeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.itemeanDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.stocknameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.itemretailpriceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.itemwholepriceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.catdescriptionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.inventoryitemsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.npos_dbDataSet = new nPOSProj.npos_dbDataSet();
-            this.inventory_itemsTableAdapter = new nPOSProj.npos_dbDataSetTableAdapters.inventory_itemsTableAdapter();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btnReturn = new System.Windows.Forms.Button();
             this.btnUp = new System.Windows.Forms.Button();
@@ -62,6 +54,18 @@
             this.bcSave = new System.Windows.Forms.Button();
             this.btnXML = new System.Windows.Forms.Button();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
+            this.inventory_itemsTableAdapter = new nPOSProj.npos_dbDataSetTableAdapters.inventory_itemsTableAdapter();
+            this.itemquantityDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.stockcodeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.itemeanDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.stocknameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.itemretailpriceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.itemwholepriceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.catdescriptionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.item_tax_type = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.rdVatable = new System.Windows.Forms.RadioButton();
+            this.rdE = new System.Windows.Forms.RadioButton();
+            this.rdZ = new System.Windows.Forms.RadioButton();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.inventoryitemsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.npos_dbDataSet)).BeginInit();
@@ -88,7 +92,8 @@
             this.stocknameDataGridViewTextBoxColumn,
             this.itemretailpriceDataGridViewTextBoxColumn,
             this.itemwholepriceDataGridViewTextBoxColumn,
-            this.catdescriptionDataGridViewTextBoxColumn});
+            this.catdescriptionDataGridViewTextBoxColumn,
+            this.item_tax_type});
             this.dataGridView1.DataSource = this.inventoryitemsBindingSource;
             this.dataGridView1.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnF2;
             this.dataGridView1.GridColor = System.Drawing.Color.Black;
@@ -105,72 +110,6 @@
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             this.dataGridView1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellDoubleClick);
             // 
-            // itemquantityDataGridViewTextBoxColumn
-            // 
-            this.itemquantityDataGridViewTextBoxColumn.DataPropertyName = "item_quantity";
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.itemquantityDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle2;
-            this.itemquantityDataGridViewTextBoxColumn.HeaderText = "Qty";
-            this.itemquantityDataGridViewTextBoxColumn.Name = "itemquantityDataGridViewTextBoxColumn";
-            this.itemquantityDataGridViewTextBoxColumn.ReadOnly = true;
-            this.itemquantityDataGridViewTextBoxColumn.Width = 50;
-            // 
-            // stockcodeDataGridViewTextBoxColumn
-            // 
-            this.stockcodeDataGridViewTextBoxColumn.DataPropertyName = "stock_code";
-            this.stockcodeDataGridViewTextBoxColumn.HeaderText = "Stock Code";
-            this.stockcodeDataGridViewTextBoxColumn.Name = "stockcodeDataGridViewTextBoxColumn";
-            this.stockcodeDataGridViewTextBoxColumn.ReadOnly = true;
-            this.stockcodeDataGridViewTextBoxColumn.Width = 95;
-            // 
-            // itemeanDataGridViewTextBoxColumn
-            // 
-            this.itemeanDataGridViewTextBoxColumn.DataPropertyName = "item_ean";
-            this.itemeanDataGridViewTextBoxColumn.HeaderText = "EAN";
-            this.itemeanDataGridViewTextBoxColumn.Name = "itemeanDataGridViewTextBoxColumn";
-            this.itemeanDataGridViewTextBoxColumn.ReadOnly = true;
-            this.itemeanDataGridViewTextBoxColumn.Width = 230;
-            // 
-            // stocknameDataGridViewTextBoxColumn
-            // 
-            this.stocknameDataGridViewTextBoxColumn.DataPropertyName = "stock_name";
-            this.stocknameDataGridViewTextBoxColumn.HeaderText = "Description";
-            this.stocknameDataGridViewTextBoxColumn.Name = "stocknameDataGridViewTextBoxColumn";
-            this.stocknameDataGridViewTextBoxColumn.ReadOnly = true;
-            this.stocknameDataGridViewTextBoxColumn.Width = 330;
-            // 
-            // itemretailpriceDataGridViewTextBoxColumn
-            // 
-            this.itemretailpriceDataGridViewTextBoxColumn.DataPropertyName = "item_retail_price";
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.Format = "N2";
-            dataGridViewCellStyle3.NullValue = null;
-            this.itemretailpriceDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle3;
-            this.itemretailpriceDataGridViewTextBoxColumn.HeaderText = "Retail Price";
-            this.itemretailpriceDataGridViewTextBoxColumn.Name = "itemretailpriceDataGridViewTextBoxColumn";
-            this.itemretailpriceDataGridViewTextBoxColumn.ReadOnly = true;
-            this.itemretailpriceDataGridViewTextBoxColumn.Width = 115;
-            // 
-            // itemwholepriceDataGridViewTextBoxColumn
-            // 
-            this.itemwholepriceDataGridViewTextBoxColumn.DataPropertyName = "item_whole_price";
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.Format = "N2";
-            dataGridViewCellStyle4.NullValue = null;
-            this.itemwholepriceDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle4;
-            this.itemwholepriceDataGridViewTextBoxColumn.HeaderText = "Wholesale Price";
-            this.itemwholepriceDataGridViewTextBoxColumn.Name = "itemwholepriceDataGridViewTextBoxColumn";
-            this.itemwholepriceDataGridViewTextBoxColumn.ReadOnly = true;
-            this.itemwholepriceDataGridViewTextBoxColumn.Width = 123;
-            // 
-            // catdescriptionDataGridViewTextBoxColumn
-            // 
-            this.catdescriptionDataGridViewTextBoxColumn.DataPropertyName = "cat_description";
-            this.catdescriptionDataGridViewTextBoxColumn.HeaderText = "Category";
-            this.catdescriptionDataGridViewTextBoxColumn.Name = "catdescriptionDataGridViewTextBoxColumn";
-            this.catdescriptionDataGridViewTextBoxColumn.ReadOnly = true;
-            this.catdescriptionDataGridViewTextBoxColumn.Width = 175;
-            // 
             // inventoryitemsBindingSource
             // 
             this.inventoryitemsBindingSource.DataMember = "inventory_items";
@@ -181,12 +120,11 @@
             this.npos_dbDataSet.DataSetName = "npos_dbDataSet";
             this.npos_dbDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // inventory_itemsTableAdapter
-            // 
-            this.inventory_itemsTableAdapter.ClearBeforeFill = true;
-            // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.rdZ);
+            this.groupBox1.Controls.Add(this.rdE);
+            this.groupBox1.Controls.Add(this.rdVatable);
             this.groupBox1.Controls.Add(this.btnReturn);
             this.groupBox1.Controls.Add(this.btnUp);
             this.groupBox1.Controls.Add(this.txtBoxWholesalePrice);
@@ -352,6 +290,117 @@
             this.btnXML.UseVisualStyleBackColor = true;
             this.btnXML.Click += new System.EventHandler(this.btnXML_Click);
             // 
+            // inventory_itemsTableAdapter
+            // 
+            this.inventory_itemsTableAdapter.ClearBeforeFill = true;
+            // 
+            // itemquantityDataGridViewTextBoxColumn
+            // 
+            this.itemquantityDataGridViewTextBoxColumn.DataPropertyName = "item_quantity";
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.itemquantityDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle2;
+            this.itemquantityDataGridViewTextBoxColumn.HeaderText = "Qty";
+            this.itemquantityDataGridViewTextBoxColumn.Name = "itemquantityDataGridViewTextBoxColumn";
+            this.itemquantityDataGridViewTextBoxColumn.ReadOnly = true;
+            this.itemquantityDataGridViewTextBoxColumn.Width = 50;
+            // 
+            // stockcodeDataGridViewTextBoxColumn
+            // 
+            this.stockcodeDataGridViewTextBoxColumn.DataPropertyName = "stock_code";
+            this.stockcodeDataGridViewTextBoxColumn.HeaderText = "Stock Code";
+            this.stockcodeDataGridViewTextBoxColumn.Name = "stockcodeDataGridViewTextBoxColumn";
+            this.stockcodeDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // itemeanDataGridViewTextBoxColumn
+            // 
+            this.itemeanDataGridViewTextBoxColumn.DataPropertyName = "item_ean";
+            this.itemeanDataGridViewTextBoxColumn.HeaderText = "EAN";
+            this.itemeanDataGridViewTextBoxColumn.Name = "itemeanDataGridViewTextBoxColumn";
+            this.itemeanDataGridViewTextBoxColumn.ReadOnly = true;
+            this.itemeanDataGridViewTextBoxColumn.Width = 230;
+            // 
+            // stocknameDataGridViewTextBoxColumn
+            // 
+            this.stocknameDataGridViewTextBoxColumn.DataPropertyName = "stock_name";
+            this.stocknameDataGridViewTextBoxColumn.HeaderText = "Description";
+            this.stocknameDataGridViewTextBoxColumn.Name = "stocknameDataGridViewTextBoxColumn";
+            this.stocknameDataGridViewTextBoxColumn.ReadOnly = true;
+            this.stocknameDataGridViewTextBoxColumn.Width = 330;
+            // 
+            // itemretailpriceDataGridViewTextBoxColumn
+            // 
+            this.itemretailpriceDataGridViewTextBoxColumn.DataPropertyName = "item_retail_price";
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.Format = "N2";
+            dataGridViewCellStyle3.NullValue = null;
+            this.itemretailpriceDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle3;
+            this.itemretailpriceDataGridViewTextBoxColumn.HeaderText = "Retail Price";
+            this.itemretailpriceDataGridViewTextBoxColumn.Name = "itemretailpriceDataGridViewTextBoxColumn";
+            this.itemretailpriceDataGridViewTextBoxColumn.ReadOnly = true;
+            this.itemretailpriceDataGridViewTextBoxColumn.Width = 115;
+            // 
+            // itemwholepriceDataGridViewTextBoxColumn
+            // 
+            this.itemwholepriceDataGridViewTextBoxColumn.DataPropertyName = "item_whole_price";
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.Format = "N2";
+            dataGridViewCellStyle4.NullValue = null;
+            this.itemwholepriceDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle4;
+            this.itemwholepriceDataGridViewTextBoxColumn.HeaderText = "Wholesale Price";
+            this.itemwholepriceDataGridViewTextBoxColumn.Name = "itemwholepriceDataGridViewTextBoxColumn";
+            this.itemwholepriceDataGridViewTextBoxColumn.ReadOnly = true;
+            this.itemwholepriceDataGridViewTextBoxColumn.Width = 123;
+            // 
+            // catdescriptionDataGridViewTextBoxColumn
+            // 
+            this.catdescriptionDataGridViewTextBoxColumn.DataPropertyName = "cat_description";
+            this.catdescriptionDataGridViewTextBoxColumn.HeaderText = "Category";
+            this.catdescriptionDataGridViewTextBoxColumn.Name = "catdescriptionDataGridViewTextBoxColumn";
+            this.catdescriptionDataGridViewTextBoxColumn.ReadOnly = true;
+            this.catdescriptionDataGridViewTextBoxColumn.Width = 175;
+            // 
+            // item_tax_type
+            // 
+            this.item_tax_type.DataPropertyName = "item_tax_type";
+            this.item_tax_type.HeaderText = "Tax Type";
+            this.item_tax_type.MaxInputLength = 1;
+            this.item_tax_type.Name = "item_tax_type";
+            this.item_tax_type.ReadOnly = true;
+            this.item_tax_type.Width = 85;
+            // 
+            // rdVatable
+            // 
+            this.rdVatable.AutoSize = true;
+            this.rdVatable.Location = new System.Drawing.Point(242, 79);
+            this.rdVatable.Name = "rdVatable";
+            this.rdVatable.Size = new System.Drawing.Size(74, 20);
+            this.rdVatable.TabIndex = 10;
+            this.rdVatable.TabStop = true;
+            this.rdVatable.Text = "VATable";
+            this.rdVatable.UseVisualStyleBackColor = true;
+            // 
+            // rdE
+            // 
+            this.rdE.AutoSize = true;
+            this.rdE.Location = new System.Drawing.Point(242, 97);
+            this.rdE.Name = "rdE";
+            this.rdE.Size = new System.Drawing.Size(102, 20);
+            this.rdE.TabIndex = 11;
+            this.rdE.TabStop = true;
+            this.rdE.Text = "VAT Excempt";
+            this.rdE.UseVisualStyleBackColor = true;
+            // 
+            // rdZ
+            // 
+            this.rdZ.AutoSize = true;
+            this.rdZ.Location = new System.Drawing.Point(242, 115);
+            this.rdZ.Name = "rdZ";
+            this.rdZ.Size = new System.Drawing.Size(118, 20);
+            this.rdZ.TabIndex = 12;
+            this.rdZ.TabStop = true;
+            this.rdZ.Text = "VAT Zero-Rated";
+            this.rdZ.UseVisualStyleBackColor = true;
+            // 
             // mdiItems
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
@@ -386,13 +435,6 @@
         private npos_dbDataSet npos_dbDataSet;
         private System.Windows.Forms.BindingSource inventoryitemsBindingSource;
         private npos_dbDataSetTableAdapters.inventory_itemsTableAdapter inventory_itemsTableAdapter;
-        private System.Windows.Forms.DataGridViewTextBoxColumn itemquantityDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn stockcodeDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn itemeanDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn stocknameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn itemretailpriceDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn itemwholepriceDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn catdescriptionDataGridViewTextBoxColumn;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.PictureBox barcode;
         private System.Windows.Forms.GroupBox groupBox2;
@@ -409,5 +451,16 @@
         private System.Windows.Forms.Button btnReturn;
         private System.Windows.Forms.Button btnXML;
         private System.Windows.Forms.SaveFileDialog saveFileDialog1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn itemquantityDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn stockcodeDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn itemeanDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn stocknameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn itemretailpriceDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn itemwholepriceDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn catdescriptionDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn item_tax_type;
+        private System.Windows.Forms.RadioButton rdZ;
+        private System.Windows.Forms.RadioButton rdE;
+        private System.Windows.Forms.RadioButton rdVatable;
     }
 }

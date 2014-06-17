@@ -644,7 +644,7 @@ ORDER BY po_order.po_no</CommandText>
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT        inventory_items.item_id, inventory_stocks.stock_code, inventory_stocks.stock_name, inventory_items.item_ean, inventory_items.item_quantity, inventory_items.item_retail_price, 
-                         inventory_items.item_whole_price, inventory_category.cat_description, inventory_items.kit_name
+                         inventory_items.item_whole_price, inventory_category.cat_description, inventory_items.kit_name, inventory_items.item_tax_type
 FROM            inventory_items INNER JOIN
                          inventory_stocks ON inventory_items.stock_code = inventory_stocks.stock_code INNER JOIN
                          inventory_category ON inventory_stocks.stock_cat_code = inventory_category.cat_code
@@ -664,6 +664,7 @@ WHERE        (inventory_items.is_kit = 0)</CommandText>
               <Mapping SourceColumn="stock_name" DataSetColumn="stock_name" />
               <Mapping SourceColumn="cat_description" DataSetColumn="cat_description" />
               <Mapping SourceColumn="kit_name" DataSetColumn="kit_name" />
+              <Mapping SourceColumn="item_tax_type" DataSetColumn="item_tax_type" />
             </Mappings>
             <Sources />
           </TableAdapter>
@@ -777,7 +778,7 @@ WHERE        (item_ean = @ean) AND (is_kit = 1)</CommandText>
   <xs:element name="npos_dbDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="npos_dbDataSet" msprop:Generator_UserDSName="npos_dbDataSet">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="inventory_supplier" msprop:Generator_TableClassName="inventory_supplierDataTable" msprop:Generator_TableVarName="tableinventory_supplier" msprop:Generator_RowChangedName="inventory_supplierRowChanged" msprop:Generator_TablePropName="inventory_supplier" msprop:Generator_RowDeletingName="inventory_supplierRowDeleting" msprop:Generator_RowChangingName="inventory_supplierRowChanging" msprop:Generator_RowEvHandlerName="inventory_supplierRowChangeEventHandler" msprop:Generator_RowDeletedName="inventory_supplierRowDeleted" msprop:Generator_RowClassName="inventory_supplierRow" msprop:Generator_UserTableName="inventory_supplier" msprop:Generator_RowEvArgName="inventory_supplierRowChangeEvent">
+        <xs:element name="inventory_supplier" msprop:Generator_TableClassName="inventory_supplierDataTable" msprop:Generator_TableVarName="tableinventory_supplier" msprop:Generator_TablePropName="inventory_supplier" msprop:Generator_RowDeletingName="inventory_supplierRowDeleting" msprop:Generator_RowChangingName="inventory_supplierRowChanging" msprop:Generator_RowEvHandlerName="inventory_supplierRowChangeEventHandler" msprop:Generator_RowDeletedName="inventory_supplierRowDeleted" msprop:Generator_UserTableName="inventory_supplier" msprop:Generator_RowChangedName="inventory_supplierRowChanged" msprop:Generator_RowEvArgName="inventory_supplierRowChangeEvent" msprop:Generator_RowClassName="inventory_supplierRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="supplier_id" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnsupplier_id" msprop:Generator_ColumnPropNameInRow="supplier_id" msprop:Generator_ColumnPropNameInTable="supplier_idColumn" msprop:Generator_UserColumnName="supplier_id" type="xs:int" />
@@ -841,7 +842,7 @@ WHERE        (item_ean = @ean) AND (is_kit = 1)</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="inventory_warehouse" msprop:Generator_TableClassName="inventory_warehouseDataTable" msprop:Generator_TableVarName="tableinventory_warehouse" msprop:Generator_TablePropName="inventory_warehouse" msprop:Generator_RowDeletingName="inventory_warehouseRowDeleting" msprop:Generator_RowChangingName="inventory_warehouseRowChanging" msprop:Generator_RowEvHandlerName="inventory_warehouseRowChangeEventHandler" msprop:Generator_RowDeletedName="inventory_warehouseRowDeleted" msprop:Generator_UserTableName="inventory_warehouse" msprop:Generator_RowChangedName="inventory_warehouseRowChanged" msprop:Generator_RowEvArgName="inventory_warehouseRowChangeEvent" msprop:Generator_RowClassName="inventory_warehouseRow">
+        <xs:element name="inventory_warehouse" msprop:Generator_TableClassName="inventory_warehouseDataTable" msprop:Generator_TableVarName="tableinventory_warehouse" msprop:Generator_RowChangedName="inventory_warehouseRowChanged" msprop:Generator_TablePropName="inventory_warehouse" msprop:Generator_RowDeletingName="inventory_warehouseRowDeleting" msprop:Generator_RowChangingName="inventory_warehouseRowChanging" msprop:Generator_RowEvHandlerName="inventory_warehouseRowChangeEventHandler" msprop:Generator_RowDeletedName="inventory_warehouseRowDeleted" msprop:Generator_RowClassName="inventory_warehouseRow" msprop:Generator_UserTableName="inventory_warehouse" msprop:Generator_RowEvArgName="inventory_warehouseRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="warehouse_code" msprop:Generator_ColumnVarNameInTable="columnwarehouse_code" msprop:Generator_ColumnPropNameInRow="warehouse_code" msprop:Generator_ColumnPropNameInTable="warehouse_codeColumn" msprop:Generator_UserColumnName="warehouse_code">
@@ -861,7 +862,7 @@ WHERE        (item_ean = @ean) AND (is_kit = 1)</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="inventory_category" msprop:Generator_TableClassName="inventory_categoryDataTable" msprop:Generator_TableVarName="tableinventory_category" msprop:Generator_RowChangedName="inventory_categoryRowChanged" msprop:Generator_TablePropName="inventory_category" msprop:Generator_RowDeletingName="inventory_categoryRowDeleting" msprop:Generator_RowChangingName="inventory_categoryRowChanging" msprop:Generator_RowEvHandlerName="inventory_categoryRowChangeEventHandler" msprop:Generator_RowDeletedName="inventory_categoryRowDeleted" msprop:Generator_RowClassName="inventory_categoryRow" msprop:Generator_UserTableName="inventory_category" msprop:Generator_RowEvArgName="inventory_categoryRowChangeEvent">
+        <xs:element name="inventory_category" msprop:Generator_TableClassName="inventory_categoryDataTable" msprop:Generator_TableVarName="tableinventory_category" msprop:Generator_TablePropName="inventory_category" msprop:Generator_RowDeletingName="inventory_categoryRowDeleting" msprop:Generator_RowChangingName="inventory_categoryRowChanging" msprop:Generator_RowEvHandlerName="inventory_categoryRowChangeEventHandler" msprop:Generator_RowDeletedName="inventory_categoryRowDeleted" msprop:Generator_UserTableName="inventory_category" msprop:Generator_RowChangedName="inventory_categoryRowChanged" msprop:Generator_RowEvArgName="inventory_categoryRowChangeEvent" msprop:Generator_RowClassName="inventory_categoryRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="cat_id" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columncat_id" msprop:Generator_ColumnPropNameInRow="cat_id" msprop:Generator_ColumnPropNameInTable="cat_idColumn" msprop:Generator_UserColumnName="cat_id" type="xs:int" />
@@ -882,7 +883,7 @@ WHERE        (item_ean = @ean) AND (is_kit = 1)</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="inventory_stocks" msprop:Generator_TableClassName="inventory_stocksDataTable" msprop:Generator_TableVarName="tableinventory_stocks" msprop:Generator_RowChangedName="inventory_stocksRowChanged" msprop:Generator_TablePropName="inventory_stocks" msprop:Generator_RowDeletingName="inventory_stocksRowDeleting" msprop:Generator_RowChangingName="inventory_stocksRowChanging" msprop:Generator_RowEvHandlerName="inventory_stocksRowChangeEventHandler" msprop:Generator_RowDeletedName="inventory_stocksRowDeleted" msprop:Generator_RowClassName="inventory_stocksRow" msprop:Generator_UserTableName="inventory_stocks" msprop:Generator_RowEvArgName="inventory_stocksRowChangeEvent">
+        <xs:element name="inventory_stocks" msprop:Generator_TableClassName="inventory_stocksDataTable" msprop:Generator_TableVarName="tableinventory_stocks" msprop:Generator_TablePropName="inventory_stocks" msprop:Generator_RowDeletingName="inventory_stocksRowDeleting" msprop:Generator_RowChangingName="inventory_stocksRowChanging" msprop:Generator_RowEvHandlerName="inventory_stocksRowChangeEventHandler" msprop:Generator_RowDeletedName="inventory_stocksRowDeleted" msprop:Generator_UserTableName="inventory_stocks" msprop:Generator_RowChangedName="inventory_stocksRowChanged" msprop:Generator_RowEvArgName="inventory_stocksRowChangeEvent" msprop:Generator_RowClassName="inventory_stocksRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="stock_id" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnstock_id" msprop:Generator_ColumnPropNameInRow="stock_id" msprop:Generator_ColumnPropNameInTable="stock_idColumn" msprop:Generator_UserColumnName="stock_id" type="xs:int" />
@@ -935,7 +936,7 @@ WHERE        (item_ean = @ean) AND (is_kit = 1)</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="po_order" msprop:Generator_TableClassName="po_orderDataTable" msprop:Generator_TableVarName="tablepo_order" msprop:Generator_RowChangedName="po_orderRowChanged" msprop:Generator_TablePropName="po_order" msprop:Generator_RowDeletingName="po_orderRowDeleting" msprop:Generator_RowChangingName="po_orderRowChanging" msprop:Generator_RowEvHandlerName="po_orderRowChangeEventHandler" msprop:Generator_RowDeletedName="po_orderRowDeleted" msprop:Generator_RowClassName="po_orderRow" msprop:Generator_UserTableName="po_order" msprop:Generator_RowEvArgName="po_orderRowChangeEvent">
+        <xs:element name="po_order" msprop:Generator_TableClassName="po_orderDataTable" msprop:Generator_TableVarName="tablepo_order" msprop:Generator_TablePropName="po_order" msprop:Generator_RowDeletingName="po_orderRowDeleting" msprop:Generator_RowChangingName="po_orderRowChanging" msprop:Generator_RowEvHandlerName="po_orderRowChangeEventHandler" msprop:Generator_RowDeletedName="po_orderRowDeleted" msprop:Generator_UserTableName="po_order" msprop:Generator_RowChangedName="po_orderRowChanged" msprop:Generator_RowEvArgName="po_orderRowChangeEvent" msprop:Generator_RowClassName="po_orderRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="po_no" msprop:Generator_ColumnVarNameInTable="columnpo_no" msprop:Generator_ColumnPropNameInRow="po_no" msprop:Generator_ColumnPropNameInTable="po_noColumn" msprop:Generator_UserColumnName="po_no" type="xs:int" />
@@ -1031,7 +1032,7 @@ WHERE        (item_ean = @ean) AND (is_kit = 1)</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="po_order_list" msprop:Generator_TableClassName="po_order_listDataTable" msprop:Generator_TableVarName="tablepo_order_list" msprop:Generator_RowChangedName="po_order_listRowChanged" msprop:Generator_TablePropName="po_order_list" msprop:Generator_RowDeletingName="po_order_listRowDeleting" msprop:Generator_RowChangingName="po_order_listRowChanging" msprop:Generator_RowEvHandlerName="po_order_listRowChangeEventHandler" msprop:Generator_RowDeletedName="po_order_listRowDeleted" msprop:Generator_RowClassName="po_order_listRow" msprop:Generator_UserTableName="po_order_list" msprop:Generator_RowEvArgName="po_order_listRowChangeEvent">
+        <xs:element name="po_order_list" msprop:Generator_TableClassName="po_order_listDataTable" msprop:Generator_TableVarName="tablepo_order_list" msprop:Generator_TablePropName="po_order_list" msprop:Generator_RowDeletingName="po_order_listRowDeleting" msprop:Generator_RowChangingName="po_order_listRowChanging" msprop:Generator_RowEvHandlerName="po_order_listRowChangeEventHandler" msprop:Generator_RowDeletedName="po_order_listRowDeleted" msprop:Generator_UserTableName="po_order_list" msprop:Generator_RowChangedName="po_order_listRowChanged" msprop:Generator_RowEvArgName="po_order_listRowChangeEvent" msprop:Generator_RowClassName="po_order_listRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="po_no" msprop:Generator_ColumnVarNameInTable="columnpo_no" msprop:Generator_ColumnPropNameInRow="po_no" msprop:Generator_ColumnPropNameInTable="po_noColumn" msprop:Generator_UserColumnName="po_no" type="xs:int" />
@@ -1062,7 +1063,7 @@ WHERE        (item_ean = @ean) AND (is_kit = 1)</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="inventory_items" msprop:Generator_TableClassName="inventory_itemsDataTable" msprop:Generator_TableVarName="tableinventory_items" msprop:Generator_RowChangedName="inventory_itemsRowChanged" msprop:Generator_TablePropName="inventory_items" msprop:Generator_RowDeletingName="inventory_itemsRowDeleting" msprop:Generator_RowChangingName="inventory_itemsRowChanging" msprop:Generator_RowEvHandlerName="inventory_itemsRowChangeEventHandler" msprop:Generator_RowDeletedName="inventory_itemsRowDeleted" msprop:Generator_RowClassName="inventory_itemsRow" msprop:Generator_UserTableName="inventory_items" msprop:Generator_RowEvArgName="inventory_itemsRowChangeEvent">
+        <xs:element name="inventory_items" msprop:Generator_TableClassName="inventory_itemsDataTable" msprop:Generator_TableVarName="tableinventory_items" msprop:Generator_TablePropName="inventory_items" msprop:Generator_RowDeletingName="inventory_itemsRowDeleting" msprop:Generator_RowChangingName="inventory_itemsRowChanging" msprop:Generator_RowEvHandlerName="inventory_itemsRowChangeEventHandler" msprop:Generator_RowDeletedName="inventory_itemsRowDeleted" msprop:Generator_UserTableName="inventory_items" msprop:Generator_RowChangedName="inventory_itemsRowChanged" msprop:Generator_RowEvArgName="inventory_itemsRowChangeEvent" msprop:Generator_RowClassName="inventory_itemsRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="item_id" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnitem_id" msprop:Generator_ColumnPropNameInRow="item_id" msprop:Generator_ColumnPropNameInTable="item_idColumn" msprop:Generator_UserColumnName="item_id" type="xs:int" />
@@ -1104,10 +1105,17 @@ WHERE        (item_ean = @ean) AND (is_kit = 1)</CommandText>
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
+              <xs:element name="item_tax_type" msprop:Generator_ColumnVarNameInTable="columnitem_tax_type" msprop:Generator_ColumnPropNameInRow="item_tax_type" msprop:Generator_ColumnPropNameInTable="item_tax_typeColumn" msprop:Generator_UserColumnName="item_tax_type" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="inventory_items_kit" msprop:Generator_TableClassName="inventory_items_kitDataTable" msprop:Generator_TableVarName="tableinventory_items_kit" msprop:Generator_RowChangedName="inventory_items_kitRowChanged" msprop:Generator_TablePropName="inventory_items_kit" msprop:Generator_RowDeletingName="inventory_items_kitRowDeleting" msprop:Generator_RowChangingName="inventory_items_kitRowChanging" msprop:Generator_RowEvHandlerName="inventory_items_kitRowChangeEventHandler" msprop:Generator_RowDeletedName="inventory_items_kitRowDeleted" msprop:Generator_RowClassName="inventory_items_kitRow" msprop:Generator_UserTableName="inventory_items_kit" msprop:Generator_RowEvArgName="inventory_items_kitRowChangeEvent">
+        <xs:element name="inventory_items_kit" msprop:Generator_TableClassName="inventory_items_kitDataTable" msprop:Generator_TableVarName="tableinventory_items_kit" msprop:Generator_TablePropName="inventory_items_kit" msprop:Generator_RowDeletingName="inventory_items_kitRowDeleting" msprop:Generator_RowChangingName="inventory_items_kitRowChanging" msprop:Generator_RowEvHandlerName="inventory_items_kitRowChangeEventHandler" msprop:Generator_RowDeletedName="inventory_items_kitRowDeleted" msprop:Generator_UserTableName="inventory_items_kit" msprop:Generator_RowChangedName="inventory_items_kitRowChanged" msprop:Generator_RowEvArgName="inventory_items_kitRowChangeEvent" msprop:Generator_RowClassName="inventory_items_kitRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="stock_code" msprop:Generator_ColumnVarNameInTable="columnstock_code" msprop:Generator_ColumnPropNameInRow="stock_code" msprop:Generator_ColumnPropNameInTable="stock_codeColumn" msprop:Generator_UserColumnName="stock_code">
@@ -1135,7 +1143,7 @@ WHERE        (item_ean = @ean) AND (is_kit = 1)</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="inventory_items1" msprop:Generator_TableClassName="inventory_items1DataTable" msprop:Generator_TableVarName="tableinventory_items1" msprop:Generator_TablePropName="inventory_items1" msprop:Generator_RowDeletingName="inventory_items1RowDeleting" msprop:Generator_RowChangingName="inventory_items1RowChanging" msprop:Generator_RowEvHandlerName="inventory_items1RowChangeEventHandler" msprop:Generator_RowDeletedName="inventory_items1RowDeleted" msprop:Generator_UserTableName="inventory_items1" msprop:Generator_RowChangedName="inventory_items1RowChanged" msprop:Generator_RowEvArgName="inventory_items1RowChangeEvent" msprop:Generator_RowClassName="inventory_items1Row">
+        <xs:element name="inventory_items1" msprop:Generator_TableClassName="inventory_items1DataTable" msprop:Generator_TableVarName="tableinventory_items1" msprop:Generator_RowChangedName="inventory_items1RowChanged" msprop:Generator_TablePropName="inventory_items1" msprop:Generator_RowDeletingName="inventory_items1RowDeleting" msprop:Generator_RowChangingName="inventory_items1RowChanging" msprop:Generator_RowEvHandlerName="inventory_items1RowChangeEventHandler" msprop:Generator_RowDeletedName="inventory_items1RowDeleted" msprop:Generator_RowClassName="inventory_items1Row" msprop:Generator_UserTableName="inventory_items1" msprop:Generator_RowEvArgName="inventory_items1RowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="item_ean" msprop:Generator_ColumnVarNameInTable="columnitem_ean" msprop:Generator_ColumnPropNameInRow="item_ean" msprop:Generator_ColumnPropNameInTable="item_eanColumn" msprop:Generator_UserColumnName="item_ean" minOccurs="0">
