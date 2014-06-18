@@ -208,5 +208,10 @@ namespace nPOSProj
                 enterKey();
             }
         }
+
+        private void btnTerminate_Click(object sender, EventArgs e)
+        {
+            Application.ExitThread();
+        }
     }
 }
