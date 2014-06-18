@@ -15,6 +15,7 @@ namespace nPOSProj
         private Conf.dbs dbcon = new Conf.dbs();
         private MySqlConnection con = new MySqlConnection();
         private bool selected = false;
+        private String types = "";
 
         public bool Selected
         {
@@ -45,7 +46,7 @@ namespace nPOSProj
             dataGridView1.Refresh();
             String connectionString = dbcon.getConnectionString();
             String query = "SELECT pos_orno AS a, pos_tax_perc AS b, pos_tax_amt AS c, ";
-            query += "pos_total_amt AS d, pos_date AS e, pos_time AS f, pos_user AS g ";
+            query += "pos_total_amt AS d, pos_date AS e, pos_time AS f, pos_user AS g, pos_iswholesale AS h ";
             query += "FROM pos_store ";
             query += "WHERE pos_terminal = ?pos_terminal AND (pos_park = 1) AND (is_cancel = 0)";
             using (MySqlConnection con = new MySqlConnection(connectionString))
@@ -59,8 +60,14 @@ namespace nPOSProj
                         adapter.Fill(dataTable);
                         for (int i = 0; i < dataTable.Rows.Count; i++)
                         {
+                            if (dataTable.Rows[i][7].ToString() == "1")
+                            {
+                                types = "Wholesale";
+                            }
+                            else
+                                types = "Retail";
                             DateTime dates = DateTime.Parse(dataTable.Rows[i][5].ToString());
-                            dataGridView1.Rows.Add(dataTable.Rows[i][0], dataTable.Rows[i][1], dataTable.Rows[i][2], dataTable.Rows[i][3], dataTable.Rows[i][4], dates.ToString("hh:mm:ss tt"), dataTable.Rows[i][6]);
+                            dataGridView1.Rows.Add(dataTable.Rows[i][0], dataTable.Rows[i][1], dataTable.Rows[i][2], dataTable.Rows[i][3], dataTable.Rows[i][4], dates.ToString("hh:mm:ss tt"), dataTable.Rows[i][6], types);
                         }
                     }
                     catch (MySqlException ex)
