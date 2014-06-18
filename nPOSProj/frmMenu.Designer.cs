@@ -64,6 +64,8 @@
             // 
             this.btnLogout.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(188)))), ((int)(((byte)(30)))), ((int)(((byte)(73)))));
             this.btnLogout.FlatAppearance.BorderColor = System.Drawing.Color.MidnightBlue;
+            this.btnLogout.FlatAppearance.MouseDownBackColor = System.Drawing.Color.MidnightBlue;
+            this.btnLogout.FlatAppearance.MouseOverBackColor = System.Drawing.Color.MidnightBlue;
             this.btnLogout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLogout.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLogout.ForeColor = System.Drawing.Color.White;
@@ -83,6 +85,8 @@
             this.btnSales.BackColor = System.Drawing.Color.LightSkyBlue;
             this.btnSales.Enabled = false;
             this.btnSales.FlatAppearance.BorderColor = System.Drawing.Color.MidnightBlue;
+            this.btnSales.FlatAppearance.MouseDownBackColor = System.Drawing.Color.MidnightBlue;
+            this.btnSales.FlatAppearance.MouseOverBackColor = System.Drawing.Color.MidnightBlue;
             this.btnSales.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSales.Font = new System.Drawing.Font("Segoe UI Semibold", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSales.ForeColor = System.Drawing.Color.White;
@@ -102,6 +106,8 @@
             this.btnGenReports.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(99)))), ((int)(((byte)(0)))));
             this.btnGenReports.Enabled = false;
             this.btnGenReports.FlatAppearance.BorderColor = System.Drawing.Color.MidnightBlue;
+            this.btnGenReports.FlatAppearance.MouseDownBackColor = System.Drawing.Color.MidnightBlue;
+            this.btnGenReports.FlatAppearance.MouseOverBackColor = System.Drawing.Color.MidnightBlue;
             this.btnGenReports.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnGenReports.Font = new System.Drawing.Font("Segoe UI Semibold", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGenReports.ForeColor = System.Drawing.Color.White;
@@ -120,6 +126,8 @@
             this.btnCustomers.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(164)))), ((int)(((byte)(0)))), ((int)(((byte)(171)))));
             this.btnCustomers.Enabled = false;
             this.btnCustomers.FlatAppearance.BorderColor = System.Drawing.Color.MidnightBlue;
+            this.btnCustomers.FlatAppearance.MouseDownBackColor = System.Drawing.Color.MidnightBlue;
+            this.btnCustomers.FlatAppearance.MouseOverBackColor = System.Drawing.Color.MidnightBlue;
             this.btnCustomers.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCustomers.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCustomers.ForeColor = System.Drawing.Color.White;
@@ -139,6 +147,8 @@
             this.btnInventory.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(165)))), ((int)(((byte)(0)))));
             this.btnInventory.Enabled = false;
             this.btnInventory.FlatAppearance.BorderColor = System.Drawing.Color.MidnightBlue;
+            this.btnInventory.FlatAppearance.MouseDownBackColor = System.Drawing.Color.MidnightBlue;
+            this.btnInventory.FlatAppearance.MouseOverBackColor = System.Drawing.Color.MidnightBlue;
             this.btnInventory.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnInventory.Font = new System.Drawing.Font("Segoe UI Semibold", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnInventory.ForeColor = System.Drawing.Color.White;
@@ -158,6 +168,8 @@
             this.btnGC.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.btnGC.Enabled = false;
             this.btnGC.FlatAppearance.BorderColor = System.Drawing.Color.MidnightBlue;
+            this.btnGC.FlatAppearance.MouseDownBackColor = System.Drawing.Color.MidnightBlue;
+            this.btnGC.FlatAppearance.MouseOverBackColor = System.Drawing.Color.MidnightBlue;
             this.btnGC.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnGC.Font = new System.Drawing.Font("Segoe UI Semibold", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGC.ForeColor = System.Drawing.Color.White;
@@ -177,6 +189,8 @@
             this.btnUserAccounts.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(107)))), ((int)(((byte)(107)))));
             this.btnUserAccounts.Enabled = false;
             this.btnUserAccounts.FlatAppearance.BorderColor = System.Drawing.Color.MidnightBlue;
+            this.btnUserAccounts.FlatAppearance.MouseDownBackColor = System.Drawing.Color.MidnightBlue;
+            this.btnUserAccounts.FlatAppearance.MouseOverBackColor = System.Drawing.Color.MidnightBlue;
             this.btnUserAccounts.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnUserAccounts.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnUserAccounts.ForeColor = System.Drawing.Color.White;
@@ -196,6 +210,8 @@
             this.btnConfig.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(156)))), ((int)(((byte)(174)))));
             this.btnConfig.Enabled = false;
             this.btnConfig.FlatAppearance.BorderColor = System.Drawing.Color.MidnightBlue;
+            this.btnConfig.FlatAppearance.MouseDownBackColor = System.Drawing.Color.MidnightBlue;
+            this.btnConfig.FlatAppearance.MouseOverBackColor = System.Drawing.Color.MidnightBlue;
             this.btnConfig.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnConfig.Font = new System.Drawing.Font("Segoe UI Semibold", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnConfig.ForeColor = System.Drawing.Color.White;
@@ -214,6 +230,8 @@
             // 
             this.btnChangePassword.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(131)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.btnChangePassword.FlatAppearance.BorderColor = System.Drawing.Color.MidnightBlue;
+            this.btnChangePassword.FlatAppearance.MouseDownBackColor = System.Drawing.Color.MidnightBlue;
+            this.btnChangePassword.FlatAppearance.MouseOverBackColor = System.Drawing.Color.MidnightBlue;
             this.btnChangePassword.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnChangePassword.Font = new System.Drawing.Font("Segoe UI", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnChangePassword.ForeColor = System.Drawing.Color.White;
