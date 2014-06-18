@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using MySql.Data.MySqlClient;
 
 namespace nPOSProj
 {
@@ -57,6 +58,7 @@ namespace nPOSProj
 
         private void onFormClose()
         {
+            MySqlConnection con = new MySqlConnection();
             login = new DAO.LoginDAO();
             String userName = frmLogin.User.user_name;
             login.catchUsername(userName);
@@ -89,6 +91,7 @@ namespace nPOSProj
             {
                 fm.unlockConfig();
             }
+            con.Close();
             fm.Show();
             this.Hide();
         }

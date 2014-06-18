@@ -89,15 +89,17 @@ namespace nPOSProj.DAO
             finally
             {
                 con.Close();
+                con.Dispose();
             }
             return UserID;
         }
         public bool canAccess()
         {
-            bool canAccess = true;
-            String getUserID = getUserIDfromDB();
             con = new MySqlConnection();
             dbcon = new Conf.dbs();
+            bool canAccess = true;
+            String getUserID = getUserIDfromDB();
+            con.Close();
             con.ConnectionString = dbcon.getConnectionString();
             String sql = "SELECT can_access FROM user_access_restrictions WHERE user_id = ?user_id";
             try
@@ -116,15 +118,17 @@ namespace nPOSProj.DAO
             finally
             {
                 con.Close();
+                con.Dispose();
             }
             return canAccess;
         }
         public bool hasSales()
         {
-            bool hasSales = true;
-            String getUserID = getUserIDfromDB();
             con = new MySqlConnection();
             dbcon = new Conf.dbs();
+            bool hasSales = true;
+            String getUserID = getUserIDfromDB();
+            con.Close();
             con.ConnectionString = dbcon.getConnectionString();
             String sql = "SELECT has_sales FROM user_access_restrictions WHERE user_id = ?user_id";
             try
@@ -143,15 +147,17 @@ namespace nPOSProj.DAO
             finally
             {
                 con.Close();
+                con.Dispose();
             }
             return hasSales;
         }
         public bool hasCustomers()
         {
-            bool hasCustomers = true;
-            String getUserID = getUserIDfromDB();
             con = new MySqlConnection();
             dbcon = new Conf.dbs();
+            bool hasCustomers = true;
+            String getUserID = getUserIDfromDB();
+            con.Close();
             con.ConnectionString = dbcon.getConnectionString();
             String sql = "SELECT has_customers FROM user_access_restrictions WHERE user_id = ?user_id";
             try
@@ -170,15 +176,17 @@ namespace nPOSProj.DAO
             finally
             {
                 con.Close();
+                con.Dispose();
             }
             return hasCustomers;
         }
         public bool hasInventory()
         {
-            bool hasInventory = true;
-            String getUserID = getUserIDfromDB();
             con = new MySqlConnection();
             dbcon = new Conf.dbs();
+            bool hasInventory = true;
+            String getUserID = getUserIDfromDB();
+            con.Close();
             con.ConnectionString = dbcon.getConnectionString();
             String sql = "SELECT has_inventory FROM user_access_restrictions WHERE user_id = ?user_id";
             try
@@ -197,15 +205,17 @@ namespace nPOSProj.DAO
             finally
             {
                 con.Close();
+                con.Dispose();
             }
             return hasInventory;
         }
         public bool hasReports()
         {
-            bool hasReports = true;
-            String getUserID = getUserIDfromDB();
             con = new MySqlConnection();
             dbcon = new Conf.dbs();
+            bool hasReports = true;
+            String getUserID = getUserIDfromDB();
+            con.Close();
             con.ConnectionString = dbcon.getConnectionString();
             String sql = "SELECT has_reports FROM user_access_restrictions WHERE user_id = ?user_id";
             try
@@ -224,15 +234,17 @@ namespace nPOSProj.DAO
             finally
             {
                 con.Close();
+                con.Dispose();
             }
             return hasReports;
         }
         public bool hasGC()
         {
-            bool hasGC = true;
-            String getUserID = getUserIDfromDB();
             con = new MySqlConnection();
             dbcon = new Conf.dbs();
+            bool hasGC = true;
+            String getUserID = getUserIDfromDB();
+            con.Close();
             con.ConnectionString = dbcon.getConnectionString();
             String sql = "SELECT has_gc FROM user_access_restrictions WHERE user_id = ?user_id";
             try
@@ -251,15 +263,17 @@ namespace nPOSProj.DAO
             finally
             {
                 con.Close();
+                con.Dispose();
             }
             return hasGC;
         }
         public bool hasUser_Accounts()
         {
-            bool hasUser_Accounts = true;
-            String getUserID = getUserIDfromDB();
             con = new MySqlConnection();
             dbcon = new Conf.dbs();
+            bool hasUser_Accounts = true;
+            String getUserID = getUserIDfromDB();
+            con.Close();
             con.ConnectionString = dbcon.getConnectionString();
             String sql = "SELECT has_user_accounts FROM user_access_restrictions WHERE user_id = ?user_id";
             try
@@ -278,15 +292,17 @@ namespace nPOSProj.DAO
             finally
             {
                 con.Close();
+                con.Dispose();
             }
             return hasUser_Accounts;
         }
         public bool hasUserConf()
         {
-            bool hasConf = true;
-            String getUserID = getUserIDfromDB();
             con = new MySqlConnection();
             dbcon = new Conf.dbs();
+            bool hasConf = true;
+            String getUserID = getUserIDfromDB();
+            con.Close();
             con.ConnectionString = dbcon.getConnectionString();
             String sql = "SELECT has_conf FROM user_access_restrictions WHERE user_id = ?user_id";
             try
@@ -305,6 +321,7 @@ namespace nPOSProj.DAO
             finally
             {
                 con.Close();
+                con.Dispose();
             }
             return hasConf;
         }
