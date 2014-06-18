@@ -53,6 +53,11 @@
             this.lblTotalAmountBC = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.btnAProceed = new System.Windows.Forms.Button();
+            this.txtBoxCompany = new System.Windows.Forms.TextBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.txtBoxCustCode = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.lblTotalAmountAR = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.tabPage5 = new System.Windows.Forms.TabPage();
@@ -63,11 +68,6 @@
             this.lblTotalAmountGC = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
-            this.txtBoxCustCode = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.txtBoxCompany = new System.Windows.Forms.TextBox();
-            this.label13 = new System.Windows.Forms.Label();
-            this.btnAProceed = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -182,7 +182,7 @@
             this.tabPage2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.tabPage2.Size = new System.Drawing.Size(495, 223);
+            this.tabPage2.Size = new System.Drawing.Size(496, 223);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Debit/Credit Card";
             // 
@@ -278,7 +278,7 @@
             this.tabPage3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.tabPage3.Size = new System.Drawing.Size(495, 223);
+            this.tabPage3.Size = new System.Drawing.Size(496, 223);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Bank Cheque";
             // 
@@ -404,9 +404,77 @@
             this.tabPage4.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.tabPage4.Size = new System.Drawing.Size(495, 223);
+            this.tabPage4.Size = new System.Drawing.Size(496, 223);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "Accounts";
+            // 
+            // btnAProceed
+            // 
+            this.btnAProceed.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAProceed.ForeColor = System.Drawing.Color.White;
+            this.btnAProceed.Location = new System.Drawing.Point(2, 200);
+            this.btnAProceed.Name = "btnAProceed";
+            this.btnAProceed.Size = new System.Drawing.Size(491, 22);
+            this.btnAProceed.TabIndex = 34;
+            this.btnAProceed.Text = "Proceed";
+            this.btnAProceed.UseVisualStyleBackColor = true;
+            this.btnAProceed.Visible = false;
+            this.btnAProceed.Click += new System.EventHandler(this.btnAProceed_Click);
+            // 
+            // txtBoxCompany
+            // 
+            this.txtBoxCompany.BackColor = System.Drawing.Color.Black;
+            this.txtBoxCompany.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtBoxCompany.Font = new System.Drawing.Font("Courier New", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBoxCompany.ForeColor = System.Drawing.Color.Lime;
+            this.txtBoxCompany.Location = new System.Drawing.Point(1, 175);
+            this.txtBoxCompany.MaxLength = 35;
+            this.txtBoxCompany.Name = "txtBoxCompany";
+            this.txtBoxCompany.ShortcutsEnabled = false;
+            this.txtBoxCompany.Size = new System.Drawing.Size(494, 24);
+            this.txtBoxCompany.TabIndex = 30;
+            this.txtBoxCompany.TextChanged += new System.EventHandler(this.txtBoxCompany_TextChanged);
+            this.txtBoxCompany.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtBoxCompany_KeyDown);
+            // 
+            // label13
+            // 
+            this.label13.BackColor = System.Drawing.Color.MidnightBlue;
+            this.label13.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.label13.Font = new System.Drawing.Font("Courier New", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.ForeColor = System.Drawing.Color.White;
+            this.label13.Location = new System.Drawing.Point(0, 154);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(495, 21);
+            this.label13.TabIndex = 31;
+            this.label13.Text = "Company";
+            // 
+            // txtBoxCustCode
+            // 
+            this.txtBoxCustCode.BackColor = System.Drawing.Color.Black;
+            this.txtBoxCustCode.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtBoxCustCode.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtBoxCustCode.Font = new System.Drawing.Font("Courier New", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBoxCustCode.ForeColor = System.Drawing.Color.Lime;
+            this.txtBoxCustCode.Location = new System.Drawing.Point(1, 128);
+            this.txtBoxCustCode.MaxLength = 35;
+            this.txtBoxCustCode.Name = "txtBoxCustCode";
+            this.txtBoxCustCode.ShortcutsEnabled = false;
+            this.txtBoxCustCode.Size = new System.Drawing.Size(494, 24);
+            this.txtBoxCustCode.TabIndex = 28;
+            this.txtBoxCustCode.TextChanged += new System.EventHandler(this.txtBoxCustCode_TextChanged);
+            this.txtBoxCustCode.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtBoxCustCode_KeyDown);
+            // 
+            // label2
+            // 
+            this.label2.BackColor = System.Drawing.Color.MidnightBlue;
+            this.label2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.label2.Font = new System.Drawing.Font("Courier New", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(0, 107);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(495, 21);
+            this.label2.TabIndex = 29;
+            this.label2.Text = "Customer Code";
             // 
             // lblTotalAmountAR
             // 
@@ -447,7 +515,7 @@
             this.tabPage5.Location = new System.Drawing.Point(4, 34);
             this.tabPage5.Name = "tabPage5";
             this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage5.Size = new System.Drawing.Size(495, 223);
+            this.tabPage5.Size = new System.Drawing.Size(496, 223);
             this.tabPage5.TabIndex = 4;
             this.tabPage5.Text = "Gift Card";
             // 
@@ -538,74 +606,6 @@
             this.imageList1.Images.SetKeyName(2, "cheque.png");
             this.imageList1.Images.SetKeyName(3, "account.png");
             this.imageList1.Images.SetKeyName(4, "gift-card-icon.png");
-            // 
-            // txtBoxCustCode
-            // 
-            this.txtBoxCustCode.BackColor = System.Drawing.Color.Black;
-            this.txtBoxCustCode.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtBoxCustCode.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtBoxCustCode.Font = new System.Drawing.Font("Courier New", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBoxCustCode.ForeColor = System.Drawing.Color.Lime;
-            this.txtBoxCustCode.Location = new System.Drawing.Point(1, 128);
-            this.txtBoxCustCode.MaxLength = 35;
-            this.txtBoxCustCode.Name = "txtBoxCustCode";
-            this.txtBoxCustCode.ShortcutsEnabled = false;
-            this.txtBoxCustCode.Size = new System.Drawing.Size(494, 24);
-            this.txtBoxCustCode.TabIndex = 28;
-            this.txtBoxCustCode.TextChanged += new System.EventHandler(this.txtBoxCustCode_TextChanged);
-            this.txtBoxCustCode.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtBoxCustCode_KeyDown);
-            // 
-            // label2
-            // 
-            this.label2.BackColor = System.Drawing.Color.MidnightBlue;
-            this.label2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.label2.Font = new System.Drawing.Font("Courier New", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(0, 107);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(495, 21);
-            this.label2.TabIndex = 29;
-            this.label2.Text = "Customer Code";
-            // 
-            // txtBoxCompany
-            // 
-            this.txtBoxCompany.BackColor = System.Drawing.Color.Black;
-            this.txtBoxCompany.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtBoxCompany.Font = new System.Drawing.Font("Courier New", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBoxCompany.ForeColor = System.Drawing.Color.Lime;
-            this.txtBoxCompany.Location = new System.Drawing.Point(1, 175);
-            this.txtBoxCompany.MaxLength = 35;
-            this.txtBoxCompany.Name = "txtBoxCompany";
-            this.txtBoxCompany.ShortcutsEnabled = false;
-            this.txtBoxCompany.Size = new System.Drawing.Size(494, 24);
-            this.txtBoxCompany.TabIndex = 30;
-            this.txtBoxCompany.TextChanged += new System.EventHandler(this.txtBoxCompany_TextChanged);
-            this.txtBoxCompany.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtBoxCompany_KeyDown);
-            // 
-            // label13
-            // 
-            this.label13.BackColor = System.Drawing.Color.MidnightBlue;
-            this.label13.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.label13.Font = new System.Drawing.Font("Courier New", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.ForeColor = System.Drawing.Color.White;
-            this.label13.Location = new System.Drawing.Point(0, 154);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(495, 21);
-            this.label13.TabIndex = 31;
-            this.label13.Text = "Company";
-            // 
-            // btnAProceed
-            // 
-            this.btnAProceed.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAProceed.ForeColor = System.Drawing.Color.White;
-            this.btnAProceed.Location = new System.Drawing.Point(2, 200);
-            this.btnAProceed.Name = "btnAProceed";
-            this.btnAProceed.Size = new System.Drawing.Size(491, 22);
-            this.btnAProceed.TabIndex = 34;
-            this.btnAProceed.Text = "Proceed";
-            this.btnAProceed.UseVisualStyleBackColor = true;
-            this.btnAProceed.Visible = false;
-            this.btnAProceed.Click += new System.EventHandler(this.btnAProceed_Click);
             // 
             // frmDlgCheckout
             // 
