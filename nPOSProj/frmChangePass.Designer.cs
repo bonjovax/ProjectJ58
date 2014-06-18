@@ -70,9 +70,13 @@
             // 
             // txtBoxNewPass
             // 
+            this.txtBoxNewPass.BackColor = System.Drawing.Color.SteelBlue;
+            this.txtBoxNewPass.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtBoxNewPass.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBoxNewPass.ForeColor = System.Drawing.Color.White;
             this.txtBoxNewPass.Location = new System.Drawing.Point(130, 22);
             this.txtBoxNewPass.Name = "txtBoxNewPass";
-            this.txtBoxNewPass.Size = new System.Drawing.Size(205, 25);
+            this.txtBoxNewPass.Size = new System.Drawing.Size(205, 22);
             this.txtBoxNewPass.TabIndex = 0;
             this.txtBoxNewPass.UseSystemPasswordChar = true;
             this.txtBoxNewPass.TextChanged += new System.EventHandler(this.txtBoxNewPass_TextChanged);
@@ -89,9 +93,13 @@
             // 
             // txtBoxConfirmPass
             // 
-            this.txtBoxConfirmPass.Location = new System.Drawing.Point(130, 46);
+            this.txtBoxConfirmPass.BackColor = System.Drawing.Color.SteelBlue;
+            this.txtBoxConfirmPass.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtBoxConfirmPass.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBoxConfirmPass.ForeColor = System.Drawing.Color.White;
+            this.txtBoxConfirmPass.Location = new System.Drawing.Point(130, 47);
             this.txtBoxConfirmPass.Name = "txtBoxConfirmPass";
-            this.txtBoxConfirmPass.Size = new System.Drawing.Size(205, 25);
+            this.txtBoxConfirmPass.Size = new System.Drawing.Size(205, 22);
             this.txtBoxConfirmPass.TabIndex = 1;
             this.txtBoxConfirmPass.UseSystemPasswordChar = true;
             this.txtBoxConfirmPass.TextChanged += new System.EventHandler(this.txtBoxConfirmPass_TextChanged);
