@@ -53,6 +53,7 @@ namespace nPOSProj
             String userName = frmLogin.User.user_name;
             User = userName;
             txtBoxNewPass.Focus();
+            btnBack.Enabled = true;
         }
 
         private void txtBoxNewPass_KeyDown(object sender, KeyEventArgs e)
@@ -94,6 +95,11 @@ namespace nPOSProj
             }
             else
                 btn_change.Enabled = false;
+        }
+
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
