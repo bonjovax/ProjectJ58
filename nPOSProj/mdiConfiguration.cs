@@ -98,5 +98,10 @@ namespace nPOSProj
                 cBTax.Visible = true;
             }
         }
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

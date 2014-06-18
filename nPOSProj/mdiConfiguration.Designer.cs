@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(mdiConfiguration));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.cBTax = new System.Windows.Forms.CheckBox();
             this.btnSave = new System.Windows.Forms.Button();
             this.txtBoxContactNo = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
@@ -44,12 +45,13 @@
             this.label2 = new System.Windows.Forms.Label();
             this.txtBoxCompanyName = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.cBTax = new System.Windows.Forms.CheckBox();
+            this.btnExit = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.btnExit);
             this.groupBox1.Controls.Add(this.cBTax);
             this.groupBox1.Controls.Add(this.btnSave);
             this.groupBox1.Controls.Add(this.txtBoxContactNo);
@@ -65,7 +67,8 @@
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.txtBoxCompanyName);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox1.ForeColor = System.Drawing.Color.White;
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(508, 306);
@@ -73,22 +76,43 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Program Configuration";
             // 
+            // cBTax
+            // 
+            this.cBTax.AutoSize = true;
+            this.cBTax.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cBTax.Location = new System.Drawing.Point(143, 275);
+            this.cBTax.Name = "cBTax";
+            this.cBTax.Size = new System.Drawing.Size(145, 25);
+            this.cBTax.TabIndex = 17;
+            this.cBTax.Text = "All Items Taxable";
+            this.cBTax.UseVisualStyleBackColor = true;
+            this.cBTax.Visible = false;
+            // 
             // btnSave
             // 
+            this.btnSave.BackColor = System.Drawing.Color.DarkGreen;
+            this.btnSave.FlatAppearance.BorderColor = System.Drawing.Color.DodgerBlue;
+            this.btnSave.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DodgerBlue;
+            this.btnSave.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DodgerBlue;
+            this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSave.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSave.Image = ((System.Drawing.Image)(resources.GetObject("btnSave.Image")));
             this.btnSave.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnSave.Location = new System.Drawing.Point(437, 243);
+            this.btnSave.Location = new System.Drawing.Point(437, 241);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(60, 57);
+            this.btnSave.Size = new System.Drawing.Size(60, 59);
             this.btnSave.TabIndex = 16;
             this.btnSave.Text = "Save";
             this.btnSave.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.UseVisualStyleBackColor = false;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // txtBoxContactNo
             // 
-            this.txtBoxContactNo.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBoxContactNo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(99)))), ((int)(((byte)(0)))));
+            this.txtBoxContactNo.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtBoxContactNo.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBoxContactNo.ForeColor = System.Drawing.Color.White;
             this.txtBoxContactNo.Location = new System.Drawing.Point(360, 178);
             this.txtBoxContactNo.Name = "txtBoxContactNo";
             this.txtBoxContactNo.Size = new System.Drawing.Size(137, 26);
@@ -97,10 +121,10 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.Location = new System.Drawing.Point(273, 181);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(81, 18);
+            this.label7.Size = new System.Drawing.Size(88, 21);
             this.label7.TabIndex = 12;
             this.label7.Text = "Contact No";
             // 
@@ -116,11 +140,14 @@
             // 
             // txtBoxVatRate
             // 
-            this.txtBoxVatRate.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBoxVatRate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(99)))), ((int)(((byte)(0)))));
+            this.txtBoxVatRate.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtBoxVatRate.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBoxVatRate.ForeColor = System.Drawing.Color.White;
             this.txtBoxVatRate.Location = new System.Drawing.Point(143, 243);
             this.txtBoxVatRate.MaxLength = 4;
             this.txtBoxVatRate.Name = "txtBoxVatRate";
-            this.txtBoxVatRate.Size = new System.Drawing.Size(52, 26);
+            this.txtBoxVatRate.Size = new System.Drawing.Size(52, 22);
             this.txtBoxVatRate.TabIndex = 10;
             this.txtBoxVatRate.Text = "0";
             this.txtBoxVatRate.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -128,17 +155,20 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.Location = new System.Drawing.Point(11, 246);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(71, 18);
+            this.label5.Size = new System.Drawing.Size(73, 21);
             this.label5.TabIndex = 9;
             this.label5.Text = "VAT Rate";
             // 
             // cBoxTaxType
             // 
+            this.cBoxTaxType.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(99)))), ((int)(((byte)(0)))));
             this.cBoxTaxType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cBoxTaxType.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cBoxTaxType.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cBoxTaxType.ForeColor = System.Drawing.Color.White;
             this.cBoxTaxType.FormattingEnabled = true;
             this.cBoxTaxType.Items.AddRange(new object[] {
             "V",
@@ -152,16 +182,19 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(11, 214);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(73, 18);
+            this.label4.Size = new System.Drawing.Size(70, 21);
             this.label4.TabIndex = 7;
             this.label4.Text = "Tax Type";
             // 
             // mTIN
             // 
-            this.mTIN.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.mTIN.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(99)))), ((int)(((byte)(0)))));
+            this.mTIN.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.mTIN.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.mTIN.ForeColor = System.Drawing.Color.White;
             this.mTIN.Location = new System.Drawing.Point(143, 178);
             this.mTIN.Mask = "000-000-000-000";
             this.mTIN.Name = "mTIN";
@@ -171,16 +204,19 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(11, 181);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(34, 18);
+            this.label3.Size = new System.Drawing.Size(34, 21);
             this.label3.TabIndex = 4;
             this.label3.Text = "TIN";
             // 
             // txtBoxCompanyAddress
             // 
-            this.txtBoxCompanyAddress.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBoxCompanyAddress.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(99)))), ((int)(((byte)(0)))));
+            this.txtBoxCompanyAddress.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtBoxCompanyAddress.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBoxCompanyAddress.ForeColor = System.Drawing.Color.White;
             this.txtBoxCompanyAddress.Location = new System.Drawing.Point(143, 59);
             this.txtBoxCompanyAddress.Multiline = true;
             this.txtBoxCompanyAddress.Name = "txtBoxCompanyAddress";
@@ -191,16 +227,19 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(10, 62);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(127, 18);
+            this.label2.Size = new System.Drawing.Size(137, 21);
             this.label2.TabIndex = 2;
             this.label2.Text = "Company Address";
             // 
             // txtBoxCompanyName
             // 
-            this.txtBoxCompanyName.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBoxCompanyName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(99)))), ((int)(((byte)(0)))));
+            this.txtBoxCompanyName.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtBoxCompanyName.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBoxCompanyName.ForeColor = System.Drawing.Color.White;
             this.txtBoxCompanyName.Location = new System.Drawing.Point(143, 26);
             this.txtBoxCompanyName.Name = "txtBoxCompanyName";
             this.txtBoxCompanyName.Size = new System.Drawing.Size(354, 26);
@@ -209,32 +248,41 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(11, 29);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(114, 18);
+            this.label1.Size = new System.Drawing.Size(123, 21);
             this.label1.TabIndex = 0;
             this.label1.Text = "Company Name";
             // 
-            // cBTax
+            // btnExit
             // 
-            this.cBTax.AutoSize = true;
-            this.cBTax.Location = new System.Drawing.Point(143, 275);
-            this.cBTax.Name = "cBTax";
-            this.cBTax.Size = new System.Drawing.Size(152, 23);
-            this.cBTax.TabIndex = 17;
-            this.cBTax.Text = "All Items Taxable";
-            this.cBTax.UseVisualStyleBackColor = true;
-            this.cBTax.Visible = false;
+            this.btnExit.BackColor = System.Drawing.Color.Firebrick;
+            this.btnExit.FlatAppearance.BorderColor = System.Drawing.Color.DodgerBlue;
+            this.btnExit.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DodgerBlue;
+            this.btnExit.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DodgerBlue;
+            this.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnExit.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnExit.Image = ((System.Drawing.Image)(resources.GetObject("btnExit.Image")));
+            this.btnExit.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnExit.Location = new System.Drawing.Point(374, 241);
+            this.btnExit.Name = "btnExit";
+            this.btnExit.Size = new System.Drawing.Size(60, 59);
+            this.btnExit.TabIndex = 18;
+            this.btnExit.Text = "Exit";
+            this.btnExit.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnExit.UseVisualStyleBackColor = false;
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
             // mdiConfiguration
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.DodgerBlue;
             this.ClientSize = new System.Drawing.Size(532, 330);
             this.Controls.Add(this.groupBox1);
-            this.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "mdiConfiguration";
@@ -266,5 +314,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.CheckBox cBTax;
+        private System.Windows.Forms.Button btnExit;
     }
 }
