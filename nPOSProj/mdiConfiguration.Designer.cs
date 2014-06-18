@@ -90,10 +90,10 @@
             // 
             // btnSave
             // 
-            this.btnSave.BackColor = System.Drawing.Color.DarkGreen;
-            this.btnSave.FlatAppearance.BorderColor = System.Drawing.Color.DodgerBlue;
-            this.btnSave.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DodgerBlue;
-            this.btnSave.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DodgerBlue;
+            this.btnSave.BackColor = System.Drawing.Color.Crimson;
+            this.btnSave.FlatAppearance.BorderColor = System.Drawing.Color.Indigo;
+            this.btnSave.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Indigo;
+            this.btnSave.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Indigo;
             this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSave.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSave.Image = ((System.Drawing.Image)(resources.GetObject("btnSave.Image")));
@@ -109,7 +109,7 @@
             // 
             // txtBoxContactNo
             // 
-            this.txtBoxContactNo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(99)))), ((int)(((byte)(0)))));
+            this.txtBoxContactNo.BackColor = System.Drawing.Color.DarkGreen;
             this.txtBoxContactNo.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtBoxContactNo.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtBoxContactNo.ForeColor = System.Drawing.Color.White;
@@ -140,7 +140,7 @@
             // 
             // txtBoxVatRate
             // 
-            this.txtBoxVatRate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(99)))), ((int)(((byte)(0)))));
+            this.txtBoxVatRate.BackColor = System.Drawing.Color.DarkGreen;
             this.txtBoxVatRate.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtBoxVatRate.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtBoxVatRate.ForeColor = System.Drawing.Color.White;
@@ -164,7 +164,7 @@
             // 
             // cBoxTaxType
             // 
-            this.cBoxTaxType.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(99)))), ((int)(((byte)(0)))));
+            this.cBoxTaxType.BackColor = System.Drawing.Color.DarkGreen;
             this.cBoxTaxType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cBoxTaxType.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cBoxTaxType.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -191,7 +191,7 @@
             // 
             // mTIN
             // 
-            this.mTIN.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(99)))), ((int)(((byte)(0)))));
+            this.mTIN.BackColor = System.Drawing.Color.DarkGreen;
             this.mTIN.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.mTIN.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.mTIN.ForeColor = System.Drawing.Color.White;
@@ -213,7 +213,7 @@
             // 
             // txtBoxCompanyAddress
             // 
-            this.txtBoxCompanyAddress.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(99)))), ((int)(((byte)(0)))));
+            this.txtBoxCompanyAddress.BackColor = System.Drawing.Color.DarkGreen;
             this.txtBoxCompanyAddress.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtBoxCompanyAddress.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtBoxCompanyAddress.ForeColor = System.Drawing.Color.White;
@@ -236,7 +236,7 @@
             // 
             // txtBoxCompanyName
             // 
-            this.txtBoxCompanyName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(99)))), ((int)(((byte)(0)))));
+            this.txtBoxCompanyName.BackColor = System.Drawing.Color.DarkGreen;
             this.txtBoxCompanyName.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtBoxCompanyName.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtBoxCompanyName.ForeColor = System.Drawing.Color.White;
@@ -257,10 +257,10 @@
             // 
             // btnExit
             // 
-            this.btnExit.BackColor = System.Drawing.Color.Firebrick;
-            this.btnExit.FlatAppearance.BorderColor = System.Drawing.Color.DodgerBlue;
-            this.btnExit.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DodgerBlue;
-            this.btnExit.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DodgerBlue;
+            this.btnExit.BackColor = System.Drawing.Color.Chocolate;
+            this.btnExit.FlatAppearance.BorderColor = System.Drawing.Color.Indigo;
+            this.btnExit.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Indigo;
+            this.btnExit.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Indigo;
             this.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnExit.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnExit.Image = ((System.Drawing.Image)(resources.GetObject("btnExit.Image")));
@@ -278,7 +278,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.DodgerBlue;
+            this.BackColor = System.Drawing.Color.Indigo;
             this.ClientSize = new System.Drawing.Size(532, 330);
             this.Controls.Add(this.groupBox1);
             this.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
