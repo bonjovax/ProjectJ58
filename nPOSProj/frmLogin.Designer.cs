@@ -73,13 +73,15 @@
             // 
             // txtPassword
             // 
-            this.txtPassword.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPassword.ForeColor = System.Drawing.Color.LimeGreen;
-            this.txtPassword.Location = new System.Drawing.Point(117, 53);
+            this.txtPassword.BackColor = System.Drawing.Color.SteelBlue;
+            this.txtPassword.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtPassword.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPassword.ForeColor = System.Drawing.Color.White;
+            this.txtPassword.Location = new System.Drawing.Point(117, 55);
             this.txtPassword.MaxLength = 20;
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.ReadOnly = true;
-            this.txtPassword.Size = new System.Drawing.Size(261, 35);
+            this.txtPassword.Size = new System.Drawing.Size(261, 32);
             this.txtPassword.TabIndex = 3;
             this.txtPassword.UseSystemPasswordChar = true;
             this.txtPassword.TextChanged += new System.EventHandler(this.txtPassword_TextChanged);
@@ -87,12 +89,14 @@
             // 
             // txtBoxUsername
             // 
-            this.txtBoxUsername.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBoxUsername.ForeColor = System.Drawing.Color.LimeGreen;
-            this.txtBoxUsername.Location = new System.Drawing.Point(117, 15);
+            this.txtBoxUsername.BackColor = System.Drawing.Color.SteelBlue;
+            this.txtBoxUsername.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtBoxUsername.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBoxUsername.ForeColor = System.Drawing.Color.White;
+            this.txtBoxUsername.Location = new System.Drawing.Point(117, 16);
             this.txtBoxUsername.MaxLength = 20;
             this.txtBoxUsername.Name = "txtBoxUsername";
-            this.txtBoxUsername.Size = new System.Drawing.Size(261, 35);
+            this.txtBoxUsername.Size = new System.Drawing.Size(261, 32);
             this.txtBoxUsername.TabIndex = 2;
             this.txtBoxUsername.TextChanged += new System.EventHandler(this.txtBoxUsername_TextChanged);
             this.txtBoxUsername.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtBoxUsername_KeyDown);
@@ -102,9 +106,9 @@
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.Black;
-            this.label2.Location = new System.Drawing.Point(6, 55);
+            this.label2.Location = new System.Drawing.Point(10, 55);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(107, 30);
+            this.label2.Size = new System.Drawing.Size(94, 30);
             this.label2.TabIndex = 1;
             this.label2.Text = "Password";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -167,18 +171,18 @@
             // 
             // btnLogin
             // 
-            this.btnLogin.BackColor = System.Drawing.Color.LimeGreen;
+            this.btnLogin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(165)))), ((int)(((byte)(0)))));
             this.btnLogin.Enabled = false;
-            this.btnLogin.FlatAppearance.BorderColor = System.Drawing.Color.LimeGreen;
+            this.btnLogin.FlatAppearance.BorderColor = System.Drawing.Color.DodgerBlue;
             this.btnLogin.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DodgerBlue;
             this.btnLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLogin.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLogin.ForeColor = System.Drawing.Color.Transparent;
             this.btnLogin.Image = ((System.Drawing.Image)(resources.GetObject("btnLogin.Image")));
             this.btnLogin.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnLogin.Location = new System.Drawing.Point(309, 218);
+            this.btnLogin.Location = new System.Drawing.Point(302, 218);
             this.btnLogin.Name = "btnLogin";
-            this.btnLogin.Size = new System.Drawing.Size(92, 41);
+            this.btnLogin.Size = new System.Drawing.Size(99, 41);
             this.btnLogin.TabIndex = 11;
             this.btnLogin.Text = "&Login";
             this.btnLogin.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
