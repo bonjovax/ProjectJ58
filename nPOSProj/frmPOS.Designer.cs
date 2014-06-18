@@ -243,7 +243,7 @@
             this.btnCancelSale.FlatAppearance.BorderSize = 0;
             this.btnCancelSale.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.btnCancelSale.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCancelSale.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancelSale.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold);
             this.btnCancelSale.Image = ((System.Drawing.Image)(resources.GetObject("btnCancelSale.Image")));
             this.btnCancelSale.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnCancelSale.Location = new System.Drawing.Point(628, 112);
@@ -262,7 +262,7 @@
             this.btnParkSale.FlatAppearance.BorderSize = 0;
             this.btnParkSale.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.btnParkSale.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnParkSale.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnParkSale.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold);
             this.btnParkSale.Image = ((System.Drawing.Image)(resources.GetObject("btnParkSale.Image")));
             this.btnParkSale.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnParkSale.Location = new System.Drawing.Point(768, 112);
@@ -282,7 +282,7 @@
             this.btnCheckout.FlatAppearance.BorderSize = 0;
             this.btnCheckout.FlatAppearance.MouseOverBackColor = System.Drawing.Color.PaleTurquoise;
             this.btnCheckout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCheckout.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCheckout.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold);
             this.btnCheckout.Image = ((System.Drawing.Image)(resources.GetObject("btnCheckout.Image")));
             this.btnCheckout.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnCheckout.Location = new System.Drawing.Point(893, 112);
@@ -302,7 +302,7 @@
             this.btnVoid.FlatAppearance.BorderSize = 0;
             this.btnVoid.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.btnVoid.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnVoid.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnVoid.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold);
             this.btnVoid.Image = ((System.Drawing.Image)(resources.GetObject("btnVoid.Image")));
             this.btnVoid.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnVoid.Location = new System.Drawing.Point(436, 112);
@@ -322,7 +322,7 @@
             this.btnEdit.FlatAppearance.BorderSize = 0;
             this.btnEdit.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.btnEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEdit.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEdit.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold);
             this.btnEdit.Image = ((System.Drawing.Image)(resources.GetObject("btnEdit.Image")));
             this.btnEdit.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnEdit.Location = new System.Drawing.Point(534, 112);
@@ -342,7 +342,8 @@
             this.btnWholesale.FlatAppearance.BorderSize = 0;
             this.btnWholesale.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightSteelBlue;
             this.btnWholesale.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnWholesale.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnWholesale.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnWholesale.ForeColor = System.Drawing.Color.Black;
             this.btnWholesale.Image = ((System.Drawing.Image)(resources.GetObject("btnWholesale.Image")));
             this.btnWholesale.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnWholesale.Location = new System.Drawing.Point(298, 112);
@@ -465,7 +466,7 @@
             this.btnClose.FlatAppearance.BorderSize = 0;
             this.btnClose.FlatAppearance.MouseOverBackColor = System.Drawing.Color.MistyRose;
             this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnClose.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnClose.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold);
             this.btnClose.Image = ((System.Drawing.Image)(resources.GetObject("btnClose.Image")));
             this.btnClose.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnClose.Location = new System.Drawing.Point(1144, 112);
@@ -566,7 +567,7 @@
             this.btnDiscount.FlatAppearance.BorderSize = 0;
             this.btnDiscount.FlatAppearance.MouseOverBackColor = System.Drawing.Color.PeachPuff;
             this.btnDiscount.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDiscount.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDiscount.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold);
             this.btnDiscount.Image = ((System.Drawing.Image)(resources.GetObject("btnDiscount.Image")));
             this.btnDiscount.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnDiscount.Location = new System.Drawing.Point(1019, 112);
@@ -598,9 +599,8 @@
             this.btnRefund.FlatAppearance.BorderSize = 0;
             this.btnRefund.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Orange;
             this.btnRefund.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRefund.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRefund.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRefund.Image = ((System.Drawing.Image)(resources.GetObject("btnRefund.Image")));
-            this.btnRefund.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btnRefund.Location = new System.Drawing.Point(150, 111);
             this.btnRefund.Name = "btnRefund";
             this.btnRefund.Size = new System.Drawing.Size(147, 89);
@@ -617,9 +617,8 @@
             this.btnSearch.FlatAppearance.BorderSize = 0;
             this.btnSearch.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
             this.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSearch.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSearch.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSearch.Image = ((System.Drawing.Image)(resources.GetObject("btnSearch.Image")));
-            this.btnSearch.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btnSearch.Location = new System.Drawing.Point(1, 111);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(149, 89);

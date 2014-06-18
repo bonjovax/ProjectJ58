@@ -988,7 +988,7 @@ namespace nPOSProj
                         btnEdit.Enabled = false;
                         btnDiscount.Enabled = false;
                         btnVoid.Enabled = false;
-                        Double total_amt = 0;
+                        /*Double total_amt = 0;
                         Double total_amts = 0;
                         Double x = 0;
                         Double y = 0;
@@ -997,8 +997,8 @@ namespace nPOSProj
                             total_amt += Double.Parse(items.SubItems[5].Text);
                             total_amts += Double.Parse(items.SubItems[5].Text);
                         }
-                        lblTotalAmount.Text = total_amt.ToString("###,###,##0.00");
-                        //Tax
+                        lblTotalAmount.Text = total_amt.ToString("###,###,##0.00");*/
+                        /*//Tax
                         x = total_amts * taxP;
                         //Please Add Condition if Sale is VAT
                         lblTAXamt.Text = x.ToString("#,###,##0.00");
@@ -1017,7 +1017,7 @@ namespace nPOSProj
                         pos.Pos_total_amt = total_amt;
                         pos.Pos_orno = OrNo;
                         pos.UpdateTrunk();
-                        //
+                        //*/
                     }
                     else
                     {
@@ -1187,12 +1187,7 @@ namespace nPOSProj
             {
                 frmDlgCheckout checkout = new frmDlgCheckout();
                 frmLogin lg = new frmLogin(); //we'll use that ^_^
-                Double total_amt = 0;
-                foreach (ListViewItem items in lviewPOS.Items)
-                {
-                    total_amt += Double.Parse(items.SubItems[5].Text);
-                }
-                checkout.GetAmount = total_amt;
+                checkout.GetAmount = Double.Parse(lblTotalAmount.Text);
                 checkout.ShowDialog();
                 //For Cash
                 if (checkout.IsCashTX == true)
@@ -1238,14 +1233,14 @@ namespace nPOSProj
                     txtBoxEAN.Focus();
                     proceeds = false; //Important
                     //
-                    pos.Pos_tender = total_amt;
+                    pos.Pos_tender = Double.Parse(lblTotalAmount.Text);
                     pos.Pos_orno = OrNo;
                     pos.Pos_terminal = lg.tN;
                     String enx = crypt.EncryptText(checkout.CardNo, lg.tN);
                     pos.Card_data = enx;
                     pos.Card_lastfour = checkout.CardNo.Substring(checkout.CardNo.Length - 4, 4);
                     pos.Card_type = checkout.CardType;
-                    pos.Tx_amount = total_amt;
+                    pos.Tx_amount = Double.Parse(lblTotalAmount.Text);
                     pos.DCCardCheckout();
                     //
                     newFlash();
@@ -1267,13 +1262,13 @@ namespace nPOSProj
                     txtBoxEAN.Focus();
                     proceeds = false; //Important
                     //
-                    pos.Pos_tender = total_amt;
+                    pos.Pos_tender = Double.Parse(lblTotalAmount.Text);
                     pos.Pos_orno = OrNo;
                     pos.Pos_terminal = lg.tN;
                     pos.Bc_checkno = checkout.CheckNo;
                     pos.Bc_banknbranch = checkout.BankNBranch;
                     pos.Bc_refcode = checkout.CRef;
-                    pos.Tx_amount = total_amt;
+                    pos.Tx_amount = Double.Parse(lblTotalAmount.Text);
                     pos.BankCheckout();
                     //
                     newFlash();
@@ -1361,9 +1356,6 @@ namespace nPOSProj
                         detectWholesale();
                         loadParkedData();
                         OrNo = park.OrderNo;
-                        Double total_amt = 0;
-                        Double a = 0;
-                        Double b = 0;
                         //
                         proceed.Visible = false;
                         proceeds = true; //important
@@ -1379,10 +1371,104 @@ namespace nPOSProj
                         btnRefund.Enabled = true;
                         btnCancelSale.Enabled = true;
                         //
-                        foreach (ListViewItem items in lviewPOS.Items)
+                        Double total_fin = 0;
+                        Double total_fins = 0;
+                        Double a = 0;
+                        Double b = 0; //To Data Tax Amount
+                        Double vATable = 0;
+                        Double v1 = 0;
+                        Double v2 = 0;
+                        Double vExempt = 0;
+                        Double vZero = 0;
+                        
+                        foreach (ListViewItem lv in lviewPOS.Items)
                         {
-                            total_amt += Double.Parse(items.SubItems[5].Text);
+                            total_fin += Double.Parse(lv.SubItems[5].Text);
+                            total_fins += Double.Parse(lv.SubItems[5].Text);
+                            if (lv.SubItems[6].Text == "V")
+                            {
+                                if (all_items_tax == 1) //If All Items are Taxable
+                                {
+                                    itemTT = lv.SubItems[6].Text;
+                                    v1 += Double.Parse(lv.SubItems[5].Text);
+                                    v2 = v1 * taxP;
+                                    vATable = v1 - v2;
+                                }
+                                else //Otherwise
+                                {
+                                    itemTT = lv.SubItems[6].Text;
+                                    v1 += Double.Parse(lv.SubItems[5].Text);
+                                }
+                            }
+                            if (lv.SubItems[6].Text == "E")
+                            {
+                                vExempt += Double.Parse(lv.SubItems[5].Text);
+                            }
+                            if (lv.SubItems[6].Text == "Z")
+                            {
+                                vZero += Double.Parse(lv.SubItems[5].Text);
+                            }
                         }
+                        if (all_items_tax == 1) //If All Items are Taxable
+                        {
+                            if (TaxT == "V")
+                            {
+                                lblVatable.Text = vATable.ToString("#,###,##0.00");
+                                lblVATe.Text = vExempt.ToString("###,###,##0.00");
+                                lblVATz.Text = vZero.ToString("###,###,##0.00");
+                            }
+                            else
+                            {
+                                vATable = 0;
+                                vExempt = 0;
+                                vZero = 0;
+                            }
+                            lblTotalAmount.Text = total_fin.ToString("###,###,##0.00");
+                            if (itemTT == "V")
+                            {
+                                if (TaxT == "V")
+                                {
+                                    //Tax
+                                    a = v1 * taxP;
+                                    //Please Add Condition if Sale is VAT
+                                    lblTAXamt.Text = v2.ToString("#,###,##0.00");
+                                    b = v1 - a;
+                                    lblVatable.Text = b.ToString("#,###,##0.00");
+                                }
+                                else
+                                {
+                                    a = 0;
+                                    v2 = 0;
+                                    b = 0;
+                                }
+                            }
+
+                        }
+                        else
+                        {
+                            if (TaxT == "V")
+                            {
+                                lblVatable.Text = v1.ToString("#,###,##0.00");
+                                lblVATe.Text = vExempt.ToString("###,###,##0.00");
+                                lblVATz.Text = vZero.ToString("###,###,##0.00");
+                            }
+                            if (itemTT == "V")
+                            {
+                                if (TaxT == "V")
+                                {
+                                    a = v1 * taxP;
+                                    lblTAXamt.Text = a.ToString("###,###,##0.00");
+                                }
+                                else
+                                {
+                                    a = 0;
+                                }
+                            }
+                            a = v1 * taxP;
+                            totalVar = v1 + vExempt + vZero + a;
+                            lblTotalAmount.Text = totalVar.ToString("###,###,##0.00");
+                        }
+                        pos.Pos_tax_perc = taxP;
                         if (lviewPOS.Items.Count != 0)
                         {
                             btnCancelSale.Enabled = true;
@@ -1395,14 +1481,7 @@ namespace nPOSProj
                             btnCheckout.Enabled = false;
                             btnParkSale.Enabled = true;
                         }
-                        //Tax
-                        a = total_amt * taxP;
-                        //Please Add Condition if Sale is VAT
-                        lblTAXamt.Text = a.ToString("#,###,##0.00");
-                        b = total_amt - a;
-                        lblVatable.Text = b.ToString("#,###,##0.00");
-                        //
-                        lblTotalAmount.Text = total_amt.ToString("###,###,##0.00");
+
                         txtBoxEAN.Focus();
                     }
                 }
@@ -1565,11 +1644,11 @@ namespace nPOSProj
                 lviewPOS.Items.Clear();
                 con.ConnectionString = dbcon.getConnectionString();
                 con.Open();
-                String query = "SELECT pos_park.pos_ean AS a, pos_park.pos_quantity AS b, inventory_stocks.stock_name AS c, inventory_items.item_retail_price AS d, inventory_items.item_whole_price AS e, pos_park.pos_discount_amt AS f, pos_park.pos_amt AS g ";
+                String query = "SELECT pos_park.pos_ean AS a, pos_park.pos_quantity AS b, inventory_stocks.stock_name AS c, inventory_items.item_retail_price AS d, inventory_items.item_whole_price AS e, pos_park.pos_discount_amt AS f, pos_park.pos_amt AS g, inventory_items.item_tax_type AS h ";
                 query += "FROM pos_park INNER JOIN inventory_items ON pos_park.pos_ean = inventory_items.item_ean INNER JOIN inventory_stocks ON inventory_items.stock_code = inventory_stocks.stock_code ";
                 query += "WHERE (pos_park.pos_orno = ?pos_orno) ";
                 query += "UNION ALL "; //Thanks to this Clause It Made My Life Easier ^_^
-                query += "SELECT pos_park.pos_ean AS a, pos_park.pos_quantity AS b, inventory_items.kit_name AS c, inventory_items.item_retail_price AS d, inventory_items.item_whole_price AS e, pos_park.pos_discount_amt AS f, pos_park.pos_amt AS g ";
+                query += "SELECT pos_park.pos_ean AS a, pos_park.pos_quantity AS b, inventory_items.kit_name AS c, inventory_items.item_retail_price AS d, inventory_items.item_whole_price AS e, pos_park.pos_discount_amt AS f, pos_park.pos_amt AS g, inventory_items.item_tax_type AS h ";
                 query += "FROM pos_park INNER JOIN inventory_items ON pos_park.pos_ean = inventory_items.item_ean ";
                 query += "WHERE (pos_park.pos_orno = ?pos_orno) AND (inventory_items.is_kit = 1)";
                 MySqlCommand cmd = new MySqlCommand(query, con);
@@ -1592,6 +1671,7 @@ namespace nPOSProj
                     }
                     lv.SubItems.Add(Convert.ToDouble(rdr["f"]).ToString("#,###,##0.00"));
                     lv.SubItems.Add(Convert.ToDouble(rdr["g"]).ToString("#,###,##0.00"));
+                    lv.SubItems.Add(rdr["h"].ToString());
                     lviewPOS.Items.Add(lv);
                     lviewPOS.EndUpdate();
                 }
