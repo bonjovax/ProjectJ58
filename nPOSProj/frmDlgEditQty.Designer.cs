@@ -40,14 +40,16 @@
             this.pictureBox1.Location = new System.Drawing.Point(5, 6);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(54, 50);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
             // txtBoxQty
             // 
-            this.txtBoxQty.BackColor = System.Drawing.Color.Gainsboro;
+            this.txtBoxQty.BackColor = System.Drawing.Color.Black;
             this.txtBoxQty.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtBoxQty.Font = new System.Drawing.Font("Tahoma", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBoxQty.Font = new System.Drawing.Font("Segoe UI", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBoxQty.ForeColor = System.Drawing.Color.White;
             this.txtBoxQty.Location = new System.Drawing.Point(65, 8);
             this.txtBoxQty.MaxLength = 3;
             this.txtBoxQty.Multiline = true;
@@ -65,7 +67,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.Gainsboro;
+            this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(153, 61);
             this.Controls.Add(this.txtBoxQty);
             this.Controls.Add(this.pictureBox1);
