@@ -31,15 +31,10 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(mdiFrmCustomers));
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.tsDirectory = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
             this.tsPayment = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.tsExit = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.tsAbout = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator8 = new System.Windows.Forms.ToolStripSeparator();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.tsOnline = new System.Windows.Forms.ToolStripStatusLabel();
             this.tsOffline = new System.Windows.Forms.ToolStripStatusLabel();
@@ -52,18 +47,14 @@
             // 
             // toolStrip1
             // 
+            this.toolStrip1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(164)))), ((int)(((byte)(0)))), ((int)(((byte)(171)))));
             this.toolStrip1.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.toolStrip1.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripSeparator3,
             this.tsDirectory,
-            this.toolStripSeparator7,
             this.tsPayment,
-            this.toolStripSeparator2,
             this.tsExit,
-            this.toolStripSeparator1,
-            this.tsAbout,
-            this.toolStripSeparator8});
+            this.tsAbout});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
@@ -71,14 +62,10 @@
             this.toolStrip1.TabIndex = 4;
             this.toolStrip1.Text = "toolStrip1";
             // 
-            // toolStripSeparator3
-            // 
-            this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(6, 72);
-            // 
             // tsDirectory
             // 
             this.tsDirectory.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tsDirectory.ForeColor = System.Drawing.Color.White;
             this.tsDirectory.Image = ((System.Drawing.Image)(resources.GetObject("tsDirectory.Image")));
             this.tsDirectory.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.tsDirectory.ImageTransparentColor = System.Drawing.Color.Magenta;
@@ -88,14 +75,10 @@
             this.tsDirectory.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.tsDirectory.Click += new System.EventHandler(this.tsDirectory_Click);
             // 
-            // toolStripSeparator7
-            // 
-            this.toolStripSeparator7.Name = "toolStripSeparator7";
-            this.toolStripSeparator7.Size = new System.Drawing.Size(6, 72);
-            // 
             // tsPayment
             // 
             this.tsPayment.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tsPayment.ForeColor = System.Drawing.Color.White;
             this.tsPayment.Image = ((System.Drawing.Image)(resources.GetObject("tsPayment.Image")));
             this.tsPayment.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.tsPayment.ImageTransparentColor = System.Drawing.Color.Magenta;
@@ -105,14 +88,10 @@
             this.tsPayment.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.tsPayment.Click += new System.EventHandler(this.tsPayment_Click);
             // 
-            // toolStripSeparator2
-            // 
-            this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 72);
-            // 
             // tsExit
             // 
             this.tsExit.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tsExit.ForeColor = System.Drawing.Color.White;
             this.tsExit.Image = ((System.Drawing.Image)(resources.GetObject("tsExit.Image")));
             this.tsExit.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.tsExit.ImageTransparentColor = System.Drawing.Color.Magenta;
@@ -122,14 +101,10 @@
             this.tsExit.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.tsExit.Click += new System.EventHandler(this.tsExit_Click);
             // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 72);
-            // 
             // tsAbout
             // 
             this.tsAbout.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tsAbout.ForeColor = System.Drawing.Color.White;
             this.tsAbout.Image = ((System.Drawing.Image)(resources.GetObject("tsAbout.Image")));
             this.tsAbout.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.tsAbout.ImageTransparentColor = System.Drawing.Color.Magenta;
@@ -138,13 +113,9 @@
             this.tsAbout.Text = "&About";
             this.tsAbout.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             // 
-            // toolStripSeparator8
-            // 
-            this.toolStripSeparator8.Name = "toolStripSeparator8";
-            this.toolStripSeparator8.Size = new System.Drawing.Size(6, 72);
-            // 
             // statusStrip1
             // 
+            this.statusStrip1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(164)))), ((int)(((byte)(0)))), ((int)(((byte)(171)))));
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsOnline,
             this.tsOffline,
@@ -159,35 +130,39 @@
             // 
             // tsOnline
             // 
-            this.tsOnline.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tsOnline.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tsOnline.ForeColor = System.Drawing.Color.White;
             this.tsOnline.Image = ((System.Drawing.Image)(resources.GetObject("tsOnline.Image")));
             this.tsOnline.Name = "tsOnline";
-            this.tsOnline.Size = new System.Drawing.Size(59, 17);
+            this.tsOnline.Size = new System.Drawing.Size(58, 17);
             this.tsOnline.Text = "Online";
             // 
             // tsOffline
             // 
-            this.tsOffline.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tsOffline.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tsOffline.ForeColor = System.Drawing.Color.White;
             this.tsOffline.Image = ((System.Drawing.Image)(resources.GetObject("tsOffline.Image")));
             this.tsOffline.Name = "tsOffline";
-            this.tsOffline.Size = new System.Drawing.Size(58, 17);
+            this.tsOffline.Size = new System.Drawing.Size(59, 17);
             this.tsOffline.Text = "Offline";
             this.tsOffline.Visible = false;
             // 
             // tsToday
             // 
-            this.tsToday.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tsToday.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tsToday.ForeColor = System.Drawing.Color.White;
             this.tsToday.Name = "tsToday";
-            this.tsToday.Size = new System.Drawing.Size(760, 17);
+            this.tsToday.Size = new System.Drawing.Size(766, 17);
             this.tsToday.Spring = true;
             this.tsToday.Text = "clocks";
             // 
             // tsUser
             // 
-            this.tsUser.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tsUser.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tsUser.ForeColor = System.Drawing.Color.White;
             this.tsUser.Image = ((System.Drawing.Image)(resources.GetObject("tsUser.Image")));
             this.tsUser.Name = "tsUser";
-            this.tsUser.Size = new System.Drawing.Size(82, 17);
+            this.tsUser.Size = new System.Drawing.Size(77, 17);
             this.tsUser.Text = "userName";
             this.tsUser.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
@@ -201,10 +176,14 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(916, 505);
+            this.ControlBox = false;
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.toolStrip1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.IsMdiContainer = true;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "mdiFrmCustomers";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Customers";
@@ -223,12 +202,8 @@
         #endregion
 
         private System.Windows.Forms.ToolStrip toolStrip1;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
         private System.Windows.Forms.ToolStripButton tsDirectory;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator7;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator8;
         private System.Windows.Forms.ToolStripButton tsExit;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripButton tsAbout;
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel tsOnline;
@@ -237,6 +212,5 @@
         private System.Windows.Forms.ToolStripStatusLabel tsUser;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.ToolStripButton tsPayment;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
     }
 }
