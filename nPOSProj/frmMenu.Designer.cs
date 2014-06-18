@@ -69,7 +69,7 @@
             this.btnLogout.ForeColor = System.Drawing.Color.White;
             this.btnLogout.Image = ((System.Drawing.Image)(resources.GetObject("btnLogout.Image")));
             this.btnLogout.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnLogout.Location = new System.Drawing.Point(638, 486);
+            this.btnLogout.Location = new System.Drawing.Point(636, 482);
             this.btnLogout.Name = "btnLogout";
             this.btnLogout.Size = new System.Drawing.Size(61, 74);
             this.btnLogout.TabIndex = 9;
@@ -218,7 +218,7 @@
             this.btnChangePassword.Font = new System.Drawing.Font("Segoe UI", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnChangePassword.ForeColor = System.Drawing.Color.White;
             this.btnChangePassword.Image = ((System.Drawing.Image)(resources.GetObject("btnChangePassword.Image")));
-            this.btnChangePassword.Location = new System.Drawing.Point(573, 486);
+            this.btnChangePassword.Location = new System.Drawing.Point(571, 482);
             this.btnChangePassword.Name = "btnChangePassword";
             this.btnChangePassword.Size = new System.Drawing.Size(63, 74);
             this.btnChangePassword.TabIndex = 8;
@@ -274,7 +274,7 @@
             // 
             this.greetings.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.greetings.ForeColor = System.Drawing.Color.White;
-            this.greetings.Location = new System.Drawing.Point(311, 523);
+            this.greetings.Location = new System.Drawing.Point(309, 523);
             this.greetings.Name = "greetings";
             this.greetings.Size = new System.Drawing.Size(254, 21);
             this.greetings.TabIndex = 13;
