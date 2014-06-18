@@ -193,7 +193,6 @@
             // btnTerminate
             // 
             this.btnTerminate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            this.btnTerminate.Enabled = false;
             this.btnTerminate.FlatAppearance.BorderColor = System.Drawing.Color.DodgerBlue;
             this.btnTerminate.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DodgerBlue;
             this.btnTerminate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
