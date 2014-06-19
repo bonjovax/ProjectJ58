@@ -1024,13 +1024,14 @@ namespace nPOSProj
                         {
                             pos.Pos_tax_amt = v2;
                             pos.Pos_total_amt = total_fin;
+                            lblTAXamt.Text = v2.ToString("###,###,##0.00");
                         }
                         else
                         {
                             pos.Pos_tax_amt = a;
                             pos.Pos_total_amt = totalVar;
+                            lblTAXamt.Text = a.ToString("###,###,##0.00");
                         }
-                        lblTAXamt.Text = v2.ToString("###,###,##0.00");
                         // Trunk Data
                         pos.Pos_tax_perc = taxP;
                         pos.Pos_orno = OrNo;
