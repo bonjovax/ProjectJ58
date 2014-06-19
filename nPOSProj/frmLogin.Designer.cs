@@ -58,7 +58,7 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.BackColor = System.Drawing.Color.DodgerBlue;
+            this.groupBox1.BackColor = System.Drawing.Color.Indigo;
             this.groupBox1.Controls.Add(this.txtPassword);
             this.groupBox1.Controls.Add(this.txtBoxUsername);
             this.groupBox1.Controls.Add(this.label2);
@@ -106,7 +106,7 @@
             // 
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.Black;
+            this.label2.ForeColor = System.Drawing.Color.White;
             this.label2.Location = new System.Drawing.Point(10, 55);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(94, 30);
@@ -119,7 +119,7 @@
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.Black;
+            this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(6, 15);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(107, 32);
@@ -175,8 +175,10 @@
             this.btnLogin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(165)))), ((int)(((byte)(0)))));
             this.btnLogin.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnLogin.Enabled = false;
-            this.btnLogin.FlatAppearance.BorderColor = System.Drawing.Color.DodgerBlue;
-            this.btnLogin.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DodgerBlue;
+            this.btnLogin.FlatAppearance.BorderColor = System.Drawing.Color.Indigo;
+            this.btnLogin.FlatAppearance.CheckedBackColor = System.Drawing.Color.Indigo;
+            this.btnLogin.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Indigo;
+            this.btnLogin.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Indigo;
             this.btnLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLogin.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLogin.ForeColor = System.Drawing.Color.Transparent;
@@ -195,8 +197,10 @@
             // 
             this.btnTerminate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.btnTerminate.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnTerminate.FlatAppearance.BorderColor = System.Drawing.Color.DodgerBlue;
-            this.btnTerminate.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DodgerBlue;
+            this.btnTerminate.FlatAppearance.BorderColor = System.Drawing.Color.Indigo;
+            this.btnTerminate.FlatAppearance.CheckedBackColor = System.Drawing.Color.Indigo;
+            this.btnTerminate.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Indigo;
+            this.btnTerminate.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Indigo;
             this.btnTerminate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnTerminate.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnTerminate.ForeColor = System.Drawing.Color.Transparent;
@@ -215,7 +219,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.DodgerBlue;
+            this.BackColor = System.Drawing.Color.Indigo;
             this.ClientSize = new System.Drawing.Size(413, 269);
             this.Controls.Add(this.btnTerminate);
             this.Controls.Add(this.btnLogin);
