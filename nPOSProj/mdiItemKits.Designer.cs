@@ -32,14 +32,23 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(mdiItemKits));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(mdiItemKits));
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.itemquantityDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.itemeanDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.kitnameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.itemretailpriceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.itemwholepriceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.inventoryitems1BindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.npos_dbDataSet = new nPOSProj.npos_dbDataSet();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.bcSave = new System.Windows.Forms.Button();
+            this.barcode = new System.Windows.Forms.PictureBox();
+            this.btnDelete = new System.Windows.Forms.Button();
+            this.btnUpdate = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
             this.txtBoxWholesalePrice = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
@@ -51,16 +60,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.txtBoxQty = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.btnDelete = new System.Windows.Forms.Button();
-            this.btnUpdate = new System.Windows.Forms.Button();
             this.inventory_items1TableAdapter = new nPOSProj.npos_dbDataSetTableAdapters.inventory_items1TableAdapter();
-            this.bcSave = new System.Windows.Forms.Button();
-            this.barcode = new System.Windows.Forms.PictureBox();
-            this.itemquantityDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.itemeanDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.kitnameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.itemretailpriceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.itemwholepriceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.inventoryitems1BindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.npos_dbDataSet)).BeginInit();
@@ -87,7 +87,7 @@
             this.dataGridView1.DataSource = this.inventoryitems1BindingSource;
             dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle5.BackColor = System.Drawing.Color.DodgerBlue;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
             dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.DarkSlateGray;
             dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.White;
@@ -97,10 +97,7 @@
             this.dataGridView1.Location = new System.Drawing.Point(1, 1);
             this.dataGridView1.Name = "dataGridView1";
             dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.Empty;
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Empty;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.Empty;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.Empty;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -108,6 +105,56 @@
             this.dataGridView1.TabIndex = 16;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             this.dataGridView1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellDoubleClick);
+            // 
+            // itemquantityDataGridViewTextBoxColumn
+            // 
+            this.itemquantityDataGridViewTextBoxColumn.DataPropertyName = "item_quantity";
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.itemquantityDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle2;
+            this.itemquantityDataGridViewTextBoxColumn.HeaderText = "Qty";
+            this.itemquantityDataGridViewTextBoxColumn.MaxInputLength = 6;
+            this.itemquantityDataGridViewTextBoxColumn.Name = "itemquantityDataGridViewTextBoxColumn";
+            this.itemquantityDataGridViewTextBoxColumn.Width = 50;
+            // 
+            // itemeanDataGridViewTextBoxColumn
+            // 
+            this.itemeanDataGridViewTextBoxColumn.DataPropertyName = "item_ean";
+            this.itemeanDataGridViewTextBoxColumn.HeaderText = "EAN";
+            this.itemeanDataGridViewTextBoxColumn.MaxInputLength = 13;
+            this.itemeanDataGridViewTextBoxColumn.Name = "itemeanDataGridViewTextBoxColumn";
+            this.itemeanDataGridViewTextBoxColumn.ReadOnly = true;
+            this.itemeanDataGridViewTextBoxColumn.Width = 130;
+            // 
+            // kitnameDataGridViewTextBoxColumn
+            // 
+            this.kitnameDataGridViewTextBoxColumn.DataPropertyName = "kit_name";
+            this.kitnameDataGridViewTextBoxColumn.HeaderText = "Description";
+            this.kitnameDataGridViewTextBoxColumn.MaxInputLength = 30;
+            this.kitnameDataGridViewTextBoxColumn.Name = "kitnameDataGridViewTextBoxColumn";
+            this.kitnameDataGridViewTextBoxColumn.Width = 295;
+            // 
+            // itemretailpriceDataGridViewTextBoxColumn
+            // 
+            this.itemretailpriceDataGridViewTextBoxColumn.DataPropertyName = "item_retail_price";
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.Format = "N2";
+            dataGridViewCellStyle3.NullValue = null;
+            this.itemretailpriceDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle3;
+            this.itemretailpriceDataGridViewTextBoxColumn.HeaderText = "Retail Price";
+            this.itemretailpriceDataGridViewTextBoxColumn.MaxInputLength = 15;
+            this.itemretailpriceDataGridViewTextBoxColumn.Name = "itemretailpriceDataGridViewTextBoxColumn";
+            // 
+            // itemwholepriceDataGridViewTextBoxColumn
+            // 
+            this.itemwholepriceDataGridViewTextBoxColumn.DataPropertyName = "item_whole_price";
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.Format = "N2";
+            dataGridViewCellStyle4.NullValue = null;
+            this.itemwholepriceDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle4;
+            this.itemwholepriceDataGridViewTextBoxColumn.HeaderText = "Wholesale Price";
+            this.itemwholepriceDataGridViewTextBoxColumn.MaxInputLength = 15;
+            this.itemwholepriceDataGridViewTextBoxColumn.Name = "itemwholepriceDataGridViewTextBoxColumn";
+            this.itemwholepriceDataGridViewTextBoxColumn.Width = 122;
             // 
             // inventoryitems1BindingSource
             // 
@@ -144,6 +191,74 @@
             this.groupBox1.TabIndex = 14;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Add Kits";
+            // 
+            // bcSave
+            // 
+            this.bcSave.BackColor = System.Drawing.Color.DodgerBlue;
+            this.bcSave.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.bcSave.Enabled = false;
+            this.bcSave.FlatAppearance.BorderColor = System.Drawing.Color.DarkSlateGray;
+            this.bcSave.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkSlateGray;
+            this.bcSave.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DarkSlateGray;
+            this.bcSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bcSave.Image = ((System.Drawing.Image)(resources.GetObject("bcSave.Image")));
+            this.bcSave.Location = new System.Drawing.Point(695, 53);
+            this.bcSave.Name = "bcSave";
+            this.bcSave.Size = new System.Drawing.Size(35, 53);
+            this.bcSave.TabIndex = 15;
+            this.bcSave.UseVisualStyleBackColor = false;
+            // 
+            // barcode
+            // 
+            this.barcode.BackColor = System.Drawing.Color.White;
+            this.barcode.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.barcode.Location = new System.Drawing.Point(531, 53);
+            this.barcode.Name = "barcode";
+            this.barcode.Size = new System.Drawing.Size(165, 53);
+            this.barcode.TabIndex = 14;
+            this.barcode.TabStop = false;
+            // 
+            // btnDelete
+            // 
+            this.btnDelete.BackColor = System.Drawing.Color.Crimson;
+            this.btnDelete.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnDelete.Enabled = false;
+            this.btnDelete.FlatAppearance.BorderColor = System.Drawing.Color.DarkSlateGray;
+            this.btnDelete.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkSlateGray;
+            this.btnDelete.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DarkSlateGray;
+            this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDelete.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDelete.Image = ((System.Drawing.Image)(resources.GetObject("btnDelete.Image")));
+            this.btnDelete.ImageAlign = System.Drawing.ContentAlignment.BottomLeft;
+            this.btnDelete.Location = new System.Drawing.Point(632, 15);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(99, 36);
+            this.btnDelete.TabIndex = 7;
+            this.btnDelete.Text = "Delete";
+            this.btnDelete.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnDelete.UseVisualStyleBackColor = false;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
+            // 
+            // btnUpdate
+            // 
+            this.btnUpdate.BackColor = System.Drawing.Color.YellowGreen;
+            this.btnUpdate.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnUpdate.Enabled = false;
+            this.btnUpdate.FlatAppearance.BorderColor = System.Drawing.Color.DarkSlateGray;
+            this.btnUpdate.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkSlateGray;
+            this.btnUpdate.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DarkSlateGray;
+            this.btnUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnUpdate.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUpdate.Image = ((System.Drawing.Image)(resources.GetObject("btnUpdate.Image")));
+            this.btnUpdate.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnUpdate.Location = new System.Drawing.Point(531, 15);
+            this.btnUpdate.Name = "btnUpdate";
+            this.btnUpdate.Size = new System.Drawing.Size(100, 36);
+            this.btnUpdate.TabIndex = 6;
+            this.btnUpdate.Text = "Update";
+            this.btnUpdate.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnUpdate.UseVisualStyleBackColor = false;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
             // btnAdd
             // 
@@ -271,127 +386,9 @@
             this.label1.TabIndex = 9;
             this.label1.Text = "Qty";
             // 
-            // btnDelete
-            // 
-            this.btnDelete.BackColor = System.Drawing.Color.Crimson;
-            this.btnDelete.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnDelete.Enabled = false;
-            this.btnDelete.FlatAppearance.BorderColor = System.Drawing.Color.DarkSlateGray;
-            this.btnDelete.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkSlateGray;
-            this.btnDelete.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DarkSlateGray;
-            this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDelete.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDelete.Image = ((System.Drawing.Image)(resources.GetObject("btnDelete.Image")));
-            this.btnDelete.ImageAlign = System.Drawing.ContentAlignment.BottomLeft;
-            this.btnDelete.Location = new System.Drawing.Point(632, 15);
-            this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(99, 36);
-            this.btnDelete.TabIndex = 7;
-            this.btnDelete.Text = "Delete";
-            this.btnDelete.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnDelete.UseVisualStyleBackColor = false;
-            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
-            // 
-            // btnUpdate
-            // 
-            this.btnUpdate.BackColor = System.Drawing.Color.YellowGreen;
-            this.btnUpdate.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnUpdate.Enabled = false;
-            this.btnUpdate.FlatAppearance.BorderColor = System.Drawing.Color.DarkSlateGray;
-            this.btnUpdate.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkSlateGray;
-            this.btnUpdate.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DarkSlateGray;
-            this.btnUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnUpdate.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnUpdate.Image = ((System.Drawing.Image)(resources.GetObject("btnUpdate.Image")));
-            this.btnUpdate.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnUpdate.Location = new System.Drawing.Point(531, 15);
-            this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(100, 36);
-            this.btnUpdate.TabIndex = 6;
-            this.btnUpdate.Text = "Update";
-            this.btnUpdate.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnUpdate.UseVisualStyleBackColor = false;
-            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
-            // 
             // inventory_items1TableAdapter
             // 
             this.inventory_items1TableAdapter.ClearBeforeFill = true;
-            // 
-            // bcSave
-            // 
-            this.bcSave.BackColor = System.Drawing.Color.DodgerBlue;
-            this.bcSave.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.bcSave.Enabled = false;
-            this.bcSave.FlatAppearance.BorderColor = System.Drawing.Color.DarkSlateGray;
-            this.bcSave.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkSlateGray;
-            this.bcSave.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DarkSlateGray;
-            this.bcSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.bcSave.Image = ((System.Drawing.Image)(resources.GetObject("bcSave.Image")));
-            this.bcSave.Location = new System.Drawing.Point(695, 53);
-            this.bcSave.Name = "bcSave";
-            this.bcSave.Size = new System.Drawing.Size(35, 53);
-            this.bcSave.TabIndex = 15;
-            this.bcSave.UseVisualStyleBackColor = false;
-            // 
-            // barcode
-            // 
-            this.barcode.BackColor = System.Drawing.Color.White;
-            this.barcode.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.barcode.Location = new System.Drawing.Point(531, 53);
-            this.barcode.Name = "barcode";
-            this.barcode.Size = new System.Drawing.Size(165, 53);
-            this.barcode.TabIndex = 14;
-            this.barcode.TabStop = false;
-            // 
-            // itemquantityDataGridViewTextBoxColumn
-            // 
-            this.itemquantityDataGridViewTextBoxColumn.DataPropertyName = "item_quantity";
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.itemquantityDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle2;
-            this.itemquantityDataGridViewTextBoxColumn.HeaderText = "Qty";
-            this.itemquantityDataGridViewTextBoxColumn.MaxInputLength = 6;
-            this.itemquantityDataGridViewTextBoxColumn.Name = "itemquantityDataGridViewTextBoxColumn";
-            this.itemquantityDataGridViewTextBoxColumn.Width = 50;
-            // 
-            // itemeanDataGridViewTextBoxColumn
-            // 
-            this.itemeanDataGridViewTextBoxColumn.DataPropertyName = "item_ean";
-            this.itemeanDataGridViewTextBoxColumn.HeaderText = "EAN";
-            this.itemeanDataGridViewTextBoxColumn.MaxInputLength = 13;
-            this.itemeanDataGridViewTextBoxColumn.Name = "itemeanDataGridViewTextBoxColumn";
-            this.itemeanDataGridViewTextBoxColumn.ReadOnly = true;
-            this.itemeanDataGridViewTextBoxColumn.Width = 130;
-            // 
-            // kitnameDataGridViewTextBoxColumn
-            // 
-            this.kitnameDataGridViewTextBoxColumn.DataPropertyName = "kit_name";
-            this.kitnameDataGridViewTextBoxColumn.HeaderText = "Description";
-            this.kitnameDataGridViewTextBoxColumn.MaxInputLength = 30;
-            this.kitnameDataGridViewTextBoxColumn.Name = "kitnameDataGridViewTextBoxColumn";
-            this.kitnameDataGridViewTextBoxColumn.Width = 295;
-            // 
-            // itemretailpriceDataGridViewTextBoxColumn
-            // 
-            this.itemretailpriceDataGridViewTextBoxColumn.DataPropertyName = "item_retail_price";
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.Format = "N2";
-            dataGridViewCellStyle3.NullValue = null;
-            this.itemretailpriceDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle3;
-            this.itemretailpriceDataGridViewTextBoxColumn.HeaderText = "Retail Price";
-            this.itemretailpriceDataGridViewTextBoxColumn.MaxInputLength = 15;
-            this.itemretailpriceDataGridViewTextBoxColumn.Name = "itemretailpriceDataGridViewTextBoxColumn";
-            // 
-            // itemwholepriceDataGridViewTextBoxColumn
-            // 
-            this.itemwholepriceDataGridViewTextBoxColumn.DataPropertyName = "item_whole_price";
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.Format = "N2";
-            dataGridViewCellStyle4.NullValue = null;
-            this.itemwholepriceDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle4;
-            this.itemwholepriceDataGridViewTextBoxColumn.HeaderText = "Wholesale Price";
-            this.itemwholepriceDataGridViewTextBoxColumn.MaxInputLength = 15;
-            this.itemwholepriceDataGridViewTextBoxColumn.Name = "itemwholepriceDataGridViewTextBoxColumn";
-            this.itemwholepriceDataGridViewTextBoxColumn.Width = 122;
             // 
             // mdiItemKits
             // 
@@ -406,6 +403,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "mdiItemKits";
             this.Text = "Item Kits";
             this.Load += new System.EventHandler(this.mditemKits_Load);

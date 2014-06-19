@@ -693,6 +693,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "mdiUserAcc";
             this.Text = "User Accounts";
             this.Load += new System.EventHandler(this.mdiUserAcc_Load);

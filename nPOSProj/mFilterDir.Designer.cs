@@ -36,7 +36,8 @@
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.txtBoxAmount);
-            this.groupBox1.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox1.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox1.ForeColor = System.Drawing.Color.White;
             this.groupBox1.Location = new System.Drawing.Point(12, 3);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(322, 61);
@@ -46,14 +47,15 @@
             // 
             // txtBoxAmount
             // 
-            this.txtBoxAmount.BackColor = System.Drawing.Color.White;
+            this.txtBoxAmount.BackColor = System.Drawing.Color.Chocolate;
             this.txtBoxAmount.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtBoxAmount.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtBoxAmount.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBoxAmount.Location = new System.Drawing.Point(3, 26);
+            this.txtBoxAmount.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBoxAmount.ForeColor = System.Drawing.Color.White;
+            this.txtBoxAmount.Location = new System.Drawing.Point(3, 29);
             this.txtBoxAmount.MaxLength = 10;
             this.txtBoxAmount.Name = "txtBoxAmount";
-            this.txtBoxAmount.Size = new System.Drawing.Size(316, 26);
+            this.txtBoxAmount.Size = new System.Drawing.Size(316, 28);
             this.txtBoxAmount.TabIndex = 0;
             this.txtBoxAmount.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtBoxAmount.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtBoxAmount_KeyDown);
@@ -63,7 +65,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.White;
+            this.BackColor = System.Drawing.Color.DodgerBlue;
             this.ClientSize = new System.Drawing.Size(346, 75);
             this.Controls.Add(this.groupBox1);
             this.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));

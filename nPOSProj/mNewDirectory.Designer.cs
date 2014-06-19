@@ -61,7 +61,7 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.BackColor = System.Drawing.Color.SlateBlue;
+            this.groupBox1.BackColor = System.Drawing.Color.DarkSlateBlue;
             this.groupBox1.Controls.Add(this.lblWarning);
             this.groupBox1.Controls.Add(this.txtBoxZip);
             this.groupBox1.Controls.Add(this.label11);
@@ -356,9 +356,9 @@
             this.btnSave.BackColor = System.Drawing.Color.ForestGreen;
             this.btnSave.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnSave.Enabled = false;
-            this.btnSave.FlatAppearance.BorderColor = System.Drawing.Color.SlateBlue;
-            this.btnSave.FlatAppearance.MouseDownBackColor = System.Drawing.Color.SlateBlue;
-            this.btnSave.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SlateBlue;
+            this.btnSave.FlatAppearance.BorderColor = System.Drawing.Color.DarkSlateBlue;
+            this.btnSave.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkSlateBlue;
+            this.btnSave.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DarkSlateBlue;
             this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSave.ForeColor = System.Drawing.Color.White;
             this.btnSave.Image = ((System.Drawing.Image)(resources.GetObject("btnSave.Image")));
@@ -377,9 +377,9 @@
             // 
             this.btnExit.BackColor = System.Drawing.Color.Brown;
             this.btnExit.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnExit.FlatAppearance.BorderColor = System.Drawing.Color.SlateBlue;
-            this.btnExit.FlatAppearance.MouseDownBackColor = System.Drawing.Color.SlateBlue;
-            this.btnExit.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SlateBlue;
+            this.btnExit.FlatAppearance.BorderColor = System.Drawing.Color.DarkSlateBlue;
+            this.btnExit.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkSlateBlue;
+            this.btnExit.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DarkSlateBlue;
             this.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnExit.ForeColor = System.Drawing.Color.White;
             this.btnExit.Image = ((System.Drawing.Image)(resources.GetObject("btnExit.Image")));
@@ -398,9 +398,9 @@
             // 
             this.btnClear.BackColor = System.Drawing.Color.DarkGoldenrod;
             this.btnClear.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnClear.FlatAppearance.BorderColor = System.Drawing.Color.SlateBlue;
-            this.btnClear.FlatAppearance.MouseDownBackColor = System.Drawing.Color.SlateBlue;
-            this.btnClear.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SlateBlue;
+            this.btnClear.FlatAppearance.BorderColor = System.Drawing.Color.DarkSlateBlue;
+            this.btnClear.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkSlateBlue;
+            this.btnClear.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DarkSlateBlue;
             this.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClear.ForeColor = System.Drawing.Color.White;
             this.btnClear.Image = ((System.Drawing.Image)(resources.GetObject("btnClear.Image")));
@@ -419,7 +419,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.SlateBlue;
+            this.BackColor = System.Drawing.Color.DarkSlateBlue;
             this.ClientSize = new System.Drawing.Size(508, 304);
             this.Controls.Add(this.btnClear);
             this.Controls.Add(this.btnExit);
