@@ -37,14 +37,16 @@
             // 
             // cBoxUserName
             // 
+            this.cBoxUserName.BackColor = System.Drawing.Color.DarkGoldenrod;
             this.cBoxUserName.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cBoxUserName.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cBoxUserName.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cBoxUserName.ForeColor = System.Drawing.Color.White;
             this.cBoxUserName.FormattingEnabled = true;
             this.cBoxUserName.Items.AddRange(new object[] {
             " "});
             this.cBoxUserName.Location = new System.Drawing.Point(136, 5);
             this.cBoxUserName.Name = "cBoxUserName";
-            this.cBoxUserName.Size = new System.Drawing.Size(252, 33);
+            this.cBoxUserName.Size = new System.Drawing.Size(252, 38);
             this.cBoxUserName.TabIndex = 8;
             this.cBoxUserName.SelectedIndexChanged += new System.EventHandler(this.cBoxUserName_SelectedIndexChanged);
             // 
@@ -53,7 +55,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(13, 43);
+            this.label2.Location = new System.Drawing.Point(13, 46);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(229, 13);
             this.label2.TabIndex = 7;
@@ -72,7 +74,7 @@
             this.btnReset.ForeColor = System.Drawing.Color.White;
             this.btnReset.Image = ((System.Drawing.Image)(resources.GetObject("btnReset.Image")));
             this.btnReset.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnReset.Location = new System.Drawing.Point(315, 43);
+            this.btnReset.Location = new System.Drawing.Point(315, 46);
             this.btnReset.Name = "btnReset";
             this.btnReset.Size = new System.Drawing.Size(74, 67);
             this.btnReset.TabIndex = 6;
