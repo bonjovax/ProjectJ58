@@ -25,8 +25,8 @@ namespace nPOSProj
                 // TODO: This line of code loads data into the 'npos_dbDataSet.inventory_items1' table. You can move, or remove it, as needed.
                 this.inventory_items1TableAdapter.Fill(this.npos_dbDataSet.inventory_items1);
                 b.Alignment = AlignmentPositions.CENTER;
-                b.Width = 250;
-                b.Height = 100;
+                b.Width = 165;
+                b.Height = 53;
                 TYPE t = TYPE.CODE39;
                 b.IncludeLabel = true;
                 b.LabelPosition = LabelPositions.BOTTOMCENTER;
@@ -82,8 +82,8 @@ namespace nPOSProj
             try
             {
                 b.Alignment = AlignmentPositions.CENTER;
-                b.Width = 250;
-                b.Height = 100;
+                b.Width = 165;
+                b.Height = 53;
                 TYPE t = TYPE.EAN13;
                 b.IncludeLabel = true;
                 b.LabelPosition = LabelPositions.BOTTOMCENTER;
@@ -149,8 +149,8 @@ namespace nPOSProj
             try
             {
                 b.Alignment = AlignmentPositions.CENTER;
-                b.Width = 250;
-                b.Height = 100;
+                b.Width = 165;
+                b.Height = 53;
                 TYPE t = TYPE.EAN13;
                 b.IncludeLabel = true;
                 b.LabelPosition = LabelPositions.BOTTOMCENTER;
