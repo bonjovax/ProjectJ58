@@ -248,48 +248,48 @@ namespace nPOSProj.VO
         public void ParkItem()
         {
             POSDAO = new DAO.PosDAO();
-            POSDAO.Park_I(Pos_orno, Pos_ean, Pos_quantity, Pos_amt);
+            POSDAO.Park_I(Pos_orno, Pos_terminal, Pos_ean, Pos_quantity, Pos_amt);
         }
         public void ParkItemSameUpdate()
         {
             POSDAO = new DAO.PosDAO();
-            POSDAO.Park_I_Update(Pos_orno, Pos_ean, Pos_quantity, Pos_amt);
+            POSDAO.Park_I_Update(Pos_orno, Pos_terminal, Pos_ean, Pos_quantity, Pos_amt);
         }
 
         public void ParkItemUpdate()
         {
             POSDAO = new DAO.PosDAO();
-            POSDAO.ParkU_I(Pos_orno, Pos_ean, Pos_discount, Pos_discount_amt, Pos_quantity, Pos_amt);
+            POSDAO.ParkU_I(Pos_orno, Pos_terminal, Pos_ean, Pos_discount, Pos_discount_amt, Pos_quantity, Pos_amt);
         }
 
         public void ParkDiscountItemUpdate()
         {
             POSDAO = new DAO.PosDAO();
-            POSDAO.ParkUwD_I(Pos_orno, Pos_ean, Pos_discount, Pos_discount_amt, Pos_amt);
+            POSDAO.ParkUwD_I(Pos_orno, Pos_terminal, Pos_ean, Pos_discount, Pos_discount_amt, Pos_amt);
         }
 
         public void ParkVoidItem()
         {
             POSDAO = new DAO.PosDAO();
-            POSDAO.ParkVoid_I(Pos_orno, Pos_ean, Pos_quantity);
+            POSDAO.ParkVoid_I(Pos_orno, Pos_terminal, Pos_ean, Pos_quantity);
         }
 
         public void ReturnCancelItems()
         {
             POSDAO = new DAO.PosDAO();
-            POSDAO.ReturnCancelI(Pos_ean, Pos_quantity, Pos_orno);
+            POSDAO.ReturnCancelI(Pos_ean, Pos_quantity, Pos_orno, Pos_terminal);
         }
 
         public void CancelSale()
         {
             POSDAO = new DAO.PosDAO();
-            POSDAO.CancelT(Pos_orno);
+            POSDAO.CancelT(Pos_orno, Pos_terminal);
         }
 
         public void UpdateTrunk()
         {
             POSDAO = new DAO.PosDAO();
-            POSDAO.UpdateTrunkSales(Pos_tax_perc, Pos_tax_amt, Pos_total_amt, Pos_orno);
+            POSDAO.UpdateTrunkSales(Pos_tax_perc, Pos_tax_amt, Pos_total_amt, Pos_orno, Pos_terminal);
         }
         #endregion
         #region POS Checkout Stuffs
