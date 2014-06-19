@@ -221,6 +221,32 @@ namespace nPOSProj.VO
             get { return gc_cardo; }
             set { gc_cardo = value; }
         }
+
+        //New Stuff
+        private Double pos_vatable;
+
+        public Double Pos_vatable
+        {
+            get { return pos_vatable; }
+            set { pos_vatable = value; }
+        }
+
+        private Double pos_vex;
+
+        public Double Pos_vex
+        {
+            get { return pos_vex; }
+            set { pos_vex = value; }
+        }
+
+        private Double pos_vatz;
+
+        public Double Pos_vatz
+        {
+            get { return pos_vatz; }
+            set { pos_vatz = value; }
+        }
+        //
         #endregion
 
         #region POS Main Course Classes
