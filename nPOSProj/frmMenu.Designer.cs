@@ -63,6 +63,7 @@
             // btnLogout
             // 
             this.btnLogout.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(188)))), ((int)(((byte)(30)))), ((int)(((byte)(73)))));
+            this.btnLogout.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnLogout.FlatAppearance.BorderColor = System.Drawing.Color.MidnightBlue;
             this.btnLogout.FlatAppearance.MouseDownBackColor = System.Drawing.Color.MidnightBlue;
             this.btnLogout.FlatAppearance.MouseOverBackColor = System.Drawing.Color.MidnightBlue;
@@ -83,6 +84,7 @@
             // btnSales
             // 
             this.btnSales.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.btnSales.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnSales.Enabled = false;
             this.btnSales.FlatAppearance.BorderColor = System.Drawing.Color.MidnightBlue;
             this.btnSales.FlatAppearance.MouseDownBackColor = System.Drawing.Color.MidnightBlue;
@@ -104,6 +106,7 @@
             // btnGenReports
             // 
             this.btnGenReports.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(99)))), ((int)(((byte)(0)))));
+            this.btnGenReports.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnGenReports.Enabled = false;
             this.btnGenReports.FlatAppearance.BorderColor = System.Drawing.Color.MidnightBlue;
             this.btnGenReports.FlatAppearance.MouseDownBackColor = System.Drawing.Color.MidnightBlue;
@@ -124,6 +127,7 @@
             // btnCustomers
             // 
             this.btnCustomers.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(164)))), ((int)(((byte)(0)))), ((int)(((byte)(171)))));
+            this.btnCustomers.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCustomers.Enabled = false;
             this.btnCustomers.FlatAppearance.BorderColor = System.Drawing.Color.MidnightBlue;
             this.btnCustomers.FlatAppearance.MouseDownBackColor = System.Drawing.Color.MidnightBlue;
@@ -145,6 +149,7 @@
             // btnInventory
             // 
             this.btnInventory.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(165)))), ((int)(((byte)(0)))));
+            this.btnInventory.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnInventory.Enabled = false;
             this.btnInventory.FlatAppearance.BorderColor = System.Drawing.Color.MidnightBlue;
             this.btnInventory.FlatAppearance.MouseDownBackColor = System.Drawing.Color.MidnightBlue;
@@ -166,6 +171,7 @@
             // btnGC
             // 
             this.btnGC.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.btnGC.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnGC.Enabled = false;
             this.btnGC.FlatAppearance.BorderColor = System.Drawing.Color.MidnightBlue;
             this.btnGC.FlatAppearance.MouseDownBackColor = System.Drawing.Color.MidnightBlue;
@@ -187,6 +193,7 @@
             // btnUserAccounts
             // 
             this.btnUserAccounts.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(107)))), ((int)(((byte)(107)))));
+            this.btnUserAccounts.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnUserAccounts.Enabled = false;
             this.btnUserAccounts.FlatAppearance.BorderColor = System.Drawing.Color.MidnightBlue;
             this.btnUserAccounts.FlatAppearance.MouseDownBackColor = System.Drawing.Color.MidnightBlue;
@@ -208,6 +215,7 @@
             // btnConfig
             // 
             this.btnConfig.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(156)))), ((int)(((byte)(174)))));
+            this.btnConfig.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnConfig.Enabled = false;
             this.btnConfig.FlatAppearance.BorderColor = System.Drawing.Color.MidnightBlue;
             this.btnConfig.FlatAppearance.MouseDownBackColor = System.Drawing.Color.MidnightBlue;
@@ -229,6 +237,7 @@
             // btnChangePassword
             // 
             this.btnChangePassword.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(131)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnChangePassword.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnChangePassword.FlatAppearance.BorderColor = System.Drawing.Color.MidnightBlue;
             this.btnChangePassword.FlatAppearance.MouseDownBackColor = System.Drawing.Color.MidnightBlue;
             this.btnChangePassword.FlatAppearance.MouseOverBackColor = System.Drawing.Color.MidnightBlue;

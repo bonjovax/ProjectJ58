@@ -147,6 +147,7 @@
             // btnDelete
             // 
             this.btnDelete.BackColor = System.Drawing.Color.Crimson;
+            this.btnDelete.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnDelete.Enabled = false;
             this.btnDelete.FlatAppearance.BorderColor = System.Drawing.Color.DarkGoldenrod;
             this.btnDelete.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkGoldenrod;
@@ -168,6 +169,7 @@
             // btnUpdate
             // 
             this.btnUpdate.BackColor = System.Drawing.Color.DarkMagenta;
+            this.btnUpdate.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnUpdate.Enabled = false;
             this.btnUpdate.FlatAppearance.BorderColor = System.Drawing.Color.DarkGoldenrod;
             this.btnUpdate.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkGoldenrod;
@@ -208,6 +210,7 @@
             // btnClear
             // 
             this.btnClear.BackColor = System.Drawing.Color.DarkSlateGray;
+            this.btnClear.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnClear.FlatAppearance.BorderColor = System.Drawing.Color.DarkGoldenrod;
             this.btnClear.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkGoldenrod;
             this.btnClear.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DarkGoldenrod;
@@ -228,6 +231,7 @@
             // btnAdd
             // 
             this.btnAdd.BackColor = System.Drawing.Color.DarkGreen;
+            this.btnAdd.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnAdd.Enabled = false;
             this.btnAdd.FlatAppearance.BorderColor = System.Drawing.Color.DarkGoldenrod;
             this.btnAdd.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkGoldenrod;
