@@ -323,6 +323,7 @@
             // btnExit
             // 
             this.btnExit.BackColor = System.Drawing.Color.Brown;
+            this.btnExit.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnExit.FlatAppearance.BorderColor = System.Drawing.Color.DarkSlateBlue;
             this.btnExit.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkSlateBlue;
             this.btnExit.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DarkSlateBlue;
@@ -342,6 +343,7 @@
             // btnUpdate
             // 
             this.btnUpdate.BackColor = System.Drawing.Color.ForestGreen;
+            this.btnUpdate.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnUpdate.Enabled = false;
             this.btnUpdate.FlatAppearance.BorderColor = System.Drawing.Color.DarkSlateBlue;
             this.btnUpdate.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkSlateBlue;
