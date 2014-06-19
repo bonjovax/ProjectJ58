@@ -82,7 +82,7 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(690, 193);
+            this.dataGridView1.Size = new System.Drawing.Size(688, 193);
             this.dataGridView1.TabIndex = 7;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             this.dataGridView1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellDoubleClick);
@@ -209,10 +209,10 @@
             this.btnXML.ForeColor = System.Drawing.Color.White;
             this.btnXML.Image = ((System.Drawing.Image)(resources.GetObject("btnXML.Image")));
             this.btnXML.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnXML.Location = new System.Drawing.Point(577, 243);
+            this.btnXML.Location = new System.Drawing.Point(578, 247);
             this.btnXML.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnXML.Name = "btnXML";
-            this.btnXML.Size = new System.Drawing.Size(101, 32);
+            this.btnXML.Size = new System.Drawing.Size(109, 32);
             this.btnXML.TabIndex = 12;
             this.btnXML.Text = "&XML Export";
             this.btnXML.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -224,7 +224,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DodgerBlue;
-            this.ClientSize = new System.Drawing.Size(690, 281);
+            this.ClientSize = new System.Drawing.Size(688, 281);
             this.Controls.Add(this.btnXML);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.dataGridView1);
