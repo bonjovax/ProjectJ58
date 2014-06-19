@@ -173,6 +173,7 @@
             // btnLogin
             // 
             this.btnLogin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(165)))), ((int)(((byte)(0)))));
+            this.btnLogin.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnLogin.Enabled = false;
             this.btnLogin.FlatAppearance.BorderColor = System.Drawing.Color.DodgerBlue;
             this.btnLogin.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DodgerBlue;
@@ -193,6 +194,7 @@
             // btnTerminate
             // 
             this.btnTerminate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.btnTerminate.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnTerminate.FlatAppearance.BorderColor = System.Drawing.Color.DodgerBlue;
             this.btnTerminate.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DodgerBlue;
             this.btnTerminate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -200,7 +202,7 @@
             this.btnTerminate.ForeColor = System.Drawing.Color.Transparent;
             this.btnTerminate.Image = ((System.Drawing.Image)(resources.GetObject("btnTerminate.Image")));
             this.btnTerminate.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnTerminate.Location = new System.Drawing.Point(203, 218);
+            this.btnTerminate.Location = new System.Drawing.Point(209, 218);
             this.btnTerminate.Name = "btnTerminate";
             this.btnTerminate.Size = new System.Drawing.Size(89, 41);
             this.btnTerminate.TabIndex = 12;
