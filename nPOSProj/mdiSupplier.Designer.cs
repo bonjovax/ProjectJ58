@@ -29,22 +29,16 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(mdiSupplier));
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.suppliercodeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.suppliernameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.supplieraddressDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.suppliercitymunicipalityDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.suppliercountryDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.supplierzipcodeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.suppliercontactDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.suppliercontactpersonDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.suppliercpersonpositionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.inventorysupplierBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.npos_dbDataSet = new nPOSProj.npos_dbDataSet();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnXML = new System.Windows.Forms.Button();
             this.label11 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnClear = new System.Windows.Forms.Button();
@@ -69,19 +63,23 @@
             this.label2 = new System.Windows.Forms.Label();
             this.mCode = new System.Windows.Forms.MaskedTextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.btnUpdate = new System.Windows.Forms.Button();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.btnDelete = new System.Windows.Forms.Button();
             this.inventory_supplierTableAdapter = new nPOSProj.npos_dbDataSetTableAdapters.inventory_supplierTableAdapter();
-            this.btnXML = new System.Windows.Forms.Button();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
+            this.suppliercodeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.suppliernameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.supplieraddressDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.suppliercitymunicipalityDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.suppliercountryDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.supplierzipcodeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.suppliercontactDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.suppliercontactpersonDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.suppliercpersonpositionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.inventorysupplierBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.npos_dbDataSet)).BeginInit();
             this.groupBox1.SuspendLayout();
-            this.groupBox3.SuspendLayout();
-            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // dataGridView1
@@ -89,11 +87,19 @@
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.AllowUserToResizeRows = false;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
-            this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.DodgerBlue;
+            this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
             this.dataGridView1.AutoGenerateColumns = false;
-            this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.Control;
-            this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
+            this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.suppliercodeDataGridViewTextBoxColumn,
@@ -106,79 +112,30 @@
             this.suppliercontactpersonDataGridViewTextBoxColumn,
             this.suppliercpersonpositionDataGridViewTextBoxColumn});
             this.dataGridView1.DataSource = this.inventorysupplierBindingSource;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.DarkGoldenrod;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.Yellow;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle7;
             this.dataGridView1.GridColor = System.Drawing.Color.Black;
-            this.dataGridView1.Location = new System.Drawing.Point(2, 2);
+            this.dataGridView1.Location = new System.Drawing.Point(1, 1);
             this.dataGridView1.Name = "dataGridView1";
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.Silver;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Black;
-            this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.Empty;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.Empty;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.Empty;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.Empty;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle8;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(883, 248);
+            this.dataGridView1.Size = new System.Drawing.Size(894, 248);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             this.dataGridView1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dataGridView1_KeyDown);
-            // 
-            // suppliercodeDataGridViewTextBoxColumn
-            // 
-            this.suppliercodeDataGridViewTextBoxColumn.DataPropertyName = "supplier_code";
-            this.suppliercodeDataGridViewTextBoxColumn.HeaderText = "Supplier Code";
-            this.suppliercodeDataGridViewTextBoxColumn.Name = "suppliercodeDataGridViewTextBoxColumn";
-            this.suppliercodeDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // suppliernameDataGridViewTextBoxColumn
-            // 
-            this.suppliernameDataGridViewTextBoxColumn.DataPropertyName = "supplier_name";
-            this.suppliernameDataGridViewTextBoxColumn.HeaderText = "Name/Company";
-            this.suppliernameDataGridViewTextBoxColumn.Name = "suppliernameDataGridViewTextBoxColumn";
-            this.suppliernameDataGridViewTextBoxColumn.Width = 200;
-            // 
-            // supplieraddressDataGridViewTextBoxColumn
-            // 
-            this.supplieraddressDataGridViewTextBoxColumn.DataPropertyName = "supplier_address";
-            this.supplieraddressDataGridViewTextBoxColumn.HeaderText = "Address";
-            this.supplieraddressDataGridViewTextBoxColumn.Name = "supplieraddressDataGridViewTextBoxColumn";
-            this.supplieraddressDataGridViewTextBoxColumn.Width = 250;
-            // 
-            // suppliercitymunicipalityDataGridViewTextBoxColumn
-            // 
-            this.suppliercitymunicipalityDataGridViewTextBoxColumn.DataPropertyName = "supplier_city_municipality";
-            this.suppliercitymunicipalityDataGridViewTextBoxColumn.HeaderText = "City/Municipality";
-            this.suppliercitymunicipalityDataGridViewTextBoxColumn.Name = "suppliercitymunicipalityDataGridViewTextBoxColumn";
-            // 
-            // suppliercountryDataGridViewTextBoxColumn
-            // 
-            this.suppliercountryDataGridViewTextBoxColumn.DataPropertyName = "supplier_country";
-            this.suppliercountryDataGridViewTextBoxColumn.HeaderText = "Country";
-            this.suppliercountryDataGridViewTextBoxColumn.Name = "suppliercountryDataGridViewTextBoxColumn";
-            this.suppliercountryDataGridViewTextBoxColumn.Width = 150;
-            // 
-            // supplierzipcodeDataGridViewTextBoxColumn
-            // 
-            this.supplierzipcodeDataGridViewTextBoxColumn.DataPropertyName = "supplier_zipcode";
-            this.supplierzipcodeDataGridViewTextBoxColumn.HeaderText = "Zip Code";
-            this.supplierzipcodeDataGridViewTextBoxColumn.Name = "supplierzipcodeDataGridViewTextBoxColumn";
-            // 
-            // suppliercontactDataGridViewTextBoxColumn
-            // 
-            this.suppliercontactDataGridViewTextBoxColumn.DataPropertyName = "supplier_contact";
-            this.suppliercontactDataGridViewTextBoxColumn.HeaderText = "Contact No";
-            this.suppliercontactDataGridViewTextBoxColumn.Name = "suppliercontactDataGridViewTextBoxColumn";
-            this.suppliercontactDataGridViewTextBoxColumn.Width = 175;
-            // 
-            // suppliercontactpersonDataGridViewTextBoxColumn
-            // 
-            this.suppliercontactpersonDataGridViewTextBoxColumn.DataPropertyName = "supplier_contact_person";
-            this.suppliercontactpersonDataGridViewTextBoxColumn.HeaderText = "Contact Person";
-            this.suppliercontactpersonDataGridViewTextBoxColumn.Name = "suppliercontactpersonDataGridViewTextBoxColumn";
-            this.suppliercontactpersonDataGridViewTextBoxColumn.Width = 250;
-            // 
-            // suppliercpersonpositionDataGridViewTextBoxColumn
-            // 
-            this.suppliercpersonpositionDataGridViewTextBoxColumn.DataPropertyName = "supplier_cperson_position";
-            this.suppliercpersonpositionDataGridViewTextBoxColumn.HeaderText = "Position";
-            this.suppliercpersonpositionDataGridViewTextBoxColumn.Name = "suppliercpersonpositionDataGridViewTextBoxColumn";
-            this.suppliercpersonpositionDataGridViewTextBoxColumn.Width = 200;
             // 
             // inventorysupplierBindingSource
             // 
@@ -192,6 +149,8 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.btnDelete);
+            this.groupBox1.Controls.Add(this.btnUpdate);
             this.groupBox1.Controls.Add(this.btnXML);
             this.groupBox1.Controls.Add(this.label11);
             this.groupBox1.Controls.Add(this.panel1);
@@ -218,55 +177,88 @@
             this.groupBox1.Controls.Add(this.mCode);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(5, 257);
+            this.groupBox1.ForeColor = System.Drawing.Color.White;
+            this.groupBox1.Location = new System.Drawing.Point(5, 252);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(817, 170);
+            this.groupBox1.Size = new System.Drawing.Size(887, 170);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Add Supplier Details";
             // 
+            // btnXML
+            // 
+            this.btnXML.BackColor = System.Drawing.Color.MediumSeaGreen;
+            this.btnXML.FlatAppearance.BorderColor = System.Drawing.Color.MidnightBlue;
+            this.btnXML.FlatAppearance.MouseDownBackColor = System.Drawing.Color.MidnightBlue;
+            this.btnXML.FlatAppearance.MouseOverBackColor = System.Drawing.Color.MidnightBlue;
+            this.btnXML.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnXML.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnXML.Image = ((System.Drawing.Image)(resources.GetObject("btnXML.Image")));
+            this.btnXML.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnXML.Location = new System.Drawing.Point(715, 72);
+            this.btnXML.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnXML.Name = "btnXML";
+            this.btnXML.Size = new System.Drawing.Size(111, 32);
+            this.btnXML.TabIndex = 103;
+            this.btnXML.Text = "&XML Export";
+            this.btnXML.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnXML.UseVisualStyleBackColor = false;
+            this.btnXML.Click += new System.EventHandler(this.btnXML_Click);
+            // 
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Tahoma", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(744, 17);
+            this.label11.Font = new System.Drawing.Font("Segoe UI", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(735, 22);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(66, 16);
+            this.label11.Size = new System.Drawing.Size(57, 15);
             this.label11.TabIndex = 23;
             this.label11.Text = "Required";
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.Khaki;
-            this.panel1.Location = new System.Drawing.Point(726, 16);
+            this.panel1.Location = new System.Drawing.Point(715, 21);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(17, 19);
             this.panel1.TabIndex = 22;
             // 
             // btnClear
             // 
+            this.btnClear.BackColor = System.Drawing.Color.SlateGray;
+            this.btnClear.FlatAppearance.BorderColor = System.Drawing.Color.MidnightBlue;
+            this.btnClear.FlatAppearance.MouseDownBackColor = System.Drawing.Color.MidnightBlue;
+            this.btnClear.FlatAppearance.MouseOverBackColor = System.Drawing.Color.MidnightBlue;
+            this.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnClear.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClear.Image = ((System.Drawing.Image)(resources.GetObject("btnClear.Image")));
             this.btnClear.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnClear.Location = new System.Drawing.Point(719, 96);
+            this.btnClear.Location = new System.Drawing.Point(715, 106);
             this.btnClear.Name = "btnClear";
-            this.btnClear.Size = new System.Drawing.Size(48, 71);
+            this.btnClear.Size = new System.Drawing.Size(55, 60);
             this.btnClear.TabIndex = 20;
             this.btnClear.Text = "Clear";
             this.btnClear.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnClear.UseVisualStyleBackColor = true;
+            this.btnClear.UseVisualStyleBackColor = false;
             this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
             // btnAdd
             // 
+            this.btnAdd.BackColor = System.Drawing.Color.Yellow;
             this.btnAdd.Enabled = false;
+            this.btnAdd.FlatAppearance.BorderColor = System.Drawing.Color.MidnightBlue;
+            this.btnAdd.FlatAppearance.MouseDownBackColor = System.Drawing.Color.MidnightBlue;
+            this.btnAdd.FlatAppearance.MouseOverBackColor = System.Drawing.Color.MidnightBlue;
+            this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAdd.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAdd.Image = ((System.Drawing.Image)(resources.GetObject("btnAdd.Image")));
-            this.btnAdd.Location = new System.Drawing.Point(767, 96);
+            this.btnAdd.Location = new System.Drawing.Point(827, 106);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(47, 71);
+            this.btnAdd.Size = new System.Drawing.Size(55, 60);
             this.btnAdd.TabIndex = 21;
             this.btnAdd.Text = "Add";
             this.btnAdd.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.UseVisualStyleBackColor = false;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // label10
@@ -296,7 +288,7 @@
             // txtBoxCPosition
             // 
             this.txtBoxCPosition.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBoxCPosition.Location = new System.Drawing.Point(550, 142);
+            this.txtBoxCPosition.Location = new System.Drawing.Point(546, 142);
             this.txtBoxCPosition.MaxLength = 50;
             this.txtBoxCPosition.Name = "txtBoxCPosition";
             this.txtBoxCPosition.Size = new System.Drawing.Size(167, 23);
@@ -315,7 +307,7 @@
             // txtBoxCPerson
             // 
             this.txtBoxCPerson.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBoxCPerson.Location = new System.Drawing.Point(550, 118);
+            this.txtBoxCPerson.Location = new System.Drawing.Point(546, 118);
             this.txtBoxCPerson.MaxLength = 50;
             this.txtBoxCPerson.Name = "txtBoxCPerson";
             this.txtBoxCPerson.Size = new System.Drawing.Size(167, 23);
@@ -334,7 +326,7 @@
             // txtBoxContactNo
             // 
             this.txtBoxContactNo.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBoxContactNo.Location = new System.Drawing.Point(550, 94);
+            this.txtBoxContactNo.Location = new System.Drawing.Point(546, 94);
             this.txtBoxContactNo.MaxLength = 50;
             this.txtBoxContactNo.Name = "txtBoxContactNo";
             this.txtBoxContactNo.Size = new System.Drawing.Size(117, 23);
@@ -354,7 +346,7 @@
             // 
             this.txtBoxZipPos.BackColor = System.Drawing.Color.Khaki;
             this.txtBoxZipPos.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBoxZipPos.Location = new System.Drawing.Point(550, 70);
+            this.txtBoxZipPos.Location = new System.Drawing.Point(546, 70);
             this.txtBoxZipPos.MaxLength = 5;
             this.txtBoxZipPos.Name = "txtBoxZipPos";
             this.txtBoxZipPos.Size = new System.Drawing.Size(68, 23);
@@ -375,7 +367,7 @@
             // 
             this.txtBoxCountry.BackColor = System.Drawing.Color.Khaki;
             this.txtBoxCountry.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBoxCountry.Location = new System.Drawing.Point(550, 46);
+            this.txtBoxCountry.Location = new System.Drawing.Point(546, 46);
             this.txtBoxCountry.MaxLength = 50;
             this.txtBoxCountry.Name = "txtBoxCountry";
             this.txtBoxCountry.Size = new System.Drawing.Size(148, 23);
@@ -396,7 +388,7 @@
             // 
             this.txtBoxCityMun.BackColor = System.Drawing.Color.Khaki;
             this.txtBoxCityMun.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBoxCityMun.Location = new System.Drawing.Point(550, 22);
+            this.txtBoxCityMun.Location = new System.Drawing.Point(546, 22);
             this.txtBoxCityMun.MaxLength = 50;
             this.txtBoxCityMun.Name = "txtBoxCityMun";
             this.txtBoxCityMun.Size = new System.Drawing.Size(117, 23);
@@ -478,85 +470,121 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Supplier Code";
             // 
-            // groupBox3
-            // 
-            this.groupBox3.Controls.Add(this.btnUpdate);
-            this.groupBox3.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox3.Location = new System.Drawing.Point(828, 250);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(57, 76);
-            this.groupBox3.TabIndex = 64;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Update";
-            // 
             // btnUpdate
             // 
+            this.btnUpdate.BackColor = System.Drawing.Color.DarkOrange;
             this.btnUpdate.Enabled = false;
+            this.btnUpdate.FlatAppearance.BorderColor = System.Drawing.Color.MidnightBlue;
+            this.btnUpdate.FlatAppearance.MouseDownBackColor = System.Drawing.Color.MidnightBlue;
+            this.btnUpdate.FlatAppearance.MouseOverBackColor = System.Drawing.Color.MidnightBlue;
+            this.btnUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnUpdate.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnUpdate.Image = ((System.Drawing.Image)(resources.GetObject("btnUpdate.Image")));
             this.btnUpdate.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnUpdate.Location = new System.Drawing.Point(3, 15);
+            this.btnUpdate.Location = new System.Drawing.Point(827, 44);
             this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(50, 57);
+            this.btnUpdate.Size = new System.Drawing.Size(55, 60);
             this.btnUpdate.TabIndex = 62;
             this.btnUpdate.Text = "Update";
             this.btnUpdate.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnUpdate.UseVisualStyleBackColor = true;
+            this.btnUpdate.UseVisualStyleBackColor = false;
             this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.btnDelete);
-            this.groupBox2.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.Location = new System.Drawing.Point(828, 328);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(57, 76);
-            this.groupBox2.TabIndex = 65;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Delete";
             // 
             // btnDelete
             // 
+            this.btnDelete.BackColor = System.Drawing.Color.Crimson;
             this.btnDelete.Enabled = false;
+            this.btnDelete.FlatAppearance.BorderColor = System.Drawing.Color.MidnightBlue;
+            this.btnDelete.FlatAppearance.MouseDownBackColor = System.Drawing.Color.MidnightBlue;
+            this.btnDelete.FlatAppearance.MouseOverBackColor = System.Drawing.Color.MidnightBlue;
+            this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDelete.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDelete.Image = ((System.Drawing.Image)(resources.GetObject("btnDelete.Image")));
             this.btnDelete.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnDelete.Location = new System.Drawing.Point(3, 15);
+            this.btnDelete.Location = new System.Drawing.Point(771, 106);
             this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(50, 57);
+            this.btnDelete.Size = new System.Drawing.Size(55, 60);
             this.btnDelete.TabIndex = 62;
             this.btnDelete.Text = "Delete";
             this.btnDelete.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.UseVisualStyleBackColor = false;
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // inventory_supplierTableAdapter
             // 
             this.inventory_supplierTableAdapter.ClearBeforeFill = true;
             // 
-            // btnXML
+            // suppliercodeDataGridViewTextBoxColumn
             // 
-            this.btnXML.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnXML.Image = ((System.Drawing.Image)(resources.GetObject("btnXML.Image")));
-            this.btnXML.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnXML.Location = new System.Drawing.Point(716, 41);
-            this.btnXML.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.btnXML.Name = "btnXML";
-            this.btnXML.Size = new System.Drawing.Size(101, 32);
-            this.btnXML.TabIndex = 103;
-            this.btnXML.Text = "&XML Export";
-            this.btnXML.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnXML.UseVisualStyleBackColor = true;
-            this.btnXML.Click += new System.EventHandler(this.btnXML_Click);
+            this.suppliercodeDataGridViewTextBoxColumn.DataPropertyName = "supplier_code";
+            this.suppliercodeDataGridViewTextBoxColumn.HeaderText = "Supplier Code";
+            this.suppliercodeDataGridViewTextBoxColumn.Name = "suppliercodeDataGridViewTextBoxColumn";
+            this.suppliercodeDataGridViewTextBoxColumn.ReadOnly = true;
+            this.suppliercodeDataGridViewTextBoxColumn.Width = 120;
+            // 
+            // suppliernameDataGridViewTextBoxColumn
+            // 
+            this.suppliernameDataGridViewTextBoxColumn.DataPropertyName = "supplier_name";
+            this.suppliernameDataGridViewTextBoxColumn.HeaderText = "Name/Company";
+            this.suppliernameDataGridViewTextBoxColumn.Name = "suppliernameDataGridViewTextBoxColumn";
+            this.suppliernameDataGridViewTextBoxColumn.Width = 200;
+            // 
+            // supplieraddressDataGridViewTextBoxColumn
+            // 
+            this.supplieraddressDataGridViewTextBoxColumn.DataPropertyName = "supplier_address";
+            this.supplieraddressDataGridViewTextBoxColumn.HeaderText = "Address";
+            this.supplieraddressDataGridViewTextBoxColumn.Name = "supplieraddressDataGridViewTextBoxColumn";
+            this.supplieraddressDataGridViewTextBoxColumn.Width = 250;
+            // 
+            // suppliercitymunicipalityDataGridViewTextBoxColumn
+            // 
+            this.suppliercitymunicipalityDataGridViewTextBoxColumn.DataPropertyName = "supplier_city_municipality";
+            this.suppliercitymunicipalityDataGridViewTextBoxColumn.HeaderText = "City/Municipality";
+            this.suppliercitymunicipalityDataGridViewTextBoxColumn.Name = "suppliercitymunicipalityDataGridViewTextBoxColumn";
+            // 
+            // suppliercountryDataGridViewTextBoxColumn
+            // 
+            this.suppliercountryDataGridViewTextBoxColumn.DataPropertyName = "supplier_country";
+            this.suppliercountryDataGridViewTextBoxColumn.HeaderText = "Country";
+            this.suppliercountryDataGridViewTextBoxColumn.Name = "suppliercountryDataGridViewTextBoxColumn";
+            this.suppliercountryDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // supplierzipcodeDataGridViewTextBoxColumn
+            // 
+            this.supplierzipcodeDataGridViewTextBoxColumn.DataPropertyName = "supplier_zipcode";
+            this.supplierzipcodeDataGridViewTextBoxColumn.HeaderText = "Zip Code";
+            this.supplierzipcodeDataGridViewTextBoxColumn.Name = "supplierzipcodeDataGridViewTextBoxColumn";
+            // 
+            // suppliercontactDataGridViewTextBoxColumn
+            // 
+            this.suppliercontactDataGridViewTextBoxColumn.DataPropertyName = "supplier_contact";
+            this.suppliercontactDataGridViewTextBoxColumn.HeaderText = "Contact No";
+            this.suppliercontactDataGridViewTextBoxColumn.Name = "suppliercontactDataGridViewTextBoxColumn";
+            this.suppliercontactDataGridViewTextBoxColumn.Width = 175;
+            // 
+            // suppliercontactpersonDataGridViewTextBoxColumn
+            // 
+            this.suppliercontactpersonDataGridViewTextBoxColumn.DataPropertyName = "supplier_contact_person";
+            this.suppliercontactpersonDataGridViewTextBoxColumn.HeaderText = "Contact Person";
+            this.suppliercontactpersonDataGridViewTextBoxColumn.Name = "suppliercontactpersonDataGridViewTextBoxColumn";
+            this.suppliercontactpersonDataGridViewTextBoxColumn.Width = 250;
+            // 
+            // suppliercpersonpositionDataGridViewTextBoxColumn
+            // 
+            this.suppliercpersonpositionDataGridViewTextBoxColumn.DataPropertyName = "supplier_cperson_position";
+            this.suppliercpersonpositionDataGridViewTextBoxColumn.HeaderText = "Position";
+            this.suppliercpersonpositionDataGridViewTextBoxColumn.Name = "suppliercpersonpositionDataGridViewTextBoxColumn";
+            this.suppliercpersonpositionDataGridViewTextBoxColumn.Width = 200;
             // 
             // mdiSupplier
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(888, 431);
-            this.Controls.Add(this.groupBox2);
-            this.Controls.Add(this.groupBox3);
+            this.BackColor = System.Drawing.Color.MidnightBlue;
+            this.ClientSize = new System.Drawing.Size(896, 426);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.dataGridView1);
-            this.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
@@ -568,8 +596,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.npos_dbDataSet)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            this.groupBox3.ResumeLayout(false);
-            this.groupBox2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -602,13 +628,13 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button btnClear;
         private System.Windows.Forms.Button btnAdd;
-        private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Button btnUpdate;
-        private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Button btnDelete;
         private npos_dbDataSet npos_dbDataSet;
         private System.Windows.Forms.BindingSource inventorysupplierBindingSource;
         private npos_dbDataSetTableAdapters.inventory_supplierTableAdapter inventory_supplierTableAdapter;
+        private System.Windows.Forms.Button btnXML;
+        private System.Windows.Forms.SaveFileDialog saveFileDialog1;
         private System.Windows.Forms.DataGridViewTextBoxColumn suppliercodeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn suppliernameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn supplieraddressDataGridViewTextBoxColumn;
@@ -618,7 +644,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn suppliercontactDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn suppliercontactpersonDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn suppliercpersonpositionDataGridViewTextBoxColumn;
-        private System.Windows.Forms.Button btnXML;
-        private System.Windows.Forms.SaveFileDialog saveFileDialog1;
     }
 }
