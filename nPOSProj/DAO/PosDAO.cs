@@ -39,16 +39,18 @@ namespace nPOSProj.DAO
                 con.Close();
             }
         }
-        public Int32 GenerateOR()
+        public Int32 GenerateOR(String pos_terminal)
         {
             con = new MySqlConnection();
             dbcon = new Conf.dbs();
             con.ConnectionString = dbcon.getConnectionString();
-            String query = "SELECT COUNT(*) AS a FROM pos_store";
+            String query = "SELECT COUNT(*) AS a FROM pos_store ";
+            query += "WHERE pos_terminal = ?pos_terminal";
             try
             {
                 con.Open();
                 MySqlCommand cmd = new MySqlCommand(query, con);
+                cmd.Parameters.AddWithValue("?pos_terminal", pos_terminal);
                 cmd.ExecuteScalar();
                 MySqlDataReader rdr = cmd.ExecuteReader();
                 if (rdr.Read())

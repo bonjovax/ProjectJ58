@@ -179,10 +179,10 @@ namespace nPOSProj
                     frmLogin lg = new frmLogin(); //we'll use that ^_^
                     //
                     String userName = frmLogin.User.user_name;
+                    pos.Pos_terminal = lg.tN;
                     lblSeriesNo.Text = pos.GetOrNo().ToString();
                     OrNo = pos.GetOrNo();
                     pos.Pos_orno = pos.GetOrNo();
-                    pos.Pos_terminal = lg.tN;
                     pos.Pos_date = Convert.ToDateTime(DateTime.Now.ToString("yyyy-MM-dd"));
                     pos.Pos_time = Convert.ToDateTime(DateTime.Now.ToString("HH:mm:ss"));
                     pos.Pos_user = userName;

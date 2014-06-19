@@ -228,8 +228,8 @@ namespace nPOSProj.VO
         {
             Int32 Or;
             POSDAO = new DAO.PosDAO();
-            POSDAO.GenerateOR();
-            Or = POSDAO.GenerateOR();
+            POSDAO.GenerateOR(Pos_terminal);
+            Or = POSDAO.GenerateOR(Pos_terminal);
             return Or + 1;
         }
 
