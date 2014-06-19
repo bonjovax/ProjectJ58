@@ -1093,6 +1093,7 @@ namespace nPOSProj
                             pos.Pos_tax_amt = a;
                             pos.Pos_total_amt = totalVar;
                         }
+                        lblTAXamt.Text = v2.ToString("###,###,##0.00");
                         //Update Data
                         pos.Pos_orno = OrNo;
                         pos.Pos_ean = uEan;
