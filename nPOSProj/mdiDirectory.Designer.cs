@@ -30,7 +30,6 @@
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -57,7 +56,7 @@
             // 
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.OrangeRed;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Firebrick;
             this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
             this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
@@ -71,26 +70,21 @@
             this.Lastname,
             this.AccountBalance});
             dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.Color.Teal;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.LimeGreen;
             dataGridViewCellStyle8.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle8.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.DarkGoldenrod;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.Black;
             dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.White;
             dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle8;
             this.dataGridView1.GridColor = System.Drawing.Color.Black;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 39);
+            this.dataGridView1.Location = new System.Drawing.Point(0, 41);
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
-            dataGridViewCellStyle9.BackColor = System.Drawing.Color.Gainsboro;
-            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.White;
-            this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle9;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(820, 424);
+            this.dataGridView1.Size = new System.Drawing.Size(820, 450);
             this.dataGridView1.TabIndex = 6;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             this.dataGridView1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellDoubleClick);
@@ -168,7 +162,7 @@
             this.btnDelete.Location = new System.Drawing.Point(138, -1);
             this.btnDelete.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(79, 40);
+            this.btnDelete.Size = new System.Drawing.Size(79, 42);
             this.btnDelete.TabIndex = 10;
             this.btnDelete.Text = "&Delete";
             this.btnDelete.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -191,7 +185,7 @@
             this.btnFilter.Location = new System.Drawing.Point(70, -1);
             this.btnFilter.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnFilter.Name = "btnFilter";
-            this.btnFilter.Size = new System.Drawing.Size(69, 40);
+            this.btnFilter.Size = new System.Drawing.Size(69, 42);
             this.btnFilter.TabIndex = 8;
             this.btnFilter.Text = "&Filter";
             this.btnFilter.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -214,7 +208,7 @@
             this.btnNew.Location = new System.Drawing.Point(-1, -1);
             this.btnNew.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnNew.Name = "btnNew";
-            this.btnNew.Size = new System.Drawing.Size(72, 40);
+            this.btnNew.Size = new System.Drawing.Size(72, 42);
             this.btnNew.TabIndex = 7;
             this.btnNew.Text = "&New";
             this.btnNew.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -237,7 +231,7 @@
             this.btnXML.Location = new System.Drawing.Point(217, -1);
             this.btnXML.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnXML.Name = "btnXML";
-            this.btnXML.Size = new System.Drawing.Size(106, 40);
+            this.btnXML.Size = new System.Drawing.Size(106, 42);
             this.btnXML.TabIndex = 11;
             this.btnXML.Text = "&XML Export";
             this.btnXML.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -246,17 +240,17 @@
             // 
             // mdiDirectory
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(164)))), ((int)(((byte)(0)))), ((int)(((byte)(171)))));
-            this.ClientSize = new System.Drawing.Size(820, 465);
+            this.ClientSize = new System.Drawing.Size(820, 494);
             this.Controls.Add(this.btnXML);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnFilter);
             this.Controls.Add(this.btnNew);
             this.Controls.Add(this.dataGridView1);
-            this.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.MaximizeBox = false;
