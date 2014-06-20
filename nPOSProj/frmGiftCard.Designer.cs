@@ -307,7 +307,7 @@
             this.txtBoxCardNo.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtBoxCardNo.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtBoxCardNo.Location = new System.Drawing.Point(84, 19);
-            this.txtBoxCardNo.MaxLength = 38;
+            this.txtBoxCardNo.MaxLength = 15;
             this.txtBoxCardNo.Name = "txtBoxCardNo";
             this.txtBoxCardNo.Size = new System.Drawing.Size(417, 26);
             this.txtBoxCardNo.TabIndex = 0;
