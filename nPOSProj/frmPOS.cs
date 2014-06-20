@@ -760,7 +760,7 @@ namespace nPOSProj
                                     {
                                         if (TaxT == "V")
                                         {
-                                            pos.Pos_vatable = vATable;
+                                            pos.Pos_vatable = v1;
                                             pos.Pos_vex = vExempt;
                                             pos.Pos_vatz = vZero;
                                             lblVatable.Text = v1.ToString("#,###,##0.00");
