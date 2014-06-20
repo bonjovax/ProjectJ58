@@ -157,6 +157,7 @@
             // bcSave
             // 
             this.bcSave.BackColor = System.Drawing.Color.DimGray;
+            this.bcSave.Cursor = System.Windows.Forms.Cursors.Hand;
             this.bcSave.Enabled = false;
             this.bcSave.FlatAppearance.BorderColor = System.Drawing.Color.Maroon;
             this.bcSave.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Maroon;
@@ -172,6 +173,7 @@
             // btnXML
             // 
             this.btnXML.BackColor = System.Drawing.Color.LimeGreen;
+            this.btnXML.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnXML.FlatAppearance.BorderColor = System.Drawing.Color.Maroon;
             this.btnXML.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Maroon;
             this.btnXML.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Maroon;
@@ -201,6 +203,7 @@
             // btnDelete
             // 
             this.btnDelete.BackColor = System.Drawing.Color.Teal;
+            this.btnDelete.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnDelete.Enabled = false;
             this.btnDelete.FlatAppearance.BorderColor = System.Drawing.Color.Maroon;
             this.btnDelete.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Maroon;
@@ -220,6 +223,7 @@
             // btnAdd
             // 
             this.btnAdd.BackColor = System.Drawing.Color.Chocolate;
+            this.btnAdd.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnAdd.Enabled = false;
             this.btnAdd.FlatAppearance.BorderColor = System.Drawing.Color.Maroon;
             this.btnAdd.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Maroon;
