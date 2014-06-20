@@ -30,16 +30,16 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(mdiStocks));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle31 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle38 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle32 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle33 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle34 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle35 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle36 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle37 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle39 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle40 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.btnXML = new System.Windows.Forms.Button();
@@ -142,11 +142,11 @@
             this.tabControl1.Appearance = System.Windows.Forms.TabAppearance.Buttons;
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tabControl1.Location = new System.Drawing.Point(1, 3);
+            this.tabControl1.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(832, 409);
+            this.tabControl1.Size = new System.Drawing.Size(832, 410);
             this.tabControl1.TabIndex = 0;
             // 
             // tabPage1
@@ -158,10 +158,10 @@
             this.tabPage1.Controls.Add(this.groupBox4);
             this.tabPage1.Controls.Add(this.dataGridView2);
             this.tabPage1.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tabPage1.Location = new System.Drawing.Point(4, 30);
+            this.tabPage1.Location = new System.Drawing.Point(4, 32);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(824, 375);
+            this.tabPage1.Size = new System.Drawing.Size(824, 374);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Stocks";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -186,9 +186,9 @@
             this.groupBox7.Controls.Add(this.btnTransfer);
             this.groupBox7.Controls.Add(this.txtBoxTransferQty);
             this.groupBox7.Controls.Add(this.label13);
-            this.groupBox7.Location = new System.Drawing.Point(648, 180);
+            this.groupBox7.Location = new System.Drawing.Point(656, 180);
             this.groupBox7.Name = "groupBox7";
-            this.groupBox7.Size = new System.Drawing.Size(173, 157);
+            this.groupBox7.Size = new System.Drawing.Size(163, 157);
             this.groupBox7.TabIndex = 70;
             this.groupBox7.TabStop = false;
             this.groupBox7.Text = "Transfer Stocks to Items";
@@ -233,7 +233,7 @@
             // 
             this.groupBox5.Controls.Add(this.btnSDelete);
             this.groupBox5.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox5.Location = new System.Drawing.Point(589, 296);
+            this.groupBox5.Location = new System.Drawing.Point(595, 296);
             this.groupBox5.Name = "groupBox5";
             this.groupBox5.Size = new System.Drawing.Size(57, 76);
             this.groupBox5.TabIndex = 69;
@@ -258,7 +258,7 @@
             // 
             this.groupBox6.Controls.Add(this.btnSUpdate);
             this.groupBox6.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox6.Location = new System.Drawing.Point(589, 219);
+            this.groupBox6.Location = new System.Drawing.Point(595, 219);
             this.groupBox6.Name = "groupBox6";
             this.groupBox6.Size = new System.Drawing.Size(57, 76);
             this.groupBox6.TabIndex = 68;
@@ -281,6 +281,7 @@
             // 
             // groupBox4
             // 
+            this.groupBox4.BackColor = System.Drawing.Color.Navy;
             this.groupBox4.Controls.Add(this.l3);
             this.groupBox4.Controls.Add(this.l2);
             this.groupBox4.Controls.Add(this.l1);
@@ -306,9 +307,11 @@
             this.groupBox4.Controls.Add(this.label4);
             this.groupBox4.Controls.Add(this.txtBoxStockCode);
             this.groupBox4.Controls.Add(this.label3);
-            this.groupBox4.Location = new System.Drawing.Point(5, 183);
+            this.groupBox4.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox4.ForeColor = System.Drawing.Color.White;
+            this.groupBox4.Location = new System.Drawing.Point(6, 183);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(581, 189);
+            this.groupBox4.Size = new System.Drawing.Size(585, 189);
             this.groupBox4.TabIndex = 101;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Add Stocks";
@@ -348,20 +351,24 @@
             // 
             // btnSClear
             // 
+            this.btnSClear.BackColor = System.Drawing.Color.GreenYellow;
+            this.btnSClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSClear.Image = ((System.Drawing.Image)(resources.GetObject("btnSClear.Image")));
             this.btnSClear.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnSClear.Location = new System.Drawing.Point(483, 116);
+            this.btnSClear.Location = new System.Drawing.Point(479, 116);
             this.btnSClear.Name = "btnSClear";
             this.btnSClear.Size = new System.Drawing.Size(48, 71);
             this.btnSClear.TabIndex = 11;
             this.btnSClear.Text = "Clear";
             this.btnSClear.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnSClear.UseVisualStyleBackColor = true;
+            this.btnSClear.UseVisualStyleBackColor = false;
             this.btnSClear.Click += new System.EventHandler(this.btnSClear_Click);
             // 
             // btnSAdd
             // 
+            this.btnSAdd.BackColor = System.Drawing.Color.Red;
             this.btnSAdd.Enabled = false;
+            this.btnSAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSAdd.Image = ((System.Drawing.Image)(resources.GetObject("btnSAdd.Image")));
             this.btnSAdd.Location = new System.Drawing.Point(531, 116);
             this.btnSAdd.Name = "btnSAdd";
@@ -369,7 +376,7 @@
             this.btnSAdd.TabIndex = 12;
             this.btnSAdd.Text = "Add";
             this.btnSAdd.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnSAdd.UseVisualStyleBackColor = true;
+            this.btnSAdd.UseVisualStyleBackColor = false;
             this.btnSAdd.Click += new System.EventHandler(this.btnSAdd_Click);
             // 
             // txtBoxTPrice
@@ -380,7 +387,7 @@
             this.txtBoxTPrice.MaxLength = 17;
             this.txtBoxTPrice.Name = "txtBoxTPrice";
             this.txtBoxTPrice.ReadOnly = true;
-            this.txtBoxTPrice.Size = new System.Drawing.Size(96, 22);
+            this.txtBoxTPrice.Size = new System.Drawing.Size(106, 22);
             this.txtBoxTPrice.TabIndex = 10;
             this.txtBoxTPrice.Text = "0.00";
             this.txtBoxTPrice.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -393,7 +400,7 @@
             this.txtBoxSPrice.Location = new System.Drawing.Point(472, 44);
             this.txtBoxSPrice.MaxLength = 15;
             this.txtBoxSPrice.Name = "txtBoxSPrice";
-            this.txtBoxSPrice.Size = new System.Drawing.Size(96, 22);
+            this.txtBoxSPrice.Size = new System.Drawing.Size(106, 22);
             this.txtBoxSPrice.TabIndex = 8;
             this.txtBoxSPrice.Text = "0.00";
             this.txtBoxSPrice.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -427,7 +434,7 @@
             this.txtBoxCPrice.Location = new System.Drawing.Point(472, 21);
             this.txtBoxCPrice.MaxLength = 15;
             this.txtBoxCPrice.Name = "txtBoxCPrice";
-            this.txtBoxCPrice.Size = new System.Drawing.Size(96, 22);
+            this.txtBoxCPrice.Size = new System.Drawing.Size(106, 22);
             this.txtBoxCPrice.TabIndex = 7;
             this.txtBoxCPrice.Text = "0.00";
             this.txtBoxCPrice.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -474,7 +481,7 @@
             this.txtBoxQty.MaxLength = 16;
             this.txtBoxQty.Name = "txtBoxQty";
             this.txtBoxQty.ReadOnly = true;
-            this.txtBoxQty.Size = new System.Drawing.Size(71, 22);
+            this.txtBoxQty.Size = new System.Drawing.Size(81, 22);
             this.txtBoxQty.TabIndex = 9;
             this.txtBoxQty.Text = "0";
             this.txtBoxQty.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -632,8 +639,8 @@
             this.dataGridView2.AllowUserToAddRows = false;
             this.dataGridView2.AllowUserToDeleteRows = false;
             this.dataGridView2.AllowUserToResizeRows = false;
-            dataGridViewCellStyle31.BackColor = System.Drawing.Color.White;
-            this.dataGridView2.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle31;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            this.dataGridView2.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView2.AutoGenerateColumns = false;
             this.dataGridView2.BackgroundColor = System.Drawing.Color.White;
             this.dataGridView2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
@@ -655,10 +662,10 @@
             this.dataGridView2.GridColor = System.Drawing.Color.Black;
             this.dataGridView2.Location = new System.Drawing.Point(5, 4);
             this.dataGridView2.Name = "dataGridView2";
-            dataGridViewCellStyle38.BackColor = System.Drawing.Color.Silver;
-            dataGridViewCellStyle38.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            dataGridViewCellStyle38.SelectionForeColor = System.Drawing.Color.Black;
-            this.dataGridView2.RowsDefaultCellStyle = dataGridViewCellStyle38;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.Silver;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.Black;
+            this.dataGridView2.RowsDefaultCellStyle = dataGridViewCellStyle8;
             this.dataGridView2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView2.Size = new System.Drawing.Size(816, 173);
             this.dataGridView2.TabIndex = 23;
@@ -670,8 +677,8 @@
             // stockidDataGridViewTextBoxColumn
             // 
             this.stockidDataGridViewTextBoxColumn.DataPropertyName = "stock_id";
-            dataGridViewCellStyle32.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.stockidDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle32;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.stockidDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle2;
             this.stockidDataGridViewTextBoxColumn.HeaderText = "No";
             this.stockidDataGridViewTextBoxColumn.Name = "stockidDataGridViewTextBoxColumn";
             this.stockidDataGridViewTextBoxColumn.ReadOnly = true;
@@ -680,9 +687,9 @@
             // gvTxtBoxQty
             // 
             this.gvTxtBoxQty.DataPropertyName = "stock_quantity";
-            dataGridViewCellStyle33.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle33.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gvTxtBoxQty.DefaultCellStyle = dataGridViewCellStyle33;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gvTxtBoxQty.DefaultCellStyle = dataGridViewCellStyle3;
             this.gvTxtBoxQty.HeaderText = "Qty";
             this.gvTxtBoxQty.MaxInputLength = 6;
             this.gvTxtBoxQty.Name = "gvTxtBoxQty";
@@ -705,28 +712,28 @@
             // stockuomDataGridViewTextBoxColumn
             // 
             this.stockuomDataGridViewTextBoxColumn.DataPropertyName = "stock_uom";
-            dataGridViewCellStyle34.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.stockuomDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle34;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.stockuomDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle4;
             this.stockuomDataGridViewTextBoxColumn.HeaderText = "Unit";
             this.stockuomDataGridViewTextBoxColumn.Name = "stockuomDataGridViewTextBoxColumn";
             // 
             // stockcostpriceDataGridViewTextBoxColumn
             // 
             this.stockcostpriceDataGridViewTextBoxColumn.DataPropertyName = "stock_cost_price";
-            dataGridViewCellStyle35.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle35.Format = "N2";
-            dataGridViewCellStyle35.NullValue = null;
-            this.stockcostpriceDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle35;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.Format = "N2";
+            dataGridViewCellStyle5.NullValue = null;
+            this.stockcostpriceDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle5;
             this.stockcostpriceDataGridViewTextBoxColumn.HeaderText = "Cost Price";
             this.stockcostpriceDataGridViewTextBoxColumn.Name = "stockcostpriceDataGridViewTextBoxColumn";
             // 
             // stocksellingpriceDataGridViewTextBoxColumn
             // 
             this.stocksellingpriceDataGridViewTextBoxColumn.DataPropertyName = "stock_selling_price";
-            dataGridViewCellStyle36.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle36.Format = "N2";
-            dataGridViewCellStyle36.NullValue = null;
-            this.stocksellingpriceDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle36;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle6.Format = "N2";
+            dataGridViewCellStyle6.NullValue = null;
+            this.stocksellingpriceDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle6;
             this.stocksellingpriceDataGridViewTextBoxColumn.HeaderText = "Selling Price";
             this.stocksellingpriceDataGridViewTextBoxColumn.Name = "stocksellingpriceDataGridViewTextBoxColumn";
             this.stocksellingpriceDataGridViewTextBoxColumn.Width = 125;
@@ -734,11 +741,11 @@
             // totalprice
             // 
             this.totalprice.DataPropertyName = "stock_total_price";
-            dataGridViewCellStyle37.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle37.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle37.Format = "N2";
-            dataGridViewCellStyle37.NullValue = null;
-            this.totalprice.DefaultCellStyle = dataGridViewCellStyle37;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.Format = "N2";
+            dataGridViewCellStyle7.NullValue = null;
+            this.totalprice.DefaultCellStyle = dataGridViewCellStyle7;
             this.totalprice.HeaderText = "Total Price";
             this.totalprice.Name = "totalprice";
             this.totalprice.ReadOnly = true;
@@ -930,8 +937,8 @@
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.AllowUserToResizeRows = false;
-            dataGridViewCellStyle39.BackColor = System.Drawing.Color.White;
-            this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle39;
+            dataGridViewCellStyle9.BackColor = System.Drawing.Color.White;
+            this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle9;
             this.dataGridView1.AutoGenerateColumns = false;
             this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
             this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
@@ -944,10 +951,10 @@
             this.dataGridView1.GridColor = System.Drawing.Color.Black;
             this.dataGridView1.Location = new System.Drawing.Point(5, 4);
             this.dataGridView1.Name = "dataGridView1";
-            dataGridViewCellStyle40.BackColor = System.Drawing.Color.Silver;
-            dataGridViewCellStyle40.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            dataGridViewCellStyle40.SelectionForeColor = System.Drawing.Color.Black;
-            this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle40;
+            dataGridViewCellStyle10.BackColor = System.Drawing.Color.Silver;
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.Color.Black;
+            this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle10;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(816, 173);
             this.dataGridView1.TabIndex = 24;
@@ -999,9 +1006,10 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.DarkRed;
             this.ClientSize = new System.Drawing.Size(831, 410);
             this.Controls.Add(this.tabControl1);
-            this.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
