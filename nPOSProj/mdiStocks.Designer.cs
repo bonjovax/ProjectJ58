@@ -29,19 +29,20 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(mdiStocks));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle31 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle38 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle32 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle33 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle34 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle35 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle36 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle37 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle39 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle40 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.btnXML = new System.Windows.Forms.Button();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
             this.btnTransfer = new System.Windows.Forms.Button();
             this.txtBoxTransferQty = new System.Windows.Forms.TextBox();
@@ -114,7 +115,6 @@
             this.inventory_stocksTableAdapter = new nPOSProj.npos_dbDataSetTableAdapters.inventory_stocksTableAdapter();
             this.inventory_supplierTableAdapter = new nPOSProj.npos_dbDataSetTableAdapters.inventory_supplierTableAdapter();
             this.inventory_categoryTableAdapter = new nPOSProj.npos_dbDataSetTableAdapters.inventory_categoryTableAdapter();
-            this.btnXML = new System.Windows.Forms.Button();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -166,6 +166,21 @@
             this.tabPage1.Text = "Stocks";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
+            // btnXML
+            // 
+            this.btnXML.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnXML.Image = ((System.Drawing.Image)(resources.GetObject("btnXML.Image")));
+            this.btnXML.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnXML.Location = new System.Drawing.Point(682, 339);
+            this.btnXML.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnXML.Name = "btnXML";
+            this.btnXML.Size = new System.Drawing.Size(101, 32);
+            this.btnXML.TabIndex = 102;
+            this.btnXML.Text = "&XML Export";
+            this.btnXML.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnXML.UseVisualStyleBackColor = true;
+            this.btnXML.Click += new System.EventHandler(this.btnXML_Click);
+            // 
             // groupBox7
             // 
             this.groupBox7.Controls.Add(this.btnTransfer);
@@ -203,6 +218,7 @@
             this.txtBoxTransferQty.TabIndex = 15;
             this.txtBoxTransferQty.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtBoxTransferQty.TextChanged += new System.EventHandler(this.txtBoxTransferQty_TextChanged);
+            this.txtBoxTransferQty.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtBoxTransferQty_KeyPress);
             // 
             // label13
             // 
@@ -382,6 +398,7 @@
             this.txtBoxSPrice.Text = "0.00";
             this.txtBoxSPrice.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtBoxSPrice.TextChanged += new System.EventHandler(this.txtBoxSPrice_TextChanged);
+            this.txtBoxSPrice.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtBoxSPrice_KeyPress);
             // 
             // label12
             // 
@@ -415,6 +432,7 @@
             this.txtBoxCPrice.Text = "0.00";
             this.txtBoxCPrice.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtBoxCPrice.TextChanged += new System.EventHandler(this.txtBoxCPrice_TextChanged);
+            this.txtBoxCPrice.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtBoxCPrice_KeyPress);
             // 
             // label10
             // 
@@ -461,6 +479,7 @@
             this.txtBoxQty.Text = "0";
             this.txtBoxQty.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtBoxQty.TextChanged += new System.EventHandler(this.txtBoxQty_TextChanged);
+            this.txtBoxQty.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtBoxQty_KeyPress);
             // 
             // label8
             // 
@@ -613,8 +632,8 @@
             this.dataGridView2.AllowUserToAddRows = false;
             this.dataGridView2.AllowUserToDeleteRows = false;
             this.dataGridView2.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
-            this.dataGridView2.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle31.BackColor = System.Drawing.Color.White;
+            this.dataGridView2.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle31;
             this.dataGridView2.AutoGenerateColumns = false;
             this.dataGridView2.BackgroundColor = System.Drawing.Color.White;
             this.dataGridView2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
@@ -636,10 +655,10 @@
             this.dataGridView2.GridColor = System.Drawing.Color.Black;
             this.dataGridView2.Location = new System.Drawing.Point(5, 4);
             this.dataGridView2.Name = "dataGridView2";
-            dataGridViewCellStyle8.BackColor = System.Drawing.Color.Silver;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.Black;
-            this.dataGridView2.RowsDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle38.BackColor = System.Drawing.Color.Silver;
+            dataGridViewCellStyle38.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            dataGridViewCellStyle38.SelectionForeColor = System.Drawing.Color.Black;
+            this.dataGridView2.RowsDefaultCellStyle = dataGridViewCellStyle38;
             this.dataGridView2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView2.Size = new System.Drawing.Size(816, 173);
             this.dataGridView2.TabIndex = 23;
@@ -651,8 +670,8 @@
             // stockidDataGridViewTextBoxColumn
             // 
             this.stockidDataGridViewTextBoxColumn.DataPropertyName = "stock_id";
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.stockidDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle32.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.stockidDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle32;
             this.stockidDataGridViewTextBoxColumn.HeaderText = "No";
             this.stockidDataGridViewTextBoxColumn.Name = "stockidDataGridViewTextBoxColumn";
             this.stockidDataGridViewTextBoxColumn.ReadOnly = true;
@@ -661,9 +680,9 @@
             // gvTxtBoxQty
             // 
             this.gvTxtBoxQty.DataPropertyName = "stock_quantity";
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gvTxtBoxQty.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle33.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle33.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gvTxtBoxQty.DefaultCellStyle = dataGridViewCellStyle33;
             this.gvTxtBoxQty.HeaderText = "Qty";
             this.gvTxtBoxQty.MaxInputLength = 6;
             this.gvTxtBoxQty.Name = "gvTxtBoxQty";
@@ -686,28 +705,28 @@
             // stockuomDataGridViewTextBoxColumn
             // 
             this.stockuomDataGridViewTextBoxColumn.DataPropertyName = "stock_uom";
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.stockuomDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle34.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.stockuomDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle34;
             this.stockuomDataGridViewTextBoxColumn.HeaderText = "Unit";
             this.stockuomDataGridViewTextBoxColumn.Name = "stockuomDataGridViewTextBoxColumn";
             // 
             // stockcostpriceDataGridViewTextBoxColumn
             // 
             this.stockcostpriceDataGridViewTextBoxColumn.DataPropertyName = "stock_cost_price";
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle5.Format = "N2";
-            dataGridViewCellStyle5.NullValue = null;
-            this.stockcostpriceDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle35.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle35.Format = "N2";
+            dataGridViewCellStyle35.NullValue = null;
+            this.stockcostpriceDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle35;
             this.stockcostpriceDataGridViewTextBoxColumn.HeaderText = "Cost Price";
             this.stockcostpriceDataGridViewTextBoxColumn.Name = "stockcostpriceDataGridViewTextBoxColumn";
             // 
             // stocksellingpriceDataGridViewTextBoxColumn
             // 
             this.stocksellingpriceDataGridViewTextBoxColumn.DataPropertyName = "stock_selling_price";
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle6.Format = "N2";
-            dataGridViewCellStyle6.NullValue = null;
-            this.stocksellingpriceDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle36.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle36.Format = "N2";
+            dataGridViewCellStyle36.NullValue = null;
+            this.stocksellingpriceDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle36;
             this.stocksellingpriceDataGridViewTextBoxColumn.HeaderText = "Selling Price";
             this.stocksellingpriceDataGridViewTextBoxColumn.Name = "stocksellingpriceDataGridViewTextBoxColumn";
             this.stocksellingpriceDataGridViewTextBoxColumn.Width = 125;
@@ -715,11 +734,11 @@
             // totalprice
             // 
             this.totalprice.DataPropertyName = "stock_total_price";
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle7.Format = "N2";
-            dataGridViewCellStyle7.NullValue = null;
-            this.totalprice.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle37.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle37.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle37.Format = "N2";
+            dataGridViewCellStyle37.NullValue = null;
+            this.totalprice.DefaultCellStyle = dataGridViewCellStyle37;
             this.totalprice.HeaderText = "Total Price";
             this.totalprice.Name = "totalprice";
             this.totalprice.ReadOnly = true;
@@ -911,8 +930,8 @@
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.AllowUserToResizeRows = false;
-            dataGridViewCellStyle9.BackColor = System.Drawing.Color.White;
-            this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle39.BackColor = System.Drawing.Color.White;
+            this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle39;
             this.dataGridView1.AutoGenerateColumns = false;
             this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
             this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
@@ -925,10 +944,10 @@
             this.dataGridView1.GridColor = System.Drawing.Color.Black;
             this.dataGridView1.Location = new System.Drawing.Point(5, 4);
             this.dataGridView1.Name = "dataGridView1";
-            dataGridViewCellStyle10.BackColor = System.Drawing.Color.Silver;
-            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.Color.Black;
-            this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle40.BackColor = System.Drawing.Color.Silver;
+            dataGridViewCellStyle40.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            dataGridViewCellStyle40.SelectionForeColor = System.Drawing.Color.Black;
+            this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle40;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(816, 173);
             this.dataGridView1.TabIndex = 24;
@@ -975,21 +994,6 @@
             // inventory_categoryTableAdapter
             // 
             this.inventory_categoryTableAdapter.ClearBeforeFill = true;
-            // 
-            // btnXML
-            // 
-            this.btnXML.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnXML.Image = ((System.Drawing.Image)(resources.GetObject("btnXML.Image")));
-            this.btnXML.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnXML.Location = new System.Drawing.Point(682, 339);
-            this.btnXML.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.btnXML.Name = "btnXML";
-            this.btnXML.Size = new System.Drawing.Size(101, 32);
-            this.btnXML.TabIndex = 102;
-            this.btnXML.Text = "&XML Export";
-            this.btnXML.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnXML.UseVisualStyleBackColor = true;
-            this.btnXML.Click += new System.EventHandler(this.btnXML_Click);
             // 
             // mdiStocks
             // 
