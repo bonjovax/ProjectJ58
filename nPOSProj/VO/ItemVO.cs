@@ -103,6 +103,11 @@ namespace nPOSProj.VO
             EAN = items.pushEan(kit_name);
             return EAN;
         }
+        public void eanPatch()
+        {
+            items = new DAO.ItemsDAO();
+            items.patchEAN(stock_code, item_ean);
+        }
         #region Item Kits Objects
         public void PushKit()
         {

@@ -232,6 +232,27 @@ namespace nPOSProj.DAO
             }
             return itemEAN;
         }
+        public void patchEAN(String stockcode, String eancode)
+        {
+            con = new MySqlConnection();
+            dbcon = new Conf.dbs();
+            con.ConnectionString = dbcon.getConnectionString();
+            String query = "UPDATE inventory_items SET item_ean = ?eancode ";
+            query += "WHERE stock_code = ?stockcode";
+            try
+            {
+                con.Open();
+                MySqlCommand cmd = new MySqlCommand(query, con);
+                cmd.Parameters.AddWithValue("?eancode", eancode);
+                cmd.Parameters.AddWithValue("?stockcode", stockcode);
+                cmd.ExecuteNonQuery();
+                cmd.Dispose();
+            }
+            finally 
+            {
+                con.Close();
+            }
+        }
         #endregion
         #region Item Kits
         public void InsertKit(Int32 kit_qty, String item_ean, String stock_code)

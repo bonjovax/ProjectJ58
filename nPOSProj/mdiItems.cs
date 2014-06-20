@@ -50,6 +50,10 @@ namespace nPOSProj
             txtBonxEAN.Text = dataGridView1.SelectedRows[0].Cells[2].Value.ToString();
             txtBoxRPrice.Text = Convert.ToDouble(dataGridView1.SelectedRows[0].Cells[4].Value).ToString("#,###,##0.00");
             txtBoxWholesalePrice.Text = Convert.ToDouble(dataGridView1.SelectedRows[0].Cells[5].Value).ToString("#,###,##0.00");
+            if (dataGridView1.SelectedRows[0].Cells[2].Value.ToString() == "")
+            {
+                btnPatch.Enabled = true;
+            }
             if (dataGridView1.SelectedRows[0].Cells[7].Value.ToString() == "V")
             {
                 rdVatable.Checked = true;
@@ -110,38 +114,45 @@ namespace nPOSProj
                 {
                     if (Convert.ToInt32(txtBoxQty.Text) >= 0 && Convert.ToDouble(txtBoxRPrice.Text) >= 0 && Convert.ToDouble(txtBoxWholesalePrice.Text) >= 0)
                     {
-                        item.item_quantity = Convert.ToInt32(txtBoxQty.Text);
-                        item.item_ean = txtBonxEAN.Text;
-                        item.eanTmp = eancom;
-                        item.item_retail_price = Convert.ToDouble(txtBoxRPrice.Text);
-                        item.item_whole_price = Convert.ToDouble(txtBoxWholesalePrice.Text);
-                        if (rdVatable.Checked == true)
+                        if (dataGridView1.SelectedRows[0].Cells[2].Value.ToString() == "")
                         {
-                            item_tax_type_select = "V";
+                            MessageBox.Show("EAN Code Is Missing!\nPlease Patch New EAN Code", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
-                        if (rdE.Checked == true)
+                        else
                         {
-                            item_tax_type_select = "E";
+                            item.item_quantity = Convert.ToInt32(txtBoxQty.Text);
+                            item.item_ean = txtBonxEAN.Text;
+                            item.eanTmp = eancom;
+                            item.item_retail_price = Convert.ToDouble(txtBoxRPrice.Text);
+                            item.item_whole_price = Convert.ToDouble(txtBoxWholesalePrice.Text);
+                            if (rdVatable.Checked == true)
+                            {
+                                item_tax_type_select = "V";
+                            }
+                            if (rdE.Checked == true)
+                            {
+                                item_tax_type_select = "E";
+                            }
+                            if (rdZ.Checked == true)
+                            {
+                                item_tax_type_select = "Z";
+                            }
+                            item.item_tax_type = item_tax_type_select;
+                            item.stock_code = dataGridView1.SelectedRows[0].Cells[1].Value.ToString();
+                            item.UpdateItem();
+                            dataGridView1.SelectedRows[0].Cells[0].Value = txtBoxQty.Text;
+                            dataGridView1.SelectedRows[0].Cells[2].Value = txtBonxEAN.Text;
+                            dataGridView1.SelectedRows[0].Cells[4].Value = Convert.ToDouble(txtBoxRPrice.Text).ToString("#,###,##0.00");
+                            dataGridView1.SelectedRows[0].Cells[5].Value = Convert.ToDouble(txtBoxWholesalePrice.Text).ToString("#,###,##0.00");
+                            dataGridView1.SelectedRows[0].Cells[7].Value = item_tax_type_select;
+                            txtBoxQty.ReadOnly = true;
+                            txtBonxEAN.ReadOnly = true;
+                            txtBoxRPrice.ReadOnly = true;
+                            txtBoxWholesalePrice.ReadOnly = true;
+                            btnUp.Enabled = false;
+                            btnReturn.Enabled = false;
+                            bcSave.Enabled = false;
                         }
-                        if (rdZ.Checked == true)
-                        {
-                            item_tax_type_select = "Z";
-                        }
-                        item.item_tax_type = item_tax_type_select;
-                        item.stock_code = dataGridView1.SelectedRows[0].Cells[1].Value.ToString();
-                        item.UpdateItem();
-                        dataGridView1.SelectedRows[0].Cells[0].Value = txtBoxQty.Text;
-                        dataGridView1.SelectedRows[0].Cells[2].Value = txtBonxEAN.Text;
-                        dataGridView1.SelectedRows[0].Cells[4].Value = Convert.ToDouble(txtBoxRPrice.Text).ToString("#,###,##0.00");
-                        dataGridView1.SelectedRows[0].Cells[5].Value = Convert.ToDouble(txtBoxWholesalePrice.Text).ToString("#,###,##0.00");
-                        dataGridView1.SelectedRows[0].Cells[7].Value = item_tax_type_select;
-                        txtBoxQty.ReadOnly = true;
-                        txtBonxEAN.ReadOnly = true;
-                        txtBoxRPrice.ReadOnly = true;
-                        txtBoxWholesalePrice.ReadOnly = true;
-                        btnUp.Enabled = false;
-                        btnReturn.Enabled = false;
-                        bcSave.Enabled = false;
                     }
                     else
                         MessageBox.Show("Negative Value Will Not Be Considered!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -299,6 +310,34 @@ namespace nPOSProj
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && e.KeyChar != '.' && e.KeyChar != ',')
             {
                 e.Handled = true;
+            }
+        }
+
+        private void btnPatch_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                DialogResult dlg = MessageBox.Show("Do you wish to Continue?", "Question", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (dlg == System.Windows.Forms.DialogResult.Yes)
+                {
+                    if (txtBonxEAN.Text != "")
+                    {
+                        item.item_ean = txtBonxEAN.Text;
+                        item.stock_code = dataGridView1.SelectedRows[0].Cells[1].Value.ToString();
+                        item.eanPatch();
+                        dataGridView1.SelectedRows[0].Cells[2].Value = txtBonxEAN.Text;
+                        btnPatch.Enabled = false;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Input EAN is Missing", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        txtBonxEAN.Focus();
+                    }
+                }
+            }
+            catch 
+            {
+                MessageBox.Show("Duplicate Input Not Allowed", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }
