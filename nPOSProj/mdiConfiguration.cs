@@ -90,6 +90,7 @@ namespace nPOSProj
             {
                 txtBoxVatRate.Text = "0";
                 txtBoxVatRate.ReadOnly = true;
+                cBTax.Checked = false;
                 cBTax.Visible = false;
             }
             else

@@ -272,17 +272,20 @@ namespace nPOSProj.DAO
         }
         #endregion
         #region Attribute
-        public void UpdateTrunkSales(Double tax_p, Double tax_amt, Double pos_total_amt, Int32 pos_orno, String pos_terminal)
+        public void UpdateTrunkSales(Double pos_vatable, Double pos_vex, Double pos_vatz, Double tax_p, Double tax_amt, Double pos_total_amt, Int32 pos_orno, String pos_terminal)
         {
             con = new MySqlConnection();
             dbcon = new Conf.dbs();
             con.ConnectionString = dbcon.getConnectionString();
-            String query = "UPDATE pos_store SET pos_tax_perc = ?a, pos_tax_amt = ?b, pos_total_amt = ?c ";
+            String query = "UPDATE pos_store SET pos_vatable = ?vatable, pos_vex = ?vex, pos_vatz = ?zero, pos_tax_perc = ?a, pos_tax_amt = ?b, pos_total_amt = ?c ";
             query += "WHERE pos_orno = ?pos_orno AND pos_terminal = ?pos_terminal";
             try
             {
                 con.Open();
                 MySqlCommand cmd = new MySqlCommand(query, con);
+                cmd.Parameters.AddWithValue("?vatable", pos_vatable);
+                cmd.Parameters.AddWithValue("?vex", pos_vex);
+                cmd.Parameters.AddWithValue("?zero", pos_vatz);
                 cmd.Parameters.AddWithValue("?a", tax_p);
                 cmd.Parameters.AddWithValue("?b", tax_amt);
                 cmd.Parameters.AddWithValue("?c", pos_total_amt);
