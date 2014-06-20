@@ -40,9 +40,10 @@
             this.Holder = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ValidUntil = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.bcSave = new System.Windows.Forms.Button();
             this.btnXML = new System.Windows.Forms.Button();
+            this.barcode = new System.Windows.Forms.PictureBox();
             this.btnDelete = new System.Windows.Forms.Button();
-            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.btnAdd = new System.Windows.Forms.Button();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.label4 = new System.Windows.Forms.Label();
@@ -52,8 +53,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.txtBoxCardNo = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.bcSave = new System.Windows.Forms.Button();
-            this.barcode = new System.Windows.Forms.PictureBox();
+            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -150,6 +150,21 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Details";
             // 
+            // bcSave
+            // 
+            this.bcSave.BackColor = System.Drawing.Color.DimGray;
+            this.bcSave.Enabled = false;
+            this.bcSave.FlatAppearance.BorderColor = System.Drawing.Color.Maroon;
+            this.bcSave.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Maroon;
+            this.bcSave.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Maroon;
+            this.bcSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bcSave.Image = ((System.Drawing.Image)(resources.GetObject("bcSave.Image")));
+            this.bcSave.Location = new System.Drawing.Point(649, 18);
+            this.bcSave.Name = "bcSave";
+            this.bcSave.Size = new System.Drawing.Size(69, 60);
+            this.bcSave.TabIndex = 6;
+            this.bcSave.UseVisualStyleBackColor = false;
+            // 
             // btnXML
             // 
             this.btnXML.BackColor = System.Drawing.Color.LimeGreen;
@@ -160,15 +175,24 @@
             this.btnXML.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnXML.Image = ((System.Drawing.Image)(resources.GetObject("btnXML.Image")));
             this.btnXML.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnXML.Location = new System.Drawing.Point(723, 41);
+            this.btnXML.Location = new System.Drawing.Point(718, 41);
             this.btnXML.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnXML.Name = "btnXML";
-            this.btnXML.Size = new System.Drawing.Size(102, 37);
+            this.btnXML.Size = new System.Drawing.Size(107, 37);
             this.btnXML.TabIndex = 104;
             this.btnXML.Text = "&XML Export";
             this.btnXML.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnXML.UseVisualStyleBackColor = false;
             this.btnXML.Click += new System.EventHandler(this.btnXML_Click);
+            // 
+            // barcode
+            // 
+            this.barcode.BackColor = System.Drawing.Color.White;
+            this.barcode.Location = new System.Drawing.Point(511, 81);
+            this.barcode.Name = "barcode";
+            this.barcode.Size = new System.Drawing.Size(314, 58);
+            this.barcode.TabIndex = 16;
+            this.barcode.TabStop = false;
             // 
             // btnDelete
             // 
@@ -180,7 +204,7 @@
             this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDelete.Image = ((System.Drawing.Image)(resources.GetObject("btnDelete.Image")));
             this.btnDelete.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnDelete.Location = new System.Drawing.Point(581, 18);
+            this.btnDelete.Location = new System.Drawing.Point(580, 18);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(69, 60);
             this.btnDelete.TabIndex = 5;
@@ -188,13 +212,6 @@
             this.btnDelete.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnDelete.UseVisualStyleBackColor = false;
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
-            // 
-            // imageList1
-            // 
-            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
-            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
-            this.imageList1.Images.SetKeyName(0, "Diploma-Certificate-icon1.png");
-            this.imageList1.Images.SetKeyName(1, "Trash-Black-Full-icon.png");
             // 
             // btnAdd
             // 
@@ -299,30 +316,12 @@
             this.label1.TabIndex = 9;
             this.label1.Text = "Card No";
             // 
-            // bcSave
+            // imageList1
             // 
-            this.bcSave.BackColor = System.Drawing.Color.DimGray;
-            this.bcSave.Enabled = false;
-            this.bcSave.FlatAppearance.BorderColor = System.Drawing.Color.Maroon;
-            this.bcSave.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Maroon;
-            this.bcSave.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Maroon;
-            this.bcSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.bcSave.Image = ((System.Drawing.Image)(resources.GetObject("bcSave.Image")));
-            this.bcSave.Location = new System.Drawing.Point(652, 18);
-            this.bcSave.Name = "bcSave";
-            this.bcSave.Size = new System.Drawing.Size(69, 60);
-            this.bcSave.TabIndex = 6;
-            this.bcSave.UseVisualStyleBackColor = false;
-            // 
-            // barcode
-            // 
-            this.barcode.BackColor = System.Drawing.Color.White;
-            this.barcode.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.barcode.Location = new System.Drawing.Point(511, 81);
-            this.barcode.Name = "barcode";
-            this.barcode.Size = new System.Drawing.Size(314, 58);
-            this.barcode.TabIndex = 16;
-            this.barcode.TabStop = false;
+            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
+            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageList1.Images.SetKeyName(0, "Diploma-Certificate-icon1.png");
+            this.imageList1.Images.SetKeyName(1, "Trash-Black-Full-icon.png");
             // 
             // frmGiftCard
             // 
