@@ -35,9 +35,20 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(mdiSupplier));
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.suppliercodeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.suppliernameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.supplieraddressDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.suppliercitymunicipalityDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.suppliercountryDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.supplierzipcodeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.suppliercontactDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.suppliercontactpersonDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.suppliercpersonpositionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.inventorysupplierBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.npos_dbDataSet = new nPOSProj.npos_dbDataSet();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnDelete = new System.Windows.Forms.Button();
+            this.btnUpdate = new System.Windows.Forms.Button();
             this.btnXML = new System.Windows.Forms.Button();
             this.label11 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -63,19 +74,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.mCode = new System.Windows.Forms.MaskedTextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.btnUpdate = new System.Windows.Forms.Button();
-            this.btnDelete = new System.Windows.Forms.Button();
             this.inventory_supplierTableAdapter = new nPOSProj.npos_dbDataSetTableAdapters.inventory_supplierTableAdapter();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
-            this.suppliercodeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.suppliernameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.supplieraddressDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.suppliercitymunicipalityDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.suppliercountryDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.supplierzipcodeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.suppliercontactDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.suppliercontactpersonDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.suppliercpersonpositionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.inventorysupplierBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.npos_dbDataSet)).BeginInit();
@@ -114,7 +114,7 @@
             this.dataGridView1.DataSource = this.inventorysupplierBindingSource;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.MediumSeaGreen;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
             dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.DodgerBlue;
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
@@ -124,11 +124,7 @@
             this.dataGridView1.Location = new System.Drawing.Point(1, 1);
             this.dataGridView1.Name = "dataGridView1";
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.Empty;
             dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Empty;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.Empty;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Empty;
             dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -136,6 +132,68 @@
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             this.dataGridView1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dataGridView1_KeyDown);
+            // 
+            // suppliercodeDataGridViewTextBoxColumn
+            // 
+            this.suppliercodeDataGridViewTextBoxColumn.DataPropertyName = "supplier_code";
+            this.suppliercodeDataGridViewTextBoxColumn.HeaderText = "Supplier Code";
+            this.suppliercodeDataGridViewTextBoxColumn.Name = "suppliercodeDataGridViewTextBoxColumn";
+            this.suppliercodeDataGridViewTextBoxColumn.ReadOnly = true;
+            this.suppliercodeDataGridViewTextBoxColumn.Width = 120;
+            // 
+            // suppliernameDataGridViewTextBoxColumn
+            // 
+            this.suppliernameDataGridViewTextBoxColumn.DataPropertyName = "supplier_name";
+            this.suppliernameDataGridViewTextBoxColumn.HeaderText = "Name/Company";
+            this.suppliernameDataGridViewTextBoxColumn.Name = "suppliernameDataGridViewTextBoxColumn";
+            this.suppliernameDataGridViewTextBoxColumn.Width = 200;
+            // 
+            // supplieraddressDataGridViewTextBoxColumn
+            // 
+            this.supplieraddressDataGridViewTextBoxColumn.DataPropertyName = "supplier_address";
+            this.supplieraddressDataGridViewTextBoxColumn.HeaderText = "Address";
+            this.supplieraddressDataGridViewTextBoxColumn.Name = "supplieraddressDataGridViewTextBoxColumn";
+            this.supplieraddressDataGridViewTextBoxColumn.Width = 250;
+            // 
+            // suppliercitymunicipalityDataGridViewTextBoxColumn
+            // 
+            this.suppliercitymunicipalityDataGridViewTextBoxColumn.DataPropertyName = "supplier_city_municipality";
+            this.suppliercitymunicipalityDataGridViewTextBoxColumn.HeaderText = "City/Municipality";
+            this.suppliercitymunicipalityDataGridViewTextBoxColumn.Name = "suppliercitymunicipalityDataGridViewTextBoxColumn";
+            // 
+            // suppliercountryDataGridViewTextBoxColumn
+            // 
+            this.suppliercountryDataGridViewTextBoxColumn.DataPropertyName = "supplier_country";
+            this.suppliercountryDataGridViewTextBoxColumn.HeaderText = "Country";
+            this.suppliercountryDataGridViewTextBoxColumn.Name = "suppliercountryDataGridViewTextBoxColumn";
+            this.suppliercountryDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // supplierzipcodeDataGridViewTextBoxColumn
+            // 
+            this.supplierzipcodeDataGridViewTextBoxColumn.DataPropertyName = "supplier_zipcode";
+            this.supplierzipcodeDataGridViewTextBoxColumn.HeaderText = "Zip Code";
+            this.supplierzipcodeDataGridViewTextBoxColumn.Name = "supplierzipcodeDataGridViewTextBoxColumn";
+            // 
+            // suppliercontactDataGridViewTextBoxColumn
+            // 
+            this.suppliercontactDataGridViewTextBoxColumn.DataPropertyName = "supplier_contact";
+            this.suppliercontactDataGridViewTextBoxColumn.HeaderText = "Contact No";
+            this.suppliercontactDataGridViewTextBoxColumn.Name = "suppliercontactDataGridViewTextBoxColumn";
+            this.suppliercontactDataGridViewTextBoxColumn.Width = 175;
+            // 
+            // suppliercontactpersonDataGridViewTextBoxColumn
+            // 
+            this.suppliercontactpersonDataGridViewTextBoxColumn.DataPropertyName = "supplier_contact_person";
+            this.suppliercontactpersonDataGridViewTextBoxColumn.HeaderText = "Contact Person";
+            this.suppliercontactpersonDataGridViewTextBoxColumn.Name = "suppliercontactpersonDataGridViewTextBoxColumn";
+            this.suppliercontactpersonDataGridViewTextBoxColumn.Width = 250;
+            // 
+            // suppliercpersonpositionDataGridViewTextBoxColumn
+            // 
+            this.suppliercpersonpositionDataGridViewTextBoxColumn.DataPropertyName = "supplier_cperson_position";
+            this.suppliercpersonpositionDataGridViewTextBoxColumn.HeaderText = "Position";
+            this.suppliercpersonpositionDataGridViewTextBoxColumn.Name = "suppliercpersonpositionDataGridViewTextBoxColumn";
+            this.suppliercpersonpositionDataGridViewTextBoxColumn.Width = 200;
             // 
             // inventorysupplierBindingSource
             // 
@@ -184,6 +242,46 @@
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Add Supplier Details";
+            // 
+            // btnDelete
+            // 
+            this.btnDelete.BackColor = System.Drawing.Color.Crimson;
+            this.btnDelete.Enabled = false;
+            this.btnDelete.FlatAppearance.BorderColor = System.Drawing.Color.MidnightBlue;
+            this.btnDelete.FlatAppearance.MouseDownBackColor = System.Drawing.Color.MidnightBlue;
+            this.btnDelete.FlatAppearance.MouseOverBackColor = System.Drawing.Color.MidnightBlue;
+            this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDelete.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDelete.Image = ((System.Drawing.Image)(resources.GetObject("btnDelete.Image")));
+            this.btnDelete.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnDelete.Location = new System.Drawing.Point(771, 106);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(55, 60);
+            this.btnDelete.TabIndex = 62;
+            this.btnDelete.Text = "Delete";
+            this.btnDelete.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnDelete.UseVisualStyleBackColor = false;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
+            // 
+            // btnUpdate
+            // 
+            this.btnUpdate.BackColor = System.Drawing.Color.DarkOrange;
+            this.btnUpdate.Enabled = false;
+            this.btnUpdate.FlatAppearance.BorderColor = System.Drawing.Color.MidnightBlue;
+            this.btnUpdate.FlatAppearance.MouseDownBackColor = System.Drawing.Color.MidnightBlue;
+            this.btnUpdate.FlatAppearance.MouseOverBackColor = System.Drawing.Color.MidnightBlue;
+            this.btnUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnUpdate.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUpdate.Image = ((System.Drawing.Image)(resources.GetObject("btnUpdate.Image")));
+            this.btnUpdate.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnUpdate.Location = new System.Drawing.Point(827, 44);
+            this.btnUpdate.Name = "btnUpdate";
+            this.btnUpdate.Size = new System.Drawing.Size(55, 60);
+            this.btnUpdate.TabIndex = 62;
+            this.btnUpdate.Text = "Update";
+            this.btnUpdate.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnUpdate.UseVisualStyleBackColor = false;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
             // btnXML
             // 
@@ -244,7 +342,7 @@
             // 
             // btnAdd
             // 
-            this.btnAdd.BackColor = System.Drawing.Color.Yellow;
+            this.btnAdd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(196)))), ((int)(((byte)(13)))));
             this.btnAdd.Enabled = false;
             this.btnAdd.FlatAppearance.BorderColor = System.Drawing.Color.MidnightBlue;
             this.btnAdd.FlatAppearance.MouseDownBackColor = System.Drawing.Color.MidnightBlue;
@@ -252,6 +350,7 @@
             this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAdd.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAdd.Image = ((System.Drawing.Image)(resources.GetObject("btnAdd.Image")));
+            this.btnAdd.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btnAdd.Location = new System.Drawing.Point(827, 106);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(55, 60);
@@ -470,111 +569,9 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Supplier Code";
             // 
-            // btnUpdate
-            // 
-            this.btnUpdate.BackColor = System.Drawing.Color.DarkOrange;
-            this.btnUpdate.Enabled = false;
-            this.btnUpdate.FlatAppearance.BorderColor = System.Drawing.Color.MidnightBlue;
-            this.btnUpdate.FlatAppearance.MouseDownBackColor = System.Drawing.Color.MidnightBlue;
-            this.btnUpdate.FlatAppearance.MouseOverBackColor = System.Drawing.Color.MidnightBlue;
-            this.btnUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnUpdate.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnUpdate.Image = ((System.Drawing.Image)(resources.GetObject("btnUpdate.Image")));
-            this.btnUpdate.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnUpdate.Location = new System.Drawing.Point(827, 44);
-            this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(55, 60);
-            this.btnUpdate.TabIndex = 62;
-            this.btnUpdate.Text = "Update";
-            this.btnUpdate.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnUpdate.UseVisualStyleBackColor = false;
-            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
-            // 
-            // btnDelete
-            // 
-            this.btnDelete.BackColor = System.Drawing.Color.Crimson;
-            this.btnDelete.Enabled = false;
-            this.btnDelete.FlatAppearance.BorderColor = System.Drawing.Color.MidnightBlue;
-            this.btnDelete.FlatAppearance.MouseDownBackColor = System.Drawing.Color.MidnightBlue;
-            this.btnDelete.FlatAppearance.MouseOverBackColor = System.Drawing.Color.MidnightBlue;
-            this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDelete.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDelete.Image = ((System.Drawing.Image)(resources.GetObject("btnDelete.Image")));
-            this.btnDelete.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnDelete.Location = new System.Drawing.Point(771, 106);
-            this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(55, 60);
-            this.btnDelete.TabIndex = 62;
-            this.btnDelete.Text = "Delete";
-            this.btnDelete.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnDelete.UseVisualStyleBackColor = false;
-            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
-            // 
             // inventory_supplierTableAdapter
             // 
             this.inventory_supplierTableAdapter.ClearBeforeFill = true;
-            // 
-            // suppliercodeDataGridViewTextBoxColumn
-            // 
-            this.suppliercodeDataGridViewTextBoxColumn.DataPropertyName = "supplier_code";
-            this.suppliercodeDataGridViewTextBoxColumn.HeaderText = "Supplier Code";
-            this.suppliercodeDataGridViewTextBoxColumn.Name = "suppliercodeDataGridViewTextBoxColumn";
-            this.suppliercodeDataGridViewTextBoxColumn.ReadOnly = true;
-            this.suppliercodeDataGridViewTextBoxColumn.Width = 120;
-            // 
-            // suppliernameDataGridViewTextBoxColumn
-            // 
-            this.suppliernameDataGridViewTextBoxColumn.DataPropertyName = "supplier_name";
-            this.suppliernameDataGridViewTextBoxColumn.HeaderText = "Name/Company";
-            this.suppliernameDataGridViewTextBoxColumn.Name = "suppliernameDataGridViewTextBoxColumn";
-            this.suppliernameDataGridViewTextBoxColumn.Width = 200;
-            // 
-            // supplieraddressDataGridViewTextBoxColumn
-            // 
-            this.supplieraddressDataGridViewTextBoxColumn.DataPropertyName = "supplier_address";
-            this.supplieraddressDataGridViewTextBoxColumn.HeaderText = "Address";
-            this.supplieraddressDataGridViewTextBoxColumn.Name = "supplieraddressDataGridViewTextBoxColumn";
-            this.supplieraddressDataGridViewTextBoxColumn.Width = 250;
-            // 
-            // suppliercitymunicipalityDataGridViewTextBoxColumn
-            // 
-            this.suppliercitymunicipalityDataGridViewTextBoxColumn.DataPropertyName = "supplier_city_municipality";
-            this.suppliercitymunicipalityDataGridViewTextBoxColumn.HeaderText = "City/Municipality";
-            this.suppliercitymunicipalityDataGridViewTextBoxColumn.Name = "suppliercitymunicipalityDataGridViewTextBoxColumn";
-            // 
-            // suppliercountryDataGridViewTextBoxColumn
-            // 
-            this.suppliercountryDataGridViewTextBoxColumn.DataPropertyName = "supplier_country";
-            this.suppliercountryDataGridViewTextBoxColumn.HeaderText = "Country";
-            this.suppliercountryDataGridViewTextBoxColumn.Name = "suppliercountryDataGridViewTextBoxColumn";
-            this.suppliercountryDataGridViewTextBoxColumn.Width = 150;
-            // 
-            // supplierzipcodeDataGridViewTextBoxColumn
-            // 
-            this.supplierzipcodeDataGridViewTextBoxColumn.DataPropertyName = "supplier_zipcode";
-            this.supplierzipcodeDataGridViewTextBoxColumn.HeaderText = "Zip Code";
-            this.supplierzipcodeDataGridViewTextBoxColumn.Name = "supplierzipcodeDataGridViewTextBoxColumn";
-            // 
-            // suppliercontactDataGridViewTextBoxColumn
-            // 
-            this.suppliercontactDataGridViewTextBoxColumn.DataPropertyName = "supplier_contact";
-            this.suppliercontactDataGridViewTextBoxColumn.HeaderText = "Contact No";
-            this.suppliercontactDataGridViewTextBoxColumn.Name = "suppliercontactDataGridViewTextBoxColumn";
-            this.suppliercontactDataGridViewTextBoxColumn.Width = 175;
-            // 
-            // suppliercontactpersonDataGridViewTextBoxColumn
-            // 
-            this.suppliercontactpersonDataGridViewTextBoxColumn.DataPropertyName = "supplier_contact_person";
-            this.suppliercontactpersonDataGridViewTextBoxColumn.HeaderText = "Contact Person";
-            this.suppliercontactpersonDataGridViewTextBoxColumn.Name = "suppliercontactpersonDataGridViewTextBoxColumn";
-            this.suppliercontactpersonDataGridViewTextBoxColumn.Width = 250;
-            // 
-            // suppliercpersonpositionDataGridViewTextBoxColumn
-            // 
-            this.suppliercpersonpositionDataGridViewTextBoxColumn.DataPropertyName = "supplier_cperson_position";
-            this.suppliercpersonpositionDataGridViewTextBoxColumn.HeaderText = "Position";
-            this.suppliercpersonpositionDataGridViewTextBoxColumn.Name = "suppliercpersonpositionDataGridViewTextBoxColumn";
-            this.suppliercpersonpositionDataGridViewTextBoxColumn.Width = 200;
             // 
             // mdiSupplier
             // 
