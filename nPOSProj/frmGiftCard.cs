@@ -24,8 +24,8 @@ namespace nPOSProj
         private void frmGiftCard_Load(object sender, EventArgs e)
         {
             b.Alignment = AlignmentPositions.CENTER;
-            b.Width = 775;
-            b.Height = 55;
+            b.Width = 314;
+            b.Height = 58;
             TYPE t = TYPE.CODE39;
             b.IncludeLabel = true;
             b.LabelPosition = LabelPositions.BOTTOMCENTER;
@@ -54,8 +54,8 @@ namespace nPOSProj
                 if (txtBoxCardNo.Text != "")
                 {
                     b.Alignment = AlignmentPositions.CENTER;
-                    b.Width = 775;
-                    b.Height = 55;
+                    b.Width = 314;
+                    b.Height = 58;
                     TYPE t = TYPE.CODE39;
                     b.IncludeLabel = true;
                     b.LabelPosition = LabelPositions.BOTTOMCENTER;
@@ -212,8 +212,8 @@ namespace nPOSProj
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             b.Alignment = AlignmentPositions.CENTER;
-            b.Width = 775;
-            b.Height = 55;
+            b.Width = 314;
+            b.Height = 58;
             TYPE t = TYPE.CODE39;
             b.IncludeLabel = true;
             b.LabelPosition = LabelPositions.BOTTOMCENTER;

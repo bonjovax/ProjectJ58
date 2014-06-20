@@ -31,11 +31,16 @@
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmGiftCard));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmGiftCard));
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.GiftCardNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Amount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Holder = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ValidUntil = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnXML = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.btnAdd = new System.Windows.Forms.Button();
@@ -47,18 +52,11 @@
             this.label2 = new System.Windows.Forms.Label();
             this.txtBoxCardNo = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.bcSave = new System.Windows.Forms.Button();
             this.barcode = new System.Windows.Forms.PictureBox();
-            this.btnXML = new System.Windows.Forms.Button();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
-            this.GiftCardNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Amount = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Holder = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ValidUntil = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.barcode)).BeginInit();
             this.SuspendLayout();
             // 
@@ -79,7 +77,7 @@
             this.ValidUntil});
             this.dataGridView1.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter;
             this.dataGridView1.GridColor = System.Drawing.Color.Black;
-            this.dataGridView1.Location = new System.Drawing.Point(2, 2);
+            this.dataGridView1.Location = new System.Drawing.Point(0, 0);
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
@@ -92,187 +90,6 @@
             this.dataGridView1.TabIndex = 13;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             this.dataGridView1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellDoubleClick);
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.btnXML);
-            this.groupBox1.Controls.Add(this.btnDelete);
-            this.groupBox1.Controls.Add(this.btnAdd);
-            this.groupBox1.Controls.Add(this.dateTimePicker1);
-            this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Controls.Add(this.txtBoxHolder);
-            this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.txtBoxAmount);
-            this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.txtBoxCardNo);
-            this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Location = new System.Drawing.Point(7, 218);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(829, 139);
-            this.groupBox1.TabIndex = 8;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Details";
-            // 
-            // btnDelete
-            // 
-            this.btnDelete.Enabled = false;
-            this.btnDelete.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnDelete.ImageIndex = 1;
-            this.btnDelete.ImageList = this.imageList1;
-            this.btnDelete.Location = new System.Drawing.Point(734, 14);
-            this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(89, 89);
-            this.btnDelete.TabIndex = 5;
-            this.btnDelete.Text = "&Delete";
-            this.btnDelete.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnDelete.UseVisualStyleBackColor = true;
-            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
-            // 
-            // imageList1
-            // 
-            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
-            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
-            this.imageList1.Images.SetKeyName(0, "Diploma-Certificate-icon1.png");
-            this.imageList1.Images.SetKeyName(1, "Trash-Black-Full-icon.png");
-            // 
-            // btnAdd
-            // 
-            this.btnAdd.Enabled = false;
-            this.btnAdd.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnAdd.ImageIndex = 0;
-            this.btnAdd.ImageList = this.imageList1;
-            this.btnAdd.Location = new System.Drawing.Point(639, 14);
-            this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(89, 89);
-            this.btnAdd.TabIndex = 4;
-            this.btnAdd.Text = "&Add";
-            this.btnAdd.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnAdd.UseVisualStyleBackColor = true;
-            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
-            // 
-            // dateTimePicker1
-            // 
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker1.Location = new System.Drawing.Point(86, 106);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(115, 23);
-            this.dateTimePicker1.TabIndex = 3;
-            this.dateTimePicker1.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(12, 109);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(65, 16);
-            this.label4.TabIndex = 12;
-            this.label4.Text = "Valid Until";
-            // 
-            // txtBoxHolder
-            // 
-            this.txtBoxHolder.Location = new System.Drawing.Point(86, 77);
-            this.txtBoxHolder.MaxLength = 38;
-            this.txtBoxHolder.Name = "txtBoxHolder";
-            this.txtBoxHolder.Size = new System.Drawing.Size(521, 23);
-            this.txtBoxHolder.TabIndex = 2;
-            this.txtBoxHolder.TextChanged += new System.EventHandler(this.txtBoxHolder_TextChanged);
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(12, 80);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(45, 16);
-            this.label3.TabIndex = 11;
-            this.label3.Text = "Holder";
-            // 
-            // txtBoxAmount
-            // 
-            this.txtBoxAmount.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBoxAmount.Location = new System.Drawing.Point(86, 48);
-            this.txtBoxAmount.MaxLength = 10;
-            this.txtBoxAmount.Name = "txtBoxAmount";
-            this.txtBoxAmount.Size = new System.Drawing.Size(89, 23);
-            this.txtBoxAmount.TabIndex = 1;
-            this.txtBoxAmount.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.txtBoxAmount.TextChanged += new System.EventHandler(this.txtBoxAmount_TextChanged);
-            this.txtBoxAmount.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtBoxAmount_KeyDown);
-            this.txtBoxAmount.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtBoxAmount_KeyPress);
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 51);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(52, 16);
-            this.label2.TabIndex = 10;
-            this.label2.Text = "Amount";
-            // 
-            // txtBoxCardNo
-            // 
-            this.txtBoxCardNo.Location = new System.Drawing.Point(86, 19);
-            this.txtBoxCardNo.MaxLength = 38;
-            this.txtBoxCardNo.Name = "txtBoxCardNo";
-            this.txtBoxCardNo.Size = new System.Drawing.Size(521, 23);
-            this.txtBoxCardNo.TabIndex = 0;
-            this.txtBoxCardNo.TextChanged += new System.EventHandler(this.txtBoxCardNo_TextChanged);
-            this.txtBoxCardNo.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtBoxCardNo_KeyDown);
-            this.txtBoxCardNo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtBoxCardNo_KeyPress);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 22);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(54, 16);
-            this.label1.TabIndex = 9;
-            this.label1.Text = "Card No";
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.bcSave);
-            this.groupBox2.Controls.Add(this.barcode);
-            this.groupBox2.Location = new System.Drawing.Point(7, 363);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(829, 78);
-            this.groupBox2.TabIndex = 7;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Barcode";
-            // 
-            // bcSave
-            // 
-            this.bcSave.Enabled = false;
-            this.bcSave.Image = ((System.Drawing.Image)(resources.GetObject("bcSave.Image")));
-            this.bcSave.Location = new System.Drawing.Point(788, 30);
-            this.bcSave.Name = "bcSave";
-            this.bcSave.Size = new System.Drawing.Size(33, 32);
-            this.bcSave.TabIndex = 6;
-            this.bcSave.UseVisualStyleBackColor = true;
-            // 
-            // barcode
-            // 
-            this.barcode.BackColor = System.Drawing.Color.Transparent;
-            this.barcode.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.barcode.Location = new System.Drawing.Point(9, 18);
-            this.barcode.Name = "barcode";
-            this.barcode.Size = new System.Drawing.Size(775, 55);
-            this.barcode.TabIndex = 16;
-            this.barcode.TabStop = false;
-            // 
-            // btnXML
-            // 
-            this.btnXML.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnXML.Image = ((System.Drawing.Image)(resources.GetObject("btnXML.Image")));
-            this.btnXML.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnXML.Location = new System.Drawing.Point(676, 105);
-            this.btnXML.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.btnXML.Name = "btnXML";
-            this.btnXML.Size = new System.Drawing.Size(103, 30);
-            this.btnXML.TabIndex = 104;
-            this.btnXML.Text = "&XML Export";
-            this.btnXML.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnXML.UseVisualStyleBackColor = true;
-            this.btnXML.Click += new System.EventHandler(this.btnXML_Click);
             // 
             // GiftCardNo
             // 
@@ -309,16 +126,215 @@
             this.ValidUntil.ReadOnly = true;
             this.ValidUntil.Width = 175;
             // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.bcSave);
+            this.groupBox1.Controls.Add(this.btnXML);
+            this.groupBox1.Controls.Add(this.barcode);
+            this.groupBox1.Controls.Add(this.btnDelete);
+            this.groupBox1.Controls.Add(this.btnAdd);
+            this.groupBox1.Controls.Add(this.dateTimePicker1);
+            this.groupBox1.Controls.Add(this.label4);
+            this.groupBox1.Controls.Add(this.txtBoxHolder);
+            this.groupBox1.Controls.Add(this.label3);
+            this.groupBox1.Controls.Add(this.txtBoxAmount);
+            this.groupBox1.Controls.Add(this.label2);
+            this.groupBox1.Controls.Add(this.txtBoxCardNo);
+            this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox1.ForeColor = System.Drawing.Color.White;
+            this.groupBox1.Location = new System.Drawing.Point(6, 218);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(829, 143);
+            this.groupBox1.TabIndex = 8;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Details";
+            // 
+            // btnXML
+            // 
+            this.btnXML.BackColor = System.Drawing.Color.LimeGreen;
+            this.btnXML.FlatAppearance.BorderColor = System.Drawing.Color.Maroon;
+            this.btnXML.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Maroon;
+            this.btnXML.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Maroon;
+            this.btnXML.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnXML.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnXML.Image = ((System.Drawing.Image)(resources.GetObject("btnXML.Image")));
+            this.btnXML.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnXML.Location = new System.Drawing.Point(723, 41);
+            this.btnXML.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnXML.Name = "btnXML";
+            this.btnXML.Size = new System.Drawing.Size(102, 37);
+            this.btnXML.TabIndex = 104;
+            this.btnXML.Text = "&XML Export";
+            this.btnXML.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnXML.UseVisualStyleBackColor = false;
+            this.btnXML.Click += new System.EventHandler(this.btnXML_Click);
+            // 
+            // btnDelete
+            // 
+            this.btnDelete.BackColor = System.Drawing.Color.Teal;
+            this.btnDelete.Enabled = false;
+            this.btnDelete.FlatAppearance.BorderColor = System.Drawing.Color.Maroon;
+            this.btnDelete.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Maroon;
+            this.btnDelete.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Maroon;
+            this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDelete.Image = ((System.Drawing.Image)(resources.GetObject("btnDelete.Image")));
+            this.btnDelete.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnDelete.Location = new System.Drawing.Point(581, 18);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(69, 60);
+            this.btnDelete.TabIndex = 5;
+            this.btnDelete.Text = "&Delete";
+            this.btnDelete.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnDelete.UseVisualStyleBackColor = false;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
+            // 
+            // imageList1
+            // 
+            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
+            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageList1.Images.SetKeyName(0, "Diploma-Certificate-icon1.png");
+            this.imageList1.Images.SetKeyName(1, "Trash-Black-Full-icon.png");
+            // 
+            // btnAdd
+            // 
+            this.btnAdd.BackColor = System.Drawing.Color.Chocolate;
+            this.btnAdd.Enabled = false;
+            this.btnAdd.FlatAppearance.BorderColor = System.Drawing.Color.Maroon;
+            this.btnAdd.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Maroon;
+            this.btnAdd.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Maroon;
+            this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAdd.Image = ((System.Drawing.Image)(resources.GetObject("btnAdd.Image")));
+            this.btnAdd.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnAdd.Location = new System.Drawing.Point(511, 18);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(69, 60);
+            this.btnAdd.TabIndex = 4;
+            this.btnAdd.Text = "&Add";
+            this.btnAdd.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnAdd.UseVisualStyleBackColor = false;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
+            // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimePicker1.Location = new System.Drawing.Point(84, 106);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(115, 33);
+            this.dateTimePicker1.TabIndex = 3;
+            this.dateTimePicker1.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(10, 110);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(67, 17);
+            this.label4.TabIndex = 12;
+            this.label4.Text = "Valid Until";
+            // 
+            // txtBoxHolder
+            // 
+            this.txtBoxHolder.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtBoxHolder.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBoxHolder.Location = new System.Drawing.Point(84, 77);
+            this.txtBoxHolder.MaxLength = 38;
+            this.txtBoxHolder.Name = "txtBoxHolder";
+            this.txtBoxHolder.Size = new System.Drawing.Size(417, 26);
+            this.txtBoxHolder.TabIndex = 2;
+            this.txtBoxHolder.TextChanged += new System.EventHandler(this.txtBoxHolder_TextChanged);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(10, 81);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(48, 17);
+            this.label3.TabIndex = 11;
+            this.label3.Text = "Holder";
+            // 
+            // txtBoxAmount
+            // 
+            this.txtBoxAmount.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtBoxAmount.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBoxAmount.Location = new System.Drawing.Point(84, 48);
+            this.txtBoxAmount.MaxLength = 10;
+            this.txtBoxAmount.Name = "txtBoxAmount";
+            this.txtBoxAmount.Size = new System.Drawing.Size(89, 26);
+            this.txtBoxAmount.TabIndex = 1;
+            this.txtBoxAmount.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtBoxAmount.TextChanged += new System.EventHandler(this.txtBoxAmount_TextChanged);
+            this.txtBoxAmount.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtBoxAmount_KeyDown);
+            this.txtBoxAmount.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtBoxAmount_KeyPress);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(10, 51);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(53, 17);
+            this.label2.TabIndex = 10;
+            this.label2.Text = "Amount";
+            // 
+            // txtBoxCardNo
+            // 
+            this.txtBoxCardNo.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtBoxCardNo.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBoxCardNo.Location = new System.Drawing.Point(84, 19);
+            this.txtBoxCardNo.MaxLength = 38;
+            this.txtBoxCardNo.Name = "txtBoxCardNo";
+            this.txtBoxCardNo.Size = new System.Drawing.Size(417, 26);
+            this.txtBoxCardNo.TabIndex = 0;
+            this.txtBoxCardNo.TextChanged += new System.EventHandler(this.txtBoxCardNo_TextChanged);
+            this.txtBoxCardNo.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtBoxCardNo_KeyDown);
+            this.txtBoxCardNo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtBoxCardNo_KeyPress);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(10, 22);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(58, 17);
+            this.label1.TabIndex = 9;
+            this.label1.Text = "Card No";
+            // 
+            // bcSave
+            // 
+            this.bcSave.BackColor = System.Drawing.Color.DimGray;
+            this.bcSave.Enabled = false;
+            this.bcSave.FlatAppearance.BorderColor = System.Drawing.Color.Maroon;
+            this.bcSave.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Maroon;
+            this.bcSave.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Maroon;
+            this.bcSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bcSave.Image = ((System.Drawing.Image)(resources.GetObject("bcSave.Image")));
+            this.bcSave.Location = new System.Drawing.Point(652, 18);
+            this.bcSave.Name = "bcSave";
+            this.bcSave.Size = new System.Drawing.Size(69, 60);
+            this.bcSave.TabIndex = 6;
+            this.bcSave.UseVisualStyleBackColor = false;
+            // 
+            // barcode
+            // 
+            this.barcode.BackColor = System.Drawing.Color.White;
+            this.barcode.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.barcode.Location = new System.Drawing.Point(511, 81);
+            this.barcode.Name = "barcode";
+            this.barcode.Size = new System.Drawing.Size(314, 58);
+            this.barcode.TabIndex = 16;
+            this.barcode.TabStop = false;
+            // 
             // frmGiftCard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(844, 446);
-            this.Controls.Add(this.groupBox2);
+            this.BackColor = System.Drawing.Color.Maroon;
+            this.ClientSize = new System.Drawing.Size(840, 369);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.dataGridView1);
             this.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
@@ -331,7 +347,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            this.groupBox2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.barcode)).EndInit();
             this.ResumeLayout(false);
 
@@ -352,7 +367,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtBoxCardNo;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Button bcSave;
         private System.Windows.Forms.PictureBox barcode;
         private System.Windows.Forms.Button btnXML;
