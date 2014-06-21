@@ -120,6 +120,34 @@ namespace nPOSProj.DAO
                 con.Close();
             }
         }
+        public bool expiry(String gc_cardno)
+        {
+            bool found = false;
+            con = new MySqlConnection();
+            dbcon = new Conf.dbs();
+            con.ConnectionString = dbcon.getConnectionString();
+            String query = "SELECT * FROM gc_core ";
+            query += "WHERE (gc_cardno = ?gc_cardno) AND (gc_validuntil <= NOW())";
+            try
+            {
+                con.Open();
+                MySqlCommand cmd = new MySqlCommand(query, con);
+                cmd.Parameters.AddWithValue("?gc_cardno", gc_cardno);
+                cmd.ExecuteScalar();
+                MySqlDataReader rdr = cmd.ExecuteReader();
+                if (rdr.Read())
+                {
+                    found = true;
+                }
+                else
+                    found = false;
+            }
+            finally
+            {
+                con.Close();
+            }
+            return found;
+        }
         #endregion
         #region Checkout Section
         public Double catchA(String gc_cardno)

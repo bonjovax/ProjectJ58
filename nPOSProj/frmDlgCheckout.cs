@@ -523,26 +523,31 @@ namespace nPOSProj
                 if (e.KeyCode == Keys.Enter)
                 {
                     gc.Gc_cardno = txtBoxGCode.Text;
-                    gc.askAmount();
-                    if (getAmount <= gc.askAmount())
+                    if (gc.checkExpiry() == false)
                     {
-                        if (gc.askAmount() == 0)
+                        gc.askAmount();
+                        if (getAmount <= gc.askAmount())
                         {
-                            lblNotif.Text = "Gift Card Has Been Consumed/Not Found";
-                            btnProceed.Visible = false;
+                            if (gc.askAmount() == 0)
+                            {
+                                lblNotif.Text = "Gift Card Has Been Consumed/Not Found";
+                                btnProceed.Visible = false;
+                            }
+                            else
+                            {
+                                getGCamt = gc.askAmount();
+                                lblNotif.Text = "P " + gc.askAmount().ToString("#,###,##0.00") + " Available Balance.";
+                                btnProceed.Visible = true;
+                                btnProceed.Focus();
+                            }
                         }
                         else
                         {
-                            getGCamt = gc.askAmount();
-                            lblNotif.Text = "P " + gc.askAmount().ToString("#,###,##0.00") + " Available Balance.";
-                            btnProceed.Visible = true;
-                            btnProceed.Focus();
+                            lblNotif.Text = "P " + gc.askAmount().ToString("#,###,##0.00") + " Available in your Gift Card";
                         }
                     }
                     else
-                    {
-                        lblNotif.Text = "P " + gc.askAmount().ToString("#,###,##0.00") + " Available in your Gift Card";
-                    }
+                        lblNotif.Text = "Gift Card Number is Expired!";
                 }
             }
             catch (Exception)

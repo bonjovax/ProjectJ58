@@ -81,6 +81,14 @@ namespace nPOSProj.VO
             gcdao = new DAO.GiftCardDAO();
             gcdao.Debit(Gc_amount, Gc_cardno);
         }
+        public bool checkExpiry()
+        {
+            bool Found;
+            gcdao = new DAO.GiftCardDAO();
+            gcdao.expiry(Gc_cardno);
+            Found = gcdao.expiry(Gc_cardno);
+            return Found;
+        }
         #endregion
     }
 }
