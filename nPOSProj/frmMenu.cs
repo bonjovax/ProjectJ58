@@ -18,6 +18,7 @@ namespace nPOSProj
         private mdiFrmCustomers mdicus = new mdiFrmCustomers();
         private frmPOS pos = new frmPOS();
         private frmGiftCard gc = new frmGiftCard();
+        private mdiFrmReports reports = new mdiFrmReports();
         private String userName = frmLogin.User.user_name;
         public frmMenu()
         {
@@ -150,6 +151,12 @@ namespace nPOSProj
                 this.Hide();
                 return true;
             }
+            if (keyData == Keys.F4 && btnGenReports.Enabled == true)
+            {
+                reports.Show();
+                this.Hide();
+                return true;
+            }
             if (keyData == Keys.F5 && btnGC.Enabled == true)
             {
                 gc = new frmGiftCard();
@@ -181,6 +188,12 @@ namespace nPOSProj
         {
             gc = new frmGiftCard();
             gc.ShowDialog();
+        }
+
+        private void btnGenReports_Click(object sender, EventArgs e)
+        {
+            reports.Show();
+            this.Hide();
         }
     }
 }

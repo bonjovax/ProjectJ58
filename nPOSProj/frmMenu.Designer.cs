@@ -123,6 +123,7 @@
             this.btnGenReports.Text = "Reports (F4)";
             this.btnGenReports.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnGenReports.UseVisualStyleBackColor = false;
+            this.btnGenReports.Click += new System.EventHandler(this.btnGenReports_Click);
             // 
             // btnCustomers
             // 
