@@ -272,11 +272,11 @@ namespace nPOSProj
                         if (selector == 2)
                         {
                             graphic.DrawString("Check No:", new Font("Telidon", 10), new SolidBrush(Color.Black), 10, 320 + offset);
-                            graphic.DrawString("0000092389364", new Font("Telidon", 10), new SolidBrush(Color.Black), 85, 320 + offset);
+                            graphic.DrawString(checkNo, new Font("Telidon", 10), new SolidBrush(Color.Black), 85, 320 + offset);
                             graphic.DrawString("Bank & Branch:", new Font("Telidon", 10), new SolidBrush(Color.Black), 10, 335 + offset);
-                            graphic.DrawString(Truncate("Metrobank Colon Branch", 18), new Font("Telidon", 10), new SolidBrush(Color.Black), 115, 335 + offset);
+                            graphic.DrawString(Truncate(BankNBranch, 18), new Font("Telidon", 10), new SolidBrush(Color.Black), 115, 335 + offset);
                             graphic.DrawString("Amount:", new Font("Telidon", 10), new SolidBrush(Color.Black), 10, 350 + offset);
-                            graphic.DrawString(Convert.ToDouble(400).ToString("#,###,##0.00"), new Font("Telidon", 10), new SolidBrush(Color.Black), 85, 350 + offset);
+                            graphic.DrawString(checkAmount.ToString("#,###,##0.00"), new Font("Telidon", 10), new SolidBrush(Color.Black), 85, 350 + offset);
 
                             graphic.DrawString("Transaction #:", new Font("Telidon", 10), new SolidBrush(Color.Black), 10, 373 + offset);
                             graphic.DrawString(OrNo.ToString(), new Font("Telidon", 10), new SolidBrush(Color.Black), 110, 373 + offset);
@@ -327,7 +327,7 @@ namespace nPOSProj
                             graphic.DrawString("Thank you for Shopping and Come Again ", new Font("Telidon", 8), new SolidBrush(Color.Black), 20, 447 + offset);
                         }
                     }
-                    catch (MySqlException ex)
+                    catch (MySqlException)
                     {
                         rdDescription.Text = "Check Printer or Check Server!";
                     }
@@ -1784,13 +1784,19 @@ namespace nPOSProj
                     pos.Pos_tender = Double.Parse(lblTotalAmount.Text);
                     pos.Pos_orno = OrNo;
                     pos.Pos_terminal = lg.tN;
+                    checkNo = checkout.CheckNo;
                     pos.Bc_checkno = checkout.CheckNo;
+                    BankNBranch = checkout.BankNBranch;
                     pos.Bc_banknbranch = checkout.BankNBranch;
                     pos.Bc_refcode = checkout.CRef;
+                    checkAmount = Double.Parse(lblTotalAmount.Text);
                     pos.Tx_amount = Double.Parse(lblTotalAmount.Text);
                     pos.BankCheckout();
                     //
                     newFlash();
+                    selector = 2; //Debit Credit Card
+                    PrintReceipt();
+                    reprint = true;
                 }
                 if (checkout.IsGCTX == true)
                 {
