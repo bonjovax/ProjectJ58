@@ -169,6 +169,7 @@
             this.bcSave.Size = new System.Drawing.Size(69, 60);
             this.bcSave.TabIndex = 6;
             this.bcSave.UseVisualStyleBackColor = false;
+            this.bcSave.Click += new System.EventHandler(this.bcSave_Click);
             // 
             // btnXML
             // 

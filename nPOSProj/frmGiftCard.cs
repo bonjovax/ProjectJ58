@@ -248,5 +248,27 @@ namespace nPOSProj
                 dt.WriteXml(saveFileDialog1.FileName);
             }
         }
+
+        private void bcSave_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog sv = new SaveFileDialog();
+            sv.Filter = "BMP (*.bmp)|*.bmp|GIF (*.gif)|*.gif|JPG (*.jpg)|*.jpg|PNG (*.png)|*.png|TIFF (*.tif)|*.tif";
+            sv.FilterIndex = 4;
+            sv.AddExtension = true;
+            if (sv.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                SaveTypes st = SaveTypes.UNSPECIFIED;
+                switch (sv.FilterIndex)
+                {
+                    case 1: /* BMP */  st = BarcodeLib.SaveTypes.BMP; break;
+                    case 2: /* GIF */  st = BarcodeLib.SaveTypes.GIF; break;
+                    case 3: /* JPG */  st = BarcodeLib.SaveTypes.JPG; break;
+                    case 4: /* PNG */  st = BarcodeLib.SaveTypes.PNG; break;
+                    case 5: /* TIFF */ st = BarcodeLib.SaveTypes.TIFF; break;
+                    default: break;
+                }
+                b.SaveImage(sv.FileName, st);
+            }
+        }
     }
 }

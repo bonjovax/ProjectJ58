@@ -206,6 +206,7 @@
             this.bcSave.Size = new System.Drawing.Size(35, 53);
             this.bcSave.TabIndex = 15;
             this.bcSave.UseVisualStyleBackColor = false;
+            this.bcSave.Click += new System.EventHandler(this.bcSave_Click);
             // 
             // barcode
             // 
