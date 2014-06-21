@@ -246,7 +246,7 @@ namespace nPOSProj
                             graphic.DrawString("Transaction #:", new Font("Telidon", 10), new SolidBrush(Color.Black), 10, 356 + offset);
                             graphic.DrawString(OrNo.ToString(), new Font("Telidon", 10), new SolidBrush(Color.Black), 110, 356 + offset);
                             graphic.DrawString("CASHIER:", new Font("Telidon", 10), new SolidBrush(Color.Black), 10, 373 + offset);
-                            graphic.DrawString(lblUserAccount.Text, new Font("Telidon", 10), new SolidBrush(Color.Black), 133, 373 + offset);
+                            graphic.DrawString(lblUserAccount.Text, new Font("Telidon", 10), new SolidBrush(Color.Black), 110, 373 + offset);
                             graphic.DrawString("Terminal #:", new Font("Telidon", 10), new SolidBrush(Color.Black), 10, 390 + offset);
                             graphic.DrawString(fl.tN, new Font("Telidon", 10), new SolidBrush(Color.Black), 110, 390 + offset);
                             graphic.DrawString("-------------------------------------------", new Font("Telidon Cd", 11), new SolidBrush(Color.Black), 3, 413 + offset);
@@ -428,31 +428,26 @@ namespace nPOSProj
                 {
                     selector = 0;
                     printDocument1.Print();
-                    reprint = false;
                 }
                 if (selector == 1 && reprint == true)
                 {
                     selector = 1;
                     printDocument1.Print();
-                    reprint = false;
                 }
                 if (selector == 2 && reprint == true)
                 {
                     selector = 2;
                     printDocument1.Print();
-                    reprint = false;
                 }
                 if (selector == 3 && reprint == true)
                 {
                     selector = 3;
                     printDocument1.Print();
-                    reprint = false;
                 }
                 if (selector == 4 && reprint == true)
                 {
                     selector = 4;
                     printDocument1.Print();
-                    reprint = false;
                 }
                 return true;
             }
@@ -502,6 +497,7 @@ namespace nPOSProj
                     lviewPOS.Items.Clear();
                     txtBoxEAN.Focus();
                     selector = 0;
+                    reprint = false;
                 }
                 catch (Exception)
                 {
