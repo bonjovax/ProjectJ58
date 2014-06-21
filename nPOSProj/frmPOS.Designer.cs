@@ -30,14 +30,6 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPOS));
-            this.lviewPOS = new System.Windows.Forms.ListView();
-            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.rdDescription = new System.Windows.Forms.TextBox();
             this.txtBoxQty = new System.Windows.Forms.TextBox();
             this.rdPrice = new System.Windows.Forms.TextBox();
@@ -79,72 +71,15 @@
             this.lblTAXamt = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.printDocument1 = new System.Drawing.Printing.PrintDocument();
+            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.lviewPOS = new System.Windows.Forms.ListView();
             this.SuspendLayout();
-            // 
-            // lviewPOS
-            // 
-            this.lviewPOS.BackColor = System.Drawing.Color.White;
-            this.lviewPOS.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("lviewPOS.BackgroundImage")));
-            this.lviewPOS.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.lviewPOS.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeader1,
-            this.columnHeader2,
-            this.columnHeader3,
-            this.columnHeader4,
-            this.columnHeader5,
-            this.columnHeader6,
-            this.columnHeader7});
-            this.lviewPOS.Font = new System.Drawing.Font("Tahoma", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lviewPOS.FullRowSelect = true;
-            this.lviewPOS.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
-            this.lviewPOS.Location = new System.Drawing.Point(298, 156);
-            this.lviewPOS.MultiSelect = false;
-            this.lviewPOS.Name = "lviewPOS";
-            this.lviewPOS.Size = new System.Drawing.Size(955, 565);
-            this.lviewPOS.TabIndex = 13;
-            this.lviewPOS.UseCompatibleStateImageBehavior = false;
-            this.lviewPOS.View = System.Windows.Forms.View.Details;
-            this.lviewPOS.SelectedIndexChanged += new System.EventHandler(this.lviewPOS_SelectedIndexChanged);
-            // 
-            // columnHeader1
-            // 
-            this.columnHeader1.Text = "EAN";
-            this.columnHeader1.Width = 172;
-            // 
-            // columnHeader2
-            // 
-            this.columnHeader2.Text = "Qty";
-            this.columnHeader2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.columnHeader2.Width = 54;
-            // 
-            // columnHeader3
-            // 
-            this.columnHeader3.Text = "Description";
-            this.columnHeader3.Width = 349;
-            // 
-            // columnHeader4
-            // 
-            this.columnHeader4.Text = "Price";
-            this.columnHeader4.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.columnHeader4.Width = 114;
-            // 
-            // columnHeader5
-            // 
-            this.columnHeader5.Text = "Discount";
-            this.columnHeader5.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.columnHeader5.Width = 97;
-            // 
-            // columnHeader6
-            // 
-            this.columnHeader6.Text = "Total";
-            this.columnHeader6.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.columnHeader6.Width = 133;
-            // 
-            // columnHeader7
-            // 
-            this.columnHeader7.Text = "*";
-            this.columnHeader7.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.columnHeader7.Width = 34;
             // 
             // rdDescription
             // 
@@ -719,6 +654,71 @@
             this.label12.Text = "TAX Amount";
             this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
+            // columnHeader1
+            // 
+            this.columnHeader1.Text = "EAN";
+            this.columnHeader1.Width = 172;
+            // 
+            // columnHeader2
+            // 
+            this.columnHeader2.Text = "Qty";
+            this.columnHeader2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.columnHeader2.Width = 54;
+            // 
+            // columnHeader3
+            // 
+            this.columnHeader3.Text = "Description";
+            this.columnHeader3.Width = 349;
+            // 
+            // columnHeader4
+            // 
+            this.columnHeader4.Text = "Price";
+            this.columnHeader4.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.columnHeader4.Width = 114;
+            // 
+            // columnHeader5
+            // 
+            this.columnHeader5.Text = "Discount";
+            this.columnHeader5.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.columnHeader5.Width = 97;
+            // 
+            // columnHeader6
+            // 
+            this.columnHeader6.Text = "Total";
+            this.columnHeader6.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.columnHeader6.Width = 133;
+            // 
+            // columnHeader7
+            // 
+            this.columnHeader7.Text = "*";
+            this.columnHeader7.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.columnHeader7.Width = 34;
+            // 
+            // lviewPOS
+            // 
+            this.lviewPOS.BackColor = System.Drawing.Color.White;
+            this.lviewPOS.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("lviewPOS.BackgroundImage")));
+            this.lviewPOS.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.lviewPOS.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader1,
+            this.columnHeader2,
+            this.columnHeader3,
+            this.columnHeader4,
+            this.columnHeader5,
+            this.columnHeader6,
+            this.columnHeader7});
+            this.lviewPOS.Font = new System.Drawing.Font("Tahoma", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lviewPOS.FullRowSelect = true;
+            this.lviewPOS.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
+            this.lviewPOS.Location = new System.Drawing.Point(298, 156);
+            this.lviewPOS.MultiSelect = false;
+            this.lviewPOS.Name = "lviewPOS";
+            this.lviewPOS.Size = new System.Drawing.Size(955, 565);
+            this.lviewPOS.TabIndex = 13;
+            this.lviewPOS.UseCompatibleStateImageBehavior = false;
+            this.lviewPOS.View = System.Windows.Forms.View.Details;
+            this.lviewPOS.SelectedIndexChanged += new System.EventHandler(this.lviewPOS_SelectedIndexChanged);
+            // 
             // frmPOS
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -783,13 +783,6 @@
 
         #endregion
 
-        private System.Windows.Forms.ListView lviewPOS;
-        private System.Windows.Forms.ColumnHeader columnHeader1;
-        private System.Windows.Forms.ColumnHeader columnHeader2;
-        private System.Windows.Forms.ColumnHeader columnHeader3;
-        private System.Windows.Forms.ColumnHeader columnHeader4;
-        private System.Windows.Forms.ColumnHeader columnHeader5;
-        private System.Windows.Forms.ColumnHeader columnHeader6;
         private System.Windows.Forms.TextBox rdDescription;
         private System.Windows.Forms.TextBox txtBoxQty;
         private System.Windows.Forms.TextBox rdPrice;
@@ -830,7 +823,14 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label lblTAXamt;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.ColumnHeader columnHeader7;
         private System.Drawing.Printing.PrintDocument printDocument1;
+        private System.Windows.Forms.ColumnHeader columnHeader1;
+        private System.Windows.Forms.ColumnHeader columnHeader2;
+        private System.Windows.Forms.ColumnHeader columnHeader3;
+        private System.Windows.Forms.ColumnHeader columnHeader4;
+        private System.Windows.Forms.ColumnHeader columnHeader5;
+        private System.Windows.Forms.ColumnHeader columnHeader6;
+        private System.Windows.Forms.ColumnHeader columnHeader7;
+        private System.Windows.Forms.ListView lviewPOS;
     }
 }

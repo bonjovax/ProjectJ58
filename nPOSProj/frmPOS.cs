@@ -279,11 +279,11 @@ namespace nPOSProj
                             graphic.DrawString(Convert.ToDouble(400).ToString("#,###,##0.00"), new Font("Telidon", 10), new SolidBrush(Color.Black), 85, 350 + offset);
 
                             graphic.DrawString("Transaction #:", new Font("Telidon", 10), new SolidBrush(Color.Black), 10, 373 + offset);
-                            graphic.DrawString("4", new Font("Telidon", 10), new SolidBrush(Color.Black), 110, 373 + offset);
+                            graphic.DrawString(OrNo.ToString(), new Font("Telidon", 10), new SolidBrush(Color.Black), 110, 373 + offset);
                             graphic.DrawString("CASHIER:", new Font("Telidon", 10), new SolidBrush(Color.Black), 10, 388 + offset);
-                            graphic.DrawString(" (npossupport)", new Font("Telidon", 10), new SolidBrush(Color.Black), 110, 388 + offset);
+                            graphic.DrawString(lblUserAccount.Text, new Font("Telidon", 10), new SolidBrush(Color.Black), 110, 388 + offset);
                             graphic.DrawString("Terminal #:", new Font("Telidon", 10), new SolidBrush(Color.Black), 10, 403 + offset);
-                            graphic.DrawString("1", new Font("Telidon", 10), new SolidBrush(Color.Black), 110, 403 + offset);
+                            graphic.DrawString(fl.tN, new Font("Telidon", 10), new SolidBrush(Color.Black), 110, 403 + offset);
                             graphic.DrawString("-------------------------------------------", new Font("Telidon Cd", 11), new SolidBrush(Color.Black), 3, 423 + offset);
                             graphic.DrawString("THIS SERVE AS AN OFFICIAL RECEIPT", new Font("Telidon", 10), new SolidBrush(Color.Black), 8, 433 + offset);
                             graphic.DrawString("Thank you for Shopping and Come Again ", new Font("Telidon", 8), new SolidBrush(Color.Black), 20, 447 + offset);
@@ -298,11 +298,11 @@ namespace nPOSProj
                             graphic.DrawString(Convert.ToDouble(400).ToString("#,###,##0.00") + " Cr", new Font("Telidon", 10), new SolidBrush(Color.Black), 85, 350 + offset);
 
                             graphic.DrawString("Transaction #:", new Font("Telidon", 10), new SolidBrush(Color.Black), 10, 373 + offset);
-                            graphic.DrawString("4", new Font("Telidon", 10), new SolidBrush(Color.Black), 110, 373 + offset);
+                            graphic.DrawString(OrNo.ToString(), new Font("Telidon", 10), new SolidBrush(Color.Black), 110, 373 + offset);
                             graphic.DrawString("CASHIER:", new Font("Telidon", 10), new SolidBrush(Color.Black), 10, 388 + offset);
-                            graphic.DrawString(" (npossupport)", new Font("Telidon", 10), new SolidBrush(Color.Black), 110, 388 + offset);
+                            graphic.DrawString(lblUserAccount.Text, new Font("Telidon", 10), new SolidBrush(Color.Black), 110, 388 + offset);
                             graphic.DrawString("Terminal #:", new Font("Telidon", 10), new SolidBrush(Color.Black), 10, 403 + offset);
-                            graphic.DrawString("1", new Font("Telidon", 10), new SolidBrush(Color.Black), 110, 403 + offset);
+                            graphic.DrawString(fl.tN, new Font("Telidon", 10), new SolidBrush(Color.Black), 110, 403 + offset);
                             graphic.DrawString("-------------------------------------------", new Font("Telidon Cd", 11), new SolidBrush(Color.Black), 3, 423 + offset);
                             graphic.DrawString("THIS SERVE AS AN OFFICIAL RECEIPT", new Font("Telidon", 10), new SolidBrush(Color.Black), 8, 433 + offset);
                             graphic.DrawString("Thank you for Shopping and Come Again ", new Font("Telidon", 8), new SolidBrush(Color.Black), 20, 447 + offset);
@@ -317,11 +317,11 @@ namespace nPOSProj
                             graphic.DrawString(Convert.ToDouble(400).ToString("#,###,##0.00") + " Dr", new Font("Telidon", 10), new SolidBrush(Color.Black), 100, 350 + offset);
 
                             graphic.DrawString("Transaction #:", new Font("Telidon", 10), new SolidBrush(Color.Black), 10, 373 + offset);
-                            graphic.DrawString("4", new Font("Telidon", 10), new SolidBrush(Color.Black), 110, 373 + offset);
+                            graphic.DrawString(OrNo.ToString(), new Font("Telidon", 10), new SolidBrush(Color.Black), 110, 373 + offset);
                             graphic.DrawString("CASHIER:", new Font("Telidon", 10), new SolidBrush(Color.Black), 10, 388 + offset);
-                            graphic.DrawString(" (npossupport)", new Font("Telidon", 10), new SolidBrush(Color.Black), 110, 388 + offset);
+                            graphic.DrawString(lblUserAccount.Text, new Font("Telidon", 10), new SolidBrush(Color.Black), 110, 388 + offset);
                             graphic.DrawString("Terminal #:", new Font("Telidon", 10), new SolidBrush(Color.Black), 10, 403 + offset);
-                            graphic.DrawString("1", new Font("Telidon", 10), new SolidBrush(Color.Black), 110, 403 + offset);
+                            graphic.DrawString(fl.tN, new Font("Telidon", 10), new SolidBrush(Color.Black), 110, 403 + offset);
                             graphic.DrawString("-------------------------------------------", new Font("Telidon Cd", 11), new SolidBrush(Color.Black), 3, 423 + offset);
                             graphic.DrawString("THIS SERVE AS AN OFFICIAL RECEIPT", new Font("Telidon", 10), new SolidBrush(Color.Black), 8, 433 + offset);
                             graphic.DrawString("Thank you for Shopping and Come Again ", new Font("Telidon", 8), new SolidBrush(Color.Black), 20, 447 + offset);
@@ -329,7 +329,7 @@ namespace nPOSProj
                     }
                     catch (MySqlException ex)
                     {
-                        Console.WriteLine(ex.ToString());
+                        rdDescription.Text = "Check Printer or Check Server!";
                     }
                 }
             }
@@ -426,9 +426,15 @@ namespace nPOSProj
                     printDocument1.Print();
                     reprint = false;
                 }
-                if (selector == 1)
+                if (selector == 1 && reprint == true)
                 {
                     selector = 1;
+                    printDocument1.Print();
+                    reprint = false;
+                }
+                if (selector == 2 && reprint == true)
+                {
+                    selector = 2;
                     printDocument1.Print();
                     reprint = false;
                 }
