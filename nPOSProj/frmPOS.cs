@@ -297,8 +297,6 @@ namespace nPOSProj
                         store_op = rdr["company_operator"].ToString();
                         TIN = rdr["tin_number"].ToString();
                         TaxT = rdr["tax_type"].ToString();
-                        accreditation = rdr["accreditation_no"].ToString();
-                        serial_no = rdr["serial_no"].ToString();
                         machine_no = rdr["machine_no"].ToString() + fl.tN;
                         all_items_tax = Convert.ToInt16(rdr["all_items_tax"]);
                     }
@@ -854,8 +852,9 @@ namespace nPOSProj
                     }
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
+                MessageBox.Show(ex.ToString());
                 txtBoxQty.Focus();
             }
         }
