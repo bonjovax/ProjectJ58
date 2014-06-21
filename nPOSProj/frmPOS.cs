@@ -123,35 +123,6 @@ namespace nPOSProj
             }
             return source;
         }
-        private void getQtyCount(Int32 pos_orno, String pos_terminal)
-        {
-            con = new MySqlConnection();
-            dbcon = new Conf.dbs();
-            con.ConnectionString = dbcon.getConnectionString();
-            String query = "SELECT SUM(pos_quantity) AS a FROM pos_park ";
-            query += "WHERE (pos_orno = ?orno) AND (pos_terminal = ?terminal)";
-            try
-            {
-                con.Open();
-                MySqlCommand cmd = new MySqlCommand(query, con);
-                cmd.Parameters.AddWithValue("?orno", pos_orno);
-                cmd.Parameters.AddWithValue("?terminal", pos_terminal);
-                cmd.ExecuteScalar();
-                MySqlDataReader rdr = cmd.ExecuteReader();
-                if (rdr.Read())
-                {
-                    counted = Convert.ToInt32(rdr["a"]);
-                }
-            }
-            catch (Exception)
-            {
-                rdDescription.Text = "Cannot Get Get Breakdowns!!";
-            }
-            finally
-            {
-                con.Close();
-            }
-        }
         private void getValidUntil(String gc_cardno)
         {
             con = new MySqlConnection();
@@ -249,7 +220,10 @@ namespace nPOSProj
                         offset = offset + 30;
                         graphic.DrawString("-------------------------------------------", new Font("Telidon Cd", 11), new SolidBrush(Color.Black), 3, 160 + offset);
                         //
-                        getQtyCount(OrNo, fl.tN);
+                        foreach (ListViewItem lv in lviewPOS.Items)
+                        {
+                            counted += Int32.Parse(lv.SubItems[1].Text);
+                        }
                         graphic.DrawString("Item Count: ", new Font("Telidon", 14), new SolidBrush(Color.Black), 40, 175 + offset);
                         graphic.DrawString(counted.ToString(), new Font("Telidon", 14), new SolidBrush(Color.Black), 160, 175 + offset);
                         //
