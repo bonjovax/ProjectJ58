@@ -55,20 +55,22 @@
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Location = new System.Drawing.Point(4, 2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(278, 68);
+            this.groupBox1.Size = new System.Drawing.Size(278, 72);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             // 
             // cBoxWarehouse
             // 
-            this.cBoxWarehouse.BackColor = System.Drawing.Color.White;
+            this.cBoxWarehouse.BackColor = System.Drawing.Color.DarkSlateGray;
             this.cBoxWarehouse.DataSource = this.inventorywarehouseBindingSource;
             this.cBoxWarehouse.DisplayMember = "warehouse_name";
             this.cBoxWarehouse.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cBoxWarehouse.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cBoxWarehouse.ForeColor = System.Drawing.Color.White;
             this.cBoxWarehouse.FormattingEnabled = true;
-            this.cBoxWarehouse.Location = new System.Drawing.Point(83, 40);
+            this.cBoxWarehouse.Location = new System.Drawing.Point(83, 42);
             this.cBoxWarehouse.Name = "cBoxWarehouse";
-            this.cBoxWarehouse.Size = new System.Drawing.Size(190, 24);
+            this.cBoxWarehouse.Size = new System.Drawing.Size(190, 25);
             this.cBoxWarehouse.TabIndex = 3;
             this.cBoxWarehouse.SelectedIndexChanged += new System.EventHandler(this.cBoxWarehouse_SelectedIndexChanged);
             // 
@@ -84,14 +86,16 @@
             // 
             // cBoxSupplier
             // 
-            this.cBoxSupplier.BackColor = System.Drawing.Color.White;
+            this.cBoxSupplier.BackColor = System.Drawing.Color.DarkSlateGray;
             this.cBoxSupplier.DataSource = this.inventorysupplierBindingSource;
             this.cBoxSupplier.DisplayMember = "supplier_name";
             this.cBoxSupplier.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cBoxSupplier.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cBoxSupplier.ForeColor = System.Drawing.Color.White;
             this.cBoxSupplier.FormattingEnabled = true;
-            this.cBoxSupplier.Location = new System.Drawing.Point(83, 12);
+            this.cBoxSupplier.Location = new System.Drawing.Point(83, 13);
             this.cBoxSupplier.Name = "cBoxSupplier";
-            this.cBoxSupplier.Size = new System.Drawing.Size(190, 24);
+            this.cBoxSupplier.Size = new System.Drawing.Size(190, 25);
             this.cBoxSupplier.TabIndex = 2;
             this.cBoxSupplier.SelectedIndexChanged += new System.EventHandler(this.cBoxSupplier_SelectedIndexChanged);
             // 
@@ -103,18 +107,18 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(4, 43);
+            this.label2.Location = new System.Drawing.Point(4, 46);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(73, 16);
+            this.label2.Size = new System.Drawing.Size(74, 17);
             this.label2.TabIndex = 1;
             this.label2.Text = "Warehouse";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(4, 15);
+            this.label1.Location = new System.Drawing.Point(4, 16);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(55, 16);
+            this.label1.Size = new System.Drawing.Size(56, 17);
             this.label1.TabIndex = 0;
             this.label1.Text = "Supplier";
             // 
@@ -128,23 +132,31 @@
             // 
             // btnGo
             // 
+            this.btnGo.BackColor = System.Drawing.Color.DarkOrange;
+            this.btnGo.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnGo.Enabled = false;
+            this.btnGo.FlatAppearance.BorderColor = System.Drawing.Color.Teal;
+            this.btnGo.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Teal;
+            this.btnGo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Teal;
+            this.btnGo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnGo.Image = ((System.Drawing.Image)(resources.GetObject("btnGo.Image")));
-            this.btnGo.Location = new System.Drawing.Point(236, 72);
+            this.btnGo.Location = new System.Drawing.Point(232, 76);
             this.btnGo.Name = "btnGo";
-            this.btnGo.Size = new System.Drawing.Size(46, 55);
+            this.btnGo.Size = new System.Drawing.Size(51, 58);
             this.btnGo.TabIndex = 1;
-            this.btnGo.UseVisualStyleBackColor = true;
+            this.btnGo.UseVisualStyleBackColor = false;
             this.btnGo.Click += new System.EventHandler(this.btnGo_Click);
             // 
             // mFilter
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(286, 126);
+            this.BackColor = System.Drawing.Color.Teal;
+            this.ClientSize = new System.Drawing.Size(286, 136);
             this.Controls.Add(this.btnGo);
             this.Controls.Add(this.groupBox1);
-            this.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ForeColor = System.Drawing.Color.White;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
