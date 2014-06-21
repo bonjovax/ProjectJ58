@@ -70,6 +70,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Conf\BIR.cs" />
     <Compile Include="Conf\Crypto.cs" />
     <Compile Include="Conf\dbs.cs" />
     <Compile Include="Conf\Rgx.cs" />

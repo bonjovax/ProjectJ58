@@ -78,6 +78,7 @@
             this.label8 = new System.Windows.Forms.Label();
             this.lblTAXamt = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
+            this.printDocument1 = new System.Drawing.Printing.PrintDocument();
             this.SuspendLayout();
             // 
             // lviewPOS
@@ -830,5 +831,6 @@
         private System.Windows.Forms.Label lblTAXamt;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.ColumnHeader columnHeader7;
+        private System.Drawing.Printing.PrintDocument printDocument1;
     }
 }
