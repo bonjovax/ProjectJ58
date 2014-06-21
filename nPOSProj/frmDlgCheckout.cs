@@ -501,6 +501,7 @@ namespace nPOSProj
         {
             if (txtBoxGCode.Text != "")
             {
+                btnProceed.Visible = false;
                 LockDC_Controls();
                 LockBC_Controls();
                 LockAR_Controls();

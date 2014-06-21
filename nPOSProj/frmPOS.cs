@@ -68,7 +68,7 @@ namespace nPOSProj
         private Double arAmount = 0;
         //Gift Cards
         private String gCardno;
-        private String gValidUntil;
+        private String validU;
         private Double gAmount = 0;
         //
 
@@ -145,6 +145,35 @@ namespace nPOSProj
             }
             catch (Exception)
             {
+                rdDescription.Text = "Cannot Get Get Breakdowns!!";
+            }
+            finally
+            {
+                con.Close();
+            }
+        }
+        private void getValidUntil(String gc_cardno)
+        {
+            con = new MySqlConnection();
+            dbcon = new Conf.dbs();
+            con.ConnectionString = dbcon.getConnectionString();
+            String query = "SELECT gc_validuntil AS a FROM gc_core ";
+            query += "WHERE (gc_cardno = ?gc_cardno)";
+            try
+            {
+                con.Open();
+                MySqlCommand cmd = new MySqlCommand(query, con);
+                cmd.Parameters.AddWithValue("?gc_cardno", gc_cardno);
+                cmd.ExecuteScalar();
+                MySqlDataReader rdr = cmd.ExecuteReader();
+                if (rdr.Read())
+                {
+                    validU = rdr["a"].ToString();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
                 rdDescription.Text = "Cannot Get Get Breakdowns!!";
             }
             finally
@@ -291,11 +320,11 @@ namespace nPOSProj
                         if (selector == 3)
                         {
                             graphic.DrawString("Code:", new Font("Telidon", 10), new SolidBrush(Color.Black), 10, 320 + offset);
-                            graphic.DrawString("MTTMPC", new Font("Telidon", 10), new SolidBrush(Color.Black), 85, 320 + offset);
+                            graphic.DrawString(CustCode, new Font("Telidon", 10), new SolidBrush(Color.Black), 85, 320 + offset);
                             graphic.DrawString("Company:", new Font("Telidon", 10), new SolidBrush(Color.Black), 10, 335 + offset);
-                            graphic.DrawString(Truncate("Matutum Meat Products Corporation", 22), new Font("Telidon", 10), new SolidBrush(Color.Black), 85, 335 + offset);
+                            graphic.DrawString(Truncate(Company, 22), new Font("Telidon", 10), new SolidBrush(Color.Black), 85, 335 + offset);
                             graphic.DrawString("Amount:", new Font("Telidon", 10), new SolidBrush(Color.Black), 10, 350 + offset);
-                            graphic.DrawString(Convert.ToDouble(400).ToString("#,###,##0.00") + " Cr", new Font("Telidon", 10), new SolidBrush(Color.Black), 85, 350 + offset);
+                            graphic.DrawString(arAmount.ToString("#,###,##0.00") + " Cr", new Font("Telidon", 10), new SolidBrush(Color.Black), 85, 350 + offset);
 
                             graphic.DrawString("Transaction #:", new Font("Telidon", 10), new SolidBrush(Color.Black), 10, 373 + offset);
                             graphic.DrawString(OrNo.ToString(), new Font("Telidon", 10), new SolidBrush(Color.Black), 110, 373 + offset);
@@ -309,12 +338,13 @@ namespace nPOSProj
                         }
                         if (selector == 4)
                         {
+                            this.getValidUntil(gCardno);
                             graphic.DrawString("Gift Card #:", new Font("Telidon", 10), new SolidBrush(Color.Black), 10, 320 + offset);
-                            graphic.DrawString("123456789012345", new Font("Telidon", 10), new SolidBrush(Color.Black), 100, 320 + offset);
+                            graphic.DrawString(gCardno, new Font("Telidon", 10), new SolidBrush(Color.Black), 100, 320 + offset);
                             graphic.DrawString("Valid Until:", new Font("Telidon", 10), new SolidBrush(Color.Black), 10, 335 + offset);
-                            graphic.DrawString("12/22/2014", new Font("Telidon", 10), new SolidBrush(Color.Black), 100, 335 + offset);
+                            graphic.DrawString(Convert.ToDateTime(validU).ToString("MM/dd/yy"), new Font("Telidon", 10), new SolidBrush(Color.Black), 100, 335 + offset);
                             graphic.DrawString("Amount:", new Font("Telidon", 10), new SolidBrush(Color.Black), 10, 350 + offset);
-                            graphic.DrawString(Convert.ToDouble(400).ToString("#,###,##0.00") + " Dr", new Font("Telidon", 10), new SolidBrush(Color.Black), 100, 350 + offset);
+                            graphic.DrawString(gAmount.ToString("#,###,##0.00") + " Dr", new Font("Telidon", 10), new SolidBrush(Color.Black), 100, 350 + offset);
 
                             graphic.DrawString("Transaction #:", new Font("Telidon", 10), new SolidBrush(Color.Black), 10, 373 + offset);
                             graphic.DrawString(OrNo.ToString(), new Font("Telidon", 10), new SolidBrush(Color.Black), 110, 373 + offset);
@@ -435,6 +465,18 @@ namespace nPOSProj
                 if (selector == 2 && reprint == true)
                 {
                     selector = 2;
+                    printDocument1.Print();
+                    reprint = false;
+                }
+                if (selector == 3 && reprint == true)
+                {
+                    selector = 3;
+                    printDocument1.Print();
+                    reprint = false;
+                }
+                if (selector == 4 && reprint == true)
+                {
+                    selector = 4;
                     printDocument1.Print();
                     reprint = false;
                 }
@@ -1794,7 +1836,7 @@ namespace nPOSProj
                     pos.BankCheckout();
                     //
                     newFlash();
-                    selector = 2; //Debit Credit Card
+                    selector = 2; //Check
                     PrintReceipt();
                     reprint = true;
                 }
@@ -1818,7 +1860,9 @@ namespace nPOSProj
                     pos.Pos_tender = checkout.GetAmount;
                     pos.Pos_orno = OrNo;
                     pos.Pos_terminal = lg.tN;
+                    gCardno = checkout.Gc_code;
                     pos.Gc_cardo = checkout.Gc_code;
+                    gAmount = checkout.GetAmount;
                     pos.Tx_amount = checkout.GetAmount; //Same
                     pos.GiftCardCheckout();
                     //
@@ -1827,6 +1871,9 @@ namespace nPOSProj
                     gcard.DebitGC();
                     //
                     newFlash();
+                    selector = 4; //Gift Card
+                    PrintReceipt();
+                    reprint = true;
                 }
                 if (checkout.IsARTX == true) //CRM A/R Basic Codes
                 {
@@ -1845,11 +1892,14 @@ namespace nPOSProj
                     txtBoxEAN.Focus();
                     proceeds = false; //Important
                     //
+                    Company = checkout.Company;
                     pos.Pos_customer = checkout.Company;
                     pos.Pos_tender = checkout.GetAmount;
                     pos.Pos_orno = OrNo;
                     pos.Pos_terminal = lg.tN;
+                    CustCode = checkout.Custcode;
                     pos.Crm_custcode = checkout.Custcode;
+                    arAmount = checkout.GetAmount;
                     pos.Tx_amount = checkout.GetAmount; //Same
                     pos.ARBasicCheckout();
                     //
@@ -1859,6 +1909,9 @@ namespace nPOSProj
                     customer.CreditToAccount();
                     //
                     newFlash();
+                    selector = 3; //AR
+                    PrintReceipt();
+                    reprint = true;
                 }
             }
             catch (Exception)
