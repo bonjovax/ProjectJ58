@@ -29,11 +29,12 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(mPOrder));
             this.label1 = new System.Windows.Forms.Label();
             this.rdPOno = new System.Windows.Forms.TextBox();
@@ -182,6 +183,7 @@
             // 
             // txtBoxRemarks
             // 
+            this.txtBoxRemarks.BackColor = System.Drawing.SystemColors.Window;
             this.txtBoxRemarks.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtBoxRemarks.Location = new System.Drawing.Point(11, 146);
             this.txtBoxRemarks.Multiline = true;
@@ -224,6 +226,7 @@
             // 
             // cBoxWarehouse
             // 
+            this.cBoxWarehouse.BackColor = System.Drawing.Color.White;
             this.cBoxWarehouse.DataSource = this.inventorywarehouseBindingSource;
             this.cBoxWarehouse.DisplayMember = "warehouse_name";
             this.cBoxWarehouse.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -248,6 +251,7 @@
             // 
             // cBoxCourier
             // 
+            this.cBoxCourier.BackColor = System.Drawing.Color.White;
             this.cBoxCourier.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cBoxCourier.Enabled = false;
             this.cBoxCourier.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -284,6 +288,8 @@
             // 
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AllowUserToDeleteRows = false;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.MidnightBlue;
+            this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -293,14 +299,14 @@
             this.Column3,
             this.Column4,
             this.Column5});
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.Teal;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.DarkOrange;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle6;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.dataGridView1.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter;
             this.dataGridView1.GridColor = System.Drawing.Color.Black;
@@ -315,8 +321,8 @@
             // 
             // dgQTY
             // 
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dgQTY.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dgQTY.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgQTY.HeaderText = "Qty";
             this.dgQTY.Name = "dgQTY";
             this.dgQTY.ReadOnly = true;
@@ -330,8 +336,8 @@
             // 
             // Unit
             // 
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.Unit.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.Unit.DefaultCellStyle = dataGridViewCellStyle3;
             this.Unit.HeaderText = "UOM";
             this.Unit.Name = "Unit";
             this.Unit.ReadOnly = true;
@@ -345,10 +351,10 @@
             // 
             // Column4
             // 
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.Format = "N2";
-            dataGridViewCellStyle3.NullValue = null;
-            this.Column4.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.Format = "N2";
+            dataGridViewCellStyle4.NullValue = null;
+            this.Column4.DefaultCellStyle = dataGridViewCellStyle4;
             this.Column4.HeaderText = "Unit Price";
             this.Column4.Name = "Column4";
             this.Column4.ReadOnly = true;
@@ -356,10 +362,10 @@
             // 
             // Column5
             // 
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.Format = "N2";
-            dataGridViewCellStyle4.NullValue = null;
-            this.Column5.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.Format = "N2";
+            dataGridViewCellStyle5.NullValue = null;
+            this.Column5.DefaultCellStyle = dataGridViewCellStyle5;
             this.Column5.HeaderText = "Amount";
             this.Column5.Name = "Column5";
             this.Column5.ReadOnly = true;
@@ -455,12 +461,12 @@
             // 
             // txtBoxUQTY
             // 
-            this.txtBoxUQTY.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBoxUQTY.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtBoxUQTY.Location = new System.Drawing.Point(232, 17);
             this.txtBoxUQTY.MaxLength = 8;
             this.txtBoxUQTY.Name = "txtBoxUQTY";
             this.txtBoxUQTY.ReadOnly = true;
-            this.txtBoxUQTY.Size = new System.Drawing.Size(43, 23);
+            this.txtBoxUQTY.Size = new System.Drawing.Size(43, 25);
             this.txtBoxUQTY.TabIndex = 19;
             this.txtBoxUQTY.Text = "0";
             this.txtBoxUQTY.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -542,11 +548,11 @@
             // 
             // txtBoxUnitPrice
             // 
-            this.txtBoxUnitPrice.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBoxUnitPrice.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtBoxUnitPrice.Location = new System.Drawing.Point(341, 17);
             this.txtBoxUnitPrice.Name = "txtBoxUnitPrice";
             this.txtBoxUnitPrice.ReadOnly = true;
-            this.txtBoxUnitPrice.Size = new System.Drawing.Size(99, 23);
+            this.txtBoxUnitPrice.Size = new System.Drawing.Size(99, 22);
             this.txtBoxUnitPrice.TabIndex = 14;
             this.txtBoxUnitPrice.Text = "0.00";
             this.txtBoxUnitPrice.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -564,11 +570,11 @@
             // 
             // txtBoxUOM
             // 
-            this.txtBoxUOM.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBoxUOM.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtBoxUOM.Location = new System.Drawing.Point(387, 47);
             this.txtBoxUOM.Name = "txtBoxUOM";
             this.txtBoxUOM.ReadOnly = true;
-            this.txtBoxUOM.Size = new System.Drawing.Size(155, 23);
+            this.txtBoxUOM.Size = new System.Drawing.Size(155, 22);
             this.txtBoxUOM.TabIndex = 12;
             // 
             // label12
@@ -583,12 +589,12 @@
             // 
             // txtBoxQty
             // 
-            this.txtBoxQty.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBoxQty.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtBoxQty.Location = new System.Drawing.Point(232, 17);
             this.txtBoxQty.MaxLength = 8;
             this.txtBoxQty.Name = "txtBoxQty";
             this.txtBoxQty.ReadOnly = true;
-            this.txtBoxQty.Size = new System.Drawing.Size(43, 23);
+            this.txtBoxQty.Size = new System.Drawing.Size(43, 25);
             this.txtBoxQty.TabIndex = 11;
             this.txtBoxQty.Text = "0";
             this.txtBoxQty.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -606,11 +612,11 @@
             // 
             // txtBoxParticulars
             // 
-            this.txtBoxParticulars.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBoxParticulars.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtBoxParticulars.Location = new System.Drawing.Point(84, 47);
             this.txtBoxParticulars.Name = "txtBoxParticulars";
             this.txtBoxParticulars.ReadOnly = true;
-            this.txtBoxParticulars.Size = new System.Drawing.Size(263, 23);
+            this.txtBoxParticulars.Size = new System.Drawing.Size(263, 22);
             this.txtBoxParticulars.TabIndex = 13;
             this.txtBoxParticulars.TextChanged += new System.EventHandler(this.txtBoxParticulars_TextChanged);
             this.txtBoxParticulars.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtBoxParticulars_KeyDown);
@@ -627,11 +633,11 @@
             // 
             // txtBoxStockCode
             // 
-            this.txtBoxStockCode.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBoxStockCode.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtBoxStockCode.Location = new System.Drawing.Point(84, 18);
             this.txtBoxStockCode.Name = "txtBoxStockCode";
             this.txtBoxStockCode.ReadOnly = true;
-            this.txtBoxStockCode.Size = new System.Drawing.Size(117, 23);
+            this.txtBoxStockCode.Size = new System.Drawing.Size(117, 22);
             this.txtBoxStockCode.TabIndex = 10;
             this.txtBoxStockCode.TextChanged += new System.EventHandler(this.txtBoxStockCode_TextChanged);
             this.txtBoxStockCode.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtBoxStockCode_KeyDown);
