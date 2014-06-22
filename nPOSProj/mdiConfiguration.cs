@@ -28,6 +28,9 @@ namespace nPOSProj
                 cBoxTaxType.Text = confvo.askTaxType();
                 txtBoxVatRate.Text = confvo.askVATRate().ToString();
                 txtBoxContactNo.Text = confvo.askContactNumber();
+                txtBoxOperator.Text = confvo.askOperator();
+                txtBoxPermitNo.Text = confvo.askPermitno();
+                txtBoxCompanyAddress2.Text = confvo.askCompanyAddress1();
                 if (confvo.askAllItem() == 1)
                 {
                     cBTax.Checked = true;
@@ -57,6 +60,9 @@ namespace nPOSProj
                 confvo.tax_type = cBoxTaxType.Text;
                 confvo.vat_rate = Convert.ToDouble(txtBoxVatRate.Text);
                 confvo.contact_number = txtBoxContactNo.Text;
+                confvo.operators = txtBoxOperator.Text;
+                confvo.permitno = txtBoxPermitNo.Text;
+                confvo.company_address1 = txtBoxCompanyAddress2.Text;
                 if (cBTax.Checked == true)
                 {
                     confvo.allITax = 1;

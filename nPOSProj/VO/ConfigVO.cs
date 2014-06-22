@@ -9,11 +9,14 @@ namespace nPOSProj.VO
     {
         private String _company_name;
         private String _company_address;
+        private String _company_address1;
         private String _tin_number;
         private String _tax_type;
         private Double _vat_rate;
         private String _contact_number;
         private Int16 _allITax;
+        private String _operators;
+        private String _permitno;
         private DAO.ConfigDAO confdao;
         
         public ConfigVO()
@@ -30,6 +33,11 @@ namespace nPOSProj.VO
         {
             get { return _company_address; }
             set { _company_address = value; }
+        }
+        public String company_address1
+        {
+            get { return _company_address1; }
+            set { _company_address1 = value; }
         }
         public String tin_number
         {
@@ -56,6 +64,16 @@ namespace nPOSProj.VO
             get { return _allITax; }
             set { _allITax = value; }
         }
+        public String operators
+        {
+            get { return _operators; }
+            set { _operators = value; }
+        }
+        public String permitno
+        {
+            get { return _permitno; }
+            set { _permitno = value; }
+        }
 
         public String askCompanyName()
         {
@@ -71,6 +89,14 @@ namespace nPOSProj.VO
             confdao = new DAO.ConfigDAO();
             confdao.readCompany_Address();
             companyAddress = confdao.readCompany_Address();
+            return companyAddress;
+        }
+        public String askCompanyAddress1()
+        {
+            String companyAddress;
+            confdao = new DAO.ConfigDAO();
+            confdao.address1();
+            companyAddress = confdao.address1();
             return companyAddress;
         }
         public String askTIN()
@@ -113,10 +139,26 @@ namespace nPOSProj.VO
             switchs = confdao.allItemTax();
             return switchs;
         }
+        public String askOperator()
+        {
+            String op;
+            confdao = new DAO.ConfigDAO();
+            confdao.operators();
+            op = confdao.operators();
+            return op;
+        }
+        public String askPermitno()
+        {
+            String pn;
+            confdao = new DAO.ConfigDAO();
+            confdao.permitNo();
+            pn = confdao.permitNo();
+            return pn;
+        }
         public void Patch()
         {
             confdao = new DAO.ConfigDAO();
-            confdao.PatchInfo(company_name, company_address, tin_number, tax_type, vat_rate, allITax, contact_number);
+            confdao.PatchInfo(company_name, company_address, tin_number, tax_type, vat_rate, allITax, contact_number, operators, permitno, company_address1);
         }
     }
 }

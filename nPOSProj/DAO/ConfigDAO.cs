@@ -12,25 +12,28 @@ namespace nPOSProj.DAO
         private MySqlConnection con;
         private String Company_Name;
         private String Company_Address;
+        private String Company_Address1;
         private String Tin_Number;
         private String Tax_Type;
         private Double Vat_Rate;
         private String Contact_Number;
         private Int16 allIT;
+        private String oper;
+        private String permitno;
 
         public ConfigDAO()
         {
 
         }
 
-        public void PatchInfo(String company_name, String company_address, String tin_number, String tax_type, Double vat_rate, Int16 all_items_tax, String contact_number)
+        public void PatchInfo(String company_name, String company_address, String tin_number, String tax_type, Double vat_rate, Int16 all_items_tax, String contact_number, String owner, String permit, String company_address1)
         {
             con = new MySqlConnection();
             dbcon = new Conf.dbs();
             con.ConnectionString = dbcon.getConnectionString();
             String query = "UPDATE system_config SET company_name = ?company_name, ";
             query += "company_address = ?company_address, tin_number = ?tin_number, tax_type = ?tax_type, vat_rate = ?vat_rate, all_items_tax = ?all_items_tax, ";
-            query += "company_contact = ?company_contact";
+            query += "company_contact = ?company_contact, company_operator = ?company_operator, permit_no = ?permit_no, company_address2 = ?address1";
             try
             {
                 con.Open();
@@ -42,6 +45,9 @@ namespace nPOSProj.DAO
                 cmd.Parameters.AddWithValue("?vat_rate", vat_rate);
                 cmd.Parameters.AddWithValue("?all_items_tax", all_items_tax);
                 cmd.Parameters.AddWithValue("?company_contact", contact_number);
+                cmd.Parameters.AddWithValue("?company_operator", owner);
+                cmd.Parameters.AddWithValue("?permit_no", permit);
+                cmd.Parameters.AddWithValue("?address1", company_address1);
                 cmd.ExecuteNonQuery();
                 cmd.Dispose();
             }
@@ -212,6 +218,75 @@ namespace nPOSProj.DAO
                 con.Close();
             }
             return allIT;
+        }
+        public String operators()
+        {
+            con = new MySqlConnection();
+            dbcon = new Conf.dbs();
+            con.ConnectionString = dbcon.getConnectionString();
+            String query = "SELECT company_operator FROM system_config";
+            try
+            {
+                con.Open();
+                MySqlCommand cmd = new MySqlCommand(query, con);
+                cmd.ExecuteScalar();
+                MySqlDataReader rdr = cmd.ExecuteReader();
+                if (rdr.Read())
+                {
+                    oper = rdr["company_operator"].ToString();
+                }
+            }
+            finally
+            {
+                con.Close();
+            }
+            return oper;
+        }
+        public String permitNo()
+        {
+            con = new MySqlConnection();
+            dbcon = new Conf.dbs();
+            con.ConnectionString = dbcon.getConnectionString();
+            String query = "SELECT permit_no FROM system_config";
+            try
+            {
+                con.Open();
+                MySqlCommand cmd = new MySqlCommand(query, con);
+                cmd.ExecuteScalar();
+                MySqlDataReader rdr = cmd.ExecuteReader();
+                if (rdr.Read())
+                {
+                    permitno = rdr["permit_no"].ToString();
+                }
+            }
+            finally
+            {
+                con.Close();
+            }
+            return permitno;
+        }
+        public String address1()
+        {
+            con = new MySqlConnection();
+            dbcon = new Conf.dbs();
+            con.ConnectionString = dbcon.getConnectionString();
+            String query = "SELECT company_address2 FROM system_config";
+            try
+            {
+                con.Open();
+                MySqlCommand cmd = new MySqlCommand(query, con);
+                cmd.ExecuteScalar();
+                MySqlDataReader rdr = cmd.ExecuteReader();
+                if (rdr.Read())
+                {
+                    Company_Address1 = rdr["company_address2"].ToString();
+                }
+            }
+            finally
+            {
+                con.Close();
+            }
+            return Company_Address1;
         }
     }
 }
