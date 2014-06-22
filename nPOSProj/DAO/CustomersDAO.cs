@@ -666,7 +666,7 @@ namespace nPOSProj.DAO
                 cmd1.Parameters.AddWithValue("?crm_custcode", crm_custcode);
                 cmd1.Parameters.AddWithValue("?crm_paydate", Convert.ToDateTime(DateTime.Now.ToString("yyyy-MM-dd")));
                 cmd1.Parameters.AddWithValue("?crm_paytime", Convert.ToDateTime(DateTime.Now.ToString("HH:mm:ss")));
-                cmd1.Parameters.AddWithValue("?crm_paidamt", crm_paidamt);
+                cmd1.Parameters.AddWithValue("?crm_payamount", crm_paidamt);
                 cmd2.Parameters.AddWithValue("?crm_custcode", crm_custcode);
                 cmd.ExecuteNonQuery();
                 cmd1.ExecuteNonQuery();
