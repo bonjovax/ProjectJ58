@@ -48,6 +48,7 @@
             this.inventoryitemsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.npos_dbDataSet = new nPOSProj.npos_dbDataSet();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnPatch = new System.Windows.Forms.Button();
             this.rdZ = new System.Windows.Forms.RadioButton();
             this.rdE = new System.Windows.Forms.RadioButton();
             this.rdVatable = new System.Windows.Forms.RadioButton();
@@ -67,7 +68,6 @@
             this.btnXML = new System.Windows.Forms.Button();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.inventory_itemsTableAdapter = new nPOSProj.npos_dbDataSetTableAdapters.inventory_itemsTableAdapter();
-            this.btnPatch = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.inventoryitemsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.npos_dbDataSet)).BeginInit();
@@ -102,7 +102,7 @@
             dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
             dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.DarkOrange;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle5;
             this.dataGridView1.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnF2;
@@ -111,11 +111,7 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.Empty;
             dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Empty;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.Empty;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.Empty;
             dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -231,6 +227,28 @@
             this.groupBox1.TabIndex = 4;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Item Information";
+            // 
+            // btnPatch
+            // 
+            this.btnPatch.BackColor = System.Drawing.Color.DarkRed;
+            this.btnPatch.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnPatch.Enabled = false;
+            this.btnPatch.FlatAppearance.BorderColor = System.Drawing.Color.MidnightBlue;
+            this.btnPatch.FlatAppearance.MouseDownBackColor = System.Drawing.Color.MidnightBlue;
+            this.btnPatch.FlatAppearance.MouseOverBackColor = System.Drawing.Color.MidnightBlue;
+            this.btnPatch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPatch.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPatch.Image = ((System.Drawing.Image)(resources.GetObject("btnPatch.Image")));
+            this.btnPatch.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnPatch.Location = new System.Drawing.Point(391, 13);
+            this.btnPatch.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnPatch.Name = "btnPatch";
+            this.btnPatch.Size = new System.Drawing.Size(107, 32);
+            this.btnPatch.TabIndex = 104;
+            this.btnPatch.Text = "&Patch Code";
+            this.btnPatch.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnPatch.UseVisualStyleBackColor = false;
+            this.btnPatch.Click += new System.EventHandler(this.btnPatch_Click);
             // 
             // rdZ
             // 
@@ -454,28 +472,6 @@
             // inventory_itemsTableAdapter
             // 
             this.inventory_itemsTableAdapter.ClearBeforeFill = true;
-            // 
-            // btnPatch
-            // 
-            this.btnPatch.BackColor = System.Drawing.Color.DarkRed;
-            this.btnPatch.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnPatch.Enabled = false;
-            this.btnPatch.FlatAppearance.BorderColor = System.Drawing.Color.MidnightBlue;
-            this.btnPatch.FlatAppearance.MouseDownBackColor = System.Drawing.Color.MidnightBlue;
-            this.btnPatch.FlatAppearance.MouseOverBackColor = System.Drawing.Color.MidnightBlue;
-            this.btnPatch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnPatch.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPatch.Image = ((System.Drawing.Image)(resources.GetObject("btnPatch.Image")));
-            this.btnPatch.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnPatch.Location = new System.Drawing.Point(391, 13);
-            this.btnPatch.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.btnPatch.Name = "btnPatch";
-            this.btnPatch.Size = new System.Drawing.Size(107, 32);
-            this.btnPatch.TabIndex = 104;
-            this.btnPatch.Text = "&Patch Code";
-            this.btnPatch.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnPatch.UseVisualStyleBackColor = false;
-            this.btnPatch.Click += new System.EventHandler(this.btnPatch_Click);
             // 
             // mdiItems
             // 
