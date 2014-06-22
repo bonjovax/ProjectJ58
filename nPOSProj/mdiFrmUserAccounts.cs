@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using System.Diagnostics;
 
 namespace nPOSProj
 {
@@ -14,6 +15,7 @@ namespace nPOSProj
         private DAO.LoginDAO login;
         private mdiUserAcc uacc = new mdiUserAcc();
         private mdiResetPassword resetpas = new mdiResetPassword();
+        private static String cmd = "mailto:DLG.alfel@gmail.com?subject=User Accounts Module Support&cc=jarmonilla892@gmail.com";
         public mdiFrmUserAccounts()
         {
             InitializeComponent();
@@ -133,6 +135,11 @@ namespace nPOSProj
         private void tsReset_Click(object sender, EventArgs e)
         {
             gotoResetPassword();
+        }
+
+        private void tsEmail_Click(object sender, EventArgs e)
+        {
+            Process.Start(cmd);
         }
     }
 }

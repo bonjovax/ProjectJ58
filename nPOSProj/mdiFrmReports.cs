@@ -6,12 +6,14 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using System.Diagnostics;
 
 namespace nPOSProj
 {
     public partial class mdiFrmReports : Form
     {
         private DAO.LoginDAO login;
+        private static String cmd = "mailto:DLG.alfel@gmail.com?subject=Reporting Module Support&cc=jarmonilla892@gmail.com";
         public mdiFrmReports()
         {
             InitializeComponent();
@@ -100,6 +102,11 @@ namespace nPOSProj
         private void mdiFrmReports_FormClosing(object sender, FormClosingEventArgs e)
         {
             onFormClose();
+        }
+
+        private void tsEmail_Click(object sender, EventArgs e)
+        {
+            Process.Start(cmd);
         }
     }
 }

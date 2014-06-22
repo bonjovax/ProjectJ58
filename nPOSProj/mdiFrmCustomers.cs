@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
+using System.Diagnostics;
 
 namespace nPOSProj
 {
@@ -15,6 +16,7 @@ namespace nPOSProj
         private DAO.LoginDAO login;
         private mdiDirectory directory = new mdiDirectory();
         private mdiPayment payment = new mdiPayment();
+        private static String cmd = "mailto:DLG.alfel@gmail.com?subject=Customer Module Support&cc=jarmonilla892@gmail.com";
         public mdiFrmCustomers()
         {
             InitializeComponent();
@@ -124,6 +126,11 @@ namespace nPOSProj
                 payment.MdiParent = this;
                 payment.Show();
             }
+        }
+
+        private void tsEmail_Click(object sender, EventArgs e)
+        {
+            Process.Start(cmd);
         }
     }
 }

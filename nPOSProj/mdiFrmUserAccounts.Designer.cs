@@ -41,6 +41,7 @@
             this.tsToday = new System.Windows.Forms.ToolStripStatusLabel();
             this.tsUser = new System.Windows.Forms.ToolStripStatusLabel();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.tsEmail = new System.Windows.Forms.ToolStripButton();
             this.toolStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -53,6 +54,7 @@
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsAccount,
             this.tsReset,
+            this.tsEmail,
             this.tsExit,
             this.tsAbout});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
@@ -170,6 +172,19 @@
             // 
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
+            // tsEmail
+            // 
+            this.tsEmail.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tsEmail.ForeColor = System.Drawing.Color.White;
+            this.tsEmail.Image = ((System.Drawing.Image)(resources.GetObject("tsEmail.Image")));
+            this.tsEmail.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.tsEmail.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsEmail.Name = "tsEmail";
+            this.tsEmail.Size = new System.Drawing.Size(102, 69);
+            this.tsEmail.Text = "&E-Mail Support";
+            this.tsEmail.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.tsEmail.Click += new System.EventHandler(this.tsEmail_Click);
+            // 
             // mdiFrmUserAccounts
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -212,5 +227,6 @@
         private System.Windows.Forms.ToolStripStatusLabel tsToday;
         private System.Windows.Forms.ToolStripStatusLabel tsUser;
         private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.ToolStripButton tsEmail;
     }
 }
