@@ -530,7 +530,6 @@
             // btnRefund
             // 
             this.btnRefund.BackColor = System.Drawing.Color.Moccasin;
-            this.btnRefund.Enabled = false;
             this.btnRefund.FlatAppearance.BorderColor = System.Drawing.Color.Moccasin;
             this.btnRefund.FlatAppearance.BorderSize = 0;
             this.btnRefund.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Orange;

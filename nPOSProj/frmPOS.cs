@@ -476,7 +476,7 @@ namespace nPOSProj
                     rdDescription.Clear();
                     //
                     btnSearch.Enabled = true;
-                    btnRefund.Enabled = true;
+                    btnRefund.Enabled = false;
                     btnWholesale.Enabled = true;
                     //btnParkSale.Enabled = false;
                     //
@@ -1714,7 +1714,7 @@ namespace nPOSProj
                 {
                     lblChangeDue.Text = checkout.ChangeDue.ToString("#,###,##0.00");
                     btnSearch.Enabled = false;
-                    btnRefund.Enabled = false;
+                    btnRefund.Enabled = true;
                     btnWholesale.Enabled = false;
                     btnCancelSale.Enabled = false;
                     btnParkSale.Enabled = true;
@@ -1744,7 +1744,7 @@ namespace nPOSProj
                 if (checkout.IsDCTX == true) //Debit Credit Card
                 {
                     btnSearch.Enabled = false;
-                    btnRefund.Enabled = false;
+                    btnRefund.Enabled = true;
                     btnWholesale.Enabled = false;
                     btnCancelSale.Enabled = false;
                     btnParkSale.Enabled = true;
@@ -1779,7 +1779,7 @@ namespace nPOSProj
                 if (checkout.IsBCTX == true) //Bank Cheque
                 {
                     btnSearch.Enabled = false;
-                    btnRefund.Enabled = false;
+                    btnRefund.Enabled = true;
                     btnWholesale.Enabled = false;
                     btnCancelSale.Enabled = false;
                     btnParkSale.Enabled = true;
@@ -1813,7 +1813,7 @@ namespace nPOSProj
                 if (checkout.IsGCTX == true)
                 {
                     btnSearch.Enabled = false;
-                    btnRefund.Enabled = false;
+                    btnRefund.Enabled = true;
                     btnWholesale.Enabled = false;
                     btnCancelSale.Enabled = false;
                     btnParkSale.Enabled = true;
@@ -1848,7 +1848,7 @@ namespace nPOSProj
                 if (checkout.IsARTX == true) //CRM A/R Basic Codes
                 {
                     btnSearch.Enabled = false;
-                    btnRefund.Enabled = false;
+                    btnRefund.Enabled = true;
                     btnWholesale.Enabled = false;
                     btnCancelSale.Enabled = false;
                     btnParkSale.Enabled = true;
@@ -1916,7 +1916,7 @@ namespace nPOSProj
                         lblChangeDue.Text = "0.00";
                         //
                         btnSearch.Enabled = true;
-                        btnRefund.Enabled = true;
+                        btnRefund.Enabled = false;
                         btnCancelSale.Enabled = true;
                         //
                         Double total_fin = 0;
