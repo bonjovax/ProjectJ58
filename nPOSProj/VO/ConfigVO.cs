@@ -160,5 +160,14 @@ namespace nPOSProj.VO
             confdao = new DAO.ConfigDAO();
             confdao.PatchInfo(company_name, company_address, tin_number, tax_type, vat_rate, allITax, contact_number, operators, permitno, company_address1);
         }
+        public String[,] ReadTerminal()
+        {
+            confdao = new DAO.ConfigDAO();
+            Int32 count = confdao.CountTerminal();
+            String[,] xxx = new String[1, count];
+            confdao.ReadTerminal();
+            xxx = confdao.ReadTerminal();
+            return xxx;
+        }
     }
 }

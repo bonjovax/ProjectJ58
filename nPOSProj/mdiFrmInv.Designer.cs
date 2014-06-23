@@ -169,6 +169,7 @@
             // 
             // tsReporting
             // 
+            this.tsReporting.Enabled = false;
             this.tsReporting.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tsReporting.ForeColor = System.Drawing.Color.White;
             this.tsReporting.Image = ((System.Drawing.Image)(resources.GetObject("tsReporting.Image")));

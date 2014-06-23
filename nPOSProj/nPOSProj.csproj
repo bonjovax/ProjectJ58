@@ -121,6 +121,12 @@
     <Compile Include="frmDlgPark.Designer.cs">
       <DependentUpon>frmDlgPark.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmDlgRefund.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDlgRefund.Designer.cs">
+      <DependentUpon>frmDlgRefund.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmDlgSearch.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -351,6 +357,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmDlgPark.resx">
       <DependentUpon>frmDlgPark.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmDlgRefund.resx">
+      <DependentUpon>frmDlgRefund.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmDlgSearch.resx">
       <DependentUpon>frmDlgSearch.cs</DependentUpon>

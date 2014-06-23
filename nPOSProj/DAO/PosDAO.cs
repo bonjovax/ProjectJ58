@@ -10,6 +10,7 @@ namespace nPOSProj.DAO
     class PosDAO
     {
         private MySqlConnection con;
+        private MySqlConnection con1;
         private Conf.dbs dbcon;
         private Int32 OrNo;
 
@@ -478,6 +479,137 @@ namespace nPOSProj.DAO
             {
                 con.Close();
             }
+        }
+        #endregion
+        #region Refund
+        public Int32 CountRefund(Int32 order_no, String pos_terminal)
+        {
+            con = new MySqlConnection();
+            con1 = new MySqlConnection();
+            dbcon = new Conf.dbs();
+            con.ConnectionString = dbcon.getConnectionString();
+            con1.ConnectionString = dbcon.getConnectionString();
+            String query = "SELECT COUNT(*) AS a ";
+            query += "FROM pos_park INNER JOIN inventory_items ON pos_park.pos_ean = inventory_items.item_ean INNER JOIN inventory_stocks ON inventory_items.stock_code = inventory_stocks.stock_code ";
+            query += "WHERE (pos_park.pos_orno = ?pos_orno) AND (pos_park.pos_terminal = ?pos_terminal)";
+            String query1 = "SELECT COUNT(*) AS a ";
+            query1 += "FROM pos_park INNER JOIN inventory_items ON pos_park.pos_ean = inventory_items.item_ean ";
+            query1 += "WHERE (pos_park.pos_orno = ?pos_orno) AND (inventory_items.is_kit = 1) AND (pos_park.pos_terminal = ?pos_terminal)";
+            Int32 count = 0;
+            Int32 count1 = 0;
+            Int32 spit = 0;
+            try
+            {
+                con.Open();
+                con1.Open();
+                MySqlCommand cmd = new MySqlCommand(query, con);
+                MySqlCommand cmd1 = new MySqlCommand(query1, con1);
+                cmd.Parameters.AddWithValue("?pos_orno", order_no);
+                cmd.Parameters.AddWithValue("?pos_terminal", pos_terminal);
+                cmd1.Parameters.AddWithValue("?pos_orno", order_no);
+                cmd1.Parameters.AddWithValue("?pos_terminal", pos_terminal);
+                cmd.ExecuteScalar();
+                cmd1.ExecuteScalar();
+                MySqlDataReader rdr = cmd.ExecuteReader();
+                MySqlDataReader rdr1 = cmd1.ExecuteReader();
+                if (rdr.Read())
+                {
+                    count = Convert.ToInt32(rdr["a"]);
+                }
+                if (rdr1.Read())
+                {
+                    count1 = Convert.ToInt32(rdr1["a"]);
+                    rdr.Close();
+                }
+                spit = count + count1;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(" Error :: ERROR " + ex);
+            }
+            finally
+            {
+                con.Close();
+                con1.Close();
+            }
+            return spit;
+        }
+        public String[,] ReadRefund(Int32 order_no, String pos_terminal)
+        {
+            Int32 count = this.CountRefund(order_no, pos_terminal);
+            String[,] xxx = new String[8, count];
+            con = new MySqlConnection();
+            dbcon = new Conf.dbs();
+            con.ConnectionString = dbcon.getConnectionString();
+            String query = "SELECT pos_park.pos_ean AS a, pos_park.pos_quantity AS b, inventory_stocks.stock_name AS c, inventory_items.item_retail_price AS d, inventory_items.item_whole_price AS e, pos_park.pos_discount_amt AS f, pos_park.pos_amt AS g, inventory_items.item_tax_type AS h ";
+            query += "FROM pos_park INNER JOIN inventory_items ON pos_park.pos_ean = inventory_items.item_ean INNER JOIN inventory_stocks ON inventory_items.stock_code = inventory_stocks.stock_code ";
+            query += "WHERE (pos_park.pos_orno = ?pos_orno) AND (pos_park.pos_terminal = ?pos_terminal) ";
+            query += "UNION ALL "; //Thanks to this Clause It Made My Life Easier ^_^
+            query += "SELECT pos_park.pos_ean AS a, pos_park.pos_quantity AS b, inventory_items.kit_name AS c, inventory_items.item_retail_price AS d, inventory_items.item_whole_price AS e, pos_park.pos_discount_amt AS f, pos_park.pos_amt AS g, inventory_items.item_tax_type AS h ";
+            query += "FROM pos_park INNER JOIN inventory_items ON pos_park.pos_ean = inventory_items.item_ean ";
+            query += "WHERE (pos_park.pos_orno = ?pos_orno) AND (inventory_items.is_kit = 1) AND (pos_park.pos_terminal = ?pos_terminal)";
+            try
+            {
+                con.Open();
+                MySqlCommand cmd = new MySqlCommand(query, con);
+                cmd.Parameters.AddWithValue("?pos_orno", order_no);
+                cmd.Parameters.AddWithValue("?pos_terminal", pos_terminal);
+                MySqlDataReader rdr = cmd.ExecuteReader();
+                int counts = 0;
+                while (rdr.Read())
+                {
+                    xxx[0, counts] = rdr["a"].ToString();
+                    xxx[1, counts] = rdr["b"].ToString();
+                    xxx[2, counts] = rdr["c"].ToString();
+                    xxx[3, counts] = rdr["d"].ToString(); //retail
+                    xxx[4, counts] = rdr["e"].ToString(); //wholesale
+                    xxx[5, counts] = rdr["f"].ToString();
+                    xxx[6, counts] = rdr["g"].ToString();
+                    xxx[7, counts] = rdr["h"].ToString();
+                    counts++;
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(" Err :: ERROR " + ex);
+            }
+            finally
+            {
+                con.Close();
+            }
+            return xxx;
+        }
+        public bool CheckWholeSale(Int32 order_no, String pos_terminal)
+        {
+            bool found = false;
+            con = new MySqlConnection();
+            dbcon = new Conf.dbs();
+            con.ConnectionString = dbcon.getConnectionString();
+            String query = "SELECT pos_iswholesale AS a FROM pos_store ";
+            query += "WHERE (pos_orno = ?pos_orno) AND (pos_terminal = ?pos_terminal) AND (pos_iswholesale = 1)";
+            try
+            {
+                con.Open();
+                MySqlCommand cmd = new MySqlCommand(query, con);
+                cmd.Parameters.AddWithValue("?pos_orno", order_no);
+                cmd.Parameters.AddWithValue("?pos_terminal", pos_terminal);
+                cmd.ExecuteScalar();
+                MySqlDataReader rdr = cmd.ExecuteReader();
+                if (rdr.Read())
+                {
+                    if (rdr["a"].ToString() == "1")
+                    {
+                        found = true;
+                    }
+                    else
+                        found = false;
+                }
+            }
+            finally
+            {
+                con.Close();
+            }
+            return found;
         }
         #endregion
     }

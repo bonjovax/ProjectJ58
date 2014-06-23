@@ -90,7 +90,13 @@ namespace nPOSProj
 
         private void mdiFrmInv_Load(object sender, EventArgs e)
         {
+            login = new DAO.LoginDAO();
             String userName = frmLogin.User.user_name;
+            login.catchUsername(userName);
+            if (login.hasReports())
+            {
+                tsReporting.Enabled = true;
+            }
             tsUser.Text = userName.ToString();
             timer1.Start();
         }

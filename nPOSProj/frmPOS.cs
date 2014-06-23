@@ -384,6 +384,11 @@ namespace nPOSProj
                 gotoSearch();
                 return true;
             }
+            if (keyData == Keys.F2 && btnRefund.Enabled == true)
+            {
+                gotoRefund();
+                return true;
+            }
             if (keyData == Keys.F3 && wholsale_select == false && btnWholesale.Enabled == true)
             {
                 gotoWholesale();
@@ -2131,6 +2136,14 @@ namespace nPOSProj
             }
         }
 
+        private void gotoRefund()
+        {
+            using (frmDlgRefund refund = new frmDlgRefund())
+            {
+                refund.ShowDialog();
+            }
+        }
+
         private void newFlash()
         {
             proceed.Visible = true;
@@ -2276,6 +2289,11 @@ namespace nPOSProj
         private void btnSearch_Click(object sender, EventArgs e)
         {
             gotoSearch();
+        }
+
+        private void btnRefund_Click(object sender, EventArgs e)
+        {
+            gotoRefund();
         }
     }
 }

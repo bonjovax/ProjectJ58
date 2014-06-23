@@ -345,5 +345,24 @@ namespace nPOSProj.VO
             POSDAO.AR_Basic(Pos_customer, Pos_tender, Pos_orno, Pos_terminal, Crm_custcode, Tx_amount);
         }
         #endregion
+        #region Refund Section
+        public String[,] ReadRefunData()
+        {
+            POSDAO = new DAO.PosDAO();
+            Int32 count = POSDAO.CountRefund(Pos_orno, Pos_terminal);
+            String[,] xxx = new String[8, count];
+            POSDAO.ReadRefund(Pos_orno, Pos_terminal);
+            xxx = POSDAO.ReadRefund(Pos_orno, Pos_terminal);
+            return xxx;
+        }
+        public bool checkWS()
+        {
+            bool isFound;
+            POSDAO = new DAO.PosDAO();
+            POSDAO.CheckWholeSale(Pos_orno, Pos_terminal);
+            isFound = POSDAO.CheckWholeSale(Pos_orno, Pos_terminal);
+            return isFound;
+        }
+        #endregion
     }
 }

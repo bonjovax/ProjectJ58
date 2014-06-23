@@ -288,5 +288,67 @@ namespace nPOSProj.DAO
             }
             return Company_Address1;
         }
+
+        //
+        public Int32 CountTerminal()
+        {
+            con = new MySqlConnection();
+            dbcon = new Conf.dbs();
+            con.ConnectionString = dbcon.getConnectionString();
+            String query = "SELECT COUNT(*) AS a ";
+            query += "FROM system_terminal";
+            Int32 count = 0;
+            try
+            {
+                con.Open();
+                MySqlCommand cmd = new MySqlCommand(query, con);
+                cmd.ExecuteScalar();
+                MySqlDataReader rdr = cmd.ExecuteReader();
+                if (rdr.Read())
+                {
+                    count = Convert.ToInt32(rdr["a"]);
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(" Error :: ERROR " + ex);
+            }
+            finally
+            {
+                con.Close();
+            }
+            return count;
+        }
+        public String[,] ReadTerminal()
+        {
+            Int32 count = this.CountTerminal();
+            String[,] xxx = new String[1, count];
+            con = new MySqlConnection();
+            dbcon = new Conf.dbs();
+            con.ConnectionString = dbcon.getConnectionString();
+            String query = "SELECT identify AS a FROM system_terminal";
+            try
+            {
+                con.Open();
+                MySqlCommand cmd = new MySqlCommand(query, con);
+                cmd.ExecuteScalar();
+                MySqlDataReader rdr = cmd.ExecuteReader();
+                int counts = 0;
+                while (rdr.Read())
+                {
+                    xxx[0, counts] = rdr["a"].ToString();
+                    counts++;
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(" Err :: ERROR " + ex);
+            }
+            finally
+            {
+                con.Close();
+            }
+            return xxx;
+        }
     }
 }

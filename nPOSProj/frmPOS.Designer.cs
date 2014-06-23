@@ -543,6 +543,7 @@
             this.btnRefund.Text = "(F2) Refund";
             this.btnRefund.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnRefund.UseVisualStyleBackColor = false;
+            this.btnRefund.Click += new System.EventHandler(this.btnRefund_Click);
             // 
             // btnSearch
             // 
