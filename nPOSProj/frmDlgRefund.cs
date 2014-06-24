@@ -272,7 +272,8 @@ namespace nPOSProj
                     Int32 compute = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[1].Value) - Convert.ToInt32(txtBoxQty.Text);
                     pos.Pos_quantity = compute;
                     dataGridView1.SelectedRows[0].Cells[1].Value = compute;
-                    Double finale = Convert.ToDouble(dataGridView1.SelectedRows[0].Cells[5].Value) - Price;
+                    Double computePre = Price * Convert.ToDouble(txtBoxQty.Text);
+                    Double finale = Convert.ToDouble(dataGridView1.SelectedRows[0].Cells[5].Value) - computePre;
                     pos.Pos_amt = finale;
                     dataGridView1.SelectedRows[0].Cells[5].Value = finale;
                     if (Convert.ToDouble(dataGridView1.SelectedRows[0].Cells[1].Value) == Convert.ToDouble(0))
@@ -355,11 +356,6 @@ namespace nPOSProj
             catch (Exception)
             {
             }
-        }
-
-        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            Price = Convert.ToDouble(dataGridView1.SelectedRows[0].Cells[5].Value) / Convert.ToDouble(dataGridView1.SelectedRows[0].Cells[1].Value);
         }
 
         private Double CellSum()
