@@ -426,5 +426,10 @@ namespace nPOSProj
                 btnRefund.Focus();
             }
         }
+
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            Price = Convert.ToDouble(dataGridView1.SelectedRows[0].Cells[5].Value) / Convert.ToDouble(dataGridView1.SelectedRows[0].Cells[1].Value);
+        }
     }
 }
