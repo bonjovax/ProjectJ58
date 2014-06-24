@@ -332,9 +332,17 @@ namespace nPOSProj
                         pos.Pos_vatz = SumZ();
                         pos.Pos_vex = SumE();
                         Double lapulapu = 0;
-                        lapulapu = SumV() + CompiyutVatAmount() + SumE() + SumZ();
-                        pos.Pos_total_amt = lapulapu;
-                        rdTotalAmount.Text = lapulapu.ToString("#,###,##0.00");
+                        if (AllItemsTax == 1)
+                        {
+                            pos.Pos_total_amt = CellSum();
+                            rdTotalAmount.Text = CellSum().ToString("#,###,##0.00");
+                        }
+                        else
+                        {
+                            lapulapu = SumV() + CompiyutVatAmount() + SumE() + SumZ();
+                            pos.Pos_total_amt = lapulapu;
+                            rdTotalAmount.Text = lapulapu.ToString("#,###,##0.00");
+                        }
                         pos.Pos_amt = Convert.ToDouble(dataGridView1.SelectedRows[0].Cells[5].Value);
                         pos.ParkItemUpdate();
                         pos.UpdateTrunk();
