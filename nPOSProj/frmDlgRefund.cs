@@ -265,7 +265,7 @@ namespace nPOSProj
                     Int32 compute = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[1].Value) - Convert.ToInt32(txtBoxQty.Text);
                     pos.Pos_quantity = compute;
                     dataGridView1.SelectedRows[0].Cells[1].Value = compute;
-                    Double finale = Price * Convert.ToDouble(txtBoxQty.Text);
+                    Double finale = Convert.ToDouble(dataGridView1.SelectedRows[0].Cells[5].Value) - Price;
                     pos.Pos_amt = finale;
                     dataGridView1.SelectedRows[0].Cells[5].Value = finale;
                     if (Convert.ToDouble(dataGridView1.SelectedRows[0].Cells[1].Value) == Convert.ToDouble(0))
