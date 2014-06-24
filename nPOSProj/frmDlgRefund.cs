@@ -148,26 +148,33 @@ namespace nPOSProj
                     getData();
                     cBTerminal.Enabled = true;
                     getTerminal();
-                    if (allItemsTax == 1)
+                    if (TaxTypes == "V")
                     {
-                        SumV();
-                        SumE();
-                        SumZ();
-                        txtBoxVatable.Text = SumV().ToString("#,###,##0.00");
-                        txtBoxVAMT.Text = CompiyutVatAmount().ToString("#,###,##0.00");
-                        txtBoxVATE.Text = SumE().ToString("#,###,##0.00");
-                        txtBoxZero.Text = SumZ().ToString("#,###,##0.00");
-                        rdTotalAmount.Text = CellSum().ToString("#,###,##0.00");
+                        if (allItemsTax == 1)
+                        {
+                            SumV();
+                            SumE();
+                            SumZ();
+                            txtBoxVatable.Text = SumV().ToString("#,###,##0.00");
+                            txtBoxVAMT.Text = CompiyutVatAmount().ToString("#,###,##0.00");
+                            txtBoxVATE.Text = SumE().ToString("#,###,##0.00");
+                            txtBoxZero.Text = SumZ().ToString("#,###,##0.00");
+                            rdTotalAmount.Text = CellSum().ToString("#,###,##0.00");
+                        }
+                        else
+                        {
+                            Double lapulapu = 0;
+                            txtBoxVatable.Text = SumV().ToString("#,###,##0.00");
+                            txtBoxVAMT.Text = CompiyutVatAmount().ToString("#,###,##0.00");
+                            txtBoxVATE.Text = SumE().ToString("#,###,##0.00");
+                            txtBoxZero.Text = SumZ().ToString("#,###,##0.00");
+                            lapulapu = SumV() + CompiyutVatAmount() + SumE() + SumZ();
+                            rdTotalAmount.Text = lapulapu.ToString("#,###,##0.00");
+                        }
                     }
                     else
                     {
-                        Double lapulapu = 0;
-                        txtBoxVatable.Text = SumV().ToString("#,###,##0.00");
-                        txtBoxVAMT.Text = CompiyutVatAmount().ToString("#,###,##0.00");
-                        txtBoxVATE.Text = SumE().ToString("#,###,##0.00");
-                        txtBoxZero.Text = SumZ().ToString("#,###,##0.00");
-                        lapulapu = SumV() + CompiyutVatAmount() + SumE() + SumZ();
-                        rdTotalAmount.Text = lapulapu.ToString("#,###,##0.00");
+                        rdTotalAmount.Text = CellSum().ToString("#,###,##0.00");
                     }
                 }
             }
