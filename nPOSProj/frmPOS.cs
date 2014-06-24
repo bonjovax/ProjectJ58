@@ -2140,6 +2140,10 @@ namespace nPOSProj
         {
             using (frmDlgRefund refund = new frmDlgRefund())
             {
+                refund.TaxTypes = TaxT;
+                refund.AllItemsTax = all_items_tax;
+                refund.TaxDisplay = taxDisplay;
+                refund.TaxP = taxP;
                 refund.ShowDialog();
             }
         }

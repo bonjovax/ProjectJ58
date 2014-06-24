@@ -16,6 +16,35 @@ namespace nPOSProj
         private VO.ConfigVO config = new VO.ConfigVO();
         frmLogin fl = new frmLogin();
         private Double Price = 0;
+        private String taxTypes;
+        private String terminalSelect;
+
+        public String TaxTypes
+        {
+            get { return taxTypes; }
+            set { taxTypes = value; }
+        }
+        private Int32 allItemsTax;
+
+        public Int32 AllItemsTax
+        {
+            get { return allItemsTax; }
+            set { allItemsTax = value; }
+        }
+        private String taxDisplay;
+
+        public String TaxDisplay
+        {
+            get { return taxDisplay; }
+            set { taxDisplay = value; }
+        }
+        private Double taxP;
+
+        public Double TaxP
+        {
+            get { return taxP; }
+            set { taxP = value; }
+        }
         public frmDlgRefund()
         {
             InitializeComponent();
@@ -98,9 +127,11 @@ namespace nPOSProj
 
         private void frmDlgRefund_Load(object sender, EventArgs e)
         {
+            terminalSelect = fl.tN;
             login = new DAO.LoginDAO();
             String userName = frmLogin.User.user_name;
             login.catchUsername(userName);
+            rdVAT.Text = TaxDisplay;
             if (login.hasUser_Accounts())
             {
                 lbl1.Visible = true;
@@ -110,11 +141,38 @@ namespace nPOSProj
 
         private void txtBoxOR_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Enter)
+            try
             {
-                getData();
-                cBTerminal.Enabled = true;
-                getTerminal();
+                if (e.KeyCode == Keys.Enter)
+                {
+                    getData();
+                    cBTerminal.Enabled = true;
+                    getTerminal();
+                    if (allItemsTax == 1)
+                    {
+                        SumV();
+                        SumE();
+                        SumZ();
+                        txtBoxVatable.Text = SumV().ToString("#,###,##0.00");
+                        txtBoxVAMT.Text = CompiyutVatAmount().ToString("#,###,##0.00");
+                        txtBoxVATE.Text = SumE().ToString("#,###,##0.00");
+                        txtBoxZero.Text = SumZ().ToString("#,###,##0.00");
+                        rdTotalAmount.Text = CellSum().ToString("#,###,##0.00");
+                    }
+                    else
+                    {
+                        Double lapulapu = 0;
+                        txtBoxVatable.Text = SumV().ToString("#,###,##0.00");
+                        txtBoxVAMT.Text = CompiyutVatAmount().ToString("#,###,##0.00");
+                        txtBoxVATE.Text = SumE().ToString("#,###,##0.00");
+                        txtBoxZero.Text = SumZ().ToString("#,###,##0.00");
+                        lapulapu = SumV() + CompiyutVatAmount() + SumE() + SumZ();
+                        rdTotalAmount.Text = lapulapu.ToString("#,###,##0.00");
+                    }
+                }
+            }
+            catch (Exception)
+            {
             }
         }
 
@@ -126,14 +184,35 @@ namespace nPOSProj
 
         private void cBTerminal_SelectedIndexChanged(object sender, EventArgs e)
         {
+            terminalSelect = cBTerminal.Text;
             getDataSelect();
+            if (allItemsTax == 1)
+            {
+                SumV();
+                SumE();
+                SumZ();
+                txtBoxVatable.Text = SumV().ToString("#,###,##0.00");
+                txtBoxVAMT.Text = CompiyutVatAmount().ToString("#,###,##0.00");
+                txtBoxVATE.Text = SumE().ToString("#,###,##0.00");
+                txtBoxZero.Text = SumZ().ToString("#,###,##0.00");
+                rdTotalAmount.Text = CellSum().ToString("#,###,##0.00");
+            }
+            else
+            {
+                Double lapulapu = 0;
+                lapulapu = SumV() + CompiyutVatAmount() + SumE() + SumZ();
+                rdTotalAmount.Text = lapulapu.ToString("#,###,##0.00");
+            }
         }
 
         private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            txtBoxQty.ReadOnly = false;
-            txtBoxQty.Focus();
-            txtBoxQty.Text = dataGridView1.SelectedRows[0].Cells[1].Value.ToString();
+            if (dataGridView1.SelectedRows[0].Cells[1].Value.ToString() != "0")
+            {
+                txtBoxQty.ReadOnly = false;
+                txtBoxQty.Focus();
+                txtBoxQty.Text = dataGridView1.SelectedRows[0].Cells[1].Value.ToString();
+            }
         }
 
         private void txtBoxOR_KeyPress(object sender, KeyPressEventArgs e)
@@ -176,12 +255,18 @@ namespace nPOSProj
         {
             try
             {
+                pos.Pos_orno = Convert.ToInt32(txtBoxOR.Text);
+                pos.Pos_terminal = terminalSelect;
+                pos.Pos_ean = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[0].Value);
+                pos.Pos_discount_amt = Convert.ToDouble(dataGridView1.SelectedRows[0].Cells[4].Value);
                 DialogResult dr = MessageBox.Show("Do You Wish To Continue?", "Question", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (dr == System.Windows.Forms.DialogResult.Yes)
                 {
                     Int32 compute = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[1].Value) - Convert.ToInt32(txtBoxQty.Text);
+                    pos.Pos_quantity = compute;
                     dataGridView1.SelectedRows[0].Cells[1].Value = compute;
                     Double finale = Price * Convert.ToDouble(txtBoxQty.Text);
+                    pos.Pos_amt = finale;
                     dataGridView1.SelectedRows[0].Cells[5].Value = finale;
                     if (Convert.ToDouble(dataGridView1.SelectedRows[0].Cells[1].Value) == Convert.ToDouble(0))
                     {
@@ -189,7 +274,75 @@ namespace nPOSProj
                     }
                     txtBoxQty.Clear();
                     btnRefund.Enabled = false;
-                    CellSum();
+                    Double fin = 0;
+                    if (TaxTypes == "V")
+                    {
+                        if (AllItemsTax == 1)
+                        {
+                            if (dataGridView1.SelectedRows[0].Cells[6].Value.ToString() == "V")
+                            {
+                                pos.Pos_vatable = SumV();
+                                txtBoxVatable.Text = SumV().ToString("#,###,##0.00");
+                                fin = Convert.ToDouble(txtBoxVatable.Text) * TaxP;
+                                pos.Pos_tax_perc = TaxP;
+                                pos.Pos_tax_amt = fin;
+                                txtBoxVAMT.Text = fin.ToString("#,###,##0.00");
+                            }
+                            if (dataGridView1.SelectedRows[0].Cells[6].Value.ToString() == "E")
+                            {
+                                txtBoxVATE.Text = SumE().ToString("#,###,##0.00");
+                            }
+                            if (dataGridView1.SelectedRows[0].Cells[6].Value.ToString() == "Z")
+                            {
+                                txtBoxZero.Text = SumZ().ToString("#,###,##0.00");
+                            }
+                            pos.Pos_vatz = SumZ();
+                            pos.Pos_vex = SumE();
+                            pos.Pos_total_amt = CellSum();
+                            rdTotalAmount.Text = CellSum().ToString("#,###,##0.00");
+                            pos.ParkItemUpdate();
+                            pos.UpdateTrunk();
+                            
+                        }
+                        if (dataGridView1.SelectedRows[0].Cells[6].Value.ToString() == "V")
+                        {
+                            pos.Pos_vatable = SumV();
+                            txtBoxVatable.Text = SumV().ToString("#,###,##0.00");
+                            fin = Convert.ToDouble(txtBoxVatable.Text) * TaxP;
+                            pos.Pos_tax_perc = TaxP;
+                            pos.Pos_tax_amt = fin;
+                            txtBoxVAMT.Text = fin.ToString("#,###,##0.00");
+                        }
+                        if (dataGridView1.SelectedRows[0].Cells[6].Value.ToString() == "E")
+                        {
+                            txtBoxVATE.Text = SumE().ToString("#,###,##0.00");
+                        }
+                        if (dataGridView1.SelectedRows[0].Cells[6].Value.ToString() == "Z")
+                        {
+                            txtBoxZero.Text = SumZ().ToString("#,###,##0.00");
+                        }
+                        pos.Pos_vatz = SumZ();
+                        pos.Pos_vex = SumE();
+                        Double lapulapu = 0;
+                        lapulapu = SumV() + CompiyutVatAmount() + SumE() + SumZ();
+                        pos.Pos_total_amt = lapulapu;
+                        rdTotalAmount.Text = lapulapu.ToString("#,###,##0.00");
+                        pos.Pos_amt = Convert.ToDouble(dataGridView1.SelectedRows[0].Cells[5].Value);
+                        pos.ParkItemUpdate();
+                        pos.UpdateTrunk();
+                    }
+                    else
+                    {
+                        pos.Pos_vatable = 0;
+                        pos.Pos_vex = 0;
+                        pos.Pos_vatz = 0;
+                        pos.Pos_tax_amt = 0;
+                        pos.Pos_tax_perc = 0;
+                        pos.Pos_total_amt = CellSum();
+                        rdTotalAmount.Text = CellSum().ToString("#,###,##0.00");
+                        pos.ParkItemUpdate();
+                        pos.UpdateTrunk();
+                    }
                 }
             }
             catch (Exception)
@@ -212,6 +365,63 @@ namespace nPOSProj
                 sum += d;
             }
             return sum;
+        }
+
+        private Double SumV()
+        {
+            Double sumV = 0;
+            for (int i = 0; i < dataGridView1.Rows.Count; ++i)
+            {
+                Double d = 0;
+                if (dataGridView1.Rows[i].Cells[6].Value.ToString() == "V")
+                {
+                    Double.TryParse(dataGridView1.Rows[i].Cells[5].Value.ToString(), out d);
+                    sumV += d;
+                }
+            }
+            return sumV;
+        }
+        private Double SumE()
+        {
+            Double sumE = 0;
+            for (int i = 0; i < dataGridView1.Rows.Count; ++i)
+            {
+                Double d = 0;
+                if (dataGridView1.Rows[i].Cells[6].Value.ToString() == "E")
+                {
+                    Double.TryParse(dataGridView1.Rows[i].Cells[5].Value.ToString(), out d);
+                    sumE += d;
+                }
+            }
+            return sumE;
+        }
+        private Double SumZ()
+        {
+            Double sumZ = 0;
+            for (int i = 0; i < dataGridView1.Rows.Count; ++i)
+            {
+                Double d = 0;
+                if (dataGridView1.Rows[i].Cells[6].Value.ToString() == "Z")
+                {
+                    Double.TryParse(dataGridView1.Rows[i].Cells[5].Value.ToString(), out d);
+                    sumZ += d;
+                }
+            }
+            return sumZ;
+        }
+        private Double CompiyutVatAmount()
+        {
+            Double fin = 0;
+            fin = Convert.ToDouble(txtBoxVatable.Text) * TaxP;
+            return fin;
+        }
+
+        private void txtBoxQty_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                btnRefund.Focus();
+            }
         }
     }
 }
