@@ -36,9 +36,10 @@
             // 
             // txtBoxPerc
             // 
-            this.txtBoxPerc.BackColor = System.Drawing.Color.Gainsboro;
+            this.txtBoxPerc.BackColor = System.Drawing.Color.Black;
             this.txtBoxPerc.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtBoxPerc.Font = new System.Drawing.Font("Tahoma", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBoxPerc.Font = new System.Drawing.Font("Segoe UI", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBoxPerc.ForeColor = System.Drawing.Color.White;
             this.txtBoxPerc.Location = new System.Drawing.Point(66, 7);
             this.txtBoxPerc.MaxLength = 3;
             this.txtBoxPerc.Multiline = true;
@@ -65,7 +66,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.Gainsboro;
+            this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(153, 61);
             this.ControlBox = false;
             this.Controls.Add(this.pictureBox1);
