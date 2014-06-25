@@ -44,6 +44,8 @@
             this.lblZ = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.dtZ = new System.Windows.Forms.DateTimePicker();
+            this.printX = new System.Drawing.Printing.PrintDocument();
+            this.printZ = new System.Drawing.Printing.PrintDocument();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -102,7 +104,7 @@
             this.tabPage3.Location = new System.Drawing.Point(4, 33);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(844, 420);
+            this.tabPage3.Size = new System.Drawing.Size(739, 420);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Summary Report";
             // 
@@ -180,6 +182,7 @@
             this.btnPrintX.Text = "Print Ticket";
             this.btnPrintX.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnPrintX.UseVisualStyleBackColor = false;
+            this.btnPrintX.Click += new System.EventHandler(this.btnPrintX_Click);
             // 
             // btnPrintZ
             // 
@@ -262,6 +265,7 @@
             this.MinimizeBox = false;
             this.Name = "mdiSalesReport";
             this.Text = "Sales Report";
+            this.Load += new System.EventHandler(this.mdiSalesReport_Load);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
@@ -288,5 +292,7 @@
         private System.Windows.Forms.Label lblZ;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.DateTimePicker dtZ;
+        private System.Drawing.Printing.PrintDocument printX;
+        private System.Drawing.Printing.PrintDocument printZ;
     }
 }
