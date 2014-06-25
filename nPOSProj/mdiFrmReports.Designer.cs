@@ -31,6 +31,10 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(mdiFrmReports));
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.tsSales = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
+            this.tsReproduce = new System.Windows.Forms.ToolStripButton();
+            this.tsEmail = new System.Windows.Forms.ToolStripButton();
             this.tsExit = new System.Windows.Forms.ToolStripButton();
             this.tsAbout = new System.Windows.Forms.ToolStripButton();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
@@ -39,10 +43,6 @@
             this.tsToday = new System.Windows.Forms.ToolStripStatusLabel();
             this.tsUser = new System.Windows.Forms.ToolStripStatusLabel();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.tsSales = new System.Windows.Forms.ToolStripButton();
-            this.tsReproduce = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
-            this.tsEmail = new System.Windows.Forms.ToolStripButton();
             this.toolStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -65,6 +65,56 @@
             this.toolStrip1.Size = new System.Drawing.Size(892, 72);
             this.toolStrip1.TabIndex = 4;
             this.toolStrip1.Text = "toolStrip1";
+            // 
+            // tsSales
+            // 
+            this.tsSales.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tsSales.ForeColor = System.Drawing.Color.White;
+            this.tsSales.Image = ((System.Drawing.Image)(resources.GetObject("tsSales.Image")));
+            this.tsSales.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.tsSales.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsSales.Name = "tsSales";
+            this.tsSales.Size = new System.Drawing.Size(52, 69);
+            this.tsSales.Text = "&Sales";
+            this.tsSales.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.tsSales.Click += new System.EventHandler(this.tsSales_Click);
+            // 
+            // toolStripButton1
+            // 
+            this.toolStripButton1.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toolStripButton1.ForeColor = System.Drawing.Color.White;
+            this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
+            this.toolStripButton1.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton1.Name = "toolStripButton1";
+            this.toolStripButton1.Size = new System.Drawing.Size(72, 69);
+            this.toolStripButton1.Text = "&Inventory";
+            this.toolStripButton1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            // 
+            // tsReproduce
+            // 
+            this.tsReproduce.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tsReproduce.ForeColor = System.Drawing.Color.White;
+            this.tsReproduce.Image = ((System.Drawing.Image)(resources.GetObject("tsReproduce.Image")));
+            this.tsReproduce.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.tsReproduce.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsReproduce.Name = "tsReproduce";
+            this.tsReproduce.Size = new System.Drawing.Size(56, 69);
+            this.tsReproduce.Text = "&Receipt";
+            this.tsReproduce.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            // 
+            // tsEmail
+            // 
+            this.tsEmail.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tsEmail.ForeColor = System.Drawing.Color.White;
+            this.tsEmail.Image = ((System.Drawing.Image)(resources.GetObject("tsEmail.Image")));
+            this.tsEmail.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.tsEmail.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsEmail.Name = "tsEmail";
+            this.tsEmail.Size = new System.Drawing.Size(102, 69);
+            this.tsEmail.Text = "&E-Mail Support";
+            this.tsEmail.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.tsEmail.Click += new System.EventHandler(this.tsEmail_Click);
             // 
             // tsExit
             // 
@@ -147,55 +197,6 @@
             // timer1
             // 
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-            // 
-            // tsSales
-            // 
-            this.tsSales.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tsSales.ForeColor = System.Drawing.Color.White;
-            this.tsSales.Image = ((System.Drawing.Image)(resources.GetObject("tsSales.Image")));
-            this.tsSales.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.tsSales.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsSales.Name = "tsSales";
-            this.tsSales.Size = new System.Drawing.Size(52, 69);
-            this.tsSales.Text = "&Sales";
-            this.tsSales.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            // 
-            // tsReproduce
-            // 
-            this.tsReproduce.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tsReproduce.ForeColor = System.Drawing.Color.White;
-            this.tsReproduce.Image = ((System.Drawing.Image)(resources.GetObject("tsReproduce.Image")));
-            this.tsReproduce.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.tsReproduce.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsReproduce.Name = "tsReproduce";
-            this.tsReproduce.Size = new System.Drawing.Size(56, 69);
-            this.tsReproduce.Text = "&Receipt";
-            this.tsReproduce.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            // 
-            // toolStripButton1
-            // 
-            this.toolStripButton1.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.toolStripButton1.ForeColor = System.Drawing.Color.White;
-            this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
-            this.toolStripButton1.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Size = new System.Drawing.Size(72, 69);
-            this.toolStripButton1.Text = "&Inventory";
-            this.toolStripButton1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            // 
-            // tsEmail
-            // 
-            this.tsEmail.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tsEmail.ForeColor = System.Drawing.Color.White;
-            this.tsEmail.Image = ((System.Drawing.Image)(resources.GetObject("tsEmail.Image")));
-            this.tsEmail.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.tsEmail.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsEmail.Name = "tsEmail";
-            this.tsEmail.Size = new System.Drawing.Size(102, 69);
-            this.tsEmail.Text = "&E-Mail Support";
-            this.tsEmail.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.tsEmail.Click += new System.EventHandler(this.tsEmail_Click);
             // 
             // mdiFrmReports
             // 

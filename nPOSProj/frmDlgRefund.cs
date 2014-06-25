@@ -186,6 +186,11 @@ namespace nPOSProj
         private void txtBoxOR_TextChanged(object sender, EventArgs e)
         {
             dataGridView1.Rows.Clear();
+            txtBoxVatable.Text = "0.00";
+            txtBoxVAMT.Text = "0.00";
+            txtBoxVATE.Text = "0.00";
+            txtBoxZero.Text = "0.00";
+            rdTotalAmount.Text = "0.00";
             cBTerminal.Enabled = false;
         }
 

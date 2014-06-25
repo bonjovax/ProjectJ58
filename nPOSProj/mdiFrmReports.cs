@@ -14,6 +14,7 @@ namespace nPOSProj
     {
         private DAO.LoginDAO login;
         private static String cmd = "mailto:DLG.alfel@gmail.com?subject=Reporting Module Support&cc=jarmonilla892@gmail.com";
+        private mdiSalesReport sr = new mdiSalesReport();
         public mdiFrmReports()
         {
             InitializeComponent();
@@ -107,6 +108,16 @@ namespace nPOSProj
         private void tsEmail_Click(object sender, EventArgs e)
         {
             Process.Start(cmd);
+        }
+
+        private void tsSales_Click(object sender, EventArgs e)
+        {
+            if (ActivateThisChild("mdiSalesReport") == false)
+            {
+                sr = new mdiSalesReport();
+                sr.MdiParent = this;
+                sr.Show();
+            }
         }
     }
 }
