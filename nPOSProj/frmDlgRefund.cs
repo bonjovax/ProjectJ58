@@ -348,12 +348,14 @@ namespace nPOSProj
                             pos.Pos_total_amt = lapulapu;
                             rdTotalAmount.Text = lapulapu.ToString("#,###,##0.00");
                         }
+                        pos.Total_pos_disc_amt = DiscountSum();
                         pos.Pos_amt = Convert.ToDouble(dataGridView1.SelectedRows[0].Cells[5].Value);
                         pos.ParkItemUpdate();
                         pos.UpdateTrunk();
                     }
                     else
                     {
+                        pos.Total_pos_disc_amt = DiscountSum();
                         pos.Pos_vatable = 0;
                         pos.Pos_vex = 0;
                         pos.Pos_vatz = 0;
@@ -378,6 +380,17 @@ namespace nPOSProj
             {
                 Double d = 0;
                 Double.TryParse(dataGridView1.Rows[i].Cells[5].Value.ToString(), out d);
+                sum += d;
+            }
+            return sum;
+        }
+        private Double DiscountSum()
+        {
+            Double sum = 0;
+            for (int i = 0; i < dataGridView1.Rows.Count; ++i)
+            {
+                Double d = 0;
+                Double.TryParse(dataGridView1.Rows[i].Cells[4].Value.ToString(), out d);
                 sum += d;
             }
             return sum;

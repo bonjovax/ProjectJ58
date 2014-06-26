@@ -148,6 +148,14 @@ namespace nPOSProj.VO
             get { return pos_amt; }
             set { pos_amt = value; }
         }
+
+        private Double total_pos_disc_amt;
+
+        public Double Total_pos_disc_amt
+        {
+            get { return total_pos_disc_amt; }
+            set { total_pos_disc_amt = value; }
+        }
         #endregion
         #region Checkout Value Stuffs
         private Double pos_tender;
@@ -315,7 +323,7 @@ namespace nPOSProj.VO
         public void UpdateTrunk()
         {
             POSDAO = new DAO.PosDAO();
-            POSDAO.UpdateTrunkSales(Pos_vatable, Pos_vex, Pos_vatz, Pos_tax_perc, Pos_tax_amt, Pos_total_amt, Pos_orno, Pos_terminal);
+            POSDAO.UpdateTrunkSales(Pos_vatable, Pos_vex, Pos_vatz, Pos_tax_perc, Pos_tax_amt, Total_pos_disc_amt, Pos_total_amt, Pos_orno, Pos_terminal);
         }
         #endregion
         #region POS Checkout Stuffs

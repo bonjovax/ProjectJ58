@@ -904,6 +904,12 @@ namespace nPOSProj
                 pos.Pos_tax_amt = a;
                 pos.Pos_total_amt = totalVar;
             }
+            Double discountTotal = 0;
+            foreach (ListViewItem lv in lviewPOS.Items)
+            {
+                discountTotal += Double.Parse(lv.SubItems[4].Text);
+            }
+            pos.Total_pos_disc_amt = discountTotal; //Butangi
             pos.Pos_orno = OrNo;
             pos.Pos_terminal = fl.tN;
             pos.UpdateTrunk();
@@ -1080,6 +1086,12 @@ namespace nPOSProj
                                         pos.Pos_tax_amt = a;
                                         pos.Pos_total_amt = totalVar;
                                     }
+                                    Double discountTotal = 0;
+                                    foreach (ListViewItem lv in lviewPOS.Items)
+                                    {
+                                        discountTotal += Double.Parse(lv.SubItems[4].Text);
+                                    }
+                                    pos.Total_pos_disc_amt = discountTotal; //Butangi
                                     pos.Pos_orno = OrNo;
                                     pos.UpdateTrunk();
                                     //
@@ -1345,6 +1357,12 @@ namespace nPOSProj
                             lblTAXamt.Text = a.ToString("###,###,##0.00");
                         }
                         // Trunk Data
+                        Double discountTotal = 0;
+                        foreach (ListViewItem lv in lviewPOS.Items)
+                        {
+                            discountTotal += Double.Parse(lv.SubItems[4].Text);
+                        }
+                        pos.Total_pos_disc_amt = discountTotal; //Butangi
                         pos.Pos_tax_perc = taxP;
                         pos.Pos_orno = OrNo;
                         pos.Pos_terminal = fl.tN;
@@ -1517,6 +1535,12 @@ namespace nPOSProj
                             lblTAXamt.Text = a.ToString("###,###,##0.00");
                         }
                         //Update Data
+                        Double discountTotal = 0;
+                        foreach (ListViewItem lv in lviewPOS.Items)
+                        {
+                            discountTotal += Double.Parse(lv.SubItems[4].Text);
+                        }
+                        pos.Total_pos_disc_amt = discountTotal; //Butangi
                         pos.Pos_orno = OrNo;
                         pos.Pos_terminal = fl.tN;
                         pos.Pos_ean = uEan;
@@ -1672,6 +1696,12 @@ namespace nPOSProj
                         pos.Pos_total_amt = totalVar;
                         lblTAXamt.Text = a.ToString("###,###,##0.00");
                     }
+                    Double discountTotal = 0;
+                    foreach (ListViewItem lv in lviewPOS.Items)
+                    {
+                        discountTotal += Double.Parse(lv.SubItems[4].Text);
+                    }
+                    pos.Total_pos_disc_amt = discountTotal; //Butangi
                     pos.Pos_orno = OrNo;
                     pos.Pos_terminal = fl.tN;
                     pos.UpdateTrunk();
