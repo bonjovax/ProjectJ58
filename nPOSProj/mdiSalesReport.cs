@@ -99,7 +99,7 @@ namespace nPOSProj
             Font font = new Font("Telidon", 10);
 
             float fontHeight = font.GetHeight();
-            int startX = 10;
+            int startX = 2;
             int startY = 10;
             //int offset = 40;
 
