@@ -31,19 +31,19 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(mdiSalesReport));
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.tabPage4 = new System.Windows.Forms.TabPage();
-            this.dtX = new System.Windows.Forms.DateTimePicker();
-            this.label1 = new System.Windows.Forms.Label();
-            this.lblX = new System.Windows.Forms.Label();
-            this.cBTerminalX = new System.Windows.Forms.ComboBox();
             this.btnPrintX = new System.Windows.Forms.Button();
+            this.cBTerminalX = new System.Windows.Forms.ComboBox();
+            this.lblX = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.dtX = new System.Windows.Forms.DateTimePicker();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
             this.btnPrintZ = new System.Windows.Forms.Button();
             this.cBTerminalZ = new System.Windows.Forms.ComboBox();
             this.lblZ = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.dtZ = new System.Windows.Forms.DateTimePicker();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.tabPage4 = new System.Windows.Forms.TabPage();
             this.printX = new System.Drawing.Printing.PrintDocument();
             this.printZ = new System.Drawing.Printing.PrintDocument();
             this.tabControl1.SuspendLayout();
@@ -82,87 +82,6 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "X  Report";
             // 
-            // tabPage2
-            // 
-            this.tabPage2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(113)))), ((int)(((byte)(69)))));
-            this.tabPage2.Controls.Add(this.btnPrintZ);
-            this.tabPage2.Controls.Add(this.cBTerminalZ);
-            this.tabPage2.Controls.Add(this.lblZ);
-            this.tabPage2.Controls.Add(this.label4);
-            this.tabPage2.Controls.Add(this.dtZ);
-            this.tabPage2.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tabPage2.Location = new System.Drawing.Point(4, 33);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(739, 420);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Z Report";
-            // 
-            // tabPage3
-            // 
-            this.tabPage3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(83)))), ((int)(((byte)(44)))));
-            this.tabPage3.Location = new System.Drawing.Point(4, 33);
-            this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(739, 420);
-            this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "Summary Report";
-            // 
-            // tabPage4
-            // 
-            this.tabPage4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(185)))), ((int)(((byte)(29)))), ((int)(((byte)(71)))));
-            this.tabPage4.Location = new System.Drawing.Point(4, 33);
-            this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage4.Size = new System.Drawing.Size(844, 420);
-            this.tabPage4.TabIndex = 3;
-            this.tabPage4.Text = "Summary Details Report";
-            // 
-            // dtX
-            // 
-            this.dtX.CalendarTitleBackColor = System.Drawing.Color.AliceBlue;
-            this.dtX.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.dtX.DropDownAlign = System.Windows.Forms.LeftRightAlignment.Right;
-            this.dtX.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtX.Location = new System.Drawing.Point(238, 123);
-            this.dtX.Name = "dtX";
-            this.dtX.Size = new System.Drawing.Size(251, 33);
-            this.dtX.TabIndex = 0;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(261, 95);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(213, 25);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Select Date for Reading";
-            // 
-            // lblX
-            // 
-            this.lblX.AutoSize = true;
-            this.lblX.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblX.ForeColor = System.Drawing.Color.White;
-            this.lblX.Location = new System.Drawing.Point(244, 177);
-            this.lblX.Name = "lblX";
-            this.lblX.Size = new System.Drawing.Size(245, 25);
-            this.lblX.TabIndex = 2;
-            this.lblX.Text = "Select Terminal for Reading";
-            // 
-            // cBTerminalX
-            // 
-            this.cBTerminalX.BackColor = System.Drawing.Color.Gainsboro;
-            this.cBTerminalX.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.cBTerminalX.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cBTerminalX.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.cBTerminalX.FormattingEnabled = true;
-            this.cBTerminalX.Location = new System.Drawing.Point(238, 205);
-            this.cBTerminalX.Name = "cBTerminalX";
-            this.cBTerminalX.Size = new System.Drawing.Size(251, 33);
-            this.cBTerminalX.TabIndex = 3;
-            // 
             // btnPrintX
             // 
             this.btnPrintX.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(126)))), ((int)(((byte)(56)))), ((int)(((byte)(120)))));
@@ -184,6 +103,70 @@
             this.btnPrintX.UseVisualStyleBackColor = false;
             this.btnPrintX.Click += new System.EventHandler(this.btnPrintX_Click);
             // 
+            // cBTerminalX
+            // 
+            this.cBTerminalX.BackColor = System.Drawing.Color.Gainsboro;
+            this.cBTerminalX.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cBTerminalX.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cBTerminalX.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.cBTerminalX.FormattingEnabled = true;
+            this.cBTerminalX.Location = new System.Drawing.Point(238, 205);
+            this.cBTerminalX.Name = "cBTerminalX";
+            this.cBTerminalX.Size = new System.Drawing.Size(251, 33);
+            this.cBTerminalX.TabIndex = 3;
+            this.cBTerminalX.Visible = false;
+            this.cBTerminalX.SelectedIndexChanged += new System.EventHandler(this.cBTerminalX_SelectedIndexChanged);
+            // 
+            // lblX
+            // 
+            this.lblX.AutoSize = true;
+            this.lblX.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblX.ForeColor = System.Drawing.Color.White;
+            this.lblX.Location = new System.Drawing.Point(244, 177);
+            this.lblX.Name = "lblX";
+            this.lblX.Size = new System.Drawing.Size(245, 25);
+            this.lblX.TabIndex = 2;
+            this.lblX.Text = "Select Terminal for Reading";
+            this.lblX.Visible = false;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(261, 95);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(213, 25);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "Select Date for Reading";
+            // 
+            // dtX
+            // 
+            this.dtX.CalendarTitleBackColor = System.Drawing.Color.AliceBlue;
+            this.dtX.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.dtX.DropDownAlign = System.Windows.Forms.LeftRightAlignment.Right;
+            this.dtX.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtX.Location = new System.Drawing.Point(238, 123);
+            this.dtX.Name = "dtX";
+            this.dtX.Size = new System.Drawing.Size(251, 33);
+            this.dtX.TabIndex = 0;
+            // 
+            // tabPage2
+            // 
+            this.tabPage2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(113)))), ((int)(((byte)(69)))));
+            this.tabPage2.Controls.Add(this.btnPrintZ);
+            this.tabPage2.Controls.Add(this.cBTerminalZ);
+            this.tabPage2.Controls.Add(this.lblZ);
+            this.tabPage2.Controls.Add(this.label4);
+            this.tabPage2.Controls.Add(this.dtZ);
+            this.tabPage2.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tabPage2.Location = new System.Drawing.Point(4, 33);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(739, 420);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "Z Report";
+            // 
             // btnPrintZ
             // 
             this.btnPrintZ.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(126)))), ((int)(((byte)(56)))), ((int)(((byte)(120)))));
@@ -203,6 +186,7 @@
             this.btnPrintZ.Text = "Print Ticket";
             this.btnPrintZ.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnPrintZ.UseVisualStyleBackColor = false;
+            this.btnPrintZ.Click += new System.EventHandler(this.btnPrintZ_Click);
             // 
             // cBTerminalZ
             // 
@@ -216,6 +200,8 @@
             this.cBTerminalZ.Name = "cBTerminalZ";
             this.cBTerminalZ.Size = new System.Drawing.Size(251, 33);
             this.cBTerminalZ.TabIndex = 8;
+            this.cBTerminalZ.Visible = false;
+            this.cBTerminalZ.SelectedIndexChanged += new System.EventHandler(this.cBTerminalZ_SelectedIndexChanged);
             // 
             // lblZ
             // 
@@ -227,6 +213,7 @@
             this.lblZ.Size = new System.Drawing.Size(245, 25);
             this.lblZ.TabIndex = 7;
             this.lblZ.Text = "Select Terminal for Reading";
+            this.lblZ.Visible = false;
             // 
             // label4
             // 
@@ -250,6 +237,26 @@
             this.dtZ.Name = "dtZ";
             this.dtZ.Size = new System.Drawing.Size(251, 33);
             this.dtZ.TabIndex = 5;
+            // 
+            // tabPage3
+            // 
+            this.tabPage3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(83)))), ((int)(((byte)(44)))));
+            this.tabPage3.Location = new System.Drawing.Point(4, 33);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage3.Size = new System.Drawing.Size(739, 420);
+            this.tabPage3.TabIndex = 2;
+            this.tabPage3.Text = "Summary Report";
+            // 
+            // tabPage4
+            // 
+            this.tabPage4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(185)))), ((int)(((byte)(29)))), ((int)(((byte)(71)))));
+            this.tabPage4.Location = new System.Drawing.Point(4, 33);
+            this.tabPage4.Name = "tabPage4";
+            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage4.Size = new System.Drawing.Size(739, 420);
+            this.tabPage4.TabIndex = 3;
+            this.tabPage4.Text = "Summary Details Report";
             // 
             // mdiSalesReport
             // 
