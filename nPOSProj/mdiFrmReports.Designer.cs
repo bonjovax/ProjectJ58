@@ -33,7 +33,6 @@
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.tsSales = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
-            this.tsReproduce = new System.Windows.Forms.ToolStripButton();
             this.tsEmail = new System.Windows.Forms.ToolStripButton();
             this.tsExit = new System.Windows.Forms.ToolStripButton();
             this.tsAbout = new System.Windows.Forms.ToolStripButton();
@@ -55,7 +54,6 @@
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsSales,
             this.toolStripButton1,
-            this.tsReproduce,
             this.tsEmail,
             this.tsExit,
             this.tsAbout});
@@ -90,18 +88,6 @@
             this.toolStripButton1.Size = new System.Drawing.Size(72, 69);
             this.toolStripButton1.Text = "&Inventory";
             this.toolStripButton1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            // 
-            // tsReproduce
-            // 
-            this.tsReproduce.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tsReproduce.ForeColor = System.Drawing.Color.White;
-            this.tsReproduce.Image = ((System.Drawing.Image)(resources.GetObject("tsReproduce.Image")));
-            this.tsReproduce.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.tsReproduce.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsReproduce.Name = "tsReproduce";
-            this.tsReproduce.Size = new System.Drawing.Size(56, 69);
-            this.tsReproduce.Text = "&Receipt";
-            this.tsReproduce.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             // 
             // tsEmail
             // 
@@ -241,7 +227,6 @@
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.ToolStripButton tsSales;
         private System.Windows.Forms.ToolStripButton toolStripButton1;
-        private System.Windows.Forms.ToolStripButton tsReproduce;
         private System.Windows.Forms.ToolStripButton tsEmail;
     }
 }
