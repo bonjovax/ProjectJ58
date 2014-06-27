@@ -102,6 +102,10 @@ namespace nPOSProj
                 cBTerminalX.Visible = true;
                 lblZ.Visible = true;
                 cBTerminalZ.Visible = true;
+                lblSR.Visible = true;
+                cBTerminalSR.Visible = true;
+                lblSDR.Visible = true;
+                cBTerminalSDR.Visible = true;
             }
         }
         private void getTerminal()
@@ -116,6 +120,8 @@ namespace nPOSProj
                 {
                     cBTerminalX.Items.Add(grabData[0, x].ToString());
                     cBTerminalZ.Items.Add(grabData[0, x].ToString());
+                    cBTerminalSR.Items.Add(grabData[0, x].ToString());
+                    cBTerminalSDR.Items.Add(grabData[0, x].ToString());
                 }
             }
             catch (Exception ex)

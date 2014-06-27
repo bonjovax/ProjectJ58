@@ -46,9 +46,21 @@
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.printX = new System.Drawing.Printing.PrintDocument();
             this.printZ = new System.Drawing.Printing.PrintDocument();
+            this.label2 = new System.Windows.Forms.Label();
+            this.dtSR = new System.Windows.Forms.DateTimePicker();
+            this.btnPrintSummarySR = new System.Windows.Forms.Button();
+            this.cBTerminalSR = new System.Windows.Forms.ComboBox();
+            this.lblSR = new System.Windows.Forms.Label();
+            this.btnPrintSummarySDR = new System.Windows.Forms.Button();
+            this.cBTerminalSDR = new System.Windows.Forms.ComboBox();
+            this.lblSDR = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.dtSDR = new System.Windows.Forms.DateTimePicker();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
+            this.tabPage3.SuspendLayout();
+            this.tabPage4.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -241,6 +253,12 @@
             // tabPage3
             // 
             this.tabPage3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(83)))), ((int)(((byte)(44)))));
+            this.tabPage3.Controls.Add(this.btnPrintSummarySR);
+            this.tabPage3.Controls.Add(this.cBTerminalSR);
+            this.tabPage3.Controls.Add(this.lblSR);
+            this.tabPage3.Controls.Add(this.label2);
+            this.tabPage3.Controls.Add(this.dtSR);
+            this.tabPage3.Font = new System.Drawing.Font("Segoe UI", 14.25F);
             this.tabPage3.Location = new System.Drawing.Point(4, 33);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
@@ -251,12 +269,156 @@
             // tabPage4
             // 
             this.tabPage4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(185)))), ((int)(((byte)(29)))), ((int)(((byte)(71)))));
+            this.tabPage4.Controls.Add(this.btnPrintSummarySDR);
+            this.tabPage4.Controls.Add(this.cBTerminalSDR);
+            this.tabPage4.Controls.Add(this.lblSDR);
+            this.tabPage4.Controls.Add(this.label6);
+            this.tabPage4.Controls.Add(this.dtSDR);
+            this.tabPage4.Font = new System.Drawing.Font("Segoe UI", 14.25F);
             this.tabPage4.Location = new System.Drawing.Point(4, 33);
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage4.Size = new System.Drawing.Size(739, 420);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "Summary Details Report";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(261, 95);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(213, 25);
+            this.label2.TabIndex = 8;
+            this.label2.Text = "Select Date for Reading";
+            // 
+            // dtSR
+            // 
+            this.dtSR.CalendarFont = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtSR.CalendarTitleBackColor = System.Drawing.Color.AliceBlue;
+            this.dtSR.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.dtSR.DropDownAlign = System.Windows.Forms.LeftRightAlignment.Right;
+            this.dtSR.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtSR.Location = new System.Drawing.Point(238, 123);
+            this.dtSR.Name = "dtSR";
+            this.dtSR.Size = new System.Drawing.Size(251, 33);
+            this.dtSR.TabIndex = 7;
+            // 
+            // btnPrintSummarySR
+            // 
+            this.btnPrintSummarySR.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(126)))), ((int)(((byte)(56)))), ((int)(((byte)(120)))));
+            this.btnPrintSummarySR.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnPrintSummarySR.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(83)))), ((int)(((byte)(44)))));
+            this.btnPrintSummarySR.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Black;
+            this.btnPrintSummarySR.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(83)))), ((int)(((byte)(44)))));
+            this.btnPrintSummarySR.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPrintSummarySR.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPrintSummarySR.ForeColor = System.Drawing.Color.White;
+            this.btnPrintSummarySR.Image = ((System.Drawing.Image)(resources.GetObject("btnPrintSummarySR.Image")));
+            this.btnPrintSummarySR.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnPrintSummarySR.Location = new System.Drawing.Point(246, 254);
+            this.btnPrintSummarySR.Name = "btnPrintSummarySR";
+            this.btnPrintSummarySR.Size = new System.Drawing.Size(233, 69);
+            this.btnPrintSummarySR.TabIndex = 12;
+            this.btnPrintSummarySR.Text = "Print Summary";
+            this.btnPrintSummarySR.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnPrintSummarySR.UseVisualStyleBackColor = false;
+            // 
+            // cBTerminalSR
+            // 
+            this.cBTerminalSR.BackColor = System.Drawing.Color.Gainsboro;
+            this.cBTerminalSR.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cBTerminalSR.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cBTerminalSR.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.cBTerminalSR.Font = new System.Drawing.Font("Segoe UI", 14.25F);
+            this.cBTerminalSR.FormattingEnabled = true;
+            this.cBTerminalSR.Location = new System.Drawing.Point(238, 205);
+            this.cBTerminalSR.Name = "cBTerminalSR";
+            this.cBTerminalSR.Size = new System.Drawing.Size(251, 33);
+            this.cBTerminalSR.TabIndex = 11;
+            this.cBTerminalSR.Visible = false;
+            // 
+            // lblSR
+            // 
+            this.lblSR.AutoSize = true;
+            this.lblSR.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSR.ForeColor = System.Drawing.Color.White;
+            this.lblSR.Location = new System.Drawing.Point(244, 177);
+            this.lblSR.Name = "lblSR";
+            this.lblSR.Size = new System.Drawing.Size(245, 25);
+            this.lblSR.TabIndex = 10;
+            this.lblSR.Text = "Select Terminal for Reading";
+            this.lblSR.Visible = false;
+            // 
+            // btnPrintSummarySDR
+            // 
+            this.btnPrintSummarySDR.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(126)))), ((int)(((byte)(56)))), ((int)(((byte)(120)))));
+            this.btnPrintSummarySDR.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnPrintSummarySDR.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(185)))), ((int)(((byte)(29)))), ((int)(((byte)(71)))));
+            this.btnPrintSummarySDR.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Black;
+            this.btnPrintSummarySDR.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(185)))), ((int)(((byte)(29)))), ((int)(((byte)(71)))));
+            this.btnPrintSummarySDR.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPrintSummarySDR.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPrintSummarySDR.ForeColor = System.Drawing.Color.White;
+            this.btnPrintSummarySDR.Image = ((System.Drawing.Image)(resources.GetObject("btnPrintSummarySDR.Image")));
+            this.btnPrintSummarySDR.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnPrintSummarySDR.Location = new System.Drawing.Point(246, 254);
+            this.btnPrintSummarySDR.Name = "btnPrintSummarySDR";
+            this.btnPrintSummarySDR.Size = new System.Drawing.Size(233, 69);
+            this.btnPrintSummarySDR.TabIndex = 17;
+            this.btnPrintSummarySDR.Text = "Print Summary";
+            this.btnPrintSummarySDR.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnPrintSummarySDR.UseVisualStyleBackColor = false;
+            // 
+            // cBTerminalSDR
+            // 
+            this.cBTerminalSDR.BackColor = System.Drawing.Color.Gainsboro;
+            this.cBTerminalSDR.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cBTerminalSDR.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cBTerminalSDR.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.cBTerminalSDR.Font = new System.Drawing.Font("Segoe UI", 14.25F);
+            this.cBTerminalSDR.FormattingEnabled = true;
+            this.cBTerminalSDR.Location = new System.Drawing.Point(238, 205);
+            this.cBTerminalSDR.Name = "cBTerminalSDR";
+            this.cBTerminalSDR.Size = new System.Drawing.Size(251, 33);
+            this.cBTerminalSDR.TabIndex = 16;
+            this.cBTerminalSDR.Visible = false;
+            // 
+            // lblSDR
+            // 
+            this.lblSDR.AutoSize = true;
+            this.lblSDR.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSDR.ForeColor = System.Drawing.Color.White;
+            this.lblSDR.Location = new System.Drawing.Point(244, 177);
+            this.lblSDR.Name = "lblSDR";
+            this.lblSDR.Size = new System.Drawing.Size(245, 25);
+            this.lblSDR.TabIndex = 15;
+            this.lblSDR.Text = "Select Terminal for Reading";
+            this.lblSDR.Visible = false;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.White;
+            this.label6.Location = new System.Drawing.Point(261, 95);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(213, 25);
+            this.label6.TabIndex = 14;
+            this.label6.Text = "Select Date for Reading";
+            // 
+            // dtSDR
+            // 
+            this.dtSDR.CalendarFont = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtSDR.CalendarTitleBackColor = System.Drawing.Color.AliceBlue;
+            this.dtSDR.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.dtSDR.DropDownAlign = System.Windows.Forms.LeftRightAlignment.Right;
+            this.dtSDR.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtSDR.Location = new System.Drawing.Point(238, 123);
+            this.dtSDR.Name = "dtSDR";
+            this.dtSDR.Size = new System.Drawing.Size(251, 33);
+            this.dtSDR.TabIndex = 13;
             // 
             // mdiSalesReport
             // 
@@ -278,6 +440,10 @@
             this.tabPage1.PerformLayout();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
+            this.tabPage3.ResumeLayout(false);
+            this.tabPage3.PerformLayout();
+            this.tabPage4.ResumeLayout(false);
+            this.tabPage4.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -301,5 +467,15 @@
         private System.Windows.Forms.DateTimePicker dtZ;
         private System.Drawing.Printing.PrintDocument printX;
         private System.Drawing.Printing.PrintDocument printZ;
+        private System.Windows.Forms.Button btnPrintSummarySR;
+        private System.Windows.Forms.ComboBox cBTerminalSR;
+        private System.Windows.Forms.Label lblSR;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.DateTimePicker dtSR;
+        private System.Windows.Forms.Button btnPrintSummarySDR;
+        private System.Windows.Forms.ComboBox cBTerminalSDR;
+        private System.Windows.Forms.Label lblSDR;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.DateTimePicker dtSDR;
     }
 }
