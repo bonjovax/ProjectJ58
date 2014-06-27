@@ -21,6 +21,7 @@ namespace nPOSProj
         private String userName = frmLogin.User.user_name;
         private String terminalSelect;
         private String terminalSelectZ;
+        private String terminalSelectSR;
         #region System Config
         private Double taxP;
         private String taxDisplay;
@@ -379,6 +380,7 @@ namespace nPOSProj
             checkRes();
             terminalSelect = fl.tN;
             terminalSelectZ = fl.tN;
+            terminalSelectSR = fl.tN;
         }
 
         private void btnPrintZ_Click(object sender, EventArgs e)
@@ -394,6 +396,21 @@ namespace nPOSProj
         private void cBTerminalZ_SelectedIndexChanged(object sender, EventArgs e)
         {
             terminalSelectZ = cBTerminalZ.Text;
+        }
+
+        private void btnPrintSummarySR_Click(object sender, EventArgs e)
+        {
+            using (frmRptSR sr = new frmRptSR())
+            {
+                sr.DateParam = dtSR.Text;
+                sr.TerminalParam = terminalSelectSR;
+                sr.ShowDialog();
+            }
+        }
+
+        private void cBTerminalSR_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            terminalSelectSR = cBTerminalSR.Text;
         }
     }
 }
