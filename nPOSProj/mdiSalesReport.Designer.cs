@@ -372,6 +372,7 @@
             this.btnPrintSummarySDR.Text = "Print Summary";
             this.btnPrintSummarySDR.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnPrintSummarySDR.UseVisualStyleBackColor = false;
+            this.btnPrintSummarySDR.Click += new System.EventHandler(this.btnPrintSummarySDR_Click);
             // 
             // cBTerminalSDR
             // 
@@ -386,6 +387,7 @@
             this.cBTerminalSDR.Size = new System.Drawing.Size(251, 33);
             this.cBTerminalSDR.TabIndex = 16;
             this.cBTerminalSDR.Visible = false;
+            this.cBTerminalSDR.SelectedIndexChanged += new System.EventHandler(this.cBTerminalSDR_SelectedIndexChanged);
             // 
             // lblSDR
             // 

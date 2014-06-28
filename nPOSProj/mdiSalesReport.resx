@@ -162,19 +162,6 @@
   <metadata name="btnPrintSummarySR.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="btnPrintSummarySR.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        wwAADsMBx2+oZAAAAU5JREFUaEPtmsFNw0AQRV0KpXBMASkgRVAAN44pgQIogCNHjpRAJzZ/tS+MheyL
-        vWPli33S10rf0swfrzaS7QwdJ8ZxPEvfCXqhRS7TNF2kFDTElTZ5qE/aAIX0IdQjdYCChjjTrj2q/3eA
-        Ry5tRjUeaqlfLlxqTylee1TK4dNSvM1SjSetc44bIIlDd+BL+tipT8rdOHQH7M/Aq5bnPVKNq9Y5/Qys
-        UorXHhXdvfeyCzv1Rrkb/QysUorXHhXdPfsdyKAPsEopXnuk0gfodLag3+Olh+27FbEDDpANxA7wbSB2
-        gG8DsQN8G4gd4NtA7ADfBmIH+DYQO8C3gdgBvg3EDvBtIHaAbwOxA3wbiB3g20DsAN8GYgf4NhA7wLeB
-        2AG+DcQO5C2+Pb5XEfufoWfRk7T0laWlTrRrj7bO+8WW7k7WXw3myvtO3GnOMPwAVAM/PwMjNNAAAAAA
-        SUVORK5CYII=
-</value>
-  </data>
   <metadata name="cBTerminalSR.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
@@ -193,6 +180,19 @@
   <metadata name="btnPrintSummarySDR.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="btnPrintSummarySDR.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
+        wwAADsMBx2+oZAAAAU5JREFUaEPtmsFNw0AQRV0KpXBMASkgRVAAN44pgQIogCNHjpRAJzZ/tS+MheyL
+        vWPli33S10rf0swfrzaS7QwdJ8ZxPEvfCXqhRS7TNF2kFDTElTZ5qE/aAIX0IdQjdYCChjjTrj2q/3eA
+        Ry5tRjUeaqlfLlxqTylee1TK4dNSvM1SjSetc44bIIlDd+BL+tipT8rdOHQH7M/Aq5bnPVKNq9Y5/Qys
+        UorXHhXdvfeyCzv1Rrkb/QysUorXHhXdPfsdyKAPsEopXnuk0gfodLag3+Olh+27FbEDDpANxA7wbSB2
+        gG8DsQN8G4gd4NtA7ADfBmIH+DYQO8C3gdgBvg3EDvBtIHaAbwOxA3wbiB3g20DsAN8GYgf4NhA7wLeB
+        2AG+DcQO5C2+Pb5XEfufoWfRk7T0laWlTrRrj7bO+8WW7k7WXw3myvtO3GnOMPwAVAM/PwMjNNAAAAAA
+        SUVORK5CYII=
+</value>
+  </data>
   <metadata name="cBTerminalSDR.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
@@ -259,10 +259,10 @@
   <metadata name="dtZ.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
-  <metadata name="btnPrintSummarySDR.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  <metadata name="btnPrintSummarySR.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
-  <data name="btnPrintSummarySDR.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="btnPrintSummarySR.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
         wwAADsMBx2+oZAAAAU5JREFUaEPtmsFNw0AQRV0KpXBMASkgRVAAN44pgQIogCNHjpRAJzZ/tS+MheyL
@@ -274,16 +274,16 @@
         SUVORK5CYII=
 </value>
   </data>
-  <metadata name="cBTerminalSDR.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  <metadata name="cBTerminalSR.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
-  <metadata name="lblSDR.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  <metadata name="lblSR.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
-  <metadata name="label6.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  <metadata name="label2.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
-  <metadata name="dtSDR.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  <metadata name="dtSR.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
   <metadata name="printX.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
