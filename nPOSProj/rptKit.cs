@@ -16,14 +16,14 @@ namespace nPOSProj {
     using CrystalDecisions.CrystalReports.Engine;
     
     
-    public class rptSDR : ReportClass {
+    public class rptKit : ReportClass {
         
-        public rptSDR() {
+        public rptKit() {
         }
         
         public override string ResourceName {
             get {
-                return "rptSDR.rpt";
+                return "rptKit.rpt";
             }
             set {
                 // Do nothing
@@ -41,7 +41,7 @@ namespace nPOSProj {
         
         public override string FullResourceName {
             get {
-                return "nPOSProj.rptSDR.rpt";
+                return "nPOSProj.rptKit.rpt";
             }
             set {
                 // Do nothing
@@ -87,36 +87,12 @@ namespace nPOSProj {
                 return this.ReportDefinition.Sections[4];
             }
         }
-        
-        [Browsable(false)]
-        [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.Shared.IParameterField Parameter_dateParam {
-            get {
-                return this.DataDefinition.ParameterFields[0];
-            }
-        }
-        
-        [Browsable(false)]
-        [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.Shared.IParameterField Parameter_terminalParam {
-            get {
-                return this.DataDefinition.ParameterFields[1];
-            }
-        }
-        
-        [Browsable(false)]
-        [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.Shared.IParameterField Parameter_kitParam {
-            get {
-                return this.DataDefinition.ParameterFields[2];
-            }
-        }
     }
     
     [System.Drawing.ToolboxBitmapAttribute(typeof(CrystalDecisions.Shared.ExportOptions), "report.bmp")]
-    public class CachedrptSDR : Component, ICachedReport {
+    public class CachedrptKit : Component, ICachedReport {
         
-        public CachedrptSDR() {
+        public CachedrptKit() {
         }
         
         [Browsable(false)]
@@ -153,7 +129,7 @@ namespace nPOSProj {
         }
         
         public virtual CrystalDecisions.CrystalReports.Engine.ReportDocument CreateReport() {
-            rptSDR rpt = new rptSDR();
+            rptKit rpt = new rptKit();
             rpt.Site = this.Site;
             return rpt;
         }

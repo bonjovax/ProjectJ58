@@ -46,6 +46,8 @@ namespace nPOSProj {
         
         private pos_parkDataTable tablepos_park;
         
+        private pos_park1DataTable tablepos_park1;
+        
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -106,6 +108,9 @@ namespace nPOSProj {
                 }
                 if ((ds.Tables["pos_park"] != null)) {
                     base.Tables.Add(new pos_parkDataTable(ds.Tables["pos_park"]));
+                }
+                if ((ds.Tables["pos_park1"] != null)) {
+                    base.Tables.Add(new pos_park1DataTable(ds.Tables["pos_park1"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -237,6 +242,16 @@ namespace nPOSProj {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Browsable(false)]
+        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
+        public pos_park1DataTable pos_park1 {
+            get {
+                return this.tablepos_park1;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.BrowsableAttribute(true)]
         [global::System.ComponentModel.DesignerSerializationVisibilityAttribute(global::System.ComponentModel.DesignerSerializationVisibility.Visible)]
         public override global::System.Data.SchemaSerializationMode SchemaSerializationMode {
@@ -334,6 +349,9 @@ namespace nPOSProj {
                 }
                 if ((ds.Tables["pos_park"] != null)) {
                     base.Tables.Add(new pos_parkDataTable(ds.Tables["pos_park"]));
+                }
+                if ((ds.Tables["pos_park1"] != null)) {
+                    base.Tables.Add(new pos_park1DataTable(ds.Tables["pos_park1"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -434,6 +452,12 @@ namespace nPOSProj {
                     this.tablepos_park.InitVars();
                 }
             }
+            this.tablepos_park1 = ((pos_park1DataTable)(base.Tables["pos_park1"]));
+            if ((initTable == true)) {
+                if ((this.tablepos_park1 != null)) {
+                    this.tablepos_park1.InitVars();
+                }
+            }
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -466,6 +490,8 @@ namespace nPOSProj {
             base.Tables.Add(this.tablepos_store);
             this.tablepos_park = new pos_parkDataTable();
             base.Tables.Add(this.tablepos_park);
+            this.tablepos_park1 = new pos_park1DataTable();
+            base.Tables.Add(this.tablepos_park1);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -531,6 +557,12 @@ namespace nPOSProj {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private bool ShouldSerializepos_park() {
+            return false;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private bool ShouldSerializepos_park1() {
             return false;
         }
         
@@ -621,6 +653,9 @@ namespace nPOSProj {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         public delegate void pos_parkRowChangeEventHandler(object sender, pos_parkRowChangeEvent e);
+        
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public delegate void pos_park1RowChangeEventHandler(object sender, pos_park1RowChangeEvent e);
         
         /// <summary>
         ///Represents the strongly named DataTable class.
@@ -4452,6 +4487,8 @@ namespace nPOSProj {
             
             private global::System.Data.DataColumn columnitem_whole_price;
             
+            private global::System.Data.DataColumn columnis_kit;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public pos_parkDataTable() {
@@ -4623,6 +4660,14 @@ namespace nPOSProj {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn is_kitColumn {
+                get {
+                    return this.columnis_kit;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -4675,7 +4720,8 @@ namespace nPOSProj {
                         string pos_customer, 
                         string pos_user, 
                         double item_retail_price, 
-                        double item_whole_price) {
+                        double item_whole_price, 
+                        int is_kit) {
                 pos_parkRow rowpos_parkRow = ((pos_parkRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         pos_orno,
@@ -4694,7 +4740,8 @@ namespace nPOSProj {
                         pos_customer,
                         pos_user,
                         item_retail_price,
-                        item_whole_price};
+                        item_whole_price,
+                        is_kit};
                 rowpos_parkRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowpos_parkRow);
                 return rowpos_parkRow;
@@ -4734,6 +4781,7 @@ namespace nPOSProj {
                 this.columnpos_user = base.Columns["pos_user"];
                 this.columnitem_retail_price = base.Columns["item_retail_price"];
                 this.columnitem_whole_price = base.Columns["item_whole_price"];
+                this.columnis_kit = base.Columns["is_kit"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -4773,6 +4821,8 @@ namespace nPOSProj {
                 base.Columns.Add(this.columnitem_retail_price);
                 this.columnitem_whole_price = new global::System.Data.DataColumn("item_whole_price", typeof(double), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnitem_whole_price);
+                this.columnis_kit = new global::System.Data.DataColumn("is_kit", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnis_kit);
                 this.columnpos_orno.AllowDBNull = false;
                 this.columnpos_terminal.MaxLength = 4;
                 this.columnpos_ean.AllowDBNull = false;
@@ -4870,6 +4920,442 @@ namespace nPOSProj {
                 global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
                 attribute2.Name = "tableTypeName";
                 attribute2.FixedValue = "pos_parkDataTable";
+                type.Attributes.Add(attribute2);
+                type.Particle = sequence;
+                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
+                if (xs.Contains(dsSchema.TargetNamespace)) {
+                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
+                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
+                    try {
+                        global::System.Xml.Schema.XmlSchema schema = null;
+                        dsSchema.Write(s1);
+                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
+                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
+                            s2.SetLength(0);
+                            schema.Write(s2);
+                            if ((s1.Length == s2.Length)) {
+                                s1.Position = 0;
+                                s2.Position = 0;
+                                for (; ((s1.Position != s1.Length) 
+                                            && (s1.ReadByte() == s2.ReadByte())); ) {
+                                    ;
+                                }
+                                if ((s1.Position == s1.Length)) {
+                                    return type;
+                                }
+                            }
+                        }
+                    }
+                    finally {
+                        if ((s1 != null)) {
+                            s1.Close();
+                        }
+                        if ((s2 != null)) {
+                            s2.Close();
+                        }
+                    }
+                }
+                xs.Add(dsSchema);
+                return type;
+            }
+        }
+        
+        /// <summary>
+        ///Represents the strongly named DataTable class.
+        ///</summary>
+        [global::System.Serializable()]
+        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
+        public partial class pos_park1DataTable : global::System.Data.TypedTableBase<pos_park1Row> {
+            
+            private global::System.Data.DataColumn columnpos_orno;
+            
+            private global::System.Data.DataColumn columnpos_terminal;
+            
+            private global::System.Data.DataColumn columnpos_parked_date;
+            
+            private global::System.Data.DataColumn columnpos_ean;
+            
+            private global::System.Data.DataColumn columnpos_quantity;
+            
+            private global::System.Data.DataColumn columnpos_discount;
+            
+            private global::System.Data.DataColumn columnpos_discount_amt;
+            
+            private global::System.Data.DataColumn columnpos_amt;
+            
+            private global::System.Data.DataColumn columnpos_customer;
+            
+            private global::System.Data.DataColumn columnpos_user;
+            
+            private global::System.Data.DataColumn columnkit_name;
+            
+            private global::System.Data.DataColumn columnitem_retail_price;
+            
+            private global::System.Data.DataColumn columnitem_whole_price;
+            
+            private global::System.Data.DataColumn columnis_kit;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public pos_park1DataTable() {
+                this.TableName = "pos_park1";
+                this.BeginInit();
+                this.InitClass();
+                this.EndInit();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal pos_park1DataTable(global::System.Data.DataTable table) {
+                this.TableName = table.TableName;
+                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
+                    this.CaseSensitive = table.CaseSensitive;
+                }
+                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
+                    this.Locale = table.Locale;
+                }
+                if ((table.Namespace != table.DataSet.Namespace)) {
+                    this.Namespace = table.Namespace;
+                }
+                this.Prefix = table.Prefix;
+                this.MinimumCapacity = table.MinimumCapacity;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected pos_park1DataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+                    base(info, context) {
+                this.InitVars();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn pos_ornoColumn {
+                get {
+                    return this.columnpos_orno;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn pos_terminalColumn {
+                get {
+                    return this.columnpos_terminal;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn pos_parked_dateColumn {
+                get {
+                    return this.columnpos_parked_date;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn pos_eanColumn {
+                get {
+                    return this.columnpos_ean;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn pos_quantityColumn {
+                get {
+                    return this.columnpos_quantity;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn pos_discountColumn {
+                get {
+                    return this.columnpos_discount;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn pos_discount_amtColumn {
+                get {
+                    return this.columnpos_discount_amt;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn pos_amtColumn {
+                get {
+                    return this.columnpos_amt;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn pos_customerColumn {
+                get {
+                    return this.columnpos_customer;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn pos_userColumn {
+                get {
+                    return this.columnpos_user;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn kit_nameColumn {
+                get {
+                    return this.columnkit_name;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn item_retail_priceColumn {
+                get {
+                    return this.columnitem_retail_price;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn item_whole_priceColumn {
+                get {
+                    return this.columnitem_whole_price;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn is_kitColumn {
+                get {
+                    return this.columnis_kit;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            [global::System.ComponentModel.Browsable(false)]
+            public int Count {
+                get {
+                    return this.Rows.Count;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public pos_park1Row this[int index] {
+                get {
+                    return ((pos_park1Row)(this.Rows[index]));
+                }
+            }
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event pos_park1RowChangeEventHandler pos_park1RowChanging;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event pos_park1RowChangeEventHandler pos_park1RowChanged;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event pos_park1RowChangeEventHandler pos_park1RowDeleting;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event pos_park1RowChangeEventHandler pos_park1RowDeleted;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void Addpos_park1Row(pos_park1Row row) {
+                this.Rows.Add(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public pos_park1Row Addpos_park1Row(int pos_orno, string pos_terminal, System.DateTime pos_parked_date, int pos_ean, int pos_quantity, double pos_discount, double pos_discount_amt, double pos_amt, string pos_customer, string pos_user, string kit_name, double item_retail_price, double item_whole_price, int is_kit) {
+                pos_park1Row rowpos_park1Row = ((pos_park1Row)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        pos_orno,
+                        pos_terminal,
+                        pos_parked_date,
+                        pos_ean,
+                        pos_quantity,
+                        pos_discount,
+                        pos_discount_amt,
+                        pos_amt,
+                        pos_customer,
+                        pos_user,
+                        kit_name,
+                        item_retail_price,
+                        item_whole_price,
+                        is_kit};
+                rowpos_park1Row.ItemArray = columnValuesArray;
+                this.Rows.Add(rowpos_park1Row);
+                return rowpos_park1Row;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public override global::System.Data.DataTable Clone() {
+                pos_park1DataTable cln = ((pos_park1DataTable)(base.Clone()));
+                cln.InitVars();
+                return cln;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Data.DataTable CreateInstance() {
+                return new pos_park1DataTable();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal void InitVars() {
+                this.columnpos_orno = base.Columns["pos_orno"];
+                this.columnpos_terminal = base.Columns["pos_terminal"];
+                this.columnpos_parked_date = base.Columns["pos_parked_date"];
+                this.columnpos_ean = base.Columns["pos_ean"];
+                this.columnpos_quantity = base.Columns["pos_quantity"];
+                this.columnpos_discount = base.Columns["pos_discount"];
+                this.columnpos_discount_amt = base.Columns["pos_discount_amt"];
+                this.columnpos_amt = base.Columns["pos_amt"];
+                this.columnpos_customer = base.Columns["pos_customer"];
+                this.columnpos_user = base.Columns["pos_user"];
+                this.columnkit_name = base.Columns["kit_name"];
+                this.columnitem_retail_price = base.Columns["item_retail_price"];
+                this.columnitem_whole_price = base.Columns["item_whole_price"];
+                this.columnis_kit = base.Columns["is_kit"];
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            private void InitClass() {
+                this.columnpos_orno = new global::System.Data.DataColumn("pos_orno", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnpos_orno);
+                this.columnpos_terminal = new global::System.Data.DataColumn("pos_terminal", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnpos_terminal);
+                this.columnpos_parked_date = new global::System.Data.DataColumn("pos_parked_date", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnpos_parked_date);
+                this.columnpos_ean = new global::System.Data.DataColumn("pos_ean", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnpos_ean);
+                this.columnpos_quantity = new global::System.Data.DataColumn("pos_quantity", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnpos_quantity);
+                this.columnpos_discount = new global::System.Data.DataColumn("pos_discount", typeof(double), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnpos_discount);
+                this.columnpos_discount_amt = new global::System.Data.DataColumn("pos_discount_amt", typeof(double), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnpos_discount_amt);
+                this.columnpos_amt = new global::System.Data.DataColumn("pos_amt", typeof(double), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnpos_amt);
+                this.columnpos_customer = new global::System.Data.DataColumn("pos_customer", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnpos_customer);
+                this.columnpos_user = new global::System.Data.DataColumn("pos_user", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnpos_user);
+                this.columnkit_name = new global::System.Data.DataColumn("kit_name", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnkit_name);
+                this.columnitem_retail_price = new global::System.Data.DataColumn("item_retail_price", typeof(double), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnitem_retail_price);
+                this.columnitem_whole_price = new global::System.Data.DataColumn("item_whole_price", typeof(double), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnitem_whole_price);
+                this.columnis_kit = new global::System.Data.DataColumn("is_kit", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnis_kit);
+                this.columnpos_orno.AllowDBNull = false;
+                this.columnpos_terminal.MaxLength = 4;
+                this.columnpos_ean.AllowDBNull = false;
+                this.columnpos_quantity.AllowDBNull = false;
+                this.columnpos_customer.MaxLength = 50;
+                this.columnpos_user.MaxLength = 50;
+                this.columnkit_name.MaxLength = 30;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public pos_park1Row Newpos_park1Row() {
+                return ((pos_park1Row)(this.NewRow()));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
+                return new pos_park1Row(builder);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Type GetRowType() {
+                return typeof(pos_park1Row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanged(e);
+                if ((this.pos_park1RowChanged != null)) {
+                    this.pos_park1RowChanged(this, new pos_park1RowChangeEvent(((pos_park1Row)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanging(e);
+                if ((this.pos_park1RowChanging != null)) {
+                    this.pos_park1RowChanging(this, new pos_park1RowChangeEvent(((pos_park1Row)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleted(e);
+                if ((this.pos_park1RowDeleted != null)) {
+                    this.pos_park1RowDeleted(this, new pos_park1RowChangeEvent(((pos_park1Row)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleting(e);
+                if ((this.pos_park1RowDeleting != null)) {
+                    this.pos_park1RowDeleting(this, new pos_park1RowChangeEvent(((pos_park1Row)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void Removepos_park1Row(pos_park1Row row) {
+                this.Rows.Remove(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
+                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
+                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
+                npos_dbDataSet ds = new npos_dbDataSet();
+                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
+                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
+                any1.MinOccurs = new decimal(0);
+                any1.MaxOccurs = decimal.MaxValue;
+                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any1);
+                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
+                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
+                any2.MinOccurs = new decimal(1);
+                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any2);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute1.Name = "namespace";
+                attribute1.FixedValue = ds.Namespace;
+                type.Attributes.Add(attribute1);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute2.Name = "tableTypeName";
+                attribute2.FixedValue = "pos_park1DataTable";
                 type.Attributes.Add(attribute2);
                 type.Particle = sequence;
                 global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
@@ -7661,6 +8147,22 @@ namespace nPOSProj {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int is_kit {
+                get {
+                    try {
+                        return ((int)(this[this.tablepos_park.is_kitColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'is_kit\' in table \'pos_park\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablepos_park.is_kitColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool Ispos_terminalNull() {
                 return this.IsNull(this.tablepos_park.pos_terminalColumn);
             }
@@ -7813,6 +8315,374 @@ namespace nPOSProj {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void Setitem_whole_priceNull() {
                 this[this.tablepos_park.item_whole_priceColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool Isis_kitNull() {
+                return this.IsNull(this.tablepos_park.is_kitColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void Setis_kitNull() {
+                this[this.tablepos_park.is_kitColumn] = global::System.Convert.DBNull;
+            }
+        }
+        
+        /// <summary>
+        ///Represents strongly named DataRow class.
+        ///</summary>
+        public partial class pos_park1Row : global::System.Data.DataRow {
+            
+            private pos_park1DataTable tablepos_park1;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal pos_park1Row(global::System.Data.DataRowBuilder rb) : 
+                    base(rb) {
+                this.tablepos_park1 = ((pos_park1DataTable)(this.Table));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int pos_orno {
+                get {
+                    return ((int)(this[this.tablepos_park1.pos_ornoColumn]));
+                }
+                set {
+                    this[this.tablepos_park1.pos_ornoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string pos_terminal {
+                get {
+                    try {
+                        return ((string)(this[this.tablepos_park1.pos_terminalColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'pos_terminal\' in table \'pos_park1\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablepos_park1.pos_terminalColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public System.DateTime pos_parked_date {
+                get {
+                    try {
+                        return ((global::System.DateTime)(this[this.tablepos_park1.pos_parked_dateColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'pos_parked_date\' in table \'pos_park1\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablepos_park1.pos_parked_dateColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int pos_ean {
+                get {
+                    return ((int)(this[this.tablepos_park1.pos_eanColumn]));
+                }
+                set {
+                    this[this.tablepos_park1.pos_eanColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int pos_quantity {
+                get {
+                    return ((int)(this[this.tablepos_park1.pos_quantityColumn]));
+                }
+                set {
+                    this[this.tablepos_park1.pos_quantityColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public double pos_discount {
+                get {
+                    try {
+                        return ((double)(this[this.tablepos_park1.pos_discountColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'pos_discount\' in table \'pos_park1\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablepos_park1.pos_discountColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public double pos_discount_amt {
+                get {
+                    try {
+                        return ((double)(this[this.tablepos_park1.pos_discount_amtColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'pos_discount_amt\' in table \'pos_park1\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablepos_park1.pos_discount_amtColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public double pos_amt {
+                get {
+                    try {
+                        return ((double)(this[this.tablepos_park1.pos_amtColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'pos_amt\' in table \'pos_park1\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablepos_park1.pos_amtColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string pos_customer {
+                get {
+                    try {
+                        return ((string)(this[this.tablepos_park1.pos_customerColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'pos_customer\' in table \'pos_park1\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablepos_park1.pos_customerColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string pos_user {
+                get {
+                    try {
+                        return ((string)(this[this.tablepos_park1.pos_userColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'pos_user\' in table \'pos_park1\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablepos_park1.pos_userColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string kit_name {
+                get {
+                    try {
+                        return ((string)(this[this.tablepos_park1.kit_nameColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'kit_name\' in table \'pos_park1\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablepos_park1.kit_nameColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public double item_retail_price {
+                get {
+                    try {
+                        return ((double)(this[this.tablepos_park1.item_retail_priceColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'item_retail_price\' in table \'pos_park1\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablepos_park1.item_retail_priceColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public double item_whole_price {
+                get {
+                    try {
+                        return ((double)(this[this.tablepos_park1.item_whole_priceColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'item_whole_price\' in table \'pos_park1\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablepos_park1.item_whole_priceColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int is_kit {
+                get {
+                    try {
+                        return ((int)(this[this.tablepos_park1.is_kitColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'is_kit\' in table \'pos_park1\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablepos_park1.is_kitColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool Ispos_terminalNull() {
+                return this.IsNull(this.tablepos_park1.pos_terminalColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void Setpos_terminalNull() {
+                this[this.tablepos_park1.pos_terminalColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool Ispos_parked_dateNull() {
+                return this.IsNull(this.tablepos_park1.pos_parked_dateColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void Setpos_parked_dateNull() {
+                this[this.tablepos_park1.pos_parked_dateColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool Ispos_discountNull() {
+                return this.IsNull(this.tablepos_park1.pos_discountColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void Setpos_discountNull() {
+                this[this.tablepos_park1.pos_discountColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool Ispos_discount_amtNull() {
+                return this.IsNull(this.tablepos_park1.pos_discount_amtColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void Setpos_discount_amtNull() {
+                this[this.tablepos_park1.pos_discount_amtColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool Ispos_amtNull() {
+                return this.IsNull(this.tablepos_park1.pos_amtColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void Setpos_amtNull() {
+                this[this.tablepos_park1.pos_amtColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool Ispos_customerNull() {
+                return this.IsNull(this.tablepos_park1.pos_customerColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void Setpos_customerNull() {
+                this[this.tablepos_park1.pos_customerColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool Ispos_userNull() {
+                return this.IsNull(this.tablepos_park1.pos_userColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void Setpos_userNull() {
+                this[this.tablepos_park1.pos_userColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool Iskit_nameNull() {
+                return this.IsNull(this.tablepos_park1.kit_nameColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void Setkit_nameNull() {
+                this[this.tablepos_park1.kit_nameColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool Isitem_retail_priceNull() {
+                return this.IsNull(this.tablepos_park1.item_retail_priceColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void Setitem_retail_priceNull() {
+                this[this.tablepos_park1.item_retail_priceColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool Isitem_whole_priceNull() {
+                return this.IsNull(this.tablepos_park1.item_whole_priceColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void Setitem_whole_priceNull() {
+                this[this.tablepos_park1.item_whole_priceColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool Isis_kitNull() {
+                return this.IsNull(this.tablepos_park1.is_kitColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void Setis_kitNull() {
+                this[this.tablepos_park1.is_kitColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -8176,6 +9046,40 @@ namespace nPOSProj {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public pos_parkRow Row {
+                get {
+                    return this.eventRow;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataRowAction Action {
+                get {
+                    return this.eventAction;
+                }
+            }
+        }
+        
+        /// <summary>
+        ///Row event argument class
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public class pos_park1RowChangeEvent : global::System.EventArgs {
+            
+            private pos_park1Row eventRow;
+            
+            private global::System.Data.DataRowAction eventAction;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public pos_park1RowChangeEvent(pos_park1Row row, global::System.Data.DataRowAction action) {
+                this.eventRow = row;
+                this.eventAction = action;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public pos_park1Row Row {
                 get {
                     return this.eventRow;
                 }
@@ -15223,6 +16127,7 @@ WHERE        (inventory_items_kit.item_ean = @ean)";
             tableMapping.ColumnMappings.Add("pos_user", "pos_user");
             tableMapping.ColumnMappings.Add("item_retail_price", "item_retail_price");
             tableMapping.ColumnMappings.Add("item_whole_price", "item_whole_price");
+            tableMapping.ColumnMappings.Add("is_kit", "is_kit");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -15241,7 +16146,7 @@ WHERE        (inventory_items_kit.item_ean = @ean)";
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = @"SELECT        pos_park.pos_orno, pos_park.pos_terminal, pos_park.pos_parked_date, pos_park.pos_ean, pos_park.pos_quantity, pos_park.pos_discount, pos_park.pos_discount_amt, pos_park.pos_amt, pos_store.pos_date, 
                          pos_store.pos_customer, pos_store.pos_user, inventory_items.item_ean, inventory_items.kit_name, inventory_items.item_retail_price, inventory_items.item_whole_price, inventory_stocks.stock_code, 
-                         inventory_stocks.stock_name
+                         inventory_stocks.stock_name, inventory_items.is_kit
 FROM            pos_park INNER JOIN
                          pos_store ON pos_park.pos_orno = pos_store.pos_orno INNER JOIN
                          inventory_items ON pos_park.pos_ean = inventory_items.item_ean INNER JOIN
@@ -15269,6 +16174,191 @@ FROM            pos_park INNER JOIN
         public virtual npos_dbDataSet.pos_parkDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             npos_dbDataSet.pos_parkDataTable dataTable = new npos_dbDataSet.pos_parkDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+    }
+    
+    /// <summary>
+    ///Represents the connection and commands used to retrieve and save data.
+    ///</summary>
+    [global::System.ComponentModel.DesignerCategoryAttribute("code")]
+    [global::System.ComponentModel.ToolboxItem(true)]
+    [global::System.ComponentModel.DataObjectAttribute(true)]
+    [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
+        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
+    [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+    public partial class pos_park1TableAdapter : global::System.ComponentModel.Component {
+        
+        private global::MySql.Data.MySqlClient.MySqlDataAdapter _adapter;
+        
+        private global::MySql.Data.MySqlClient.MySqlConnection _connection;
+        
+        private global::MySql.Data.MySqlClient.MySqlTransaction _transaction;
+        
+        private global::MySql.Data.MySqlClient.MySqlCommand[] _commandCollection;
+        
+        private bool _clearBeforeFill;
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public pos_park1TableAdapter() {
+            this.ClearBeforeFill = true;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        protected internal global::MySql.Data.MySqlClient.MySqlDataAdapter Adapter {
+            get {
+                if ((this._adapter == null)) {
+                    this.InitAdapter();
+                }
+                return this._adapter;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        internal global::MySql.Data.MySqlClient.MySqlConnection Connection {
+            get {
+                if ((this._connection == null)) {
+                    this.InitConnection();
+                }
+                return this._connection;
+            }
+            set {
+                this._connection = value;
+                if ((this.Adapter.InsertCommand != null)) {
+                    this.Adapter.InsertCommand.Connection = value;
+                }
+                if ((this.Adapter.DeleteCommand != null)) {
+                    this.Adapter.DeleteCommand.Connection = value;
+                }
+                if ((this.Adapter.UpdateCommand != null)) {
+                    this.Adapter.UpdateCommand.Connection = value;
+                }
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    if ((this.CommandCollection[i] != null)) {
+                        ((global::MySql.Data.MySqlClient.MySqlCommand)(this.CommandCollection[i])).Connection = value;
+                    }
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        internal global::MySql.Data.MySqlClient.MySqlTransaction Transaction {
+            get {
+                return this._transaction;
+            }
+            set {
+                this._transaction = value;
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    this.CommandCollection[i].Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.DeleteCommand != null))) {
+                    this.Adapter.DeleteCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.InsertCommand != null))) {
+                    this.Adapter.InsertCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.UpdateCommand != null))) {
+                    this.Adapter.UpdateCommand.Transaction = this._transaction;
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        protected global::MySql.Data.MySqlClient.MySqlCommand[] CommandCollection {
+            get {
+                if ((this._commandCollection == null)) {
+                    this.InitCommandCollection();
+                }
+                return this._commandCollection;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public bool ClearBeforeFill {
+            get {
+                return this._clearBeforeFill;
+            }
+            set {
+                this._clearBeforeFill = value;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private void InitAdapter() {
+            this._adapter = new global::MySql.Data.MySqlClient.MySqlDataAdapter();
+            global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
+            tableMapping.SourceTable = "Table";
+            tableMapping.DataSetTable = "pos_park1";
+            tableMapping.ColumnMappings.Add("pos_orno", "pos_orno");
+            tableMapping.ColumnMappings.Add("pos_terminal", "pos_terminal");
+            tableMapping.ColumnMappings.Add("pos_parked_date", "pos_parked_date");
+            tableMapping.ColumnMappings.Add("pos_ean", "pos_ean");
+            tableMapping.ColumnMappings.Add("pos_quantity", "pos_quantity");
+            tableMapping.ColumnMappings.Add("pos_discount", "pos_discount");
+            tableMapping.ColumnMappings.Add("pos_discount_amt", "pos_discount_amt");
+            tableMapping.ColumnMappings.Add("pos_amt", "pos_amt");
+            tableMapping.ColumnMappings.Add("pos_customer", "pos_customer");
+            tableMapping.ColumnMappings.Add("pos_user", "pos_user");
+            tableMapping.ColumnMappings.Add("kit_name", "kit_name");
+            tableMapping.ColumnMappings.Add("item_retail_price", "item_retail_price");
+            tableMapping.ColumnMappings.Add("item_whole_price", "item_whole_price");
+            tableMapping.ColumnMappings.Add("is_kit", "is_kit");
+            this._adapter.TableMappings.Add(tableMapping);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private void InitConnection() {
+            this._connection = new global::MySql.Data.MySqlClient.MySqlConnection();
+            this._connection.ConnectionString = global::nPOSProj.Properties.Settings.Default.npos_dbConnectionString2;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private void InitCommandCollection() {
+            this._commandCollection = new global::MySql.Data.MySqlClient.MySqlCommand[1];
+            this._commandCollection[0] = new global::MySql.Data.MySqlClient.MySqlCommand();
+            this._commandCollection[0].Connection = this.Connection;
+            this._commandCollection[0].CommandText = @"SELECT        pos_park.pos_orno, pos_park.pos_terminal, pos_park.pos_parked_date, pos_park.pos_ean, pos_park.pos_quantity, pos_park.pos_discount, pos_park.pos_discount_amt, pos_park.pos_amt, 
+                         pos_store.pos_customer, pos_store.pos_user, inventory_items.kit_name, inventory_items.item_retail_price, inventory_items.item_whole_price, inventory_items.is_kit
+FROM            pos_park INNER JOIN
+                         pos_store ON pos_park.pos_orno = pos_store.pos_orno INNER JOIN
+                         inventory_items ON pos_park.pos_ean = inventory_items.item_ean
+WHERE        (inventory_items.is_kit = 1)";
+            this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
+        public virtual int Fill(npos_dbDataSet.pos_park1DataTable dataTable) {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
+        public virtual npos_dbDataSet.pos_park1DataTable GetData() {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            npos_dbDataSet.pos_park1DataTable dataTable = new npos_dbDataSet.pos_park1DataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -15468,12 +16558,12 @@ FROM            pos_park INNER JOIN
                     allChangedRows.AddRange(updatedRows);
                 }
             }
-            if ((this._po_order_listTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.po_order_list.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+            if ((this._inventory_categoryTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.inventory_category.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
-                    result = (result + this._po_order_listTableAdapter.Update(updatedRows));
+                    result = (result + this._inventory_categoryTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -15495,12 +16585,12 @@ FROM            pos_park INNER JOIN
                     allChangedRows.AddRange(updatedRows);
                 }
             }
-            if ((this._inventory_categoryTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.inventory_category.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+            if ((this._po_order_listTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.po_order_list.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
-                    result = (result + this._inventory_categoryTableAdapter.Update(updatedRows));
+                    result = (result + this._po_order_listTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -15522,11 +16612,11 @@ FROM            pos_park INNER JOIN
                     allAddedRows.AddRange(addedRows);
                 }
             }
-            if ((this._po_order_listTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.po_order_list.Select(null, null, global::System.Data.DataViewRowState.Added);
+            if ((this._inventory_categoryTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.inventory_category.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
-                    result = (result + this._po_order_listTableAdapter.Update(addedRows));
+                    result = (result + this._inventory_categoryTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -15546,11 +16636,11 @@ FROM            pos_park INNER JOIN
                     allAddedRows.AddRange(addedRows);
                 }
             }
-            if ((this._inventory_categoryTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.inventory_category.Select(null, null, global::System.Data.DataViewRowState.Added);
+            if ((this._po_order_listTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.po_order_list.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
-                    result = (result + this._inventory_categoryTableAdapter.Update(addedRows));
+                    result = (result + this._po_order_listTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -15564,11 +16654,11 @@ FROM            pos_park INNER JOIN
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private int UpdateDeletedRows(npos_dbDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
             int result = 0;
-            if ((this._inventory_categoryTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.inventory_category.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+            if ((this._po_order_listTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.po_order_list.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
-                    result = (result + this._inventory_categoryTableAdapter.Update(deletedRows));
+                    result = (result + this._po_order_listTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
@@ -15588,11 +16678,11 @@ FROM            pos_park INNER JOIN
                     allChangedRows.AddRange(deletedRows);
                 }
             }
-            if ((this._po_order_listTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.po_order_list.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+            if ((this._inventory_categoryTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.inventory_category.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
-                    result = (result + this._po_order_listTableAdapter.Update(deletedRows));
+                    result = (result + this._inventory_categoryTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }

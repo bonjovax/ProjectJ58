@@ -56,6 +56,7 @@
             this.dtSDR = new System.Windows.Forms.DateTimePicker();
             this.printX = new System.Drawing.Printing.PrintDocument();
             this.printZ = new System.Drawing.Printing.PrintDocument();
+            this.btnPrintKits = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -340,6 +341,7 @@
             // tabPage4
             // 
             this.tabPage4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(185)))), ((int)(((byte)(29)))), ((int)(((byte)(71)))));
+            this.tabPage4.Controls.Add(this.btnPrintKits);
             this.tabPage4.Controls.Add(this.btnPrintSummarySDR);
             this.tabPage4.Controls.Add(this.cBTerminalSDR);
             this.tabPage4.Controls.Add(this.lblSDR);
@@ -424,6 +426,27 @@
             this.dtSDR.Size = new System.Drawing.Size(251, 33);
             this.dtSDR.TabIndex = 13;
             // 
+            // btnPrintKits
+            // 
+            this.btnPrintKits.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(126)))), ((int)(((byte)(56)))), ((int)(((byte)(120)))));
+            this.btnPrintKits.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnPrintKits.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(185)))), ((int)(((byte)(29)))), ((int)(((byte)(71)))));
+            this.btnPrintKits.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Black;
+            this.btnPrintKits.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(185)))), ((int)(((byte)(29)))), ((int)(((byte)(71)))));
+            this.btnPrintKits.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPrintKits.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPrintKits.ForeColor = System.Drawing.Color.White;
+            this.btnPrintKits.Image = ((System.Drawing.Image)(resources.GetObject("btnPrintKits.Image")));
+            this.btnPrintKits.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnPrintKits.Location = new System.Drawing.Point(199, 329);
+            this.btnPrintKits.Name = "btnPrintKits";
+            this.btnPrintKits.Size = new System.Drawing.Size(322, 69);
+            this.btnPrintKits.TabIndex = 18;
+            this.btnPrintKits.Text = "Print Summary Kits";
+            this.btnPrintKits.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnPrintKits.UseVisualStyleBackColor = false;
+            this.btnPrintKits.Click += new System.EventHandler(this.btnPrintKits_Click);
+            // 
             // mdiSalesReport
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
@@ -481,5 +504,6 @@
         private System.Windows.Forms.Label lblSDR;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.DateTimePicker dtSDR;
+        private System.Windows.Forms.Button btnPrintKits;
     }
 }
