@@ -551,7 +551,7 @@ namespace nPOSProj
             timer1.Start();
             String userName = frmLogin.User.user_name;
             lblUserAccount.Text = userName;
-            lblProgversion.Text = "nPOS System v" + ProductVersion.ToString();
+            lblProgversion.Text = ProductName + " v" + ProductVersion;
             //
             timer2.Start();
             timer2.Tick += new EventHandler(timer2_Tick);

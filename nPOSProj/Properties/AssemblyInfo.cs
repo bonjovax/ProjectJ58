@@ -8,7 +8,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTitle("nPOS System")]
 [assembly: AssemblyDescription("Point-of-Sale System")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("Cebu A.I Logic Inc")]
+[assembly: AssemblyCompany("Creative Software Solutions")]
 [assembly: AssemblyProduct("nPOS System")]
 [assembly: AssemblyCopyright("Copyright ©  2014")]
 [assembly: AssemblyTrademark("")]
