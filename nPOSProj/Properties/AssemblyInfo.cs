@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("nPOSProj")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyTitle("nPOS System")]
+[assembly: AssemblyDescription("Point-of-Sale Syste,")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("nPOSProj")]
+[assembly: AssemblyCompany("Creative Software Solutions")]
+[assembly: AssemblyProduct("nPOS System")]
 [assembly: AssemblyCopyright("Copyright ©  2014")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]

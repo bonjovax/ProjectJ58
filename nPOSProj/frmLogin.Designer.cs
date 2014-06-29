@@ -144,9 +144,9 @@
             this.label3.ForeColor = System.Drawing.Color.White;
             this.label3.Location = new System.Drawing.Point(5, 229);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(149, 13);
+            this.label3.Size = new System.Drawing.Size(12, 13);
             this.label3.TabIndex = 8;
-            this.label3.Text = "Creative Software Solutions";
+            this.label3.Text = "_";
             // 
             // lblProgversion
             // 

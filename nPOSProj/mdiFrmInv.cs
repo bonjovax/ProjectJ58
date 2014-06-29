@@ -192,5 +192,11 @@ namespace nPOSProj
                 ikit.Show();
             }
         }
+
+        private void tsAbout_Click(object sender, EventArgs e)
+        {
+            frmAbout about = new frmAbout();
+            about.ShowDialog();
+        }
     }
 }

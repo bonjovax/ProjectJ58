@@ -33,6 +33,7 @@
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.tsDirectory = new System.Windows.Forms.ToolStripButton();
             this.tsPayment = new System.Windows.Forms.ToolStripButton();
+            this.tsEmail = new System.Windows.Forms.ToolStripButton();
             this.tsExit = new System.Windows.Forms.ToolStripButton();
             this.tsAbout = new System.Windows.Forms.ToolStripButton();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
@@ -41,7 +42,6 @@
             this.tsToday = new System.Windows.Forms.ToolStripStatusLabel();
             this.tsUser = new System.Windows.Forms.ToolStripStatusLabel();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.tsEmail = new System.Windows.Forms.ToolStripButton();
             this.toolStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -90,6 +90,19 @@
             this.tsPayment.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.tsPayment.Click += new System.EventHandler(this.tsPayment_Click);
             // 
+            // tsEmail
+            // 
+            this.tsEmail.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tsEmail.ForeColor = System.Drawing.Color.White;
+            this.tsEmail.Image = ((System.Drawing.Image)(resources.GetObject("tsEmail.Image")));
+            this.tsEmail.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.tsEmail.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsEmail.Name = "tsEmail";
+            this.tsEmail.Size = new System.Drawing.Size(102, 69);
+            this.tsEmail.Text = "&E-Mail Support";
+            this.tsEmail.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.tsEmail.Click += new System.EventHandler(this.tsEmail_Click);
+            // 
             // tsExit
             // 
             this.tsExit.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -114,6 +127,7 @@
             this.tsAbout.Size = new System.Drawing.Size(52, 69);
             this.tsAbout.Text = "&About";
             this.tsAbout.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.tsAbout.Click += new System.EventHandler(this.tsAbout_Click);
             // 
             // statusStrip1
             // 
@@ -171,19 +185,6 @@
             // timer1
             // 
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-            // 
-            // tsEmail
-            // 
-            this.tsEmail.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tsEmail.ForeColor = System.Drawing.Color.White;
-            this.tsEmail.Image = ((System.Drawing.Image)(resources.GetObject("tsEmail.Image")));
-            this.tsEmail.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.tsEmail.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsEmail.Name = "tsEmail";
-            this.tsEmail.Size = new System.Drawing.Size(102, 69);
-            this.tsEmail.Text = "&E-Mail Support";
-            this.tsEmail.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.tsEmail.Click += new System.EventHandler(this.tsEmail_Click);
             // 
             // mdiFrmCustomers
             // 

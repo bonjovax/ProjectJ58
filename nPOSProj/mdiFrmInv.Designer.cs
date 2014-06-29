@@ -217,6 +217,7 @@
             this.tsAbout.Size = new System.Drawing.Size(52, 69);
             this.tsAbout.Text = "&About";
             this.tsAbout.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.tsAbout.Click += new System.EventHandler(this.tsAbout_Click);
             // 
             // statusStrip1
             // 
