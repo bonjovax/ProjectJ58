@@ -153,7 +153,7 @@
             this.lblProgversion.AutoSize = true;
             this.lblProgversion.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblProgversion.ForeColor = System.Drawing.Color.Transparent;
-            this.lblProgversion.Location = new System.Drawing.Point(5, 241);
+            this.lblProgversion.Location = new System.Drawing.Point(5, 243);
             this.lblProgversion.Name = "lblProgversion";
             this.lblProgversion.Size = new System.Drawing.Size(45, 13);
             this.lblProgversion.TabIndex = 9;
@@ -165,7 +165,7 @@
             this.lblAdlib.AutoSize = true;
             this.lblAdlib.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblAdlib.ForeColor = System.Drawing.Color.Transparent;
-            this.lblAdlib.Location = new System.Drawing.Point(4, 253);
+            this.lblAdlib.Location = new System.Drawing.Point(4, 256);
             this.lblAdlib.Name = "lblAdlib";
             this.lblAdlib.Size = new System.Drawing.Size(17, 13);
             this.lblAdlib.TabIndex = 10;
@@ -185,7 +185,7 @@
             this.btnLogin.ForeColor = System.Drawing.Color.Transparent;
             this.btnLogin.Image = ((System.Drawing.Image)(resources.GetObject("btnLogin.Image")));
             this.btnLogin.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnLogin.Location = new System.Drawing.Point(302, 218);
+            this.btnLogin.Location = new System.Drawing.Point(302, 226);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(99, 41);
             this.btnLogin.TabIndex = 11;
@@ -207,7 +207,7 @@
             this.btnTerminate.ForeColor = System.Drawing.Color.Transparent;
             this.btnTerminate.Image = ((System.Drawing.Image)(resources.GetObject("btnTerminate.Image")));
             this.btnTerminate.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnTerminate.Location = new System.Drawing.Point(209, 218);
+            this.btnTerminate.Location = new System.Drawing.Point(209, 226);
             this.btnTerminate.Name = "btnTerminate";
             this.btnTerminate.Size = new System.Drawing.Size(89, 41);
             this.btnTerminate.TabIndex = 12;
@@ -221,7 +221,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Indigo;
-            this.ClientSize = new System.Drawing.Size(413, 269);
+            this.ClientSize = new System.Drawing.Size(413, 275);
             this.Controls.Add(this.btnTerminate);
             this.Controls.Add(this.btnLogin);
             this.Controls.Add(this.lblAdlib);

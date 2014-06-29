@@ -258,7 +258,7 @@
             // pictureBox2
             // 
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(7, 477);
+            this.pictureBox2.Location = new System.Drawing.Point(7, 470);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(150, 42);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -281,7 +281,7 @@
             this.lblProgversion.AutoSize = true;
             this.lblProgversion.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblProgversion.ForeColor = System.Drawing.Color.White;
-            this.lblProgversion.Location = new System.Drawing.Point(5, 531);
+            this.lblProgversion.Location = new System.Drawing.Point(5, 530);
             this.lblProgversion.Name = "lblProgversion";
             this.lblProgversion.Size = new System.Drawing.Size(50, 13);
             this.lblProgversion.TabIndex = 11;
@@ -292,7 +292,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(5, 519);
+            this.label3.Location = new System.Drawing.Point(5, 517);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(12, 13);
             this.label3.TabIndex = 10;
