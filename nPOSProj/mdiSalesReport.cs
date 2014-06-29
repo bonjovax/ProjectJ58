@@ -432,12 +432,12 @@ namespace nPOSProj
 
         private void btnPrintKits_Click(object sender, EventArgs e)
         {
-            //using (frmRptSDRkit sdrkit = new frmRptSDRkit())
-            //{
-            //    sdrkit.DateParam = dtSDR.Text;
-            //    sdrkit.TerminalParam = terminalSelectSDR;
-            //    sdrkit.ShowDialog();
-            //}
+            using (frmRptKit sdrkit = new frmRptKit())
+            {
+                sdrkit.DateParam = dtSDR.Text;
+                sdrkit.TerminalParam = terminalSelectSDR;
+                sdrkit.ShowDialog();
+            }
         }
     }
 }
