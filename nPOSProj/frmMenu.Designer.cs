@@ -283,9 +283,9 @@
             this.lblProgversion.ForeColor = System.Drawing.Color.White;
             this.lblProgversion.Location = new System.Drawing.Point(5, 531);
             this.lblProgversion.Name = "lblProgversion";
-            this.lblProgversion.Size = new System.Drawing.Size(111, 13);
+            this.lblProgversion.Size = new System.Drawing.Size(50, 13);
             this.lblProgversion.TabIndex = 11;
-            this.lblProgversion.Text = "nPOS System vX.x.x.x";
+            this.lblProgversion.Text = "_ vX.x.x.x";
             // 
             // label3
             // 
@@ -294,9 +294,9 @@
             this.label3.ForeColor = System.Drawing.Color.White;
             this.label3.Location = new System.Drawing.Point(5, 519);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(149, 13);
+            this.label3.Size = new System.Drawing.Size(12, 13);
             this.label3.TabIndex = 10;
-            this.label3.Text = "Creative Software Solutions";
+            this.label3.Text = "_";
             // 
             // greetings
             // 

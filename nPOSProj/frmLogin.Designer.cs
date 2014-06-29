@@ -155,9 +155,10 @@
             this.lblProgversion.ForeColor = System.Drawing.Color.Transparent;
             this.lblProgversion.Location = new System.Drawing.Point(5, 241);
             this.lblProgversion.Name = "lblProgversion";
-            this.lblProgversion.Size = new System.Drawing.Size(111, 13);
+            this.lblProgversion.Size = new System.Drawing.Size(45, 13);
             this.lblProgversion.TabIndex = 9;
-            this.lblProgversion.Text = "nPOS System vX.x.x.x";
+            this.lblProgversion.Text = " vX.x.x.x";
+            this.lblProgversion.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // lblAdlib
             // 
