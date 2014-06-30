@@ -134,6 +134,7 @@
             this.btnPrint.Text = "Print";
             this.btnPrint.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnPrint.UseVisualStyleBackColor = false;
+            this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
             // 
             // cBTerminalIR
             // 
@@ -147,6 +148,7 @@
             this.cBTerminalIR.Size = new System.Drawing.Size(251, 33);
             this.cBTerminalIR.TabIndex = 3;
             this.cBTerminalIR.Visible = false;
+            this.cBTerminalIR.SelectedIndexChanged += new System.EventHandler(this.cBTerminalIR_SelectedIndexChanged);
             // 
             // lblX
             // 

@@ -63,5 +63,26 @@ namespace nPOSProj
             getTerminal();
             checkRes();
         }
+
+        private void btnPrint_Click(object sender, EventArgs e)
+        {
+            if (cBoxKitSelect.Checked == true)
+            {
+            }
+            else
+            {
+                using (frmRptISR isr = new frmRptISR())
+                {
+                    isr.DateParam = dtSIR.Text;
+                    isr.TerminalParam = terminalIR;
+                    isr.ShowDialog();
+                }
+            }
+        }
+
+        private void cBTerminalIR_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            terminalIR = cBTerminalIR.Text;
+        }
     }
 }

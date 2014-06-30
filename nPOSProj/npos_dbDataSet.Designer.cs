@@ -5890,6 +5890,16 @@ namespace nPOSProj {
             
             private global::System.Data.DataColumn columnitem_whole_price;
             
+            private global::System.Data.DataColumn columnstock_cost_price;
+            
+            private global::System.Data.DataColumn columntotals;
+            
+            private global::System.Data.DataColumn columnamt;
+            
+            private global::System.Data.DataColumn columnx;
+            
+            private global::System.Data.DataColumn columncomp;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public parkInventoryItemsDataTable() {
@@ -6029,6 +6039,46 @@ namespace nPOSProj {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn stock_cost_priceColumn {
+                get {
+                    return this.columnstock_cost_price;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn totalsColumn {
+                get {
+                    return this.columntotals;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn amtColumn {
+                get {
+                    return this.columnamt;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn xColumn {
+                get {
+                    return this.columnx;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn compColumn {
+                get {
+                    return this.columncomp;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -6064,7 +6114,25 @@ namespace nPOSProj {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public parkInventoryItemsRow AddparkInventoryItemsRow(int pos_orno, string pos_terminal, System.DateTime pos_parked_date, int pos_ean, int pos_quantity, double pos_discount, double pos_discount_amt, double pos_amt, string stock_name, string item_ean, int item_quantity, double item_retail_price, double item_whole_price) {
+            public parkInventoryItemsRow AddparkInventoryItemsRow(
+                        int pos_orno, 
+                        string pos_terminal, 
+                        System.DateTime pos_parked_date, 
+                        int pos_ean, 
+                        int pos_quantity, 
+                        double pos_discount, 
+                        double pos_discount_amt, 
+                        double pos_amt, 
+                        string stock_name, 
+                        string item_ean, 
+                        int item_quantity, 
+                        double item_retail_price, 
+                        double item_whole_price, 
+                        double stock_cost_price, 
+                        long totals, 
+                        double amt, 
+                        long x, 
+                        long comp) {
                 parkInventoryItemsRow rowparkInventoryItemsRow = ((parkInventoryItemsRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         pos_orno,
@@ -6079,7 +6147,12 @@ namespace nPOSProj {
                         item_ean,
                         item_quantity,
                         item_retail_price,
-                        item_whole_price};
+                        item_whole_price,
+                        stock_cost_price,
+                        totals,
+                        amt,
+                        x,
+                        comp};
                 rowparkInventoryItemsRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowparkInventoryItemsRow);
                 return rowparkInventoryItemsRow;
@@ -6115,6 +6188,11 @@ namespace nPOSProj {
                 this.columnitem_quantity = base.Columns["item_quantity"];
                 this.columnitem_retail_price = base.Columns["item_retail_price"];
                 this.columnitem_whole_price = base.Columns["item_whole_price"];
+                this.columnstock_cost_price = base.Columns["stock_cost_price"];
+                this.columntotals = base.Columns["totals"];
+                this.columnamt = base.Columns["amt"];
+                this.columnx = base.Columns["x"];
+                this.columncomp = base.Columns["comp"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -6146,6 +6224,16 @@ namespace nPOSProj {
                 base.Columns.Add(this.columnitem_retail_price);
                 this.columnitem_whole_price = new global::System.Data.DataColumn("item_whole_price", typeof(double), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnitem_whole_price);
+                this.columnstock_cost_price = new global::System.Data.DataColumn("stock_cost_price", typeof(double), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnstock_cost_price);
+                this.columntotals = new global::System.Data.DataColumn("totals", typeof(long), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columntotals);
+                this.columnamt = new global::System.Data.DataColumn("amt", typeof(double), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnamt);
+                this.columnx = new global::System.Data.DataColumn("x", typeof(long), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnx);
+                this.columncomp = new global::System.Data.DataColumn("comp", typeof(long), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columncomp);
                 this.columnpos_orno.AllowDBNull = false;
                 this.columnpos_terminal.MaxLength = 4;
                 this.columnpos_ean.AllowDBNull = false;
@@ -10058,6 +10146,86 @@ namespace nPOSProj {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public double stock_cost_price {
+                get {
+                    try {
+                        return ((double)(this[this.tableparkInventoryItems.stock_cost_priceColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'stock_cost_price\' in table \'parkInventoryItems\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableparkInventoryItems.stock_cost_priceColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public long totals {
+                get {
+                    try {
+                        return ((long)(this[this.tableparkInventoryItems.totalsColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'totals\' in table \'parkInventoryItems\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableparkInventoryItems.totalsColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public double amt {
+                get {
+                    try {
+                        return ((double)(this[this.tableparkInventoryItems.amtColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'amt\' in table \'parkInventoryItems\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableparkInventoryItems.amtColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public long x {
+                get {
+                    try {
+                        return ((long)(this[this.tableparkInventoryItems.xColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'x\' in table \'parkInventoryItems\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableparkInventoryItems.xColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public long comp {
+                get {
+                    try {
+                        return ((long)(this[this.tableparkInventoryItems.compColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'comp\' in table \'parkInventoryItems\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableparkInventoryItems.compColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool Ispos_terminalNull() {
                 return this.IsNull(this.tableparkInventoryItems.pos_terminalColumn);
             }
@@ -10174,6 +10342,66 @@ namespace nPOSProj {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void Setitem_whole_priceNull() {
                 this[this.tableparkInventoryItems.item_whole_priceColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool Isstock_cost_priceNull() {
+                return this.IsNull(this.tableparkInventoryItems.stock_cost_priceColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void Setstock_cost_priceNull() {
+                this[this.tableparkInventoryItems.stock_cost_priceColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IstotalsNull() {
+                return this.IsNull(this.tableparkInventoryItems.totalsColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SettotalsNull() {
+                this[this.tableparkInventoryItems.totalsColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsamtNull() {
+                return this.IsNull(this.tableparkInventoryItems.amtColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetamtNull() {
+                this[this.tableparkInventoryItems.amtColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsxNull() {
+                return this.IsNull(this.tableparkInventoryItems.xColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetxNull() {
+                this[this.tableparkInventoryItems.xColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IscompNull() {
+                return this.IsNull(this.tableparkInventoryItems.compColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetcompNull() {
+                this[this.tableparkInventoryItems.compColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -18236,6 +18464,11 @@ FROM            inventory_items INNER JOIN
             tableMapping.ColumnMappings.Add("item_quantity", "item_quantity");
             tableMapping.ColumnMappings.Add("item_retail_price", "item_retail_price");
             tableMapping.ColumnMappings.Add("item_whole_price", "item_whole_price");
+            tableMapping.ColumnMappings.Add("stock_cost_price", "stock_cost_price");
+            tableMapping.ColumnMappings.Add("totals", "totals");
+            tableMapping.ColumnMappings.Add("amt", "amt");
+            tableMapping.ColumnMappings.Add("x", "x");
+            tableMapping.ColumnMappings.Add("comp", "comp");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -18253,7 +18486,9 @@ FROM            inventory_items INNER JOIN
             this._commandCollection[0] = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = @"SELECT        pos_park.pos_orno, pos_park.pos_terminal, pos_park.pos_parked_date, pos_park.pos_ean, pos_park.pos_quantity, pos_park.pos_discount, pos_park.pos_discount_amt, pos_park.pos_amt, 
-                         inventory_stocks.stock_name, inventory_items.item_ean, inventory_items.item_quantity, inventory_items.item_retail_price, inventory_items.item_whole_price
+                         inventory_stocks.stock_name, inventory_items.item_ean, inventory_items.item_quantity, inventory_items.item_retail_price, inventory_items.item_whole_price, inventory_stocks.stock_cost_price, 
+                         inventory_items.item_quantity - pos_park.pos_quantity AS totals, inventory_items.item_quantity * inventory_stocks.stock_cost_price AS amt, inventory_items.item_quantity + pos_park.pos_quantity AS x, 
+                         inventory_items.item_quantity + pos_park.pos_quantity - pos_park.pos_quantity AS comp
 FROM            pos_park INNER JOIN
                          inventory_items ON pos_park.pos_ean = inventory_items.item_ean INNER JOIN
                          inventory_stocks ON inventory_items.stock_code = inventory_stocks.stock_code";
