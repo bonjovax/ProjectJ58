@@ -115,8 +115,10 @@ namespace nPOSProj
             try
             {
                 config = new VO.ConfigVO();
+                cBTerminalX.Items.Clear();
                 cBTerminalZ.Items.Clear();
-                cBTerminalZ.Items.Clear();
+                cBTerminalSR.Items.Clear();
+                cBTerminalSDR.Items.Clear();
                 String[,] grabData = config.ReadTerminal();
                 for (int x = 0; x < grabData.GetLength(1); x++)
                 {

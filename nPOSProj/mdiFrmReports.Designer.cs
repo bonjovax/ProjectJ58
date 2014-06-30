@@ -32,7 +32,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(mdiFrmReports));
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.tsSales = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
+            this.tsInventory = new System.Windows.Forms.ToolStripButton();
             this.tsEmail = new System.Windows.Forms.ToolStripButton();
             this.tsExit = new System.Windows.Forms.ToolStripButton();
             this.tsAbout = new System.Windows.Forms.ToolStripButton();
@@ -53,7 +53,7 @@
             this.toolStrip1.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsSales,
-            this.toolStripButton1,
+            this.tsInventory,
             this.tsEmail,
             this.tsExit,
             this.tsAbout});
@@ -77,17 +77,18 @@
             this.tsSales.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.tsSales.Click += new System.EventHandler(this.tsSales_Click);
             // 
-            // toolStripButton1
+            // tsInventory
             // 
-            this.toolStripButton1.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.toolStripButton1.ForeColor = System.Drawing.Color.White;
-            this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
-            this.toolStripButton1.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Size = new System.Drawing.Size(72, 69);
-            this.toolStripButton1.Text = "&Inventory";
-            this.toolStripButton1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.tsInventory.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tsInventory.ForeColor = System.Drawing.Color.White;
+            this.tsInventory.Image = ((System.Drawing.Image)(resources.GetObject("tsInventory.Image")));
+            this.tsInventory.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.tsInventory.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsInventory.Name = "tsInventory";
+            this.tsInventory.Size = new System.Drawing.Size(72, 69);
+            this.tsInventory.Text = "&Inventory";
+            this.tsInventory.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.tsInventory.Click += new System.EventHandler(this.tsInventory_Click);
             // 
             // tsEmail
             // 
@@ -227,7 +228,7 @@
         private System.Windows.Forms.ToolStripStatusLabel tsUser;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.ToolStripButton tsSales;
-        private System.Windows.Forms.ToolStripButton toolStripButton1;
+        private System.Windows.Forms.ToolStripButton tsInventory;
         private System.Windows.Forms.ToolStripButton tsEmail;
     }
 }

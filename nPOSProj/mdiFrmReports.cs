@@ -15,6 +15,7 @@ namespace nPOSProj
         private DAO.LoginDAO login;
         private static String cmd = "mailto:DLG.alfel@gmail.com?subject=Reporting Module Support&cc=jarmonilla892@gmail.com";
         private mdiSalesReport sr = new mdiSalesReport();
+        private mdiInventoryReport ir = new mdiInventoryReport();
         public mdiFrmReports()
         {
             InitializeComponent();
@@ -124,6 +125,16 @@ namespace nPOSProj
         {
             frmAbout about = new frmAbout();
             about.ShowDialog();
+        }
+
+        private void tsInventory_Click(object sender, EventArgs e)
+        {
+            if (ActivateThisChild("mdiInventoryReport") == false)
+            {
+                ir = new mdiInventoryReport();
+                ir.MdiParent = this;
+                ir.Show();
+            }
         }
     }
 }
