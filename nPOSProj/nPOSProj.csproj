@@ -152,6 +152,12 @@
     <Compile Include="frmPOS.Designer.cs">
       <DependentUpon>frmPOS.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmRptISR.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmRptISR.Designer.cs">
+      <DependentUpon>frmRptISR.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmRptPO.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -428,6 +434,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmPOS.resx">
       <DependentUpon>frmPOS.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmRptISR.resx">
+      <DependentUpon>frmRptISR.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmRptPO.resx">
       <DependentUpon>frmRptPO.cs</DependentUpon>
