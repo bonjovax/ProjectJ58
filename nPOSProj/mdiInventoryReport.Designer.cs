@@ -102,7 +102,7 @@
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage1.Size = new System.Drawing.Size(739, 420);
             this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "Items Report";
+            this.tabPage1.Text = "Items Sales Report";
             // 
             // cBoxKitSelect
             // 
