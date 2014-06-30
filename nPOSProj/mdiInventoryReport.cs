@@ -60,8 +60,6 @@ namespace nPOSProj
         {
             frmLogin fl = new frmLogin();
             terminalIR = fl.tN;
-            terminalSR = fl.tN;
-            terminalKR = fl.tN;
             getTerminal();
             checkRes();
         }
