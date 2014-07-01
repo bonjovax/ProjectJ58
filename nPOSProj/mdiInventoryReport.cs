@@ -102,5 +102,11 @@ namespace nPOSProj
             frmRptItem rptitem = new frmRptItem();
             rptitem.ShowDialog();
         }
+
+        private void btnKits_Click(object sender, EventArgs e)
+        {
+            frmRptIkits ikits = new frmRptIkits();
+            ikits.ShowDialog();
+        }
     }
 }

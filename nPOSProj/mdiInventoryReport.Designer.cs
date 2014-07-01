@@ -101,6 +101,7 @@
             this.btnKits.Text = "Kits";
             this.btnKits.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnKits.UseVisualStyleBackColor = false;
+            this.btnKits.Click += new System.EventHandler(this.btnKits_Click);
             // 
             // btnItem
             // 
