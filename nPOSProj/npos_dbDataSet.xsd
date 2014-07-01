@@ -1126,6 +1126,77 @@ WHERE        (inventory_items.is_kit = 1)</CommandText>
             </Mappings>
             <Sources />
           </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="itemstockRTableAdapter" GeneratorDataComponentClassName="itemstockRTableAdapter" Name="itemstockR" UserDataComponentName="itemstockRTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="npos_dbConnectionString2 (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        inventory_items.item_id, inventory_items.stock_code, inventory_items.item_ean, inventory_items.kit_name, inventory_items.item_quantity, inventory_items.item_retail_price, inventory_items.item_whole_price, 
+                         inventory_items.item_tax_type, inventory_items.is_kit, inventory_stocks.stock_name, inventory_stocks.stock_cost_price, inventory_stocks.stock_quantity, inventory_category.cat_description, 
+                         inventory_stocks.stock_quantity + inventory_items.item_quantity AS begin, inventory_warehouse.warehouse_name, 
+                         inventory_stocks.stock_quantity + inventory_items.item_quantity - inventory_items.item_quantity AS bal, (inventory_stocks.stock_quantity + inventory_items.item_quantity - inventory_items.item_quantity) 
+                         * inventory_stocks.stock_cost_price AS amt
+FROM            inventory_items INNER JOIN
+                         inventory_stocks ON inventory_items.stock_code = inventory_stocks.stock_code INNER JOIN
+                         inventory_category ON inventory_stocks.stock_cat_code = inventory_category.cat_code INNER JOIN
+                         inventory_warehouse ON inventory_stocks.warehouse_code = inventory_warehouse.warehouse_code
+ORDER BY inventory_category.cat_description</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="item_id" DataSetColumn="item_id" />
+              <Mapping SourceColumn="stock_code" DataSetColumn="stock_code" />
+              <Mapping SourceColumn="item_ean" DataSetColumn="item_ean" />
+              <Mapping SourceColumn="kit_name" DataSetColumn="kit_name" />
+              <Mapping SourceColumn="item_quantity" DataSetColumn="item_quantity" />
+              <Mapping SourceColumn="item_retail_price" DataSetColumn="item_retail_price" />
+              <Mapping SourceColumn="item_whole_price" DataSetColumn="item_whole_price" />
+              <Mapping SourceColumn="item_tax_type" DataSetColumn="item_tax_type" />
+              <Mapping SourceColumn="is_kit" DataSetColumn="is_kit" />
+              <Mapping SourceColumn="stock_name" DataSetColumn="stock_name" />
+              <Mapping SourceColumn="stock_cost_price" DataSetColumn="stock_cost_price" />
+              <Mapping SourceColumn="stock_quantity" DataSetColumn="stock_quantity" />
+              <Mapping SourceColumn="cat_description" DataSetColumn="cat_description" />
+              <Mapping SourceColumn="begin" DataSetColumn="begin" />
+              <Mapping SourceColumn="warehouse_name" DataSetColumn="warehouse_name" />
+              <Mapping SourceColumn="bal" DataSetColumn="bal" />
+              <Mapping SourceColumn="amt" DataSetColumn="amt" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="Display_iiTableAdapter" GeneratorDataComponentClassName="Display_iiTableAdapter" Name="Display_ii" UserDataComponentName="Display_iiTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="npos_dbConnectionString2 (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        inventory_items.item_id, inventory_items.stock_code, inventory_items.item_ean, inventory_items.item_quantity, inventory_items.item_retail_price, inventory_items.item_whole_price, 
+                         inventory_items.item_tax_type, inventory_items.is_kit, inventory_stocks.stock_name, inventory_items.item_retail_price * inventory_items.item_quantity AS retamt, 
+                         inventory_items.item_whole_price * inventory_items.item_quantity AS wholeamt
+FROM            inventory_items INNER JOIN
+                         inventory_stocks ON inventory_items.stock_code = inventory_stocks.stock_code</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="item_id" DataSetColumn="item_id" />
+              <Mapping SourceColumn="stock_code" DataSetColumn="stock_code" />
+              <Mapping SourceColumn="item_ean" DataSetColumn="item_ean" />
+              <Mapping SourceColumn="item_quantity" DataSetColumn="item_quantity" />
+              <Mapping SourceColumn="item_retail_price" DataSetColumn="item_retail_price" />
+              <Mapping SourceColumn="item_whole_price" DataSetColumn="item_whole_price" />
+              <Mapping SourceColumn="item_tax_type" DataSetColumn="item_tax_type" />
+              <Mapping SourceColumn="is_kit" DataSetColumn="is_kit" />
+              <Mapping SourceColumn="stock_name" DataSetColumn="stock_name" />
+              <Mapping SourceColumn="retamt" DataSetColumn="retamt" />
+              <Mapping SourceColumn="wholeamt" DataSetColumn="wholeamt" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
         </Tables>
         <Sources />
       </DataSource>
@@ -1804,6 +1875,112 @@ WHERE        (inventory_items.is_kit = 1)</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
+        <xs:element name="itemstockR" msprop:Generator_TableClassName="itemstockRDataTable" msprop:Generator_TableVarName="tableitemstockR" msprop:Generator_TablePropName="itemstockR" msprop:Generator_RowDeletingName="itemstockRRowDeleting" msprop:Generator_RowChangingName="itemstockRRowChanging" msprop:Generator_RowEvHandlerName="itemstockRRowChangeEventHandler" msprop:Generator_RowDeletedName="itemstockRRowDeleted" msprop:Generator_UserTableName="itemstockR" msprop:Generator_RowChangedName="itemstockRRowChanged" msprop:Generator_RowEvArgName="itemstockRRowChangeEvent" msprop:Generator_RowClassName="itemstockRRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="item_id" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnitem_id" msprop:Generator_ColumnPropNameInRow="item_id" msprop:Generator_ColumnPropNameInTable="item_idColumn" msprop:Generator_UserColumnName="item_id" type="xs:int" />
+              <xs:element name="stock_code" msprop:Generator_ColumnVarNameInTable="columnstock_code" msprop:Generator_ColumnPropNameInRow="stock_code" msprop:Generator_ColumnPropNameInTable="stock_codeColumn" msprop:Generator_UserColumnName="stock_code" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="9" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="item_ean" msprop:Generator_ColumnVarNameInTable="columnitem_ean" msprop:Generator_ColumnPropNameInRow="item_ean" msprop:Generator_ColumnPropNameInTable="item_eanColumn" msprop:Generator_UserColumnName="item_ean" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="13" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="kit_name" msprop:Generator_ColumnVarNameInTable="columnkit_name" msprop:Generator_ColumnPropNameInRow="kit_name" msprop:Generator_ColumnPropNameInTable="kit_nameColumn" msprop:Generator_UserColumnName="kit_name" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="item_quantity" msprop:Generator_ColumnVarNameInTable="columnitem_quantity" msprop:Generator_ColumnPropNameInRow="item_quantity" msprop:Generator_ColumnPropNameInTable="item_quantityColumn" msprop:Generator_UserColumnName="item_quantity" type="xs:int" minOccurs="0" />
+              <xs:element name="item_retail_price" msprop:Generator_ColumnVarNameInTable="columnitem_retail_price" msprop:Generator_ColumnPropNameInRow="item_retail_price" msprop:Generator_ColumnPropNameInTable="item_retail_priceColumn" msprop:Generator_UserColumnName="item_retail_price" type="xs:double" minOccurs="0" />
+              <xs:element name="item_whole_price" msprop:Generator_ColumnVarNameInTable="columnitem_whole_price" msprop:Generator_ColumnPropNameInRow="item_whole_price" msprop:Generator_ColumnPropNameInTable="item_whole_priceColumn" msprop:Generator_UserColumnName="item_whole_price" type="xs:double" minOccurs="0" />
+              <xs:element name="item_tax_type" msprop:Generator_ColumnVarNameInTable="columnitem_tax_type" msprop:Generator_ColumnPropNameInRow="item_tax_type" msprop:Generator_ColumnPropNameInTable="item_tax_typeColumn" msprop:Generator_UserColumnName="item_tax_type" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="is_kit" msprop:Generator_ColumnVarNameInTable="columnis_kit" msprop:Generator_ColumnPropNameInRow="is_kit" msprop:Generator_ColumnPropNameInTable="is_kitColumn" msprop:Generator_UserColumnName="is_kit" type="xs:int" minOccurs="0" />
+              <xs:element name="stock_name" msprop:Generator_ColumnVarNameInTable="columnstock_name" msprop:Generator_ColumnPropNameInRow="stock_name" msprop:Generator_ColumnPropNameInTable="stock_nameColumn" msprop:Generator_UserColumnName="stock_name" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="75" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="stock_cost_price" msprop:Generator_ColumnVarNameInTable="columnstock_cost_price" msprop:Generator_ColumnPropNameInRow="stock_cost_price" msprop:Generator_ColumnPropNameInTable="stock_cost_priceColumn" msprop:Generator_UserColumnName="stock_cost_price" type="xs:double" minOccurs="0" />
+              <xs:element name="stock_quantity" msprop:Generator_ColumnVarNameInTable="columnstock_quantity" msprop:Generator_ColumnPropNameInRow="stock_quantity" msprop:Generator_ColumnPropNameInTable="stock_quantityColumn" msprop:Generator_UserColumnName="stock_quantity" type="xs:int" minOccurs="0" />
+              <xs:element name="cat_description" msprop:Generator_ColumnVarNameInTable="columncat_description" msprop:Generator_ColumnPropNameInRow="cat_description" msprop:Generator_ColumnPropNameInTable="cat_descriptionColumn" msprop:Generator_UserColumnName="cat_description" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="begin" msprop:Generator_ColumnVarNameInTable="columnbegin" msprop:Generator_ColumnPropNameInRow="begin" msprop:Generator_ColumnPropNameInTable="beginColumn" msprop:Generator_UserColumnName="begin" type="xs:long" minOccurs="0" />
+              <xs:element name="warehouse_name" msprop:Generator_ColumnVarNameInTable="columnwarehouse_name" msprop:Generator_ColumnPropNameInRow="warehouse_name" msprop:Generator_ColumnPropNameInTable="warehouse_nameColumn" msprop:Generator_UserColumnName="warehouse_name" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="75" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="bal" msprop:Generator_ColumnVarNameInTable="columnbal" msprop:Generator_ColumnPropNameInRow="bal" msprop:Generator_ColumnPropNameInTable="balColumn" msprop:Generator_UserColumnName="bal" type="xs:long" minOccurs="0" />
+              <xs:element name="amt" msprop:Generator_ColumnVarNameInTable="columnamt" msprop:Generator_ColumnPropNameInRow="amt" msprop:Generator_ColumnPropNameInTable="amtColumn" msprop:Generator_UserColumnName="amt" type="xs:double" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Display_ii" msprop:Generator_TableClassName="Display_iiDataTable" msprop:Generator_TableVarName="tableDisplay_ii" msprop:Generator_TablePropName="Display_ii" msprop:Generator_RowDeletingName="Display_iiRowDeleting" msprop:Generator_RowChangingName="Display_iiRowChanging" msprop:Generator_RowEvHandlerName="Display_iiRowChangeEventHandler" msprop:Generator_RowDeletedName="Display_iiRowDeleted" msprop:Generator_UserTableName="Display_ii" msprop:Generator_RowChangedName="Display_iiRowChanged" msprop:Generator_RowEvArgName="Display_iiRowChangeEvent" msprop:Generator_RowClassName="Display_iiRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="item_id" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnitem_id" msprop:Generator_ColumnPropNameInRow="item_id" msprop:Generator_ColumnPropNameInTable="item_idColumn" msprop:Generator_UserColumnName="item_id" type="xs:int" />
+              <xs:element name="stock_code" msprop:Generator_ColumnVarNameInTable="columnstock_code" msprop:Generator_ColumnPropNameInRow="stock_code" msprop:Generator_ColumnPropNameInTable="stock_codeColumn" msprop:Generator_UserColumnName="stock_code" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="9" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="item_ean" msprop:Generator_ColumnVarNameInTable="columnitem_ean" msprop:Generator_ColumnPropNameInRow="item_ean" msprop:Generator_ColumnPropNameInTable="item_eanColumn" msprop:Generator_UserColumnName="item_ean" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="13" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="item_quantity" msprop:Generator_ColumnVarNameInTable="columnitem_quantity" msprop:Generator_ColumnPropNameInRow="item_quantity" msprop:Generator_ColumnPropNameInTable="item_quantityColumn" msprop:Generator_UserColumnName="item_quantity" type="xs:int" minOccurs="0" />
+              <xs:element name="item_retail_price" msprop:Generator_ColumnVarNameInTable="columnitem_retail_price" msprop:Generator_ColumnPropNameInRow="item_retail_price" msprop:Generator_ColumnPropNameInTable="item_retail_priceColumn" msprop:Generator_UserColumnName="item_retail_price" type="xs:double" minOccurs="0" />
+              <xs:element name="item_whole_price" msprop:Generator_ColumnVarNameInTable="columnitem_whole_price" msprop:Generator_ColumnPropNameInRow="item_whole_price" msprop:Generator_ColumnPropNameInTable="item_whole_priceColumn" msprop:Generator_UserColumnName="item_whole_price" type="xs:double" minOccurs="0" />
+              <xs:element name="item_tax_type" msprop:Generator_ColumnVarNameInTable="columnitem_tax_type" msprop:Generator_ColumnPropNameInRow="item_tax_type" msprop:Generator_ColumnPropNameInTable="item_tax_typeColumn" msprop:Generator_UserColumnName="item_tax_type" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="is_kit" msprop:Generator_ColumnVarNameInTable="columnis_kit" msprop:Generator_ColumnPropNameInRow="is_kit" msprop:Generator_ColumnPropNameInTable="is_kitColumn" msprop:Generator_UserColumnName="is_kit" type="xs:int" minOccurs="0" />
+              <xs:element name="stock_name" msprop:Generator_ColumnVarNameInTable="columnstock_name" msprop:Generator_ColumnPropNameInRow="stock_name" msprop:Generator_ColumnPropNameInTable="stock_nameColumn" msprop:Generator_UserColumnName="stock_name" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="75" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="retamt" msprop:Generator_ColumnVarNameInTable="columnretamt" msprop:Generator_ColumnPropNameInRow="retamt" msprop:Generator_ColumnPropNameInTable="retamtColumn" msprop:Generator_UserColumnName="retamt" type="xs:double" minOccurs="0" />
+              <xs:element name="wholeamt" msprop:Generator_ColumnVarNameInTable="columnwholeamt" msprop:Generator_ColumnPropNameInRow="wholeamt" msprop:Generator_ColumnPropNameInTable="wholeamtColumn" msprop:Generator_UserColumnName="wholeamt" type="xs:double" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
       </xs:choice>
     </xs:complexType>
     <xs:unique name="Constraint1" msdata:PrimaryKey="true">
@@ -1836,6 +2013,14 @@ WHERE        (inventory_items.is_kit = 1)</CommandText>
     </xs:unique>
     <xs:unique name="inventoryItemsReport_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
       <xs:selector xpath=".//mstns:inventoryItemsReport" />
+      <xs:field xpath="mstns:item_id" />
+    </xs:unique>
+    <xs:unique name="itemstockR_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:itemstockR" />
+      <xs:field xpath="mstns:item_id" />
+    </xs:unique>
+    <xs:unique name="Display_ii_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:Display_ii" />
       <xs:field xpath="mstns:item_id" />
     </xs:unique>
   </xs:element>

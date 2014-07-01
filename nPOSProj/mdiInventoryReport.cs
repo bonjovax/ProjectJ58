@@ -90,5 +90,17 @@ namespace nPOSProj
         {
             terminalIR = cBTerminalIR.Text;
         }
+
+        private void btnPrintSR_Click(object sender, EventArgs e)
+        {
+            frmRptStocksR stockr = new frmRptStocksR();
+            stockr.ShowDialog();
+        }
+
+        private void btnItem_Click(object sender, EventArgs e)
+        {
+            frmRptItem rptitem = new frmRptItem();
+            rptitem.ShowDialog();
+        }
     }
 }
