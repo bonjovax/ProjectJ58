@@ -68,6 +68,12 @@ namespace nPOSProj
         {
             if (cBoxKitSelect.Checked == true)
             {
+                using (frmRptISRkit isrkit = new frmRptISRkit())
+                {
+                    isrkit.DateParam = dtSIR.Text;
+                    isrkit.TerminalParam = terminalIR;
+                    isrkit.ShowDialog();
+                }
             }
             else
             {

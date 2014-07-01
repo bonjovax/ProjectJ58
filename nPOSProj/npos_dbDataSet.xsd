@@ -1090,6 +1090,42 @@ FROM            pos_park INNER JOIN
             </Mappings>
             <Sources />
           </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="parkInventoryKitsTableAdapter" GeneratorDataComponentClassName="parkInventoryKitsTableAdapter" Name="parkInventoryKits" UserDataComponentName="parkInventoryKitsTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="npos_dbConnectionString2 (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        pos_park.pos_orno, pos_park.pos_terminal, pos_park.pos_parked_date, pos_park.pos_ean, pos_park.pos_quantity, pos_park.pos_discount, pos_park.pos_discount_amt, pos_park.pos_amt, 
+                         inventory_items.kit_name, inventory_items.item_quantity, inventory_items.item_retail_price, inventory_items.is_kit, inventory_items.item_quantity + pos_park.pos_quantity AS Ins, 
+                         inventory_items.item_quantity + pos_park.pos_quantity - pos_park.pos_quantity AS outs, (inventory_items.item_quantity + pos_park.pos_quantity - pos_park.pos_quantity) 
+                         * inventory_items.item_retail_price AS amt
+FROM            pos_park INNER JOIN
+                         inventory_items ON pos_park.pos_ean = inventory_items.item_ean
+WHERE        (inventory_items.is_kit = 1)</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="pos_orno" DataSetColumn="pos_orno" />
+              <Mapping SourceColumn="pos_terminal" DataSetColumn="pos_terminal" />
+              <Mapping SourceColumn="pos_parked_date" DataSetColumn="pos_parked_date" />
+              <Mapping SourceColumn="pos_ean" DataSetColumn="pos_ean" />
+              <Mapping SourceColumn="pos_quantity" DataSetColumn="pos_quantity" />
+              <Mapping SourceColumn="pos_discount" DataSetColumn="pos_discount" />
+              <Mapping SourceColumn="pos_discount_amt" DataSetColumn="pos_discount_amt" />
+              <Mapping SourceColumn="pos_amt" DataSetColumn="pos_amt" />
+              <Mapping SourceColumn="kit_name" DataSetColumn="kit_name" />
+              <Mapping SourceColumn="item_quantity" DataSetColumn="item_quantity" />
+              <Mapping SourceColumn="item_retail_price" DataSetColumn="item_retail_price" />
+              <Mapping SourceColumn="is_kit" DataSetColumn="is_kit" />
+              <Mapping SourceColumn="Ins" DataSetColumn="Ins" />
+              <Mapping SourceColumn="outs" DataSetColumn="outs" />
+              <Mapping SourceColumn="amt" DataSetColumn="amt" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
         </Tables>
         <Sources />
       </DataSource>
@@ -1732,6 +1768,39 @@ FROM            pos_park INNER JOIN
               <xs:element name="amt" msprop:Generator_ColumnVarNameInTable="columnamt" msprop:Generator_ColumnPropNameInRow="amt" msprop:Generator_ColumnPropNameInTable="amtColumn" msprop:Generator_UserColumnName="amt" type="xs:double" minOccurs="0" />
               <xs:element name="x" msprop:Generator_ColumnVarNameInTable="columnx" msprop:Generator_ColumnPropNameInRow="x" msprop:Generator_ColumnPropNameInTable="xColumn" msprop:Generator_UserColumnName="x" type="xs:long" minOccurs="0" />
               <xs:element name="comp" msprop:Generator_ColumnVarNameInTable="columncomp" msprop:Generator_ColumnPropNameInRow="comp" msprop:Generator_ColumnPropNameInTable="compColumn" msprop:Generator_UserColumnName="comp" type="xs:long" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="parkInventoryKits" msprop:Generator_TableClassName="parkInventoryKitsDataTable" msprop:Generator_TableVarName="tableparkInventoryKits" msprop:Generator_RowChangedName="parkInventoryKitsRowChanged" msprop:Generator_TablePropName="parkInventoryKits" msprop:Generator_RowDeletingName="parkInventoryKitsRowDeleting" msprop:Generator_RowChangingName="parkInventoryKitsRowChanging" msprop:Generator_RowEvHandlerName="parkInventoryKitsRowChangeEventHandler" msprop:Generator_RowDeletedName="parkInventoryKitsRowDeleted" msprop:Generator_RowClassName="parkInventoryKitsRow" msprop:Generator_UserTableName="parkInventoryKits" msprop:Generator_RowEvArgName="parkInventoryKitsRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="pos_orno" msprop:Generator_ColumnVarNameInTable="columnpos_orno" msprop:Generator_ColumnPropNameInRow="pos_orno" msprop:Generator_ColumnPropNameInTable="pos_ornoColumn" msprop:Generator_UserColumnName="pos_orno" type="xs:int" />
+              <xs:element name="pos_terminal" msprop:Generator_ColumnVarNameInTable="columnpos_terminal" msprop:Generator_ColumnPropNameInRow="pos_terminal" msprop:Generator_ColumnPropNameInTable="pos_terminalColumn" msprop:Generator_UserColumnName="pos_terminal" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="4" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="pos_parked_date" msprop:Generator_ColumnVarNameInTable="columnpos_parked_date" msprop:Generator_ColumnPropNameInRow="pos_parked_date" msprop:Generator_ColumnPropNameInTable="pos_parked_dateColumn" msprop:Generator_UserColumnName="pos_parked_date" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="pos_ean" msprop:Generator_ColumnVarNameInTable="columnpos_ean" msprop:Generator_ColumnPropNameInRow="pos_ean" msprop:Generator_ColumnPropNameInTable="pos_eanColumn" msprop:Generator_UserColumnName="pos_ean" type="xs:int" />
+              <xs:element name="pos_quantity" msprop:Generator_ColumnVarNameInTable="columnpos_quantity" msprop:Generator_ColumnPropNameInRow="pos_quantity" msprop:Generator_ColumnPropNameInTable="pos_quantityColumn" msprop:Generator_UserColumnName="pos_quantity" type="xs:int" />
+              <xs:element name="pos_discount" msprop:Generator_ColumnVarNameInTable="columnpos_discount" msprop:Generator_ColumnPropNameInRow="pos_discount" msprop:Generator_ColumnPropNameInTable="pos_discountColumn" msprop:Generator_UserColumnName="pos_discount" type="xs:double" minOccurs="0" />
+              <xs:element name="pos_discount_amt" msprop:Generator_ColumnVarNameInTable="columnpos_discount_amt" msprop:Generator_ColumnPropNameInRow="pos_discount_amt" msprop:Generator_ColumnPropNameInTable="pos_discount_amtColumn" msprop:Generator_UserColumnName="pos_discount_amt" type="xs:double" minOccurs="0" />
+              <xs:element name="pos_amt" msprop:Generator_ColumnVarNameInTable="columnpos_amt" msprop:Generator_ColumnPropNameInRow="pos_amt" msprop:Generator_ColumnPropNameInTable="pos_amtColumn" msprop:Generator_UserColumnName="pos_amt" type="xs:double" minOccurs="0" />
+              <xs:element name="kit_name" msprop:Generator_ColumnVarNameInTable="columnkit_name" msprop:Generator_ColumnPropNameInRow="kit_name" msprop:Generator_ColumnPropNameInTable="kit_nameColumn" msprop:Generator_UserColumnName="kit_name" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="item_quantity" msprop:Generator_ColumnVarNameInTable="columnitem_quantity" msprop:Generator_ColumnPropNameInRow="item_quantity" msprop:Generator_ColumnPropNameInTable="item_quantityColumn" msprop:Generator_UserColumnName="item_quantity" type="xs:int" minOccurs="0" />
+              <xs:element name="item_retail_price" msprop:Generator_ColumnVarNameInTable="columnitem_retail_price" msprop:Generator_ColumnPropNameInRow="item_retail_price" msprop:Generator_ColumnPropNameInTable="item_retail_priceColumn" msprop:Generator_UserColumnName="item_retail_price" type="xs:double" minOccurs="0" />
+              <xs:element name="is_kit" msprop:Generator_ColumnVarNameInTable="columnis_kit" msprop:Generator_ColumnPropNameInRow="is_kit" msprop:Generator_ColumnPropNameInTable="is_kitColumn" msprop:Generator_UserColumnName="is_kit" type="xs:int" minOccurs="0" />
+              <xs:element name="Ins" msprop:Generator_ColumnVarNameInTable="columnIns" msprop:Generator_ColumnPropNameInRow="Ins" msprop:Generator_ColumnPropNameInTable="InsColumn" msprop:Generator_UserColumnName="Ins" type="xs:long" minOccurs="0" />
+              <xs:element name="outs" msprop:Generator_ColumnVarNameInTable="columnouts" msprop:Generator_ColumnPropNameInRow="outs" msprop:Generator_ColumnPropNameInTable="outsColumn" msprop:Generator_UserColumnName="outs" type="xs:long" minOccurs="0" />
+              <xs:element name="amt" msprop:Generator_ColumnVarNameInTable="columnamt" msprop:Generator_ColumnPropNameInRow="amt" msprop:Generator_ColumnPropNameInTable="amtColumn" msprop:Generator_UserColumnName="amt" type="xs:double" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
