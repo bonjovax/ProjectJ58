@@ -79,6 +79,7 @@
             this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.lviewPOS = new System.Windows.Forms.ListView();
+            this.printDocument2 = new System.Drawing.Printing.PrintDocument();
             this.SuspendLayout();
             // 
             // rdDescription
@@ -832,5 +833,6 @@
         private System.Windows.Forms.ColumnHeader columnHeader6;
         private System.Windows.Forms.ColumnHeader columnHeader7;
         private System.Windows.Forms.ListView lviewPOS;
+        private System.Drawing.Printing.PrintDocument printDocument2;
     }
 }

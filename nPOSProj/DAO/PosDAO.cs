@@ -331,6 +331,28 @@ namespace nPOSProj.DAO
                 con.Close();
             }
         }
+        public void NoSalesTrans(Int32 pos_orno, String pos_terminal)
+        {
+            con = new MySqlConnection();
+            dbcon = new Conf.dbs();
+            con.ConnectionString = dbcon.getConnectionString();
+            String query = "UPDATE pos_store SET crm_custcode = 'NOSLE', pos_customer = 'No Sale', pos_paymethod = 'NoSale', ";
+            query += "pos_park = 0 ";
+            query += "WHERE (pos_orno = ?pos_orno) AND (pos_terminal = ?pos_terminal)";
+            try
+            {
+                con.Open();
+                MySqlCommand cmd = new MySqlCommand(query, con);
+                cmd.Parameters.AddWithValue("?pos_orno", pos_orno);
+                cmd.Parameters.AddWithValue("?pos_terminal", pos_terminal);
+                cmd.ExecuteNonQuery();
+                cmd.Dispose();
+            }
+            finally
+            {
+                con.Close();
+            }
+        }
         public void DBCCard(Double pos_tender, Int32 pos_orno, String pos_terminal, String card_data, String card_lastfour, String card_type, Double tx_amount)
         {
             con = new MySqlConnection();

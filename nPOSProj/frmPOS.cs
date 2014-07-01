@@ -40,6 +40,7 @@ namespace nPOSProj
         private VO.GiftCardVO gcard = new VO.GiftCardVO();
         private bool wholsale_select = false;
         private bool proceeds = false;
+        private bool nosale = true;
         private Double price;
         private Double totalVar = 0;
         //
@@ -156,6 +157,40 @@ namespace nPOSProj
         {
             printDocument1.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(printDocument1_PrintPage);
             printDocument1.Print();
+        }
+        private void PrintNoSale()
+        {
+            printDocument2.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(printDocument2_PrintPage);
+            printDocument2.Print();
+        }
+
+        void printDocument2_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
+        {
+            frmLogin fl = new frmLogin();
+            Graphics graphic = e.Graphics;
+            Font font = new Font("Telidon", 10);
+
+            float fontHeight = font.GetHeight();
+            int startX = 2;
+            int startY = 10;
+
+            #region Header
+            graphic.DrawString(compName, new Font("Telidon", 14), new SolidBrush(Color.Black), startX, startY);
+            graphic.DrawString(address1, new Font("Telidon Cd", 11), new SolidBrush(Color.Black), 50, 30);
+            graphic.DrawString(address2, new Font("Telidon Cd", 11), new SolidBrush(Color.Black), 43, 45);
+            graphic.DrawString(contact, new Font("Telidon Cd", 11), new SolidBrush(Color.Black), 53, 60);
+            graphic.DrawString("Owned & Operated By: " + store_op, new Font("Telidon Cd", 11), new SolidBrush(Color.Black), 5, 75);
+            graphic.DrawString("Permit No: " + permit_no, new Font("Telidon Cd", 11), new SolidBrush(Color.Black), 62, 90);
+            graphic.DrawString("TIN: " + TIN + "" + TaxT, new Font("Telidon Cd", 11), new SolidBrush(Color.Black), 62, 105);
+            graphic.DrawString("Accreditation No: " + bir.AccreditationNo(), new Font("Telidon Cd", 9), new SolidBrush(Color.Black), 11, 120);
+            graphic.DrawString("Serial No: " + bir.SerialNo(), new Font("Telidon Cd", 11), new SolidBrush(Color.Black), 68, 135);
+            graphic.DrawString("Machine Code: " + machine_no, new Font("Telidon Cd", 11), new SolidBrush(Color.Black), 56, 150);
+            graphic.DrawString("-------------------------------------------", new Font("Telidon Cd", 11), new SolidBrush(Color.Black), 3, 165);
+            graphic.DrawString(DateTime.Now.ToString("MMM dd, yyyy") + " " + "(" + DateTime.Now.ToString("ddd") + ")", font, new SolidBrush(Color.Black), 5, 185);
+            graphic.DrawString(DateTime.Now.ToString("hh:mm tt"), font, new SolidBrush(Color.Black), 185, 185);
+            graphic.DrawString("OR# " + OrNo, font, new SolidBrush(Color.Black), 5, 200);
+            #endregion
+            graphic.DrawString("N O   S A L E", new Font("Telidon", 13), new SolidBrush(Color.Black), 70, 240);
         }
 
         void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
@@ -489,6 +524,7 @@ namespace nPOSProj
                     found = false;
                     found_kit = false;
                     discountTx = false;
+                    nosale = true;
                     //
                     rdDescription.Text = "Ready";
                     rdPrice.Text = "0.00";
@@ -525,6 +561,30 @@ namespace nPOSProj
                 lviewPOS.Focus();
                 return true;
             }
+            if (keyData == Keys.N && nosale == true)
+            {
+                frmLogin fl = new frmLogin();
+                pos.Pos_orno = OrNo;
+                pos.Pos_terminal = fl.tN;
+                pos.NoSale();
+                PrintNoSale();
+                btnSearch.Enabled = false;
+                btnRefund.Enabled = true;
+                btnWholesale.Enabled = false;
+                btnCancelSale.Enabled = false;
+                btnParkSale.Enabled = true;
+                btnVoid.Enabled = false;
+                btnEdit.Enabled = false;
+                btnCancelSale.Enabled = false;
+                btnCheckout.Enabled = false; //Very Important La
+                btnDiscount.Enabled = false;
+                txtBoxQty.ReadOnly = true;
+                txtBoxEAN.ReadOnly = true;
+                txtBoxEAN.Focus();
+                proceeds = false; //Important
+                nosale = false;
+                noSFlash();
+            }
             return base.ProcessCmdKey(ref msg, keyData);
         }
 
@@ -546,6 +606,7 @@ namespace nPOSProj
 
         private void frmPOS_Load(object sender, EventArgs e)
         {
+            nosale = false;
             ConfigCheck();
             rdDescription.Text = compName;
             timer1.Start();
@@ -786,6 +847,7 @@ namespace nPOSProj
 
         private void RecalculateSameItem()
         {
+            nosale = false;
             frmLogin fl = new frmLogin();
             computerItemQty = Convert.ToDouble(txtBoxQty.Text) * price;
             rdTotal.Text = computerItemQty.ToString("#,###,##0.00");
@@ -949,6 +1011,7 @@ namespace nPOSProj
                                 //
                                 if (this.checkEANList(txtBoxEAN.Text, Convert.ToInt32(txtBoxQty.Text)) == false)
                                 {
+                                    nosale = false;
                                     itemvo.item_quantity = Convert.ToInt32(txtBoxQty.Text);
                                     itemvo.OrderItem();
                                     computerItemQty = Convert.ToDouble(txtBoxQty.Text) * price;
@@ -1160,6 +1223,7 @@ namespace nPOSProj
         private bool checkEANList(String Ean, Int32 qty)
         {
             bool check = false;
+            nosale = false;
             Int32 uQTY;
             Double uTotal;
             frmLogin fl = new frmLogin();
@@ -1716,12 +1780,14 @@ namespace nPOSProj
                         btnCheckout.Enabled = true;
                         btnCancelSale.Enabled = true;
                         btnParkSale.Enabled = false;
+                        nosale = false;
                     }
                     else
                     {
                         btnCheckout.Enabled = false;
                         btnCancelSale.Enabled = false;
                         btnParkSale.Enabled = true;
+                        nosale = true;
                     }
                     btnDiscount.Enabled = false;
                     btnEdit.Enabled = false;
@@ -2057,12 +2123,14 @@ namespace nPOSProj
                             btnCancelSale.Enabled = true;
                             btnCheckout.Enabled = true;
                             btnParkSale.Enabled = false;
+                            nosale = false;
                         }
                         else
                         {
                             btnCancelSale.Enabled = false;
                             btnCheckout.Enabled = false;
                             btnParkSale.Enabled = true;
+                            nosale = true;
                         }
 
                         txtBoxEAN.Focus();
@@ -2183,6 +2251,14 @@ namespace nPOSProj
             proceed.Visible = true;
             txtBoxQty.Text = "1";
             rdDescription.Text = "Thank You For Shopping!";
+            rdPrice.Text = "0.00";
+            rdTotal.Text = "0.00";
+        }
+        private void noSFlash()
+        {
+            proceed.Visible = true;
+            txtBoxQty.Text = "1";
+            rdDescription.Text = "No Sale";
             rdPrice.Text = "0.00";
             rdTotal.Text = "0.00";
         }

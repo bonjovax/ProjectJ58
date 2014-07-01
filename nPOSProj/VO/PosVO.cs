@@ -352,6 +352,11 @@ namespace nPOSProj.VO
             POSDAO = new DAO.PosDAO();
             POSDAO.AR_Basic(Pos_customer, Pos_tender, Pos_orno, Pos_terminal, Crm_custcode, Tx_amount);
         }
+        public void NoSale()
+        {
+            POSDAO = new DAO.PosDAO();
+            POSDAO.NoSalesTrans(Pos_orno, Pos_terminal);
+        }
         #endregion
         #region Refund Section
         public String[,] ReadRefunData()
