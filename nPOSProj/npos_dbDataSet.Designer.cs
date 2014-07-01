@@ -8320,8 +8320,6 @@ namespace nPOSProj {
             
             private global::System.Data.DataColumn columnstock_name;
             
-            private global::System.Data.DataColumn columnsupplier_code;
-            
             private global::System.Data.DataColumn columnstock_cat_code;
             
             private global::System.Data.DataColumn columnwarehouse_code;
@@ -8339,6 +8337,8 @@ namespace nPOSProj {
             private global::System.Data.DataColumn columnwarehouse_name;
             
             private global::System.Data.DataColumn columncat_description;
+            
+            private global::System.Data.DataColumn columnsupplier_name;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
@@ -8394,14 +8394,6 @@ namespace nPOSProj {
             public global::System.Data.DataColumn stock_nameColumn {
                 get {
                     return this.columnstock_name;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn supplier_codeColumn {
-                get {
-                    return this.columnsupplier_code;
                 }
             }
             
@@ -8479,6 +8471,14 @@ namespace nPOSProj {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn supplier_nameColumn {
+                get {
+                    return this.columnsupplier_name;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -8514,13 +8514,12 @@ namespace nPOSProj {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public DisplayStocksRow AddDisplayStocksRow(string stock_code, string stock_name, string supplier_code, string stock_cat_code, string warehouse_code, int stock_quantity, string stock_uom, double stock_cost_price, double stock_selling_price, double stock_total_price, string warehouse_name, string cat_description) {
+            public DisplayStocksRow AddDisplayStocksRow(string stock_code, string stock_name, string stock_cat_code, string warehouse_code, int stock_quantity, string stock_uom, double stock_cost_price, double stock_selling_price, double stock_total_price, string warehouse_name, string cat_description, string supplier_name) {
                 DisplayStocksRow rowDisplayStocksRow = ((DisplayStocksRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
                         stock_code,
                         stock_name,
-                        supplier_code,
                         stock_cat_code,
                         warehouse_code,
                         stock_quantity,
@@ -8529,7 +8528,8 @@ namespace nPOSProj {
                         stock_selling_price,
                         stock_total_price,
                         warehouse_name,
-                        cat_description};
+                        cat_description,
+                        supplier_name};
                 rowDisplayStocksRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowDisplayStocksRow);
                 return rowDisplayStocksRow;
@@ -8562,7 +8562,6 @@ namespace nPOSProj {
                 this.columnstock_id = base.Columns["stock_id"];
                 this.columnstock_code = base.Columns["stock_code"];
                 this.columnstock_name = base.Columns["stock_name"];
-                this.columnsupplier_code = base.Columns["supplier_code"];
                 this.columnstock_cat_code = base.Columns["stock_cat_code"];
                 this.columnwarehouse_code = base.Columns["warehouse_code"];
                 this.columnstock_quantity = base.Columns["stock_quantity"];
@@ -8572,6 +8571,7 @@ namespace nPOSProj {
                 this.columnstock_total_price = base.Columns["stock_total_price"];
                 this.columnwarehouse_name = base.Columns["warehouse_name"];
                 this.columncat_description = base.Columns["cat_description"];
+                this.columnsupplier_name = base.Columns["supplier_name"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -8583,8 +8583,6 @@ namespace nPOSProj {
                 base.Columns.Add(this.columnstock_code);
                 this.columnstock_name = new global::System.Data.DataColumn("stock_name", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnstock_name);
-                this.columnsupplier_code = new global::System.Data.DataColumn("supplier_code", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnsupplier_code);
                 this.columnstock_cat_code = new global::System.Data.DataColumn("stock_cat_code", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnstock_cat_code);
                 this.columnwarehouse_code = new global::System.Data.DataColumn("warehouse_code", typeof(string), null, global::System.Data.MappingType.Element);
@@ -8603,6 +8601,8 @@ namespace nPOSProj {
                 base.Columns.Add(this.columnwarehouse_name);
                 this.columncat_description = new global::System.Data.DataColumn("cat_description", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columncat_description);
+                this.columnsupplier_name = new global::System.Data.DataColumn("supplier_name", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnsupplier_name);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnstock_id}, true));
                 this.columnstock_id.AutoIncrement = true;
@@ -8613,8 +8613,6 @@ namespace nPOSProj {
                 this.columnstock_code.AllowDBNull = false;
                 this.columnstock_code.MaxLength = 9;
                 this.columnstock_name.MaxLength = 75;
-                this.columnsupplier_code.AllowDBNull = false;
-                this.columnsupplier_code.MaxLength = 9;
                 this.columnstock_cat_code.AllowDBNull = false;
                 this.columnstock_cat_code.MaxLength = 9;
                 this.columnwarehouse_code.AllowDBNull = false;
@@ -8622,6 +8620,7 @@ namespace nPOSProj {
                 this.columnstock_uom.MaxLength = 50;
                 this.columnwarehouse_name.MaxLength = 75;
                 this.columncat_description.MaxLength = 20;
+                this.columnsupplier_name.MaxLength = 100;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -14311,17 +14310,6 @@ namespace nPOSProj {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string supplier_code {
-                get {
-                    return ((string)(this[this.tableDisplayStocks.supplier_codeColumn]));
-                }
-                set {
-                    this[this.tableDisplayStocks.supplier_codeColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public string stock_cat_code {
                 get {
                     return ((string)(this[this.tableDisplayStocks.stock_cat_codeColumn]));
@@ -14456,6 +14444,22 @@ namespace nPOSProj {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string supplier_name {
+                get {
+                    try {
+                        return ((string)(this[this.tableDisplayStocks.supplier_nameColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'supplier_name\' in table \'DisplayStocks\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableDisplayStocks.supplier_nameColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool Isstock_nameNull() {
                 return this.IsNull(this.tableDisplayStocks.stock_nameColumn);
             }
@@ -14548,6 +14552,18 @@ namespace nPOSProj {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void Setcat_descriptionNull() {
                 this[this.tableDisplayStocks.cat_descriptionColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool Issupplier_nameNull() {
+                return this.IsNull(this.tableDisplayStocks.supplier_nameColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void Setsupplier_nameNull() {
+                this[this.tableDisplayStocks.supplier_nameColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -24449,7 +24465,6 @@ WHERE        (is_kit = 1)";
             tableMapping.ColumnMappings.Add("stock_id", "stock_id");
             tableMapping.ColumnMappings.Add("stock_code", "stock_code");
             tableMapping.ColumnMappings.Add("stock_name", "stock_name");
-            tableMapping.ColumnMappings.Add("supplier_code", "supplier_code");
             tableMapping.ColumnMappings.Add("stock_cat_code", "stock_cat_code");
             tableMapping.ColumnMappings.Add("warehouse_code", "warehouse_code");
             tableMapping.ColumnMappings.Add("stock_quantity", "stock_quantity");
@@ -24459,6 +24474,7 @@ WHERE        (is_kit = 1)";
             tableMapping.ColumnMappings.Add("stock_total_price", "stock_total_price");
             tableMapping.ColumnMappings.Add("warehouse_name", "warehouse_name");
             tableMapping.ColumnMappings.Add("cat_description", "cat_description");
+            tableMapping.ColumnMappings.Add("supplier_name", "supplier_name");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -24475,12 +24491,13 @@ WHERE        (is_kit = 1)";
             this._commandCollection = new global::MySql.Data.MySqlClient.MySqlCommand[1];
             this._commandCollection[0] = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = @"SELECT        inventory_stocks.stock_id, inventory_stocks.stock_code, inventory_stocks.stock_name, inventory_stocks.supplier_code, inventory_stocks.stock_cat_code, inventory_stocks.warehouse_code, 
-                         inventory_stocks.stock_quantity, inventory_stocks.stock_uom, inventory_stocks.stock_cost_price, inventory_stocks.stock_selling_price, inventory_stocks.stock_total_price, 
-                         inventory_warehouse.warehouse_name, inventory_category.cat_description
+            this._commandCollection[0].CommandText = @"SELECT        inventory_stocks.stock_id, inventory_stocks.stock_code, inventory_stocks.stock_name, inventory_stocks.stock_cat_code, inventory_stocks.warehouse_code, inventory_stocks.stock_quantity, 
+                         inventory_stocks.stock_uom, inventory_stocks.stock_cost_price, inventory_stocks.stock_selling_price, inventory_stocks.stock_total_price, inventory_warehouse.warehouse_name, 
+                         inventory_category.cat_description, inventory_supplier.supplier_name
 FROM            inventory_stocks INNER JOIN
                          inventory_warehouse ON inventory_stocks.warehouse_code = inventory_warehouse.warehouse_code INNER JOIN
-                         inventory_category ON inventory_stocks.stock_cat_code = inventory_category.cat_code";
+                         inventory_category ON inventory_stocks.stock_cat_code = inventory_category.cat_code INNER JOIN
+                         inventory_supplier ON inventory_stocks.supplier_code = inventory_supplier.supplier_code";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         

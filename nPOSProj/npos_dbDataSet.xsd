@@ -1299,15 +1299,16 @@ WHERE        (is_kit = 1)</CommandText>
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="DisplayStocksTableAdapter" GeneratorDataComponentClassName="DisplayStocksTableAdapter" Name="DisplayStocks" UserDataComponentName="DisplayStocksTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="npos_dbConnectionString2 (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="npos_dbConnectionString2 (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
-                    <CommandText>SELECT        inventory_stocks.stock_id, inventory_stocks.stock_code, inventory_stocks.stock_name, inventory_stocks.supplier_code, inventory_stocks.stock_cat_code, inventory_stocks.warehouse_code, 
-                         inventory_stocks.stock_quantity, inventory_stocks.stock_uom, inventory_stocks.stock_cost_price, inventory_stocks.stock_selling_price, inventory_stocks.stock_total_price, 
-                         inventory_warehouse.warehouse_name, inventory_category.cat_description
+                    <CommandText>SELECT        inventory_stocks.stock_id, inventory_stocks.stock_code, inventory_stocks.stock_name, inventory_stocks.stock_cat_code, inventory_stocks.warehouse_code, inventory_stocks.stock_quantity, 
+                         inventory_stocks.stock_uom, inventory_stocks.stock_cost_price, inventory_stocks.stock_selling_price, inventory_stocks.stock_total_price, inventory_warehouse.warehouse_name, 
+                         inventory_category.cat_description, inventory_supplier.supplier_name
 FROM            inventory_stocks INNER JOIN
                          inventory_warehouse ON inventory_stocks.warehouse_code = inventory_warehouse.warehouse_code INNER JOIN
-                         inventory_category ON inventory_stocks.stock_cat_code = inventory_category.cat_code</CommandText>
+                         inventory_category ON inventory_stocks.stock_cat_code = inventory_category.cat_code INNER JOIN
+                         inventory_supplier ON inventory_stocks.supplier_code = inventory_supplier.supplier_code</CommandText>
                     <Parameters />
                   </DbCommand>
                 </SelectCommand>
@@ -1317,7 +1318,6 @@ FROM            inventory_stocks INNER JOIN
               <Mapping SourceColumn="stock_id" DataSetColumn="stock_id" />
               <Mapping SourceColumn="stock_code" DataSetColumn="stock_code" />
               <Mapping SourceColumn="stock_name" DataSetColumn="stock_name" />
-              <Mapping SourceColumn="supplier_code" DataSetColumn="supplier_code" />
               <Mapping SourceColumn="stock_cat_code" DataSetColumn="stock_cat_code" />
               <Mapping SourceColumn="warehouse_code" DataSetColumn="warehouse_code" />
               <Mapping SourceColumn="stock_quantity" DataSetColumn="stock_quantity" />
@@ -1327,6 +1327,7 @@ FROM            inventory_stocks INNER JOIN
               <Mapping SourceColumn="stock_total_price" DataSetColumn="stock_total_price" />
               <Mapping SourceColumn="warehouse_name" DataSetColumn="warehouse_name" />
               <Mapping SourceColumn="cat_description" DataSetColumn="cat_description" />
+              <Mapping SourceColumn="supplier_name" DataSetColumn="supplier_name" />
             </Mappings>
             <Sources />
           </TableAdapter>
@@ -2173,13 +2174,6 @@ FROM            inventory_stocks INNER JOIN
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="supplier_code" msprop:Generator_ColumnVarNameInTable="columnsupplier_code" msprop:Generator_ColumnPropNameInRow="supplier_code" msprop:Generator_ColumnPropNameInTable="supplier_codeColumn" msprop:Generator_UserColumnName="supplier_code">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="9" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
               <xs:element name="stock_cat_code" msprop:Generator_ColumnVarNameInTable="columnstock_cat_code" msprop:Generator_ColumnPropNameInRow="stock_cat_code" msprop:Generator_ColumnPropNameInTable="stock_cat_codeColumn" msprop:Generator_UserColumnName="stock_cat_code">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
@@ -2216,6 +2210,13 @@ FROM            inventory_stocks INNER JOIN
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="supplier_name" msprop:Generator_ColumnVarNameInTable="columnsupplier_name" msprop:Generator_ColumnPropNameInRow="supplier_name" msprop:Generator_ColumnPropNameInTable="supplier_nameColumn" msprop:Generator_UserColumnName="supplier_name" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
