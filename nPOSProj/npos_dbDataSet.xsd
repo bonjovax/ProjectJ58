@@ -1304,7 +1304,7 @@ WHERE        (is_kit = 1)</CommandText>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT        inventory_stocks.stock_id, inventory_stocks.stock_code, inventory_stocks.stock_name, inventory_stocks.stock_cat_code, inventory_stocks.warehouse_code, inventory_stocks.stock_quantity, 
                          inventory_stocks.stock_uom, inventory_stocks.stock_cost_price, inventory_stocks.stock_selling_price, inventory_stocks.stock_total_price, inventory_warehouse.warehouse_name, 
-                         inventory_category.cat_description, inventory_supplier.supplier_name
+                         inventory_category.cat_description, inventory_supplier.supplier_name, inventory_stocks.stock_quantity * inventory_stocks.stock_cost_price AS amt
 FROM            inventory_stocks INNER JOIN
                          inventory_warehouse ON inventory_stocks.warehouse_code = inventory_warehouse.warehouse_code INNER JOIN
                          inventory_category ON inventory_stocks.stock_cat_code = inventory_category.cat_code INNER JOIN
@@ -1328,6 +1328,7 @@ FROM            inventory_stocks INNER JOIN
               <Mapping SourceColumn="warehouse_name" DataSetColumn="warehouse_name" />
               <Mapping SourceColumn="cat_description" DataSetColumn="cat_description" />
               <Mapping SourceColumn="supplier_name" DataSetColumn="supplier_name" />
+              <Mapping SourceColumn="amt" DataSetColumn="amt" />
             </Mappings>
             <Sources />
           </TableAdapter>
@@ -2220,6 +2221,7 @@ FROM            inventory_stocks INNER JOIN
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
+              <xs:element name="amt" msprop:Generator_ColumnVarNameInTable="columnamt" msprop:Generator_ColumnPropNameInRow="amt" msprop:Generator_ColumnPropNameInTable="amtColumn" msprop:Generator_UserColumnName="amt" type="xs:double" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

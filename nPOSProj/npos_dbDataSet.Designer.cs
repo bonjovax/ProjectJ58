@@ -8340,6 +8340,8 @@ namespace nPOSProj {
             
             private global::System.Data.DataColumn columnsupplier_name;
             
+            private global::System.Data.DataColumn columnamt;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public DisplayStocksDataTable() {
@@ -8479,6 +8481,14 @@ namespace nPOSProj {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn amtColumn {
+                get {
+                    return this.columnamt;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -8514,7 +8524,7 @@ namespace nPOSProj {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public DisplayStocksRow AddDisplayStocksRow(string stock_code, string stock_name, string stock_cat_code, string warehouse_code, int stock_quantity, string stock_uom, double stock_cost_price, double stock_selling_price, double stock_total_price, string warehouse_name, string cat_description, string supplier_name) {
+            public DisplayStocksRow AddDisplayStocksRow(string stock_code, string stock_name, string stock_cat_code, string warehouse_code, int stock_quantity, string stock_uom, double stock_cost_price, double stock_selling_price, double stock_total_price, string warehouse_name, string cat_description, string supplier_name, double amt) {
                 DisplayStocksRow rowDisplayStocksRow = ((DisplayStocksRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -8529,7 +8539,8 @@ namespace nPOSProj {
                         stock_total_price,
                         warehouse_name,
                         cat_description,
-                        supplier_name};
+                        supplier_name,
+                        amt};
                 rowDisplayStocksRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowDisplayStocksRow);
                 return rowDisplayStocksRow;
@@ -8572,6 +8583,7 @@ namespace nPOSProj {
                 this.columnwarehouse_name = base.Columns["warehouse_name"];
                 this.columncat_description = base.Columns["cat_description"];
                 this.columnsupplier_name = base.Columns["supplier_name"];
+                this.columnamt = base.Columns["amt"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -8603,6 +8615,8 @@ namespace nPOSProj {
                 base.Columns.Add(this.columncat_description);
                 this.columnsupplier_name = new global::System.Data.DataColumn("supplier_name", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnsupplier_name);
+                this.columnamt = new global::System.Data.DataColumn("amt", typeof(double), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnamt);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnstock_id}, true));
                 this.columnstock_id.AutoIncrement = true;
@@ -14460,6 +14474,22 @@ namespace nPOSProj {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public double amt {
+                get {
+                    try {
+                        return ((double)(this[this.tableDisplayStocks.amtColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'amt\' in table \'DisplayStocks\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableDisplayStocks.amtColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool Isstock_nameNull() {
                 return this.IsNull(this.tableDisplayStocks.stock_nameColumn);
             }
@@ -14564,6 +14594,18 @@ namespace nPOSProj {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void Setsupplier_nameNull() {
                 this[this.tableDisplayStocks.supplier_nameColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsamtNull() {
+                return this.IsNull(this.tableDisplayStocks.amtColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetamtNull() {
+                this[this.tableDisplayStocks.amtColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -24475,6 +24517,7 @@ WHERE        (is_kit = 1)";
             tableMapping.ColumnMappings.Add("warehouse_name", "warehouse_name");
             tableMapping.ColumnMappings.Add("cat_description", "cat_description");
             tableMapping.ColumnMappings.Add("supplier_name", "supplier_name");
+            tableMapping.ColumnMappings.Add("amt", "amt");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -24493,7 +24536,7 @@ WHERE        (is_kit = 1)";
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = @"SELECT        inventory_stocks.stock_id, inventory_stocks.stock_code, inventory_stocks.stock_name, inventory_stocks.stock_cat_code, inventory_stocks.warehouse_code, inventory_stocks.stock_quantity, 
                          inventory_stocks.stock_uom, inventory_stocks.stock_cost_price, inventory_stocks.stock_selling_price, inventory_stocks.stock_total_price, inventory_warehouse.warehouse_name, 
-                         inventory_category.cat_description, inventory_supplier.supplier_name
+                         inventory_category.cat_description, inventory_supplier.supplier_name, inventory_stocks.stock_quantity * inventory_stocks.stock_cost_price AS amt
 FROM            inventory_stocks INNER JOIN
                          inventory_warehouse ON inventory_stocks.warehouse_code = inventory_warehouse.warehouse_code INNER JOIN
                          inventory_category ON inventory_stocks.stock_cat_code = inventory_category.cat_code INNER JOIN

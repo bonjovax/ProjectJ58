@@ -81,6 +81,7 @@
             this.btnStocks.Text = "Stocks";
             this.btnStocks.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnStocks.UseVisualStyleBackColor = false;
+            this.btnStocks.Click += new System.EventHandler(this.btnStocks_Click);
             // 
             // btnKits
             // 

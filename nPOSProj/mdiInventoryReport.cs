@@ -108,5 +108,11 @@ namespace nPOSProj
             frmRptIkits ikits = new frmRptIkits();
             ikits.ShowDialog();
         }
+
+        private void btnStocks_Click(object sender, EventArgs e)
+        {
+            frmRptStocks stocks = new frmRptStocks();
+            stocks.ShowDialog();
+        }
     }
 }

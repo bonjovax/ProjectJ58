@@ -200,6 +200,12 @@
     <Compile Include="frmRptKit.Designer.cs">
       <DependentUpon>frmRptKit.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmRptStocks.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmRptStocks.Designer.cs">
+      <DependentUpon>frmRptStocks.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmRptStocksR.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -439,6 +445,12 @@
       <DependentUpon>rptSR.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="rptStocks.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptStocks.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="rptStocksReport.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -512,6 +524,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmRptKit.resx">
       <DependentUpon>frmRptKit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmRptStocks.resx">
+      <DependentUpon>frmRptStocks.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmRptStocksR.resx">
       <DependentUpon>frmRptStocksR.cs</DependentUpon>
@@ -644,6 +659,10 @@
     <EmbeddedResource Include="rptSR.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>rptSR.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="rptStocks.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptStocks.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="rptStocksReport.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
