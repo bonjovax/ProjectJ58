@@ -30,6 +30,11 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(mdiConfiguration));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtBoxPermitNo = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.txtBoxOperator = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.txtBoxCompanyAddress2 = new System.Windows.Forms.TextBox();
             this.btnExit = new System.Windows.Forms.Button();
             this.cBTax = new System.Windows.Forms.CheckBox();
             this.btnSave = new System.Windows.Forms.Button();
@@ -46,11 +51,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.txtBoxCompanyName = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.txtBoxCompanyAddress2 = new System.Windows.Forms.TextBox();
-            this.txtBoxOperator = new System.Windows.Forms.TextBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.txtBoxPermitNo = new System.Windows.Forms.TextBox();
-            this.label9 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -85,6 +85,63 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Program Configuration";
+            // 
+            // txtBoxPermitNo
+            // 
+            this.txtBoxPermitNo.BackColor = System.Drawing.Color.DarkGreen;
+            this.txtBoxPermitNo.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtBoxPermitNo.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBoxPermitNo.ForeColor = System.Drawing.Color.White;
+            this.txtBoxPermitNo.Location = new System.Drawing.Point(143, 252);
+            this.txtBoxPermitNo.MaxLength = 11;
+            this.txtBoxPermitNo.Name = "txtBoxPermitNo";
+            this.txtBoxPermitNo.Size = new System.Drawing.Size(145, 26);
+            this.txtBoxPermitNo.TabIndex = 23;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(11, 255);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(81, 21);
+            this.label9.TabIndex = 22;
+            this.label9.Text = "Permit No";
+            // 
+            // txtBoxOperator
+            // 
+            this.txtBoxOperator.BackColor = System.Drawing.Color.DarkGreen;
+            this.txtBoxOperator.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtBoxOperator.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBoxOperator.ForeColor = System.Drawing.Color.White;
+            this.txtBoxOperator.Location = new System.Drawing.Point(143, 216);
+            this.txtBoxOperator.MaxLength = 30;
+            this.txtBoxOperator.Name = "txtBoxOperator";
+            this.txtBoxOperator.Size = new System.Drawing.Size(354, 26);
+            this.txtBoxOperator.TabIndex = 21;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(11, 219);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(73, 21);
+            this.label8.TabIndex = 20;
+            this.label8.Text = "Operator";
+            // 
+            // txtBoxCompanyAddress2
+            // 
+            this.txtBoxCompanyAddress2.BackColor = System.Drawing.Color.DarkGreen;
+            this.txtBoxCompanyAddress2.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtBoxCompanyAddress2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBoxCompanyAddress2.ForeColor = System.Drawing.Color.White;
+            this.txtBoxCompanyAddress2.Location = new System.Drawing.Point(143, 138);
+            this.txtBoxCompanyAddress2.Multiline = true;
+            this.txtBoxCompanyAddress2.Name = "txtBoxCompanyAddress2";
+            this.txtBoxCompanyAddress2.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.txtBoxCompanyAddress2.Size = new System.Drawing.Size(354, 69);
+            this.txtBoxCompanyAddress2.TabIndex = 19;
             // 
             // btnExit
             // 
@@ -285,63 +342,6 @@
             this.label1.Size = new System.Drawing.Size(123, 21);
             this.label1.TabIndex = 0;
             this.label1.Text = "Company Name";
-            // 
-            // txtBoxCompanyAddress2
-            // 
-            this.txtBoxCompanyAddress2.BackColor = System.Drawing.Color.DarkGreen;
-            this.txtBoxCompanyAddress2.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtBoxCompanyAddress2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBoxCompanyAddress2.ForeColor = System.Drawing.Color.White;
-            this.txtBoxCompanyAddress2.Location = new System.Drawing.Point(143, 138);
-            this.txtBoxCompanyAddress2.Multiline = true;
-            this.txtBoxCompanyAddress2.Name = "txtBoxCompanyAddress2";
-            this.txtBoxCompanyAddress2.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtBoxCompanyAddress2.Size = new System.Drawing.Size(354, 69);
-            this.txtBoxCompanyAddress2.TabIndex = 19;
-            // 
-            // txtBoxOperator
-            // 
-            this.txtBoxOperator.BackColor = System.Drawing.Color.DarkGreen;
-            this.txtBoxOperator.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtBoxOperator.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBoxOperator.ForeColor = System.Drawing.Color.White;
-            this.txtBoxOperator.Location = new System.Drawing.Point(143, 216);
-            this.txtBoxOperator.MaxLength = 30;
-            this.txtBoxOperator.Name = "txtBoxOperator";
-            this.txtBoxOperator.Size = new System.Drawing.Size(354, 26);
-            this.txtBoxOperator.TabIndex = 21;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(11, 219);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(73, 21);
-            this.label8.TabIndex = 20;
-            this.label8.Text = "Operator";
-            // 
-            // txtBoxPermitNo
-            // 
-            this.txtBoxPermitNo.BackColor = System.Drawing.Color.DarkGreen;
-            this.txtBoxPermitNo.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtBoxPermitNo.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBoxPermitNo.ForeColor = System.Drawing.Color.White;
-            this.txtBoxPermitNo.Location = new System.Drawing.Point(143, 252);
-            this.txtBoxPermitNo.MaxLength = 10;
-            this.txtBoxPermitNo.Name = "txtBoxPermitNo";
-            this.txtBoxPermitNo.Size = new System.Drawing.Size(145, 26);
-            this.txtBoxPermitNo.TabIndex = 23;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(11, 255);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(81, 21);
-            this.label9.TabIndex = 22;
-            this.label9.Text = "Permit No";
             // 
             // mdiConfiguration
             // 
