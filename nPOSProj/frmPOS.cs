@@ -255,6 +255,7 @@ namespace nPOSProj
                         offset = offset + 30;
                         graphic.DrawString("-------------------------------------------", new Font("Telidon Cd", 11), new SolidBrush(Color.Black), 3, 160 + offset);
                         //
+                        counted = 0;
                         foreach (ListViewItem lv in lviewPOS.Items)
                         {
                             counted += Int32.Parse(lv.SubItems[1].Text);
@@ -495,6 +496,7 @@ namespace nPOSProj
             {
                 try
                 {
+                    counted = 0;
                     frmLogin lg = new frmLogin(); //we'll use that ^_^
                     //
                     String userName = frmLogin.User.user_name;
@@ -606,6 +608,7 @@ namespace nPOSProj
 
         private void frmPOS_Load(object sender, EventArgs e)
         {
+            counted = 0;
             nosale = false;
             ConfigCheck();
             rdDescription.Text = compName;
