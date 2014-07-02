@@ -6071,9 +6071,9 @@ namespace nPOSProj {
             
             private global::System.Data.DataColumn columnamt;
             
-            private global::System.Data.DataColumn columnx;
-            
             private global::System.Data.DataColumn columncomp;
+            
+            private global::System.Data.DataColumn columnx;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
@@ -6238,17 +6238,17 @@ namespace nPOSProj {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn xColumn {
+            public global::System.Data.DataColumn compColumn {
                 get {
-                    return this.columnx;
+                    return this.columncomp;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn compColumn {
+            public global::System.Data.DataColumn xColumn {
                 get {
-                    return this.columncomp;
+                    return this.columnx;
                 }
             }
             
@@ -6306,8 +6306,8 @@ namespace nPOSProj {
                         double stock_cost_price, 
                         long totals, 
                         double amt, 
-                        long x, 
-                        long comp) {
+                        long comp, 
+                        int x) {
                 parkInventoryItemsRow rowparkInventoryItemsRow = ((parkInventoryItemsRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         pos_orno,
@@ -6326,8 +6326,8 @@ namespace nPOSProj {
                         stock_cost_price,
                         totals,
                         amt,
-                        x,
-                        comp};
+                        comp,
+                        x};
                 rowparkInventoryItemsRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowparkInventoryItemsRow);
                 return rowparkInventoryItemsRow;
@@ -6366,8 +6366,8 @@ namespace nPOSProj {
                 this.columnstock_cost_price = base.Columns["stock_cost_price"];
                 this.columntotals = base.Columns["totals"];
                 this.columnamt = base.Columns["amt"];
-                this.columnx = base.Columns["x"];
                 this.columncomp = base.Columns["comp"];
+                this.columnx = base.Columns["x"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -6405,10 +6405,10 @@ namespace nPOSProj {
                 base.Columns.Add(this.columntotals);
                 this.columnamt = new global::System.Data.DataColumn("amt", typeof(double), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnamt);
-                this.columnx = new global::System.Data.DataColumn("x", typeof(long), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnx);
                 this.columncomp = new global::System.Data.DataColumn("comp", typeof(long), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columncomp);
+                this.columnx = new global::System.Data.DataColumn("x", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnx);
                 this.columnpos_orno.AllowDBNull = false;
                 this.columnpos_terminal.MaxLength = 4;
                 this.columnpos_ean.AllowDBNull = false;
@@ -12589,22 +12589,6 @@ namespace nPOSProj {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public long x {
-                get {
-                    try {
-                        return ((long)(this[this.tableparkInventoryItems.xColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'x\' in table \'parkInventoryItems\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableparkInventoryItems.xColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public long comp {
                 get {
                     try {
@@ -12616,6 +12600,22 @@ namespace nPOSProj {
                 }
                 set {
                     this[this.tableparkInventoryItems.compColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int x {
+                get {
+                    try {
+                        return ((int)(this[this.tableparkInventoryItems.xColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'x\' in table \'parkInventoryItems\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableparkInventoryItems.xColumn] = value;
                 }
             }
             
@@ -12777,18 +12777,6 @@ namespace nPOSProj {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsxNull() {
-                return this.IsNull(this.tableparkInventoryItems.xColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetxNull() {
-                this[this.tableparkInventoryItems.xColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IscompNull() {
                 return this.IsNull(this.tableparkInventoryItems.compColumn);
             }
@@ -12797,6 +12785,18 @@ namespace nPOSProj {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetcompNull() {
                 this[this.tableparkInventoryItems.compColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsxNull() {
+                return this.IsNull(this.tableparkInventoryItems.xColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetxNull() {
+                this[this.tableparkInventoryItems.xColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -22841,8 +22841,8 @@ FROM            inventory_items INNER JOIN
             tableMapping.ColumnMappings.Add("stock_cost_price", "stock_cost_price");
             tableMapping.ColumnMappings.Add("totals", "totals");
             tableMapping.ColumnMappings.Add("amt", "amt");
-            tableMapping.ColumnMappings.Add("x", "x");
             tableMapping.ColumnMappings.Add("comp", "comp");
+            tableMapping.ColumnMappings.Add("x", "x");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -22861,8 +22861,8 @@ FROM            inventory_items INNER JOIN
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = @"SELECT        pos_park.pos_orno, pos_park.pos_terminal, pos_park.pos_parked_date, pos_park.pos_ean, pos_park.pos_quantity, pos_park.pos_discount, pos_park.pos_discount_amt, pos_park.pos_amt, 
                          inventory_stocks.stock_name, inventory_items.item_ean, inventory_items.item_quantity, inventory_items.item_retail_price, inventory_items.item_whole_price, inventory_stocks.stock_cost_price, 
-                         inventory_items.item_quantity - pos_park.pos_quantity AS totals, inventory_items.item_quantity * inventory_stocks.stock_cost_price AS amt, inventory_items.item_quantity + pos_park.pos_quantity AS x, 
-                         inventory_items.item_quantity + pos_park.pos_quantity - pos_park.pos_quantity AS comp
+                         inventory_items.item_quantity - pos_park.pos_quantity AS totals, inventory_items.item_quantity * inventory_stocks.stock_cost_price AS amt, inventory_items.item_quantity AS x, 
+                         inventory_items.item_quantity - pos_park.pos_quantity AS comp
 FROM            pos_park INNER JOIN
                          inventory_items ON pos_park.pos_ean = inventory_items.item_ean INNER JOIN
                          inventory_stocks ON inventory_items.stock_code = inventory_stocks.stock_code";

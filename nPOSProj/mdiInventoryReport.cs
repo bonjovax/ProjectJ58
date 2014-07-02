@@ -33,8 +33,8 @@ namespace nPOSProj
             login.catchUsername(userName);
             if (login.hasUser_Accounts())
             {
-                lblX.Visible = true;
-                cBTerminalIR.Visible = true;
+                //lblX.Visible = true;
+                //cBTerminalIR.Visible = true;
             }
         }
 
@@ -43,11 +43,11 @@ namespace nPOSProj
             try
             {
                 config = new VO.ConfigVO();
-                cBTerminalIR.Items.Clear();
+                //cBTerminalIR.Items.Clear();
                 String[,] grabData = config.ReadTerminal();
                 for (int x = 0; x < grabData.GetLength(1); x++)
                 {
-                    cBTerminalIR.Items.Add(grabData[0, x].ToString());
+                    //cBTerminalIR.Items.Add(grabData[0, x].ToString());
                 }
             }
             catch (Exception ex)
@@ -64,31 +64,31 @@ namespace nPOSProj
             checkRes();
         }
 
-        private void btnPrint_Click(object sender, EventArgs e)
-        {
-            if (cBoxKitSelect.Checked == true)
-            {
-                using (frmRptISRkit isrkit = new frmRptISRkit())
-                {
-                    isrkit.DateParam = dtSIR.Text;
-                    isrkit.TerminalParam = terminalIR;
-                    isrkit.ShowDialog();
-                }
-            }
-            else
-            {
-                using (frmRptISR isr = new frmRptISR())
-                {
-                    isr.DateParam = dtSIR.Text;
-                    isr.TerminalParam = terminalIR;
-                    isr.ShowDialog();
-                }
-            }
-        }
+        //private void btnPrint_Click(object sender, EventArgs e)
+        //{
+        //    if (cBoxKitSelect.Checked == true)
+        //    {
+        //        using (frmRptISRkit isrkit = new frmRptISRkit())
+        //        {
+        //            isrkit.DateParam = dtSIR.Text;
+        //            isrkit.TerminalParam = terminalIR;
+        //            isrkit.ShowDialog();
+        //        }
+        //    }
+        //    else
+        //    {
+        //        using (frmRptISR isr = new frmRptISR())
+        //        {
+        //            isr.DateParam = dtSIR.Text;
+        //            isr.TerminalParam = terminalIR;
+        //            isr.ShowDialog();
+        //        }
+        //    }
+        //}
 
         private void cBTerminalIR_SelectedIndexChanged(object sender, EventArgs e)
         {
-            terminalIR = cBTerminalIR.Text;
+            //terminalIR = cBTerminalIR.Text;
         }
 
         private void btnPrintSR_Click(object sender, EventArgs e)
