@@ -99,7 +99,7 @@
             this.btnSales.Name = "btnSales";
             this.btnSales.Size = new System.Drawing.Size(164, 162);
             this.btnSales.TabIndex = 0;
-            this.btnSales.Text = "Sales (F1)";
+            this.btnSales.Text = "&Sales (F1)";
             this.btnSales.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnSales.UseVisualStyleBackColor = false;
             this.btnSales.Click += new System.EventHandler(this.btnSales_Click);
@@ -121,7 +121,7 @@
             this.btnGenReports.Name = "btnGenReports";
             this.btnGenReports.Size = new System.Drawing.Size(164, 162);
             this.btnGenReports.TabIndex = 4;
-            this.btnGenReports.Text = "Reports (F4)";
+            this.btnGenReports.Text = "&Reports (F4)";
             this.btnGenReports.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnGenReports.UseVisualStyleBackColor = false;
             this.btnGenReports.Click += new System.EventHandler(this.btnGenReports_Click);
@@ -143,7 +143,7 @@
             this.btnCustomers.Name = "btnCustomers";
             this.btnCustomers.Size = new System.Drawing.Size(164, 162);
             this.btnCustomers.TabIndex = 1;
-            this.btnCustomers.Text = "Customers (F2)";
+            this.btnCustomers.Text = "&Customers (F2)";
             this.btnCustomers.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnCustomers.UseVisualStyleBackColor = false;
             this.btnCustomers.Click += new System.EventHandler(this.btnCustomers_Click);
@@ -165,7 +165,7 @@
             this.btnInventory.Name = "btnInventory";
             this.btnInventory.Size = new System.Drawing.Size(164, 162);
             this.btnInventory.TabIndex = 3;
-            this.btnInventory.Text = "Inventory (F3)";
+            this.btnInventory.Text = "&Inventory (F3)";
             this.btnInventory.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnInventory.UseVisualStyleBackColor = false;
             this.btnInventory.Click += new System.EventHandler(this.btnInventory_Click);
@@ -187,7 +187,7 @@
             this.btnGC.Name = "btnGC";
             this.btnGC.Size = new System.Drawing.Size(164, 162);
             this.btnGC.TabIndex = 5;
-            this.btnGC.Text = "Gift Cards (F5)";
+            this.btnGC.Text = "&Gift Cards (F5)";
             this.btnGC.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnGC.UseVisualStyleBackColor = false;
             this.btnGC.Click += new System.EventHandler(this.btnGC_Click);
@@ -231,7 +231,7 @@
             this.btnConfig.Name = "btnConfig";
             this.btnConfig.Size = new System.Drawing.Size(164, 162);
             this.btnConfig.TabIndex = 7;
-            this.btnConfig.Text = "Configure (F7)";
+            this.btnConfig.Text = "Con&figure (F7)";
             this.btnConfig.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnConfig.UseVisualStyleBackColor = false;
             this.btnConfig.Click += new System.EventHandler(this.btnConfig_Click);
