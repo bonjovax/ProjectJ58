@@ -8,6 +8,8 @@ using System.Text;
 using System.Windows.Forms;
 using System.Reflection;
 using MySql.Data.MySqlClient;
+using System.IO;
+using System.Diagnostics;
 
 namespace nPOSProj
 {
@@ -147,6 +149,18 @@ namespace nPOSProj
         private void btnClose_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void btnHelp_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Process.Start("nPOS.pdf");
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Adobe Reader Is Required or File Not Found", "Help", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

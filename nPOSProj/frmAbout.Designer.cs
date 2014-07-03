@@ -229,6 +229,7 @@
             this.btnHelp.TabIndex = 16;
             this.btnHelp.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnHelp.UseVisualStyleBackColor = false;
+            this.btnHelp.Click += new System.EventHandler(this.btnHelp_Click);
             // 
             // frmAbout
             // 
