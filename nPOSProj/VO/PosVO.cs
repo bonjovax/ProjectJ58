@@ -133,9 +133,9 @@ namespace nPOSProj.VO
             set { pos_discount_amt = value; }
         }
 
-        private Int32 pos_ean;
+        private String pos_ean;
 
-        public Int32 Pos_ean
+        public String Pos_ean
         {
             get { return pos_ean; }
             set { pos_ean = value; }

@@ -75,14 +75,6 @@ namespace nPOSProj.VO
             count = reportdao.countCancel(Pos_date, Pos_terminal);
             return count;
         }
-        public Double ComputeCancelAmount()
-        {
-            Double Amount = 0;
-            reportdao = new DAO.ReportingDAO();
-            reportdao.computeCancelAmt(Pos_date, Pos_terminal);
-            Amount = reportdao.computeCancelAmt(Pos_date, Pos_terminal);
-            return Amount;
-        }
         public Int32 NumberOfTrans()
         {
             Int32 count = 0;

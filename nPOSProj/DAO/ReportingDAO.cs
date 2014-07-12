@@ -224,40 +224,6 @@ namespace nPOSProj.DAO
             }
             return Count;
         }
-        public Double computeCancelAmt(String pos_date, String pos_terminal)
-        {
-            Double Amt = 0;
-            con = new MySqlConnection();
-            dbcon = new Conf.dbs();
-            con.ConnectionString = dbcon.getConnectionString();
-            String query = "SELECT SUM(pos_total_amt) AS a FROM pos_store ";
-            query += "WHERE (pos_date = ?date) AND (pos_terminal = ?terminal) AND (is_cancel = 1)";
-            try
-            {
-                con.Open();
-                MySqlCommand cmd = new MySqlCommand(query, con);
-                cmd.Parameters.AddWithValue("?date", pos_date);
-                cmd.Parameters.AddWithValue("?terminal", pos_terminal);
-                cmd.ExecuteScalar();
-                MySqlDataReader rdr = cmd.ExecuteReader();
-                if (rdr.Read())
-                {
-                    if (rdr["a"] == DBNull.Value)
-                    {
-                        Amt = 0;
-                    }
-                    else
-                    {
-                        Amt = Convert.ToDouble(rdr["a"]);
-                    }
-                }
-            }
-            finally
-            {
-                con.Close();
-            }
-            return Amt;
-        }
         public Int32 NoOfTrans(String pos_date, String pos_terminal)
         {
             Int32 Count = 0;

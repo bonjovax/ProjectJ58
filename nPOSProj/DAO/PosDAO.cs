@@ -85,7 +85,7 @@ namespace nPOSProj.DAO
                 con.Close();
             }
         }
-        public void Park_I(Int32 pos_orno, String pos_terminal, Int32 pos_ean, Int32 pos_quantity, Double pos_amt)
+        public void Park_I(Int32 pos_orno, String pos_terminal, String pos_ean, Int32 pos_quantity, Double pos_amt)
         {
             con = new MySqlConnection();
             dbcon = new Conf.dbs();
@@ -110,7 +110,7 @@ namespace nPOSProj.DAO
                 con.Close();
             }
         }
-        public void Park_I_Update(Int32 pos_orno, String pos_terminal, Int32 pos_ean, Int32 pos_quantity, Double pos_amt)
+        public void Park_I_Update(Int32 pos_orno, String pos_terminal, String pos_ean, Int32 pos_quantity, Double pos_amt)
         {
             con = new MySqlConnection();
             dbcon = new Conf.dbs();
@@ -135,7 +135,7 @@ namespace nPOSProj.DAO
                 con.Close();
             }
         }
-        public void ParkU_I(Int32 pos_orno, String pos_terminal, Int32 pos_ean, Double pos_discount, Double pos_discount_amt, Int32 pos_quantity, Double pos_amt)
+        public void ParkU_I(Int32 pos_orno, String pos_terminal, String pos_ean, Double pos_discount, Double pos_discount_amt, Int32 pos_quantity, Double pos_amt)
         {
             con = new MySqlConnection();
             dbcon = new Conf.dbs();
@@ -162,7 +162,7 @@ namespace nPOSProj.DAO
                 con.Close();
             }
         }
-        public void ParkUwD_I(Int32 pos_orno, String pos_terminal, Int32 pos_ean, Double pos_discount, Double pos_discount_amt, Double pos_amt)
+        public void ParkUwD_I(Int32 pos_orno, String pos_terminal, String pos_ean, Double pos_discount, Double pos_discount_amt, Double pos_amt)
         {
             con = new MySqlConnection();
             dbcon = new Conf.dbs();
@@ -188,7 +188,7 @@ namespace nPOSProj.DAO
                 con.Close();
             }
         }
-        public void ParkVoid_I(Int32 pos_orno, String pos_terminal, Int32 pos_ean, Int32 pos_quantity)
+        public void ParkVoid_I(Int32 pos_orno, String pos_terminal, String pos_ean, Int32 pos_quantity)
         {
             con = new MySqlConnection();
             dbcon = new Conf.dbs();
@@ -217,7 +217,7 @@ namespace nPOSProj.DAO
                 con.Close();
             }
         }
-        public void ReturnCancelI(Int32 pos_ean, Int32 pos_quantity, Int32 pos_orno, String pos_terminal)
+        public void ReturnCancelI(String pos_ean, Int32 pos_quantity, Int32 pos_orno, String pos_terminal)
         {
             con = new MySqlConnection();
             dbcon = new Conf.dbs();

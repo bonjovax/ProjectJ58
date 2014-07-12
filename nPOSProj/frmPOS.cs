@@ -12,6 +12,7 @@ namespace nPOSProj
 {
     public partial class frmPOS : Form
     {
+        private bool adminDrawer = false;
         private bool reprint = false;
         #region System Config
         private Double taxP;
@@ -81,7 +82,7 @@ namespace nPOSProj
         //
         private Int32 orderNo = 0;
         //Catch
-        private Int32 catchEan = 0;
+        private String catchEan;
         private Int32 catchQty = 0;
         private Double catchPrice = 0;
         //
@@ -157,47 +158,49 @@ namespace nPOSProj
         {
             printDocument1.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(printDocument1_PrintPage);
             printDocument1.Print();
+            DrawerPing();
         }
         private void PrintNoSale()
         {
             printDocument2.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(printDocument2_PrintPage);
             printDocument2.Print();
+            DrawerPing();
         }
 
         void printDocument2_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
         {
             frmLogin fl = new frmLogin();
             Graphics graphic = e.Graphics;
-            Font font = new Font("Telidon", 10);
+            Font font = new Font("Tahoma", 10);
 
             float fontHeight = font.GetHeight();
             int startX = 2;
             int startY = 10;
 
             #region Header
-            graphic.DrawString(compName, new Font("Telidon", 14), new SolidBrush(Color.Black), startX, startY);
-            graphic.DrawString(address1, new Font("Telidon Cd", 11), new SolidBrush(Color.Black), 50, 30);
-            graphic.DrawString(address2, new Font("Telidon Cd", 11), new SolidBrush(Color.Black), 43, 45);
-            graphic.DrawString(contact, new Font("Telidon Cd", 11), new SolidBrush(Color.Black), 53, 60);
-            graphic.DrawString("Owned & Operated By: " + store_op, new Font("Telidon Cd", 11), new SolidBrush(Color.Black), 5, 75);
-            graphic.DrawString("Permit No: " + permit_no, new Font("Telidon Cd", 11), new SolidBrush(Color.Black), 62, 90);
-            graphic.DrawString("TIN: " + TIN + "" + TaxT, new Font("Telidon Cd", 11), new SolidBrush(Color.Black), 62, 105);
-            graphic.DrawString("Accreditation No: " + bir.AccreditationNo(), new Font("Telidon Cd", 9), new SolidBrush(Color.Black), 11, 120);
-            graphic.DrawString("Serial No: " + bir.SerialNo(), new Font("Telidon Cd", 11), new SolidBrush(Color.Black), 68, 135);
-            graphic.DrawString("Machine Code: " + machine_no, new Font("Telidon Cd", 11), new SolidBrush(Color.Black), 56, 150);
-            graphic.DrawString("-------------------------------------------", new Font("Telidon Cd", 11), new SolidBrush(Color.Black), 3, 165);
-            graphic.DrawString(DateTime.Now.ToString("MMM dd, yyyy") + " " + "(" + DateTime.Now.ToString("ddd") + ")", font, new SolidBrush(Color.Black), 5, 185);
-            graphic.DrawString(DateTime.Now.ToString("hh:mm tt"), font, new SolidBrush(Color.Black), 185, 185);
-            graphic.DrawString("OR# " + OrNo, font, new SolidBrush(Color.Black), 5, 200);
+            graphic.DrawString(compName, new Font("Tahoma", 14), new SolidBrush(Color.Black), startX, startY);
+            graphic.DrawString(address1, new Font("Tahoma", 11), new SolidBrush(Color.Black), 45, 30);
+            graphic.DrawString(address2, new Font("Tahoma", 11), new SolidBrush(Color.Black), 38, 45);
+            //graphic.DrawString(contact, new Font("Tahoma", 11), new SolidBrush(Color.Black), 53, 60);
+            //graphic.DrawString("Owned & Operated By: " + store_op, new Font("Tahoma", 11), new SolidBrush(Color.Black), 5, 75);
+            graphic.DrawString("Permit No: " + permit_no, new Font("Tahoma", 11), new SolidBrush(Color.Black), 47, 60);
+            graphic.DrawString("TIN: " + TIN + "" + TaxT, new Font("Tahoma", 11), new SolidBrush(Color.Black), 47, 75);
+            graphic.DrawString("Accreditation No: " + bir.AccreditationNo(), new Font("Tahoma", 7), new SolidBrush(Color.Black), 11, 95);
+            graphic.DrawString("Serial No: " + bir.SerialNo(), new Font("Tahoma", 11), new SolidBrush(Color.Black), 61, 105);
+            graphic.DrawString("Machine Code: " + machine_no, new Font("Tahoma", 11), new SolidBrush(Color.Black), 43, 120);
+            graphic.DrawString("-------------------------------------------", new Font("Tahoma", 11), new SolidBrush(Color.Black), 3, 135);
+            graphic.DrawString(DateTime.Now.ToString("MMM dd, yyyy") + " " + "(" + DateTime.Now.ToString("ddd") + ")", font, new SolidBrush(Color.Black), 5, 150);
+            graphic.DrawString(DateTime.Now.ToString("hh:mm tt"), font, new SolidBrush(Color.Black), 175, 150);
+            graphic.DrawString("OR# " + OrNo, font, new SolidBrush(Color.Black), 5, 170);
             #endregion
-            graphic.DrawString("N O   S A L E", new Font("Telidon", 13), new SolidBrush(Color.Black), 70, 240);
+            graphic.DrawString("N O   S A L E", new Font("Tahoma", 13), new SolidBrush(Color.Black), 67, 210);
         }
 
         void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
         {
             frmLogin fl = new frmLogin();
             Graphics graphic = e.Graphics;
-            Font font = new Font("Telidon", 10);
+            Font font = new Font("Tahoma", 10);
 
             float fontHeight = font.GetHeight();
             int startX = 2;
@@ -205,20 +208,20 @@ namespace nPOSProj
             int offset = 40;
 
             #region Header
-            graphic.DrawString(compName, new Font("Telidon", 14), new SolidBrush(Color.Black), startX, startY);
-            graphic.DrawString(address1, new Font("Telidon Cd", 11), new SolidBrush(Color.Black), 50, 30);
-            graphic.DrawString(address2, new Font("Telidon Cd", 11), new SolidBrush(Color.Black), 43, 45);
-            graphic.DrawString(contact, new Font("Telidon Cd", 11), new SolidBrush(Color.Black), 53, 60);
-            graphic.DrawString("Owned & Operated By: " + store_op, new Font("Telidon Cd", 11), new SolidBrush(Color.Black), 5, 75);
-            graphic.DrawString("Permit No: " + permit_no, new Font("Telidon Cd", 11), new SolidBrush(Color.Black), 62, 90);
-            graphic.DrawString("TIN: " + TIN + "" + TaxT, new Font("Telidon Cd", 11), new SolidBrush(Color.Black), 62, 105);
-            graphic.DrawString("Accreditation No: " + bir.AccreditationNo(), new Font("Telidon Cd", 9), new SolidBrush(Color.Black), 11, 120);
-            graphic.DrawString("Serial No: " + bir.SerialNo(), new Font("Telidon Cd", 11), new SolidBrush(Color.Black), 68, 135);
-            graphic.DrawString("Machine Code: " + machine_no, new Font("Telidon Cd", 11), new SolidBrush(Color.Black), 56, 150);
-            graphic.DrawString("-------------------------------------------", new Font("Telidon Cd", 11), new SolidBrush(Color.Black), 3, 165);
-            graphic.DrawString(DateTime.Now.ToString("MMM dd, yyyy") + " " + "(" + DateTime.Now.ToString("ddd") + ")", font, new SolidBrush(Color.Black), 5, 185);
-            graphic.DrawString(DateTime.Now.ToString("hh:mm tt"), font, new SolidBrush(Color.Black), 185, 185);
-            graphic.DrawString("OR# " + OrNo, font, new SolidBrush(Color.Black), 5, 200);
+            graphic.DrawString(compName, new Font("Tahoma", 14), new SolidBrush(Color.Black), startX, startY);
+            graphic.DrawString(address1, new Font("Tahoma", 11), new SolidBrush(Color.Black), 45, 30);
+            graphic.DrawString(address2, new Font("Tahoma", 11), new SolidBrush(Color.Black), 38, 45);
+            //graphic.DrawString(contact, new Font("Tahoma", 11), new SolidBrush(Color.Black), 53, 60);
+            //graphic.DrawString("Owned & Operated By: " + store_op, new Font("Tahoma", 11), new SolidBrush(Color.Black), 5, 75);
+            graphic.DrawString("Permit No: " + permit_no, new Font("Tahoma", 11), new SolidBrush(Color.Black), 47, 60);
+            graphic.DrawString("TIN: " + TIN + "" + TaxT, new Font("Tahoma", 11), new SolidBrush(Color.Black), 47, 75);
+            graphic.DrawString("Accreditation No: " + bir.AccreditationNo(), new Font("Tahoma", 7), new SolidBrush(Color.Black), 11, 95);
+            graphic.DrawString("Serial No: " + bir.SerialNo(), new Font("Tahoma", 11), new SolidBrush(Color.Black), 61, 105);
+            graphic.DrawString("Machine Code: " + machine_no, new Font("Tahoma", 11), new SolidBrush(Color.Black), 43, 120);
+            graphic.DrawString("-------------------------------------------", new Font("Tahoma", 11), new SolidBrush(Color.Black), 3, 135);
+            graphic.DrawString(DateTime.Now.ToString("MMM dd, yyyy") + " " + "(" + DateTime.Now.ToString("ddd") + ")", font, new SolidBrush(Color.Black), 5, 150);
+            graphic.DrawString(DateTime.Now.ToString("hh:mm tt"), font, new SolidBrush(Color.Black), 175, 150);
+            graphic.DrawString("OR# " + OrNo, font, new SolidBrush(Color.Black), 5, 170);
             #endregion
 
             using (MySqlConnection con = new MySqlConnection(dbcon.getConnectionString()))
@@ -248,123 +251,123 @@ namespace nPOSProj
                         {
                             String description = Truncate(dataTable.Rows[i][0].ToString(), 20);
                             Double priceR = Convert.ToDouble(dataTable.Rows[i][3]);
-                            graphic.DrawString(description + "  " + "\n" + dataTable.Rows[i][2].ToString() + " @ " + priceR.ToString("#,###,##0.00"), font, new SolidBrush(Color.Black), 10, 195 + offset);
-                            graphic.DrawString(Convert.ToDouble(dataTable.Rows[i][1]).ToString("#,###,##0.00").PadLeft(10) + dataTable.Rows[i][5].ToString(), font, new SolidBrush(Color.Black), 155, 195 + offset);
+                            graphic.DrawString(description + "  " + "\n" + dataTable.Rows[i][2].ToString() + " @ " + priceR.ToString("#,###,##0.00"), font, new SolidBrush(Color.Black), 10, 165 + offset);
+                            graphic.DrawString(Convert.ToDouble(dataTable.Rows[i][1]).ToString("#,###,##0.00").PadLeft(10) + dataTable.Rows[i][5].ToString(), font, new SolidBrush(Color.Black), 165, 165 + offset);
                             offset = offset + (int)fontHeight + 25;
                         }
                         offset = offset + 30;
-                        graphic.DrawString("-------------------------------------------", new Font("Telidon Cd", 11), new SolidBrush(Color.Black), 3, 160 + offset);
+                        graphic.DrawString("-------------------------------------------", new Font("Tahoma", 11), new SolidBrush(Color.Black), 3, 140 + offset);
                         //
                         counted = 0;
                         foreach (ListViewItem lv in lviewPOS.Items)
                         {
                             counted += Int32.Parse(lv.SubItems[1].Text);
                         }
-                        graphic.DrawString("Item Count: ", new Font("Telidon", 14), new SolidBrush(Color.Black), 40, 175 + offset);
-                        graphic.DrawString(counted.ToString(), new Font("Telidon", 14), new SolidBrush(Color.Black), 160, 175 + offset);
+                        graphic.DrawString("Item Count: ", new Font("Tahoma", 14), new SolidBrush(Color.Black), 40, 155 + offset);
+                        graphic.DrawString(counted.ToString(), new Font("Tahoma", 14), new SolidBrush(Color.Black), 160, 155 + offset);
                         //
-                        graphic.DrawString("VATable ", new Font("Telidon", 10), new SolidBrush(Color.Black), 70, 200 + offset);
-                        graphic.DrawString(lblVatable.Text.PadLeft(10), new Font("Telidon", 10), new SolidBrush(Color.Black), 150, 200 + offset);
-                        graphic.DrawString("VAT-Exempt ", new Font("Telidon", 10), new SolidBrush(Color.Black), 70, 220 + offset);
-                        graphic.DrawString(lblVATe.Text.PadLeft(10), new Font("Telidon", 10), new SolidBrush(Color.Black), 150, 220 + offset);
-                        graphic.DrawString("Zero-Rated ", new Font("Telidon", 10), new SolidBrush(Color.Black), 70, 240 + offset);
-                        graphic.DrawString(lblVATz.Text.PadLeft(10), new Font("Telidon", 10), new SolidBrush(Color.Black), 150, 240 + offset);
-                        graphic.DrawString("VAT (" + lblTax.Text + ")", new Font("Telidon", 10), new SolidBrush(Color.Black), 70, 260 + offset);
-                        graphic.DrawString(lblTAXamt.Text.PadLeft(10), new Font("Telidon", 10), new SolidBrush(Color.Black), 150, 260 + offset);
-                        graphic.DrawString("TOTAL ", new Font("Telidon", 13), new SolidBrush(Color.Black), 68, 280 + offset);
-                        graphic.DrawString(getDTotalAmt.ToString("#,###,##0.00").PadLeft(10), new Font("Telidon", 13), new SolidBrush(Color.Black), 133, 280 + offset);
+                        graphic.DrawString("VATable ", new Font("Tahoma", 10), new SolidBrush(Color.Black), 85, 185 + offset);
+                        graphic.DrawString(lblVatable.Text.PadLeft(10), new Font("Tahoma", 10), new SolidBrush(Color.Black), 175, 185 + offset);
+                        graphic.DrawString("VAT-Exempt ", new Font("Tahoma", 10), new SolidBrush(Color.Black), 85, 205 + offset);
+                        graphic.DrawString(lblVATe.Text.PadLeft(10), new Font("Tahoma", 10), new SolidBrush(Color.Black), 175, 205 + offset);
+                        graphic.DrawString("Zero-Rated ", new Font("Tahoma", 10), new SolidBrush(Color.Black), 85, 225 + offset);
+                        graphic.DrawString(lblVATz.Text.PadLeft(10), new Font("Tahoma", 10), new SolidBrush(Color.Black), 175, 225 + offset);
+                        graphic.DrawString("VAT (" + lblTax.Text + ")", new Font("Tahoma", 10), new SolidBrush(Color.Black), 85, 245 + offset);
+                        graphic.DrawString(lblTAXamt.Text.PadLeft(10), new Font("Tahoma", 10), new SolidBrush(Color.Black), 175, 245 + offset);
+                        graphic.DrawString("TOTAL ", new Font("Tahoma", 13), new SolidBrush(Color.Black), 83, 265 + offset);
+                        graphic.DrawString(getDTotalAmt.ToString("#,###,##0.00").PadLeft(10), new Font("Tahoma", 13), new SolidBrush(Color.Black), 158, 265 + offset);
                         if (selector == 0)
                         {
-                            graphic.DrawString("Amount Tender  ", new Font("Telidon", 10), new SolidBrush(Color.Black), 10, 320 + offset);
-                            graphic.DrawString(Tender.ToString("#,###,##0.00").PadLeft(10), new Font("Telidon", 10), new SolidBrush(Color.Black), 105, 320 + offset);
-                            graphic.DrawString("Change ", new Font("Telidon", 13), new SolidBrush(Color.Black), 8, 335 + offset);
-                            graphic.DrawString(Change.ToString("#,###,##0.00").PadLeft(10), new Font("Telidon", 13), new SolidBrush(Color.Black), 88, 335 + offset);
-                            graphic.DrawString("Transaction #:", new Font("Telidon", 10), new SolidBrush(Color.Black), 10, 356 + offset);
-                            graphic.DrawString(OrNo.ToString(), new Font("Telidon", 10), new SolidBrush(Color.Black), 110, 356 + offset);
-                            graphic.DrawString("CASHIER:", new Font("Telidon", 10), new SolidBrush(Color.Black), 10, 373 + offset);
-                            graphic.DrawString(lblUserAccount.Text, new Font("Telidon", 10), new SolidBrush(Color.Black), 110, 373 + offset);
-                            graphic.DrawString("Terminal #:", new Font("Telidon", 10), new SolidBrush(Color.Black), 10, 390 + offset);
-                            graphic.DrawString(fl.tN, new Font("Telidon", 10), new SolidBrush(Color.Black), 110, 390 + offset);
-                            graphic.DrawString("-------------------------------------------", new Font("Telidon Cd", 11), new SolidBrush(Color.Black), 3, 413 + offset);
-                            graphic.DrawString("THIS SERVE AS AN OFFICIAL RECEIPT", new Font("Telidon", 10), new SolidBrush(Color.Black), 8, 423 + offset);
-                            graphic.DrawString("Thank you for Shopping and Come Again ", new Font("Telidon", 8), new SolidBrush(Color.Black), 20, 437 + offset);
+                            graphic.DrawString("Amount Tender  ", new Font("Tahoma", 10), new SolidBrush(Color.Black), 10, 320 + offset);
+                            graphic.DrawString(Tender.ToString("#,###,##0.00").PadLeft(10), new Font("Tahoma", 10), new SolidBrush(Color.Black), 115, 320 + offset);
+                            graphic.DrawString("Change ", new Font("Tahoma", 13), new SolidBrush(Color.Black), 8, 335 + offset);
+                            graphic.DrawString(Change.ToString("#,###,##0.00").PadLeft(10), new Font("Tahoma", 13), new SolidBrush(Color.Black), 98, 335 + offset);
+                            graphic.DrawString("Transaction #:", new Font("Tahoma", 10), new SolidBrush(Color.Black), 10, 356 + offset);
+                            graphic.DrawString(OrNo.ToString(), new Font("Tahoma", 10), new SolidBrush(Color.Black), 110, 356 + offset);
+                            graphic.DrawString("CASHIER:", new Font("Tahoma", 10), new SolidBrush(Color.Black), 10, 373 + offset);
+                            graphic.DrawString(lblUserAccount.Text, new Font("Tahoma", 10), new SolidBrush(Color.Black), 110, 373 + offset);
+                            graphic.DrawString("Terminal #:", new Font("Tahoma", 10), new SolidBrush(Color.Black), 10, 390 + offset);
+                            graphic.DrawString(fl.tN, new Font("Tahoma", 10), new SolidBrush(Color.Black), 110, 390 + offset);
+                            graphic.DrawString("-------------------------------------------", new Font("Tahoma", 11), new SolidBrush(Color.Black), 3, 413 + offset);
+                            graphic.DrawString("THIS IS NOT AN OFFICIAL RECEIPT", new Font("Tahoma", 10), new SolidBrush(Color.Black), 8, 423 + offset);
+                            graphic.DrawString("Thank you for Shopping and Come Again ", new Font("Tahoma", 8), new SolidBrush(Color.Black), 20, 437 + offset);
                         }
                         if (selector == 1)
                         {
-                            graphic.DrawString("Card No:", new Font("Telidon", 10), new SolidBrush(Color.Black), 10, 320 + offset);
-                            graphic.DrawString("XXXX-XXXX-XXXX-"+ cardNo, new Font("Telidon", 10), new SolidBrush(Color.Black), 85, 320 + offset);
-                            graphic.DrawString("Card Type:", new Font("Telidon", 10), new SolidBrush(Color.Black), 10, 335 + offset);
-                            graphic.DrawString(cardType, new Font("Telidon", 10), new SolidBrush(Color.Black), 85, 335 + offset);
-                            graphic.DrawString("Amount:", new Font("Telidon", 10), new SolidBrush(Color.Black), 10, 350 + offset);
-                            graphic.DrawString(cardAmount.ToString("#,###,##0.00"), new Font("Telidon", 10), new SolidBrush(Color.Black), 85, 350 + offset);
+                            graphic.DrawString("Card No:", new Font("Tahoma", 10), new SolidBrush(Color.Black), 10, 320 + offset);
+                            graphic.DrawString("XXXX-XXXX-XXXX-" + cardNo, new Font("Tahoma", 10), new SolidBrush(Color.Black), 85, 320 + offset);
+                            graphic.DrawString("Card Type:", new Font("Tahoma", 10), new SolidBrush(Color.Black), 10, 335 + offset);
+                            graphic.DrawString(cardType, new Font("Tahoma", 10), new SolidBrush(Color.Black), 85, 335 + offset);
+                            graphic.DrawString("Amount:", new Font("Tahoma", 10), new SolidBrush(Color.Black), 10, 350 + offset);
+                            graphic.DrawString(cardAmount.ToString("#,###,##0.00"), new Font("Tahoma", 10), new SolidBrush(Color.Black), 85, 350 + offset);
 
-                            graphic.DrawString("Transaction #:", new Font("Telidon", 10), new SolidBrush(Color.Black), 10, 373 + offset);
-                            graphic.DrawString(OrNo.ToString(), new Font("Telidon", 10), new SolidBrush(Color.Black), 110, 373 + offset);
-                            graphic.DrawString("CASHIER:", new Font("Telidon", 10), new SolidBrush(Color.Black), 10, 388 + offset);
-                            graphic.DrawString(lblUserAccount.Text, new Font("Telidon", 10), new SolidBrush(Color.Black), 110, 388 + offset);
-                            graphic.DrawString("Terminal #:", new Font("Telidon", 10), new SolidBrush(Color.Black), 10, 403 + offset);
-                            graphic.DrawString(fl.tN, new Font("Telidon", 10), new SolidBrush(Color.Black), 110, 403 + offset);
-                            graphic.DrawString("-------------------------------------------", new Font("Telidon Cd", 11), new SolidBrush(Color.Black), 3, 423 + offset);
-                            graphic.DrawString("THIS SERVE AS AN OFFICIAL RECEIPT", new Font("Telidon", 10), new SolidBrush(Color.Black), 8, 433 + offset);
-                            graphic.DrawString("Thank you for Shopping and Come Again ", new Font("Telidon", 8), new SolidBrush(Color.Black), 20, 447 + offset);
+                            graphic.DrawString("Transaction #:", new Font("Tahoma", 10), new SolidBrush(Color.Black), 10, 373 + offset);
+                            graphic.DrawString(OrNo.ToString(), new Font("Tahoma", 10), new SolidBrush(Color.Black), 110, 373 + offset);
+                            graphic.DrawString("CASHIER:", new Font("Tahoma", 10), new SolidBrush(Color.Black), 10, 388 + offset);
+                            graphic.DrawString(lblUserAccount.Text, new Font("Tahoma", 10), new SolidBrush(Color.Black), 110, 388 + offset);
+                            graphic.DrawString("Terminal #:", new Font("Tahoma", 10), new SolidBrush(Color.Black), 10, 403 + offset);
+                            graphic.DrawString(fl.tN, new Font("Tahoma", 10), new SolidBrush(Color.Black), 110, 403 + offset);
+                            graphic.DrawString("-------------------------------------------", new Font("Tahoma", 11), new SolidBrush(Color.Black), 3, 423 + offset);
+                            graphic.DrawString("THIS IS NOT AN OFFICIAL RECEIPT", new Font("Tahoma", 10), new SolidBrush(Color.Black), 8, 433 + offset);
+                            graphic.DrawString("Thank you for Shopping and Come Again ", new Font("Tahoma", 8), new SolidBrush(Color.Black), 20, 447 + offset);
                         }
                         if (selector == 2)
                         {
-                            graphic.DrawString("Check No:", new Font("Telidon", 10), new SolidBrush(Color.Black), 10, 320 + offset);
-                            graphic.DrawString(checkNo, new Font("Telidon", 10), new SolidBrush(Color.Black), 85, 320 + offset);
-                            graphic.DrawString("Bank & Branch:", new Font("Telidon", 10), new SolidBrush(Color.Black), 10, 335 + offset);
-                            graphic.DrawString(Truncate(BankNBranch, 18), new Font("Telidon", 10), new SolidBrush(Color.Black), 115, 335 + offset);
-                            graphic.DrawString("Amount:", new Font("Telidon", 10), new SolidBrush(Color.Black), 10, 350 + offset);
-                            graphic.DrawString(checkAmount.ToString("#,###,##0.00"), new Font("Telidon", 10), new SolidBrush(Color.Black), 85, 350 + offset);
+                            graphic.DrawString("Check No:", new Font("Tahoma", 10), new SolidBrush(Color.Black), 10, 320 + offset);
+                            graphic.DrawString(checkNo, new Font("Tahoma", 10), new SolidBrush(Color.Black), 85, 320 + offset);
+                            graphic.DrawString("Bank & Branch:", new Font("Tahoma", 10), new SolidBrush(Color.Black), 10, 335 + offset);
+                            graphic.DrawString(Truncate(BankNBranch, 18), new Font("Tahoma", 10), new SolidBrush(Color.Black), 115, 335 + offset);
+                            graphic.DrawString("Amount:", new Font("Tahoma", 10), new SolidBrush(Color.Black), 10, 350 + offset);
+                            graphic.DrawString(checkAmount.ToString("#,###,##0.00"), new Font("Tahoma", 10), new SolidBrush(Color.Black), 85, 350 + offset);
 
-                            graphic.DrawString("Transaction #:", new Font("Telidon", 10), new SolidBrush(Color.Black), 10, 373 + offset);
-                            graphic.DrawString(OrNo.ToString(), new Font("Telidon", 10), new SolidBrush(Color.Black), 110, 373 + offset);
-                            graphic.DrawString("CASHIER:", new Font("Telidon", 10), new SolidBrush(Color.Black), 10, 388 + offset);
-                            graphic.DrawString(lblUserAccount.Text, new Font("Telidon", 10), new SolidBrush(Color.Black), 110, 388 + offset);
-                            graphic.DrawString("Terminal #:", new Font("Telidon", 10), new SolidBrush(Color.Black), 10, 403 + offset);
-                            graphic.DrawString(fl.tN, new Font("Telidon", 10), new SolidBrush(Color.Black), 110, 403 + offset);
-                            graphic.DrawString("-------------------------------------------", new Font("Telidon Cd", 11), new SolidBrush(Color.Black), 3, 423 + offset);
-                            graphic.DrawString("THIS SERVE AS AN OFFICIAL RECEIPT", new Font("Telidon", 10), new SolidBrush(Color.Black), 8, 433 + offset);
-                            graphic.DrawString("Thank you for Shopping and Come Again ", new Font("Telidon", 8), new SolidBrush(Color.Black), 20, 447 + offset);
+                            graphic.DrawString("Transaction #:", new Font("Tahoma", 10), new SolidBrush(Color.Black), 10, 373 + offset);
+                            graphic.DrawString(OrNo.ToString(), new Font("Tahoma", 10), new SolidBrush(Color.Black), 110, 373 + offset);
+                            graphic.DrawString("CASHIER:", new Font("Tahoma", 10), new SolidBrush(Color.Black), 10, 388 + offset);
+                            graphic.DrawString(lblUserAccount.Text, new Font("Tahoma", 10), new SolidBrush(Color.Black), 110, 388 + offset);
+                            graphic.DrawString("Terminal #:", new Font("Tahoma", 10), new SolidBrush(Color.Black), 10, 403 + offset);
+                            graphic.DrawString(fl.tN, new Font("Tahoma", 10), new SolidBrush(Color.Black), 110, 403 + offset);
+                            graphic.DrawString("-------------------------------------------", new Font("Tahoma", 11), new SolidBrush(Color.Black), 3, 423 + offset);
+                            graphic.DrawString("THIS IS NOT AN OFFICIAL RECEIPT", new Font("Tahoma", 10), new SolidBrush(Color.Black), 8, 433 + offset);
+                            graphic.DrawString("Thank you for Shopping and Come Again ", new Font("Tahoma", 8), new SolidBrush(Color.Black), 20, 447 + offset);
                         }
                         if (selector == 3)
                         {
-                            graphic.DrawString("Code:", new Font("Telidon", 10), new SolidBrush(Color.Black), 10, 320 + offset);
-                            graphic.DrawString(CustCode, new Font("Telidon", 10), new SolidBrush(Color.Black), 85, 320 + offset);
-                            graphic.DrawString("Company:", new Font("Telidon", 10), new SolidBrush(Color.Black), 10, 335 + offset);
-                            graphic.DrawString(Truncate(Company, 22), new Font("Telidon", 10), new SolidBrush(Color.Black), 85, 335 + offset);
-                            graphic.DrawString("Amount:", new Font("Telidon", 10), new SolidBrush(Color.Black), 10, 350 + offset);
-                            graphic.DrawString(arAmount.ToString("#,###,##0.00") + " Cr", new Font("Telidon", 10), new SolidBrush(Color.Black), 85, 350 + offset);
+                            graphic.DrawString("Code:", new Font("Tahoma", 10), new SolidBrush(Color.Black), 10, 320 + offset);
+                            graphic.DrawString(CustCode, new Font("Tahoma", 10), new SolidBrush(Color.Black), 85, 320 + offset);
+                            graphic.DrawString("Company:", new Font("Tahoma", 10), new SolidBrush(Color.Black), 10, 335 + offset);
+                            graphic.DrawString(Truncate(Company, 22), new Font("Tahoma", 10), new SolidBrush(Color.Black), 85, 335 + offset);
+                            graphic.DrawString("Amount:", new Font("Tahoma", 10), new SolidBrush(Color.Black), 10, 350 + offset);
+                            graphic.DrawString(arAmount.ToString("#,###,##0.00") + " Cr", new Font("Tahoma", 10), new SolidBrush(Color.Black), 85, 350 + offset);
 
-                            graphic.DrawString("Transaction #:", new Font("Telidon", 10), new SolidBrush(Color.Black), 10, 373 + offset);
-                            graphic.DrawString(OrNo.ToString(), new Font("Telidon", 10), new SolidBrush(Color.Black), 110, 373 + offset);
-                            graphic.DrawString("CASHIER:", new Font("Telidon", 10), new SolidBrush(Color.Black), 10, 388 + offset);
-                            graphic.DrawString(lblUserAccount.Text, new Font("Telidon", 10), new SolidBrush(Color.Black), 110, 388 + offset);
-                            graphic.DrawString("Terminal #:", new Font("Telidon", 10), new SolidBrush(Color.Black), 10, 403 + offset);
-                            graphic.DrawString(fl.tN, new Font("Telidon", 10), new SolidBrush(Color.Black), 110, 403 + offset);
-                            graphic.DrawString("-------------------------------------------", new Font("Telidon Cd", 11), new SolidBrush(Color.Black), 3, 423 + offset);
-                            graphic.DrawString("THIS SERVE AS AN OFFICIAL RECEIPT", new Font("Telidon", 10), new SolidBrush(Color.Black), 8, 433 + offset);
-                            graphic.DrawString("Thank you for Shopping and Come Again ", new Font("Telidon", 8), new SolidBrush(Color.Black), 20, 447 + offset);
+                            graphic.DrawString("Transaction #:", new Font("Tahoma", 10), new SolidBrush(Color.Black), 10, 373 + offset);
+                            graphic.DrawString(OrNo.ToString(), new Font("Tahoma", 10), new SolidBrush(Color.Black), 110, 373 + offset);
+                            graphic.DrawString("CASHIER:", new Font("Tahoma", 10), new SolidBrush(Color.Black), 10, 388 + offset);
+                            graphic.DrawString(lblUserAccount.Text, new Font("Tahoma", 10), new SolidBrush(Color.Black), 110, 388 + offset);
+                            graphic.DrawString("Terminal #:", new Font("Tahoma", 10), new SolidBrush(Color.Black), 10, 403 + offset);
+                            graphic.DrawString(fl.tN, new Font("Tahoma", 10), new SolidBrush(Color.Black), 110, 403 + offset);
+                            graphic.DrawString("-------------------------------------------", new Font("Tahoma", 11), new SolidBrush(Color.Black), 3, 423 + offset);
+                            graphic.DrawString("THIS IS NOT AN OFFICIAL RECEIPT", new Font("Tahoma", 10), new SolidBrush(Color.Black), 8, 433 + offset);
+                            graphic.DrawString("Thank you for Shopping and Come Again ", new Font("Tahoma", 8), new SolidBrush(Color.Black), 20, 447 + offset);
                         }
                         if (selector == 4)
                         {
                             this.getValidUntil(gCardno);
-                            graphic.DrawString("Gift Card #:", new Font("Telidon", 10), new SolidBrush(Color.Black), 10, 320 + offset);
-                            graphic.DrawString(gCardno, new Font("Telidon", 10), new SolidBrush(Color.Black), 100, 320 + offset);
-                            graphic.DrawString("Valid Until:", new Font("Telidon", 10), new SolidBrush(Color.Black), 10, 335 + offset);
-                            graphic.DrawString(Convert.ToDateTime(validU).ToString("MM/dd/yy"), new Font("Telidon", 10), new SolidBrush(Color.Black), 100, 335 + offset);
-                            graphic.DrawString("Amount:", new Font("Telidon", 10), new SolidBrush(Color.Black), 10, 350 + offset);
-                            graphic.DrawString(gAmount.ToString("#,###,##0.00") + " Dr", new Font("Telidon", 10), new SolidBrush(Color.Black), 100, 350 + offset);
+                            graphic.DrawString("Gift Card #:", new Font("Tahoma", 10), new SolidBrush(Color.Black), 10, 320 + offset);
+                            graphic.DrawString(gCardno, new Font("Tahoma", 10), new SolidBrush(Color.Black), 100, 320 + offset);
+                            graphic.DrawString("Valid Until:", new Font("Tahoma", 10), new SolidBrush(Color.Black), 10, 335 + offset);
+                            graphic.DrawString(Convert.ToDateTime(validU).ToString("MM/dd/yy"), new Font("Tahoma", 10), new SolidBrush(Color.Black), 100, 335 + offset);
+                            graphic.DrawString("Amount:", new Font("Tahoma", 10), new SolidBrush(Color.Black), 10, 350 + offset);
+                            graphic.DrawString(gAmount.ToString("#,###,##0.00") + " Dr", new Font("Tahoma", 10), new SolidBrush(Color.Black), 100, 350 + offset);
 
-                            graphic.DrawString("Transaction #:", new Font("Telidon", 10), new SolidBrush(Color.Black), 10, 373 + offset);
-                            graphic.DrawString(OrNo.ToString(), new Font("Telidon", 10), new SolidBrush(Color.Black), 110, 373 + offset);
-                            graphic.DrawString("CASHIER:", new Font("Telidon", 10), new SolidBrush(Color.Black), 10, 388 + offset);
-                            graphic.DrawString(lblUserAccount.Text, new Font("Telidon", 10), new SolidBrush(Color.Black), 110, 388 + offset);
-                            graphic.DrawString("Terminal #:", new Font("Telidon", 10), new SolidBrush(Color.Black), 10, 403 + offset);
-                            graphic.DrawString(fl.tN, new Font("Telidon", 10), new SolidBrush(Color.Black), 110, 403 + offset);
-                            graphic.DrawString("-------------------------------------------", new Font("Telidon Cd", 11), new SolidBrush(Color.Black), 3, 423 + offset);
-                            graphic.DrawString("THIS SERVE AS AN OFFICIAL RECEIPT", new Font("Telidon", 10), new SolidBrush(Color.Black), 8, 433 + offset);
-                            graphic.DrawString("Thank you for Shopping and Come Again ", new Font("Telidon", 8), new SolidBrush(Color.Black), 20, 447 + offset);
+                            graphic.DrawString("Transaction #:", new Font("Tahoma", 10), new SolidBrush(Color.Black), 10, 373 + offset);
+                            graphic.DrawString(OrNo.ToString(), new Font("Tahoma", 10), new SolidBrush(Color.Black), 110, 373 + offset);
+                            graphic.DrawString("CASHIER:", new Font("Tahoma", 10), new SolidBrush(Color.Black), 10, 388 + offset);
+                            graphic.DrawString(lblUserAccount.Text, new Font("Tahoma", 10), new SolidBrush(Color.Black), 110, 388 + offset);
+                            graphic.DrawString("Terminal #:", new Font("TTahoma", 10), new SolidBrush(Color.Black), 10, 403 + offset);
+                            graphic.DrawString(fl.tN, new Font("Tahoma", 10), new SolidBrush(Color.Black), 110, 403 + offset);
+                            graphic.DrawString("-------------------------------------------", new Font("Tahoma", 11), new SolidBrush(Color.Black), 3, 423 + offset);
+                            graphic.DrawString("THIS IS NOT AN OFFICIAL RECEIPT", new Font("Tahoma", 10), new SolidBrush(Color.Black), 8, 433 + offset);
+                            graphic.DrawString("Thank you for Shopping and Come Again ", new Font("Tahoma", 8), new SolidBrush(Color.Black), 20, 447 + offset);
                         }
                     }
                     catch (MySqlException)
@@ -587,6 +590,11 @@ namespace nPOSProj
                 nosale = false;
                 noSFlash();
             }
+            if (keyData == Keys.O && adminDrawer == true)
+            {
+                DrawerPing();
+                
+            }
             return base.ProcessCmdKey(ref msg, keyData);
         }
 
@@ -622,6 +630,24 @@ namespace nPOSProj
             timer2.Interval = 250;
             //
             lblTax.Text = taxDisplay.ToString();
+            login = new DAO.LoginDAO();
+            login.catchUsername(userName);
+            if (login.hasUser_Accounts())
+            {
+                adminDrawer = true;
+            }
+        }
+        private void DrawerPing()
+        {
+            try
+            {
+                Conf.Drawer drawer = new Conf.Drawer();
+                drawer.Open();
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Check Cash Drawer Please!", "Drawer Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
         private void ConfigCheck()
         {
@@ -1030,7 +1056,7 @@ namespace nPOSProj
                                     //Data
                                     pos.Pos_orno = OrNo;
                                     pos.Pos_terminal = fl.tN;
-                                    pos.Pos_ean = Convert.ToInt32(txtBoxEAN.Text);
+                                    pos.Pos_ean = txtBoxEAN.Text;
                                     pos.Pos_quantity = Convert.ToInt32(txtBoxQty.Text);
                                     pos.Pos_amt = computerItemQty;
                                     pos.ParkItem();
@@ -1249,7 +1275,7 @@ namespace nPOSProj
                         //Data
                         pos.Pos_orno = OrNo;
                         pos.Pos_terminal = fl.tN;
-                        pos.Pos_ean = Convert.ToInt32(txtBoxEAN.Text);
+                        pos.Pos_ean = txtBoxEAN.Text;
                         pos.Pos_quantity = Convert.ToInt32(txtBoxQty.Text);
                         pos.Pos_amt = uTotal;
                         pos.ParkItemSameUpdate();
@@ -1271,7 +1297,7 @@ namespace nPOSProj
             if (lviewPOS.SelectedItems.Count > 0)
             {
                 ListViewItem item = lviewPOS.SelectedItems[0];
-                catchEan = Convert.ToInt32(item.Text);
+                catchEan = item.Text;
                 catchQty = Convert.ToInt32(item.SubItems[1].Text);
                 catchPrice = Convert.ToDouble(item.SubItems[3].Text);
                 //Discount
@@ -1470,7 +1496,7 @@ namespace nPOSProj
                 using (frmDlgEditQty edit = new frmDlgEditQty())
                 {
                     ListViewItem item = lviewPOS.SelectedItems[0];
-                    Int32 uEan = Convert.ToInt32(item.Text);
+                    String uEan = item.Text;
                     edit.dQty = Convert.ToInt32(item.SubItems[1].Text); //Display
                     edit.ShowDialog();
                     if (edit.Qty != 0)
@@ -1644,7 +1670,7 @@ namespace nPOSProj
             {
                 try
                 {
-                    Int32 eanX = catchEan;
+                    String eanX = catchEan;
                     lviewPOS.SelectedItems[0].Remove();
                     Double total_fin = 0;
                     Double total_fins = 0;
@@ -2168,9 +2194,9 @@ namespace nPOSProj
                             adapter.Fill(dataTable);
                             for (int i = 0; i < dataTable.Rows.Count; i++)
                             {
-                                Int32 Eans = 0;
+                                String Eans;
                                 Int32 qtys = 0;
-                                Eans = Convert.ToInt32(dataTable.Rows[i][0]);
+                                Eans = dataTable.Rows[i][0].ToString();
                                 qtys = Convert.ToInt32(dataTable.Rows[i][1]);
                                 //Data Integration Return Sale to Item
                                 pos.Pos_ean = Eans;

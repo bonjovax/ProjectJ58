@@ -14,6 +14,7 @@ namespace nPOSProj
     public partial class mdiPayment : Form
     {
         #region System Config
+        private Conf.Drawer drawer;
         private Double taxP;
         private String taxDisplay;
         private String compName;
@@ -197,7 +198,9 @@ namespace nPOSProj
                     {
                         dataGridView1.SelectedRows[0].Cells[2].Value = Convert.ToDouble(0);
                     }
+                    drawer = new Conf.Drawer();
                     PrintPayments();
+                    drawer.Open();
                     txtBoxAmount.Clear();
                     btnPay.Enabled = false;
                 }
@@ -269,41 +272,41 @@ namespace nPOSProj
         {
             frmLogin fl = new frmLogin();
             Graphics graphic = e.Graphics;
-            Font font = new Font("Telidon", 10);
+            Font font = new Font("Tahoma", 10);
 
             float fontHeight = font.GetHeight();
             int startX = 10;
             int startY = 10;
 
             #region Header
-            graphic.DrawString(compName, new Font("Telidon", 14), new SolidBrush(Color.Black), startX, startY);
-            graphic.DrawString(address1, new Font("Telidon Cd", 11), new SolidBrush(Color.Black), 50, 30);
-            graphic.DrawString(address2, new Font("Telidon Cd", 11), new SolidBrush(Color.Black), 43, 45);
-            graphic.DrawString(contact, new Font("Telidon Cd", 11), new SolidBrush(Color.Black), 53, 60);
-            graphic.DrawString("Owned & Operated By: " + store_op, new Font("Telidon Cd", 11), new SolidBrush(Color.Black), 5, 75);
-            graphic.DrawString("Permit No: " + permit_no, new Font("Telidon Cd", 11), new SolidBrush(Color.Black), 62, 90);
-            graphic.DrawString("TIN: " + TIN + "" + TaxT, new Font("Telidon Cd", 11), new SolidBrush(Color.Black), 62, 105);
-            graphic.DrawString("Accreditation No: " + bir.AccreditationNo(), new Font("Telidon Cd", 9), new SolidBrush(Color.Black), 11, 120);
-            graphic.DrawString("Serial No: " + bir.SerialNo(), new Font("Telidon Cd", 11), new SolidBrush(Color.Black), 68, 135);
-            graphic.DrawString("Machine Code: " + machine_no, new Font("Telidon Cd", 11), new SolidBrush(Color.Black), 56, 150);
-            graphic.DrawString("-------------------------------------------", new Font("Telidon Cd", 11), new SolidBrush(Color.Black), 3, 165);
-            graphic.DrawString(DateTime.Now.ToString("MMM dd, yyyy") + " " + "(" + DateTime.Now.ToString("ddd") + ")", font, new SolidBrush(Color.Black), 5, 185);
-            graphic.DrawString(DateTime.Now.ToString("hh:mm tt"), font, new SolidBrush(Color.Black), 185, 185);
-            graphic.DrawString("Customer Code: ", font, new SolidBrush(Color.Black), 5, 206);
-            graphic.DrawString(dataGridView1.SelectedRows[0].Cells[0].Value.ToString(), font, new SolidBrush(Color.Black), 120, 206);
+            graphic.DrawString(compName, new Font("Tahoma", 14), new SolidBrush(Color.Black), startX, startY);
+            graphic.DrawString(address1, new Font("Tahoma", 11), new SolidBrush(Color.Black), 45, 30);
+            graphic.DrawString(address2, new Font("Tahoma", 11), new SolidBrush(Color.Black), 38, 45);
+            //graphic.DrawString(contact, new Font("Tahoma", 11), new SolidBrush(Color.Black), 53, 60);
+            //graphic.DrawString("Owned & Operated By: " + store_op, new Font("Tahoma", 11), new SolidBrush(Color.Black), 5, 75);
+            graphic.DrawString("Permit No: " + permit_no, new Font("Tahoma", 11), new SolidBrush(Color.Black), 47, 60);
+            graphic.DrawString("TIN: " + TIN + "" + TaxT, new Font("Tahoma", 11), new SolidBrush(Color.Black), 47, 75);
+            graphic.DrawString("Accreditation No: " + bir.AccreditationNo(), new Font("Tahoma", 7), new SolidBrush(Color.Black), 11, 95);
+            graphic.DrawString("Serial No: " + bir.SerialNo(), new Font("Tahoma", 11), new SolidBrush(Color.Black), 61, 105);
+            graphic.DrawString("Machine Code: " + machine_no, new Font("Tahoma", 11), new SolidBrush(Color.Black), 43, 120);
+            graphic.DrawString("-------------------------------------------", new Font("Tahoma", 11), new SolidBrush(Color.Black), 3, 135);
+            graphic.DrawString(DateTime.Now.ToString("MMM dd, yyyy") + " " + "(" + DateTime.Now.ToString("ddd") + ")", font, new SolidBrush(Color.Black), 5, 150);
+            graphic.DrawString(DateTime.Now.ToString("hh:mm tt"), font, new SolidBrush(Color.Black), 175, 150);
+            graphic.DrawString("Customer Code: ", font, new SolidBrush(Color.Black), 5, 175);
+            graphic.DrawString(dataGridView1.SelectedRows[0].Cells[0].Value.ToString(), font, new SolidBrush(Color.Black), 120, 175);
             //
-            graphic.DrawString("Company: ", font, new SolidBrush(Color.Black), 5, 222);
-            graphic.DrawString(Truncate(dataGridView1.SelectedRows[0].Cells[1].Value.ToString(), 25), font, new SolidBrush(Color.Black), 70, 222);
+            graphic.DrawString("Company: ", font, new SolidBrush(Color.Black), 5, 190);
+            graphic.DrawString(Truncate(dataGridView1.SelectedRows[0].Cells[1].Value.ToString(), 25), font, new SolidBrush(Color.Black), 70, 190);
             //
-            graphic.DrawString("Amount Paid ", new Font("Telidon", 14), new SolidBrush(Color.Black), 5, 252);
-            graphic.DrawString(Convert.ToDouble(dataGridView1.SelectedRows[0].Cells[3].Value).ToString("#,###,##0.00"), new Font("Telidon", 14), new SolidBrush(Color.Black), 125, 252);
+            graphic.DrawString("Amount Paid ", new Font("Tahoma", 14), new SolidBrush(Color.Black), 5, 205);
+            graphic.DrawString(Convert.ToDouble(dataGridView1.SelectedRows[0].Cells[3].Value).ToString("#,###,##0.00"), new Font("Tahoma", 14), new SolidBrush(Color.Black), 125, 205);
             //
-            graphic.DrawString("Balance ", new Font("Telidon", 14), new SolidBrush(Color.Black), 5, 272);
-            graphic.DrawString(Convert.ToDouble(dataGridView1.SelectedRows[0].Cells[4].Value).ToString("#,###,##0.00"), new Font("Telidon", 14), new SolidBrush(Color.Black), 125, 272);
+            graphic.DrawString("Balance ", new Font("Tahoma", 14), new SolidBrush(Color.Black), 5, 230);
+            graphic.DrawString(Convert.ToDouble(dataGridView1.SelectedRows[0].Cells[4].Value).ToString("#,###,##0.00"), new Font("Tahoma", 14), new SolidBrush(Color.Black), 125, 230);
             //
-            graphic.DrawString("-------------------------------------------", new Font("Telidon Cd", 11), new SolidBrush(Color.Black), 3, 292);
-            graphic.DrawString("CASHIER: ", new Font("Telidon Cd", 11), new SolidBrush(Color.Black), 3, 305);
-            graphic.DrawString(frmLogin.User.user_name, new Font("Telidon Cd", 11), new SolidBrush(Color.Black), 60, 305);
+            graphic.DrawString("-------------------------------------------", new Font("Tahoma", 11), new SolidBrush(Color.Black), 3, 245);
+            graphic.DrawString("CASHIER: ", new Font("Tahoma", 9), new SolidBrush(Color.Black), 3, 260);
+            graphic.DrawString(frmLogin.User.user_name, new Font("Tahoma", 9), new SolidBrush(Color.Black), 60, 260);
             #endregion
         }
     }

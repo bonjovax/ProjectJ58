@@ -133,6 +133,18 @@ namespace nPOSProj
                 MessageBox.Show(ex.ToString());
             }
         }
+        private void DrawerPing()
+        {
+            try
+            {
+                Conf.Drawer drawer = new Conf.Drawer();
+                drawer.Open();
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Check Cash Drawer Please!", "Drawer Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
 
         private void PrintXTicket()
         {
@@ -143,6 +155,7 @@ namespace nPOSProj
         {
             printZ.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(printZ_PrintPage);
             printZ.Print();
+            DrawerPing();
         }
         void printZ_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
         {
@@ -150,11 +163,12 @@ namespace nPOSProj
             {
                 frmLogin fl = new frmLogin();
                 Graphics graphic = e.Graphics;
-                Font font = new Font("Telidon", 10);
+                Font font = new Font("Tahoma", 10);
 
                 float fontHeight = font.GetHeight();
                 int startX = 2;
                 int startY = 10;
+                //int offset = 40;
                 reports.Pos_date = Convert.ToDateTime(dtZ.Text).ToString("yyyy-MM-dd");
                 reports.Pos_terminal = terminalSelectZ;
                 Double Gross = reports.GrossAmount();
@@ -166,7 +180,6 @@ namespace nPOSProj
                 Int32 CtrStart = reports.SeriesStart();
                 Int32 CtrEnd = reports.SeriesEnd();
                 Int32 CancelledTxn = reports.CountCancel();
-                Double CancellAmt = reports.ComputeCancelAmount();
                 Int32 NOTrans = reports.NumberOfTrans();
                 Int32 NoOfEAN = reports.NumberOfEan();
                 Int32 OverallQ = reports.OverallQty();
@@ -174,28 +187,28 @@ namespace nPOSProj
                 Double Running = PreviousNET + Net;
 
                 #region Header
-                graphic.DrawString(compName, new Font("Telidon", 14), new SolidBrush(Color.Black), startX, startY);
-                graphic.DrawString(address1, new Font("Telidon Cd", 11), new SolidBrush(Color.Black), 50, 30);
-                graphic.DrawString(address2, new Font("Telidon Cd", 11), new SolidBrush(Color.Black), 43, 45);
-                graphic.DrawString(contact, new Font("Telidon Cd", 11), new SolidBrush(Color.Black), 53, 60);
-                graphic.DrawString("Owned & Operated By: " + store_op, new Font("Telidon Cd", 11), new SolidBrush(Color.Black), 5, 75);
-                graphic.DrawString("Permit No: " + permit_no, new Font("Telidon Cd", 11), new SolidBrush(Color.Black), 62, 90);
-                graphic.DrawString("TIN: " + TIN + "" + TaxT, new Font("Telidon Cd", 11), new SolidBrush(Color.Black), 62, 105);
-                graphic.DrawString("Accreditation No: " + bir.AccreditationNo(), new Font("Telidon Cd", 9), new SolidBrush(Color.Black), 11, 120);
-                graphic.DrawString("Serial No: " + bir.SerialNo(), new Font("Telidon Cd", 11), new SolidBrush(Color.Black), 68, 135);
-                graphic.DrawString("Machine Code: " + machine_no, new Font("Telidon Cd", 11), new SolidBrush(Color.Black), 56, 150);
-                graphic.DrawString("Z Reports", new Font("Telidon CdHv", 13), new SolidBrush(Color.Black), 90, 165);
-                graphic.DrawString(dtZ.Text, new Font("Telidon Cd", 11), new SolidBrush(Color.Black), 5, 185);
-                graphic.DrawString("at Terminal: " + terminalSelectZ, new Font("Telidon Cd", 11), new SolidBrush(Color.Black), 5, 200);
-                graphic.DrawString("-------------------------------------------", new Font("Telidon Cd", 11), new SolidBrush(Color.Black), 3, 215);
+                graphic.DrawString(compName, new Font("Tahoma", 14), new SolidBrush(Color.Black), startX, startY);
+                graphic.DrawString(address1, new Font("Tahoma", 11), new SolidBrush(Color.Black), 45, 30);
+                graphic.DrawString(address2, new Font("Tahoma", 11), new SolidBrush(Color.Black), 38, 45);
+                //graphic.DrawString(contact, new Font("Tahoma", 11), new SolidBrush(Color.Black), 53, 60);
+                //graphic.DrawString("Owned & Operated By: " + store_op, new Font("Tahoma", 11), new SolidBrush(Color.Black), 5, 75);
+                graphic.DrawString("Permit No: " + permit_no, new Font("Tahoma", 11), new SolidBrush(Color.Black), 47, 60);
+                graphic.DrawString("TIN: " + TIN + "" + TaxT, new Font("Tahoma", 11), new SolidBrush(Color.Black), 47, 75);
+                graphic.DrawString("Accreditation No: " + bir.AccreditationNo(), new Font("Tahoma", 7), new SolidBrush(Color.Black), 11, 95);
+                graphic.DrawString("Serial No: " + bir.SerialNo(), new Font("Tahoma", 11), new SolidBrush(Color.Black), 61, 105);
+                graphic.DrawString("Machine Code: " + machine_no, new Font("Tahoma", 11), new SolidBrush(Color.Black), 43, 120);
+                graphic.DrawString("Z Reports", new Font("Tahoma", 13), new SolidBrush(Color.Black), 85, 135);
+                graphic.DrawString(dtZ.Text, new Font("Tahoma", 9), new SolidBrush(Color.Black), 5, 150);
+                graphic.DrawString(userName + " at Terminal: " + terminalSelectZ, new Font("Tahoma", 9), new SolidBrush(Color.Black), 5, 165);
+                graphic.DrawString("-------------------------------------------", new Font("Tahoma", 11), new SolidBrush(Color.Black), 3, 180);
                 #endregion
                 #region Content Reading
-                graphic.DrawString("Gross Sales:".PadRight(10), new Font("Telidon Cd", 11), new SolidBrush(Color.Black), 25, 230);
-                graphic.DrawString(Gross.ToString("#,###,##0.00").PadLeft(10), new Font("Telidon Cd", 11), new SolidBrush(Color.Black), 166, 230);
-                graphic.DrawString("Discounts:".PadRight(10), new Font("Telidon Cd", 11), new SolidBrush(Color.Black), 25, 246);
-                graphic.DrawString(Discounts.ToString("#,###,##0.00").PadLeft(10), new Font("Telidon Cd", 11), new SolidBrush(Color.Black), 166, 246);
-                graphic.DrawString("Net Sales:".PadRight(10), new Font("Telidon Cd", 11), new SolidBrush(Color.Black), 25, 262);
-                graphic.DrawString(Net.ToString("#,###,##0.00").PadLeft(10), new Font("Telidon Cd", 11), new SolidBrush(Color.Black), 166, 262);
+                graphic.DrawString("Gross Sales:".PadRight(10), new Font("Tahoma", 11), new SolidBrush(Color.Black), 25, 200);
+                graphic.DrawString(Gross.ToString("#,###,##0.00").PadLeft(10), new Font("Tahoma", 11), new SolidBrush(Color.Black), 166, 200);
+                graphic.DrawString("Discounts:".PadRight(10), new Font("Tahoma", 11), new SolidBrush(Color.Black), 25, 220);
+                graphic.DrawString(Discounts.ToString("#,###,##0.00").PadLeft(10), new Font("Tahoma", 11), new SolidBrush(Color.Black), 166, 220);
+                graphic.DrawString("Net Sales:".PadRight(10), new Font("Tahoma", 11), new SolidBrush(Color.Black), 25, 240);
+                graphic.DrawString(Net.ToString("#,###,##0.00").PadLeft(10), new Font("Tahoma", 11), new SolidBrush(Color.Black), 166, 240);
                 //
                 //Space
                 //
@@ -207,48 +220,46 @@ namespace nPOSProj
                 {
                     NV = Net;
                 }
-                graphic.DrawString("Non-VAT Sales:".PadRight(10), new Font("Telidon Cd", 11), new SolidBrush(Color.Black), 25, 295);
-                graphic.DrawString(NV.ToString("#,###,##0.00").PadLeft(10), new Font("Telidon Cd", 11), new SolidBrush(Color.Black), 166, 295);
-                graphic.DrawString("VAT Sales:".PadRight(10), new Font("Telidon Cd", 11), new SolidBrush(Color.Black), 25, 310);
-                graphic.DrawString(V.ToString("#,###,##0.00").PadLeft(10), new Font("Telidon Cd", 11), new SolidBrush(Color.Black), 166, 310);
-                graphic.DrawString("VAT:".PadRight(10), new Font("Telidon Cd", 11), new SolidBrush(Color.Black), 25, 325);
-                graphic.DrawString(VATAMT.ToString("#,###,##0.00").PadLeft(10), new Font("Telidon Cd", 11), new SolidBrush(Color.Black), 166, 325);
+                graphic.DrawString("Non-VAT Sales:".PadRight(10), new Font("Tahoma", 11), new SolidBrush(Color.Black), 25, 270);
+                graphic.DrawString(NV.ToString("#,###,##0.00").PadLeft(10), new Font("Tahoma", 11), new SolidBrush(Color.Black), 166, 270);
+                graphic.DrawString("VAT Sales:".PadRight(10), new Font("Tahoma", 11), new SolidBrush(Color.Black), 25, 290);
+                graphic.DrawString(V.ToString("#,###,##0.00").PadLeft(10), new Font("Tahoma", 11), new SolidBrush(Color.Black), 166, 290);
+                graphic.DrawString("VAT:".PadRight(10), new Font("Tahoma", 11), new SolidBrush(Color.Black), 25, 310);
+                graphic.DrawString(VATAMT.ToString("#,###,##0.00").PadLeft(10), new Font("Tahoma", 11), new SolidBrush(Color.Black), 166, 310);
                 //
                 //Space
                 //
-                graphic.DrawString("Counter # Start:".PadRight(10), new Font("Telidon Cd", 11), new SolidBrush(Color.Black), 25, 358);
-                graphic.DrawString(CtrStart.ToString().PadLeft(10), new Font("Telidon Cd", 11), new SolidBrush(Color.Black), 166, 358);
-                graphic.DrawString("Counter # End:".PadRight(10), new Font("Telidon Cd", 11), new SolidBrush(Color.Black), 25, 373);
-                graphic.DrawString(CtrEnd.ToString().PadLeft(10), new Font("Telidon Cd", 11), new SolidBrush(Color.Black), 166, 373);
+                graphic.DrawString("Counter # Start:".PadRight(10), new Font("Tahoma", 11), new SolidBrush(Color.Black), 25, 340);
+                graphic.DrawString(CtrStart.ToString().PadLeft(10), new Font("Tahoma", 11), new SolidBrush(Color.Black), 166, 340);
+                graphic.DrawString("Counter # End:".PadRight(10), new Font("Tahoma", 11), new SolidBrush(Color.Black), 25, 360);
+                graphic.DrawString(CtrEnd.ToString().PadLeft(10), new Font("Tahoma", 11), new SolidBrush(Color.Black), 166, 360);
                 //
                 //Space
                 //
-                graphic.DrawString("Cancelled Txn:".PadRight(10), new Font("Telidon Cd", 11), new SolidBrush(Color.Black), 25, 406);
-                graphic.DrawString(CancelledTxn.ToString().PadLeft(10), new Font("Telidon Cd", 11), new SolidBrush(Color.Black), 166, 406);
-                graphic.DrawString("Cancelled Amount:".PadRight(10), new Font("Telidon Cd", 11), new SolidBrush(Color.Black), 25, 421);
-                graphic.DrawString(CancellAmt.ToString("#,###,##0.00").PadLeft(10), new Font("Telidon Cd", 11), new SolidBrush(Color.Black), 166, 421);
+                graphic.DrawString("Cancelled Txn:".PadRight(10), new Font("Tahoma", 11), new SolidBrush(Color.Black), 25, 390);
+                graphic.DrawString(CancelledTxn.ToString().PadLeft(10), new Font("Tahoma", 11), new SolidBrush(Color.Black), 166, 390);
                 //
                 //Space
                 //
-                graphic.DrawString("No of Transactions:".PadRight(10), new Font("Telidon Cd", 11), new SolidBrush(Color.Black), 25, 454);
-                graphic.DrawString(NOTrans.ToString().PadLeft(10), new Font("Telidon Cd", 11), new SolidBrush(Color.Black), 166, 454);
-                graphic.DrawString("No of EAN:".PadRight(10), new Font("Telidon Cd", 11), new SolidBrush(Color.Black), 25, 469);
-                graphic.DrawString(NoOfEAN.ToString().PadLeft(10), new Font("Telidon Cd", 11), new SolidBrush(Color.Black), 166, 469);
-                graphic.DrawString("Total Quantity:".PadRight(10), new Font("Telidon Cd", 11), new SolidBrush(Color.Black), 25, 484);
-                graphic.DrawString(OverallQ.ToString().PadLeft(10), new Font("Telidon Cd", 11), new SolidBrush(Color.Black), 166, 484);
+                graphic.DrawString("No of Transactions:".PadRight(10), new Font("Tahoma", 11), new SolidBrush(Color.Black), 25, 420);
+                graphic.DrawString(NOTrans.ToString().PadLeft(10), new Font("Tahoma", 11), new SolidBrush(Color.Black), 166, 420);
+                graphic.DrawString("No of EAN:".PadRight(10), new Font("Tahoma", 11), new SolidBrush(Color.Black), 25, 440);
+                graphic.DrawString(NoOfEAN.ToString().PadLeft(10), new Font("Tahoma", 11), new SolidBrush(Color.Black), 166, 440);
+                graphic.DrawString("Total Quantity:".PadRight(10), new Font("Tahoma", 11), new SolidBrush(Color.Black), 25, 460);
+                graphic.DrawString(OverallQ.ToString().PadLeft(10), new Font("Tahoma", 11), new SolidBrush(Color.Black), 166, 460);
                 //
                 //Space
                 //
-                graphic.DrawString("Previous Reading:".PadRight(10), new Font("Telidon Cd", 11), new SolidBrush(Color.Black), 25, 517);
-                graphic.DrawString(PreviousNET.ToString("#,###,##0.00").PadLeft(10), new Font("Telidon Cd", 11), new SolidBrush(Color.Black), 166, 517);
-                graphic.DrawString("Net Sales:".PadRight(10), new Font("Telidon Cd", 11), new SolidBrush(Color.Black), 25, 532);
-                graphic.DrawString(Net.ToString("#,###,##0.00").PadLeft(10), new Font("Telidon Cd", 11), new SolidBrush(Color.Black), 166, 532);
-                graphic.DrawString("Running Total:".PadRight(10), new Font("Telidon Cd", 11), new SolidBrush(Color.Black), 25, 547);
-                graphic.DrawString(Running.ToString("#,###,##0.00").PadLeft(10), new Font("Telidon Cd", 11), new SolidBrush(Color.Black), 166, 547);
+                graphic.DrawString("Previous Reading:".PadRight(10), new Font("Tahoma", 11), new SolidBrush(Color.Black), 25, 490);
+                graphic.DrawString(PreviousNET.ToString("#,###,##0.00").PadLeft(10), new Font("Tahoma", 11), new SolidBrush(Color.Black), 166, 490);
+                graphic.DrawString("Net Sales:".PadRight(10), new Font("Tahoma", 11), new SolidBrush(Color.Black), 25, 510);
+                graphic.DrawString(Net.ToString("#,###,##0.00").PadLeft(10), new Font("Tahoma", 11), new SolidBrush(Color.Black), 166, 510);
+                graphic.DrawString("Running Total:".PadRight(10), new Font("Tahoma", 11), new SolidBrush(Color.Black), 25, 530);
+                graphic.DrawString(Running.ToString("#,###,##0.00").PadLeft(10), new Font("Tahoma", 11), new SolidBrush(Color.Black), 166, 530);
                 #endregion
                 #region Footer
-                graphic.DrawString("-------------------------------------------", new Font("Telidon Cd", 11), new SolidBrush(Color.Black), 3, 570);
-                graphic.DrawString("End of Z Reports", new Font("Telidon CdHv", 13), new SolidBrush(Color.Black), 70, 579);
+                graphic.DrawString("-------------------------------------------", new Font("Tahoma", 11), new SolidBrush(Color.Black), 3, 550);
+                graphic.DrawString("End of Z Reports", new Font("Tahoma", 13), new SolidBrush(Color.Black), 70, 560);
                 #endregion
             }
             catch (Exception)
@@ -262,7 +273,7 @@ namespace nPOSProj
             {
                 frmLogin fl = new frmLogin();
                 Graphics graphic = e.Graphics;
-                Font font = new Font("Telidon", 10);
+                Font font = new Font("Tahoma", 10);
 
                 float fontHeight = font.GetHeight();
                 int startX = 2;
@@ -279,7 +290,6 @@ namespace nPOSProj
                 Int32 CtrStart = reports.SeriesStart();
                 Int32 CtrEnd = reports.SeriesEnd();
                 Int32 CancelledTxn = reports.CountCancel();
-                Double CancellAmt = reports.ComputeCancelAmount();
                 Int32 NOTrans = reports.NumberOfTrans();
                 Int32 NoOfEAN = reports.NumberOfEan();
                 Int32 OverallQ = reports.OverallQty();
@@ -287,28 +297,28 @@ namespace nPOSProj
                 Double Running = PreviousNET + Net;
 
                 #region Header
-                graphic.DrawString(compName, new Font("Telidon", 14), new SolidBrush(Color.Black), startX, startY);
-                graphic.DrawString(address1, new Font("Telidon Cd", 11), new SolidBrush(Color.Black), 50, 30);
-                graphic.DrawString(address2, new Font("Telidon Cd", 11), new SolidBrush(Color.Black), 43, 45);
-                graphic.DrawString(contact, new Font("Telidon Cd", 11), new SolidBrush(Color.Black), 53, 60);
-                graphic.DrawString("Owned & Operated By: " + store_op, new Font("Telidon Cd", 11), new SolidBrush(Color.Black), 5, 75);
-                graphic.DrawString("Permit No: " + permit_no, new Font("Telidon Cd", 11), new SolidBrush(Color.Black), 62, 90);
-                graphic.DrawString("TIN: " + TIN + "" + TaxT, new Font("Telidon Cd", 11), new SolidBrush(Color.Black), 62, 105);
-                graphic.DrawString("Accreditation No: " + bir.AccreditationNo(), new Font("Telidon Cd", 9), new SolidBrush(Color.Black), 11, 120);
-                graphic.DrawString("Serial No: " + bir.SerialNo(), new Font("Telidon Cd", 11), new SolidBrush(Color.Black), 68, 135);
-                graphic.DrawString("Machine Code: " + machine_no, new Font("Telidon Cd", 11), new SolidBrush(Color.Black), 56, 150);
-                graphic.DrawString("X Reports", new Font("Telidon CdHv", 13), new SolidBrush(Color.Black), 90, 165);
-                graphic.DrawString(dtX.Text, new Font("Telidon Cd", 11), new SolidBrush(Color.Black), 5, 185);
-                graphic.DrawString(userName + " at Terminal: " + terminalSelect, new Font("Telidon Cd", 11), new SolidBrush(Color.Black), 5, 200);
-                graphic.DrawString("-------------------------------------------", new Font("Telidon Cd", 11), new SolidBrush(Color.Black), 3, 215);
+                graphic.DrawString(compName, new Font("Tahoma", 14), new SolidBrush(Color.Black), startX, startY);
+                graphic.DrawString(address1, new Font("Tahoma", 11), new SolidBrush(Color.Black), 45, 30);
+                graphic.DrawString(address2, new Font("Tahoma", 11), new SolidBrush(Color.Black), 38, 45);
+                //graphic.DrawString(contact, new Font("Tahoma", 11), new SolidBrush(Color.Black), 53, 60);
+                //graphic.DrawString("Owned & Operated By: " + store_op, new Font("Tahoma", 11), new SolidBrush(Color.Black), 5, 75);
+                graphic.DrawString("Permit No: " + permit_no, new Font("Tahoma", 11), new SolidBrush(Color.Black), 47, 60);
+                graphic.DrawString("TIN: " + TIN + "" + TaxT, new Font("Tahoma", 11), new SolidBrush(Color.Black), 47, 75);
+                graphic.DrawString("Accreditation No: " + bir.AccreditationNo(), new Font("Tahoma", 7), new SolidBrush(Color.Black), 11, 95);
+                graphic.DrawString("Serial No: " + bir.SerialNo(), new Font("Tahoma", 11), new SolidBrush(Color.Black), 61, 105);
+                graphic.DrawString("Machine Code: " + machine_no, new Font("Tahoma", 11), new SolidBrush(Color.Black), 43, 120);
+                graphic.DrawString("X Reports", new Font("Tahoma", 13), new SolidBrush(Color.Black), 85, 135);
+                graphic.DrawString(dtX.Text, new Font("Tahoma", 9), new SolidBrush(Color.Black), 5, 150);
+                graphic.DrawString(userName + " at Terminal: " + terminalSelect, new Font("Tahoma", 9), new SolidBrush(Color.Black), 5, 165);
+                graphic.DrawString("-------------------------------------------", new Font("Tahoma", 11), new SolidBrush(Color.Black), 3, 180);
                 #endregion
                 #region Content Reading
-                graphic.DrawString("Gross Sales:".PadRight(10), new Font("Telidon Cd", 11), new SolidBrush(Color.Black), 25, 230);
-                graphic.DrawString(Gross.ToString("#,###,##0.00").PadLeft(10), new Font("Telidon Cd", 11), new SolidBrush(Color.Black), 166, 230);
-                graphic.DrawString("Discounts:".PadRight(10), new Font("Telidon Cd", 11), new SolidBrush(Color.Black), 25, 246);
-                graphic.DrawString(Discounts.ToString("#,###,##0.00").PadLeft(10), new Font("Telidon Cd", 11), new SolidBrush(Color.Black), 166, 246);
-                graphic.DrawString("Net Sales:".PadRight(10), new Font("Telidon Cd", 11), new SolidBrush(Color.Black), 25, 262);
-                graphic.DrawString(Net.ToString("#,###,##0.00").PadLeft(10), new Font("Telidon Cd", 11), new SolidBrush(Color.Black), 166, 262);
+                graphic.DrawString("Gross Sales:".PadRight(10), new Font("Tahoma", 11), new SolidBrush(Color.Black), 25, 200);
+                graphic.DrawString(Gross.ToString("#,###,##0.00").PadLeft(10), new Font("Tahoma", 11), new SolidBrush(Color.Black), 166, 200);
+                graphic.DrawString("Discounts:".PadRight(10), new Font("Tahoma", 11), new SolidBrush(Color.Black), 25, 220);
+                graphic.DrawString(Discounts.ToString("#,###,##0.00").PadLeft(10), new Font("Tahoma", 11), new SolidBrush(Color.Black), 166, 220);
+                graphic.DrawString("Net Sales:".PadRight(10), new Font("Tahoma", 11), new SolidBrush(Color.Black), 25, 240);
+                graphic.DrawString(Net.ToString("#,###,##0.00").PadLeft(10), new Font("Tahoma", 11), new SolidBrush(Color.Black), 166, 240);
                 //
                 //Space
                 //
@@ -320,48 +330,46 @@ namespace nPOSProj
                 {
                     NV = Net;
                 }
-                graphic.DrawString("Non-VAT Sales:".PadRight(10), new Font("Telidon Cd", 11), new SolidBrush(Color.Black), 25, 295);
-                graphic.DrawString(NV.ToString("#,###,##0.00").PadLeft(10), new Font("Telidon Cd", 11), new SolidBrush(Color.Black), 166, 295);
-                graphic.DrawString("VAT Sales:".PadRight(10), new Font("Telidon Cd", 11), new SolidBrush(Color.Black), 25, 310);
-                graphic.DrawString(V.ToString("#,###,##0.00").PadLeft(10), new Font("Telidon Cd", 11), new SolidBrush(Color.Black), 166, 310);
-                graphic.DrawString("VAT:".PadRight(10), new Font("Telidon Cd", 11), new SolidBrush(Color.Black), 25, 325);
-                graphic.DrawString(VATAMT.ToString("#,###,##0.00").PadLeft(10), new Font("Telidon Cd", 11), new SolidBrush(Color.Black), 166, 325);
+                graphic.DrawString("Non-VAT Sales:".PadRight(10), new Font("Tahoma", 11), new SolidBrush(Color.Black), 25, 270);
+                graphic.DrawString(NV.ToString("#,###,##0.00").PadLeft(10), new Font("Tahoma", 11), new SolidBrush(Color.Black), 166, 270);
+                graphic.DrawString("VAT Sales:".PadRight(10), new Font("Tahoma", 11), new SolidBrush(Color.Black), 25, 290);
+                graphic.DrawString(V.ToString("#,###,##0.00").PadLeft(10), new Font("Tahoma", 11), new SolidBrush(Color.Black), 166, 290);
+                graphic.DrawString("VAT:".PadRight(10), new Font("Tahoma", 11), new SolidBrush(Color.Black), 25, 310);
+                graphic.DrawString(VATAMT.ToString("#,###,##0.00").PadLeft(10), new Font("Tahoma", 11), new SolidBrush(Color.Black), 166, 310);
                 //
                 //Space
                 //
-                graphic.DrawString("Counter # Start:".PadRight(10), new Font("Telidon Cd", 11), new SolidBrush(Color.Black), 25, 358);
-                graphic.DrawString(CtrStart.ToString().PadLeft(10), new Font("Telidon Cd", 11), new SolidBrush(Color.Black), 166, 358);
-                graphic.DrawString("Counter # End:".PadRight(10), new Font("Telidon Cd", 11), new SolidBrush(Color.Black), 25, 373);
-                graphic.DrawString(CtrEnd.ToString().PadLeft(10), new Font("Telidon Cd", 11), new SolidBrush(Color.Black), 166, 373);
+                graphic.DrawString("Counter # Start:".PadRight(10), new Font("Tahoma", 11), new SolidBrush(Color.Black), 25, 340);
+                graphic.DrawString(CtrStart.ToString().PadLeft(10), new Font("Tahoma", 11), new SolidBrush(Color.Black), 166, 340);
+                graphic.DrawString("Counter # End:".PadRight(10), new Font("Tahoma", 11), new SolidBrush(Color.Black), 25, 360);
+                graphic.DrawString(CtrEnd.ToString().PadLeft(10), new Font("Tahoma", 11), new SolidBrush(Color.Black), 166, 360);
                 //
                 //Space
                 //
-                graphic.DrawString("Cancelled Txn:".PadRight(10), new Font("Telidon Cd", 11), new SolidBrush(Color.Black), 25, 406);
-                graphic.DrawString(CancelledTxn.ToString().PadLeft(10), new Font("Telidon Cd", 11), new SolidBrush(Color.Black), 166, 406);
-                graphic.DrawString("Cancelled Amount:".PadRight(10), new Font("Telidon Cd", 11), new SolidBrush(Color.Black), 25, 421);
-                graphic.DrawString(CancellAmt.ToString("#,###,##0.00").PadLeft(10), new Font("Telidon Cd", 11), new SolidBrush(Color.Black), 166, 421);
+                graphic.DrawString("Cancelled Txn:".PadRight(10), new Font("Tahoma", 11), new SolidBrush(Color.Black), 25, 390);
+                graphic.DrawString(CancelledTxn.ToString().PadLeft(10), new Font("Tahoma", 11), new SolidBrush(Color.Black), 166, 390);
                 //
                 //Space
                 //
-                graphic.DrawString("No of Transactions:".PadRight(10), new Font("Telidon Cd", 11), new SolidBrush(Color.Black), 25, 454);
-                graphic.DrawString(NOTrans.ToString().PadLeft(10), new Font("Telidon Cd", 11), new SolidBrush(Color.Black), 166, 454);
-                graphic.DrawString("No of EAN:".PadRight(10), new Font("Telidon Cd", 11), new SolidBrush(Color.Black), 25, 469);
-                graphic.DrawString(NoOfEAN.ToString().PadLeft(10), new Font("Telidon Cd", 11), new SolidBrush(Color.Black), 166, 469);
-                graphic.DrawString("Total Quantity:".PadRight(10), new Font("Telidon Cd", 11), new SolidBrush(Color.Black), 25, 484);
-                graphic.DrawString(OverallQ.ToString().PadLeft(10), new Font("Telidon Cd", 11), new SolidBrush(Color.Black), 166, 484);
+                graphic.DrawString("No of Transactions:".PadRight(10), new Font("Tahoma", 11), new SolidBrush(Color.Black), 25, 420);
+                graphic.DrawString(NOTrans.ToString().PadLeft(10), new Font("Tahoma", 11), new SolidBrush(Color.Black), 166, 420);
+                graphic.DrawString("No of EAN:".PadRight(10), new Font("Tahoma", 11), new SolidBrush(Color.Black), 25, 440);
+                graphic.DrawString(NoOfEAN.ToString().PadLeft(10), new Font("Tahoma", 11), new SolidBrush(Color.Black), 166, 440);
+                graphic.DrawString("Total Quantity:".PadRight(10), new Font("Tahoma", 11), new SolidBrush(Color.Black), 25, 460);
+                graphic.DrawString(OverallQ.ToString().PadLeft(10), new Font("Tahoma", 11), new SolidBrush(Color.Black), 166, 460);
                 //
                 //Space
                 //
-                graphic.DrawString("Previous Reading:".PadRight(10), new Font("Telidon Cd", 11), new SolidBrush(Color.Black), 25, 517);
-                graphic.DrawString(PreviousNET.ToString("#,###,##0.00").PadLeft(10), new Font("Telidon Cd", 11), new SolidBrush(Color.Black), 166, 517);
-                graphic.DrawString("Net Sales:".PadRight(10), new Font("Telidon Cd", 11), new SolidBrush(Color.Black), 25, 532);
-                graphic.DrawString(Net.ToString("#,###,##0.00").PadLeft(10), new Font("Telidon Cd", 11), new SolidBrush(Color.Black), 166, 532);
-                graphic.DrawString("Running Total:".PadRight(10), new Font("Telidon Cd", 11), new SolidBrush(Color.Black), 25, 547);
-                graphic.DrawString(Running.ToString("#,###,##0.00").PadLeft(10), new Font("Telidon Cd", 11), new SolidBrush(Color.Black), 166, 547);
+                graphic.DrawString("Previous Reading:".PadRight(10), new Font("Tahoma", 11), new SolidBrush(Color.Black), 25, 490);
+                graphic.DrawString(PreviousNET.ToString("#,###,##0.00").PadLeft(10), new Font("Tahoma", 11), new SolidBrush(Color.Black), 166, 490);
+                graphic.DrawString("Net Sales:".PadRight(10), new Font("Tahoma", 11), new SolidBrush(Color.Black), 25, 510);
+                graphic.DrawString(Net.ToString("#,###,##0.00").PadLeft(10), new Font("Tahoma", 11), new SolidBrush(Color.Black), 166, 510);
+                graphic.DrawString("Running Total:".PadRight(10), new Font("Tahoma", 11), new SolidBrush(Color.Black), 25, 530);
+                graphic.DrawString(Running.ToString("#,###,##0.00").PadLeft(10), new Font("Tahoma", 11), new SolidBrush(Color.Black), 166, 530);
                 #endregion
                 #region Footer
-                graphic.DrawString("-------------------------------------------", new Font("Telidon Cd", 11), new SolidBrush(Color.Black), 3, 570);
-                graphic.DrawString("End of X Reports", new Font("Telidon CdHv", 13), new SolidBrush(Color.Black), 70, 579);
+                graphic.DrawString("-------------------------------------------", new Font("Tahoma", 11), new SolidBrush(Color.Black), 3, 550);
+                graphic.DrawString("End of X Reports", new Font("Tahoma", 13), new SolidBrush(Color.Black), 70, 560);
                 #endregion
             }
             catch (Exception)

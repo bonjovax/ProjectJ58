@@ -269,7 +269,7 @@ namespace nPOSProj
             {
                 pos.Pos_orno = Convert.ToInt32(txtBoxOR.Text);
                 pos.Pos_terminal = terminalSelect;
-                pos.Pos_ean = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[0].Value);
+                pos.Pos_ean = dataGridView1.SelectedRows[0].Cells[0].Value.ToString();
                 pos.Pos_discount_amt = Convert.ToDouble(dataGridView1.SelectedRows[0].Cells[4].Value);
                 DialogResult dr = MessageBox.Show("Do You Wish To Continue?", "Question", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (dr == System.Windows.Forms.DialogResult.Yes)

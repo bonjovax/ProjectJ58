@@ -2,6 +2,10 @@
     
     
     public partial class npos_dbDataSet {
+        partial class pos_parkDataTable
+        {
+        }
+    
         partial class pos_park1DataTable
         {
         }

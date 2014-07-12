@@ -4882,7 +4882,7 @@ namespace nPOSProj {
                         int pos_orno, 
                         string pos_terminal, 
                         System.DateTime pos_parked_date, 
-                        int pos_ean, 
+                        string pos_ean, 
                         int pos_quantity, 
                         double pos_discount, 
                         double pos_discount_amt, 
@@ -4968,7 +4968,7 @@ namespace nPOSProj {
                 base.Columns.Add(this.columnpos_terminal);
                 this.columnpos_parked_date = new global::System.Data.DataColumn("pos_parked_date", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnpos_parked_date);
-                this.columnpos_ean = new global::System.Data.DataColumn("pos_ean", typeof(int), null, global::System.Data.MappingType.Element);
+                this.columnpos_ean = new global::System.Data.DataColumn("pos_ean", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnpos_ean);
                 this.columnpos_quantity = new global::System.Data.DataColumn("pos_quantity", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnpos_quantity);
@@ -5352,7 +5352,7 @@ namespace nPOSProj {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public pos_park1Row Addpos_park1Row(int pos_orno, string pos_terminal, System.DateTime pos_parked_date, int pos_ean, int pos_quantity, double pos_discount, double pos_discount_amt, double pos_amt, string pos_customer, string pos_user, string kit_name, double item_retail_price, double item_whole_price, int is_kit) {
+            public pos_park1Row Addpos_park1Row(int pos_orno, string pos_terminal, System.DateTime pos_parked_date, string pos_ean, int pos_quantity, double pos_discount, double pos_discount_amt, double pos_amt, string pos_customer, string pos_user, string kit_name, double item_retail_price, double item_whole_price, int is_kit) {
                 pos_park1Row rowpos_park1Row = ((pos_park1Row)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         pos_orno,
@@ -5416,7 +5416,7 @@ namespace nPOSProj {
                 base.Columns.Add(this.columnpos_terminal);
                 this.columnpos_parked_date = new global::System.Data.DataColumn("pos_parked_date", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnpos_parked_date);
-                this.columnpos_ean = new global::System.Data.DataColumn("pos_ean", typeof(int), null, global::System.Data.MappingType.Element);
+                this.columnpos_ean = new global::System.Data.DataColumn("pos_ean", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnpos_ean);
                 this.columnpos_quantity = new global::System.Data.DataColumn("pos_quantity", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnpos_quantity);
@@ -10276,9 +10276,9 @@ namespace nPOSProj {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public int pos_ean {
+            public string pos_ean {
                 get {
-                    return ((int)(this[this.tablepos_park.pos_eanColumn]));
+                    return ((string)(this[this.tablepos_park.pos_eanColumn]));
                 }
                 set {
                     this[this.tablepos_park.pos_eanColumn] = value;
@@ -10727,9 +10727,9 @@ namespace nPOSProj {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public int pos_ean {
+            public string pos_ean {
                 get {
-                    return ((int)(this[this.tablepos_park1.pos_eanColumn]));
+                    return ((string)(this[this.tablepos_park1.pos_eanColumn]));
                 }
                 set {
                     this[this.tablepos_park1.pos_eanColumn] = value;
