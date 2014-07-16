@@ -15809,7 +15809,7 @@ WHERE        (supplier_code = @supplier_code)";
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::MySql.Data.MySqlClient.MySqlCommand[6];
+            this._commandCollection = new global::MySql.Data.MySqlClient.MySqlCommand[7];
             this._commandCollection[0] = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = @"SELECT        inventory_stocks.stock_id, inventory_stocks.stock_code, inventory_stocks.stock_name, inventory_supplier.supplier_name, inventory_category.cat_description, inventory_warehouse.warehouse_name, 
@@ -15856,29 +15856,25 @@ FROM            inventory_stocks INNER JOIN
             this._commandCollection[2].Parameters.Add(param);
             this._commandCollection[3] = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._commandCollection[3].Connection = this.Connection;
-            this._commandCollection[3].CommandText = "INSERT INTO inventory_items\r\n                         (stock_code, item_retail_pr" +
-                "ice)\r\nVALUES        (@stock_code, @item_retail_price)";
+            this._commandCollection[3].CommandText = @"SELECT        inventory_stocks.stock_id, inventory_stocks.stock_code, inventory_stocks.stock_name, inventory_supplier.supplier_name, inventory_category.cat_description, inventory_warehouse.warehouse_name, 
+                         inventory_stocks.stock_quantity, inventory_stocks.stock_uom, inventory_stocks.stock_cost_price, inventory_stocks.stock_selling_price, inventory_stocks.stock_total_price
+FROM            inventory_stocks INNER JOIN
+                         inventory_warehouse ON inventory_stocks.warehouse_code = inventory_warehouse.warehouse_code INNER JOIN
+                         inventory_supplier ON inventory_stocks.supplier_code = inventory_supplier.supplier_code INNER JOIN
+                         inventory_category ON inventory_stocks.stock_cat_code = inventory_category.cat_code
+WHERE        (inventory_stocks.stock_name LIKE CONCAT(@search, '%'))";
             this._commandCollection[3].CommandType = global::System.Data.CommandType.Text;
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@stock_code";
-            param.DbType = global::System.Data.DbType.String;
+            param.ParameterName = "@search";
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
-            param.Size = 9;
+            param.Size = 75;
             param.IsNullable = true;
-            param.SourceColumn = "stock_code";
-            this._commandCollection[3].Parameters.Add(param);
-            param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@item_retail_price";
-            param.DbType = global::System.Data.DbType.Decimal;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Double;
-            param.IsNullable = true;
-            param.SourceColumn = "item_retail_price";
+            param.SourceColumn = "stock_name";
             this._commandCollection[3].Parameters.Add(param);
             this._commandCollection[4] = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._commandCollection[4].Connection = this.Connection;
-            this._commandCollection[4].CommandText = @"INSERT INTO inventory_stocks
-                         (stock_code, stock_name, supplier_code, stock_cat_code, warehouse_code, stock_quantity, stock_uom, stock_cost_price, stock_selling_price, stock_total_price)
-VALUES        (@stock_code, @stock_name, @supplier_code, @stock_cat_Code, @warehouse_code, @stock_quantity, @stock_uom, @stock_cost_price, @stock_selling_price, @stock_total_price)";
+            this._commandCollection[4].CommandText = "INSERT INTO inventory_items\r\n                         (stock_code, item_retail_pr" +
+                "ice)\r\nVALUES        (@stock_code, @item_retail_price)";
             this._commandCollection[4].CommandType = global::System.Data.CommandType.Text;
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@stock_code";
@@ -15889,13 +15885,34 @@ VALUES        (@stock_code, @stock_name, @supplier_code, @stock_cat_Code, @wareh
             param.SourceColumn = "stock_code";
             this._commandCollection[4].Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@item_retail_price";
+            param.DbType = global::System.Data.DbType.Decimal;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Double;
+            param.IsNullable = true;
+            param.SourceColumn = "item_retail_price";
+            this._commandCollection[4].Parameters.Add(param);
+            this._commandCollection[5] = new global::MySql.Data.MySqlClient.MySqlCommand();
+            this._commandCollection[5].Connection = this.Connection;
+            this._commandCollection[5].CommandText = @"INSERT INTO inventory_stocks
+                         (stock_code, stock_name, supplier_code, stock_cat_code, warehouse_code, stock_quantity, stock_uom, stock_cost_price, stock_selling_price, stock_total_price)
+VALUES        (@stock_code, @stock_name, @supplier_code, @stock_cat_Code, @warehouse_code, @stock_quantity, @stock_uom, @stock_cost_price, @stock_selling_price, @stock_total_price)";
+            this._commandCollection[5].CommandType = global::System.Data.CommandType.Text;
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@stock_code";
+            param.DbType = global::System.Data.DbType.String;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
+            param.Size = 9;
+            param.IsNullable = true;
+            param.SourceColumn = "stock_code";
+            this._commandCollection[5].Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@stock_name";
             param.DbType = global::System.Data.DbType.String;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
             param.Size = 75;
             param.IsNullable = true;
             param.SourceColumn = "stock_name";
-            this._commandCollection[4].Parameters.Add(param);
+            this._commandCollection[5].Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@supplier_code";
             param.DbType = global::System.Data.DbType.String;
@@ -15903,7 +15920,7 @@ VALUES        (@stock_code, @stock_name, @supplier_code, @stock_cat_Code, @wareh
             param.Size = 9;
             param.IsNullable = true;
             param.SourceColumn = "supplier_code";
-            this._commandCollection[4].Parameters.Add(param);
+            this._commandCollection[5].Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@stock_cat_Code";
             param.DbType = global::System.Data.DbType.String;
@@ -15911,7 +15928,7 @@ VALUES        (@stock_code, @stock_name, @supplier_code, @stock_cat_Code, @wareh
             param.Size = 9;
             param.IsNullable = true;
             param.SourceColumn = "stock_cat_code";
-            this._commandCollection[4].Parameters.Add(param);
+            this._commandCollection[5].Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@warehouse_code";
             param.DbType = global::System.Data.DbType.String;
@@ -15919,14 +15936,14 @@ VALUES        (@stock_code, @stock_name, @supplier_code, @stock_cat_Code, @wareh
             param.Size = 9;
             param.IsNullable = true;
             param.SourceColumn = "warehouse_code";
-            this._commandCollection[4].Parameters.Add(param);
+            this._commandCollection[5].Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@stock_quantity";
             param.DbType = global::System.Data.DbType.Int32;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
             param.IsNullable = true;
             param.SourceColumn = "stock_quantity";
-            this._commandCollection[4].Parameters.Add(param);
+            this._commandCollection[5].Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@stock_uom";
             param.DbType = global::System.Data.DbType.String;
@@ -15934,35 +15951,35 @@ VALUES        (@stock_code, @stock_name, @supplier_code, @stock_cat_Code, @wareh
             param.Size = 50;
             param.IsNullable = true;
             param.SourceColumn = "stock_uom";
-            this._commandCollection[4].Parameters.Add(param);
+            this._commandCollection[5].Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@stock_cost_price";
             param.DbType = global::System.Data.DbType.Decimal;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Double;
             param.IsNullable = true;
             param.SourceColumn = "stock_cost_price";
-            this._commandCollection[4].Parameters.Add(param);
+            this._commandCollection[5].Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@stock_selling_price";
             param.DbType = global::System.Data.DbType.Decimal;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Double;
             param.IsNullable = true;
             param.SourceColumn = "stock_selling_price";
-            this._commandCollection[4].Parameters.Add(param);
+            this._commandCollection[5].Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@stock_total_price";
             param.DbType = global::System.Data.DbType.Decimal;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Double;
             param.IsNullable = true;
             param.SourceColumn = "stock_total_price";
-            this._commandCollection[4].Parameters.Add(param);
-            this._commandCollection[5] = new global::MySql.Data.MySqlClient.MySqlCommand();
-            this._commandCollection[5].Connection = this.Connection;
-            this._commandCollection[5].CommandText = @"UPDATE       inventory_stocks
+            this._commandCollection[5].Parameters.Add(param);
+            this._commandCollection[6] = new global::MySql.Data.MySqlClient.MySqlCommand();
+            this._commandCollection[6].Connection = this.Connection;
+            this._commandCollection[6].CommandText = @"UPDATE       inventory_stocks
 SET                stock_name = @stock_name, supplier_code = @supplier_code, stock_cat_code = @stock_cat_code, warehouse_code = @warehouse_code, stock_quantity = @stock_quantity, stock_uom = @stock_uom, 
                          stock_cost_price = @stock_cost_price, stock_selling_price = @stock_selling_price, stock_total_price = @stock_total_price
 WHERE        (stock_id = @stock_id) AND (stock_code = @stock_code)";
-            this._commandCollection[5].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[6].CommandType = global::System.Data.CommandType.Text;
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@stock_name";
             param.DbType = global::System.Data.DbType.String;
@@ -15970,7 +15987,7 @@ WHERE        (stock_id = @stock_id) AND (stock_code = @stock_code)";
             param.Size = 75;
             param.IsNullable = true;
             param.SourceColumn = "stock_name";
-            this._commandCollection[5].Parameters.Add(param);
+            this._commandCollection[6].Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@supplier_code";
             param.DbType = global::System.Data.DbType.String;
@@ -15978,7 +15995,7 @@ WHERE        (stock_id = @stock_id) AND (stock_code = @stock_code)";
             param.Size = 9;
             param.IsNullable = true;
             param.SourceColumn = "supplier_code";
-            this._commandCollection[5].Parameters.Add(param);
+            this._commandCollection[6].Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@stock_cat_code";
             param.DbType = global::System.Data.DbType.String;
@@ -15986,7 +16003,7 @@ WHERE        (stock_id = @stock_id) AND (stock_code = @stock_code)";
             param.Size = 9;
             param.IsNullable = true;
             param.SourceColumn = "stock_cat_code";
-            this._commandCollection[5].Parameters.Add(param);
+            this._commandCollection[6].Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@warehouse_code";
             param.DbType = global::System.Data.DbType.String;
@@ -15994,14 +16011,14 @@ WHERE        (stock_id = @stock_id) AND (stock_code = @stock_code)";
             param.Size = 9;
             param.IsNullable = true;
             param.SourceColumn = "warehouse_code";
-            this._commandCollection[5].Parameters.Add(param);
+            this._commandCollection[6].Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@stock_quantity";
             param.DbType = global::System.Data.DbType.Int32;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
             param.IsNullable = true;
             param.SourceColumn = "stock_quantity";
-            this._commandCollection[5].Parameters.Add(param);
+            this._commandCollection[6].Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@stock_uom";
             param.DbType = global::System.Data.DbType.String;
@@ -16009,28 +16026,28 @@ WHERE        (stock_id = @stock_id) AND (stock_code = @stock_code)";
             param.Size = 50;
             param.IsNullable = true;
             param.SourceColumn = "stock_uom";
-            this._commandCollection[5].Parameters.Add(param);
+            this._commandCollection[6].Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@stock_cost_price";
             param.DbType = global::System.Data.DbType.Decimal;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Double;
             param.IsNullable = true;
             param.SourceColumn = "stock_cost_price";
-            this._commandCollection[5].Parameters.Add(param);
+            this._commandCollection[6].Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@stock_selling_price";
             param.DbType = global::System.Data.DbType.Decimal;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Double;
             param.IsNullable = true;
             param.SourceColumn = "stock_selling_price";
-            this._commandCollection[5].Parameters.Add(param);
+            this._commandCollection[6].Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@stock_total_price";
             param.DbType = global::System.Data.DbType.Decimal;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Double;
             param.IsNullable = true;
             param.SourceColumn = "stock_total_price";
-            this._commandCollection[5].Parameters.Add(param);
+            this._commandCollection[6].Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@stock_id";
             param.DbType = global::System.Data.DbType.Int32;
@@ -16038,7 +16055,7 @@ WHERE        (stock_id = @stock_id) AND (stock_code = @stock_code)";
             param.IsNullable = true;
             param.SourceColumn = "stock_id";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            this._commandCollection[5].Parameters.Add(param);
+            this._commandCollection[6].Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@stock_code";
             param.DbType = global::System.Data.DbType.String;
@@ -16047,7 +16064,7 @@ WHERE        (stock_id = @stock_id) AND (stock_code = @stock_code)";
             param.IsNullable = true;
             param.SourceColumn = "stock_code";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            this._commandCollection[5].Parameters.Add(param);
+            this._commandCollection[6].Parameters.Add(param);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -16069,6 +16086,42 @@ WHERE        (stock_id = @stock_id) AND (stock_code = @stock_code)";
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
         public virtual npos_dbDataSet.inventory_stocksDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
+            npos_dbDataSet.inventory_stocksDataTable dataTable = new npos_dbDataSet.inventory_stocksDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillBy(npos_dbDataSet.inventory_stocksDataTable dataTable, string search) {
+            this.Adapter.SelectCommand = this.CommandCollection[3];
+            if ((search == null)) {
+                this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(search));
+            }
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual npos_dbDataSet.inventory_stocksDataTable GetDataBySearch(string search) {
+            this.Adapter.SelectCommand = this.CommandCollection[3];
+            if ((search == null)) {
+                this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(search));
+            }
             npos_dbDataSet.inventory_stocksDataTable dataTable = new npos_dbDataSet.inventory_stocksDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
@@ -16138,7 +16191,7 @@ WHERE        (stock_id = @stock_id) AND (stock_code = @stock_code)";
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, false)]
         public virtual int InsertAlsoItem(string stock_code, global::System.Nullable<decimal> item_retail_price) {
-            global::MySql.Data.MySqlClient.MySqlCommand command = this.CommandCollection[3];
+            global::MySql.Data.MySqlClient.MySqlCommand command = this.CommandCollection[4];
             if ((stock_code == null)) {
                 throw new global::System.ArgumentNullException("stock_code");
             }
@@ -16173,7 +16226,7 @@ WHERE        (stock_id = @stock_id) AND (stock_code = @stock_code)";
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, false)]
         public virtual int InsertStocks(string stock_code, string stock_name, string supplier_code, string stock_cat_Code, string warehouse_code, global::System.Nullable<int> stock_quantity, string stock_uom, global::System.Nullable<decimal> stock_cost_price, global::System.Nullable<decimal> stock_selling_price, global::System.Nullable<decimal> stock_total_price) {
-            global::MySql.Data.MySqlClient.MySqlCommand command = this.CommandCollection[4];
+            global::MySql.Data.MySqlClient.MySqlCommand command = this.CommandCollection[5];
             if ((stock_code == null)) {
                 throw new global::System.ArgumentNullException("stock_code");
             }
@@ -16256,7 +16309,7 @@ WHERE        (stock_id = @stock_id) AND (stock_code = @stock_code)";
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, false)]
         public virtual int UpdateStocks(string stock_name, string supplier_code, string stock_cat_code, string warehouse_code, global::System.Nullable<int> stock_quantity, string stock_uom, global::System.Nullable<decimal> stock_cost_price, global::System.Nullable<decimal> stock_selling_price, global::System.Nullable<decimal> stock_total_price, int stock_id, string stock_code) {
-            global::MySql.Data.MySqlClient.MySqlCommand command = this.CommandCollection[5];
+            global::MySql.Data.MySqlClient.MySqlCommand command = this.CommandCollection[6];
             if ((stock_name == null)) {
                 command.Parameters[0].Value = global::System.DBNull.Value;
             }
@@ -17333,7 +17386,7 @@ ORDER BY po_order.po_no";
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::MySql.Data.MySqlClient.MySqlCommand[2];
+            this._commandCollection = new global::MySql.Data.MySqlClient.MySqlCommand[3];
             this._commandCollection[0] = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = @"SELECT        inventory_items.item_id, inventory_stocks.stock_code, inventory_stocks.stock_name, inventory_items.item_ean, inventory_items.item_quantity, inventory_items.item_retail_price, 
@@ -17360,6 +17413,22 @@ WHERE        (inventory_items.is_kit = 0) AND (inventory_items.item_ean = @item_
             param.IsNullable = true;
             param.SourceColumn = "item_ean";
             this._commandCollection[1].Parameters.Add(param);
+            this._commandCollection[2] = new global::MySql.Data.MySqlClient.MySqlCommand();
+            this._commandCollection[2].Connection = this.Connection;
+            this._commandCollection[2].CommandText = @"SELECT        inventory_items.item_id, inventory_stocks.stock_code, inventory_stocks.stock_name, inventory_items.item_ean, inventory_items.item_quantity, inventory_items.item_retail_price, 
+                         inventory_items.item_whole_price, inventory_category.cat_description, inventory_items.kit_name, inventory_items.item_tax_type
+FROM            inventory_items INNER JOIN
+                         inventory_stocks ON inventory_items.stock_code = inventory_stocks.stock_code INNER JOIN
+                         inventory_category ON inventory_stocks.stock_cat_code = inventory_category.cat_code
+WHERE        (inventory_items.is_kit = 0) AND (inventory_stocks.stock_name LIKE CONCAT(@search, '%'))";
+            this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@search";
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
+            param.Size = 75;
+            param.IsNullable = true;
+            param.SourceColumn = "stock_name";
+            this._commandCollection[2].Parameters.Add(param);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -17416,6 +17485,42 @@ WHERE        (inventory_items.is_kit = 0) AND (inventory_items.item_ean = @item_
             }
             else {
                 this.Adapter.SelectCommand.Parameters[0].Value = ((string)(item_ean));
+            }
+            npos_dbDataSet.inventory_itemsDataTable dataTable = new npos_dbDataSet.inventory_itemsDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillBy1(npos_dbDataSet.inventory_itemsDataTable dataTable, string search) {
+            this.Adapter.SelectCommand = this.CommandCollection[2];
+            if ((search == null)) {
+                this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(search));
+            }
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual npos_dbDataSet.inventory_itemsDataTable GetDataBySearch(string search) {
+            this.Adapter.SelectCommand = this.CommandCollection[2];
+            if ((search == null)) {
+                this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(search));
             }
             npos_dbDataSet.inventory_itemsDataTable dataTable = new npos_dbDataSet.inventory_itemsDataTable();
             this.Adapter.Fill(dataTable);

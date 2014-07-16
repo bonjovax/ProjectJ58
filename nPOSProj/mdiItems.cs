@@ -355,5 +355,15 @@ namespace nPOSProj
                 txtSearchEan.Clear();
             }
         }
+
+        private void txtBoxSearch_TextChanged(object sender, EventArgs e)
+        {
+            if (txtBoxSearch.Text != "")
+            {
+                this.inventory_itemsTableAdapter.FillBy1(this.npos_dbDataSet.inventory_items, txtBoxSearch.Text);
+            }
+            else
+                this.inventory_itemsTableAdapter.Fill(this.npos_dbDataSet.inventory_items);
+        }
     }
 }

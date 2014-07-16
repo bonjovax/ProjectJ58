@@ -544,5 +544,15 @@ namespace nPOSProj
                 e.Handled = e.KeyChar != (char)Keys.Back;
             }
         }
+
+        private void txtBoxSearch_TextChanged(object sender, EventArgs e)
+        {
+            if (txtBoxSearch.Text != "")
+            {
+                this.inventory_stocksTableAdapter.FillBy(this.npos_dbDataSet1.inventory_stocks, txtBoxSearch.Text);
+            }
+            else
+                this.inventory_stocksTableAdapter.Fill(this.npos_dbDataSet1.inventory_stocks);
+        }
     }
 }
