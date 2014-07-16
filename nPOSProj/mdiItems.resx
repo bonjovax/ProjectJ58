@@ -126,6 +126,9 @@
   <metadata name="npos_dbDataSet.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
+  <metadata name="npos_dbDataSet.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="btnPatch.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -199,6 +202,22 @@
   <metadata name="inventory_itemsTableAdapter.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>369, 17</value>
   </metadata>
+  <data name="btnRefresh.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
+        wwAADsMBx2+oZAAAAlRJREFUaEPtly9MHEEUh08gEBUIBAJRgUAgEAgk4gSiAoGorKyoQCCQJAhExQkE
+        oqICUXGiAoGoOHGiAoFAIi73L5cLAoGoQFy/3+btZjgOskszu6R5X/LL7M682Xlv9s3ObM1xHMdxHMdx
+        MjqdzlK/399Dp4PB4AK10M/hcHhEuW5mbwucXe71eh9xsMn1A+XkBf3GZtO6Vg8Ofcvh9Cw1JpPJnD2m
+        GkiL1RmOSZdKGd7KNsFtcf+J+++Ud4GN1Kw0CKXO1Ozf4fSaNT9B68MCyYLg/qs1VwMBHMpxylvKD1b9
+        Itg10gAkvSVrKo/w1TOz80VTAcebQRAtqy4HBqyj9ng8fmdVhSF1Fpn5+zSI0Wj0nvTb4fraTOLB4D9s
+        4FbRmcfpXfol+wHlmT1H6quk/VdiGAvSZYGB/gQDF/qSaNGao1eU7eA5iXgLX8w0DgzyeXpQVCgI7B8t
+        4lAEtmxmcWCQJ7Mm6fNoJrmgz6wg2tYcB17vyoxBb1CSv6hhprngefvWLxGzv2dNcWCWdSDTYNkaSBcd
+        zmzLocSwAHI6fZYmyKrjwCCa7WPtqJRJEDjw8K95qyDQld3GQxuWXSqYbCNi8HOrzs30HqKvm12WA05v
+        ouwclDd91A97rRm9wROrroZgTaRSej07k5p1bJSGWZ9ut7thzeWjbz9OhGcaaYSOUV3HAzsi6GfnjNnX
+        gS+0VfqVf5ALURA4od/HR47lEf0Kr51o4JAOeNehg8/oBscPon8yX4OlVN3OOwqmY9LufYLTO0WOHI7j
+        OI7jOM5/Ta32F2yxj0S76afcAAAAAElFTkSuQmCC
+</value>
+  </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         AAABAAEAICAAAAEAIACsAQAAFgAAAIlQTkcNChoKAAAADUlIRFIAAAAgAAAAIAgGAAAAc3p69AAAAAFz

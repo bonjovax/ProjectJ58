@@ -2,6 +2,14 @@
     
     
     public partial class npos_dbDataSet {
+        partial class pos_storeDataTable
+        {
+        }
+    
+        partial class itemstockRDataTable
+        {
+        }
+    
         partial class pos_parkDataTable
         {
         }

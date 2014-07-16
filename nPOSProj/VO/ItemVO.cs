@@ -18,8 +18,15 @@ namespace nPOSProj.VO
         private String _kit_name;
         private DAO.ItemsDAO items;
         private String _eantmp;
+        private String _description;
 
         public ItemVO() { }
+
+        public String description
+        {
+            get { return _description; }
+            set { _description = value; }
+        }
 
         public Int32 item_id
         {
@@ -148,6 +155,15 @@ namespace nPOSProj.VO
             xxx = items.ReadKits();
             return xxx;
         }
+        public String[,] ReadKitsSearch()
+        {
+            items = new DAO.ItemsDAO();
+            Int32 count = items.KitCount();
+            String[,] xxx = new String[4, count];
+            items.ReadKitsSearch(description);
+            xxx = items.ReadKitsSearch(description);
+            return xxx;
+        }
         public String[,] ReadItems()
         {
             items = new DAO.ItemsDAO();
@@ -155,6 +171,15 @@ namespace nPOSProj.VO
             String[,] yyy = new String[4, count];
             items.ReadItems();
             yyy = items.ReadItems();
+            return yyy;
+        }
+        public String[,] ReadItemsSearch()
+        {
+            items = new DAO.ItemsDAO();
+            Int32 count = items.ItemCount();
+            String[,] yyy = new String[4, count];
+            items.ReadItemsSearch(description);
+            yyy = items.ReadItemsSearch(description);
             return yyy;
         }
     }

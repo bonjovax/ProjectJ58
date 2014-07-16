@@ -497,6 +497,80 @@ namespace nPOSProj.DAO
             }
             return yyy;
         }
+        public String[,] ReadItemsSearch(String stock_name)
+        {
+            Int32 count = this.ItemCount();
+            String[,] yyy = new String[4, count];
+            con = new MySqlConnection();
+            dbcon = new Conf.dbs();
+            con.ConnectionString = dbcon.getConnectionString();
+            String query = "SELECT inventory_items.item_ean AS a, inventory_stocks.stock_name AS b, inventory_items.item_whole_price AS c, inventory_items.item_retail_price AS d ";
+            query += "FROM inventory_items INNER JOIN inventory_stocks ON inventory_items.stock_code = inventory_stocks.stock_code ";
+            query += "WHERE (inventory_stocks.stock_name LIKE ?stock_name) AND (inventory_items.is_kit = 0)";
+            try
+            {
+                con.Open();
+                MySqlCommand cmd = new MySqlCommand(query, con);
+                cmd.Parameters.AddWithValue("?stock_name", stock_name + "%");
+                cmd.ExecuteScalar();
+                MySqlDataReader rdr = cmd.ExecuteReader();
+                int counts = 0;
+                while (rdr.Read())
+                {
+                    yyy[0, counts] = rdr["a"].ToString();
+                    yyy[1, counts] = rdr["b"].ToString();
+                    yyy[2, counts] = rdr["c"].ToString();
+                    yyy[3, counts] = rdr["d"].ToString();
+                    counts++;
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(" Err :: ERROR " + ex);
+            }
+            finally
+            {
+                con.Close();
+            }
+            return yyy;
+        }
+        public String[,] ReadKitsSearch(String kit_name)
+        {
+            Int32 count = this.KitCount();
+            String[,] xxx = new String[4, count];
+            con = new MySqlConnection();
+            dbcon = new Conf.dbs();
+            con.ConnectionString = dbcon.getConnectionString();
+            String query = "SELECT item_ean, kit_name, item_whole_price, item_retail_price ";
+            query += "FROM inventory_items ";
+            query += "WHERE (kit_name LIKE ?kit_name) AND (is_kit = 1)";
+            try
+            {
+                con.Open();
+                MySqlCommand cmd = new MySqlCommand(query, con);
+                cmd.Parameters.AddWithValue("?kit_name", kit_name + "%");
+                cmd.ExecuteScalar();
+                MySqlDataReader rdr = cmd.ExecuteReader();
+                int counts = 0;
+                while (rdr.Read())
+                {
+                    xxx[0, counts] = rdr["item_ean"].ToString();
+                    xxx[1, counts] = rdr["kit_name"].ToString();
+                    xxx[2, counts] = rdr["item_whole_price"].ToString();
+                    xxx[3, counts] = rdr["item_retail_price"].ToString();
+                    counts++;
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(" Err :: ERROR " + ex);
+            }
+            finally
+            {
+                con.Close();
+            }
+            return xxx;
+        }
         #endregion
     }
 }

@@ -70,10 +70,51 @@ namespace nPOSProj
             }
         }
 
+        private void getDataTableSearch()
+        {
+            items = new VO.ItemVO();
+            if (chKIKits.Checked == true)
+            {
+                dataGridView1.DataSource = null;
+                dataGridView1.Rows.Clear();
+                items.description = txtBoxSearch.Text;
+                String[,] grabData = items.ReadKitsSearch();
+                try
+                {
+                    for (int x = 0; x < grabData.GetLength(1); x++)
+                    {
+                        dataGridView1.Rows.Add(grabData[0, x].ToString(), grabData[1, x].ToString(), Convert.ToDouble(grabData[2, x]), Convert.ToDouble(grabData[3, x]));
+                    }
+                }
+                catch (Exception)
+                {
+                }
+            }
+            else
+            {
+                items = new VO.ItemVO();
+                dataGridView1.DataSource = null;
+                dataGridView1.Rows.Clear();
+                items.description = txtBoxSearch.Text;
+                String[,] grabData = items.ReadItemsSearch();
+                try
+                {
+                    for (int x = 0; x < grabData.GetLength(1); x++)
+                    {
+                        dataGridView1.Rows.Add(grabData[0, x].ToString(), grabData[1, x].ToString(), Convert.ToDouble(grabData[2, x]), Convert.ToDouble(grabData[3, x]));
+                    }
+                }
+                catch (Exception)
+                {
+                }
+            }
+        }
+
         private void frmDlgSearch_Load(object sender, EventArgs e)
         {
             Selected = false;
             getDataTable();
+            txtBoxSearch.Focus();
         }
 
         private void chKIKits_CheckedChanged(object sender, EventArgs e)
@@ -103,6 +144,16 @@ namespace nPOSProj
             Ean = dataGridView1.SelectedRows[0].Cells[0].Value.ToString();
             Selected = true;
             this.Close();
+        }
+
+        private void txtBoxSearch_TextChanged(object sender, EventArgs e)
+        {
+            if (txtBoxSearch.Text != "")
+            {
+                getDataTableSearch();
+            }
+            else
+                getDataTable();
         }
     }
 }

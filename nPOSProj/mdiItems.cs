@@ -37,6 +37,7 @@ namespace nPOSProj
                 b.IncludeLabel = true;
                 b.LabelPosition = LabelPositions.BOTTOMCENTER;
                 barcode.Image = b.Encode(t, "0");
+                txtSearchEan.Focus();
             }
             catch (Exception)
             {
@@ -338,6 +339,20 @@ namespace nPOSProj
             catch 
             {
                 MessageBox.Show("Duplicate Input Not Allowed", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btnRefresh_Click(object sender, EventArgs e)
+        {
+            this.inventory_itemsTableAdapter.Fill(this.npos_dbDataSet.inventory_items);
+        }
+
+        private void txtSearchEan_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                this.inventory_itemsTableAdapter.FillBy(this.npos_dbDataSet.inventory_items, txtSearchEan.Text);
+                txtSearchEan.Clear();
             }
         }
     }

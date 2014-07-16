@@ -37,7 +37,18 @@ namespace nPOSProj.Properties {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
         [global::System.Configuration.DefaultSettingValueAttribute("server=localhost;user id=root;database=npos_db;persistsecurityinfo=True;password=" +
-            "root;Pooling=false;")]
+            "root")]
+        public string npos_dbConnectionString2 {
+            get {
+                return ((string)(this["npos_dbConnectionString2"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("server=192.168.101.211;user id=nposproduction;database=npos_db;persistsecurityinf" +
+            "o=True;password=npossoothsayer;Pooling=false;")]
         public string npos_dbConnectionString1 {
             get {
                 return ((string)(this["npos_dbConnectionString1"]));
@@ -47,11 +58,11 @@ namespace nPOSProj.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("server=localhost;user id=root;database=npos_db;persistsecurityinfo=True;password=" +
-            "root")]
-        public string npos_dbConnectionString2 {
+        [global::System.Configuration.DefaultSettingValueAttribute("server=192.168.101.211;user id=nposproduction;database=npos_db;persistsecurityinf" +
+            "o=True;password=npossoothsayer")]
+        public string npos_dbConnectionString3 {
             get {
-                return ((string)(this["npos_dbConnectionString2"]));
+                return ((string)(this["npos_dbConnectionString3"]));
             }
         }
     }
