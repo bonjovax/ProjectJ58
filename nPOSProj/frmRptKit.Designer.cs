@@ -44,11 +44,8 @@
             this.crystalReportViewer1.Name = "crystalReportViewer1";
             this.crystalReportViewer1.ReportSource = this.rptKit1;
             this.crystalReportViewer1.ShowCloseButton = false;
-            //this.crystalReportViewer1.ShowCopyButton = false;
-            this.crystalReportViewer1.ShowGotoPageButton = false;
             this.crystalReportViewer1.ShowGroupTreeButton = false;
             this.crystalReportViewer1.ShowLogo = false;
-            this.crystalReportViewer1.ShowPageNavigateButtons = false;
             this.crystalReportViewer1.ShowParameterPanelButton = false;
             this.crystalReportViewer1.ShowRefreshButton = false;
             this.crystalReportViewer1.ShowTextSearchButton = false;
