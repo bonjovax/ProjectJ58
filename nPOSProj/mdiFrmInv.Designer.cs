@@ -179,6 +179,7 @@
             this.tsReporting.Size = new System.Drawing.Size(72, 69);
             this.tsReporting.Text = "R&eporting";
             this.tsReporting.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.tsReporting.Click += new System.EventHandler(this.tsReporting_Click);
             // 
             // tsEmail
             // 

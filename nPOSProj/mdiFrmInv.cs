@@ -21,6 +21,7 @@ namespace nPOSProj
         private mdiPO po = new mdiPO();
         private mdiItems items = new mdiItems();
         private mdiItemKits ikit = new mdiItemKits();
+        private mdiInventoryReport ir = new mdiInventoryReport();
         public mdiFrmInv()
         {
             InitializeComponent();
@@ -197,6 +198,16 @@ namespace nPOSProj
         {
             frmAbout about = new frmAbout();
             about.ShowDialog();
+        }
+
+        private void tsReporting_Click(object sender, EventArgs e)
+        {
+            if (ActivateThisChild("mdiInventoryReport") == false)
+            {
+                ir = new mdiInventoryReport();
+                ir.MdiParent = this;
+                ir.Show();
+            }
         }
     }
 }
