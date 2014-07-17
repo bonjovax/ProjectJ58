@@ -156,15 +156,15 @@ namespace nPOSProj
         }
         private void PrintReceipt()
         {
+            DrawerPing();
             printDocument1.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(printDocument1_PrintPage);
             printDocument1.Print();
-            DrawerPing();
         }
         private void PrintNoSale()
         {
+            DrawerPing();
             printDocument2.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(printDocument2_PrintPage);
             printDocument2.Print();
-            DrawerPing();
         }
 
         void printDocument2_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
@@ -593,7 +593,6 @@ namespace nPOSProj
             if (keyData == Keys.O && adminDrawer == true)
             {
                 DrawerPing();
-                
             }
             return base.ProcessCmdKey(ref msg, keyData);
         }
