@@ -201,6 +201,12 @@
     <Compile Include="frmRptStocksR.Designer.cs">
       <DependentUpon>frmRptStocksR.cs</DependentUpon>
     </Compile>
+    <Compile Include="mCashInOut.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="mCashInOut.Designer.cs">
+      <DependentUpon>mCashInOut.cs</DependentUpon>
+    </Compile>
     <Compile Include="mCrmBasic.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -501,6 +507,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmRptStocksR.resx">
       <DependentUpon>frmRptStocksR.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="mCashInOut.resx">
+      <DependentUpon>mCashInOut.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="mCrmBasic.resx">
       <DependentUpon>mCrmBasic.cs</DependentUpon>

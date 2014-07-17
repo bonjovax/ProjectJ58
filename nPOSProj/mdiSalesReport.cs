@@ -153,9 +153,9 @@ namespace nPOSProj
         }
         private void PrintZTicket()
         {
+            DrawerPing();
             printZ.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(printZ_PrintPage);
             printZ.Print();
-            DrawerPing();
         }
         void printZ_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
         {

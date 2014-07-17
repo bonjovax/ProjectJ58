@@ -594,6 +594,11 @@ namespace nPOSProj
             {
                 DrawerPing();
             }
+            if (keyData == Keys.W && proceeds == false)
+            {
+                mCashInOut controller = new mCashInOut();
+                controller.ShowDialog();
+            }
             return base.ProcessCmdKey(ref msg, keyData);
         }
 

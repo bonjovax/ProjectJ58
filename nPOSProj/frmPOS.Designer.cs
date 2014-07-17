@@ -80,6 +80,7 @@
             this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.lviewPOS = new System.Windows.Forms.ListView();
             this.printDocument2 = new System.Drawing.Printing.PrintDocument();
+            this.label2 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // rdDescription
@@ -720,6 +721,19 @@
             this.lviewPOS.View = System.Windows.Forms.View.Details;
             this.lviewPOS.SelectedIndexChanged += new System.EventHandler(this.lviewPOS_SelectedIndexChanged);
             // 
+            // label2
+            // 
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.Black;
+            this.label2.Location = new System.Drawing.Point(298, 725);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(955, 15);
+            this.label2.TabIndex = 40;
+            this.label2.Text = "Q - Go to Quantity | A - Go to EAN  | S - Go To List | W - Cash Controller | [O] " +
+    "- Open Cash Drawer | N - No Sale";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
             // frmPOS
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -727,6 +741,7 @@
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1274, 748);
             this.ControlBox = false;
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.lblTAXamt);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.lblVATz);
@@ -834,5 +849,6 @@
         private System.Windows.Forms.ColumnHeader columnHeader7;
         private System.Windows.Forms.ListView lviewPOS;
         private System.Drawing.Printing.PrintDocument printDocument2;
+        private System.Windows.Forms.Label label2;
     }
 }
