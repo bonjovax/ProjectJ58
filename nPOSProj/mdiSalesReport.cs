@@ -18,11 +18,13 @@ namespace nPOSProj
         private Conf.BIR bir = new Conf.BIR(); //Bureau of Internal Revenue - PH
         private VO.ReportingVO reports = new VO.ReportingVO();
         private VO.ConfigVO config;
+        private VO.PosVO vo = new VO.PosVO();
         private String userName = frmLogin.User.user_name;
         private String terminalSelect;
         private String terminalSelectZ;
         private String terminalSelectSR;
         private String terminalSelectSDR;
+        private String terminalSelectCBR;
         #region System Config
         private Double taxP;
         private String taxDisplay;
@@ -108,6 +110,8 @@ namespace nPOSProj
                 cBTerminalSR.Visible = true;
                 lblSDR.Visible = true;
                 cBTerminalSDR.Visible = true;
+                lblCDR.Visible = true;
+                cBTerminalCDR.Visible = true;
             }
         }
         private void getTerminal()
@@ -126,6 +130,7 @@ namespace nPOSProj
                     cBTerminalZ.Items.Add(grabData[0, x].ToString());
                     cBTerminalSR.Items.Add(grabData[0, x].ToString());
                     cBTerminalSDR.Items.Add(grabData[0, x].ToString());
+                    cBTerminalCDR.Items.Add(grabData[0, x].ToString());
                 }
             }
             catch (Exception ex)
@@ -153,7 +158,7 @@ namespace nPOSProj
         }
         private void PrintZTicket()
         {
-            DrawerPing();
+            //DrawerPing();
             printZ.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(printZ_PrintPage);
             printZ.Print();
         }
@@ -393,11 +398,24 @@ namespace nPOSProj
             terminalSelectZ = fl.tN;
             terminalSelectSR = fl.tN;
             terminalSelectSDR = fl.tN;
+            terminalSelectCBR = fl.tN;
         }
 
         private void btnPrintZ_Click(object sender, EventArgs e)
         {
-            PrintZTicket();
+            DialogResult dlg = MessageBox.Show("Do You Wish Proceed?\nCash Drawer Amount will be reset!", "Question", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (dlg == System.Windows.Forms.DialogResult.Yes)
+            {
+                vo.Pos_terminal = terminalSelectZ;
+                vo.ResetD();
+                //
+                vo.CashAmount = 0;
+                vo.DrawerPurpose = "Z Reading";
+                vo.Pos_user = userName;
+                vo.DebitD();
+                //
+                PrintZTicket();
+            }
         }
 
         private void cBTerminalX_SelectedIndexChanged(object sender, EventArgs e)
@@ -447,6 +465,21 @@ namespace nPOSProj
                 sdrkit.DateParam = dtSDR.Text;
                 sdrkit.TerminalParam = terminalSelectSDR;
                 sdrkit.ShowDialog();
+            }
+        }
+
+        private void cBTerminalCDR_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            terminalSelectCBR = cBTerminalCDR.Text;
+        }
+
+        private void btnCDR_Click(object sender, EventArgs e)
+        {
+            using (frmRptCDrawer cdr = new frmRptCDrawer())
+            {
+                cdr.DateParam = dtCDR.Text;
+                cdr.TerminalParam = terminalSelectCBR;
+                cdr.ShowDialog();
             }
         }
     }

@@ -57,11 +57,18 @@
             this.dtSDR = new System.Windows.Forms.DateTimePicker();
             this.printX = new System.Drawing.Printing.PrintDocument();
             this.printZ = new System.Drawing.Printing.PrintDocument();
+            this.tabPage5 = new System.Windows.Forms.TabPage();
+            this.btnCDR = new System.Windows.Forms.Button();
+            this.cBTerminalCDR = new System.Windows.Forms.ComboBox();
+            this.lblCDR = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.dtCDR = new System.Windows.Forms.DateTimePicker();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.tabPage3.SuspendLayout();
             this.tabPage4.SuspendLayout();
+            this.tabPage5.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -71,6 +78,7 @@
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Controls.Add(this.tabPage3);
             this.tabControl1.Controls.Add(this.tabPage4);
+            this.tabControl1.Controls.Add(this.tabPage5);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
@@ -447,6 +455,92 @@
             this.dtSDR.Size = new System.Drawing.Size(251, 33);
             this.dtSDR.TabIndex = 13;
             // 
+            // tabPage5
+            // 
+            this.tabPage5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(29)))), ((int)(((byte)(29)))));
+            this.tabPage5.Controls.Add(this.btnCDR);
+            this.tabPage5.Controls.Add(this.cBTerminalCDR);
+            this.tabPage5.Controls.Add(this.lblCDR);
+            this.tabPage5.Controls.Add(this.label5);
+            this.tabPage5.Controls.Add(this.dtCDR);
+            this.tabPage5.Location = new System.Drawing.Point(4, 33);
+            this.tabPage5.Name = "tabPage5";
+            this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage5.Size = new System.Drawing.Size(739, 420);
+            this.tabPage5.TabIndex = 4;
+            this.tabPage5.Text = "Cash Drawer Report";
+            // 
+            // btnCDR
+            // 
+            this.btnCDR.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(126)))), ((int)(((byte)(56)))), ((int)(((byte)(120)))));
+            this.btnCDR.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCDR.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(29)))), ((int)(((byte)(29)))));
+            this.btnCDR.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Black;
+            this.btnCDR.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(29)))), ((int)(((byte)(29)))));
+            this.btnCDR.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCDR.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCDR.ForeColor = System.Drawing.Color.White;
+            this.btnCDR.Image = ((System.Drawing.Image)(resources.GetObject("btnCDR.Image")));
+            this.btnCDR.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCDR.Location = new System.Drawing.Point(260, 254);
+            this.btnCDR.Name = "btnCDR";
+            this.btnCDR.Size = new System.Drawing.Size(208, 69);
+            this.btnCDR.TabIndex = 9;
+            this.btnCDR.Text = "Print Report";
+            this.btnCDR.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnCDR.UseVisualStyleBackColor = false;
+            this.btnCDR.Click += new System.EventHandler(this.btnCDR_Click);
+            // 
+            // cBTerminalCDR
+            // 
+            this.cBTerminalCDR.BackColor = System.Drawing.Color.Gainsboro;
+            this.cBTerminalCDR.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cBTerminalCDR.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cBTerminalCDR.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.cBTerminalCDR.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cBTerminalCDR.FormattingEnabled = true;
+            this.cBTerminalCDR.Location = new System.Drawing.Point(238, 205);
+            this.cBTerminalCDR.Name = "cBTerminalCDR";
+            this.cBTerminalCDR.Size = new System.Drawing.Size(251, 33);
+            this.cBTerminalCDR.TabIndex = 8;
+            this.cBTerminalCDR.Visible = false;
+            this.cBTerminalCDR.SelectedIndexChanged += new System.EventHandler(this.cBTerminalCDR_SelectedIndexChanged);
+            // 
+            // lblCDR
+            // 
+            this.lblCDR.AutoSize = true;
+            this.lblCDR.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCDR.ForeColor = System.Drawing.Color.White;
+            this.lblCDR.Location = new System.Drawing.Point(286, 177);
+            this.lblCDR.Name = "lblCDR";
+            this.lblCDR.Size = new System.Drawing.Size(141, 25);
+            this.lblCDR.TabIndex = 7;
+            this.lblCDR.Text = "Select Terminal";
+            this.lblCDR.Visible = false;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.White;
+            this.label5.Location = new System.Drawing.Point(261, 95);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(213, 25);
+            this.label5.TabIndex = 6;
+            this.label5.Text = "Select Date for Reading";
+            // 
+            // dtCDR
+            // 
+            this.dtCDR.CalendarTitleBackColor = System.Drawing.Color.AliceBlue;
+            this.dtCDR.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.dtCDR.DropDownAlign = System.Windows.Forms.LeftRightAlignment.Right;
+            this.dtCDR.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtCDR.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtCDR.Location = new System.Drawing.Point(238, 123);
+            this.dtCDR.Name = "dtCDR";
+            this.dtCDR.Size = new System.Drawing.Size(251, 33);
+            this.dtCDR.TabIndex = 5;
+            // 
             // mdiSalesReport
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
@@ -472,6 +566,8 @@
             this.tabPage3.PerformLayout();
             this.tabPage4.ResumeLayout(false);
             this.tabPage4.PerformLayout();
+            this.tabPage5.ResumeLayout(false);
+            this.tabPage5.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -506,5 +602,11 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.DateTimePicker dtSDR;
         private System.Windows.Forms.Button btnPrintKits;
+        private System.Windows.Forms.TabPage tabPage5;
+        private System.Windows.Forms.Button btnCDR;
+        private System.Windows.Forms.ComboBox cBTerminalCDR;
+        private System.Windows.Forms.Label lblCDR;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.DateTimePicker dtCDR;
     }
 }

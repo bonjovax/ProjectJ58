@@ -199,8 +199,8 @@ namespace nPOSProj
                         dataGridView1.SelectedRows[0].Cells[2].Value = Convert.ToDouble(0);
                     }
                     drawer = new Conf.Drawer();
-                    PrintPayments();
                     drawer.Open();
+                    PrintPayments();
                     txtBoxAmount.Clear();
                     btnPay.Enabled = false;
                 }

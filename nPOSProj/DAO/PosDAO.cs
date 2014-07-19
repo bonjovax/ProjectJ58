@@ -639,5 +639,149 @@ namespace nPOSProj.DAO
             return found;
         }
         #endregion
+        #region Cash Controller Module
+        public Double CashDrawerBalance(String terminal)
+        {
+            Double amt = 0;
+            con = new MySqlConnection();
+            dbcon = new Conf.dbs();
+            con.ConnectionString = dbcon.getConnectionString();
+            String query = "SELECT cash_drawer_amt AS a FROM system_terminal ";
+            query += "WHERE identify = ?terminal";
+            try
+            {
+                con.Open();
+                MySqlCommand cmd = new MySqlCommand(query, con);
+                cmd.Parameters.AddWithValue("?terminal", terminal);
+                cmd.ExecuteScalar();
+                MySqlDataReader rdr = cmd.ExecuteReader();
+                if (rdr.Read())
+                {
+                    amt = Convert.ToDouble(rdr["a"]);
+                }
+            }
+            finally
+            {
+                con.Close();
+            }
+            return amt;
+        }
+        private void CreditDrawer(Double amount, String terminal)
+        {
+            con = new MySqlConnection();
+            dbcon = new Conf.dbs();
+            con.ConnectionString = dbcon.getConnectionString();
+            String query = "UPDATE system_terminal SET cash_drawer_amt = cash_drawer_amt + ?amount ";
+            query += "WHERE identify = ?terminal";
+            try
+            {
+                con.Open();
+                MySqlCommand cmd = new MySqlCommand(query, con);
+                cmd.Parameters.AddWithValue("?amount", amount);
+                cmd.Parameters.AddWithValue("?terminal", terminal);
+                cmd.ExecuteNonQuery();
+            }
+            finally
+            {
+                con.Close();
+            }
+        }
+        public void CreditDrawerLog(Double amount, String purpose, String terminal, String user_name)
+        {
+            con = new MySqlConnection();
+            dbcon = new Conf.dbs();
+            con.ConnectionString = dbcon.getConnectionString();
+            String query = "INSERT INTO pos_cdlog (cd_credit, cd_purpose, cd_balance, cd_date, cd_time, cd_terminal, user_name) VALUES";
+            query += "(?a, ?b, ?c, ?d, ?e, ?f, ?g)";
+            this.CreditDrawer(amount, terminal);
+            Double bal = this.CashDrawerBalance(terminal);
+            try
+            {
+                con.Open();
+                MySqlCommand cmd = new MySqlCommand(query, con);
+                cmd.Parameters.AddWithValue("?a", amount);
+                cmd.Parameters.AddWithValue("?b", purpose);
+                cmd.Parameters.AddWithValue("?c", bal);
+                cmd.Parameters.AddWithValue("?d", DateTime.Now.ToString("yyyy-MM-dd"));
+                cmd.Parameters.AddWithValue("?e", DateTime.Now.ToString("hh:mm:ss tt"));
+                cmd.Parameters.AddWithValue("?f", terminal);
+                cmd.Parameters.AddWithValue("?g", user_name);
+                cmd.ExecuteNonQuery();
+            }
+            finally
+            {
+                con.Close();
+            }
+        }
+        private void DebitDrawer(Double amount, String terminal)
+        {
+            con = new MySqlConnection();
+            dbcon = new Conf.dbs();
+            con.ConnectionString = dbcon.getConnectionString();
+            String query = "UPDATE system_terminal SET cash_drawer_amt = cash_drawer_amt - ?amount ";
+            query += "WHERE identify = ?terminal";
+            try
+            {
+                con.Open();
+                MySqlCommand cmd = new MySqlCommand(query, con);
+                cmd.Parameters.AddWithValue("?amount", amount);
+                cmd.Parameters.AddWithValue("?terminal", terminal);
+                cmd.ExecuteNonQuery();
+                cmd.Dispose();
+            }
+            finally
+            {
+                con.Close();
+            }
+        }
+        public void DebitDrawerLog(Double amount, String purpose, String terminal, String user_name)
+        {
+            con = new MySqlConnection();
+            dbcon = new Conf.dbs();
+            con.ConnectionString = dbcon.getConnectionString();
+            String query = "INSERT INTO pos_cdlog (cd_debit, cd_purpose, cd_balance, cd_date, cd_time, cd_terminal, user_name) VALUES";
+            query += "(?a, ?b, ?c, ?d, ?e, ?f, ?g)";
+            this.DebitDrawer(amount, terminal);
+            Double bal = this.CashDrawerBalance(terminal);
+            try
+            {
+                con.Open();
+                MySqlCommand cmd = new MySqlCommand(query, con);
+                cmd.Parameters.AddWithValue("?a", amount);
+                cmd.Parameters.AddWithValue("?b", purpose);
+                cmd.Parameters.AddWithValue("?c", bal);
+                cmd.Parameters.AddWithValue("?d", DateTime.Now.ToString("yyyy-MM-dd"));
+                cmd.Parameters.AddWithValue("?e", DateTime.Now.ToString("hh:mm:ss tt"));
+                cmd.Parameters.AddWithValue("?f", terminal);
+                cmd.Parameters.AddWithValue("?g", user_name);
+                cmd.ExecuteNonQuery();
+                cmd.Dispose();
+            }
+            finally
+            {
+                con.Close();
+            }
+        }
+        public void ResetDrawer(String terminal)
+        {
+            con = new MySqlConnection();
+            dbcon = new Conf.dbs();
+            con.ConnectionString = dbcon.getConnectionString();
+            String query = "UPDATE system_terminal SET cash_drawer_amt = 0 ";
+            query += "WHERE identify = ?terminal";
+            try
+            {
+                con.Open();
+                MySqlCommand cmd = new MySqlCommand(query, con);
+                cmd.Parameters.AddWithValue("?terminal", terminal);
+                cmd.ExecuteNonQuery();
+                cmd.Dispose();
+            }
+            finally
+            {
+                con.Close();
+            }
+        }
+        #endregion
     }
 }

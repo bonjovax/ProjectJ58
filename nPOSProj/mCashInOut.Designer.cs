@@ -42,6 +42,7 @@
             this.label6 = new System.Windows.Forms.Label();
             this.lblTerminal = new System.Windows.Forms.Label();
             this.btnClose = new System.Windows.Forms.Button();
+            this.printDocument1 = new System.Drawing.Printing.PrintDocument();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -83,9 +84,11 @@
             this.txtBoxAmount.Location = new System.Drawing.Point(153, 146);
             this.txtBoxAmount.MaxLength = 10;
             this.txtBoxAmount.Name = "txtBoxAmount";
+            this.txtBoxAmount.ShortcutsEnabled = false;
             this.txtBoxAmount.Size = new System.Drawing.Size(170, 36);
             this.txtBoxAmount.TabIndex = 3;
             this.txtBoxAmount.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtBoxAmount.TextChanged += new System.EventHandler(this.txtBoxAmount_TextChanged);
             this.txtBoxAmount.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtBoxAmount_KeyPress);
             // 
             // txtBoxPurpose
@@ -95,9 +98,12 @@
             this.txtBoxPurpose.Location = new System.Drawing.Point(12, 220);
             this.txtBoxPurpose.MaxLength = 50;
             this.txtBoxPurpose.Name = "txtBoxPurpose";
+            this.txtBoxPurpose.ReadOnly = true;
+            this.txtBoxPurpose.ShortcutsEnabled = false;
             this.txtBoxPurpose.Size = new System.Drawing.Size(453, 36);
             this.txtBoxPurpose.TabIndex = 5;
             this.txtBoxPurpose.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtBoxPurpose.TextChanged += new System.EventHandler(this.txtBoxPurpose_TextChanged);
             // 
             // label3
             // 
@@ -123,13 +129,14 @@
             this.btnIn.ForeColor = System.Drawing.Color.White;
             this.btnIn.Image = ((System.Drawing.Image)(resources.GetObject("btnIn.Image")));
             this.btnIn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnIn.Location = new System.Drawing.Point(51, 269);
+            this.btnIn.Location = new System.Drawing.Point(46, 269);
             this.btnIn.Name = "btnIn";
-            this.btnIn.Size = new System.Drawing.Size(171, 51);
+            this.btnIn.Size = new System.Drawing.Size(191, 51);
             this.btnIn.TabIndex = 6;
             this.btnIn.Text = "Cash In";
             this.btnIn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnIn.UseVisualStyleBackColor = false;
+            this.btnIn.Click += new System.EventHandler(this.btnIn_Click);
             // 
             // btnOut
             // 
@@ -144,13 +151,14 @@
             this.btnOut.ForeColor = System.Drawing.Color.White;
             this.btnOut.Image = ((System.Drawing.Image)(resources.GetObject("btnOut.Image")));
             this.btnOut.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnOut.Location = new System.Drawing.Point(235, 269);
+            this.btnOut.Location = new System.Drawing.Point(242, 269);
             this.btnOut.Name = "btnOut";
             this.btnOut.Size = new System.Drawing.Size(191, 51);
             this.btnOut.TabIndex = 7;
             this.btnOut.Text = "Cash Out";
             this.btnOut.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnOut.UseVisualStyleBackColor = false;
+            this.btnOut.Click += new System.EventHandler(this.btnOut_Click);
             // 
             // label4
             // 
@@ -203,6 +211,7 @@
             // btnClose
             // 
             this.btnClose.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(158)))), ((int)(((byte)(23)))), ((int)(((byte)(22)))));
+            this.btnClose.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnClose.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(158)))), ((int)(((byte)(23)))), ((int)(((byte)(22)))));
             this.btnClose.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(46)))), ((int)(((byte)(18)))));
             this.btnClose.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(193)))), ((int)(((byte)(63)))));
@@ -269,5 +278,6 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label lblTerminal;
         private System.Windows.Forms.Button btnClose;
+        private System.Drawing.Printing.PrintDocument printDocument1;
     }
 }

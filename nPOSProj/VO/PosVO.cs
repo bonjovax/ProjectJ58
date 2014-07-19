@@ -256,6 +256,22 @@ namespace nPOSProj.VO
         }
         //
         #endregion
+        #region CashInOut
+        private Double cashAmount;
+
+        public Double CashAmount
+        {
+            get { return cashAmount; }
+            set { cashAmount = value; }
+        }
+        private String drawerPurpose;
+
+        public String DrawerPurpose
+        {
+            get { return drawerPurpose; }
+            set { drawerPurpose = value; }
+        }
+        #endregion
 
         #region POS Main Course Classes
         public Int32 GetOrNo()
@@ -375,6 +391,30 @@ namespace nPOSProj.VO
             POSDAO.CheckWholeSale(Pos_orno, Pos_terminal);
             isFound = POSDAO.CheckWholeSale(Pos_orno, Pos_terminal);
             return isFound;
+        }
+        #endregion
+        #region Cash Drawer Section
+        public Double DrawerBalance()
+        {
+            POSDAO = new DAO.PosDAO();
+            Double bal = 0;
+            bal = POSDAO.CashDrawerBalance(Pos_terminal);
+            return bal;
+        }
+        public void CreditD()
+        {
+            POSDAO = new DAO.PosDAO();
+            POSDAO.CreditDrawerLog(CashAmount, DrawerPurpose, Pos_terminal, Pos_user);
+        }
+        public void DebitD()
+        {
+            POSDAO = new DAO.PosDAO();
+            POSDAO.DebitDrawerLog(CashAmount, DrawerPurpose, Pos_terminal, Pos_user);
+        }
+        public void ResetD()
+        {
+            POSDAO = new DAO.PosDAO();
+            POSDAO.ResetDrawer(Pos_terminal);
         }
         #endregion
     }
