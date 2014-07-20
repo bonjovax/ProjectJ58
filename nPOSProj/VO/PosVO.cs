@@ -271,6 +271,20 @@ namespace nPOSProj.VO
             get { return drawerPurpose; }
             set { drawerPurpose = value; }
         }
+        private Double incAmt;
+
+        public Double IncAmt
+        {
+            get { return incAmt; }
+            set { incAmt = value; }
+        }
+        private Double decAmt;
+
+        public Double DecAmt
+        {
+            get { return decAmt; }
+            set { decAmt = value; }
+        }
         #endregion
 
         #region POS Main Course Classes
@@ -415,6 +429,16 @@ namespace nPOSProj.VO
         {
             POSDAO = new DAO.PosDAO();
             POSDAO.ResetDrawer(Pos_terminal);
+        }
+        public void IncD()
+        {
+            POSDAO = new DAO.PosDAO();
+            POSDAO.IncDrawer(IncAmt, Pos_terminal);
+        }
+        public void DecD()
+        {
+            POSDAO = new DAO.PosDAO();
+            POSDAO.DecDrawer(DecAmt, Pos_terminal);
         }
         #endregion
     }

@@ -19,6 +19,7 @@ namespace nPOSProj
         private Conf.Crypto tx = new Conf.Crypto();
         private VO.GiftCardVO gc;
         private VO.CustomersVO customers;
+        private VO.PosVO pos;
         #region Worms
         private MySqlConnection con = new MySqlConnection();
         private Conf.dbs dbcon = new Conf.dbs();
@@ -419,8 +420,15 @@ namespace nPOSProj
                 {
                     if (GetAmount <= Convert.ToDouble(txtBoxTender.Text))
                     {
+                        pos = new VO.PosVO();
+                        frmLogin fl = new frmLogin();
+                        pos.Pos_terminal = fl.tN;
                         TenderAmount = Convert.ToDouble(txtBoxTender.Text);
+                        pos.IncAmt = TenderAmount;
+                        pos.IncD();
                         ChangeDue = TenderAmount - getAmount;
+                        pos.DecAmt = ChangeDue;
+                        pos.DecD();
                         IsCashTX = true;
                         this.Close();
                     }

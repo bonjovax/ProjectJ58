@@ -782,6 +782,48 @@ namespace nPOSProj.DAO
                 con.Close();
             }
         }
+        public void IncDrawer(Double amount, String terminal)
+        {
+            con = new MySqlConnection();
+            dbcon = new Conf.dbs();
+            con.ConnectionString = dbcon.getConnectionString();
+            String query = "UPDATE system_terminal SET cash_drawer_amt = cash_drawer_amt + ?amt ";
+            query += "WHERE identify = ?terminal";
+            try
+            {
+                con.Open();
+                MySqlCommand cmd = new MySqlCommand(query, con);
+                cmd.Parameters.AddWithValue("?amt", amount);
+                cmd.Parameters.AddWithValue("?terminal", terminal);
+                cmd.ExecuteNonQuery();
+                cmd.Dispose();
+            }
+            finally
+            {
+                con.Close();
+            }
+        }
+        public void DecDrawer(Double amount, String terminal)
+        {
+            con = new MySqlConnection();
+            dbcon = new Conf.dbs();
+            con.ConnectionString = dbcon.getConnectionString();
+            String query = "UPDATE system_terminal SET cash_drawer_amt = cash_drawer_amt - ?amt ";
+            query += "WHERE identify = ?terminal";
+            try
+            {
+                con.Open();
+                MySqlCommand cmd = new MySqlCommand(query, con);
+                cmd.Parameters.AddWithValue("?amt", amount);
+                cmd.Parameters.AddWithValue("?terminal", terminal);
+                cmd.ExecuteNonQuery();
+                cmd.Dispose();
+            }
+            finally
+            {
+                con.Close();
+            }
+        }
         #endregion
     }
 }
