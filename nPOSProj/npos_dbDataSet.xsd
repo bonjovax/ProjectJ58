@@ -1167,7 +1167,7 @@ ORDER BY inventory_stocks.stock_name</CommandText>
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="DisplayKitsTableAdapter" GeneratorDataComponentClassName="DisplayKitsTableAdapter" Name="DisplayKits" UserDataComponentName="DisplayKitsTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="npos_dbConnectionString3 (Settings)" DbObjectName="npos_db.inventory_items" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="npos_dbConnectionString (Settings)" DbObjectName="npos_db.inventory_items" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
                 <DeleteCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
                     <CommandText>DELETE FROM `inventory_items` WHERE ((`item_id` = @p1) AND ((@p2 = 1 AND `stock_code` IS NULL) OR (`stock_code` = @p3)) AND ((@p4 = 1 AND `item_ean` IS NULL) OR (`item_ean` = @p5)) AND ((@p6 = 1 AND `kit_name` IS NULL) OR (`kit_name` = @p7)) AND ((@p8 = 1 AND `item_quantity` IS NULL) OR (`item_quantity` = @p9)) AND ((@p10 = 1 AND `item_retail_price` IS NULL) OR (`item_retail_price` = @p11)) AND ((@p12 = 1 AND `item_whole_price` IS NULL) OR (`item_whole_price` = @p13)) AND ((@p14 = 1 AND `item_tax_type` IS NULL) OR (`item_tax_type` = @p15)) AND ((@p16 = 1 AND `is_kit` IS NULL) OR (`is_kit` = @p17)))</CommandText>
@@ -1212,7 +1212,8 @@ ORDER BY inventory_stocks.stock_name</CommandText>
                     <CommandText>SELECT        item_id, stock_code, item_ean, kit_name, item_quantity, item_retail_price, item_whole_price, item_tax_type, is_kit, item_quantity * item_retail_price AS retamt, 
                          item_quantity * item_whole_price AS wholeamt
 FROM            inventory_items
-WHERE        (is_kit = 1)</CommandText>
+WHERE        (is_kit = 1)
+ORDER BY kit_name</CommandText>
                     <Parameters />
                   </DbCommand>
                 </SelectCommand>
@@ -1267,7 +1268,7 @@ WHERE        (is_kit = 1)</CommandText>
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="DisplayStocksTableAdapter" GeneratorDataComponentClassName="DisplayStocksTableAdapter" Name="DisplayStocks" UserDataComponentName="DisplayStocksTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="npos_dbConnectionString3 (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="npos_dbConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT        inventory_stocks.stock_id, inventory_stocks.stock_code, inventory_stocks.stock_name, inventory_stocks.stock_cat_code, inventory_stocks.warehouse_code, inventory_stocks.stock_quantity, 
@@ -1276,7 +1277,8 @@ WHERE        (is_kit = 1)</CommandText>
 FROM            inventory_stocks INNER JOIN
                          inventory_warehouse ON inventory_stocks.warehouse_code = inventory_warehouse.warehouse_code INNER JOIN
                          inventory_category ON inventory_stocks.stock_cat_code = inventory_category.cat_code INNER JOIN
-                         inventory_supplier ON inventory_stocks.supplier_code = inventory_supplier.supplier_code</CommandText>
+                         inventory_supplier ON inventory_stocks.supplier_code = inventory_supplier.supplier_code
+ORDER BY inventory_stocks.stock_name</CommandText>
                     <Parameters />
                   </DbCommand>
                 </SelectCommand>
