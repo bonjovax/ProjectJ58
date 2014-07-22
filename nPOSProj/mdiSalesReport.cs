@@ -25,6 +25,7 @@ namespace nPOSProj
         private String terminalSelectSR;
         private String terminalSelectSDR;
         private String terminalSelectCBR;
+        private String terminalSelectCC;
         #region System Config
         private Double taxP;
         private String taxDisplay;
@@ -38,6 +39,18 @@ namespace nPOSProj
         private String TaxT;
         private String machine_no;
         private Int16 all_items_tax;
+        #endregion
+        #region Variable CC
+        Double thousand = 0;
+        Double fiveh = 0;
+        Double twoh = 0;
+        Double oneh = 0;
+        Double fifty = 0;
+        Double twenty = 0;
+        Double ten = 0;
+        Double five = 0;
+        Double one = 0;
+        Double twentyfivec = 0;
         #endregion
         private void ConfigCheck()
         {
@@ -112,6 +125,8 @@ namespace nPOSProj
                 cBTerminalSDR.Visible = true;
                 lblCDR.Visible = true;
                 cBTerminalCDR.Visible = true;
+                lblCC.Visible = true;
+                cBCC.Visible = true;
             }
         }
         private void getTerminal()
@@ -131,6 +146,7 @@ namespace nPOSProj
                     cBTerminalSR.Items.Add(grabData[0, x].ToString());
                     cBTerminalSDR.Items.Add(grabData[0, x].ToString());
                     cBTerminalCDR.Items.Add(grabData[0, x].ToString());
+                    cBCC.Items.Add(grabData[0, x].ToString());
                 }
             }
             catch (Exception ex)
@@ -158,9 +174,97 @@ namespace nPOSProj
         }
         private void PrintZTicket()
         {
-            //DrawerPing();
             printZ.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(printZ_PrintPage);
             printZ.Print();
+        }
+        private void PrintCashCount()
+        {
+            printCashCount.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(printCashCount_PrintPage);
+            printCashCount.Print();
+        }
+
+        void printCashCount_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
+        {
+            frmLogin fl = new frmLogin();
+            Graphics graphic = e.Graphics;
+            Font font = new Font("Tahoma", 10);
+
+            float fontHeight = font.GetHeight();
+            int startX = 2;
+            int startY = 10;
+
+            #region Header
+            graphic.DrawString(compName, new Font("Tahoma", 14), new SolidBrush(Color.Black), startX, startY);
+            graphic.DrawString(address1, new Font("Tahoma", 11), new SolidBrush(Color.Black), 45, 30);
+            graphic.DrawString(address2, new Font("Tahoma", 11), new SolidBrush(Color.Black), 38, 45);
+            //graphic.DrawString(contact, new Font("Tahoma", 11), new SolidBrush(Color.Black), 53, 60);
+            //graphic.DrawString("Owned & Operated By: " + store_op, new Font("Tahoma", 11), new SolidBrush(Color.Black), 5, 75);
+            graphic.DrawString("Permit No: " + permit_no, new Font("Tahoma", 11), new SolidBrush(Color.Black), 47, 60);
+            graphic.DrawString("TIN: " + TIN + "" + TaxT, new Font("Tahoma", 11), new SolidBrush(Color.Black), 47, 75);
+            graphic.DrawString("Accreditation No: " + bir.AccreditationNo(), new Font("Tahoma", 7), new SolidBrush(Color.Black), 11, 95);
+            graphic.DrawString("Serial No: " + bir.SerialNo(), new Font("Tahoma", 11), new SolidBrush(Color.Black), 61, 105);
+            graphic.DrawString("Machine Code: " + machine_no, new Font("Tahoma", 11), new SolidBrush(Color.Black), 43, 120);
+            graphic.DrawString("Cash Count", new Font("Tahoma", 13), new SolidBrush(Color.Black), 75, 135);
+            graphic.DrawString(DateTime.Now.ToString("MM/dd/yyyy hh:mm:ss tt"), new Font("Tahoma", 9), new SolidBrush(Color.Black), 5, 160);
+            graphic.DrawString(userName + " at Terminal: " + terminalSelectCC, new Font("Tahoma", 9), new SolidBrush(Color.Black), 5, 175);
+            graphic.DrawString("-------------------------------------------", new Font("Tahoma", 11), new SolidBrush(Color.Black), 3, 180);
+            #endregion
+            #region Content Cash Count
+            graphic.DrawString("Bills", new Font("Tahoma", 13), new SolidBrush(Color.Black), 15, 195);
+            graphic.DrawString("1,000", new Font("Tahoma", 10), new SolidBrush(Color.Black), 25, 220);
+            graphic.DrawString("x     " + txtBoxThousand.Text, new Font("Tahoma", 10), new SolidBrush(Color.Black), 75, 220);
+            graphic.DrawString(rdThousand.Text.PadLeft(10), new Font("Tahoma", 10), new SolidBrush(Color.Black), 170, 220);
+            graphic.DrawString("500", new Font("Tahoma", 10), new SolidBrush(Color.Black), 25, 235);
+            graphic.DrawString("x     " + txtBoxFiveH.Text, new Font("Tahoma", 10), new SolidBrush(Color.Black), 75, 235);
+            graphic.DrawString(rdFiveH.Text.PadLeft(10), new Font("Tahoma", 10), new SolidBrush(Color.Black), 170, 235);
+            graphic.DrawString("200", new Font("Tahoma", 10), new SolidBrush(Color.Black), 25, 250);
+            graphic.DrawString("x     " + txtBoxTwoH.Text, new Font("Tahoma", 10), new SolidBrush(Color.Black), 75, 250);
+            graphic.DrawString(rdTwoH.Text.PadLeft(10), new Font("Tahoma", 10), new SolidBrush(Color.Black), 170, 250);
+            graphic.DrawString("100", new Font("Tahoma", 10), new SolidBrush(Color.Black), 25, 265);
+            graphic.DrawString("x     " + txtBoxOneH.Text, new Font("Tahoma", 10), new SolidBrush(Color.Black), 75, 265);
+            graphic.DrawString(rdOneH.Text.PadLeft(10), new Font("Tahoma", 10), new SolidBrush(Color.Black), 170, 265);
+            graphic.DrawString("50", new Font("Tahoma", 10), new SolidBrush(Color.Black), 25, 280);
+            graphic.DrawString("x     " + txtBoxFifty.Text, new Font("Tahoma", 10), new SolidBrush(Color.Black), 75, 280);
+            graphic.DrawString(rdFifty.Text.PadLeft(10), new Font("Tahoma", 10), new SolidBrush(Color.Black), 170, 280);
+            graphic.DrawString("20", new Font("Tahoma", 10), new SolidBrush(Color.Black), 25, 295);
+            graphic.DrawString("x     " + txtBoxTwenty.Text, new Font("Tahoma", 10), new SolidBrush(Color.Black), 75, 295);
+            graphic.DrawString(rdTwenty.Text.PadLeft(10), new Font("Tahoma", 10), new SolidBrush(Color.Black), 170, 295);
+            graphic.DrawString("Total Bills", new Font("Tahoma", 10), new SolidBrush(Color.Black), 75, 313);
+            graphic.DrawString(rdTotalBills.Text.PadLeft(10), new Font("Tahoma", 10, FontStyle.Bold), new SolidBrush(Color.Black), 167, 313);
+            //
+            graphic.DrawString("Coins", new Font("Tahoma", 13), new SolidBrush(Color.Black), 15, 330);
+            graphic.DrawString("10", new Font("Tahoma", 10), new SolidBrush(Color.Black), 25, 355);
+            graphic.DrawString("x     " + txtBoxTen.Text, new Font("Tahoma", 10), new SolidBrush(Color.Black), 75, 355);
+            graphic.DrawString(rdTen.Text.PadLeft(10), new Font("Tahoma", 10), new SolidBrush(Color.Black), 170, 355);
+            graphic.DrawString("5", new Font("Tahoma", 10), new SolidBrush(Color.Black), 25, 370);
+            graphic.DrawString("x     " + txtBoxFive.Text, new Font("Tahoma", 10), new SolidBrush(Color.Black), 75, 370);
+            graphic.DrawString(rdFive.Text.PadLeft(10), new Font("Tahoma", 10), new SolidBrush(Color.Black), 170, 370);
+            graphic.DrawString("1", new Font("Tahoma", 10), new SolidBrush(Color.Black), 25, 385);
+            graphic.DrawString("x     " + txtBoxOne.Text, new Font("Tahoma", 10), new SolidBrush(Color.Black), 75, 385);
+            graphic.DrawString(rdOne.Text.PadLeft(10), new Font("Tahoma", 10), new SolidBrush(Color.Black), 170, 385);
+            graphic.DrawString(".25", new Font("Tahoma", 10), new SolidBrush(Color.Black), 25, 400);
+            graphic.DrawString("x     " + txtBoxTwentyFC.Text, new Font("Tahoma", 10), new SolidBrush(Color.Black), 75, 400);
+            graphic.DrawString(rdTwentyFC.Text.PadLeft(10), new Font("Tahoma", 10), new SolidBrush(Color.Black), 170, 400);
+            graphic.DrawString("Total Coins", new Font("Tahoma", 10), new SolidBrush(Color.Black), 75, 418);
+            graphic.DrawString(rdTotalCoins.Text.PadLeft(10), new Font("Tahoma", 10, FontStyle.Bold), new SolidBrush(Color.Black), 167, 418);
+            //
+            graphic.DrawString("Overall Total", new Font("Tahoma", 12), new SolidBrush(Color.Black), 15, 443);
+            graphic.DrawString(rdFinale.Text.PadLeft(10), new Font("Tahoma", 11, FontStyle.Bold), new SolidBrush(Color.Black), 155, 443);
+            //
+            graphic.DrawString("Drawer Total", new Font("Tahoma", 12), new SolidBrush(Color.Black), 15, 463);
+            graphic.DrawString(rdCashDrawerBal.Text.PadLeft(10), new Font("Tahoma", 11, FontStyle.Bold), new SolidBrush(Color.Black), 155, 463);
+            //
+            Double diff = Convert.ToDouble(rdCashDrawerBal.Text) - Convert.ToDouble(rdFinale.Text);
+            graphic.DrawString("Difference", new Font("Tahoma", 12), new SolidBrush(Color.Black), 15, 488);
+            graphic.DrawString(diff.ToString("#,###,##0.00").PadLeft(10), new Font("Tahoma", 11, FontStyle.Underline), new SolidBrush(Color.Black), 164, 488);
+            //
+            graphic.DrawString("(I hereby this Ticket TRUE and CORRECT)", new Font("Tahoma", 8), new SolidBrush(Color.Black), 18, 515);
+            graphic.DrawString("*Signature*", new Font("Tahoma", 7), new SolidBrush(Color.Black), 98, 548);
+            #endregion
+            #region Footer
+            graphic.DrawString("-------------------------------------------", new Font("Tahoma", 11), new SolidBrush(Color.Black), 3, 550);
+            graphic.DrawString("End of Cash Count", new Font("Tahoma", 13), new SolidBrush(Color.Black), 55, 560);
+            #endregion
         }
         void printZ_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
         {
@@ -399,6 +503,9 @@ namespace nPOSProj
             terminalSelectSR = fl.tN;
             terminalSelectSDR = fl.tN;
             terminalSelectCBR = fl.tN;
+            terminalSelectCC = fl.tN; //New
+            vo.Pos_terminal = fl.tN; //New
+            rdCashDrawerBal.Text = vo.DrawerBalance().ToString("#,###,##0.00");
         }
 
         private void btnPrintZ_Click(object sender, EventArgs e)
@@ -480,6 +587,419 @@ namespace nPOSProj
                 cdr.DateParam = dtCDR.Text;
                 cdr.TerminalParam = terminalSelectCBR;
                 cdr.ShowDialog();
+            }
+        }
+
+        private void txtBoxThousand_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtBoxFiveH_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtBoxTwoH_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtBoxOneH_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtBoxFifty_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtBoxTwenty_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtBoxTen_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtBoxFive_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtBoxOne_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtBoxTwentyFC_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void cBCC_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            frmLogin fl = new frmLogin();
+            terminalSelectCC = cBCC.Text;
+            vo.Pos_terminal = cBCC.Text; //New
+            rdCashDrawerBal.Text = vo.DrawerBalance().ToString("#,###,##0.00");
+        }
+
+        private void txtBoxThousand_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                Double calc = Convert.ToDouble(txtBoxThousand.Text) * Convert.ToDouble(lblThousand.Text);
+                rdThousand.Text = calc.ToString("#,###,##0.00");
+                if (txtBoxThousand.Text == "")
+                {
+                    thousand = 0;
+                }
+                else
+                    thousand = calc;
+            }
+            catch (Exception)
+            {
+                rdThousand.Text = "0.00";
+            }
+        }
+
+        private void txtBoxFiveH_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                Double calc = Convert.ToDouble(txtBoxFiveH.Text) * Convert.ToDouble(lblFiveH.Text);
+                rdFiveH.Text = calc.ToString("#,###,##0.00");
+                if (txtBoxFiveH.Text == "")
+                {
+                    fiveh = 0;
+                }
+                else
+                    fiveh = calc;
+            }
+            catch (Exception)
+            {
+                rdFiveH.Text = "0.00";
+            }
+        }
+
+        private void txtBoxTwoH_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                Double calc = Convert.ToDouble(txtBoxTwoH.Text) * Convert.ToDouble(lblTwoH.Text);
+                rdTwoH.Text = calc.ToString("#,###,##0.00");
+                if (txtBoxTwoH.Text == "")
+                {
+                    twoh = 0;
+                }
+                else
+                    twoh = calc;
+            }
+            catch (Exception)
+            {
+                rdTwoH.Text = "0.00";
+            }
+        }
+
+        private void txtBoxOneH_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                Double calc = Convert.ToDouble(txtBoxOneH.Text) * Convert.ToDouble(lblOneH.Text);
+                rdOneH.Text = calc.ToString("#,###,##0.00");
+                if (txtBoxOneH.Text == "")
+                {
+                    oneh = 0;
+                }
+                else
+                    oneh = calc;
+            }
+            catch (Exception)
+            {
+                rdOneH.Text = "0.00";
+            }
+        }
+
+        private void txtBoxFifty_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                Double calc = Convert.ToDouble(txtBoxFifty.Text) * Convert.ToDouble(lblFifty.Text);
+                rdFifty.Text = calc.ToString("#,###,##0.00");
+                if (txtBoxFifty.Text == "")
+                {
+                    fifty = 0;
+                }
+                else
+                    fifty = calc;
+            }
+            catch (Exception)
+            {
+                rdFifty.Text = "0.00";
+            }
+        }
+
+        private void txtBoxTwenty_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                Double calc = Convert.ToDouble(txtBoxTwenty.Text) * Convert.ToDouble(lblTwenty.Text);
+                rdTwenty.Text = calc.ToString("#,###,##0.00");
+                if (txtBoxTwenty.Text == "")
+                {
+                    twenty = 0;
+                }
+                else
+                    twenty = calc;
+            }
+            catch (Exception)
+            {
+                rdTwenty.Text = "0.00";
+            }
+        }
+
+        private void txtBoxThousand_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                txtBoxFiveH.Focus();
+            }
+        }
+
+        private void txtBoxFiveH_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                txtBoxTwoH.Focus();
+            }
+        }
+
+        private void txtBoxTwoH_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                txtBoxOneH.Focus();
+            }
+        }
+
+        private void txtBoxOneH_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                txtBoxFifty.Focus();
+            }
+        }
+
+        private void txtBoxFifty_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                txtBoxTwenty.Focus();
+            }
+        }
+
+        private void txtBoxTwenty_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                btnCalcBills.Focus();
+            }
+        }
+
+        private void btnCalcBills_Click(object sender, EventArgs e)
+        {
+            txtBoxThousand.ReadOnly = true;
+            txtBoxFiveH.ReadOnly = true;
+            txtBoxTwoH.ReadOnly = true;
+            txtBoxOneH.ReadOnly = true;
+            txtBoxFifty.ReadOnly = true;
+            txtBoxTwenty.ReadOnly = true;
+            Double comp = Convert.ToDouble(rdThousand.Text) + Convert.ToDouble(rdFiveH.Text) + Convert.ToDouble(rdTwoH.Text) + Convert.ToDouble(rdOneH.Text) + Convert.ToDouble(rdFifty.Text) + Convert.ToDouble(rdTwenty.Text);
+            rdTotalBills.Text = comp.ToString("#,###,##0.00");
+            btnCalcBills.Enabled = false;
+            btnCalcCoins.Enabled = true;
+            txtBoxTen.Focus();
+        }
+
+        private void txtBoxTen_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                Double calc = Convert.ToDouble(txtBoxTen.Text) * Convert.ToDouble(lblTen.Text);
+                rdTen.Text = calc.ToString("#,###,##0.00");
+                if (txtBoxTen.Text == "")
+                {
+                    ten = 0;
+                }
+                else
+                    ten = calc;
+            }
+            catch (Exception)
+            {
+                rdTen.Text = "0.00";
+            }
+        }
+
+        private void txtBoxFive_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                Double calc = Convert.ToDouble(txtBoxFive.Text) * Convert.ToDouble(lblFive.Text);
+                rdFive.Text = calc.ToString("#,###,##0.00");
+                if (txtBoxFive.Text == "")
+                {
+                    five = 0;
+                }
+                else
+                    five = calc;
+            }
+            catch (Exception)
+            {
+                rdFive.Text = "0.00";
+            }
+        }
+
+        private void txtBoxOne_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                Double calc = Convert.ToDouble(txtBoxOne.Text) * Convert.ToDouble(lblOne.Text);
+                rdOne.Text = calc.ToString("#,###,##0.00");
+                if (txtBoxOne.Text == "")
+                {
+                    one = 0;
+                }
+                else
+                    one = calc;
+            }
+            catch (Exception)
+            {
+                rdOne.Text = "0.00";
+            }
+        }
+
+        private void txtBoxTwentyFC_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                Double calc = Convert.ToDouble(txtBoxTwentyFC.Text) * Convert.ToDouble(lblTwentyFC.Text);
+                rdTwentyFC.Text = calc.ToString("#,###,##0.00");
+                if (txtBoxTwentyFC.Text == "")
+                {
+                    twentyfivec = 0;
+                }
+                else
+                    twentyfivec = calc;
+            }
+            catch (Exception)
+            {
+                rdTwentyFC.Text = "0.00";
+            }
+        }
+
+        private void txtBoxTen_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                txtBoxFive.Focus();
+            }
+        }
+
+        private void txtBoxFive_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                txtBoxOne.Focus();
+            }
+        }
+
+        private void txtBoxOne_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                txtBoxTwentyFC.Focus();
+            }
+        }
+
+        private void txtBoxTwentyFC_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                btnCalcCoins.Focus();
+            }
+        }
+
+        private void btnCalcCoins_Click(object sender, EventArgs e)
+        {
+            txtBoxTen.ReadOnly = true;
+            txtBoxFive.ReadOnly = true;
+            txtBoxOne.ReadOnly = true;
+            txtBoxTwentyFC.ReadOnly = true;
+            Double calc = Convert.ToDouble(rdTen.Text) + Convert.ToDouble(rdFive.Text) + Convert.ToDouble(rdOne.Text) + Convert.ToDouble(rdTwentyFC.Text);
+            rdTotalCoins.Text = calc.ToString("#,###,##0.00");
+            btnCalcCoins.Enabled = false;
+            btnFinale.Enabled = true;
+            btnFinale.Focus();
+        }
+
+        private void btnFinale_Click(object sender, EventArgs e)
+        {
+            DialogResult dr = MessageBox.Show("Printing Cash Count Ticket\nDo You Wish To Proceed?", "Question", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (dr == System.Windows.Forms.DialogResult.Yes)
+            {
+                Double tar = Convert.ToDouble(rdTotalBills.Text) + Convert.ToDouble(rdTotalCoins.Text);
+                rdFinale.Text = tar.ToString("#,###,##0.00");
+                btnFinale.Enabled = false;
+                lblCC.Visible = false;
+                cBCC.Visible = false;
+                vo.Thousand = Convert.ToDouble(rdThousand.Text);
+                vo.Fiveh = Convert.ToDouble(rdFiveH.Text);
+                vo.Twoh = Convert.ToDouble(rdTwoH.Text);
+                vo.Oneh = Convert.ToDouble(rdOneH.Text);
+                vo.Fifty = Convert.ToDouble(rdFifty.Text);
+                vo.Twenty = Convert.ToDouble(rdTwenty.Text);
+                vo.Ten = Convert.ToDouble(rdTen.Text);
+                vo.Five = Convert.ToDouble(rdFive.Text);
+                vo.One = Convert.ToDouble(rdOne.Text);
+                vo.Ctwentyfive = Convert.ToDouble(rdTwentyFC.Text);
+                vo.Pos_terminal = terminalSelectCC;
+                vo.Pos_user = frmLogin.User.user_name;
+                vo.LogCashCount();
+                PrintCashCount();
             }
         }
     }

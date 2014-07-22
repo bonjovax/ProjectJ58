@@ -21491,7 +21491,7 @@ WHERE        (inventory_items.is_kit = 1)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitConnection() {
             this._connection = new global::MySql.Data.MySqlClient.MySqlConnection();
-            this._connection.ConnectionString = global::nPOSProj.Properties.Settings.Default.npos_dbConnectionString3;
+            this._connection.ConnectionString = global::nPOSProj.Properties.Settings.Default.npos_dbConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -21509,7 +21509,7 @@ FROM            inventory_items INNER JOIN
                          inventory_stocks ON inventory_items.stock_code = inventory_stocks.stock_code INNER JOIN
                          inventory_category ON inventory_stocks.stock_cat_code = inventory_category.cat_code INNER JOIN
                          inventory_warehouse ON inventory_stocks.warehouse_code = inventory_warehouse.warehouse_code
-ORDER BY inventory_category.cat_description";
+ORDER BY inventory_stocks.stock_name, inventory_category.cat_description";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -21677,7 +21677,7 @@ ORDER BY inventory_category.cat_description";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitConnection() {
             this._connection = new global::MySql.Data.MySqlClient.MySqlConnection();
-            this._connection.ConnectionString = global::nPOSProj.Properties.Settings.Default.npos_dbConnectionString3;
+            this._connection.ConnectionString = global::nPOSProj.Properties.Settings.Default.npos_dbConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -21690,7 +21690,8 @@ ORDER BY inventory_category.cat_description";
                          inventory_items.item_tax_type, inventory_items.is_kit, inventory_stocks.stock_name, inventory_items.item_retail_price * inventory_items.item_quantity AS retamt, 
                          inventory_items.item_whole_price * inventory_items.item_quantity AS wholeamt
 FROM            inventory_items INNER JOIN
-                         inventory_stocks ON inventory_items.stock_code = inventory_stocks.stock_code";
+                         inventory_stocks ON inventory_items.stock_code = inventory_stocks.stock_code
+ORDER BY inventory_stocks.stock_name";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -22272,7 +22273,7 @@ FROM            inventory_items INNER JOIN
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitConnection() {
             this._connection = new global::MySql.Data.MySqlClient.MySqlConnection();
-            this._connection.ConnectionString = global::nPOSProj.Properties.Settings.Default.npos_dbConnectionString3;
+            this._connection.ConnectionString = global::nPOSProj.Properties.Settings.Default.npos_dbConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -22284,7 +22285,8 @@ FROM            inventory_items INNER JOIN
             this._commandCollection[0].CommandText = @"SELECT        item_id, stock_code, item_ean, kit_name, item_quantity, item_retail_price, item_whole_price, item_tax_type, is_kit, item_quantity * item_retail_price AS retamt, 
                          item_quantity * item_whole_price AS wholeamt
 FROM            inventory_items
-WHERE        (is_kit = 1)";
+WHERE        (is_kit = 1)
+ORDER BY kit_name";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -22790,7 +22792,7 @@ WHERE        (is_kit = 1)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitConnection() {
             this._connection = new global::MySql.Data.MySqlClient.MySqlConnection();
-            this._connection.ConnectionString = global::nPOSProj.Properties.Settings.Default.npos_dbConnectionString3;
+            this._connection.ConnectionString = global::nPOSProj.Properties.Settings.Default.npos_dbConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -22805,7 +22807,8 @@ WHERE        (is_kit = 1)";
 FROM            inventory_stocks INNER JOIN
                          inventory_warehouse ON inventory_stocks.warehouse_code = inventory_warehouse.warehouse_code INNER JOIN
                          inventory_category ON inventory_stocks.stock_cat_code = inventory_category.cat_code INNER JOIN
-                         inventory_supplier ON inventory_stocks.supplier_code = inventory_supplier.supplier_code";
+                         inventory_supplier ON inventory_stocks.supplier_code = inventory_supplier.supplier_code
+ORDER BY inventory_stocks.stock_name";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         

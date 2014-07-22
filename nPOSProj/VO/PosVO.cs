@@ -286,6 +286,78 @@ namespace nPOSProj.VO
             set { decAmt = value; }
         }
         #endregion
+        #region Cash Count Value
+        private Double thousand;
+
+        public Double Thousand
+        {
+            get { return thousand; }
+            set { thousand = value; }
+        }
+        private Double fiveh;
+
+        public Double Fiveh
+        {
+            get { return fiveh; }
+            set { fiveh = value; }
+        }
+        private Double twoh;
+
+        public Double Twoh
+        {
+            get { return twoh; }
+            set { twoh = value; }
+        }
+        private Double oneh;
+
+        public Double Oneh
+        {
+            get { return oneh; }
+            set { oneh = value; }
+        }
+        private Double fifty;
+
+        public Double Fifty
+        {
+            get { return fifty; }
+            set { fifty = value; }
+        }
+        private Double twenty;
+
+        public Double Twenty
+        {
+            get { return twenty; }
+            set { twenty = value; }
+        }
+        private Double ten;
+
+        public Double Ten
+        {
+            get { return ten; }
+            set { ten = value; }
+        }
+        private Double five;
+
+        public Double Five
+        {
+            get { return five; }
+            set { five = value; }
+        }
+        private Double one;
+
+        public Double One
+        {
+            get { return one; }
+            set { one = value; }
+        }
+        private Double ctwentyfive;
+
+        public Double Ctwentyfive
+        {
+            get { return ctwentyfive; }
+            set { ctwentyfive = value; }
+        }
+        #endregion
 
         #region POS Main Course Classes
         public Int32 GetOrNo()
@@ -439,6 +511,13 @@ namespace nPOSProj.VO
         {
             POSDAO = new DAO.PosDAO();
             POSDAO.DecDrawer(DecAmt, Pos_terminal);
+        }
+        #endregion
+        #region Cash Count Section
+        public void LogCashCount()
+        {
+            POSDAO = new DAO.PosDAO();
+            POSDAO.LogCC(Thousand, Fiveh, Twoh, Oneh, Fifty, Twenty, Ten, Five, One, Ctwentyfive, Pos_terminal, Pos_user);
         }
         #endregion
     }

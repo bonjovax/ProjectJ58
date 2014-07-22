@@ -825,5 +825,38 @@ namespace nPOSProj.DAO
             }
         }
         #endregion
+        #region Cash Count Module
+        public void LogCC(Double thousand, Double fiveh, Double twoh, Double oneh, Double fifty, Double twenty, Double ten, Double five, Double one, Double ctwentyfive, String terminal, String cashier)
+        {
+            con = new MySqlConnection();
+            dbcon = new Conf.dbs();
+            con.ConnectionString = dbcon.getConnectionString();
+            String query = "INSERT INTO pos_cashcount (thousand, fivehundred, twohundred, onehundred, fifty, twenty, ten, five, one, ctwentyfive, terminal, cashier) VALUES";
+            query += "(?thousand, ?fiveh, ?twoh, ?oneh, ?fifty, ?twenty, ?ten, ?five, ?one, ?ctwentyfive, ?terminal, ?cashier)";
+            try
+            {
+                con.Open();
+                MySqlCommand cmd = new MySqlCommand(query, con);
+                cmd.Parameters.AddWithValue("?thousand", thousand);
+                cmd.Parameters.AddWithValue("?fiveh", fiveh);
+                cmd.Parameters.AddWithValue("?twoh", twoh);
+                cmd.Parameters.AddWithValue("?oneh", oneh);
+                cmd.Parameters.AddWithValue("?fifty", fifty);
+                cmd.Parameters.AddWithValue("?twenty", twenty);
+                cmd.Parameters.AddWithValue("?ten", ten);
+                cmd.Parameters.AddWithValue("?five", five);
+                cmd.Parameters.AddWithValue("?one", one);
+                cmd.Parameters.AddWithValue("?ctwentyfive", ctwentyfive);
+                cmd.Parameters.AddWithValue("?terminal", terminal);
+                cmd.Parameters.AddWithValue("?cashier", cashier);
+                cmd.ExecuteNonQuery();
+                cmd.Dispose();
+            }
+            finally
+            {
+                con.Close();
+            }
+        }
+        #endregion
     }
 }
