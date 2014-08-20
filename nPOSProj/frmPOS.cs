@@ -156,7 +156,7 @@ namespace nPOSProj
         }
         private void PrintReceipt()
         {
-            DrawerPing();
+            //DrawerPing();
             printDocument1.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(printDocument1_PrintPage);
             printDocument1.Print();
         }
@@ -266,108 +266,108 @@ namespace nPOSProj
                         graphic.DrawString("Item Count: ", new Font("Tahoma", 14), new SolidBrush(Color.Black), 40, 155 + offset);
                         graphic.DrawString(counted.ToString(), new Font("Tahoma", 14), new SolidBrush(Color.Black), 160, 155 + offset);
                         //
-                        graphic.DrawString("VATable ", new Font("Tahoma", 10), new SolidBrush(Color.Black), 85, 185 + offset);
+                        /*graphic.DrawString("VATable ", new Font("Tahoma", 10), new SolidBrush(Color.Black), 85, 185 + offset); //Requested By Karya
                         graphic.DrawString(lblVatable.Text.PadLeft(10), new Font("Tahoma", 10), new SolidBrush(Color.Black), 175, 185 + offset);
                         graphic.DrawString("VAT-Exempt ", new Font("Tahoma", 10), new SolidBrush(Color.Black), 85, 205 + offset);
                         graphic.DrawString(lblVATe.Text.PadLeft(10), new Font("Tahoma", 10), new SolidBrush(Color.Black), 175, 205 + offset);
                         graphic.DrawString("Zero-Rated ", new Font("Tahoma", 10), new SolidBrush(Color.Black), 85, 225 + offset);
                         graphic.DrawString(lblVATz.Text.PadLeft(10), new Font("Tahoma", 10), new SolidBrush(Color.Black), 175, 225 + offset);
                         graphic.DrawString("VAT (" + lblTax.Text + ")", new Font("Tahoma", 10), new SolidBrush(Color.Black), 85, 245 + offset);
-                        graphic.DrawString(lblTAXamt.Text.PadLeft(10), new Font("Tahoma", 10), new SolidBrush(Color.Black), 175, 245 + offset);
-                        graphic.DrawString("TOTAL ", new Font("Tahoma", 13), new SolidBrush(Color.Black), 83, 265 + offset);
-                        graphic.DrawString(getDTotalAmt.ToString("#,###,##0.00").PadLeft(10), new Font("Tahoma", 13), new SolidBrush(Color.Black), 158, 265 + offset);
+                        graphic.DrawString(lblTAXamt.Text.PadLeft(10), new Font("Tahoma", 10), new SolidBrush(Color.Black), 175, 245 + offset);*/
+                        graphic.DrawString("TOTAL ", new Font("Tahoma", 13), new SolidBrush(Color.Black), 83, 185 + offset);
+                        graphic.DrawString(getDTotalAmt.ToString("#,###,##0.00").PadLeft(10), new Font("Tahoma", 13), new SolidBrush(Color.Black), 158, 185 + offset);
                         if (selector == 0)
                         {
-                            graphic.DrawString("Amount Tender  ", new Font("Tahoma", 10), new SolidBrush(Color.Black), 10, 320 + offset);
-                            graphic.DrawString(Tender.ToString("#,###,##0.00").PadLeft(10), new Font("Tahoma", 10), new SolidBrush(Color.Black), 115, 320 + offset);
-                            graphic.DrawString("Change ", new Font("Tahoma", 13), new SolidBrush(Color.Black), 8, 335 + offset);
-                            graphic.DrawString(Change.ToString("#,###,##0.00").PadLeft(10), new Font("Tahoma", 13), new SolidBrush(Color.Black), 98, 335 + offset);
-                            graphic.DrawString("Transaction #:", new Font("Tahoma", 10), new SolidBrush(Color.Black), 10, 356 + offset);
-                            graphic.DrawString(OrNo.ToString(), new Font("Tahoma", 10), new SolidBrush(Color.Black), 110, 356 + offset);
-                            graphic.DrawString("CASHIER:", new Font("Tahoma", 10), new SolidBrush(Color.Black), 10, 373 + offset);
-                            graphic.DrawString(lblUserAccount.Text, new Font("Tahoma", 10), new SolidBrush(Color.Black), 110, 373 + offset);
-                            graphic.DrawString("Terminal #:", new Font("Tahoma", 10), new SolidBrush(Color.Black), 10, 390 + offset);
-                            graphic.DrawString(fl.tN, new Font("Tahoma", 10), new SolidBrush(Color.Black), 110, 390 + offset);
-                            graphic.DrawString("-------------------------------------------", new Font("Tahoma", 11), new SolidBrush(Color.Black), 3, 413 + offset);
-                            graphic.DrawString("THIS IS NOT AN OFFICIAL RECEIPT", new Font("Tahoma", 10), new SolidBrush(Color.Black), 8, 423 + offset);
-                            graphic.DrawString("Thank you for Shopping and Come Again ", new Font("Tahoma", 8), new SolidBrush(Color.Black), 20, 437 + offset);
+                            graphic.DrawString("Amount Tender  ", new Font("Tahoma", 10), new SolidBrush(Color.Black), 10, 215 + offset);
+                            graphic.DrawString(Tender.ToString("#,###,##0.00").PadLeft(10), new Font("Tahoma", 10), new SolidBrush(Color.Black), 115, 215 + offset);
+                            graphic.DrawString("Change ", new Font("Tahoma", 13), new SolidBrush(Color.Black), 8, 230 + offset);
+                            graphic.DrawString(Change.ToString("#,###,##0.00").PadLeft(10), new Font("Tahoma", 13), new SolidBrush(Color.Black), 98, 230 + offset);
+                            graphic.DrawString("Transaction #:", new Font("Tahoma", 10), new SolidBrush(Color.Black), 10, 255 + offset);
+                            graphic.DrawString(OrNo.ToString(), new Font("Tahoma", 10), new SolidBrush(Color.Black), 110, 255 + offset);
+                            graphic.DrawString("CASHIER:", new Font("Tahoma", 10), new SolidBrush(Color.Black), 10, 270 + offset);
+                            graphic.DrawString(lblUserAccount.Text, new Font("Tahoma", 10), new SolidBrush(Color.Black), 110, 270 + offset);
+                            graphic.DrawString("Terminal #:", new Font("Tahoma", 10), new SolidBrush(Color.Black), 10, 285 + offset);
+                            graphic.DrawString(fl.tN, new Font("Tahoma", 10), new SolidBrush(Color.Black), 110, 285 + offset);
+                            graphic.DrawString("-------------------------------------------", new Font("Tahoma", 11), new SolidBrush(Color.Black), 3, 295 + offset);
+                            graphic.DrawString("THIS IS NOT AN OFFICIAL RECEIPT", new Font("Tahoma", 10), new SolidBrush(Color.Black), 8, 310 + offset);
+                            graphic.DrawString("Thank you for Shopping and Come Again ", new Font("Tahoma", 8), new SolidBrush(Color.Black), 20, 324 + offset);
                         }
                         if (selector == 1)
                         {
-                            graphic.DrawString("Card No:", new Font("Tahoma", 10), new SolidBrush(Color.Black), 10, 320 + offset);
-                            graphic.DrawString("XXXX-XXXX-XXXX-" + cardNo, new Font("Tahoma", 10), new SolidBrush(Color.Black), 85, 320 + offset);
-                            graphic.DrawString("Card Type:", new Font("Tahoma", 10), new SolidBrush(Color.Black), 10, 335 + offset);
-                            graphic.DrawString(cardType, new Font("Tahoma", 10), new SolidBrush(Color.Black), 85, 335 + offset);
-                            graphic.DrawString("Amount:", new Font("Tahoma", 10), new SolidBrush(Color.Black), 10, 350 + offset);
-                            graphic.DrawString(cardAmount.ToString("#,###,##0.00"), new Font("Tahoma", 10), new SolidBrush(Color.Black), 85, 350 + offset);
+                            graphic.DrawString("Card No:", new Font("Tahoma", 10), new SolidBrush(Color.Black), 10, 215 + offset);
+                            graphic.DrawString("XXXX-XXXX-XXXX-" + cardNo, new Font("Tahoma", 10), new SolidBrush(Color.Black), 85, 215 + offset);
+                            graphic.DrawString("Card Type:", new Font("Tahoma", 10), new SolidBrush(Color.Black), 10, 230 + offset);
+                            graphic.DrawString(cardType, new Font("Tahoma", 10), new SolidBrush(Color.Black), 85, 230 + offset);
+                            graphic.DrawString("Amount:", new Font("Tahoma", 10), new SolidBrush(Color.Black), 10, 245 + offset);
+                            graphic.DrawString(cardAmount.ToString("#,###,##0.00"), new Font("Tahoma", 10), new SolidBrush(Color.Black), 85, 245 + offset);
 
-                            graphic.DrawString("Transaction #:", new Font("Tahoma", 10), new SolidBrush(Color.Black), 10, 373 + offset);
-                            graphic.DrawString(OrNo.ToString(), new Font("Tahoma", 10), new SolidBrush(Color.Black), 110, 373 + offset);
-                            graphic.DrawString("CASHIER:", new Font("Tahoma", 10), new SolidBrush(Color.Black), 10, 388 + offset);
-                            graphic.DrawString(lblUserAccount.Text, new Font("Tahoma", 10), new SolidBrush(Color.Black), 110, 388 + offset);
-                            graphic.DrawString("Terminal #:", new Font("Tahoma", 10), new SolidBrush(Color.Black), 10, 403 + offset);
-                            graphic.DrawString(fl.tN, new Font("Tahoma", 10), new SolidBrush(Color.Black), 110, 403 + offset);
-                            graphic.DrawString("-------------------------------------------", new Font("Tahoma", 11), new SolidBrush(Color.Black), 3, 423 + offset);
-                            graphic.DrawString("THIS IS NOT AN OFFICIAL RECEIPT", new Font("Tahoma", 10), new SolidBrush(Color.Black), 8, 433 + offset);
-                            graphic.DrawString("Thank you for Shopping and Come Again ", new Font("Tahoma", 8), new SolidBrush(Color.Black), 20, 447 + offset);
+                            graphic.DrawString("Transaction #:", new Font("Tahoma", 10), new SolidBrush(Color.Black), 10, 265 + offset);
+                            graphic.DrawString(OrNo.ToString(), new Font("Tahoma", 10), new SolidBrush(Color.Black), 110, 265 + offset);
+                            graphic.DrawString("CASHIER:", new Font("Tahoma", 10), new SolidBrush(Color.Black), 10, 280 + offset);
+                            graphic.DrawString(lblUserAccount.Text, new Font("Tahoma", 10), new SolidBrush(Color.Black), 110, 280 + offset);
+                            graphic.DrawString("Terminal #:", new Font("Tahoma", 10), new SolidBrush(Color.Black), 10, 295 + offset);
+                            graphic.DrawString(fl.tN, new Font("Tahoma", 10), new SolidBrush(Color.Black), 110, 295 + offset);
+                            graphic.DrawString("-------------------------------------------", new Font("Tahoma", 11), new SolidBrush(Color.Black), 3, 305 + offset);
+                            graphic.DrawString("THIS IS NOT AN OFFICIAL RECEIPT", new Font("Tahoma", 10), new SolidBrush(Color.Black), 8, 320 + offset);
+                            graphic.DrawString("Thank you for Shopping and Come Again ", new Font("Tahoma", 8), new SolidBrush(Color.Black), 20, 334 + offset);
                         }
                         if (selector == 2)
                         {
-                            graphic.DrawString("Check No:", new Font("Tahoma", 10), new SolidBrush(Color.Black), 10, 320 + offset);
-                            graphic.DrawString(checkNo, new Font("Tahoma", 10), new SolidBrush(Color.Black), 85, 320 + offset);
-                            graphic.DrawString("Bank & Branch:", new Font("Tahoma", 10), new SolidBrush(Color.Black), 10, 335 + offset);
-                            graphic.DrawString(Truncate(BankNBranch, 18), new Font("Tahoma", 10), new SolidBrush(Color.Black), 115, 335 + offset);
-                            graphic.DrawString("Amount:", new Font("Tahoma", 10), new SolidBrush(Color.Black), 10, 350 + offset);
-                            graphic.DrawString(checkAmount.ToString("#,###,##0.00"), new Font("Tahoma", 10), new SolidBrush(Color.Black), 85, 350 + offset);
+                            graphic.DrawString("Check No:", new Font("Tahoma", 10), new SolidBrush(Color.Black), 10, 215 + offset);
+                            graphic.DrawString(checkNo, new Font("Tahoma", 10), new SolidBrush(Color.Black), 85, 215 + offset);
+                            graphic.DrawString("Bank & Branch:", new Font("Tahoma", 10), new SolidBrush(Color.Black), 10, 230 + offset);
+                            graphic.DrawString(Truncate(BankNBranch, 18), new Font("Tahoma", 10), new SolidBrush(Color.Black), 115, 230 + offset);
+                            graphic.DrawString("Amount:", new Font("Tahoma", 10), new SolidBrush(Color.Black), 10, 245 + offset);
+                            graphic.DrawString(checkAmount.ToString("#,###,##0.00"), new Font("Tahoma", 10), new SolidBrush(Color.Black), 85, 245 + offset);
 
-                            graphic.DrawString("Transaction #:", new Font("Tahoma", 10), new SolidBrush(Color.Black), 10, 373 + offset);
-                            graphic.DrawString(OrNo.ToString(), new Font("Tahoma", 10), new SolidBrush(Color.Black), 110, 373 + offset);
-                            graphic.DrawString("CASHIER:", new Font("Tahoma", 10), new SolidBrush(Color.Black), 10, 388 + offset);
-                            graphic.DrawString(lblUserAccount.Text, new Font("Tahoma", 10), new SolidBrush(Color.Black), 110, 388 + offset);
-                            graphic.DrawString("Terminal #:", new Font("Tahoma", 10), new SolidBrush(Color.Black), 10, 403 + offset);
-                            graphic.DrawString(fl.tN, new Font("Tahoma", 10), new SolidBrush(Color.Black), 110, 403 + offset);
-                            graphic.DrawString("-------------------------------------------", new Font("Tahoma", 11), new SolidBrush(Color.Black), 3, 423 + offset);
-                            graphic.DrawString("THIS IS NOT AN OFFICIAL RECEIPT", new Font("Tahoma", 10), new SolidBrush(Color.Black), 8, 433 + offset);
-                            graphic.DrawString("Thank you for Shopping and Come Again ", new Font("Tahoma", 8), new SolidBrush(Color.Black), 20, 447 + offset);
+                            graphic.DrawString("Transaction #:", new Font("Tahoma", 10), new SolidBrush(Color.Black), 10, 265 + offset);
+                            graphic.DrawString(OrNo.ToString(), new Font("Tahoma", 10), new SolidBrush(Color.Black), 110, 265 + offset);
+                            graphic.DrawString("CASHIER:", new Font("Tahoma", 10), new SolidBrush(Color.Black), 10, 280 + offset);
+                            graphic.DrawString(lblUserAccount.Text, new Font("Tahoma", 10), new SolidBrush(Color.Black), 110, 280 + offset);
+                            graphic.DrawString("Terminal #:", new Font("Tahoma", 10), new SolidBrush(Color.Black), 10, 295 + offset);
+                            graphic.DrawString(fl.tN, new Font("Tahoma", 10), new SolidBrush(Color.Black), 110, 295 + offset);
+                            graphic.DrawString("-------------------------------------------", new Font("Tahoma", 11), new SolidBrush(Color.Black), 3, 305 + offset);
+                            graphic.DrawString("THIS IS NOT AN OFFICIAL RECEIPT", new Font("Tahoma", 10), new SolidBrush(Color.Black), 8, 320 + offset);
+                            graphic.DrawString("Thank you for Shopping and Come Again ", new Font("Tahoma", 8), new SolidBrush(Color.Black), 20, 334 + offset);
                         }
                         if (selector == 3)
                         {
-                            graphic.DrawString("Code:", new Font("Tahoma", 10), new SolidBrush(Color.Black), 10, 320 + offset);
-                            graphic.DrawString(CustCode, new Font("Tahoma", 10), new SolidBrush(Color.Black), 85, 320 + offset);
-                            graphic.DrawString("Company:", new Font("Tahoma", 10), new SolidBrush(Color.Black), 10, 335 + offset);
-                            graphic.DrawString(Truncate(Company, 22), new Font("Tahoma", 10), new SolidBrush(Color.Black), 85, 335 + offset);
-                            graphic.DrawString("Amount:", new Font("Tahoma", 10), new SolidBrush(Color.Black), 10, 350 + offset);
-                            graphic.DrawString(arAmount.ToString("#,###,##0.00") + " Cr", new Font("Tahoma", 10), new SolidBrush(Color.Black), 85, 350 + offset);
+                            graphic.DrawString("Code:", new Font("Tahoma", 10), new SolidBrush(Color.Black), 10, 215 + offset);
+                            graphic.DrawString(CustCode, new Font("Tahoma", 10), new SolidBrush(Color.Black), 85, 215 + offset);
+                            graphic.DrawString("Company:", new Font("Tahoma", 10), new SolidBrush(Color.Black), 10, 230 + offset);
+                            graphic.DrawString(Truncate(Company, 22), new Font("Tahoma", 10), new SolidBrush(Color.Black), 85, 230 + offset);
+                            graphic.DrawString("Amount:", new Font("Tahoma", 10), new SolidBrush(Color.Black), 10, 245 + offset);
+                            graphic.DrawString(arAmount.ToString("#,###,##0.00") + " Cr", new Font("Tahoma", 10), new SolidBrush(Color.Black), 85, 245 + offset);
 
-                            graphic.DrawString("Transaction #:", new Font("Tahoma", 10), new SolidBrush(Color.Black), 10, 373 + offset);
-                            graphic.DrawString(OrNo.ToString(), new Font("Tahoma", 10), new SolidBrush(Color.Black), 110, 373 + offset);
-                            graphic.DrawString("CASHIER:", new Font("Tahoma", 10), new SolidBrush(Color.Black), 10, 388 + offset);
-                            graphic.DrawString(lblUserAccount.Text, new Font("Tahoma", 10), new SolidBrush(Color.Black), 110, 388 + offset);
-                            graphic.DrawString("Terminal #:", new Font("Tahoma", 10), new SolidBrush(Color.Black), 10, 403 + offset);
-                            graphic.DrawString(fl.tN, new Font("Tahoma", 10), new SolidBrush(Color.Black), 110, 403 + offset);
-                            graphic.DrawString("-------------------------------------------", new Font("Tahoma", 11), new SolidBrush(Color.Black), 3, 423 + offset);
-                            graphic.DrawString("THIS IS NOT AN OFFICIAL RECEIPT", new Font("Tahoma", 10), new SolidBrush(Color.Black), 8, 433 + offset);
-                            graphic.DrawString("Thank you for Shopping and Come Again ", new Font("Tahoma", 8), new SolidBrush(Color.Black), 20, 447 + offset);
+                            graphic.DrawString("Transaction #:", new Font("Tahoma", 10), new SolidBrush(Color.Black), 10, 265 + offset);
+                            graphic.DrawString(OrNo.ToString(), new Font("Tahoma", 10), new SolidBrush(Color.Black), 110, 265 + offset);
+                            graphic.DrawString("CASHIER:", new Font("Tahoma", 10), new SolidBrush(Color.Black), 10, 280 + offset);
+                            graphic.DrawString(lblUserAccount.Text, new Font("Tahoma", 10), new SolidBrush(Color.Black), 110, 280 + offset);
+                            graphic.DrawString("Terminal #:", new Font("Tahoma", 10), new SolidBrush(Color.Black), 10, 295 + offset);
+                            graphic.DrawString(fl.tN, new Font("Tahoma", 10), new SolidBrush(Color.Black), 110, 295 + offset);
+                            graphic.DrawString("-------------------------------------------", new Font("Tahoma", 11), new SolidBrush(Color.Black), 3, 305 + offset);
+                            graphic.DrawString("THIS IS NOT AN OFFICIAL RECEIPT", new Font("Tahoma", 10), new SolidBrush(Color.Black), 8, 320 + offset);
+                            graphic.DrawString("Thank you for Shopping and Come Again ", new Font("Tahoma", 8), new SolidBrush(Color.Black), 20, 334 + offset);
                         }
                         if (selector == 4)
                         {
                             this.getValidUntil(gCardno);
-                            graphic.DrawString("Gift Card #:", new Font("Tahoma", 10), new SolidBrush(Color.Black), 10, 320 + offset);
-                            graphic.DrawString(gCardno, new Font("Tahoma", 10), new SolidBrush(Color.Black), 100, 320 + offset);
-                            graphic.DrawString("Valid Until:", new Font("Tahoma", 10), new SolidBrush(Color.Black), 10, 335 + offset);
-                            graphic.DrawString(Convert.ToDateTime(validU).ToString("MM/dd/yy"), new Font("Tahoma", 10), new SolidBrush(Color.Black), 100, 335 + offset);
-                            graphic.DrawString("Amount:", new Font("Tahoma", 10), new SolidBrush(Color.Black), 10, 350 + offset);
-                            graphic.DrawString(gAmount.ToString("#,###,##0.00") + " Dr", new Font("Tahoma", 10), new SolidBrush(Color.Black), 100, 350 + offset);
+                            graphic.DrawString("Gift Card #:", new Font("Tahoma", 10), new SolidBrush(Color.Black), 10, 215 + offset);
+                            graphic.DrawString(gCardno, new Font("Tahoma", 10), new SolidBrush(Color.Black), 100, 215 + offset);
+                            graphic.DrawString("Valid Until:", new Font("Tahoma", 10), new SolidBrush(Color.Black), 10, 230 + offset);
+                            graphic.DrawString(Convert.ToDateTime(validU).ToString("MM/dd/yy"), new Font("Tahoma", 10), new SolidBrush(Color.Black), 100, 230 + offset);
+                            graphic.DrawString("Amount:", new Font("Tahoma", 10), new SolidBrush(Color.Black), 10, 245 + offset);
+                            graphic.DrawString(gAmount.ToString("#,###,##0.00") + " Dr", new Font("Tahoma", 10), new SolidBrush(Color.Black), 100, 245 + offset);
 
-                            graphic.DrawString("Transaction #:", new Font("Tahoma", 10), new SolidBrush(Color.Black), 10, 373 + offset);
-                            graphic.DrawString(OrNo.ToString(), new Font("Tahoma", 10), new SolidBrush(Color.Black), 110, 373 + offset);
-                            graphic.DrawString("CASHIER:", new Font("Tahoma", 10), new SolidBrush(Color.Black), 10, 388 + offset);
-                            graphic.DrawString(lblUserAccount.Text, new Font("Tahoma", 10), new SolidBrush(Color.Black), 110, 388 + offset);
-                            graphic.DrawString("Terminal #:", new Font("TTahoma", 10), new SolidBrush(Color.Black), 10, 403 + offset);
-                            graphic.DrawString(fl.tN, new Font("Tahoma", 10), new SolidBrush(Color.Black), 110, 403 + offset);
-                            graphic.DrawString("-------------------------------------------", new Font("Tahoma", 11), new SolidBrush(Color.Black), 3, 423 + offset);
-                            graphic.DrawString("THIS IS NOT AN OFFICIAL RECEIPT", new Font("Tahoma", 10), new SolidBrush(Color.Black), 8, 433 + offset);
-                            graphic.DrawString("Thank you for Shopping and Come Again ", new Font("Tahoma", 8), new SolidBrush(Color.Black), 20, 447 + offset);
+                            graphic.DrawString("Transaction #:", new Font("Tahoma", 10), new SolidBrush(Color.Black), 10, 265 + offset);
+                            graphic.DrawString(OrNo.ToString(), new Font("Tahoma", 10), new SolidBrush(Color.Black), 110, 265 + offset);
+                            graphic.DrawString("CASHIER:", new Font("Tahoma", 10), new SolidBrush(Color.Black), 10, 280 + offset);
+                            graphic.DrawString(lblUserAccount.Text, new Font("Tahoma", 10), new SolidBrush(Color.Black), 110, 280 + offset);
+                            graphic.DrawString("Terminal #:", new Font("TTahoma", 10), new SolidBrush(Color.Black), 10, 295 + offset);
+                            graphic.DrawString(fl.tN, new Font("Tahoma", 10), new SolidBrush(Color.Black), 110, 295 + offset);
+                            graphic.DrawString("-------------------------------------------", new Font("Tahoma", 11), new SolidBrush(Color.Black), 3, 305 + offset);
+                            graphic.DrawString("THIS IS NOT AN OFFICIAL RECEIPT", new Font("Tahoma", 10), new SolidBrush(Color.Black), 8, 320 + offset);
+                            graphic.DrawString("Thank you for Shopping and Come Again ", new Font("Tahoma", 8), new SolidBrush(Color.Black), 20, 334 + offset);
                         }
                     }
                     catch (MySqlException)
