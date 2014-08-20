@@ -380,6 +380,11 @@ namespace nPOSProj.VO
             POSDAO = new DAO.PosDAO();
             POSDAO.SwitchWS(Pos_orno);
         }
+        public void SwitchToRetail()
+        {
+            POSDAO = new DAO.PosDAO();
+            POSDAO.SwitchRT(Pos_orno);
+        }
 
         public void ParkItem()
         {
