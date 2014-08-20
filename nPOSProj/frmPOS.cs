@@ -156,7 +156,7 @@ namespace nPOSProj
         }
         private void PrintReceipt()
         {
-            //DrawerPing();
+            DrawerPing();
             printDocument1.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(printDocument1_PrintPage);
             printDocument1.Print();
         }

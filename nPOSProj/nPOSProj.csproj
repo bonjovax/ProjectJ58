@@ -37,6 +37,9 @@
   <PropertyGroup>
     <ApplicationIcon>nPOS.ico</ApplicationIcon>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>nPOSProj.Program</StartupObject>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="barcodelib">
       <HintPath>..\..\..\..\..\..\lib\barcodelib.dll</HintPath>
