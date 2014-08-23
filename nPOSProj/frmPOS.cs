@@ -1781,7 +1781,6 @@ namespace nPOSProj
                                 b = 0;
                             }
                         }
-
                     }
                     else
                     {
@@ -1882,6 +1881,7 @@ namespace nPOSProj
                     btnSearch.Enabled = false;
                     btnRefund.Enabled = true;
                     btnWholesale.Enabled = false;
+                    btnRetail.Visible = false;
                     btnCancelSale.Enabled = false;
                     btnParkSale.Enabled = true;
                     btnVoid.Enabled = false;
@@ -1913,6 +1913,7 @@ namespace nPOSProj
                     btnSearch.Enabled = false;
                     btnRefund.Enabled = true;
                     btnWholesale.Enabled = false;
+                    btnRetail.Visible = false;
                     btnCancelSale.Enabled = false;
                     btnParkSale.Enabled = true;
                     btnVoid.Enabled = false;
@@ -1948,6 +1949,7 @@ namespace nPOSProj
                     btnSearch.Enabled = false;
                     btnRefund.Enabled = true;
                     btnWholesale.Enabled = false;
+                    btnRetail.Visible = false;
                     btnCancelSale.Enabled = false;
                     btnParkSale.Enabled = true;
                     btnVoid.Enabled = false;
@@ -1982,6 +1984,7 @@ namespace nPOSProj
                     btnSearch.Enabled = false;
                     btnRefund.Enabled = true;
                     btnWholesale.Enabled = false;
+                    btnRetail.Visible = false;
                     btnCancelSale.Enabled = false;
                     btnParkSale.Enabled = true;
                     btnVoid.Enabled = false;
@@ -2017,6 +2020,7 @@ namespace nPOSProj
                     btnSearch.Enabled = false;
                     btnRefund.Enabled = true;
                     btnWholesale.Enabled = false;
+                    btnRetail.Visible = false;
                     btnCancelSale.Enabled = false;
                     btnParkSale.Enabled = true;
                     btnVoid.Enabled = false;
@@ -2161,7 +2165,6 @@ namespace nPOSProj
                                     b = 0;
                                 }
                             }
-
                         }
                         else
                         {
@@ -2253,12 +2256,14 @@ namespace nPOSProj
                             btnSearch.Enabled = false;
                             btnRefund.Enabled = false;
                             btnWholesale.Enabled = false;
+                            btnRetail.Visible = false;
                             btnCancelSale.Enabled = false;
                             btnVoid.Enabled = false;
                             btnEdit.Enabled = false;
                             btnCancelSale.Enabled = false;
                             btnCheckout.Enabled = false; //Very Important La
                             btnDiscount.Enabled = false;
+                            btnParkSale.Enabled = true;
                             txtBoxQty.ReadOnly = true;
                             txtBoxEAN.ReadOnly = true;
                             txtBoxEAN.Focus();
