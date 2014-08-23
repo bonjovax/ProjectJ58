@@ -156,7 +156,6 @@ namespace nPOSProj
         }
         private void PrintReceipt()
         {
-            DrawerPing();
             printDocument1.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(printDocument1_PrintPage);
             printDocument1.Print();
         }
@@ -549,6 +548,13 @@ namespace nPOSProj
                     txtBoxEAN.Focus();
                     selector = 0;
                     reprint = false;
+                    //
+                    pos.Pos_orno = OrNo;
+                    pos.SwitchToRetail();
+                    btnWholesale.Enabled = true;
+                    btnRetail.Visible = false;
+                    wholsale_select = false;
+                    //
                 }
                 catch (Exception)
                 {
@@ -1898,6 +1904,7 @@ namespace nPOSProj
                     //
                     newFlash();
                     selector = 0; //CASH
+                    DrawerPing(); //If Cash Transaction
                     PrintReceipt();
                     reprint = true;
                 }
