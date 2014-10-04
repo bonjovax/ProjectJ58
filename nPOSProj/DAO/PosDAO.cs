@@ -493,7 +493,7 @@ namespace nPOSProj.DAO
             con = new MySqlConnection();
             dbcon = new Conf.dbs();
             con.ConnectionString = dbcon.getConnectionString();
-            String query = "UPDATE pos_store SET crm_custcode = ?set_custcode, pos_customer = ?set_customer, pos_paymethod = 'Charge to Accounts', ";
+            String query = "UPDATE pos_store SET crm_custcode = ?set_custcode, pos_customer = ?set_customer, pos_total_amt = 0, pos_paymethod = 'Charge to Accounts', ";
             query += "pos_tender = ?pos_tender, pos_park = 0 ";
             query += "WHERE (pos_orno = ?pos_orno) AND (pos_terminal = ?pos_terminal)";
             String query1 = "INSERT INTO pos_ar_basic_tx (pos_orno, pos_terminal, crm_custcode, tx_amount, date_tx, time_tx) VALUES";

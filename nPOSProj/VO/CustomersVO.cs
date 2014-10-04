@@ -156,6 +156,13 @@ namespace nPOSProj.VO
             get { return pos_user; }
             set { pos_user = value; }
         }
+        private String customer;
+
+        public String Customer
+        {
+            get { return customer; }
+            set { customer = value; }
+        }
         #endregion
         public CustomersVO() { }
 
@@ -289,7 +296,7 @@ namespace nPOSProj.VO
         public void PayToSale()
         {
             customers = new DAO.CustomersDAO();
-            customers.PaymentToSales(Pos_orno, Pos_terminal, Pos_user, AmountPaid, AmountPaid);
+            customers.PaymentToSales(Pos_orno, Pos_terminal, Custcode, Customer, Pos_user, AmountPaid, AmountPaid);
         }
         #endregion
     }

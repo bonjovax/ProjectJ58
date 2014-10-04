@@ -707,7 +707,7 @@ namespace nPOSProj.DAO
             }
             return foundZero;
         }
-        public void PaymentToSales(Int32 pos_orno, String pos_terminal, String pos_user, Double pos_total_amt, Double pos_tender)
+        public void PaymentToSales(Int32 pos_orno, String pos_terminal, String cust_code, String customer, String pos_user, Double pos_total_amt, Double pos_tender)
         {
             con = new MySqlConnection();
             dbcon = new Conf.dbs();
@@ -722,8 +722,8 @@ namespace nPOSProj.DAO
                 cmd.Parameters.AddWithValue("?b", pos_terminal);
                 cmd.Parameters.AddWithValue("?pdate", DateTime.Now.ToString("yyyy-MM-dd"));
                 cmd.Parameters.AddWithValue("?ptime", DateTime.Now.ToString("HH:mm:ss"));
-                cmd.Parameters.AddWithValue("?pcust", "PAYMENT");
-                cmd.Parameters.AddWithValue("?pcore", "Payment");
+                cmd.Parameters.AddWithValue("?pcust", cust_code);
+                cmd.Parameters.AddWithValue("?pcore", customer);
                 cmd.Parameters.AddWithValue("?c", pos_user);
                 cmd.Parameters.AddWithValue("?d", pos_total_amt);
                 cmd.Parameters.AddWithValue("?pm", "Payment");

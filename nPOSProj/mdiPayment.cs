@@ -191,8 +191,11 @@ namespace nPOSProj
                     Double prePayable = Convert.ToDouble(dataGridView1.SelectedRows[0].Cells[2].Value);
                     Double preBalance = Convert.ToDouble(dataGridView1.SelectedRows[0].Cells[4].Value);
                     customer = new VO.CustomersVO();
+                    pos.Pos_terminal = fl.tN;
                     customer.Pos_orno = pos.GetOrNo();
                     customer.Pos_terminal = fl.tN;
+                    customer.Custcode = dataGridView1.SelectedRows[0].Cells[0].Value.ToString();
+                    customer.Customer = dataGridView1.SelectedRows[0].Cells[1].Value.ToString();
                     customer.Pos_user = frmLogin.User.user_name;
                     customer.Balance = Convert.ToDouble(txtBoxAmount.Text);
                     customer.AmountPaid = Convert.ToDouble(txtBoxAmount.Text);
