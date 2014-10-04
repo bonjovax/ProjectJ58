@@ -21,6 +21,7 @@ namespace nPOSProj
 
         private void mdiStocks_Load(object sender, EventArgs e)
         {
+            npos_dbDataSet1.EnforceConstraints = false;
             // TODO: This line of code loads data into the 'npos_dbDataSet1.inventory_warehouse' table. You can move, or remove it, as needed.
             this.inventory_warehouseTableAdapter.Fill(this.npos_dbDataSet1.inventory_warehouse);
             // TODO: This line of code loads data into the 'npos_dbDataSet1.inventory_category' table. You can move, or remove it, as needed.
@@ -157,6 +158,8 @@ namespace nPOSProj
             {
                 try
                 {
+                    npos_dbDataSet.EnforceConstraints = false;
+                    npos_dbDataSet1.EnforceConstraints = false;
                     this.inventory_stocksTableAdapter.InsertStocks(txtBoxStockCode.Text, txtBoxStockName.Text, l1.Text, l2.Text, l3.Text, Convert.ToInt32(txtBoxQty.Text), txtBoxUOM.Text, Convert.ToDecimal(txtBoxCPrice.Text), Convert.ToDecimal(txtBoxSPrice.Text), Convert.ToDecimal(txtBoxTPrice.Text));
                     this.inventory_stocksTableAdapter.InsertAlsoItem(txtBoxStockCode.Text, Convert.ToDecimal(txtBoxSPrice.Text));
                     clearStockSection();

@@ -134,6 +134,29 @@ namespace nPOSProj.VO
             set { amountPaid = value; }
         }
         #endregion
+        #region POSValues
+        private Int32 pos_orno;
+
+        public Int32 Pos_orno
+        {
+            get { return pos_orno; }
+            set { pos_orno = value; }
+        }
+        private String pos_terminal;
+
+        public String Pos_terminal
+        {
+            get { return pos_terminal; }
+            set { pos_terminal = value; }
+        }
+        private String pos_user;
+
+        public String Pos_user
+        {
+            get { return pos_user; }
+            set { pos_user = value; }
+        }
+        #endregion
         public CustomersVO() { }
 
         #region Core
@@ -260,6 +283,13 @@ namespace nPOSProj.VO
         {
             customers = new DAO.CustomersDAO();
             customers.DebitAccount(Balance, AmountPaid, Custcode);
+        }
+        #endregion
+        #region POSRecord
+        public void PayToSale()
+        {
+            customers = new DAO.CustomersDAO();
+            customers.PaymentToSales(Pos_orno, Pos_terminal, Pos_user, AmountPaid, AmountPaid);
         }
         #endregion
     }
